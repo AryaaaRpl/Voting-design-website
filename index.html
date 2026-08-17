@@ -75,7 +75,7 @@
 
         header {
             text-align: center;
-            padding: 5rem 0 4rem;
+            padding: 7rem 0 2rem;
         }
 
         .status-badge {
@@ -89,6 +89,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             color: #10b981;
+            margin-top: 20px;
             margin-bottom: 2rem;
             backdrop-filter: blur(8px);
         }
@@ -129,14 +130,15 @@
             color: var(--text-muted);
             font-size: 1.15rem;
             max-width: 650px;
-            margin: 0 auto;
+            margin: 0 auto 4rem auto;
             font-weight: 300;
+            line-height: 1.8;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
             margin-bottom: 5rem;
         }
 
@@ -216,10 +218,51 @@
 
         .card-desc {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
             margin-bottom: 2.5rem;
             flex-grow: 1;
             font-weight: 300;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .color-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: monospace;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.25rem;
+        }
+
+        .color-swatch {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
         }
 
         .btn {
@@ -491,13 +534,21 @@
             <!-- Design 1 -->
             <div class="card" id="card-neo">
                 <span class="card-tag">Opsi 1</span>
-                <h3 class="card-title">Tecnical Schematic</h3>
-                <p class="card-desc">Bukan glassmorphism, bukan template AI yang biasa (cream+terracotta, dark+neon,
-                    atau broadsheet). Karena ini SMK (sekolah kejuruan), saya angkat bahasa visual dunia teknis: garis
-                    blueprint, penanda registrasi di pojok (crosshair), garis dimensi antar-section dengan label mm,
-                    kartu jurusan diberi label kode spek (JRS—01, JRS—02...), dan hero pakai ilustrasi SVG denah kampus
-                    skematik dengan anotasi — ini elemen signature-nya, langsung menegaskan identitas "sekolah teknik"
-                    tanpa perlu foto.</p>
+                <h3 class="card-title">Technical Schematic</h3>
+                <div class="card-desc">
+                    <p>Bukan glassmorphism, bukan template AI yang biasa (cream+terracotta, dark+neon, atau broadsheet).
+                    </p>
+                    <p style="margin-top: 0.75rem;">Karena ini SMK (sekolah kejuruan), saya angkat bahasa visual dunia
+                        teknis:</p>
+                    <ul class="feature-list">
+                        <li>Garis blueprint & penanda registrasi (crosshair).</li>
+                        <li>Garis dimensi antar-section dengan label mm.</li>
+                        <li>Kartu jurusan diberi label kode spek (JRS—01, JRS—02...).</li>
+                        <li>Hero ilustrasi SVG denah kampus skematik dengan anotasi.</li>
+                    </ul>
+                    <p>Ini elemen <strong>signature</strong>-nya, menegaskan identitas "sekolah teknik" tanpa perlu
+                        foto.</p>
+                </div>
                 <a href="./redesign-web.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
                 <button class="btn btn-vote" onclick="openVoteModal('neo', this)">VOTE DESAIN INI</button>
             </div>
@@ -505,40 +556,24 @@
             <!-- Design 2 -->
             <div class="card" id="card-brutal">
                 <span class="card-tag">Opsi 2</span>
-                <h3 class="card-title">Neo Editorial</h3>
-                <p class="card-desc">Neo-Editorial Corporate.
-
-                    Token Desain:
-
-                    Palet Warna:
-
-                    --primary: #064e3b (Deep Forest Green) — Melambangkan identitas Muhammadiyah, pertumbuhan, dan
-                    stabilitas profesional.
-
-                    --secondary: #d97706 (Amber/Sunrise Gold) — Aksen hangat yang merepresentasikan semangat
-                    fajar/Banyuwangi (The Sunrise of Java) dan prestasi.
-
-                    --bg-main: #fafaf9 (Warm Off-White) — Memberikan kesan elegan ala kertas manuskrip modern, tidak
-                    menyilaukan mata.
-
-                    --bg-alt: #f5f5f4 (Light Stone) — Untuk membedakan section tanpa garis pembatas yang kaku.
-
-                    --text-dark: #1c1917 (Deep Slate) — Kontras tinggi untuk keterbacaan optimal.
-
-                    Glassmorphism: Hanya digunakan tipis pada floating navbar dan panel chatbot agar tidak mendominasi,
-                    melainkan murni sebagai indikator elemen overlay.
-
-                    Tipografi:
-
-                    Heading: Space Grotesk — Memberikan nuansa vokasi, teknologi, dan geometris yang berani.
-
-                    Body: Plus Jakarta Sans — Bersih, sangat mudah dibaca, dan memberikan kesan korporat modern.
-
-                    Signature Element (Animasi Utama):
-                    Sebuah geometric star network (gabungan pola mandala Islami dan titik jaringan IT). Saat user
-                    melakukan scroll, elemen ini akan "menggambar dirinya sendiri" (stroke drawing) sambil layarnya
-                    di-pin, melambangkan titik-titik kompetensi yang terhubung membentuk satu kesatuan karakter lulusan
-                    yang utuh.</p>
+                <h3 class="card-title">Neo Editorial Corporate</h3>
+                <div class="card-desc">
+                    <p style="margin-bottom: 0.5rem;"><strong>Palet Warna:</strong></p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                        <span class="color-badge"><span class="color-swatch" style="background:#064e3b"></span> Forest
+                            Green</span>
+                        <span class="color-badge"><span class="color-swatch" style="background:#d97706"></span> Sunrise
+                            Gold</span>
+                        <span class="color-badge"><span class="color-swatch" style="background:#fafaf9"></span>
+                            Off-White</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li><strong>Tipografi:</strong> Space Grotesk (Heading) & Plus Jakarta Sans (Body).</li>
+                        <li><strong>Glassmorphism:</strong> Tipis pada navbar & chatbot agar tidak mendominasi.</li>
+                        <li><strong>Signature Animasi:</strong> <em>Geometric star network</em>. Saat di-scroll, elemen
+                            ini akan "menggambar dirinya sendiri" melambangkan titik kompetensi lulusan.</li>
+                    </ul>
+                </div>
                 <a href="./redesign-web1.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
                 <button class="btn btn-vote" onclick="openVoteModal('brutal', this)">VOTE DESAIN INI</button>
             </div>
@@ -547,17 +582,17 @@
             <div class="card" id="card-tech">
                 <span class="card-tag">Opsi 3</span>
                 <h3 class="card-title">Swiss Neo Brutalism</h3>
-                <p class="card-desc">"Swiss Neo-Brutalism / Solid Grid".
-                    Tema ini mengandalkan:
-
-                    Tipografi Besar & Kontras Tinggi: Menggunakan garis batas yang tegas (solid borders) dan warna
-                    solid, bukan bayangan atau gradasi.
-
-                    Performa Maksimal: Browser sangat cepat me-render warna solid dan garis kotak. Animasi ScrollTrigger
-                    akan berjalan di 60fps tanpa stuttering.
-
-                    Kesan Akademik & Korporat: Terlihat seperti brosur universitas luar negeri yang modern, bersih, dan
-                    sangat fokus pada data/konten.</p>
+                <div class="card-desc">
+                    <p>Konsep "Swiss Neo-Brutalism / Solid Grid". Tema ini mengandalkan:</p>
+                    <ul class="feature-list">
+                        <li><strong>Tipografi Besar & Kontras Tinggi:</strong> Garis batas tegas (solid borders) dan
+                            warna solid, tanpa bayangan/gradasi.</li>
+                        <li><strong>Performa Maksimal:</strong> Rendering super cepat untuk warna solid. Animasi
+                            ScrollTrigger mulus 60fps.</li>
+                        <li><strong>Kesan Akademik:</strong> Terlihat seperti brosur universitas luar negeri modern,
+                            bersih, dan fokus mutlak pada data.</li>
+                    </ul>
+                </div>
                 <a href="./redesign-web2.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
                 <button class="btn btn-vote" onclick="openVoteModal('tech', this)">VOTE DESAIN INI</button>
             </div>
@@ -566,8 +601,10 @@
             <div class="card" id="card-glass">
                 <span class="card-tag">Opsi 4</span>
                 <h3 class="card-title">Clean Dark Tech</h3>
-                <p class="card-desc">Estetika masa depan dengan efek frosted glass, gradien dinamis, dan elemen
-                    mengambang yang memberikan nuansa premium.</p>
+                <div class="card-desc">
+                    <p>Estetika masa depan dengan efek frosted glass, gradien dinamis, dan elemen mengambang yang
+                        memberikan nuansa premium.</p>
+                </div>
                 <a href="./redesign-web3.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
                 <button class="btn btn-vote" onclick="openVoteModal('glass', this)">VOTE DESAIN INI</button>
             </div>
