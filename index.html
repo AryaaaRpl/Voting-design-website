@@ -617,10 +617,15 @@
                 <h3 class="card-title">Custom / Saran Desain</h3>
                 <p class="card-desc" style="margin-bottom: 1rem;">Jika Anda memiliki ide atau saran untuk penambahan
                     fitur/warna dari opsi di atas, tuliskan di sini.</p>
-                <div class="input-group" style="margin-bottom: 1.5rem;">
+                <div class="input-group" style="margin-bottom: 1rem;">
                     <textarea id="customSuggestion" rows="2"
                         placeholder="Contoh: Tolong opsi 1 warna hijaunya agak digelapkan..."
                         style="width: 100%; padding: 0.85rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
+                </div>
+                <div class="input-group" style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Lampirkan gambar referensi (Opsional):</label>
+                    <input type="file" id="customImageInput" accept="image/*" style="width: 100%; padding: 0.5rem; background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.2); border-radius: 8px; color: white; font-size: 0.85rem;" onchange="previewCustomImage(event)">
+                    <img id="customImagePreview" style="display: none; width: 100%; max-height: 150px; object-fit: contain; margin-top: 0.75rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);" />
                 </div>
                 <button class="btn btn-vote" onclick="openVoteModal('custom', this)"
                     style="background: linear-gradient(135deg, #475569 0%, #64748b 100%); box-shadow: none;">KIRIM SARAN
@@ -717,6 +722,50 @@
 
         let hasVoted = localStorage.getItem('jhicUserVoted');
         let selectedDesign = null;
+        let suggestionImageBase64 = null;
+
+        function previewCustomImage(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 800;
+                    const MAX_HEIGHT = 800;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > MAX_WIDTH) {
+                            height *= MAX_WIDTH / width;
+                            width = MAX_WIDTH;
+                        }
+                    } else {
+                        if (height > MAX_HEIGHT) {
+                            width *= MAX_HEIGHT / height;
+                            height = MAX_HEIGHT;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Kompresi ke JPEG 70%
+                    suggestionImageBase64 = canvas.toDataURL('image/jpeg', 0.7);
+
+                    const preview = document.getElementById('customImagePreview');
+                    preview.src = suggestionImageBase64;
+                    preview.style.display = 'block';
+                }
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
 
         async function fetchResults() {
             try {
@@ -812,7 +861,12 @@
                 const response = await fetch(`${API_URL}/vote`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: nameInput, design: selectedDesign, suggestion: suggestionText })
+                    body: JSON.stringify({ 
+                        name: nameInput, 
+                        design: selectedDesign, 
+                        suggestion: suggestionText,
+                        suggestionImage: suggestionImageBase64 
+                    })
                 });
 
                 if (response.ok) {

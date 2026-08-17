@@ -305,6 +305,7 @@
                 const badgeClass = getBadgeClass(vote.design);
                 const designName = getDesignName(vote.design);
                 const suggestionHtml = vote.suggestion ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted); background: rgba(0,0,0,0.1); padding: 0.5rem; border-radius: 4px;"><strong>Saran:</strong> ${vote.suggestion}</div>` : '';
+                const imageHtml = vote.suggestionImage ? `<div style="margin-top: 0.5rem;"><img src="${vote.suggestionImage}" style="max-width: 200px; max-height: 150px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;" onclick="window.open(this.src)" title="Klik untuk memperbesar"></div>` : '';
 
                 tbody.innerHTML += `
                     <tr>
@@ -313,6 +314,7 @@
                         <td>
                             <span class="badge ${badgeClass}">${designName}</span>
                             ${suggestionHtml}
+                            ${imageHtml}
                         </td>
                         <td style="color: var(--text-muted); font-size: 0.9rem;">${date}</td>
                     </tr>
