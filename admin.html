@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHIC Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --border: rgba(255, 255, 255, 0.1);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 2rem;
+            display: none;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        h2 { margin-bottom: 1.5rem; font-weight: 700; text-align: center; }
+
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+        
+        input {
+            width: 100%;
+            padding: 0.85rem;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: white;
+            font-family: inherit;
+        }
+        input:focus { outline: none; border-color: var(--primary); }
+
+        .btn {
+            width: 100%;
+            padding: 0.85rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: inherit;
+        }
+        .btn:hover { background: #2563eb; }
+        
+        .btn-danger { background: #ef4444; margin-top: 1rem; }
+        .btn-danger:hover { background: #dc2626; }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(0,0,0,0.2);
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .badge-neo { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .badge-brutal { background: rgba(249, 115, 22, 0.2); color: #f97316; }
+        .badge-tech { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
+        .badge-glass { background: rgba(236, 72, 153, 0.2); color: #ec4899; }
+        .badge-custom { background: rgba(100, 116, 139, 0.2); color: #94a3b8; }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-value { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body>
+
+    <!-- Login Section -->
+    <div class="login-container" id="loginSection">
+        <div class="card">
+            <h2>Admin Login</h2>
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter admin username">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter admin password">
+            </div>
+            <button class="btn" onclick="login()">Login</button>
+            <p id="loginError" style="color: #ef4444; margin-top: 1rem; text-align: center; font-size: 0.9rem; display: none;">Invalid credentials</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div class="container" id="dashboardSection">
+        <div class="dashboard-header">
+            <div>
+                <h2>Admin Dashboard</h2>
+                <p style="color: var(--text-muted)">Live Voting Overview & Voter Details</p>
+            </div>
+            <button class="btn btn-danger" style="width: auto; padding: 0.5rem 1.5rem;" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="stat-grid" id="statGrid">
+            <!-- Stats will be injected here -->
+        </div>
+
+        <div class="card" style="margin-top: 2rem; padding: 0; overflow: hidden;">
+            <div style="padding: 1.5rem 2rem; border-bottom: 1px solid var(--border);">
+                <h3 style="font-weight: 600;">Daftar Pemilih</h3>
+            </div>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pemilih</th>
+                            <th>Desain Terpilih</th>
+                            <th>Waktu (Timestamp)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="voterTableBody">
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        // Check login status on load
+        const token = localStorage.getItem('jhicAdminToken');
+        if (token) {
+            showDashboard();
+            fetchAdminData();
+        }
+
+        async function login() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            try {
+                const res = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: user, password: pass })
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    localStorage.setItem('jhicAdminToken', data.token);
+                    document.getElementById('loginError').style.display = 'none';
+                    showDashboard();
+                    fetchAdminData();
+                } else {
+                    document.getElementById('loginError').style.display = 'block';
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Server error');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('jhicAdminToken');
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function showDashboard() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'block';
+            
+            // Set body align back to top instead of center
+            document.body.style.alignItems = 'flex-start';
+            document.body.style.paddingTop = '3rem';
+        }
+
+        async function fetchAdminData() {
+            const token = localStorage.getItem('jhicAdminToken');
+            if (!token) return logout();
+
+            try {
+                // Fetch Details
+                const res = await fetch(`${API_URL}/admin/details`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (res.status === 401 || res.status === 403) return logout();
+
+                const votes = await res.json();
+                renderTable(votes);
+                renderStats(votes);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function getBadgeClass(design) {
+            const map = {
+                'neo': 'badge-neo',
+                'brutal': 'badge-brutal',
+                'tech': 'badge-tech',
+                'glass': 'badge-glass',
+                'custom': 'badge-custom'
+            };
+            return map[design] || '';
+        }
+
+        function getDesignName(design) {
+            const map = {
+                'neo': 'Neo-Editorial',
+                'brutal': 'Swiss Brutalism',
+                'tech': 'Dark Tech SaaS',
+                'glass': 'Clean Dark Tech',
+                'custom': 'Custom / Saran'
+            };
+            return map[design] || design;
+        }
+
+        function renderTable(votes) {
+            const tbody = document.getElementById('voterTableBody');
+            tbody.innerHTML = '';
+
+            if (votes.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:var(--text-muted)">Belum ada data vote</td></tr>';
+                return;
+            }
+
+            votes.forEach((vote, index) => {
+                const date = new Date(vote.timestamp).toLocaleString('id-ID');
+                const badgeClass = getBadgeClass(vote.design);
+                const designName = getDesignName(vote.design);
+                const suggestionHtml = vote.suggestion ? `<div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted); background: rgba(0,0,0,0.1); padding: 0.5rem; border-radius: 4px;"><strong>Saran:</strong> ${vote.suggestion}</div>` : '';
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td style="font-weight: 500;">${vote.name}</td>
+                        <td>
+                            <span class="badge ${badgeClass}">${designName}</span>
+                            ${suggestionHtml}
+                        </td>
+                        <td style="color: var(--text-muted); font-size: 0.9rem;">${date}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function renderStats(votes) {
+            const counts = { neo: 0, brutal: 0, tech: 0, glass: 0, custom: 0 };
+            votes.forEach(v => {
+                if (counts[v.design] !== undefined) counts[v.design]++;
+            });
+
+            const statGrid = document.getElementById('statGrid');
+            statGrid.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #10b981;">${counts.neo}</div>
+                    <div class="stat-label">Neo-Editorial</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #f97316;">${counts.brutal}</div>
+                    <div class="stat-label">Swiss Brutal</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #8b5cf6;">${counts.tech}</div>
+                    <div class="stat-label">Dark Tech</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #ec4899;">${counts.glass}</div>
+                    <div class="stat-label">Clean Tech</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" style="color: #94a3b8;">${counts.custom}</div>
+                    <div class="stat-label">Custom/Saran</div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

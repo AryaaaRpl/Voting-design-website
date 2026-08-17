@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMKS Muhammadiyah 1 Genteng - Official Website</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN TOKENS & RESETS */
+        :root {
+            --primary: #064e3b;
+            --primary-light: #0d7056;
+            --secondary: #d97706;
+            --secondary-light: #f59e0b;
+            --bg-main: #fafaf9;
+            --bg-alt: #f5f5f4;
+            --bg-dark: #1c1917;
+            --text-dark: #1c1917;
+            --text-muted: #57534e;
+            --text-light: #fafaf9;
+            --border: #e7e5e4;
+            --radius: 12px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-head { font-family: var(--font-head); }
+        
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* UTILITIES */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+        .grid { display: grid; gap: 2rem; }
+        .flex { display: flex; align-items: center; }
+        .flex-wrap { flex-wrap: wrap; }
+        .justify-between { justify-content: space-between; }
+        .text-center { text-align: center; }
+        .section-padding { padding: 6rem 0; }
+        .bg-alt { background-color: var(--bg-alt); }
+        .bg-dark { background-color: var(--bg-dark); color: var(--text-light); }
+        .bg-primary { background-color: var(--primary); color: var(--text-light); }
+
+        .btn {
+            display: inline-flex; justify-content: center; align-items: center;
+            padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 600;
+            transition: all 0.3s ease; cursor: pointer; border: none; font-family: var(--font-body);
+        }
+        .btn-primary { background: var(--secondary); color: var(--bg-main); }
+        .btn-primary:hover { background: var(--secondary-light); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+        .btn-outline:hover { background: var(--primary); color: var(--text-light); }
+        .btn-outline-light { border: 2px solid var(--text-light); color: var(--text-light); background: transparent; }
+        
+        .section-title { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); }
+        .section-desc { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 3rem; }
+        
+        .badge { background: rgba(217, 119, 6, 0.15); color: var(--secondary); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+
+        /* 1. NAVBAR */
+        .navbar {
+            position: fixed; top: 1rem; left: 5%; right: 5%; z-index: 100;
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px);
+            border: 1px solid var(--border); border-radius: 100px;
+            padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--secondary); }
+        .hamburger { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        /* 2. HERO */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 6rem; position: relative; overflow: hidden; }
+        .hero-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--primary); }
+        .hero-content p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; }
+        .hero-stats { display: flex; gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .stat-item h4 { font-size: 1.8rem; color: var(--secondary); }
+        .stat-item span { font-size: 0.9rem; color: var(--text-muted); }
+        
+        .hero-visual { position: relative; height: 100%; display: flex; justify-content: center; align-items: center; }
+        .geometric-bg { position: absolute; border-radius: 50%; background: linear-gradient(135deg, rgba(6, 78, 59, 0.05), rgba(217, 119, 6, 0.05)); }
+        
+        /* PARALLAX ELEMENTS */
+        .px-layer { position: absolute; z-index: -1; }
+        .px-shape-1 { width: 300px; height: 300px; border-radius: 50%; border: 1px dashed var(--primary); opacity: 0.2; top: 10%; right: -5%; }
+        .px-shape-2 { width: 150px; height: 150px; background: var(--secondary); opacity: 0.05; border-radius: 20px; transform: rotate(45deg); bottom: 20%; left: 10%; }
+
+        /* 3. SIGNATURE MOMENT (PINNED SVG DRAWING) */
+        .signature-section { height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg-dark); position: relative; overflow: hidden; }
+        .signature-container { text-align: center; position: relative; z-index: 2; }
+        .signature-text { color: var(--text-light); margin-top: 2rem; opacity: 0; font-size: 1.5rem; font-family: var(--font-head); }
+        #signature-svg { width: 300px; height: 300px; overflow: visible; }
+        .svg-path { fill: none; stroke: var(--secondary); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        /* 4. MARQUEE MITRA */
+        .marquee-container { overflow: hidden; white-space: nowrap; padding: 2rem 0; background: white; border-block: 1px solid var(--border); }
+        .marquee-track { display: inline-block; }
+        .mitra-logo { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 3rem; font-family: var(--font-head); font-weight: 600; font-size: 1.2rem; color: var(--text-muted); }
+
+        /* 5. STRIP STATISTIK */
+        .stats-strip { padding: 4rem 0; background: var(--primary); color: white; }
+        .stats-grid { grid-template-columns: repeat(4, 1fr); text-align: center; gap: 2rem; }
+        .counter-box h3 { font-size: 3.5rem; color: var(--secondary); margin-bottom: 0.5rem; line-height: 1; }
+        .counter-box p { font-size: 1rem; opacity: 0.9; }
+
+        /* 6. SAMBUTAN */
+        .sambutan-grid { grid-template-columns: 1fr 2fr; align-items: center; gap: 4rem; }
+        .sambutan-img { border-radius: var(--radius-lg); overflow: hidden; position: relative; aspect-ratio: 3/4; background: #ddd; }
+        .sambutan-quote { font-size: 1.5rem; font-family: var(--font-head); color: var(--primary); line-height: 1.4; margin-bottom: 1.5rem; }
+        .quote-mark { font-size: 4rem; color: var(--secondary); opacity: 0.2; position: absolute; top: -20px; left: -20px; }
+
+        /* 7. WHY US */
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, auto); gap: 1.5rem; }
+        .why-card { background: white; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); transition: transform 0.3s; }
+        .why-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .why-featured { grid-column: 1 / 3; grid-row: 1 / 3; background: var(--primary); color: white; border: none; display: flex; flex-direction: column; justify-content: space-between; }
+        .why-icon { width: 50px; height: 50px; background: rgba(217, 119, 6, 0.1); color: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; }
+        
+        /* 8. JURUSAN (TABS) */
+        .tab-buttons { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .tab-btn { padding: 0.8rem 1.5rem; border: none; background: white; border-radius: 50px; cursor: pointer; font-family: var(--font-head); font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); transition: all 0.3s; }
+        .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .tab-panel { display: none; background: white; border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; }
+        .tab-panel.active { display: grid; grid-template-columns: 1fr 1.5fr; }
+        .tab-visual { background: var(--bg-alt); padding: 3rem; display: flex; align-items: center; justify-content: center; }
+        .tab-content { padding: 3rem; }
+        .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+        .skill-chip { padding: 0.4rem 1rem; background: var(--bg-alt); border-radius: 8px; font-size: 0.9rem; }
+        
+        .other-jurusan { margin-top: 3rem; }
+        .chip-container { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
+        .chip { padding: 0.5rem 1.2rem; border: 1px solid var(--border); border-radius: 50px; font-size: 0.9rem; background: white; }
+
+        /* 9. PRESTASI (TIMELINE) */
+        .timeline { position: relative; margin: 3rem 0; padding-left: 2rem; }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border); }
+        .timeline-item { position: relative; margin-bottom: 2.5rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.3rem; width: 16px; height: 16px; border-radius: 50%; background: var(--secondary); border: 4px solid var(--bg-main); }
+        .tl-date { font-weight: 600; color: var(--primary); margin-bottom: 0.3rem; }
+        
+        .alumni-spotlight { background: white; padding: 2.5rem; border-radius: var(--radius); border-left: 4px solid var(--secondary); box-shadow: var(--shadow-sm); margin-top: 3rem; }
+        .alumni-spotlight p { font-size: 1.2rem; font-style: italic; color: var(--text-dark); margin-bottom: 1rem; }
+
+        /* 10. PPDB */
+        .ppdb-grid { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .step-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+        .step-num { width: 40px; height: 40px; flex-shrink: 0; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 700; }
+        .ppdb-card { background: var(--secondary); color: white; padding: 3rem; border-radius: var(--radius-lg); text-align: center; }
+        .countdown { display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0; }
+        .cd-item span { display: block; font-size: 2.5rem; font-family: var(--font-head); font-weight: 700; }
+        .cd-item label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* 11. BLUD & 12. BKK */
+        .card-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .product-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .p-content { padding: 1.5rem; }
+        .p-price { color: var(--secondary); font-weight: 700; font-size: 1.25rem; margin-top: 1rem; }
+        
+        .bkk-table-wrapper { background: white; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; }
+        .bkk-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; padding: 1.5rem; border-bottom: 1px solid var(--border); align-items: center; gap: 1rem; }
+        .bkk-row:last-child { border-bottom: none; }
+        .bkk-header { background: var(--bg-alt); font-weight: 600; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; }
+
+        /* 13. BERITA */
+        .news-grid { grid-template-columns: 1fr 3fr; gap: 3rem; }
+        .news-sidebar ul { display: flex; flex-direction: column; gap: 1rem; }
+        .news-sidebar li a { color: var(--text-muted); transition: color 0.3s; }
+        .news-sidebar li a:hover, .news-sidebar li a.active { color: var(--primary); font-weight: 600; }
+        .news-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .news-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
+        .n-content { padding: 1.5rem; background: white; border: 1px solid var(--border); border-top: none; border-radius: 0 0 var(--radius) var(--radius); }
+        
+        /* 14. FOOTER */
+        .footer { background: var(--bg-dark); color: var(--text-light); padding: 5rem 0 2rem; }
+        .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+        .footer h4 { color: var(--secondary); margin-bottom: 1.5rem; font-size: 1.2rem; }
+        .footer ul { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer a { color: #a8a29e; transition: color 0.3s; }
+        .footer a:hover { color: white; }
+        .copyright { text-align: center; color: #78716c; padding-top: 2rem; border-top: 1px solid #44403c; font-size: 0.9rem; }
+
+        /* 15. CHATBOT */
+        .chatbot-btn {
+            position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px;
+            background: var(--primary); color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            box-shadow: var(--shadow-md); cursor: pointer; z-index: 1000; border: none; transition: transform 0.3s;
+        }
+        .chatbot-btn:hover { transform: scale(1.1); }
+        .chat-panel {
+            position: fixed; bottom: 6rem; right: 2rem; width: 350px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            box-shadow: var(--shadow-md); z-index: 999;
+            display: flex; flex-direction: column; opacity: 0; pointer-events: none;
+            transform: translateY(20px); transition: all 0.3s ease;
+        }
+        .chat-panel.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .chat-header { background: var(--primary); color: white; padding: 1rem; border-radius: var(--radius) var(--radius) 0 0; font-family: var(--font-head); }
+        .chat-body { height: 300px; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; font-size: 0.9rem; }
+        .msg { padding: 0.8rem 1rem; border-radius: 12px; max-width: 85%; }
+        .msg.bot { background: var(--bg-alt); align-self: flex-start; }
+        .msg.user { background: var(--primary); color: white; align-self: flex-end; }
+        .chat-quick { padding: 1rem; border-top: 1px solid var(--border); display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .chat-quick button { background: var(--bg-main); border: 1px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; cursor: pointer; }
+        .chat-input { padding: 1rem; border-top: 1px solid var(--border); display: flex; gap: 0.5rem; }
+        .chat-input input { flex: 1; padding: 0.5rem; border: 1px solid var(--border); border-radius: 4px; outline: none; }
+        .chat-input button { background: var(--secondary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+
+        /* GSAP Reveal Prep */
+        .reveal-item { opacity: 0; transform: translateY(30px); }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-grid, .sambutan-grid, .ppdb-grid, .news-grid { grid-template-columns: 1fr; }
+            .why-grid, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-featured { grid-column: 1 / 3; grid-row: auto; }
+            .tab-panel.active { grid-template-columns: 1fr; }
+            .bkk-row { grid-template-columns: 1fr; gap: 0.5rem; }
+            .bkk-header { display: none; }
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 0.8rem 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .card-grid, .news-cards, .stats-grid, .footer-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .why-featured { grid-column: 1; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">SMKS MUHI <span>.</span></div>
+        <div class="nav-links">
+            <a href="#jurusan">Jurusan</a>
+            <a href="#prestasi">Prestasi</a>
+            <a href="#ppdb">PPDB</a>
+            <a href="#blud">BLUD</a>
+            <a href="#bkk">BKK</a>
+            <a href="#berita">Berita</a>
+            <a href="#ppdb" class="btn btn-primary" style="padding: 0.5rem 1.2rem;">Daftar PPDB</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">☰</button>
+    </nav>
+
+    <!-- Parallax Decor -->
+    <div class="px-layer px-shape-1" data-speed="0.8"></div>
+    <div class="px-layer px-shape-2" data-speed="-1.2"></div>
+
+    <!-- 2. HERO -->
+    <header id="hero" class="hero container">
+        <div class="grid hero-grid">
+            <div class="hero-content reveal-item">
+                <div class="badge" style="display:inline-block; margin-bottom:1rem;">Akreditasi A</div>
+                <h1>Membentuk Karakter, Membangun Kompetensi.</h1>
+                <p>Pendidikan kejuruan modern berbasis proyek dan industri di Banyuwangi. Siap kerja, siap usaha, siap kuliah.</p>
+                <div class="flex" style="gap: 1rem;">
+                    <a href="#ppdb" class="btn btn-primary">Daftar Siswa Baru</a>
+                    <a href="#jurusan" class="btn btn-outline">Lihat Jurusan</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h4 class="font-head">6</h4>
+                        <span>Jurusan Pilihan</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="font-head">24</h4>
+                        <span>Mitra Industri</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="font-head">92%</h4>
+                        <span>Lulusan Terserap</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual reveal-item">
+                <div class="geometric-bg" style="width: 400px; height: 400px; position:absolute; z-index:-1;"></div>
+                <!-- Abstract Hero Graphic -->
+                <svg width="350" height="350" viewBox="0 0 200 200" fill="none">
+                    <circle cx="100" cy="100" r="90" stroke="var(--primary)" stroke-width="1" stroke-dasharray="4 4" />
+                    <rect x="50" y="50" width="100" height="100" transform="rotate(45 100 100)" fill="var(--secondary)" fill-opacity="0.1" stroke="var(--secondary)" stroke-width="2"/>
+                    <path d="M100 20 L100 180 M20 100 L180 100" stroke="var(--primary)" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. SIGNATURE SCROLL REVEAL (PINNED) -->
+    <section id="signature" class="signature-section">
+        <div class="signature-container">
+            <!-- Geometric Islamic Star / Network -->
+            <svg id="signature-svg" viewBox="0 0 100 100">
+                <path class="svg-path" d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z M50 20 L65 35 L80 50 L65 65 L50 80 L35 65 L20 50 L35 35 Z" />
+            </svg>
+            <div class="signature-text">Sinergi Keahlian Menuju Masa Depan</div>
+        </div>
+    </section>
+
+    <!-- 4. MARQUEE MITRA INDUSTRI -->
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <!-- Duplicated for seamless loop -->
+            <div class="mitra-logo">Telkom Indonesia</div>
+            <div class="mitra-logo">PLN UP3 Banyuwangi</div>
+            <div class="mitra-logo">Bank Jatim Syariah</div>
+            <div class="mitra-logo">Hotel Ketapang Indah</div>
+            <div class="mitra-logo">Astra Motor</div>
+            <div class="mitra-logo">Yayasan Pendidikan Muhammadiyah</div>
+            <div class="mitra-logo">Diskominfo Banyuwangi</div>
+            <!-- Duplicate -->
+            <div class="mitra-logo">Telkom Indonesia</div>
+            <div class="mitra-logo">PLN UP3 Banyuwangi</div>
+            <div class="mitra-logo">Bank Jatim Syariah</div>
+            <div class="mitra-logo">Hotel Ketapang Indah</div>
+            <div class="mitra-logo">Astra Motor</div>
+            <div class="mitra-logo">Yayasan Pendidikan Muhammadiyah</div>
+            <div class="mitra-logo">Diskominfo Banyuwangi</div>
+        </div>
+    </div>
+
+    <!-- 5. STATISTIK STRIP -->
+    <section id="stats" class="stats-strip">
+        <div class="container grid stats-grid">
+            <div class="counter-box">
+                <h3 class="counter-value font-head" data-target="1968">0</h3>
+                <p>Tahun Berdiri</p>
+            </div>
+            <div class="counter-box">
+                <h3 class="counter-value font-head" data-target="4551">0</h3>
+                <p>Alumni Terdaftar</p>
+            </div>
+            <div class="counter-box">
+                <h3 class="counter-value font-head" data-target="18">0</h3>
+                <p>Prestasi Tahun Ini</p>
+            </div>
+            <div class="counter-box">
+                <h3 class="font-head">A</h3>
+                <p>Peringkat Akreditasi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SAMBUTAN & 7. WHY US (Wrapped in alt bg) -->
+    <div class="bg-alt">
+        <section id="sambutan" class="container section-padding">
+            <div class="grid sambutan-grid">
+                <div class="sambutan-img reveal-item">
+                    <!-- Placeholder fot image -->
+                    <div style="width:100%; height:100%; background:var(--primary-light); display:flex; align-items:center; justify-content:center; color:white;">Foto Kepala Sekolah</div>
+                </div>
+                <div class="reveal-item" style="position: relative;">
+                    <div class="quote-mark">"</div>
+                    <h3 class="sambutan-quote">Sekolah yang baik adalah sekolah yang mengantar siswanya sampai ke tujuan, bukan hanya sampai ke ijazah.</h3>
+                    <p style="color: var(--text-muted);">Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap secara teknis, tetapi juga memiliki fondasi akhlak yang kuat. SMKS Muhammadiyah 1 Genteng terus berinovasi menjembatani dunia pendidikan dan industri.</p>
+                    <br>
+                    <strong>Kepala Sekolah</strong><br>
+                    <span style="font-size: 0.9rem; color: var(--text-muted);">SMKS Muhammadiyah 1 Genteng</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="container section-padding" style="padding-top:0;">
+            <h2 class="section-title text-center reveal-item">Kenapa Memilih Kami?</h2>
+            <div class="why-grid">
+                <div class="why-card why-featured reveal-item">
+                    <div>
+                        <div class="why-icon" style="background: rgba(255,255,255,0.2); color:white;">🤝</div>
+                        <h3 class="font-head" style="font-size:1.8rem; margin-bottom:1rem;">Kerja Sama Industri Kuat</h3>
+                        <p style="opacity: 0.9;">Kurikulum kami disinkronisasi langsung dengan kebutuhan 24+ mitra industri, memastikan keahlian yang relevan dengan bursa kerja saat ini.</p>
+                    </div>
+                </div>
+                <div class="why-card reveal-item">
+                    <h4 class="font-head">Akreditasi A</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.5rem;">Fasilitas dan manajemen mutu pendidikan terstandarisasi unggul.</p>
+                </div>
+                <div class="why-card reveal-item">
+                    <h4 class="font-head">Kurikulum Berbasis Proyek</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.5rem;">Belajar langsung dari studi kasus nyata dan proyek terapan.</p>
+                </div>
+                <div class="why-card reveal-item">
+                    <h4 class="font-head">Unit Usaha BLUD</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.5rem;">Wadah siswa berlatih wirausaha profesional sejak di bangku sekolah.</p>
+                </div>
+                <div class="why-card reveal-item">
+                    <h4 class="font-head">Naungan Yayasan Muhammadiyah</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.5rem;">Integrasi keislaman dan kemuhammadiyahan dalam pembangunan karakter.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 8. JURUSAN -->
+    <section id="jurusan" class="container section-padding">
+        <div class="text-center">
+            <div class="badge mb-2">Pilar Utama JHIC</div>
+            <h2 class="section-title reveal-item">Kompetensi Keahlian</h2>
+            <p class="section-desc mx-auto reveal-item" style="margin-left:auto; margin-right:auto;">Fokus pada spesialisasi yang relevan dengan kebutuhan industri digital dan jasa masa kini.</p>
+        </div>
+
+        <div class="tab-buttons reveal-item text-center" style="justify-content: center;">
+            <button class="tab-btn active" data-target="rpl">RPL</button>
+            <button class="tab-btn" data-target="tkj">TKJ</button>
+            <button class="tab-btn" data-target="mm">Multimedia</button>
+        </div>
+
+        <div class="tab-container reveal-item">
+            <!-- TAB RPL -->
+            <div class="tab-panel active" id="tab-rpl">
+                <div class="tab-visual">
+                    <svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="tab-content">
+                    <h3 class="font-head" style="font-size:2rem; color:var(--primary);">Rekayasa Perangkat Lunak</h3>
+                    <p style="margin-top:1rem; color:var(--text-muted);">Fokus pada pengembangan ekosistem digital, membekali siswa dengan logika pemrograman yang kuat dan kemampuan membangun aplikasi hulu ke hilir.</p>
+                    <div class="skill-list">
+                        <span class="skill-chip">Web & Mobile Dev</span>
+                        <span class="skill-chip">Basis Data</span>
+                        <span class="skill-chip">Proyek Kolaboratif</span>
+                    </div>
+                    <div style="margin-top: 1.5rem; font-size:0.9rem;">
+                        <strong>Prospek Kerja:</strong> <span style="color:var(--secondary);">Web Developer, Mobile Developer, QA Engineer</span>
+                    </div>
+                </div>
+            </div>
+            <!-- TAB TKJ -->
+            <div class="tab-panel" id="tab-tkj">
+                <div class="tab-visual">
+                    <svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2" stroke-linecap="round"/><rect x="2" y="14" width="20" height="8" rx="2" stroke-linecap="round"/><path d="M6 6h.01M6 18h.01" stroke-linecap="round"/></svg>
+                </div>
+                <div class="tab-content">
+                    <h3 class="font-head" style="font-size:2rem; color:var(--primary);">Teknik Komputer & Jaringan</h3>
+                    <p style="margin-top:1rem; color:var(--text-muted);">Mencetak arsitek infrastruktur digital yang handal menangani jaringan skala kecil hingga enterprise dan sistem operasi server.</p>
+                    <div class="skill-list">
+                        <span class="skill-chip">Instalasi Jaringan</span>
+                        <span class="skill-chip">Administrasi Server Linux</span>
+                        <span class="skill-chip">Keamanan Siber</span>
+                    </div>
+                    <div style="margin-top: 1.5rem; font-size:0.9rem;">
+                        <strong>Prospek Kerja:</strong> <span style="color:var(--secondary);">Network Engineer, IT Support, System Administrator</span>
+                    </div>
+                </div>
+            </div>
+            <!-- TAB MM -->
+            <div class="tab-panel" id="tab-mm">
+                <div class="tab-visual">
+                    <svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="tab-content">
+                    <h3 class="font-head" style="font-size:2rem; color:var(--primary);">Multimedia</h3>
+                    <p style="margin-top:1rem; color:var(--text-muted);">Mengeksplorasi kreativitas visual tanpa batas. Membangun portofolio industri kreatif dari desain hingga pasca-produksi.</p>
+                    <div class="skill-list">
+                        <span class="skill-chip">Desain Grafis & Motion</span>
+                        <span class="skill-chip">Produksi Video/Foto</span>
+                        <span class="skill-chip">Manajemen Konten</span>
+                    </div>
+                    <div style="margin-top: 1.5rem; font-size:0.9rem;">
+                        <strong>Prospek Kerja:</strong> <span style="color:var(--secondary);">Graphic Designer, Video Editor, Content Creator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="other-jurusan reveal-item">
+            <h4 class="font-head" style="font-size: 1.2rem;">Program Keahlian Lainnya</h4>
+            <div class="chip-container">
+                <span class="chip">Tata Boga</span>
+                <span class="chip">Akuntansi & Keuangan</span>
+                <span class="chip">Otomotif</span>
+                <span class="chip">Perbankan Syariah</span>
+                <span class="chip">Kelas Kolaborasi (Proyek Lintas Jurusan)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. PRESTASI -->
+    <section id="prestasi" class="bg-alt section-padding">
+        <div class="container grid" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
+            <div>
+                <div class="badge mb-2">Pilar Utama JHIC</div>
+                <h2 class="section-title reveal-item">Jejak Prestasi</h2>
+                <div class="timeline reveal-item">
+                    <div class="timeline-item">
+                        <div class="tl-date">Juli 2026</div>
+                        <h4 class="font-head">Juara Karaoke Indonesia Berbakat</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Kabupaten Banyuwangi</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="tl-date">Juni 2026</div>
+                        <h4 class="font-head">Juara 3 Taekwondo Kejurprov Pelajar</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Provinsi Jawa Timur (Malang)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="tl-date">Mei 2026</div>
+                        <h4 class="font-head">Perwakilan Lomba Inovasi Digital</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Nasional (Tim RPL)</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="alumni-spotlight reveal-item">
+                    <p>"Magang di jurusan RPL membuat saya langsung diterima kerja sebagai junior developer, dua minggu setelah kelulusan."</p>
+                    <div class="flex" style="gap:1rem; align-items:center;">
+                        <div style="width:40px; height:40px; background:var(--primary); border-radius:50%;"></div>
+                        <div>
+                            <strong>Alumni RPL 2025</strong><br>
+                            <span style="font-size:0.85rem; color:var(--text-muted);">Kini di PT Digital Kreatif Nusantara</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. PPDB -->
+    <section id="ppdb" class="container section-padding">
+        <div class="badge mb-2">Pilar Utama JHIC</div>
+        <h2 class="section-title text-center reveal-item">Penerimaan Peserta Didik Baru</h2>
+        <div class="grid ppdb-grid mt-4">
+            <div class="reveal-item">
+                <h3 class="font-head mb-4">Alur Pendaftaran</h3>
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h4 class="font-head">Isi Formulir</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Lengkapi data diri secara online melalui portal resmi kami.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h4 class="font-head">Unggah Berkas</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Siapkan pas foto, SKHUN/Ijazah, dan dokumen pendukung.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h4 class="font-head">Verifikasi Panitia</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Panitia akan memvalidasi kelengkapan dalam 1x24 jam.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h4 class="font-head">Her-registrasi</h4>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Daftar ulang fisik di sekolah untuk pengambilan seragam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ppdb-card reveal-item">
+                <h3 class="font-head" style="font-size:2rem;">Gelombang 1 Dibuka</h3>
+                <p style="margin-top:1rem; opacity:0.9;">Amankan kursi Anda sebelum kuota terpenuhi.</p>
+                <div class="countdown">
+                    <div class="cd-item"><span>14</span><label>Hari</label></div>
+                    <div class="cd-item"><span>08</span><label>Jam</label></div>
+                    <div class="cd-item"><span>45</span><label>Menit</label></div>
+                </div>
+                <button class="btn btn-outline-light" style="width:100%; font-size:1.1rem; padding:1rem;">Daftar Sekarang</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. BLUD -->
+    <section id="blud" class="bg-dark section-padding">
+        <div class="container">
+            <div class="flex justify-between flex-wrap" style="margin-bottom:3rem;">
+                <div class="reveal-item">
+                    <div class="badge" style="background:rgba(255,255,255,0.1); color:var(--secondary);">Pilar Utama JHIC</div>
+                    <h2 class="section-title" style="color:var(--text-light); margin-top:0.5rem;">Produk Unggulan BLUD</h2>
+                    <p style="opacity:0.8;">Unit usaha hasil karya siswa berstandar industri.</p>
+                </div>
+                <button class="btn btn-primary reveal-item">Lihat Katalog</button>
+            </div>
+            
+            <div class="grid card-grid">
+                <div class="product-card reveal-item">
+                    <div style="height:200px; background:var(--text-muted);"></div>
+                    <div class="p-content">
+                        <span class="badge">Multimedia</span>
+                        <h4 class="font-head mt-2" style="font-size:1.2rem; color:var(--primary);">Sablon & Merchandise Sekolah</h4>
+                        <div class="p-price">Mulai Rp45.000</div>
+                    </div>
+                </div>
+                <div class="product-card reveal-item">
+                    <div style="height:200px; background:var(--text-muted);"></div>
+                    <div class="p-content">
+                        <span class="badge">Tata Boga</span>
+                        <h4 class="font-head mt-2" style="font-size:1.2rem; color:var(--primary);">Katering & Snack Box</h4>
+                        <div class="p-price">Mulai Rp18.000</div>
+                    </div>
+                </div>
+                <div class="product-card reveal-item">
+                    <div style="height:200px; background:var(--text-muted);"></div>
+                    <div class="p-content">
+                        <span class="badge">TKJ</span>
+                        <h4 class="font-head mt-2" style="font-size:1.2rem; color:var(--primary);">Jasa Servis & Instalasi Jaringan</h4>
+                        <div class="p-price">Mulai Rp30.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. BKK -->
+    <section id="bkk" class="container section-padding">
+        <div class="text-center mb-4">
+            <div class="badge">Pilar Utama JHIC</div>
+            <h2 class="section-title reveal-item">Bursa Kerja Khusus (BKK)</h2>
+            <p class="section-desc mx-auto reveal-item">Jembatan langsung alumni dan siswa dengan peluang karier di dunia industri.</p>
+        </div>
+        
+        <div class="bkk-table-wrapper reveal-item">
+            <div class="bkk-row bkk-header">
+                <div>Perusahaan</div>
+                <div>Posisi</div>
+                <div>Tipe</div>
+                <div>Status</div>
+                <div>Aksi</div>
+            </div>
+            <!-- Row 1 -->
+            <div class="bkk-row">
+                <div class="font-head" style="color:var(--primary); font-weight:600;">PT Digital Kreatif Nusantara</div>
+                <div>Junior Web Developer</div>
+                <div><span class="chip">Full-time</span></div>
+                <div><span style="color:var(--primary); font-weight:600;">Dibuka</span></div>
+                <div><a href="#" style="color:var(--secondary); font-weight:600;">Detail &rarr;</a></div>
+            </div>
+            <!-- Row 2 -->
+            <div class="bkk-row">
+                <div class="font-head" style="color:var(--primary); font-weight:600;">Hotel Ketapang Indah</div>
+                <div>PKL Perhotelan & Tata Boga</div>
+                <div><span class="chip">Magang</span></div>
+                <div><span style="color:var(--primary); font-weight:600;">Dibuka</span></div>
+                <div><a href="#" style="color:var(--secondary); font-weight:600;">Detail &rarr;</a></div>
+            </div>
+            <!-- Row 3 -->
+            <div class="bkk-row">
+                <div class="font-head" style="color:var(--primary); font-weight:600;">Bank Jatim Syariah Cabang Genteng</div>
+                <div>Staff Administrasi</div>
+                <div><span class="chip">Full-time</span></div>
+                <div><span style="color:var(--primary); font-weight:600;">Dibuka</span></div>
+                <div><a href="#" style="color:var(--secondary); font-weight:600;">Detail &rarr;</a></div>
+            </div>
+            <!-- Row 4 -->
+            <div class="bkk-row">
+                <div class="font-head" style="color:var(--primary); font-weight:600;">Astra Motor Banyuwangi</div>
+                <div>PKL Teknisi Otomotif</div>
+                <div><span class="chip">Magang</span></div>
+                <div><span style="color:var(--secondary); font-weight:600;">Segera</span></div>
+                <div><a href="#" style="color:var(--text-muted); font-weight:600;">Detail &rarr;</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. BERITA -->
+    <section id="berita" class="bg-alt section-padding">
+        <div class="container">
+            <h2 class="section-title reveal-item">Kabar Kampus</h2>
+            <div class="grid news-grid mt-4">
+                <aside class="news-sidebar reveal-item">
+                    <h4 class="font-head mb-3">Kategori</h4>
+                    <ul>
+                        <li><a href="#" class="active">Semua Berita</a></li>
+                        <li><a href="#">Akademik</a></li>
+                        <li><a href="#">Prestasi Siswa</a></li>
+                        <li><a href="#">Kerjasama Industri</a></li>
+                        <li><a href="#">Pengumuman</a></li>
+                    </ul>
+                </aside>
+                <div class="news-cards">
+                    <!-- News 1 -->
+                    <div class="news-card reveal-item">
+                        <div style="background:#ccc; aspect-ratio:16/9;"></div>
+                        <div class="n-content">
+                            <span class="badge mb-2">17 Juni 2026</span>
+                            <h4 class="font-head" style="margin-bottom:0.5rem; font-size:1.1rem;">Berbekal Fasilitas Modern, Smemsa Gelar Pengenalan Jurusan</h4>
+                            <a href="#" style="color:var(--secondary); font-weight:600; font-size:0.9rem;">Baca selengkapnya</a>
+                        </div>
+                    </div>
+                    <!-- News 2 -->
+                    <div class="news-card reveal-item">
+                        <div style="background:#ccc; aspect-ratio:16/9;"></div>
+                        <div class="n-content">
+                            <span class="badge mb-2">Juni 2026</span>
+                            <h4 class="font-head" style="margin-bottom:0.5rem; font-size:1.1rem;">Dua Atlet Taekwondo Raih Juara 3 Kejurprov Jatim</h4>
+                            <a href="#" style="color:var(--secondary); font-weight:600; font-size:0.9rem;">Baca selengkapnya</a>
+                        </div>
+                    </div>
+                    <!-- News 3 -->
+                    <div class="news-card reveal-item">
+                        <div style="background:#ccc; aspect-ratio:16/9;"></div>
+                        <div class="n-content">
+                            <span class="badge mb-2">Juni 2026</span>
+                            <h4 class="font-head" style="margin-bottom:0.5rem; font-size:1.1rem;">Siswa Borong Juara Karaoke Indonesia Berbakat</h4>
+                            <a href="#" style="color:var(--secondary); font-weight:600; font-size:0.9rem;">Baca selengkapnya</a>
+                        </div>
+                    </div>
+                    <!-- News 4 -->
+                    <div class="news-card reveal-item">
+                        <div style="background:#ccc; aspect-ratio:16/9;"></div>
+                        <div class="n-content">
+                            <span class="badge mb-2">Mei 2026</span>
+                            <h4 class="font-head" style="margin-bottom:0.5rem; font-size:1.1rem;">Penandatanganan MoU Baru bersama Mitra Industri</h4>
+                            <a href="#" style="color:var(--secondary); font-weight:600; font-size:0.9rem;">Baca selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <span style="font-size:2rem; color:var(--primary); letter-spacing:5px;">&bull;&bull;&bull;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid footer-grid">
+                <div>
+                    <div class="logo" style="color:white; margin-bottom:1rem; font-size:1.5rem;">SMKS MUHI <span style="color:var(--secondary);">.</span></div>
+                    <p style="color:#a8a29e; margin-bottom:1rem;">Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur 68465</p>
+                    <p style="color:#a8a29e;">0822-4135-6668<br>smkmuhi.genteng1968@gmail.com</p>
+                </div>
+                <div>
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#jurusan">Jurusan</a></li>
+                        <li><a href="#prestasi">Prestasi</a></li>
+                        <li><a href="#ppdb">PPDB</a></li>
+                        <li><a href="#bkk">BKK</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Mitra Utama</h4>
+                    <ul>
+                        <li><a href="#">Telkom Indonesia</a></li>
+                        <li><a href="#">PLN UP3</a></li>
+                        <li><a href="#">Bank Jatim Syariah</a></li>
+                        <li><a href="#">Astra Motor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Aplikasi Siswa</h4>
+                    <ul>
+                        <li><a href="#">Portal Akademik</a></li>
+                        <li><a href="#">E-Learning</a></li>
+                        <li><a href="#">Perpustakaan Digital</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 SMKS Muhammadiyah 1 Genteng. Desain untuk JHIC Web Development Competition.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 15. CHATBOT AI -->
+    <button class="chatbot-btn" id="chatbot-toggle">💬</button>
+    <div class="chat-panel" id="chat-panel">
+        <div class="chat-header">Asisten AI SMKS Muhi (JHIC)</div>
+        <div class="chat-body" id="chat-body">
+            <div class="msg bot">Halo! Saya asisten AI. Ada yang bisa saya bantu terkait informasi sekolah?</div>
+        </div>
+        <div class="chat-quick">
+            <button onclick="sendQuickMsg('Info Jurusan')">Info Jurusan</button>
+            <button onclick="sendQuickMsg('Jadwal PPDB')">Jadwal PPDB</button>
+            <button onclick="sendQuickMsg('Lowongan BKK')">Lowongan BKK</button>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-text" placeholder="Ketik pesan...">
+            <button onclick="handleChatSubmit()">Kirim</button>
+        </div>
+    </div>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Tab Jurusan Logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanels.forEach(p => p.classList.remove('active'));
+                
+                btn.classList.add('active');
+                const target = document.getElementById('tab-' + btn.dataset.target);
+                
+                // Simple GSAP fade for tab
+                gsap.fromTo(target, {opacity:0, y:10}, {opacity:1, y:0, duration:0.4});
+                target.classList.add('active');
+            });
+        });
+
+        // Chatbot Logic
+        const chatToggle = document.getElementById('chatbot-toggle');
+        const chatPanel = document.getElementById('chat-panel');
+        const chatBody = document.getElementById('chat-body');
+        const chatInput = document.getElementById('chat-input-text');
+
+        chatToggle.addEventListener('click', () => {
+            chatPanel.classList.toggle('active');
+        });
+
+        function appendMsg(text, sender) {
+            const div = document.createElement('div');
+            div.className = `msg ${sender}`;
+            div.textContent = text;
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getBotResponse(text) {
+            const lower = text.toLowerCase();
+            if(lower.includes('jurusan')) return "Kami memiliki 8 program keahlian. 3 unggulan kami adalah Rekayasa Perangkat Lunak, Teknik Komputer & Jaringan, dan Multimedia. Cek bagian Kompetensi Keahlian di halaman ini!";
+            if(lower.includes('ppdb')) return "Pendaftaran Gelombang 1 sedang dibuka! Silakan ikuti 4 langkah alur pendaftaran di section PPDB, atau klik tombol 'Daftar PPDB' di atas.";
+            if(lower.includes('bkk')) return "Bursa Kerja Khusus (BKK) kami saat ini membuka lowongan dari PT Digital Kreatif Nusantara, Hotel Ketapang Indah, dan lainnya. Cek section BKK untuk detailnya.";
+            return "Maaf, saya tidak memahami pertanyaan tersebut. Silakan hubungi 0822-4135-6668 atau smkmuhi.genteng1968@gmail.com untuk bantuan lebih lanjut.";
+        }
+
+        function handleChatSubmit() {
+            const text = chatInput.value.trim();
+            if(!text) return;
+            appendMsg(text, 'user');
+            chatInput.value = '';
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 600);
+        }
+
+        function sendQuickMsg(text) {
+            appendMsg(text, 'user');
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 600);
+        }
+        
+        chatInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') handleChatSubmit();
+        });
+
+        // GSAP ANIMATIONS
+        gsap.registerPlugin(ScrollTrigger);
+
+        const mm = gsap.matchMedia();
+
+        mm.add("(prefers-reduced-motion: no-preference)", () => {
+            
+            // 1. Batch Reveal
+            ScrollTrigger.batch(".reveal-item", {
+                onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" }),
+                start: "top 85%"
+            });
+
+            // 2. Parallax Multilayer
+            gsap.utils.toArray(".px-layer").forEach(layer => {
+                const speed = layer.getAttribute("data-speed");
+                gsap.to(layer, {
+                    y: () => (ScrollTrigger.maxScroll(window) * speed * 0.1),
+                    ease: "none",
+                    scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: true }
+                });
+            });
+
+            // 3. Signature Drawing (Pinned)
+            const signaturePath = document.querySelector(".svg-path");
+            if(signaturePath) {
+                const length = signaturePath.getTotalLength();
+                gsap.set(signaturePath, { strokeDasharray: length, strokeDashoffset: length });
+                
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".signature-section",
+                        start: "center center",
+                        end: "+=100%",
+                        pin: true,
+                        scrub: 1
+                    }
+                });
+                
+                tl.to(signaturePath, { strokeDashoffset: 0, duration: 1, ease: "none" })
+                  .to(".signature-text", { opacity: 1, y: -20, duration: 0.5 }, "-=0.2");
+            }
+
+            // 4. Counter Angka
+            const counters = document.querySelectorAll('.counter-value');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                ScrollTrigger.create({
+                    trigger: counter,
+                    start: "top 90%",
+                    once: true,
+                    onEnter: () => {
+                        let zero = { val: 0 };
+                        gsap.to(zero, {
+                            val: target,
+                            duration: 2,
+                            ease: "power2.out",
+                            onUpdate: () => { counter.innerHTML = Math.floor(zero.val); }
+                        });
+                    }
+                });
+            });
+
+            // 5. Marquee Infinite (Transform only)
+            gsap.to(".marquee-track", {
+                xPercent: -50,
+                ease: "none",
+                duration: 20,
+                repeat: -1
+            });
+        });
+
+    </script>
+</body>
+</html>
