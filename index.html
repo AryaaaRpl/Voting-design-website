@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHIC Design Showcase | SMKS Muhammadiyah 1 Genteng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent-neo: #10b981;
+            --accent-brutal: #f97316;
+            --accent-tech: #8b5cf6;
+            --accent-glass: #ec4899;
+            --border: rgba(255, 255, 255, 0.1);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background effects */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            top: -200px;
+            left: -200px;
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            bottom: -100px;
+            right: -100px;
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 5rem 0 4rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #10b981;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        #card-neo:hover::before {
+            background: var(--accent-neo);
+        }
+
+        #card-brutal:hover::before {
+            background: var(--accent-brutal);
+        }
+
+        #card-tech:hover::before {
+            background: var(--accent-tech);
+        }
+
+        #card-glass:hover::before {
+            background: var(--accent-glass);
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            align-self: flex-start;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.85rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .btn-demo {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-demo:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-vote {
+            background: linear-gradient(135deg, var(--primary) 0%, #60a5fa 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-vote:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-vote.voted {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            box-shadow: none;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            cursor: default;
+            transform: none;
+        }
+
+        /* Voting Results Section */
+        .results-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 3rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+        }
+
+        .results-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+        }
+
+        .poll-bar-container {
+            margin-bottom: 2rem;
+        }
+
+        .poll-bar-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+
+        .poll-bar-bg {
+            width: 100%;
+            height: 14px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .poll-bar-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poll-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        #bar-neo {
+            background: linear-gradient(90deg, #059669, #34d399);
+        }
+
+        #bar-brutal {
+            background: linear-gradient(90deg, #ea580c, #fb923c);
+        }
+
+        #bar-tech {
+            background: linear-gradient(90deg, #7c3aed, #a78bfa);
+        }
+
+        #bar-glass {
+            background: linear-gradient(90deg, #db2777, #f472b6);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background: #1e293b;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .modal p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-confirm {
+            background: var(--primary);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-confirm:hover {
+            background: var(--primary-hover);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+
+    <header class="container">
+        <div class="status-badge">
+            <div class="status-dot"></div> API Connected
+        </div>
+        <h1>JHIC Design Showcase</h1>
+        <p class="subtitle">Pilih tema desain visual terbaik untuk mewakili SMKS Muhammadiyah 1 Genteng dalam ajang JHIC
+            Web Development Competition 2026.</p>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            <!-- Design 1 -->
+            <div class="card" id="card-neo">
+                <span class="card-tag">Opsi 1</span>
+                <h3 class="card-title">Tecnical Schematic</h3>
+                <p class="card-desc">Bukan glassmorphism, bukan template AI yang biasa (cream+terracotta, dark+neon,
+                    atau broadsheet). Karena ini SMK (sekolah kejuruan), saya angkat bahasa visual dunia teknis: garis
+                    blueprint, penanda registrasi di pojok (crosshair), garis dimensi antar-section dengan label mm,
+                    kartu jurusan diberi label kode spek (JRS—01, JRS—02...), dan hero pakai ilustrasi SVG denah kampus
+                    skematik dengan anotasi — ini elemen signature-nya, langsung menegaskan identitas "sekolah teknik"
+                    tanpa perlu foto.</p>
+                <a href="./redesign-web.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
+                <button class="btn btn-vote" onclick="openVoteModal('neo', this)">VOTE DESAIN INI</button>
+            </div>
+
+            <!-- Design 2 -->
+            <div class="card" id="card-brutal">
+                <span class="card-tag">Opsi 2</span>
+                <h3 class="card-title">Neo Editorial</h3>
+                <p class="card-desc">Neo-Editorial Corporate.
+
+                    Token Desain:
+
+                    Palet Warna:
+
+                    --primary: #064e3b (Deep Forest Green) — Melambangkan identitas Muhammadiyah, pertumbuhan, dan
+                    stabilitas profesional.
+
+                    --secondary: #d97706 (Amber/Sunrise Gold) — Aksen hangat yang merepresentasikan semangat
+                    fajar/Banyuwangi (The Sunrise of Java) dan prestasi.
+
+                    --bg-main: #fafaf9 (Warm Off-White) — Memberikan kesan elegan ala kertas manuskrip modern, tidak
+                    menyilaukan mata.
+
+                    --bg-alt: #f5f5f4 (Light Stone) — Untuk membedakan section tanpa garis pembatas yang kaku.
+
+                    --text-dark: #1c1917 (Deep Slate) — Kontras tinggi untuk keterbacaan optimal.
+
+                    Glassmorphism: Hanya digunakan tipis pada floating navbar dan panel chatbot agar tidak mendominasi,
+                    melainkan murni sebagai indikator elemen overlay.
+
+                    Tipografi:
+
+                    Heading: Space Grotesk — Memberikan nuansa vokasi, teknologi, dan geometris yang berani.
+
+                    Body: Plus Jakarta Sans — Bersih, sangat mudah dibaca, dan memberikan kesan korporat modern.
+
+                    Signature Element (Animasi Utama):
+                    Sebuah geometric star network (gabungan pola mandala Islami dan titik jaringan IT). Saat user
+                    melakukan scroll, elemen ini akan "menggambar dirinya sendiri" (stroke drawing) sambil layarnya
+                    di-pin, melambangkan titik-titik kompetensi yang terhubung membentuk satu kesatuan karakter lulusan
+                    yang utuh.</p>
+                <a href="./redesign-web1.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
+                <button class="btn btn-vote" onclick="openVoteModal('brutal', this)">VOTE DESAIN INI</button>
+            </div>
+
+            <!-- Design 3 -->
+            <div class="card" id="card-tech">
+                <span class="card-tag">Opsi 3</span>
+                <h3 class="card-title">Swiss Neo Brutalism</h3>
+                <p class="card-desc">"Swiss Neo-Brutalism / Solid Grid".
+                    Tema ini mengandalkan:
+
+                    Tipografi Besar & Kontras Tinggi: Menggunakan garis batas yang tegas (solid borders) dan warna
+                    solid, bukan bayangan atau gradasi.
+
+                    Performa Maksimal: Browser sangat cepat me-render warna solid dan garis kotak. Animasi ScrollTrigger
+                    akan berjalan di 60fps tanpa stuttering.
+
+                    Kesan Akademik & Korporat: Terlihat seperti brosur universitas luar negeri yang modern, bersih, dan
+                    sangat fokus pada data/konten.</p>
+                <a href="./redesign-web2.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
+                <button class="btn btn-vote" onclick="openVoteModal('tech', this)">VOTE DESAIN INI</button>
+            </div>
+
+            <!-- Design 4 -->
+            <div class="card" id="card-glass">
+                <span class="card-tag">Opsi 4</span>
+                <h3 class="card-title">Clean Dark Tech</h3>
+                <p class="card-desc">Estetika masa depan dengan efek frosted glass, gradien dinamis, dan elemen
+                    mengambang yang memberikan nuansa premium.</p>
+                <a href="./redesign-web3.html" target="_blank" class="btn btn-demo">Lihat Demo Web</a>
+                <button class="btn btn-vote" onclick="openVoteModal('glass', this)">VOTE DESAIN INI</button>
+            </div>
+
+            <!-- Custom / Saran -->
+            <div class="card" id="card-custom">
+                <span class="card-tag"
+                    style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">Saran
+                    Tambahan</span>
+                <h3 class="card-title">Custom / Saran Desain</h3>
+                <p class="card-desc" style="margin-bottom: 1rem;">Jika Anda memiliki ide atau saran untuk penambahan
+                    fitur/warna dari opsi di atas, tuliskan di sini.</p>
+                <div class="input-group" style="margin-bottom: 1.5rem;">
+                    <textarea id="customSuggestion" rows="2"
+                        placeholder="Contoh: Tolong opsi 1 warna hijaunya agak digelapkan..."
+                        style="width: 100%; padding: 0.85rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
+                </div>
+                <button class="btn btn-vote" onclick="openVoteModal('custom', this)"
+                    style="background: linear-gradient(135deg, #475569 0%, #64748b 100%); box-shadow: none;">KIRIM SARAN
+                    INI</button>
+            </div>
+        </div>
+
+        <section class="results-section">
+            <h3 class="results-title">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                </svg>
+                Live Polling Results
+            </h3>
+
+            <div class="poll-bar-container">
+                <div class="poll-bar-header">
+                    <span>Neo-Editorial</span>
+                    <span id="score-neo">0 Suara (0%)</span>
+                </div>
+                <div class="poll-bar-bg">
+                    <div class="poll-bar-fill" id="bar-neo"></div>
+                </div>
+            </div>
+
+            <div class="poll-bar-container">
+                <div class="poll-bar-header">
+                    <span>Swiss Brutalism</span>
+                    <span id="score-brutal">0 Suara (0%)</span>
+                </div>
+                <div class="poll-bar-bg">
+                    <div class="poll-bar-fill" id="bar-brutal"></div>
+                </div>
+            </div>
+
+            <div class="poll-bar-container">
+                <div class="poll-bar-header">
+                    <span>Swiss Brutalism Design</span>
+                    <span id="score-tech">0 Suara (0%)</span>
+                </div>
+                <div class="poll-bar-bg">
+                    <div class="poll-bar-fill" id="bar-tech"></div>
+                </div>
+            </div>
+
+            <div class="poll-bar-container">
+                <div class="poll-bar-header">
+                    <span>Glassmorphism</span>
+                    <span id="score-glass">0 Suara (0%)</span>
+                </div>
+                <div class="poll-bar-bg">
+                    <div class="poll-bar-fill" id="bar-glass"></div>
+                </div>
+            </div>
+
+            <div class="poll-bar-container">
+                <div class="poll-bar-header">
+                    <span>Saran / Custom</span>
+                    <span id="score-custom">0 Suara (0%)</span>
+                </div>
+                <div class="poll-bar-bg">
+                    <div class="poll-bar-fill" id="bar-custom"
+                        style="background: linear-gradient(90deg, #64748b, #94a3b8);"></div>
+                </div>
+            </div>
+
+            <div style="text-align: right; margin-top: 1rem;">
+                <a href="admin.html"
+                    style="color: var(--text-muted); font-size: 0.85rem; text-decoration: none; opacity: 0.5; transition: opacity 0.3s;">Admin
+                    Access</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Input Nama -->
+    <div class="modal-overlay" id="voteModal">
+        <div class="modal">
+            <h3>Konfirmasi Vote</h3>
+            <p>Masukkan nama Anda agar kami tahu siapa yang telah memberikan suara.</p>
+            <div class="input-group">
+                <input type="text" id="voterName" placeholder="Contoh: Budi Santoso" autocomplete="off">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-cancel" onclick="closeModal()">Batal</button>
+                <button class="btn btn-confirm" onclick="submitVote()" id="btnSubmitVote">Kirim Vote</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GANTI URL INI DENGAN URL BACKEND RENDER/VERCEL NANTINYA (jika sudah di-deploy)
+        const API_URL = 'https://backend-three-devs1.vercel.app/api';
+
+        let hasVoted = localStorage.getItem('jhicUserVoted');
+        let selectedDesign = null;
+
+        async function fetchResults() {
+            try {
+                const response = await fetch(`${API_URL}/results`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                updateChartUI(data);
+            } catch (error) {
+                console.error('Error fetching results:', error);
+                // Fallback to local storage or zero if API fails during local dev without backend running
+            }
+        }
+
+        function updateChartUI(data) {
+            const votes = {
+                neo: data.neo || 0,
+                brutal: data.brutal || 0,
+                tech: data.tech || 0,
+                glass: data.glass || 0,
+                custom: data.custom || 0
+            };
+
+            const total = votes.neo + votes.brutal + votes.tech + votes.glass + votes.custom;
+
+            const pNeo = total === 0 ? 0 : Math.round((votes.neo / total) * 100);
+            const pBrutal = total === 0 ? 0 : Math.round((votes.brutal / total) * 100);
+            const pTech = total === 0 ? 0 : Math.round((votes.tech / total) * 100);
+            const pGlass = total === 0 ? 0 : Math.round((votes.glass / total) * 100);
+            const pCustom = total === 0 ? 0 : Math.round((votes.custom / total) * 100);
+
+            document.getElementById('bar-neo').style.width = pNeo + '%';
+            document.getElementById('score-neo').innerText = `${votes.neo} Suara (${pNeo}%)`;
+
+            document.getElementById('bar-brutal').style.width = pBrutal + '%';
+            document.getElementById('score-brutal').innerText = `${votes.brutal} Suara (${pBrutal}%)`;
+
+            document.getElementById('bar-tech').style.width = pTech + '%';
+            document.getElementById('score-tech').innerText = `${votes.tech} Suara (${pTech}%)`;
+
+            document.getElementById('bar-glass').style.width = pGlass + '%';
+            document.getElementById('score-glass').innerText = `${votes.glass} Suara (${pGlass}%)`;
+
+            document.getElementById('bar-custom').style.width = pCustom + '%';
+            document.getElementById('score-custom').innerText = `${votes.custom} Suara (${pCustom}%)`;
+
+            if (hasVoted) {
+                disableAllButtons(hasVoted);
+            }
+        }
+
+        function openVoteModal(designKey, btnElement) {
+            if (hasVoted) {
+                alert('Anda sudah memberikan suara!');
+                return;
+            }
+            if (designKey === 'custom') {
+                const suggestionText = document.getElementById('customSuggestion').value.trim();
+                if (!suggestionText) {
+                    alert('Harap isi saran desain terlebih dahulu!');
+                    document.getElementById('customSuggestion').focus();
+                    return;
+                }
+            }
+            selectedDesign = designKey;
+            document.getElementById('voteModal').classList.add('active');
+            document.getElementById('voterName').focus();
+        }
+
+        function closeModal() {
+            document.getElementById('voteModal').classList.remove('active');
+            selectedDesign = null;
+            document.getElementById('voterName').value = '';
+        }
+
+        async function submitVote() {
+            const nameInput = document.getElementById('voterName').value.trim();
+
+            if (!nameInput) {
+                alert('Nama tidak boleh kosong!');
+                return;
+            }
+
+            let suggestionText = '';
+            if (selectedDesign === 'custom') {
+                suggestionText = document.getElementById('customSuggestion').value.trim();
+            }
+
+            const btnSubmit = document.getElementById('btnSubmitVote');
+            btnSubmit.innerText = 'Mengirim...';
+            btnSubmit.disabled = true;
+
+            try {
+                const response = await fetch(`${API_URL}/vote`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: nameInput, design: selectedDesign, suggestion: suggestionText })
+                });
+
+                if (response.ok) {
+                    localStorage.setItem('jhicUserVoted', selectedDesign);
+                    hasVoted = selectedDesign;
+                    closeModal();
+                    fetchResults(); // Refresh data
+                } else {
+                    alert('Gagal mengirim vote. Silakan coba lagi.');
+                }
+            } catch (error) {
+                console.error('Error submitting vote:', error);
+                alert('Gagal terhubung ke server.');
+            } finally {
+                btnSubmit.innerText = 'Kirim Vote';
+                btnSubmit.disabled = false;
+            }
+        }
+
+        function disableAllButtons(votedKey) {
+            const buttons = document.querySelectorAll('.btn-vote');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(votedKey)) {
+                    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline; vertical-align:middle; margin-right:5px;"><polyline points="20 6 9 17 4 12"></polyline></svg> SUDAH DIVOTE';
+                    btn.classList.add('voted');
+                    btn.onclick = null;
+                } else {
+                    btn.style.opacity = '0.4';
+                    btn.style.cursor = 'not-allowed';
+                    btn.onclick = null;
+                }
+            });
+        }
+
+        // Auto-refresh data setiap 10 detik
+        setInterval(fetchResults, 10000);
+
+        // Initialize UI on load
+        fetchResults();
+    </script>
+</body>
+
+</html>
