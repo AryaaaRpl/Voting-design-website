@@ -282,11 +282,11 @@
 
         function getDesignName(design) {
             const map = {
-                'neo': 'Neo-Editorial',
-                'brutal': 'Swiss Brutalism',
-                'tech': 'Dark Tech SaaS',
+                'neo': 'Technical Schematic',
+                'brutal': 'Neo Editorial Corporate',
+                'tech': 'Swiss Neo Brutalism',
                 'glass': 'Clean Dark Tech',
-                'custom': 'Custom / Saran'
+                'custom': 'Custom / Saran Desain'
             };
             return map[design] || design;
         }
@@ -332,15 +332,15 @@
             statGrid.innerHTML = `
                 <div class="stat-card">
                     <div class="stat-value" style="color: #10b981;">${counts.neo}</div>
-                    <div class="stat-label">Neo-Editorial</div>
+                    <div class="stat-label">Tech Schematic</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" style="color: #f97316;">${counts.brutal}</div>
-                    <div class="stat-label">Swiss Brutal</div>
+                    <div class="stat-label">Neo Editorial</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" style="color: #8b5cf6;">${counts.tech}</div>
-                    <div class="stat-label">Dark Tech</div>
+                    <div class="stat-label">Swiss Brutalism</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" style="color: #ec4899;">${counts.glass}</div>
@@ -348,7 +348,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-value" style="color: #94a3b8;">${counts.custom}</div>
-                    <div class="stat-label">Custom/Saran</div>
+                    <div class="stat-label">Custom / Saran</div>
                 </div>
             `;
         }
