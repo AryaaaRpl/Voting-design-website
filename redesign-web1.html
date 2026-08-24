@@ -12,65 +12,65 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
 
     <style>
         /* ==========================================================================
-           1. DESIGN TOKENS - NEXT-GEN TECH-EDITORIAL & HYPER-BENTO
+           1. DESIGN TOKENS - MODERN MINIMAL
            ========================================================================== */
         :root {
-            /* Palette (Preserved & Enhanced with Alpha Tokens) */
-            --primary: #064e3b;
-            --primary-light: #0d7056;
-            --primary-dark: #022c22;
-            --primary-surface: rgba(6, 78, 59, 0.08);
-            --primary-glow: rgba(6, 78, 59, 0.28);
+            /* Palette: Blue + Yellow, flat & minimal */
+            --primary: #1e40af;
+            --primary-light: #2563eb;
+            --primary-dark: #16296b;
+            --primary-surface: rgba(30, 64, 175, 0.06);
+            --primary-glow: rgba(30, 64, 175, 0.2);
 
-            --secondary: #d97706;
-            --secondary-light: #f59e0b;
-            --secondary-surface: rgba(217, 119, 6, 0.12);
-            --secondary-glow: rgba(217, 119, 6, 0.3);
+            --secondary: #eab308;
+            --secondary-light: #facc15;
+            --secondary-surface: rgba(234, 179, 8, 0.1);
+            --secondary-glow: rgba(234, 179, 8, 0.25);
 
-            --accent-emerald: #10b981;
-            --accent-cyan: #06b6d4;
+            --accent-emerald: #facc15;
+            --accent-cyan: #3b82f6;
 
-            --bg-main: #fafaf9;
-            --bg-alt: #f5f5f4;
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
             --bg-surface-card: #ffffff;
-            --bg-dark: #141210;
-            --bg-dark-card: #1c1917;
-            --bg-dark-elevated: #24201d;
+            --bg-dark: #0f172a;
+            --bg-dark-card: #16213c;
+            --bg-dark-elevated: #1c2b4d;
 
-            --text-dark: #1c1917;
-            --text-muted: #57534e;
-            --text-subtle: #78716c;
-            --text-light: #fafaf9;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+            --text-light: #f8fafc;
 
-            --border-light: rgba(6, 78, 59, 0.12);
-            --border-card: #e7e5e4;
-            --border-dark: #332e2b;
-            --border-glow: rgba(217, 119, 6, 0.35);
+            --border-light: rgba(30, 64, 175, 0.1);
+            --border-card: #e2e8f0;
+            --border-dark: #263559;
+            --border-glow: rgba(234, 179, 8, 0.3);
 
-            --radius-xs: 6px;
-            --radius-sm: 10px;
-            --radius: 18px;
-            --radius-lg: 28px;
-            --radius-xl: 38px;
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
             --radius-full: 9999px;
 
-            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.03);
-            --shadow-card: 0 16px 36px -8px rgba(6, 78, 59, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
-            --shadow-card-hover: 0 24px 50px -12px rgba(6, 78, 59, 0.16), 0 0 0 1px rgba(6, 78, 59, 0.15);
-            --shadow-dark: 0 20px 45px rgba(0, 0, 0, 0.4);
+            --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+            --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
 
             --font-display: 'Plus Jakarta Sans', sans-serif;
-            --font-head: 'Space Grotesk', sans-serif;
+            --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
 
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.2s ease;
+            --transition-fast: all 0.15s ease;
         }
 
         /* Base Resets & Lenis Compatibility */
@@ -80,7 +80,8 @@
             box-sizing: border-box;
         }
 
-        html.lenis, html.lenis body {
+        html.lenis,
+        html.lenis body {
             height: auto;
         }
 
@@ -110,14 +111,16 @@
             color: var(--text-dark);
             line-height: 1.65;
             overflow-x: hidden;
-            letter-spacing: -0.012em;
-            background-image: 
-                radial-gradient(circle at 10% 15%, rgba(6, 78, 59, 0.035) 0%, transparent 40%),
-                radial-gradient(circle at 90% 60%, rgba(217, 119, 6, 0.04) 0%, transparent 45%);
-            background-attachment: fixed;
+            letter-spacing: -0.01em;
         }
 
-        h1, h2, h3, h4, h5, h6, .font-head {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-head {
             font-family: var(--font-head);
             font-weight: 700;
             letter-spacing: -0.03em;
@@ -199,30 +202,24 @@
             padding: 0.4rem 1rem;
             border-radius: var(--radius-full);
             font-weight: 700;
+            font-size: 0.85rem;
             color: var(--primary);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: var(--primary-surface);
             transition: var(--transition);
         }
 
         .badge span {
-            background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #a16207;
             font-weight: 800;
         }
 
         .badge-primary {
             background: var(--primary-surface);
-            /* color: var(--primary); */
-            border-color: rgba(6, 78, 59, 0.2);
         }
 
         .badge-amber {
             background: var(--secondary-surface);
-            color: var(--secondary);
-            border-color: rgba(217, 119, 6, 0.3);
+            color: #a16207;
         }
 
         .badge-dark {
@@ -236,22 +233,24 @@
             height: 8px;
             border-radius: 50%;
             background: var(--accent-emerald);
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
             animation: pulseEmerald 2s infinite;
         }
 
         @keyframes pulseEmerald {
             0% {
                 transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+                box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
             }
+
             70% {
                 transform: scale(1);
-                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+                box-shadow: 0 0 0 8px rgba(250, 204, 21, 0);
             }
+
             100% {
                 transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+                box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
             }
         }
 
@@ -277,53 +276,45 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: var(--primary);
             color: #ffffff;
-            box-shadow: 0 8px 24px -4px rgba(6, 78, 59, 0.35);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 30px -4px rgba(6, 78, 59, 0.45);
+            background: var(--primary-light);
             color: #ffffff;
         }
 
         .btn-amber {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
-            color: #ffffff;
-            box-shadow: 0 8px 24px -4px rgba(217, 119, 6, 0.35);
+            background: var(--secondary);
+            color: var(--text-dark);
         }
 
         .btn-amber:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 30px -4px rgba(217, 119, 6, 0.45);
+            background: var(--secondary-light);
         }
 
         .btn-outline {
             background: #ffffff;
             color: var(--primary);
             border: 1.5px solid var(--border-card);
-            box-shadow: var(--shadow-subtle);
         }
 
         .btn-outline:hover {
             border-color: var(--primary);
             background: var(--primary-surface);
-            transform: translateY(-2px);
         }
 
         .btn-outline-light {
-            background: rgba(255, 255, 255, 0.08);
+            background: transparent;
             color: #ffffff;
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
         }
 
         .btn-outline-light:hover {
             background: #ffffff;
             color: var(--bg-dark);
             border-color: #ffffff;
-            transform: translateY(-2px);
         }
 
         /* Section Headers */
@@ -362,7 +353,7 @@
         .bento-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-card-hover);
-            border-color: rgba(6, 78, 59, 0.25);
+            border-color: rgba(30, 58, 138, 0.25);
         }
 
         .bento-card-dark {
@@ -373,44 +364,35 @@
         }
 
         .bento-card-dark:hover {
-            border-color: rgba(217, 119, 6, 0.4);
+            border-color: rgba(234, 179, 8, 0.4);
         }
 
         /* ==========================================================================
            3. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0
            ========================================================================== */
         .header-wrapper {
-            position: fixed;
-            top: 1rem;
+            position: sticky;
+            top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 0 5%;
-            pointer-events: none;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-card);
         }
 
         .nav-island {
-            max-width: 1280px;
+            max-width: 1320px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: var(--radius-full);
-            padding: 0.65rem 1.4rem;
-            box-shadow: 0 12px 35px -8px rgba(6, 78, 59, 0.12), 0 0 0 1px rgba(6, 78, 59, 0.05);
+            padding: 1rem 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            pointer-events: auto;
             transition: var(--transition);
         }
 
         .nav-island.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(6, 78, 59, 0.1);
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
         }
 
         .brand-box {
@@ -529,7 +511,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(6, 78, 59, 0.06);
+            background: rgba(30, 58, 138, 0.06);
             border-radius: var(--radius-xs);
         }
 
@@ -603,7 +585,8 @@
             margin-bottom: 0.3rem;
         }
 
-        .drawer-links a:hover, .drawer-links a.active {
+        .drawer-links a:hover,
+        .drawer-links a.active {
             background: var(--primary-surface);
             color: var(--primary);
         }
@@ -621,37 +604,15 @@
            4. HERO SECTION - ULTRA-MODERN ASYMMETRICAL TECH-EDITORIAL
            ========================================================================== */
         .hero-section {
-            min-height: 100vh;
-            padding: 8.5rem 0 4.5rem;
+            padding: 6rem 0 5rem;
             position: relative;
             display: flex;
             align-items: center;
-            overflow: hidden;
         }
 
-        /* Floating mesh ambient orbs */
-        .hero-glow-1 {
-            position: absolute;
-            top: 8%;
-            left: -5%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(6, 78, 59, 0.1) 0%, rgba(6, 78, 59, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            filter: blur(40px);
-        }
-
+        .hero-glow-1,
         .hero-glow-2 {
-            position: absolute;
-            bottom: 5%;
-            right: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            filter: blur(40px);
+            display: none;
         }
 
         .hero-grid {
@@ -675,7 +636,7 @@
         }
 
         .hero-headline .highlight-amber {
-            background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, #ca8a04 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -697,7 +658,7 @@
             border: 1.5px solid var(--border-card);
             border-radius: var(--radius-full);
             padding: 0.4rem 0.5rem 0.4rem 1.4rem;
-            box-shadow: 0 12px 30px -6px rgba(6, 78, 59, 0.1);
+            box-shadow: 0 12px 30px -6px rgba(30, 58, 138, 0.1);
             max-width: 540px;
             margin-bottom: 2rem;
             transition: var(--transition);
@@ -705,7 +666,7 @@
 
         .hero-search-pill:focus-within {
             border-color: var(--primary);
-            box-shadow: 0 16px 36px -6px rgba(6, 78, 59, 0.2);
+            box-shadow: 0 16px 36px -6px rgba(30, 58, 138, 0.2);
             transform: translateY(-2px);
         }
 
@@ -752,7 +713,7 @@
             border: 1px solid var(--border-card);
             border-radius: var(--radius-xl);
             padding: 2rem;
-            box-shadow: 0 24px 60px -15px rgba(6, 78, 59, 0.15), 0 0 0 1px rgba(6, 78, 59, 0.05);
+            box-shadow: var(--shadow-card);
             position: relative;
         }
 
@@ -776,9 +737,17 @@
             border-radius: 50%;
         }
 
-        .hub-mac-dot.red { background: #ef4444; }
-        .hub-mac-dot.amber { background: #f59e0b; }
-        .hub-mac-dot.emerald { background: #10b981; }
+        .hub-mac-dot.red {
+            background: #ef4444;
+        }
+
+        .hub-mac-dot.amber {
+            background: #facc15;
+        }
+
+        .hub-mac-dot.emerald {
+            background: #facc15;
+        }
 
         .hub-live-badge {
             font-family: var(--font-mono);
@@ -836,6 +805,7 @@
                 opacity: 0;
                 transform: translateY(8px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -855,10 +825,10 @@
         }
 
         .hub-feature-row:hover {
-            border-color: rgba(6, 78, 59, 0.3);
+            border-color: rgba(30, 58, 138, 0.3);
             background: #ffffff;
             transform: translateX(4px);
-            box-shadow: 0 8px 20px rgba(6, 78, 59, 0.06);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.06);
         }
 
         .hub-icon-wrap {
@@ -882,7 +852,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-card-hover);
             z-index: 10;
             animation: floatHeroBadge 4s ease-in-out infinite;
         }
@@ -899,9 +869,12 @@
         }
 
         @keyframes floatHeroBadge {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-8px);
             }
@@ -940,6 +913,107 @@
             margin: 0 auto;
             line-height: 1.4;
             letter-spacing: -0.025em;
+        }
+
+        /* ---- Text Scroll Reveal (skiper31-style, word by word) ---- */
+        .sr-word {
+            display: inline-block;
+            opacity: 0.18;
+            filter: blur(2px);
+            transform: translateY(0.12em);
+            will-change: opacity, filter, transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .sr-word {
+                opacity: 1 !important;
+                filter: none !important;
+                transform: none !important;
+            }
+        }
+
+        /* ---- Parallax Layers ---- */
+        [data-parallax] {
+            will-change: transform;
+        }
+
+        .px-stage {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .px-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.5;
+        }
+
+        .px-orb-blue {
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.5) 0%, rgba(37, 99, 235, 0) 70%);
+        }
+
+        .px-orb-amber {
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.42) 0%, rgba(234, 179, 8, 0) 70%);
+        }
+
+        .px-grid {
+            position: absolute;
+            inset: -20% -10%;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse at center, #000 20%, transparent 72%);
+            -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 72%);
+        }
+
+        .px-grid-dark {
+            background-image:
+                linear-gradient(to right, rgba(30, 64, 175, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 64, 175, 0.07) 1px, transparent 1px);
+        }
+
+        .px-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .hero-section,
+        .majors-section,
+        .blud-section,
+        .bkk-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid,
+        .majors-section .container,
+        .blud-section .container,
+        .stats-section .container,
+        .bkk-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 900px) {
+            .px-orb {
+                opacity: 0.3;
+            }
+
+            .px-ring {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .px-stage {
+                display: none;
+            }
         }
 
         .marquee-section {
@@ -1002,7 +1076,7 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            box-shadow: 0 20px 45px rgba(6, 78, 59, 0.2);
+            box-shadow: var(--shadow-card);
         }
 
         .executive-photo-frame img {
@@ -1063,8 +1137,7 @@
         }
 
         .why-bento-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(6, 78, 59, 0.3);
+            border-color: rgba(30, 58, 138, 0.3);
             box-shadow: var(--shadow-card-hover);
         }
 
@@ -1108,7 +1181,7 @@
            ========================================================================== */
         .stats-section {
             padding: 4.5rem 0;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #053b2d 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1e3a8a 100%);
             color: #ffffff;
             position: relative;
             overflow: hidden;
@@ -1186,7 +1259,7 @@
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
-            box-shadow: 0 8px 24px -4px rgba(6, 78, 59, 0.35);
+            box-shadow: none;
         }
 
         .major-tab-pane {
@@ -1203,6 +1276,7 @@
                 opacity: 0;
                 transform: translateY(12px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1224,7 +1298,7 @@
 
         .major-hero-icon-box {
             height: 300px;
-            background: linear-gradient(135deg, var(--primary-surface) 0%, rgba(217, 119, 6, 0.08) 100%);
+            background: linear-gradient(135deg, var(--primary-surface) 0%, rgba(234, 179, 8, 0.08) 100%);
             border-radius: var(--radius-lg);
             display: flex;
             flex-direction: column;
@@ -1238,7 +1312,7 @@
         .major-hero-icon-box .big-emoji {
             font-size: 6rem;
             margin-bottom: 1rem;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
         }
 
         .skills-chip-row {
@@ -1299,7 +1373,7 @@
             right: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 70%);
             filter: blur(50px);
             pointer-events: none;
             z-index: 1;
@@ -1326,7 +1400,7 @@
             top: 12px;
             bottom: 12px;
             width: 3px;
-            background: rgba(6, 78, 59, 0.12);
+            background: rgba(30, 58, 138, 0.12);
             border-radius: 4px;
             overflow: hidden;
         }
@@ -1336,7 +1410,7 @@
             height: 0%;
             background: linear-gradient(to bottom, var(--secondary) 0%, var(--primary) 100%);
             border-radius: 4px;
-            box-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
             transition: height 0.1s linear;
         }
 
@@ -1355,7 +1429,7 @@
         .timeline-card:hover {
             border-color: var(--primary);
             transform: translateX(8px) scale(1.02);
-            box-shadow: 0 14px 30px rgba(6, 78, 59, 0.1);
+            box-shadow: 0 14px 30px rgba(30, 58, 138, 0.1);
         }
 
         .timeline-card::before {
@@ -1368,7 +1442,7 @@
             border-radius: 50%;
             background: #ffffff;
             border: 3.5px solid var(--secondary);
-            box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.2);
+            box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
             transition: all 0.3s;
             z-index: 3;
         }
@@ -1376,7 +1450,7 @@
         .timeline-card:hover::before {
             background: var(--secondary);
             transform: scale(1.2);
-            box-shadow: 0 0 0 6px rgba(217, 119, 6, 0.35);
+            box-shadow: 0 0 0 6px rgba(234, 179, 8, 0.35);
         }
 
         .testi-parallax-wrapper {
@@ -1389,7 +1463,7 @@
             color: #ffffff;
             border-radius: var(--radius-xl);
             padding: 3.5rem 3rem;
-            box-shadow: 0 25px 50px -12px rgba(6, 78, 59, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-dark);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -1406,7 +1480,7 @@
             right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -1491,11 +1565,11 @@
         }
 
         .ppdb-live-card {
-            background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, #ca8a04 100%);
             color: #ffffff;
             border-radius: var(--radius-xl);
             padding: 3rem 2.5rem;
-            box-shadow: 0 24px 50px -10px rgba(217, 119, 6, 0.4);
+            box-shadow: var(--shadow-card);
             text-align: center;
         }
 
@@ -1657,7 +1731,8 @@
             color: var(--text-dark);
         }
 
-        .news-filter-list a:hover, .news-filter-list a.active {
+        .news-filter-list a:hover,
+        .news-filter-list a.active {
             background: var(--primary-surface);
             color: var(--primary);
         }
@@ -1687,7 +1762,7 @@
 
         .article-thumb {
             height: 140px;
-            background: linear-gradient(135deg, var(--primary-surface) 0%, rgba(217, 119, 6, 0.1) 100%);
+            background: linear-gradient(135deg, var(--primary-surface) 0%, rgba(234, 179, 8, 0.1) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1767,7 +1842,7 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: #ffffff;
             border: none;
-            box-shadow: 0 12px 30px rgba(6, 78, 59, 0.4);
+            box-shadow: var(--shadow-card-hover);
             font-size: 1.6rem;
             cursor: pointer;
             z-index: 1000;
@@ -1790,7 +1865,7 @@
             background: #ffffff;
             border: 1px solid var(--border-card);
             border-radius: var(--radius-xl);
-            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
+            box-shadow: var(--shadow-card-hover);
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -1827,7 +1902,7 @@
             gap: 0.8rem;
             background: var(--bg-alt);
             scrollbar-width: thin;
-            scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+            scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
         }
 
         .chat-body::-webkit-scrollbar {
@@ -1835,7 +1910,7 @@
         }
 
         .chat-body::-webkit-scrollbar-track {
-            background: rgba(6, 78, 59, 0.03);
+            background: rgba(30, 58, 138, 0.03);
         }
 
         .chat-body::-webkit-scrollbar-thumb {
@@ -1855,7 +1930,7 @@
             background: #ffffff;
             color: var(--text-dark);
             border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             align-self: flex-start;
         }
 
@@ -1920,6 +1995,7 @@
            14. RESPONSIVE BREAKPOINTS
            ========================================================================== */
         @media (max-width: 1024px) {
+
             .hero-grid,
             .executive-card,
             .major-spotlight-card,
@@ -1934,7 +2010,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .why-col-8, .why-col-4, .why-col-6 {
+            .why-col-8,
+            .why-col-4,
+            .why-col-6 {
                 grid-column: span 1;
             }
 
@@ -2010,7 +2088,7 @@
                 <img src="assets/logo.webp" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo">
                 <div>
                     <div class="brand-text-main">SMKS MUHI GENTENG</div>
-                    <div class="brand-text-sub">Vocational Center of Excellence</div>
+                    <div class="brand-text-sub">The Answer For Your Future</div>
                 </div>
             </a>
 
@@ -2027,34 +2105,38 @@
                             <span class="dropdown-icon">🎯</span>
                             <div>
                                 <div>Visi & Misi</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan Lembaga</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan
+                                    Lembaga</small>
                             </div>
                         </a>
                         <a href="fasilitas.html" class="dropdown-item">
                             <span class="dropdown-icon">🏢</span>
                             <div>
                                 <div>Fasilitas Kampus</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang Belajar</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang
+                                    Belajar</small>
                             </div>
                         </a>
                         <a href="ekstrakurikuler.html" class="dropdown-item">
                             <span class="dropdown-icon">⚽</span>
                             <div>
                                 <div>Ekstrakurikuler & IPM</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni & Karakter</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni &
+                                    Karakter</small>
                             </div>
                         </a>
                         <a href="prestasi.html" class="dropdown-item">
                             <span class="dropdown-icon">🏆</span>
                             <div>
                                 <div>Galeri Prestasi</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan Nasional</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan
+                                    Nasional</small>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <a href="#jurusan" class="nav-link">8 Jurusan</a>
+                <a href="#jurusan" class="nav-link">Konsentrasi Keahlian</a>
 
                 <!-- Karir & BLUD Dropdown -->
                 <div class="nav-item">
@@ -2066,21 +2148,24 @@
                             <span class="dropdown-icon">🏬</span>
                             <div>
                                 <div>Unit Produksi BLUD</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Produk & Layanan Siswa</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Produk & Layanan
+                                    Siswa</small>
                             </div>
                         </a>
                         <a href="#bkk" class="dropdown-item">
                             <span class="dropdown-icon">💼</span>
                             <div>
                                 <div>Bursa Kerja Khusus (BKK)</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Info Karir & Mitra DUDI</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Info Karir & Mitra
+                                    DUDI</small>
                             </div>
                         </a>
                     </div>
                 </div>
 
                 <a href="berita.html" class="nav-link">Berita</a>
-                <a href="#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
+                <a href="#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar
+                    PPDB</a>
             </div>
 
             <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
@@ -2116,15 +2201,21 @@
             <a href="#bkk">💼 Bursa Kerja Khusus (BKK)</a>
 
             <div style="margin-top: 1.5rem;">
-                <a href="#ppdb" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center;">Daftar PPDB 2026</a>
+                <a href="#ppdb" class="btn btn-primary"
+                    style="width: 100%; text-align: center; justify-content: center;">Daftar PPDB 2026</a>
             </div>
         </div>
     </div>
 
     <!-- 2. HERO SECTION - NEXT-GEN ASYMMETRICAL TECH-EDITORIAL -->
     <section class="hero-section" id="hero">
-        <div class="hero-glow-1"></div>
-        <div class="hero-glow-2"></div>
+        <div class="px-stage" aria-hidden="true">
+            <div class="px-grid px-grid-dark" data-parallax="0.10"></div>
+            <div class="px-orb px-orb-blue" style="width:520px; height:520px; top:-140px; left:-120px;"
+                data-parallax="0.28"></div>
+            <div class="px-orb px-orb-amber" style="width:420px; height:420px; bottom:-160px; right:-100px;"
+                data-parallax="-0.22"></div>
+        </div>
 
         <div class="container">
             <div class="hero-grid">
@@ -2141,7 +2232,9 @@
                     <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
                         <div>
                             <p class="hero-lead">
-                                Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi. Mengintegrasikan kurikulum berbasis proyek DUDI, lisensi kompetensi BNSP, dan penanaman akhlak Islami berkemajuan.
+                                Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi. Mengintegrasikan
+                                kurikulum berbasis proyek DUDI, lisensi kompetensi BNSP, dan penanaman akhlak Islami
+                                berkemajuan.
                             </p>
 
                             <div class="hero-actions">
@@ -2164,7 +2257,7 @@
                         d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z M50 20 L65 35 L80 50 L65 65 L50 80 L35 65 L20 50 L35 35 Z" />
                 </svg>
             </div>
-            <div class="signature-text font-display">
+            <div class="signature-text font-display" data-scroll-reveal>
                 "Sinergi Keahlian Vokasi, Karakter Islami, & Sertifikasi BNSP Menuju Generasi Emas"
             </div>
         </div>
@@ -2198,16 +2291,22 @@
                 <div class="executive-photo-frame">
                     <img src="assets/PAK-WAHID-AI-e1781064934191.png" alt="Kepala Sekolah Wahid Wahyudi S.E. M.M.">
                     <div class="executive-photo-badge">
-                        <strong style="display:block; color:var(--primary); font-size:1.05rem;">Wahid Wahyudi, S.E., M.M.</strong>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">Kepala Sekolah SMKS Muhammadiyah 1 Genteng</span>
+                        <strong style="display:block; color:var(--primary); font-size:1.05rem;">Wahid Wahyudi, S.E.,
+                            M.M.</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Kepala Sekolah SMKS Muhammadiyah 1
+                            Genteng</span>
                     </div>
                 </div>
 
                 <div>
                     <div class="badge badge-amber mb-2" style="margin-bottom:1rem;">Sambutan Pimpinan Lembaga</div>
-                    <h3 class="executive-quote">"Sekolah yang baik adalah sekolah yang mengantar siswanya sampai ke tujuan, bukan hanya sampai ke ijazah."</h3>
-                    <p class="executive-bio-text">
-                        Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap secara teknis dan adaptif terhadap revolusi industri, tetapi juga memiliki fondasi akhlak Islami yang kokoh. Di SMKS MUHI Genteng, setiap siswa dibekali sertifikasi kompetensi resmi BNSP melalui LSP-P1, kurikulum berbasis industri, dan ruang aktualisasi wirausaha nyata.
+                    <h3 class="executive-quote">"Sekolah yang baik adalah sekolah yang mengantar siswanya sampai ke
+                        tujuan, bukan hanya sampai ke ijazah."</h3>
+                    <p class="executive-bio-text" data-scroll-reveal>
+                        Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap secara teknis dan adaptif
+                        terhadap revolusi industri, tetapi juga memiliki fondasi akhlak Islami yang kokoh. Di SMKS MUHI
+                        Genteng, setiap siswa dibekali sertifikasi kompetensi resmi BNSP melalui LSP-P1, kurikulum
+                        berbasis industri, dan ruang aktualisasi wirausaha nyata.
                     </p>
                     <div class="flex" style="gap:1rem; flex-wrap:wrap;">
                         <a href="visi-misi.html" class="btn btn-outline">Visi & Misi Sekolah &rarr;</a>
@@ -2221,9 +2320,12 @@
                 <div class="why-bento-card why-col-8">
                     <div>
                         <div class="badge badge-dark mb-2" style="margin-bottom:1.5rem;">Pilar Utama</div>
-                        <h3 class="font-display" style="font-size:2rem; margin-bottom:1rem; line-height:1.2;">Kemitraan Industri Kuat (DUDI)</h3>
+                        <h3 class="font-display" style="font-size:2rem; margin-bottom:1rem; line-height:1.2;">Kemitraan
+                            Industri Kuat (DUDI)</h3>
                         <p style="opacity: 0.92; line-height:1.7; font-size:1.05rem; max-width:650px;">
-                            Kurikulum disinkronisasi bersama 24+ mitra industri nasional (Semesta Multitekno, Hummatech, Astra Motor, Bank Jatim Syariah). Memastikan keahlian relevan dan peluang magang langsung di lini industri terdepan.
+                            Kurikulum disinkronisasi bersama 24+ mitra industri nasional (Semesta Multitekno, Hummatech,
+                            Astra Motor, Bank Jatim Syariah). Memastikan keahlian relevan dan peluang magang langsung di
+                            lini industri terdepan.
                         </p>
                     </div>
                     <div style="margin-top: 2rem;">
@@ -2233,26 +2335,34 @@
 
                 <div class="why-bento-card why-col-4">
                     <div class="why-icon-box">📜</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">LSP-P1 Berlisensi BNSP</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Memiliki Lembaga Sertifikasi Profesi Pihak Kesatu terlisensi resmi BNSP untuk menguji standar kompetensi kerja nasional.</p>
+                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">LSP-P1
+                        Berlisensi BNSP</h4>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Memiliki Lembaga Sertifikasi
+                        Profesi Pihak Kesatu terlisensi resmi BNSP untuk menguji standar kompetensi kerja nasional.</p>
                 </div>
 
                 <div class="why-bento-card why-col-4">
                     <div class="why-icon-box">💡</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">Teaching Factory</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Pembelajaran kontekstual mengerjakan pesanan riil dari klien, membangun portofolio profesional sejak dini.</p>
+                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">
+                        Teaching Factory</h4>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Pembelajaran kontekstual
+                        mengerjakan pesanan riil dari klien, membangun portofolio profesional sejak dini.</p>
                 </div>
 
                 <div class="why-bento-card why-col-4">
                     <div class="why-icon-box">🏬</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">Unit BLUD Mandiri</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Wadah siswa berlatih wirausaha mandiri dan mengelola bisnis profesional berizin resmi di sekolah.</p>
+                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">Unit
+                        BLUD Mandiri</h4>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Wadah siswa berlatih
+                        wirausaha mandiri dan mengelola bisnis profesional berizin resmi di sekolah.</p>
                 </div>
 
                 <div class="why-bento-card why-col-4">
                     <div class="why-icon-box">🕌</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">Karakter Islami IPM</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Penanaman nilai integritas, etos kerja tinggi, dan akhlakul karimah melalui pembinaan Ikatan Pelajar Muhammadiyah.</p>
+                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">
+                        Karakter Islami IPM</h4>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Penanaman nilai integritas,
+                        etos kerja tinggi, dan akhlakul karimah melalui pembinaan Ikatan Pelajar Muhammadiyah.</p>
                 </div>
             </div>
         </div>
@@ -2260,6 +2370,14 @@
 
     <!-- 6. COUNTER STATS STRIP -->
     <section class="stats-section">
+        <div class="px-stage" aria-hidden="true">
+            <div class="px-grid" data-parallax="0.16"></div>
+            <div class="px-ring" style="width:520px; height:520px; top:-180px; left:8%;" data-parallax="0.30"></div>
+            <div class="px-ring" style="width:340px; height:340px; bottom:-140px; right:12%;" data-parallax="-0.24">
+            </div>
+            <div class="px-orb px-orb-amber" style="width:360px; height:360px; top:-120px; right:-80px;"
+                data-parallax="0.34"></div>
+        </div>
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -2284,18 +2402,27 @@
 
     <!-- 7. 8 VOCATIONAL MAJORS - HYPER-BENTO MATRIX -->
     <section class="majors-section" id="jurusan">
+        <div class="px-stage" aria-hidden="true">
+            <div class="px-grid px-grid-dark" data-parallax="0.09"></div>
+            <div class="px-orb px-orb-blue" style="width:460px; height:460px; top:6%; left:-180px; opacity:0.28;"
+                data-parallax="0.20"></div>
+        </div>
         <div class="container">
             <div class="text-center section-header">
                 <div class="badge badge-primary mb-2">Konsentrasi Keahlian</div>
                 <h2 class="section-title">8 Program Keahlian Vokasi Industri</h2>
-                <p class="section-desc" style="margin: 0 auto;">Spesialisasi kejuruan yang dirancang sesuai standar SKKNI dan kebutuhan transformasi digital masa kini.</p>
+                <p class="section-desc" style="margin: 0 auto;">Spesialisasi kejuruan yang dirancang sesuai standar
+                    SKKNI dan kebutuhan transformasi digital masa kini.</p>
             </div>
 
             <!-- Tab Switcher Navigation -->
             <div class="majors-nav-pills">
-                <button class="major-nav-btn active" data-target="rpl" onclick="switchMajorTab('rpl', this)">💻 RPL (Software Dev)</button>
-                <button class="major-nav-btn" data-target="tkj" onclick="switchMajorTab('tkj', this)">🌐 TKJ (Jaringan & Cloud)</button>
-                <button class="major-nav-btn" data-target="mm" onclick="switchMajorTab('mm', this)">🎬 DKV (Desain & Video)</button>
+                <button class="major-nav-btn active" data-target="rpl" onclick="switchMajorTab('rpl', this)">💻 RPL
+                    (Software Dev)</button>
+                <button class="major-nav-btn" data-target="tkj" onclick="switchMajorTab('tkj', this)">🌐 TKJ (Jaringan &
+                    Cloud)</button>
+                <button class="major-nav-btn" data-target="mm" onclick="switchMajorTab('mm', this)">🎬 DKV (Desain &
+                    Video)</button>
             </div>
 
             <!-- Pane 1: RPL -->
@@ -2307,9 +2434,12 @@
                     </div>
                     <div>
                         <div class="badge badge-amber mb-2">Unggulan Digital</div>
-                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">Rekayasa Perangkat Lunak (RPL)</h3>
+                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">
+                            Rekayasa Perangkat Lunak (RPL)</h3>
                         <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7;">
-                            Fokus pada pengembangan aplikasi web modern, mobile apps, database arsitektur, dan logika komputasi. Siswa dibekali kemampuan membangun solusi software siap pakai untuk ekosistem industri digital.
+                            Fokus pada pengembangan aplikasi web modern, mobile apps, database arsitektur, dan logika
+                            komputasi. Siswa dibekali kemampuan membangun solusi software siap pakai untuk ekosistem
+                            industri digital.
                         </p>
 
                         <div class="skills-chip-row">
@@ -2319,8 +2449,11 @@
                             <span class="skill-tag">Git & CI/CD</span>
                         </div>
 
-                        <div style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
-                            <strong>Prospek Karir:</strong> <span style="color:var(--secondary); font-weight:700;">Software Engineer, Web Developer, Mobile App Developer, QA Tester</span>
+                        <div
+                            style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
+                            <strong>Prospek Karir:</strong> <span
+                                style="color:var(--secondary); font-weight:700;">Software Engineer, Web Developer,
+                                Mobile App Developer, QA Tester</span>
                         </div>
                     </div>
                 </div>
@@ -2335,9 +2468,11 @@
                     </div>
                     <div>
                         <div class="badge badge-amber mb-2">Infrastruktur Cyber</div>
-                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">Teknik Komputer & Jaringan (TKJ)</h3>
+                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">
+                            Teknik Komputer & Jaringan (TKJ)</h3>
                         <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7;">
-                            Mencetak arsitek infrastruktur digital yang handal menangani routing-switching enterprise, fiber optic splicing, administrasi Linux server/Cloud, dan keamanan jaringan cyber.
+                            Mencetak arsitek infrastruktur digital yang handal menangani routing-switching enterprise,
+                            fiber optic splicing, administrasi Linux server/Cloud, dan keamanan jaringan cyber.
                         </p>
 
                         <div class="skills-chip-row">
@@ -2347,8 +2482,11 @@
                             <span class="skill-tag">Network Security</span>
                         </div>
 
-                        <div style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
-                            <strong>Prospek Karir:</strong> <span style="color:var(--secondary); font-weight:700;">Network Administrator, IT Infrastructure Engineer, Fiber Optic Specialist, SysAdmin</span>
+                        <div
+                            style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
+                            <strong>Prospek Karir:</strong> <span
+                                style="color:var(--secondary); font-weight:700;">Network Administrator, IT
+                                Infrastructure Engineer, Fiber Optic Specialist, SysAdmin</span>
                         </div>
                     </div>
                 </div>
@@ -2363,9 +2501,12 @@
                     </div>
                     <div>
                         <div class="badge badge-amber mb-2">Media & Cinematography</div>
-                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">Desain Komunikasi Visual (DKV)</h3>
+                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">
+                            Desain Komunikasi Visual (DKV)</h3>
                         <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7;">
-                            Mengeksplorasi kreativitas visual tanpa batas. Membangun portofolio profesional dalam desain grafis komersial, videografi sinematik, animasi, motion graphics, dan strategi branding media sosial.
+                            Mengeksplorasi kreativitas visual tanpa batas. Membangun portofolio profesional dalam desain
+                            grafis komersial, videografi sinematik, animasi, motion graphics, dan strategi branding
+                            media sosial.
                         </p>
 
                         <div class="skills-chip-row">
@@ -2375,8 +2516,11 @@
                             <span class="skill-tag">Content Strategy</span>
                         </div>
 
-                        <div style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
-                            <strong>Prospek Karir:</strong> <span style="color:var(--secondary); font-weight:700;">Graphic Designer, Video Editor, Motion Designer, Creative Director</span>
+                        <div
+                            style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
+                            <strong>Prospek Karir:</strong> <span
+                                style="color:var(--secondary); font-weight:700;">Graphic Designer, Video Editor, Motion
+                                Designer, Creative Director</span>
                         </div>
                     </div>
                 </div>
@@ -2387,17 +2531,22 @@
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">💼</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Bisnis Digital</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">E-commerce management, digital marketing, marketplace SEO, dan analisis bisnis online.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
+                            Bisnis Digital</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">E-commerce management,
+                            digital marketing, marketplace SEO, dan analisis bisnis online.</p>
                     </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Bisnis & Manajemen</span>
+                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Bisnis &
+                        Manajemen</span>
                 </div>
 
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">📊</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Akuntansi Lembaga (AKL)</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Komputer akuntansi (MYOB/Accurate), perpajakan, audit pembukuan, dan perbankan syariah.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
+                            Akuntansi Lembaga (AKL)</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Komputer akuntansi
+                            (MYOB/Accurate), perpajakan, audit pembukuan, dan perbankan syariah.</p>
                     </div>
                     <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Keuangan</span>
                 </div>
@@ -2405,26 +2554,34 @@
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏢</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Manajemen Perkantoran (MPLB)</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Administrasi perkantoran modern, digital archiving, tata kelola humas, dan kesekretariatan.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
+                            Manajemen Perkantoran (MPLB)</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Administrasi perkantoran
+                            modern, digital archiving, tata kelola humas, dan kesekretariatan.</p>
                     </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Layanan Bisnis</span>
+                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Layanan
+                        Bisnis</span>
                 </div>
 
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏨</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Perhotelan & Hospitality</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Front office, housekeeping berstandar bintang lima, food and beverage service, dan hospitality.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
+                            Perhotelan & Hospitality</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Front office,
+                            housekeeping berstandar bintang lima, food and beverage service, dan hospitality.</p>
                     </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Pariwisata</span>
+                    <span class="badge badge-primary"
+                        style="margin-top:1.2rem; align-self:flex-start;">Pariwisata</span>
                 </div>
 
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">🍰</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Tata Boga / Kuliner</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Keahlian bakery & pastry, pengolahan makanan nusantara & kontinental, hygiene sanitasi halal.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Tata
+                            Boga / Kuliner</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Keahlian bakery &
+                            pastry, pengolahan makanan nusantara & kontinental, hygiene sanitasi halal.</p>
                     </div>
                     <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Kuliner</span>
                 </div>
@@ -2432,8 +2589,10 @@
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏍️</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Teknik Sepeda Motor (TBSM)</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Perawatan mesin injeksi, kelistrikan, diagnosis kerusakan berstandar bengkel resmi Astra Honda.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
+                            Teknik Sepeda Motor (TBSM)</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Perawatan mesin injeksi,
+                            kelistrikan, diagnosis kerusakan berstandar bengkel resmi Astra Honda.</p>
                     </div>
                     <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Otomotif</span>
                 </div>
@@ -2441,8 +2600,10 @@
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏦</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Perbankan Syariah</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Prinsip akad syariah, operasional teller dan customer service lembaga keuangan mikro syariah.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
+                            Perbankan Syariah</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Prinsip akad syariah,
+                            operasional teller dan customer service lembaga keuangan mikro syariah.</p>
                     </div>
                     <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Syariah</span>
                 </div>
@@ -2450,8 +2611,10 @@
                 <div class="major-mini-card">
                     <div>
                         <div style="font-size:2.2rem; margin-bottom:0.8rem;">🤝</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Teaching Factory Kolaboratif</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Proyek kolaborasi lintas jurusan memproduksi produk unggulan untuk pasar komersial.</p>
+                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
+                            Teaching Factory Kolaboratif</h4>
+                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Proyek kolaborasi lintas
+                            jurusan memproduksi produk unggulan untuk pasar komersial.</p>
                     </div>
                     <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Inovasi</span>
                 </div>
@@ -2469,7 +2632,8 @@
                     <div class="badge badge-amber mb-2" style="margin-bottom:1rem;">Tradisi Kejuaraan</div>
                     <h2 class="section-title">Jejak Prestasi Siswa SMKS MUHI</h2>
                     <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7; margin-bottom:2rem;">
-                        Komitmen nyata dalam mengasah bakat akademik, teknologi rekayasa, seni, dan bela diri hingga podium tertinggi nasional.
+                        Komitmen nyata dalam mengasah bakat akademik, teknologi rekayasa, seni, dan bela diri hingga
+                        podium tertinggi nasional.
                     </p>
 
                     <div class="timeline-box">
@@ -2479,22 +2643,29 @@
 
                         <div class="timeline-card prestasi-item">
                             <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juli 2026</span>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara Umum ME Awards 2026</h4>
-                            <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Nasional (Muhammadiyah Education Awards)</p>
+                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara
+                                Umum ME Awards 2026</h4>
+                            <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Nasional (Muhammadiyah
+                                Education Awards)</p>
                         </div>
                         <div class="timeline-card prestasi-item">
                             <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juni 2026</span>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara 3 Taekwondo Kejurprov Pelajar</h4>
-                            <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Provinsi Jawa Timur (Malang)</p>
+                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara
+                                3 Taekwondo Kejurprov Pelajar</h4>
+                            <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Provinsi Jawa Timur (Malang)
+                            </p>
                         </div>
                         <div class="timeline-card prestasi-item">
                             <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Mei 2026</span>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Perwakilan Lomba Inovasi Digital Nasional</h4>
-                            <p style="font-size:0.9rem; color:var(--text-muted);">Aplikasi Manajemen Vokasi Terpadu (Tim RPL)</p>
+                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">
+                                Perwakilan Lomba Inovasi Digital Nasional</h4>
+                            <p style="font-size:0.9rem; color:var(--text-muted);">Aplikasi Manajemen Vokasi Terpadu (Tim
+                                RPL)</p>
                         </div>
                     </div>
 
-                    <a href="prestasi.html" class="btn btn-outline" style="margin-top:1.5rem;">Lihat Galeri Prestasi Lengkap &rarr;</a>
+                    <a href="prestasi.html" class="btn btn-outline" style="margin-top:1.5rem;">Lihat Galeri Prestasi
+                        Lengkap &rarr;</a>
                 </div>
 
                 <!-- Right: Testimonial Alumni Parallax Card -->
@@ -2506,18 +2677,23 @@
 
                         <div>
                             <div class="testi-quote-mark">“</div>
-                            <p style="font-size:1.28rem; font-style:italic; line-height:1.75; opacity:0.95; font-weight:400;">
-                                "Magang di jurusan RPL membuat saya langsung diterima kerja sebagai junior developer di software house mitra sekolah, dua minggu setelah kelulusan!"
+                            <p
+                                style="font-size:1.28rem; font-style:italic; line-height:1.75; opacity:0.95; font-weight:400;">
+                                "Magang di jurusan RPL membuat saya langsung diterima kerja sebagai junior developer di
+                                software house mitra sekolah, dua minggu setelah kelulusan!"
                             </p>
                         </div>
 
                         <div class="flex items-center" style="gap:1.2rem; margin-top:2.8rem;">
-                            <div style="width:56px; height:56px; background:rgba(255,255,255,0.18); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.15rem; border:2px solid rgba(255,255,255,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <div
+                                style="width:56px; height:56px; background:rgba(255,255,255,0.18); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.15rem; border:2px solid rgba(255,255,255,0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                                 RPL
                             </div>
                             <div>
-                                <strong style="display:block; font-size:1.1rem; color:#ffffff;">Ahmad Rizqi Pratama</strong>
-                                <span style="font-size:0.85rem; color:rgba(255,255,255,0.85);">Junior Web Developer &bull; PT Digital Kreatif Nusantara</span>
+                                <strong style="display:block; font-size:1.1rem; color:#ffffff;">Ahmad Rizqi
+                                    Pratama</strong>
+                                <span style="font-size:0.85rem; color:rgba(255,255,255,0.85);">Junior Web Developer
+                                    &bull; PT Digital Kreatif Nusantara</span>
                             </div>
                         </div>
                     </div>
@@ -2532,7 +2708,8 @@
             <div class="text-center section-header">
                 <div class="badge badge-amber mb-2">Tahun Ajaran 2026/2027</div>
                 <h2 class="section-title">Penerimaan Peserta Didik Baru (PPDB)</h2>
-                <p class="section-desc" style="margin: 0 auto;">Wujudkan cita-cita kejuruan masa depan Anda bersama SMKS Muhammadiyah 1 Genteng.</p>
+                <p class="section-desc" style="margin: 0 auto;">Wujudkan cita-cita kejuruan masa depan Anda bersama SMKS
+                    Muhammadiyah 1 Genteng.</p>
             </div>
 
             <div class="ppdb-wrapper">
@@ -2541,50 +2718,68 @@
                     <div class="step-card">
                         <div class="step-number-box">1</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">Isi Formulir Online</h4>
-                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Lengkapi data calon siswa secara online melalui formulir resmi PPDB SMKS MUHI.</p>
+                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Isi Formulir Online</h4>
+                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Lengkapi data calon
+                                siswa secara online melalui formulir resmi PPDB SMKS MUHI.</p>
                         </div>
                     </div>
 
                     <div class="step-card">
                         <div class="step-number-box">2</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">Unggah Berkas Persyaratan</h4>
-                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Siapkan scan pas foto, Kartu Keluarga, SKHUN/Ijazah, dan piagam prestasi (jalur beasiswa).</p>
+                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Unggah Berkas Persyaratan</h4>
+                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Siapkan scan pas
+                                foto, Kartu Keluarga, SKHUN/Ijazah, dan piagam prestasi (jalur beasiswa).</p>
                         </div>
                     </div>
 
                     <div class="step-card">
                         <div class="step-number-box">3</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">Verifikasi Panitia</h4>
-                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Panitia PPDB akan memvalidasi data dan mengonfirmasi jurusan pilihan Anda dalam 1x24 jam.</p>
+                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Verifikasi Panitia</h4>
+                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Panitia PPDB akan
+                                memvalidasi data dan mengonfirmasi jurusan pilihan Anda dalam 1x24 jam.</p>
                         </div>
                     </div>
 
                     <div class="step-card">
                         <div class="step-number-box">4</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">Daftar Ulang & Orientasi</h4>
-                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Daftar ulang fisik di kampus, fitting seragam kejuruan, dan pembekalan Masa Pengenalan Lingkungan Sekolah.</p>
+                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Daftar Ulang & Orientasi</h4>
+                            <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Daftar ulang fisik
+                                di kampus, fitting seragam kejuruan, dan pembekalan Masa Pengenalan Lingkungan Sekolah.
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Right: Countdown Card -->
                 <div class="ppdb-live-card">
-                    <div class="badge badge-dark mb-2" style="background:rgba(0,0,0,0.25); border:none; margin-bottom:1rem;">GELOMBANG 1 SEDANG BERJALAN</div>
-                    <h3 class="font-display" style="font-size:2.2rem; margin-bottom:0.8rem; line-height:1.2;">Amankan Kuota Jurusan Anda</h3>
-                    <p style="opacity:0.95; font-size:1rem; line-height:1.6;">Dapatkan potongan khusus pendaftaran gelombang 1 dan jaminan kelas industri pilihan.</p>
+                    <div class="badge badge-dark mb-2"
+                        style="background:rgba(0,0,0,0.25); border:none; margin-bottom:1rem;">GELOMBANG 1 SEDANG
+                        BERJALAN</div>
+                    <h3 class="font-display" style="font-size:2.2rem; margin-bottom:0.8rem; line-height:1.2;">Amankan
+                        Kuota Jurusan Anda</h3>
+                    <p style="opacity:0.95; font-size:1rem; line-height:1.6;">Dapatkan potongan khusus pendaftaran
+                        gelombang 1 dan jaminan kelas industri pilihan.</p>
 
                     <div class="countdown-row">
-                        <div class="countdown-box"><span class="countdown-val">14</span><span class="countdown-lbl">Hari</span></div>
-                        <div class="countdown-box"><span class="countdown-val">08</span><span class="countdown-lbl">Jam</span></div>
-                        <div class="countdown-box"><span class="countdown-val">42</span><span class="countdown-lbl">Menit</span></div>
-                        <div class="countdown-box"><span class="countdown-val">19</span><span class="countdown-lbl">Detik</span></div>
+                        <div class="countdown-box"><span class="countdown-val">14</span><span
+                                class="countdown-lbl">Hari</span></div>
+                        <div class="countdown-box"><span class="countdown-val">08</span><span
+                                class="countdown-lbl">Jam</span></div>
+                        <div class="countdown-box"><span class="countdown-val">42</span><span
+                                class="countdown-lbl">Menit</span></div>
+                        <div class="countdown-box"><span class="countdown-val">19</span><span
+                                class="countdown-lbl">Detik</span></div>
                     </div>
 
-                    <button class="btn btn-outline-light" style="width:100%; font-size:1rem; padding:1rem; font-weight:700;">
+                    <button class="btn btn-outline-light"
+                        style="width:100%; font-size:1rem; padding:1rem; font-weight:700;">
                         Daftar Sekarang Secara Online &rarr;
                     </button>
                 </div>
@@ -2594,12 +2789,20 @@
 
     <!-- 10. UNIT BLUD SISWA & BKK -->
     <section class="blud-section" id="blud">
+        <div class="px-stage" aria-hidden="true">
+            <div class="px-grid" data-parallax="0.14"></div>
+            <div class="px-orb px-orb-blue" style="width:560px; height:560px; top:-180px; right:-140px;"
+                data-parallax="0.26"></div>
+            <div class="px-orb px-orb-amber" style="width:380px; height:380px; bottom:-160px; left:-100px;"
+                data-parallax="-0.20"></div>
+        </div>
         <div class="container">
             <div class="flex justify-between items-center flex-wrap" style="margin-bottom:3.5rem; gap:1.5rem;">
                 <div>
                     <div class="badge badge-amber mb-2">Teaching Factory & Unit Produksi</div>
                     <h2 class="section-title" style="color:#ffffff; margin: 0.5rem 0;">Produk Unggulan BLUD Siswa</h2>
-                    <p style="opacity:0.85; max-width:620px;">Hasil karya mandiri dan layanan profesional produksi siswa berstandar pasar komersial.</p>
+                    <p style="opacity:0.85; max-width:620px;">Hasil karya mandiri dan layanan profesional produksi siswa
+                        berstandar pasar komersial.</p>
                 </div>
                 <button class="btn btn-amber">Katalog Layanan Lengkap &rarr;</button>
             </div>
@@ -2609,8 +2812,10 @@
                     <div>
                         <div class="p-icon-hero">👕</div>
                         <span class="badge badge-dark">Multimedia & DKV</span>
-                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Sablon & Merchandise Custom</h4>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Layanan cetak sablon kaos, mug, lanyard, ID card, dan plakat wisuda berkualitas tinggi.</p>
+                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Sablon &
+                            Merchandise Custom</h4>
+                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Layanan cetak sablon kaos, mug,
+                            lanyard, ID card, dan plakat wisuda berkualitas tinggi.</p>
                     </div>
                     <div class="p-price-tag">Mulai Rp45.000</div>
                 </div>
@@ -2619,8 +2824,10 @@
                     <div>
                         <div class="p-icon-hero">🍱</div>
                         <span class="badge badge-dark">Tata Boga</span>
-                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Katering & Bakery Snack Box</h4>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Kue kering, roti lembut, dan menu konsumsi rapat higienis bersertifikasi halal.</p>
+                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Katering
+                            & Bakery Snack Box</h4>
+                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Kue kering, roti lembut, dan menu
+                            konsumsi rapat higienis bersertifikasi halal.</p>
                     </div>
                     <div class="p-price-tag">Mulai Rp18.000</div>
                 </div>
@@ -2629,8 +2836,10 @@
                     <div>
                         <div class="p-icon-hero">🔧</div>
                         <span class="badge badge-dark">TKJ & Otomotif</span>
-                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Servis IT & Tune-up Kendaraan</h4>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Servis komputer, instalasi jaringan WiFi sekolah/kantor, serta servis berkala motor injeksi.</p>
+                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Servis
+                            IT & Tune-up Kendaraan</h4>
+                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Servis komputer, instalasi jaringan
+                            WiFi sekolah/kantor, serta servis berkala motor injeksi.</p>
                     </div>
                     <div class="p-price-tag">Mulai Rp30.000</div>
                 </div>
@@ -2644,7 +2853,8 @@
             <div class="text-center section-header">
                 <div class="badge badge-primary mb-2">Penyaluran Lulusan</div>
                 <h2 class="section-title">Bursa Kerja Khusus (BKK)</h2>
-                <p class="section-desc" style="margin: 0 auto;">Jembatan karir terpercaya menghubungkan alumni dan siswa dengan lowongan kerja mitra industri terkemuka.</p>
+                <p class="section-desc" style="margin: 0 auto;">Jembatan karir terpercaya menghubungkan alumni dan siswa
+                    dengan lowongan kerja mitra industri terkemuka.</p>
             </div>
 
             <div class="bkk-table-card">
@@ -2659,49 +2869,57 @@
                 <!-- Job 1 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Digital Kreatif Nusantara</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Digital Kreatif
+                            Nusantara</strong>
                         <small style="color:var(--text-muted);">Surabaya / Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">Junior Web Developer</div>
                     <div><span class="skill-tag">Full-time</span></div>
                     <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker &rarr;</a></div>
+                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
                 </div>
 
                 <!-- Job 2 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Hotel Ketapang Indah</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Hotel Ketapang
+                            Indah</strong>
                         <small style="color:var(--text-muted);">Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">PKL Perhotelan & Tata Boga</div>
                     <div><span class="skill-tag">Magang / PKL</span></div>
                     <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker &rarr;</a></div>
+                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
                 </div>
 
                 <!-- Job 3 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Bank Jatim Syariah Genteng</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Bank Jatim Syariah
+                            Genteng</strong>
                         <small style="color:var(--text-muted);">Genteng, Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">Staff Administrasi Operasional</div>
                     <div><span class="skill-tag">Full-time</span></div>
                     <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker &rarr;</a></div>
+                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
                 </div>
 
                 <!-- Job 4 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Astra Motor Banyuwangi</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Astra Motor
+                            Banyuwangi</strong>
                         <small style="color:var(--text-muted);">Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">PKL Teknisi Otomotif & Mekanik</div>
                     <div><span class="skill-tag">Magang / PKL</span></div>
                     <div><span class="badge badge-amber" style="font-size:0.75rem;">Segera</span></div>
-                    <div><a href="#" style="color:var(--text-muted); font-weight:700; font-size:0.9rem;">Detail Loker &rarr;</a></div>
+                    <div><a href="#" style="color:var(--text-muted); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
                 </div>
             </div>
         </div>
@@ -2713,13 +2931,15 @@
             <div class="text-center section-header">
                 <div class="badge badge-amber mb-2">Jurnal & Informasi</div>
                 <h2 class="section-title">Kabar & Agenda Kampus</h2>
-                <p class="section-desc" style="margin: 0 auto;">Liputan kegiatan, prestasi terbaru, dan pengumuman resmi SMKS Muhammadiyah 1 Genteng.</p>
+                <p class="section-desc" style="margin: 0 auto;">Liputan kegiatan, prestasi terbaru, dan pengumuman resmi
+                    SMKS Muhammadiyah 1 Genteng.</p>
             </div>
 
             <div class="news-grid">
                 <!-- Sidebar Category Filter -->
                 <div class="news-filter-card">
-                    <h4 class="font-head" style="font-size:1.15rem; color:var(--primary); margin-bottom:1rem;">Kategori Jurnal</h4>
+                    <h4 class="font-head" style="font-size:1.15rem; color:var(--primary); margin-bottom:1rem;">Kategori
+                        Jurnal</h4>
                     <ul class="news-filter-list">
                         <li><a href="berita.html" class="active">Semua Berita <span>(14)</span></a></li>
                         <li><a href="prestasi.html">Prestasi & Prestisius <span>(8)</span></a></li>
@@ -2736,14 +2956,19 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">17 Juni 2026</span>
-                                <h4 class="font-head" style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
+                                <h4 class="font-head"
+                                    style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Berbekal Fasilitas Modern, SMEMSAGTG Gelar Pengenalan Jurusan
                                 </h4>
-                                <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
-                                    Memperkenalkan ekosistem laboratorium IoT, Cloud, dan studio Multimedia kepada calon siswa baru.
+                                <p
+                                    style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
+                                    Memperkenalkan ekosistem laboratorium IoT, Cloud, dan studio Multimedia kepada calon
+                                    siswa baru.
                                 </p>
                             </div>
-                            <a href="berita.html" style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya &rarr;</a>
+                            <a href="berita.html"
+                                style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -2753,14 +2978,19 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juni 2026</span>
-                                <h4 class="font-head" style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
+                                <h4 class="font-head"
+                                    style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Dua Atlet Taekwondo SMKS MUHI Raih Juara 3 Kejurprov Jatim
                                 </h4>
-                                <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
-                                    Prestasi membanggakan dipersembahkan atlet pelajar SMKS MUHI dalam ajang Kejurprov di Malang.
+                                <p
+                                    style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
+                                    Prestasi membanggakan dipersembahkan atlet pelajar SMKS MUHI dalam ajang Kejurprov
+                                    di Malang.
                                 </p>
                             </div>
-                            <a href="prestasi.html" style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya &rarr;</a>
+                            <a href="prestasi.html"
+                                style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -2770,14 +3000,19 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juni 2026</span>
-                                <h4 class="font-head" style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
+                                <h4 class="font-head"
+                                    style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Siswa Borong Juara Festival Musik & Seni Pelajar Berbakat
                                 </h4>
-                                <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
-                                    Mengembangkan soft-skill, kepercayaan diri, dan kreativitas seni siswa secara seimbang.
+                                <p
+                                    style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
+                                    Mengembangkan soft-skill, kepercayaan diri, dan kreativitas seni siswa secara
+                                    seimbang.
                                 </p>
                             </div>
-                            <a href="ekstrakurikuler.html" style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya &rarr;</a>
+                            <a href="ekstrakurikuler.html"
+                                style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya
+                                &rarr;</a>
                         </div>
                     </div>
 
@@ -2787,14 +3022,18 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Mei 2026</span>
-                                <h4 class="font-head" style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
+                                <h4 class="font-head"
+                                    style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Penandatanganan MoU Kelas Industri Bersama Mitra Strategis
                                 </h4>
-                                <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
+                                <p
+                                    style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
                                     Perluasan penyerapan lulusan ke industri teknologi dan manufaktur nasional.
                                 </p>
                             </div>
-                            <a href="berita.html" style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya &rarr;</a>
+                            <a href="berita.html"
+                                style="color:var(--secondary); font-weight:700; font-size:0.92rem;">Baca selengkapnya
+                                &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -2809,12 +3048,14 @@
                 <div>
                     <div class="brand-box" style="margin-bottom:1.2rem;">
                         <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
-                        <div style="color:#ffffff; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">
+                        <div
+                            style="color:#ffffff; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">
                             SMKS MUHAMMADIYAH 1 GENTENG
                         </div>
                     </div>
                     <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
-                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur 68465
+                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
+                        Kabupaten Banyuwangi, Jawa Timur 68465
                     </p>
                     <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7;">
                         📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
@@ -2847,7 +3088,8 @@
 
                 <div class="footer-col">
                     <h4>Identitas Lembaga</h4>
-                    <div style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#a8a29e;">
+                    <div
+                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#a8a29e;">
                         <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
                         <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
                         <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
@@ -2868,10 +3110,13 @@
     <div class="chat-panel" id="chat-panel">
         <div class="chat-header">
             <span>Asisten AI SMKS MUHI</span>
-            <span style="font-size:0.75rem; background:rgba(255,255,255,0.2); padding:0.2rem 0.5rem; border-radius:10px;">Online</span>
+            <span
+                style="font-size:0.75rem; background:rgba(255,255,255,0.2); padding:0.2rem 0.5rem; border-radius:10px;">Online</span>
         </div>
         <div class="chat-body" id="chat-body">
-            <div class="chat-msg bot">Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng. Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran PPDB, sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?</div>
+            <div class="chat-msg bot">Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng. Ada yang bisa
+                saya bantu terkait info 8 jurusan, pendaftaran PPDB, sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
+            </div>
         </div>
         <div class="chat-quick-pills">
             <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">Info Jurusan</button>
@@ -3090,6 +3335,95 @@
             });
         });
 
+        /* =====================================================================
+           TEXT SCROLL ANIMATION (skiper31-style)
+           Kata demi kata memudar masuk seiring scroll, di-scrub oleh Lenis.
+           ===================================================================== */
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Pecah teks menjadi <span class="sr-word"> per kata (spasi dipertahankan)
+        function splitIntoWords(el) {
+            if (el.dataset.srSplit === 'true') return Array.from(el.querySelectorAll('.sr-word'));
+            const words = el.textContent.trim().split(/\s+/);
+            el.textContent = '';
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+                const span = document.createElement('span');
+                span.className = 'sr-word';
+                span.textContent = w;
+                frag.appendChild(span);
+                if (i < words.length - 1) frag.appendChild(document.createTextNode(' '));
+            });
+            el.appendChild(frag);
+            el.dataset.srSplit = 'true';
+            return Array.from(el.querySelectorAll('.sr-word'));
+        }
+
+        // Reveal mandiri (elemen yang tidak berada di dalam section ter-pin)
+        document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
+            if (el.closest('.signature-section')) return; // ditangani timeline pinned di bawah
+            const words = splitIntoWords(el);
+            if (prefersReducedMotion) return;
+
+            gsap.to(words, {
+                opacity: 1,
+                filter: 'blur(0px)',
+                y: 0,
+                ease: 'none',
+                stagger: 0.6,
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 82%',
+                    end: 'bottom 55%',
+                    scrub: 0.8
+                }
+            });
+        });
+
+        /* =====================================================================
+           SCROLL PARALLAX ENGINE
+           Pakai atribut: data-parallax="0.25"  (positif = lebih lambat/turun,
+           negatif = berlawanan arah). Nilai = fraksi dari tinggi section.
+           ===================================================================== */
+        function initParallax() {
+            if (prefersReducedMotion) return;
+
+            document.querySelectorAll('[data-parallax]').forEach(layer => {
+                const speed = parseFloat(layer.dataset.parallax) || 0;
+                const section = layer.closest('section') || layer.parentElement;
+
+                gsap.fromTo(layer,
+                    { yPercent: -speed * 50 },
+                    {
+                        yPercent: speed * 50,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1
+                        }
+                    }
+                );
+            });
+        }
+        initParallax();
+
+        // Depth reveal untuk kartu: naik + skala halus, berurutan
+        ['.major-mini-card', '.why-bento-card', '.step-card', '.product-bento', '.article-card', '.stat-card'].forEach(sel => {
+            const items = document.querySelectorAll(sel);
+            if (!items.length || prefersReducedMotion) return;
+
+            ScrollTrigger.batch(items, {
+                start: 'top 88%',
+                once: true,
+                onEnter: batch => gsap.fromTo(batch,
+                    { opacity: 0, y: 44, scale: 0.97 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.75, stagger: 0.09, ease: 'power3.out', clearProps: 'transform' }
+                )
+            });
+        });
+
         // Signature SVG Animation (Pinned)
         const signaturePath = document.querySelector(".svg-path");
         if (signaturePath) {
@@ -3100,14 +3434,30 @@
                 scrollTrigger: {
                     trigger: ".signature-section",
                     start: "center center",
-                    end: "+=100%",
+                    end: "+=150%",
                     pin: true,
                     scrub: 1
                 }
             });
 
-            tl.to(signaturePath, { strokeDashoffset: 0, duration: 1, ease: "none" })
-              .to(".signature-text", { opacity: 1, y: -10, duration: 0.5 }, "-=0.2");
+            tl.to(signaturePath, { strokeDashoffset: 0, duration: 1, ease: "none" });
+
+            const sigEl = document.querySelector(".signature-text[data-scroll-reveal]");
+            if (sigEl) {
+                const sigWords = splitIntoWords(sigEl);
+                if (prefersReducedMotion) {
+                    gsap.set(sigWords, { opacity: 1, filter: 'blur(0px)', y: 0 });
+                } else {
+                    tl.to(sigWords, {
+                        opacity: 1,
+                        filter: 'blur(0px)',
+                        y: 0,
+                        ease: 'none',
+                        duration: 0.9,
+                        stagger: { each: 0.05, from: 'start' }
+                    }, "-=0.15");
+                }
+            }
         }
 
         // 9. Prestasi Section GSAP ScrollTrigger & Parallax
@@ -3127,8 +3477,8 @@
 
         // Stagger Reveal for Timeline Cards
         ScrollTrigger.batch(".prestasi-item", {
-            onEnter: batch => gsap.fromTo(batch, 
-                { opacity: 0, x: -30 }, 
+            onEnter: batch => gsap.fromTo(batch,
+                { opacity: 0, x: -30 },
                 { opacity: 1, x: 0, duration: 0.8, stagger: 0.18, ease: "power2.out" }
             ),
             start: "top 85%",
@@ -3138,7 +3488,7 @@
         // Parallax 3D Card Effect on Scroll
         const testiCard = document.getElementById('testi-parallax-card');
         if (testiCard) {
-            gsap.fromTo(testiCard, 
+            gsap.fromTo(testiCard,
                 { y: 60, rotationY: -4, rotationX: 4 },
                 {
                     y: -40,
@@ -3156,6 +3506,13 @@
         }
 
         // Infinite Partner Marquee
+        // Refresh posisi ScrollTrigger setelah font & gambar selesai dimuat,
+        // supaya perhitungan parallax tidak meleset.
+        window.addEventListener('load', () => ScrollTrigger.refresh());
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => ScrollTrigger.refresh());
+        }
+
         gsap.to(".marquee-track", {
             xPercent: -50,
             ease: "none",

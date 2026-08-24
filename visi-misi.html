@@ -378,13 +378,20 @@
 
         .modal-banner-icon {
             font-size: 5rem;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
             animation: modalFloat 3s ease-in-out infinite;
         }
 
         @keyframes modalFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         .modal-close-btn {
@@ -601,7 +608,8 @@
                     <div class="misi-number">02</div>
                     <div>
                         <h4 class="misi-title">Standar Kompetensi Industri</h4>
-                        <p class="misi-desc">Mengembangkan kurikulum kejuruan selaras dengan kebutuhan dunia kerja (DUDI)
+                        <p class="misi-desc">Mengembangkan kurikulum kejuruan selaras dengan kebutuhan dunia kerja
+                            (DUDI)
                             serta fasilitas laboratorium modern berstandar industri.</p>
                     </div>
                 </div>
@@ -609,7 +617,8 @@
                     <div class="misi-number">03</div>
                     <div>
                         <h4 class="misi-title">Penguasaan Teknologi Terkini</h4>
-                        <p class="misi-desc">Mendorong transformasi digital melalui pembelajaran berbasis proyek (PBL) dan
+                        <p class="misi-desc">Mendorong transformasi digital melalui pembelajaran berbasis proyek (PBL)
+                            dan
                             penguasaan perangkat teknologi mutakhir.</p>
                     </div>
                 </div>
@@ -687,7 +696,8 @@
             <!-- Modal Header Banner with Animated Icon -->
             <div class="modal-banner" id="modal-banner">
                 <div class="modal-banner-icon" id="modal-icon">💻</div>
-                <button class="modal-close-btn" onclick="closeMajorModal()" aria-label="Tutup Detail Jurusan">&times;</button>
+                <button class="modal-close-btn" onclick="closeMajorModal()"
+                    aria-label="Tutup Detail Jurusan">&times;</button>
             </div>
 
             <!-- Modal Content Body -->
@@ -695,7 +705,8 @@
                 <span class="modal-tag" id="modal-tag">PPLG / Software Engineering</span>
                 <h3 class="modal-title" id="modal-title">Rekayasa Perangkat Lunak (RPL)</h3>
                 <p class="modal-desc" id="modal-desc">
-                    Fokus pada pengembangan aplikasi web modern, mobile apps, database arsitektur, dan logika komputasi. Siswa dibekali kemampuan membangun solusi software siap pakai untuk ekosistem industri digital.
+                    Fokus pada pengembangan aplikasi web modern, mobile apps, database arsitektur, dan logika komputasi.
+                    Siswa dibekali kemampuan membangun solusi software siap pakai untuk ekosistem industri digital.
                 </p>
 
                 <div class="modal-skills-box">
@@ -720,8 +731,10 @@
                 </div>
 
                 <div class="modal-footer-cta">
-                    <span style="font-size:0.85rem; color:var(--text-muted);">Terlisensi <strong>LSP-P1 BNSP</strong> &bull; Kelas Industri</span>
-                    <a href="redesign-web1.html#ppdb" style="background:var(--primary); color:#ffffff; padding:0.65rem 1.4rem; border-radius:50px; font-family:var(--font-head); font-weight:700; font-size:0.9rem; text-decoration:none;">
+                    <span style="font-size:0.85rem; color:var(--text-muted);">Terlisensi <strong>LSP-P1 BNSP</strong>
+                        &bull; Kelas Industri</span>
+                    <a href="redesign-web1.html#ppdb"
+                        style="background:var(--primary); color:#ffffff; padding:0.65rem 1.4rem; border-radius:50px; font-family:var(--font-head); font-weight:700; font-size:0.9rem; text-decoration:none;">
                         Daftar PPDB Jurusan Ini &rarr;
                     </a>
                 </div>
@@ -892,6 +905,9 @@
             if (e.key === 'Escape') closeMajorModal();
         });
     </script>
+</body>
+
+</html>
 </body>
 
 </html>

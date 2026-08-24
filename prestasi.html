@@ -8,59 +8,69 @@
     <meta name="description"
         content="Pusat rekam jejak prestasi, piala penghargaan nasional, kejuaraan lomba kejuruan, teknologi, seni, dan bela diri SMKS Muhammadiyah 1 Genteng Banyuwangi.">
 
-    <!-- Modern Typography: Syne, Space Grotesk, Plus Jakarta Sans -->
+    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
 
     <style>
         /* ==========================================================================
-           1. DESIGN TOKENS - NEXT-GEN TECH-EDITORIAL & GOLD AWARDS PALETTE
+           1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
            ========================================================================== */
         :root {
-            --primary: #064e3b;
-            --primary-light: #0d7056;
-            --primary-dark: #022c22;
-            --primary-surface: rgba(6, 78, 59, 0.08);
+            /* Palette: Blue + Yellow, flat & modern */
+            --primary: #1e40af;
+            --primary-light: #2563eb;
+            --primary-dark: #16296b;
+            --primary-surface: rgba(30, 64, 175, 0.06);
+            --primary-glow: rgba(30, 64, 175, 0.2);
 
-            --secondary: #d97706;
-            --secondary-light: #f59e0b;
-            --secondary-surface: rgba(217, 119, 6, 0.12);
+            --secondary: #eab308;
+            --secondary-light: #facc15;
+            --secondary-surface: rgba(234, 179, 8, 0.1);
+            --secondary-glow: rgba(234, 179, 8, 0.25);
 
-            --accent-emerald: #10b981;
-            --accent-gold: #f59e0b;
+            --accent-emerald: #facc15;
+            --accent-cyan: #3b82f6;
 
-            --bg-main: #fafaf9;
-            --bg-alt: #f5f5f4;
-            --bg-dark: #141210;
-            --bg-dark-card: #1c1917;
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-surface-card: #ffffff;
+            --bg-dark: #0f172a;
+            --bg-dark-card: #16213c;
+            --bg-dark-elevated: #1c2b4d;
 
-            --text-dark: #1c1917;
-            --text-muted: #57534e;
-            --text-subtle: #78716c;
-            --text-light: #fafaf9;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+            --text-light: #f8fafc;
 
-            --border-light: rgba(6, 78, 59, 0.12);
-            --border-card: #e7e5e4;
-            --border-dark: #332e2b;
+            --border-light: rgba(30, 64, 175, 0.1);
+            --border-card: #e2e8f0;
+            --border-dark: #263559;
+            --border-glow: rgba(234, 179, 8, 0.3);
 
-            --radius-sm: 10px;
-            --radius: 18px;
-            --radius-lg: 28px;
-            --radius-xl: 38px;
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
             --radius-full: 9999px;
 
-            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.03);
-            --shadow-card: 0 16px 36px -8px rgba(6, 78, 59, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
-            --shadow-card-hover: 0 24px 50px -12px rgba(6, 78, 59, 0.16), 0 0 0 1px rgba(6, 78, 59, 0.15);
+            --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+            --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
 
-            --font-display: 'Syne', 'Space Grotesk', sans-serif;
-            --font-head: 'Space Grotesk', sans-serif;
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
 
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.25s ease;
+            --transition-fast: all 0.15s ease;
         }
 
         * {
@@ -77,8 +87,8 @@
             overflow-x: hidden;
             letter-spacing: -0.012em;
             background-image:
-                radial-gradient(circle at 10% 15%, rgba(217, 119, 6, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 90% 75%, rgba(6, 78, 59, 0.035) 0%, transparent 45%);
+                radial-gradient(circle at 10% 15%, rgba(30, 64, 175, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 75%, rgba(234, 179, 8, 0.04) 0%, transparent 45%);
             background-attachment: fixed;
         }
 
@@ -117,12 +127,12 @@
             gap: 0.5rem;
             padding: 0.45rem 1.2rem;
             background: var(--secondary-surface);
-            border: 1px solid rgba(217, 119, 6, 0.35);
+            border: 1px solid rgba(234, 179, 8, 0.35);
             border-radius: var(--radius-full);
             font-size: 0.82rem;
             font-family: var(--font-head);
             font-weight: 700;
-            color: var(--secondary);
+            color: #a16207;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -133,7 +143,7 @@
             gap: 0.4rem;
             padding: 0.4rem 1rem;
             background: var(--primary-surface);
-            border: 1px solid rgba(6, 78, 59, 0.2);
+            border: 1px solid rgba(30, 64, 175, 0.2);
             border-radius: var(--radius-full);
             font-size: 0.8rem;
             font-weight: 700;
@@ -160,23 +170,23 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: #ffffff;
-            box-shadow: 0 8px 24px -4px rgba(6, 78, 59, 0.35);
+            box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px -4px rgba(6, 78, 59, 0.45);
+            box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
         }
 
         .btn-amber {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
-            color: #ffffff;
-            box-shadow: 0 8px 24px -4px rgba(217, 119, 6, 0.35);
+            color: var(--text-dark);
+            box-shadow: 0 8px 24px -4px rgba(234, 179, 8, 0.35);
         }
 
         .btn-amber:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px -4px rgba(217, 119, 6, 0.45);
+            box-shadow: 0 14px 30px -4px rgba(234, 179, 8, 0.45);
         }
 
         .btn-outline {
@@ -208,13 +218,13 @@
         .nav-island {
             max-width: 1280px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: var(--radius-full);
             padding: 0.65rem 1.4rem;
-            box-shadow: 0 12px 35px -8px rgba(6, 78, 59, 0.12), 0 0 0 1px rgba(6, 78, 59, 0.05);
+            box-shadow: 0 12px 35px -8px rgba(30, 64, 175, 0.12), 0 0 0 1px rgba(30, 64, 175, 0.05);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -321,8 +331,8 @@
 
         .award-stat-card:hover {
             transform: translateY(-4px);
-            border-color: var(--secondary);
-            box-shadow: var(--shadow-card);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-card-hover);
         }
 
         .stat-icon {
@@ -361,7 +371,7 @@
             grid-template-columns: 1.15fr 0.85fr;
             gap: 3.5rem;
             align-items: center;
-            box-shadow: 0 25px 60px -15px rgba(6, 78, 59, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 60px -15px rgba(30, 64, 175, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -373,7 +383,7 @@
             right: -20%;
             width: 550px;
             height: 550px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.25) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.25) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -382,8 +392,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(217, 119, 6, 0.25);
-            border: 1px solid rgba(217, 119, 6, 0.5);
+            background: rgba(234, 179, 8, 0.25);
+            border: 1px solid rgba(234, 179, 8, 0.5);
             color: var(--secondary-light);
             padding: 0.4rem 1.1rem;
             border-radius: var(--radius-full);
@@ -526,7 +536,7 @@
 
         .award-bento-card:hover {
             transform: translateY(-6px);
-            border-color: var(--secondary);
+            border-color: var(--primary-light);
             box-shadow: var(--shadow-card-hover);
         }
 
@@ -577,7 +587,7 @@
         }
 
         .award-bento-card:hover .award-name {
-            color: var(--secondary);
+            color: var(--primary);
         }
 
         .award-excerpt {
@@ -606,7 +616,7 @@
             font-family: var(--font-head);
             font-weight: 700;
             font-size: 0.88rem;
-            color: var(--secondary);
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 0.3rem;
@@ -638,7 +648,7 @@
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(20, 18, 16, 0.65);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 2000;
@@ -669,7 +679,7 @@
             transition: var(--transition);
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+            scrollbar-color: var(--primary) rgba(30, 64, 175, 0.05);
         }
 
         /* Custom Sleek Scrollbar */
@@ -678,7 +688,7 @@
         }
 
         .award-modal-card::-webkit-scrollbar-track {
-            background: rgba(6, 78, 59, 0.04);
+            background: rgba(30, 64, 175, 0.04);
             border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
             margin: 12px 0;
         }
@@ -703,7 +713,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
 
         .modal-banner-emoji {
@@ -803,6 +813,62 @@
             gap: 1rem;
         }
 
+        /* Footer & Common Components */
+        .site-footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 6rem 0 2.5rem;
+            border-top: 1px solid var(--border-dark);
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(4px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            color: #64748b;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
         /* ==========================================================================
            7. RESPONSIVE BREAKPOINTS
            ========================================================================== */
@@ -824,6 +890,10 @@
 
             .award-col-8 {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -848,6 +918,10 @@
             .modal-body {
                 padding: 1.8rem;
             }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -869,6 +943,7 @@
                 <a href="redesign-web1.html" class="nav-link">Beranda</a>
                 <a href="visi-misi.html" class="nav-link">Visi & Misi</a>
                 <a href="fasilitas.html" class="nav-link">Fasilitas</a>
+                <a href="ekstrakurikuler.html" class="nav-link">Ekstrakurikuler</a>
                 <a href="prestasi.html" class="nav-link active">Prestasi</a>
                 <a href="berita.html" class="nav-link">Berita</a>
                 <a href="redesign-web1.html#ppdb" class="btn btn-primary"
@@ -914,12 +989,12 @@
     </header>
 
     <!-- 3. PINNACLE AWARD: ME AWARDS JUARA UMUM NASIONAL -->
-    <section class="pinnacle-section container">
+    <section class="pinnacle-section container" data-px-stage="gold">
         <div class="pinnacle-card" onclick="openAwardModal('me-awards')">
             <div>
                 <div class="pinnacle-badge">⭐ Mahkota Prestasi Nasional 2026</div>
                 <h2 class="pinnacle-title">Juara Umum Muhammadiyah Education Awards (ME Awards) Nasional</h2>
-                <p class="pinnacle-desc">
+                <p class="pinnacle-desc" data-scroll-reveal>
                     Pencapaian puncak prestisius yang membuktikan keunggulan komprehensif SMKS Muhammadiyah 1 Genteng.
                     Mengungguli ratusan sekolah kejuruan se-Indonesia dalam bidang riset inovasi digital, robotika, seni
                     budaya, dan kepemimpinan Islami.
@@ -952,7 +1027,7 @@
     </section>
 
     <!-- 4. HALL OF FAME ASYMMETRICAL BENTO GRID -->
-    <section class="fame-section container">
+    <section class="fame-section container" data-px-stage="light">
         <div class="fame-header-row">
             <div>
                 <span class="badge-gold">Katalog Kejuaraan</span>
@@ -969,10 +1044,10 @@
 
             <!-- Card 1: Taekwondo Kejurprov (Span 6) -->
             <article class="award-bento-card award-col-6" onclick="openAwardModal('taekwondo')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);">
+                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
                     <span class="award-thumb-emoji">🥋</span>
                     <span class="badge-gold"
-                        style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.9); font-size:0.75rem;">
+                        style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.95); font-size:0.75rem;">
                         MEDALI PERUNGGU
                     </span>
                 </div>
@@ -997,10 +1072,10 @@
 
             <!-- Card 2: Lomba Inovasi Digital Tim RPL (Span 6) -->
             <article class="award-bento-card award-col-6" onclick="openAwardModal('inovasi-rpl')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #064e3b 0%, #0d7056 100%);">
+                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #16296b 0%, #1e40af 100%);">
                     <span class="award-thumb-emoji">💻</span>
                     <span class="badge-gold"
-                        style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.9); font-size:0.75rem;">
+                        style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.95); font-size:0.75rem;">
                         MEDALI EMAS NASIONAL
                     </span>
                 </div>
@@ -1049,7 +1124,7 @@
 
             <!-- Card 4: Pencak Silat Panji Laras (Span 4) -->
             <article class="award-bento-card award-col-4" onclick="openAwardModal('silat')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #b45309 0%, #d97706 100%);">
+                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);">
                     <span class="award-thumb-emoji">🗡️</span>
                 </div>
                 <div class="award-body">
@@ -1073,7 +1148,7 @@
 
             <!-- Card 5: E-Sports Student League (Span 4) -->
             <article class="award-bento-card award-col-4" onclick="openAwardModal('esports')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #1c1917 0%, #064e3b 100%);">
+                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);">
                     <span class="award-thumb-emoji">🎮</span>
                 </div>
                 <div class="award-body">
@@ -1141,6 +1216,70 @@
         </div>
     </div>
 
+    <!-- 6. FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand-box" style="margin-bottom:1.2rem;">
+                        <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
+                        <div
+                            style="color:#ffffff; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">
+                            SMKS MUHAMMADIYAH 1 GENTENG
+                        </div>
+                    </div>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
+                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
+                        Kabupaten Banyuwangi, Jawa Timur 68465
+                    </p>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7;">
+                        📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
+                        ✉️ smkmuhi.genteng1968@gmail.com
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Halaman Terkait</h4>
+                    <ul class="footer-links">
+                        <li><a href="visi-misi.html">🎯 Visi & Misi</a></li>
+                        <li><a href="fasilitas.html">🏢 Fasilitas Sekolah</a></li>
+                        <li><a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a></li>
+                        <li><a href="prestasi.html">🏆 Galeri Prestasi</a></li>
+                        <li><a href="berita.html">📰 Jurnal & Berita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>8 Konsentrasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="redesign-web1.html#jurusan">Rekayasa Perangkat Lunak</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Teknik Jaringan Komputer</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Desain Komunikasi Visual</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Bisnis Digital</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Akuntansi Lembaga</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Perhotelan & Kuliner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Identitas Lembaga</h4>
+                    <div
+                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#94a3b8;">
+                        <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
+                        <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
+                        <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
+                        <strong style="color:#ffffff;">Domain Resmi:</strong> smksmuh1gtg.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.</div>
+                <div>Website Redesign &bull; Kompetisi JHIC Jagoan Hosting</div>
+            </div>
+        </div>
+    </footer>
+
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -1170,7 +1309,7 @@
                 location: "Surabaya / Nasional • 2026",
                 title: "Juara Umum Muhammadiyah Education Awards (ME Awards) Nasional 2026",
                 icon: "🏆",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #d97706 100%)",
+                gradient: "linear-gradient(135deg, #1e40af 0%, #eab308 100%)",
                 org: "Pimpinan Wilayah Muhammadiyah & Majelis Dikdasmen Nasional",
                 desc: `
                     <div style="margin-bottom: 1.5rem; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
@@ -1186,7 +1325,7 @@
                 location: "Malang, Jawa Timur • Juni 2026",
                 title: "Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Pelajar se-Jatim",
                 icon: "🥋",
-                gradient: "linear-gradient(135deg, #0369a1 0%, #0284c7 100%)",
+                gradient: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
                 org: "Pengurus Provinsi Taekwondo Indonesia (TI) Jawa Timur",
                 desc: `
                     <p>Dua atlet pelajar SMKS Muhammadiyah 1 Genteng sukses merebut medali perunggu pada ajang Kejuaraan Provinsi (Kejurprov) Taekwondo Antar Pelajar se-Jawa Timur yang diselenggarakan di GOR Ken Arok, Malang.</p>
@@ -1198,7 +1337,7 @@
                 location: "Jakarta / Nasional • Mei 2026",
                 title: "Juara 1 Lomba Inovasi Digital Tingkat Nasional (Tim Rekayasa Perangkat Lunak)",
                 icon: "💻",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
+                gradient: "linear-gradient(135deg, #16296b 0%, #1e40af 100%)",
                 org: "Kementerian Pendidikan & Asosiasi Industri Software House Indonesia",
                 desc: `
                     <p>Tim siswa konsentrasi keahlian Rekayasa Perangkat Lunak (RPL) SMKS Muhammadiyah 1 Genteng berhasil meraih <strong>Juara 1 Nasional</strong> dalam kompetisi inovasi perangkat lunak terapan.</p>
@@ -1222,7 +1361,7 @@
                 location: "Banyuwangi • 2025",
                 title: "Juara 1 Open Competition Panji Laras Kategori Seni Tunggal IPSI",
                 icon: "🗡️",
-                gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)",
+                gradient: "linear-gradient(135deg, #eab308 0%, #ca8a04 100%)",
                 org: "Ikatan Pencak Silat Indonesia (IPSI) Kabupaten Banyuwangi",
                 desc: `
                     <p>Pesilat Tapak Suci Putera Muhammadiyah SMKS MUHI berhasil menyabet Juara 1 kategori Seni Tunggal Putra pada Kejuaraan Terbuka Panji Laras se-Kabupaten Banyuwangi.</p>
@@ -1234,7 +1373,7 @@
                 location: "Surabaya • 2025",
                 title: "Juara 1 MPL Student League & Lolos ke Tingkat Nasional Surabaya",
                 icon: "🎮",
-                gradient: "linear-gradient(135deg, #1c1917 0%, #064e3b 100%)",
+                gradient: "linear-gradient(135deg, #0f172a 0%, #1e40af 100%)",
                 org: "Indonesia Esports Association (IESPA) Jawa Timur",
                 desc: `
                     <p>Tim E-Sports SMKS Muhammadiyah 1 Genteng membuktikan keunggulan strategi, koordinasi tim, dan ketangkasan kognitif dengan menjuarai kualifikasi MPL Student League regional.</p>
@@ -1276,6 +1415,10 @@
             if (e.key === 'Escape') closeAwardModal();
         });
     </script>
+
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script>window.PX_CONFIG = { cards: ".award-stat-card" };</script>
+    <script src="parallax-kit.js"></script>
 </body>
 
 </html>

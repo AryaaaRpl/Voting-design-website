@@ -1,190 +1,582 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ekstrakurikuler - SMKS Muhammadiyah 1 Genteng</title>
-    
-    <!-- Google Fonts -->
+    <title>Ekstrakurikuler & Organisasi Siswa - SMKS Muhammadiyah 1 Genteng</title>
+
+    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
     <style>
-        /* DESIGN TOKENS - NEO-EDITORIAL */
+        /* ==========================================================================
+           1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
+           ========================================================================== */
         :root {
-            --primary: #064e3b;
-            --primary-light: #0d7056;
-            --secondary: #d97706;
-            --bg-main: #fafaf9;
-            --bg-alt: #f5f5f4;
-            --text-dark: #1c1917;
-            --text-muted: #57534e;
-            --border: #e7e5e4;
-            
-            --font-head: 'Space Grotesk', sans-serif;
+            --primary: #1e40af;
+            --primary-light: #2563eb;
+            --primary-dark: #16296b;
+            --primary-surface: rgba(30, 64, 175, 0.06);
+            --primary-glow: rgba(30, 64, 175, 0.2);
+
+            --secondary: #eab308;
+            --secondary-light: #facc15;
+            --secondary-surface: rgba(234, 179, 8, 0.1);
+            --secondary-glow: rgba(234, 179, 8, 0.25);
+
+            --accent-emerald: #facc15;
+            --accent-cyan: #3b82f6;
+
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-surface-card: #ffffff;
+            --bg-dark: #0f172a;
+            --bg-dark-card: #16213c;
+            --bg-dark-elevated: #1c2b4d;
+
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+            --text-light: #f8fafc;
+
+            --border-light: rgba(30, 64, 175, 0.1);
+            --border-card: #e2e8f0;
+            --border: #e2e8f0;
+            --border-dark: #263559;
+            --border-glow: rgba(234, 179, 8, 0.3);
+
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+
+            --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+            --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --transition: all 0.25s ease;
+            --transition-fast: all 0.15s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: var(--font-body); background-color: var(--bg-main);
-            color: var(--text-dark); line-height: 1.6; overflow-x: hidden;
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            letter-spacing: -0.012em;
+            background-image:
+                radial-gradient(circle at 10% 15%, rgba(30, 64, 175, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 75%, rgba(234, 179, 8, 0.04) 0%, transparent 45%);
+            background-attachment: fixed;
         }
 
-        h1, h2, h3, h4, .font-head { font-family: var(--font-head); }
-        a { text-decoration: none; color: inherit; transition: color 0.2s; }
-        img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-head {
+            font-family: var(--font-head);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.035em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         /* UTILITIES */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-        .badge {
-            display: inline-block; padding: 0.4rem 1rem; background: var(--bg-alt);
-            border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem;
-            font-family: var(--font-head); font-weight: 700; color: var(--secondary);
-            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
         }
 
-        /* 1. NAVBAR */
-        .navbar {
-            position: fixed; top: 1rem; left: 5%; right: 5%; z-index: 100;
-            background: rgba(250, 250, 249, 0.95); backdrop-filter: blur(8px);
-            border: 1px solid var(--border); border-radius: 100px;
-            padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.2rem;
+            background: var(--secondary-surface);
+            border: 1px solid rgba(234, 179, 8, 0.35);
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            color: #a16207;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
         }
-        .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--primary); }
-        .logo span { color: var(--secondary); }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-weight: 500; font-size: 0.95rem; }
-        .nav-links a.active { color: var(--secondary); font-weight: 700; }
+
+        /* 1. FLOATING ISLAND NAVBAR */
+        .header-wrapper {
+            position: fixed;
+            top: 1rem;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0 5%;
+            pointer-events: none;
+        }
+
+        .nav-island {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-full);
+            padding: 0.65rem 1.4rem;
+            box-shadow: 0 12px 35px -8px rgba(30, 64, 175, 0.12), 0 0 0 1px rgba(30, 64, 175, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: auto;
+            transition: var(--transition);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            object-fit: contain;
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .brand-text-main {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.12rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .brand-text-sub {
+            font-size: 0.72rem;
+            color: var(--secondary);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-head);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 0.55rem 0.95rem;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            background: var(--primary-surface);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            padding: 0.55rem 1.4rem;
+            font-size: 0.88rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
+        }
 
         /* 2. PAGE HEADER */
         .page-header {
-            padding: 10rem 0 5rem; text-align: center; border-bottom: 1px solid var(--border);
-            background: linear-gradient(to bottom, #e7e5e444, var(--bg-main));
+            padding: 10rem 0 5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-card);
+            background: linear-gradient(to bottom, rgba(30, 64, 175, 0.04), var(--bg-main));
         }
-        .page-title { font-size: 4rem; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.1; }
-        .page-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.8vw, 4rem);
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+        }
+
+        .page-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
 
         /* 3. EKSTRAKURIKULER GRID (MAGAZINE STYLE) */
-        .ekskul-section { padding: 6rem 0; }
-        
+        .ekskul-section {
+            padding: 6rem 0;
+        }
+
         .ekskul-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: minmax(300px, auto);
+            grid-auto-rows: minmax(320px, auto);
             gap: 2rem;
         }
 
         .ekskul-card {
-            position: relative; overflow: hidden; border-radius: 16px;
-            background: var(--primary); border: 1px solid var(--border);
-            display: flex; align-items: flex-end; cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            background: var(--bg-dark);
+            border: 1px solid var(--border-card);
+            display: flex;
+            align-items: flex-end;
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
         }
-        
-        .ekskul-card.featured { grid-column: span 2; grid-row: span 2; min-height: 500px; }
-        .ekskul-card.tall { grid-row: span 2; }
+
+        .ekskul-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .ekskul-card.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+            min-height: 520px;
+        }
+
+        .ekskul-card.tall {
+            grid-row: span 2;
+        }
 
         .card-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #a8a29e; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
             background-size: cover;
             background-position: center;
-            background-blend-mode: multiply;
-            /* Perubahan di sini: transform dikendalikan JS/CSS sesuai kondisi */
             transition: filter 0.6s, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            filter: grayscale(20%) brightness(0.8);
+            filter: grayscale(15%) brightness(0.85);
             transform-origin: center center;
         }
-        
-        /* Efek Hover: Zoom in background, hilangkan grayscale */
-        .ekskul-card:hover .card-bg { transform: scale(1.08) !important; filter: grayscale(0%) brightness(0.5); }
+
+        .ekskul-card:hover .card-bg {
+            transform: scale(1.08) !important;
+            filter: grayscale(0%) brightness(0.6);
+        }
 
         .card-content {
-            position: relative; z-index: 2; padding: 2rem; width: 100%;
-            background: linear-gradient(to top, rgba(6, 78, 59, 0.95) 0%, rgba(6, 78, 59, 0) 100%);
-            color: white; transform: translateY(30px); transition: transform 0.4s ease;
+            position: relative;
+            z-index: 2;
+            padding: 2.2rem;
+            width: 100%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 60%, rgba(15, 23, 42, 0) 100%);
+            color: #ffffff;
+            transform: translateY(25px);
+            transition: transform 0.4s ease;
         }
-        .ekskul-card:hover .card-content { transform: translateY(0); }
+
+        .ekskul-card:hover .card-content {
+            transform: translateY(0);
+        }
 
         .tag {
-            display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid rgba(255,255,255,0.4);
-            border-radius: 50px; font-size: 0.75rem; font-family: var(--font-head);
-            margin-bottom: 1rem; font-weight: 600; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-family: var(--font-head);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            background: rgba(30, 64, 175, 0.5);
+            backdrop-filter: blur(6px);
+            color: var(--secondary-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .card-title { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 0.5rem; line-height: 1.2; }
-        .featured .card-title { font-size: 2.5rem; }
+        .card-title {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+            color: #ffffff;
+        }
+
+        .featured .card-title {
+            font-size: 2.3rem;
+        }
 
         .card-desc {
-            font-size: 0.95rem; opacity: 0; max-height: 0; overflow: hidden;
-            transition: opacity 0.4s ease, max-height 0.4s ease; color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease, max-height 0.4s ease;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
         }
-        .ekskul-card:hover .card-desc { opacity: 1; max-height: 150px; margin-top: 1rem; }
+
+        .ekskul-card:hover .card-desc {
+            opacity: 1;
+            max-height: 160px;
+            margin-top: 0.8rem;
+        }
 
         .card-action {
-            margin-top: 1.5rem; display: inline-block; font-weight: 700; font-size: 0.9rem;
-            color: var(--secondary); opacity: 0; transition: opacity 0.4s;
+            margin-top: 1.2rem;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--secondary-light);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
-        .ekskul-card:hover .card-action { opacity: 1; }
+
+        .ekskul-card:hover .card-action {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 6rem 0 2.5rem;
+            border-top: 1px solid var(--border-dark);
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(4px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            color: #64748b;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
         /* GSAP Initial State untuk Card Wrapper */
-        .reveal-item { opacity: 0; transform: translateY(40px); }
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(40px);
+        }
 
         /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .ekskul-grid { grid-template-columns: repeat(2, 1fr); }
-            .ekskul-card.featured { grid-column: span 2; grid-row: span 1; min-height: 400px; }
-            .ekskul-card.tall { grid-row: span 1; }
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
+
+        @media (max-width: 992px) {
+            .ekskul-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ekskul-card.featured {
+                grid-column: span 2;
+                grid-row: span 1;
+                min-height: 400px;
+            }
+
+            .ekskul-card.tall {
+                grid-row: span 1;
+            }
+        }
+
         @media (max-width: 768px) {
-            .ekskul-grid { grid-template-columns: 1fr; }
-            .ekskul-card.featured { grid-column: span 1; }
-            .page-title { font-size: 3rem; }
-            .nav-links { display: none; }
-            .card-content { transform: translateY(0); background: rgba(6, 78, 59, 0.85); }
-            .card-desc { opacity: 1; max-height: none; margin-top: 1rem; }
-            .card-action { opacity: 1; }
+            .ekskul-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ekskul-card.featured {
+                grid-column: span 1;
+            }
+
+            .page-title {
+                font-size: 2.4rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .card-content {
+                transform: translateY(0);
+                background: rgba(15, 23, 42, 0.9);
+            }
+
+            .card-desc {
+                opacity: 1;
+                max-height: none;
+                margin-top: 0.8rem;
+            }
+
+            .card-action {
+                opacity: 1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo">SMKS MUHI <span>.</span></div>
-        <div class="nav-links">
-            <a href="#">Beranda</a>
-            <a href="#">Konsentrasi Keahlian</a>
-            <a href="#">Berita</a>
-            <a href="#" class="active">Ekstrakurikuler</a>
-            <a href="#">Prestasi</a>
-            <a href="#" style="background:var(--secondary); color:white; padding:0.5rem 1.2rem; border-radius:50px;">BKK</a>
-        </div>
-    </nav>
+    <!-- 1. FLOATING ISLAND NAVBAR -->
+    <header class="header-wrapper">
+        <nav class="nav-island">
+            <a href="redesign-web1.html" class="brand-box">
+                <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
+                <div>
+                    <div class="brand-text-main">SMKS MUHI GENTENG</div>
+                    <div class="brand-text-sub">Ekstrakurikuler & IPM</div>
+                </div>
+            </a>
 
-    <!-- HEADER -->
+            <div class="nav-menu">
+                <a href="redesign-web1.html" class="nav-link">Beranda</a>
+                <a href="visi-misi.html" class="nav-link">Visi & Misi</a>
+                <a href="fasilitas.html" class="nav-link">Fasilitas</a>
+                <a href="ekstrakurikuler.html" class="nav-link active">Ekstrakurikuler</a>
+                <a href="prestasi.html" class="nav-link">Prestasi</a>
+                <a href="berita.html" class="nav-link">Berita</a>
+                <a href="redesign-web1.html#ppdb" class="btn-primary">Daftar PPDB</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. PAGE HEADER -->
     <header class="page-header">
         <div class="container reveal-item">
-            <span class="badge">Pengembangan Diri</span>
-            <h1 class="page-title">Membentuk Karakter,<br>Mengasah Bakat.</h1>
-            <p class="page-subtitle">Beragam pilihan kegiatan ekstrakurikuler di SMKS Muhammadiyah 1 Genteng untuk menyalurkan potensi, minat, dan melatih kepemimpinan siswa.</p>
+            <span class="badge">🌟 Pengembangan Karakter & Minat</span>
+            <h1 class="page-title">Membentuk Karakter,<br>Mengasah Talenta Juara.</h1>
+            <p class="page-subtitle">Beragam pilihan kegiatan ekstrakurikuler di SMKS Muhammadiyah 1 Genteng untuk
+                menyalurkan potensi, minat, dan melatih jiwa kepemimpinan peserta didik.</p>
         </div>
     </header>
 
-    <!-- EKSTRAKURIKULER GRID -->
-    <section class="ekskul-section container">
+    <!-- 3. EKSTRAKURIKULER GRID -->
+    <section class="ekskul-section container" data-px-stage="light">
         <div class="ekskul-grid">
-            
+
             <!-- 1. Hizbul Wathan -->
             <div class="ekskul-card featured reveal-item">
-                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1533227268428-f9ed0900f4f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="card-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1533227268428-f9ed0900f4f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                </div>
                 <div class="card-content">
-                    <span class="tag">Kepanduan Wajib</span>
+                    <span class="tag">Kepanduan Islami Wajib</span>
                     <h2 class="card-title">Hizbul Wathan (HW)</h2>
                     <div class="card-desc">
-                        Diklat Kemah Tamu Penghela Hizbul Wathan sukses diselenggarakan. Ekstrakurikuler wajib kepanduan ini menanamkan kedisiplinan, kemandirian, dan nilai-nilai Islami.
+                        Diklat Kemah Tamu Penghela Hizbul Wathan sukses diselenggarakan. Ekstrakurikuler wajib kepanduan
+                        ini menanamkan kedisiplinan, kemandirian, dan nilai-nilai Islami berwawasan kemanusiaan
+                        universal.
                     </div>
                     <span class="card-action">Lihat Galeri Kegiatan &rarr;</span>
                 </div>
@@ -192,71 +584,150 @@
 
             <!-- 2. Paskibra -->
             <div class="ekskul-card tall reveal-item">
-                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1544893774-325d70f20955?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1544893774-325d70f20955?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                </div>
                 <div class="card-content">
-                    <span class="tag">Kedisiplinan</span>
-                    <h2 class="card-title">Paskibra</h2>
+                    <span class="tag">Kedisiplinan & Patriotisme</span>
+                    <h2 class="card-title">Paskibra Pasukan Inti</h2>
                     <div class="card-desc">
-                        Mengajarkan siswa tentang kedisiplinan, kekompakan baris-berbaris, dan rasa tanggung jawab kebangsaan yang tinggi.
+                        Mengajarkan siswa tentang kedisiplinan baris-berbaris presisi, ketahanan mental, serta rasa
+                        tanggung jawab kebangsaan yang kokoh.
                     </div>
-                    <span class="card-action">Detail &rarr;</span>
+                    <span class="card-action">Detail Program &rarr;</span>
                 </div>
             </div>
 
-            <!-- 3. Pencak Silat -->
+            <!-- 3. Pencak Silat Tapak Suci -->
             <div class="ekskul-card reveal-item">
-                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                </div>
                 <div class="card-content">
-                    <span class="tag">Bela Diri</span>
-                    <h2 class="card-title">Pencak Silat</h2>
+                    <span class="tag">Seni Bela Diri Tradisi</span>
+                    <h2 class="card-title">Pencak Silat Tapak Suci</h2>
                     <div class="card-desc">
-                        Seni bela diri tradisional (Tapak Suci) untuk mengembangkan keterampilan fisik dan mentalitas sportif.
+                        Perguruan bela diri berprestasi nasional yang memadukan keahlian jurus tradisional, pertahanan
+                        diri, dan penguatan aqidah.
                     </div>
-                    <span class="card-action">Detail &rarr;</span>
+                    <span class="card-action">Detail Program &rarr;</span>
                 </div>
             </div>
 
             <!-- 4. Pramuka -->
             <div class="ekskul-card reveal-item">
-                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                </div>
                 <div class="card-content">
-                    <span class="tag">Kepanduan</span>
-                    <h2 class="card-title">Pramuka</h2>
+                    <span class="tag">Kepanduan Penegak</span>
+                    <h2 class="card-title">Gerakan Pramuka</h2>
                     <div class="card-desc">
-                        Fokus pada pembinaan karakter, keterampilan bertahan hidup, dan aktivitas alam terbuka.
+                        Fokus pada pembinaan karakter mandiri, survival skills di alam bebas, pioneering, dan pengabdian
+                        sosial masyarakat.
                     </div>
-                    <span class="card-action">Detail &rarr;</span>
+                    <span class="card-action">Detail Program &rarr;</span>
                 </div>
             </div>
 
-            <!-- 5. PMR -->
+            <!-- 5. PMR (Palang Merah Remaja) -->
             <div class="ekskul-card reveal-item">
-                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1584820927498-cafe2c1110e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1584820927498-cafe2c1110e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                </div>
                 <div class="card-content">
-                    <span class="tag">Kesehatan & Sosial</span>
-                    <h2 class="card-title">PMR</h2>
+                    <span class="tag">Kesehatan & Kemanusiaan</span>
+                    <h2 class="card-title">PMR Wira Unit MUHI</h2>
                     <div class="card-desc">
-                        Pelatihan pertolongan pertama, kesiapsiagaan bencana, dan pelayanan kesehatan dasar.
+                        Pelatihan pertolongan pertama pada kecelakaan (P3K), kesiapsiagaan bencana darurat, dan aksi
+                        donor darah sukarela.
                     </div>
-                    <span class="card-action">Detail &rarr;</span>
+                    <span class="card-action">Detail Program &rarr;</span>
                 </div>
             </div>
 
-            <!-- 6. Olahraga -->
+            <!-- 6. Klub Olahraga -->
             <div class="ekskul-card reveal-item">
-                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+                </div>
                 <div class="card-content">
-                    <span class="tag">Fisik & Atletik</span>
-                    <h2 class="card-title">Klub Olahraga</h2>
+                    <span class="tag">Prestasi Atletik</span>
+                    <h2 class="card-title">Klub Olahraga Terpadu</h2>
                     <div class="card-desc">
-                        Mewadahi berbagai cabang olahraga (Futsal, Basket, Voli) untuk mencetak atlet berprestasi.
+                        Mewadahi talenta siswa dalam cabang Futsal, Bola Basket, Bola Voli, dan E-Sports untuk bersaing
+                        di kejurprov pelajar.
                     </div>
-                    <span class="card-action">Detail &rarr;</span>
+                    <span class="card-action">Detail Program &rarr;</span>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <!-- 4. FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand-box" style="margin-bottom:1.2rem;">
+                        <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
+                        <div
+                            style="color:#ffffff; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">
+                            SMKS MUHAMMADIYAH 1 GENTENG
+                        </div>
+                    </div>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
+                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
+                        Kabupaten Banyuwangi, Jawa Timur 68465
+                    </p>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7;">
+                        📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
+                        ✉️ smkmuhi.genteng1968@gmail.com
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Halaman Terkait</h4>
+                    <ul class="footer-links">
+                        <li><a href="visi-misi.html">🎯 Visi & Misi</a></li>
+                        <li><a href="fasilitas.html">🏢 Fasilitas Sekolah</a></li>
+                        <li><a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a></li>
+                        <li><a href="prestasi.html">🏆 Galeri Prestasi</a></li>
+                        <li><a href="berita.html">📰 Jurnal & Berita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>8 Konsentrasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="redesign-web1.html#jurusan">Rekayasa Perangkat Lunak</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Teknik Jaringan Komputer</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Desain Komunikasi Visual</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Bisnis Digital</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Akuntansi Lembaga</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Perhotelan & Kuliner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Identitas Lembaga</h4>
+                    <div
+                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#94a3b8;">
+                        <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
+                        <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
+                        <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
+                        <strong style="color:#ffffff;">Domain Resmi:</strong> smksmuh1gtg.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.</div>
+                <div>Website Redesign &bull; Kompetisi JHIC Jagoan Hosting</div>
+            </div>
+        </div>
+    </footer>
 
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -282,14 +753,14 @@
                 // Animasi Zoom-Out khusus untuk gambar (.card-bg) di dalam card
                 batch.forEach((card, index) => {
                     let bg = card.querySelector(".card-bg");
-                    gsap.fromTo(bg, 
-                        { scale: 1.3 }, 
-                        { 
-                            scale: 1, 
-                            duration: 1.5, 
+                    gsap.fromTo(bg,
+                        { scale: 1.3 },
+                        {
+                            scale: 1,
+                            duration: 1.5,
                             delay: index * 0.15, // Sync dengan stagger card
                             ease: "power2.out",
-                            clearProps: "transform" // Wajib! Agar efek hover CSS bisa berfungsi lagi setelah animasi selesai
+                            clearProps: "transform" // Agar efek hover CSS bisa berfungsi lagi setelah animasi selesai
                         }
                     );
                 });
@@ -297,7 +768,6 @@
         });
 
         // 3. Parallax Image Scrubbing
-        // Membuat gambar sedikit bergeser ke atas seiring user melakukan scroll
         gsap.utils.toArray(".ekskul-card").forEach(card => {
             let bg = card.querySelector(".card-bg");
             gsap.to(bg, {
@@ -312,5 +782,10 @@
             });
         });
     </script>
+
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script>window.PX_CONFIG = { cards: ".ekskul-card" };</script>
+    <script src="parallax-kit.js"></script>
 </body>
+
 </html>

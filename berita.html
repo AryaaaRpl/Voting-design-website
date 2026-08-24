@@ -4,63 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jurnal & Kabar Kampus - SMKS Muhammadiyah 1 Genteng</title>
+    <title>Jurnal & Warta Berita - SMKS Muhammadiyah 1 Genteng</title>
     <meta name="description"
-        content="Pusat informasi resmi, kabar prestasi, agenda akademik, kegiatan ekstrakurikuler IPM, dan kerjasama industri SMKS Muhammadiyah 1 Genteng Banyuwangi.">
+        content="Pusat informasi warta kampus, liputan kegiatan vokasi, inovasi pendidikan, dan pengumuman resmi SMKS Muhammadiyah 1 Genteng Banyuwangi.">
 
-    <!-- Modern Typography: Syne, Plus Jakarta Sans, Space Grotesk -->
+    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
 
     <style>
         /* ==========================================================================
-           1. DESIGN TOKENS - HYPER-BENTO & TECH-EDITORIAL PALETTE
+           1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
            ========================================================================== */
         :root {
-            --primary: #064e3b;
-            --primary-light: #0d7056;
-            --primary-dark: #022c22;
-            --primary-surface: rgba(6, 78, 59, 0.08);
+            --primary: #1e40af;
+            --primary-light: #2563eb;
+            --primary-dark: #16296b;
+            --primary-surface: rgba(30, 64, 175, 0.06);
+            --primary-glow: rgba(30, 64, 175, 0.2);
 
-            --secondary: #d97706;
-            --secondary-light: #f59e0b;
-            --secondary-surface: rgba(217, 119, 6, 0.12);
+            --secondary: #eab308;
+            --secondary-light: #facc15;
+            --secondary-surface: rgba(234, 179, 8, 0.1);
+            --secondary-glow: rgba(234, 179, 8, 0.25);
 
-            --accent-emerald: #10b981;
-            --accent-cyan: #06b6d4;
+            --accent-emerald: #facc15;
+            --accent-cyan: #3b82f6;
 
-            --bg-main: #fafaf9;
-            --bg-alt: #f5f5f4;
-            --bg-dark: #141210;
-            --bg-dark-card: #1c1917;
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-surface-card: #ffffff;
+            --bg-dark: #0f172a;
+            --bg-dark-card: #16213c;
+            --bg-dark-elevated: #1c2b4d;
 
-            --text-dark: #1c1917;
-            --text-muted: #57534e;
-            --text-subtle: #78716c;
-            --text-light: #fafaf9;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+            --text-light: #f8fafc;
 
-            --border-light: rgba(6, 78, 59, 0.12);
-            --border-card: #e7e5e4;
-            --border-dark: #332e2b;
+            --border-light: rgba(30, 64, 175, 0.1);
+            --border-card: #e2e8f0;
+            --border: #e2e8f0;
+            --border-dark: #263559;
+            --border-glow: rgba(234, 179, 8, 0.3);
 
-            --radius-sm: 10px;
-            --radius: 18px;
-            --radius-lg: 26px;
-            --radius-xl: 36px;
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
             --radius-full: 9999px;
 
-            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.03);
-            --shadow-card: 0 16px 36px -8px rgba(6, 78, 59, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
-            --shadow-card-hover: 0 24px 50px -12px rgba(6, 78, 59, 0.16), 0 0 0 1px rgba(6, 78, 59, 0.15);
+            --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+            --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
 
-            --font-display: 'Syne', 'Space Grotesk', sans-serif;
-            --font-head: 'Space Grotesk', sans-serif;
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
 
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.25s ease;
+            --transition-fast: all 0.15s ease;
         }
 
         * {
@@ -76,13 +86,17 @@
             line-height: 1.65;
             overflow-x: hidden;
             letter-spacing: -0.012em;
-            background-image: 
-                radial-gradient(circle at 12% 18%, rgba(6, 78, 59, 0.035) 0%, transparent 40%),
-                radial-gradient(circle at 88% 65%, rgba(217, 119, 6, 0.04) 0%, transparent 45%);
+            background-image:
+                radial-gradient(circle at 10% 15%, rgba(30, 64, 175, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 75%, rgba(234, 179, 8, 0.04) 0%, transparent 45%);
             background-attachment: fixed;
         }
 
-        h1, h2, h3, h4, .font-head {
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-head {
             font-family: var(--font-head);
             font-weight: 700;
             letter-spacing: -0.03em;
@@ -106,31 +120,34 @@
             padding: 0 5%;
         }
 
-        /* Badge Components */
-        .badge {
+        /* Badges */
+        .badge-gold {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 0.45rem 1.2rem;
+            background: var(--secondary-surface);
+            border: 1px solid rgba(234, 179, 8, 0.35);
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            color: #a16207;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
             padding: 0.4rem 1rem;
-            background: #ffffff;
-            border: 1px solid var(--border-light);
+            background: var(--primary-surface);
+            border: 1px solid rgba(30, 64, 175, 0.2);
             border-radius: var(--radius-full);
             font-size: 0.8rem;
             font-weight: 700;
             color: var(--primary);
-            box-shadow: 0 2px 10px rgba(6, 78, 59, 0.04);
-        }
-
-        .badge-amber {
-            background: var(--secondary-surface);
-            color: var(--secondary);
-            border-color: rgba(217, 119, 6, 0.3);
-        }
-
-        .badge-primary {
-            background: var(--primary-surface);
-            color: var(--primary);
-            border-color: rgba(6, 78, 59, 0.2);
         }
 
         /* Buttons */
@@ -153,30 +170,15 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: #ffffff;
-            box-shadow: 0 8px 24px -4px rgba(6, 78, 59, 0.35);
+            box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px -4px rgba(6, 78, 59, 0.45);
+            box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
         }
 
-        .btn-outline {
-            background: #ffffff;
-            color: var(--primary);
-            border: 1.5px solid var(--border-card);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-            background: var(--primary-surface);
-            transform: translateY(-2px);
-        }
-
-        /* ==========================================================================
-           2. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0
-           ========================================================================== */
+        /* 1. FLOATING ISLAND NAVBAR */
         .header-wrapper {
             position: fixed;
             top: 1rem;
@@ -190,13 +192,13 @@
         .nav-island {
             max-width: 1280px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: var(--radius-full);
             padding: 0.65rem 1.4rem;
-            box-shadow: 0 12px 35px -8px rgba(6, 78, 59, 0.12), 0 0 0 1px rgba(6, 78, 59, 0.05);
+            box-shadow: 0 12px 35px -8px rgba(30, 64, 175, 0.12), 0 0 0 1px rgba(30, 64, 175, 0.05);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -252,267 +254,213 @@
             transition: var(--transition);
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--primary);
             background: var(--primary-surface);
         }
 
-        /* ==========================================================================
-           3. PAGE HERO HEADER & FILTER CATEGORIES
-           ========================================================================== */
+        /* 2. PAGE HEADER */
         .page-header {
-            padding: 9.5rem 0 3.5rem;
+            padding: 10rem 0 4rem;
             text-align: center;
             position: relative;
         }
 
         .page-title {
             font-family: var(--font-display);
-            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+            font-size: clamp(2.4rem, 4.8vw, 4rem);
             color: var(--primary-dark);
-            margin: 0.8rem 0 1rem;
+            margin: 0.8rem 0 1.2rem;
             letter-spacing: -0.04em;
         }
 
         .page-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.12rem;
             color: var(--text-muted);
             max-width: 680px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 3rem;
             line-height: 1.7;
         }
 
-        /* Filter Pills */
-        .filter-pills-row {
+        /* Category Filter Pills */
+        .filter-container {
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 0.6rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 3.5rem;
         }
 
-        .filter-pill-btn {
-            background: #ffffff;
-            border: 1.5px solid var(--border-card);
-            padding: 0.55rem 1.3rem;
+        .filter-btn {
+            padding: 0.6rem 1.4rem;
             border-radius: var(--radius-full);
             font-family: var(--font-head);
             font-size: 0.88rem;
             font-weight: 700;
+            background: #ffffff;
             color: var(--text-muted);
+            border: 1px solid var(--border-card);
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: var(--shadow-subtle);
         }
 
-        .filter-pill-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .filter-pill-btn.active {
+        .filter-btn:hover,
+        .filter-btn.active {
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
-            box-shadow: 0 6px 20px -4px rgba(6, 78, 59, 0.35);
+            box-shadow: 0 6px 18px rgba(30, 64, 175, 0.25);
         }
 
-        /* ==========================================================================
-           4. ASYMMETRICAL HYPER-BENTO GRID NEWS SECTION
-           ========================================================================== */
-        .bento-news-section {
-            padding: 2rem 0 7.5rem;
+        /* 3. FEATURED HEADLINE BANNER */
+        .featured-news-section {
+            margin-bottom: 5rem;
         }
 
-        .bento-news-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.8rem;
-        }
-
-        /* Bento Card Base */
-        .bento-news-card {
+        .featured-news-card {
             background: #ffffff;
             border: 1px solid var(--border-card);
             border-radius: var(--radius-xl);
             overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
             box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .featured-news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .featured-news-img {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .featured-news-card:hover .featured-news-img {
+            transform: scale(1.04);
+        }
+
+        .featured-news-img-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-news-body {
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 4. NEWS ARTICLES GRID */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
+            padding-bottom: 6rem;
+        }
+
+        .news-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: var(--transition);
-            position: relative;
             cursor: pointer;
         }
 
-        .bento-news-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(6, 78, 59, 0.3);
+        .news-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-light);
             box-shadow: var(--shadow-card-hover);
         }
 
-        /* Card Visual Graphic / Hero Header */
-        .bento-thumb {
-            height: 200px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .news-card-img-wrap {
+            height: 220px;
             overflow: hidden;
+            position: relative;
+            background: var(--bg-alt);
         }
 
-        .bento-thumb-emoji {
-            font-size: 4.5rem;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+        .news-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: var(--transition);
         }
 
-        .bento-news-card:hover .bento-thumb-emoji {
-            transform: scale(1.12) rotate(4deg);
+        .news-card:hover .news-card-img {
+            transform: scale(1.08);
         }
 
-        .bento-content {
-            padding: 2.2rem;
+        .news-card-body {
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             flex: 1;
             justify-content: space-between;
         }
 
-        .bento-meta {
+        .news-card-meta {
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            margin-bottom: 0.8rem;
             font-size: 0.82rem;
             color: var(--text-subtle);
+            margin-bottom: 0.8rem;
             font-weight: 600;
         }
 
-        .bento-title {
+        .news-card-title {
             font-family: var(--font-head);
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             color: var(--primary-dark);
-            margin-bottom: 0.8rem;
             line-height: 1.35;
+            margin-bottom: 0.8rem;
             transition: var(--transition);
         }
 
-        .bento-news-card:hover .bento-title {
-            color: var(--secondary);
+        .news-card:hover .news-card-title {
+            color: var(--primary);
         }
 
-        .bento-excerpt {
+        .news-card-excerpt {
             color: var(--text-muted);
             font-size: 0.92rem;
             line-height: 1.65;
             margin-bottom: 1.5rem;
         }
 
-        .bento-read-cta {
-            font-family: var(--font-head);
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--primary);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
+        .news-card-footer {
+            border-top: 1px solid var(--border-card);
+            padding-top: 1.2rem;
             margin-top: auto;
-            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        .bento-news-card:hover .bento-read-cta {
-            color: var(--secondary);
-            transform: translateX(4px);
-        }
-
-        /* 1. HERO FEATURED CARD (Span 8 Kolom) */
-        .bento-col-8 {
-            grid-column: span 8;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .bento-col-8 .bento-thumb {
-            height: 100%;
-            min-height: 320px;
-        }
-
-        .bento-col-8 .bento-title {
-            font-size: 1.85rem;
-            line-height: 1.25;
-        }
-
-        /* 2. SIDE CARD (Span 4 Kolom) */
-        .bento-col-4 {
-            grid-column: span 4;
-        }
-
-        /* 3. ROW 2 CARDS (Span 4 Kolom Masing-Masing) */
-        .bento-col-4-accent {
-            grid-column: span 4;
-            background: #ffffff;
-        }
-
-        /* 4. HIGH-IMPACT GRADIENT CARD (Span 4) */
-        .bento-card-dark {
-            grid-column: span 4;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: #ffffff;
-            border: none;
-        }
-
-        .bento-card-dark .bento-title {
-            color: #ffffff;
-        }
-
-        .bento-card-dark .bento-excerpt {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .bento-card-dark .bento-meta {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .bento-card-dark .bento-read-cta {
-            color: var(--secondary-light);
-        }
-
-        /* 5. AMBER ACCENT CARD (Span 4) */
-        .bento-card-amber {
-            grid-column: span 4;
-            background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
-            color: #ffffff;
-            border: none;
-        }
-
-        .bento-card-amber .bento-title {
-            color: #ffffff;
-        }
-
-        .bento-card-amber .bento-excerpt {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .bento-card-amber .bento-meta {
-            color: rgba(255, 255, 255, 0.75);
-        }
-
-        .bento-card-amber .bento-read-cta {
-            color: #ffffff;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0.4rem 1rem;
-            border-radius: var(--radius-full);
-            width: fit-content;
-        }
-
-        /* ==========================================================================
-           5. INTERACTIVE ARTICLE DETAIL MODAL
-           ========================================================================== */
+        /* 5. NEWS READER MODAL */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(20, 18, 16, 0.65);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 2000;
@@ -530,11 +478,11 @@
             visibility: visible;
         }
 
-        .article-modal-card {
+        .news-modal-card {
             background: #ffffff;
             border: 1px solid var(--border-card);
             border-radius: var(--radius-xl);
-            max-width: 720px;
+            max-width: 780px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -543,52 +491,40 @@
             transition: var(--transition);
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+            scrollbar-color: var(--primary) rgba(30, 64, 175, 0.05);
         }
 
-        /* Custom Sleek Scrollbar */
-        .article-modal-card::-webkit-scrollbar {
+        .news-modal-card::-webkit-scrollbar {
             width: 6px;
         }
 
-        .article-modal-card::-webkit-scrollbar-track {
-            background: rgba(6, 78, 59, 0.04);
+        .news-modal-card::-webkit-scrollbar-track {
+            background: rgba(30, 64, 175, 0.04);
             border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
             margin: 12px 0;
         }
 
-        .article-modal-card::-webkit-scrollbar-thumb {
+        .news-modal-card::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, var(--secondary), var(--primary));
             border-radius: 10px;
             transition: background 0.3s;
         }
 
-        .article-modal-card::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
-        }
-
-        .modal-overlay.active .article-modal-card {
+        .modal-overlay.active .news-modal-card {
             transform: scale(1) translateY(0);
         }
 
-        .modal-banner {
-            height: 200px;
+        .modal-news-hero {
+            height: 320px;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            overflow: hidden;
+            background: var(--bg-dark);
         }
 
-        .modal-banner-emoji {
-            font-size: 5.5rem;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
-            animation: modalFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes modalFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+        .modal-news-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .modal-close-btn {
@@ -597,9 +533,9 @@
             right: 1.2rem;
             width: 38px;
             height: 38px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             color: #ffffff;
             font-size: 1.2rem;
@@ -621,54 +557,97 @@
             padding: 2.5rem;
         }
 
-        .modal-meta-row {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: var(--text-subtle);
-        }
-
         .modal-headline {
             font-family: var(--font-display);
-            font-size: 2rem;
+            font-size: 1.85rem;
             color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.25;
+            margin: 0.8rem 0 1.2rem;
+            line-height: 1.28;
         }
 
         .modal-full-text {
-            color: var(--text-muted);
-            font-size: 1.02rem;
+            color: var(--text-dark);
+            font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 2rem;
         }
 
         .modal-full-text p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
-        .modal-footer-share {
+        /* Footer */
+        .site-footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 6rem 0 2.5rem;
+            border-top: 1px solid var(--border-dark);
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(4px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dark);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-top: 1px solid var(--border-card);
-            padding-top: 1.5rem;
+            font-size: 0.88rem;
+            color: #64748b;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
-        /* ==========================================================================
-           6. RESPONSIVE BREAKPOINTS
-           ========================================================================== */
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .bento-col-8 {
-                grid-column: span 12;
+            .featured-news-card {
+                grid-template-columns: 1fr;
             }
 
-            .bento-col-4, .bento-col-4-accent, .bento-card-dark, .bento-card-amber {
-                grid-column: span 6;
+            .featured-news-img {
+                min-height: 280px;
+            }
+
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -677,24 +656,20 @@
                 display: none;
             }
 
-            .bento-col-8 {
+            .news-grid {
                 grid-template-columns: 1fr;
             }
 
-            .bento-col-4, .bento-col-4-accent, .bento-card-dark, .bento-card-amber {
-                grid-column: span 12;
-            }
-
-            .bento-content {
-                padding: 1.8rem;
+            .featured-news-body {
+                padding: 2rem;
             }
 
             .modal-body {
                 padding: 1.8rem;
             }
 
-            .modal-headline {
-                font-size: 1.6rem;
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -709,17 +684,19 @@
                 <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
                 <div>
                     <div class="brand-text-main">SMKS MUHI GENTENG</div>
-                    <div class="brand-text-sub">Pusat Keunggulan Vokasi</div>
+                    <div class="brand-text-sub">Jurnal & Warta Kampus</div>
                 </div>
             </a>
 
             <div class="nav-menu">
                 <a href="redesign-web1.html" class="nav-link">Beranda</a>
                 <a href="visi-misi.html" class="nav-link">Visi & Misi</a>
-                <a href="redesign-web1.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
-                <a href="berita.html" class="nav-link active">Berita</a>
+                <a href="fasilitas.html" class="nav-link">Fasilitas</a>
+                <a href="ekstrakurikuler.html" class="nav-link">Ekstrakurikuler</a>
                 <a href="prestasi.html" class="nav-link">Prestasi</a>
-                <a href="redesign-web1.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
+                <a href="berita.html" class="nav-link active">Berita</a>
+                <a href="redesign-web1.html#ppdb" class="btn btn-primary"
+                    style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
             </div>
         </nav>
     </header>
@@ -727,312 +704,449 @@
     <!-- 2. PAGE HEADER -->
     <header class="page-header">
         <div class="container">
-            <div class="badge badge-amber mb-2">Pusat Informasi & Liputan</div>
-            <h1 class="page-title">Jurnal & Kabar Kampus.</h1>
+            <span class="badge-gold">📰 Warta & Jurnalistik Sekolah</span>
+            <h1 class="page-title">Kabar Terkini &<br>Inovasi Vokasi MUHI.</h1>
             <p class="page-subtitle">
-                Informasi aktual seputar prestasi, inovasi teknologi, kegiatan ekstrakurikuler IPM, dan kemitraan industri di lingkungan SMKS Muhammadiyah 1 Genteng.
+                Ikuti liputan kegiatan belajar mengajar, kerja sama industri nasional, pengabdian masyarakat, dan
+                prestasi mutakhir civitas akademika SMKS Muhammadiyah 1 Genteng.
             </p>
 
             <!-- Filter Pills -->
-            <div class="filter-pills-row">
-                <button class="filter-pill-btn active" onclick="filterBentoCategory('all', this)">Semua Berita</button>
-                <button class="filter-pill-btn" onclick="filterBentoCategory('akademik', this)">Akademik</button>
-                <button class="filter-pill-btn" onclick="filterBentoCategory('prestasi', this)">Prestasi</button>
-                <button class="filter-pill-btn" onclick="filterBentoCategory('karir', this)">Karir & BKK</button>
-                <button class="filter-pill-btn" onclick="filterBentoCategory('event', this)">Event & IPM</button>
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterCategory('all')">Semua Berita</button>
+                <button class="filter-btn" onclick="filterCategory('akademik')">Akademik & TEFA</button>
+                <button class="filter-btn" onclick="filterCategory('industri')">Kerja Sama Industri</button>
+                <button class="filter-btn" onclick="filterCategory('kegiatan')">Kegiatan Siswa</button>
+                <button class="filter-btn" onclick="filterCategory('prestasi')">Prestasi Kejuaraan</button>
             </div>
         </div>
     </header>
 
-    <!-- 3. ASYMMETRICAL HYPER-BENTO GRID -->
-    <section class="bento-news-section container">
-        <div class="bento-news-grid" id="bento-grid">
-
-            <!-- Card 1: HERO FEATURED (Span 8 Kolom) -->
-            <article class="bento-news-card bento-col-8" data-category="akademik" onclick="openArticleModal('berita-1')">
-                <div class="bento-thumb" style="background: linear-gradient(135deg, #064e3b 0%, #0d7056 100%);">
-                    <span class="bento-thumb-emoji">💻</span>
-                    <span class="badge" style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.9);">
-                        ⭐ FEATURED
-                    </span>
+    <!-- 3. FEATURED HEADLINE ARTICLE -->
+    <section class="featured-news-section container">
+        <article class="featured-news-card" onclick="openNewsModal('me-awards-liputan')">
+            <div class="featured-news-img-wrap">
+                <img src="assets/juara-me-awards.jpg" alt="Liputan ME Awards SMKS MUHI" class="featured-news-img">
+            </div>
+            <div class="featured-news-body">
+                <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+                    <span class="badge-gold" style="font-size:0.75rem;">HEADLINE UTAMA</span>
+                    <span style="font-size:0.85rem; color:var(--text-subtle); font-weight:600;">18 Juni 2026 &bull; Tim
+                        Jurnalistik</span>
                 </div>
-                <div class="bento-content">
+                <h2 class="font-display"
+                    style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: var(--primary-dark); margin-bottom: 1rem; line-height: 1.25;">
+                    SMKS MUHI Genteng Raih Juara Umum ME Awards Tingkat Nasional 2026
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.8rem;">
+                    Delegasi SMKS Muhammadiyah 1 Genteng berhasil menorehkan prestasi gemilang dengan memboyong trofi
+                    Juara Umum dalam perhelatan akbar Muhammadiyah Education Awards 2026 di Surabaya setelah memenangkan
+                    beragam cabang lomba digital dan inovasi kejuruan.
+                </p>
+                <div
+                    style="display:flex; align-items:center; gap:0.5rem; color:var(--primary); font-family:var(--font-head); font-weight:700; font-size:0.92rem;">
+                    Baca Liputan Lengkap &rarr;
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- 4. NEWS CARDS GRID -->
+    <section class="container">
+        <div class="news-grid">
+
+            <!-- Card 1: Job Fair BKK -->
+            <article class="news-card" data-category="industri" onclick="openNewsModal('jobfair-bkk')">
+                <div class="news-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Bursa Kerja Khusus BKK MUHI" class="news-card-img">
+                </div>
+                <div class="news-card-body">
                     <div>
-                        <div class="bento-meta">
-                            <span class="badge badge-primary" style="font-size:0.75rem;">AKADEMIK</span>
-                            <span>&bull; 17 Juni 2026</span>
+                        <div class="news-card-meta">
+                            <span class="badge-primary" style="font-size:0.72rem;">BKK & INDUSTRI</span>
+                            <span>&bull; 10 Juni 2026</span>
                         </div>
-                        <h2 class="bento-title">Berbekal Fasilitas Modern, SMKS Muhammadiyah 1 Genteng Gelar Pengenalan Jurusan</h2>
-                        <p class="bento-excerpt">
-                            Memasuki tahun ajaran baru, sekolah menggelar kegiatan intensif pengenalan laboratorium komputer IoT, Cloud Server, studio Multimedia, dan bengkel resmi untuk memperkuat fondasi keahlian vokasi siswa baru.
+                        <h3 class="news-card-title">Bursa Kerja Khusus (BKK) MUHI Gandeng 35+ Perusahaan Multinasional
+                        </h3>
+                        <p class="news-card-excerpt">
+                            Penyaluran lulusan langsung ke industri manufaktur, IT software house, dan perhotelan
+                            melalui walk-in interview serentak di kampus MUHI.
                         </p>
                     </div>
-                    <div class="bento-read-cta">Baca selengkapnya &rarr;</div>
+                    <div class="news-card-footer">
+                        <span>Banyuwangi</span>
+                        <span>Baca Warta &rarr;</span>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card 2: SIDE CARD PRESTASI (Span 4 Kolom) -->
-            <article class="bento-news-card bento-col-4" data-category="prestasi" onclick="openArticleModal('berita-2')">
-                <div class="bento-thumb" style="background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);">
-                    <span class="bento-thumb-emoji">🥋</span>
+            <!-- Card 2: Uji Kompetensi BNSP -->
+            <article class="news-card" data-category="akademik" onclick="openNewsModal('uji-bnsp')">
+                <div class="news-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Uji Sertifikasi Kompetensi BNSP" class="news-card-img">
                 </div>
-                <div class="bento-content">
+                <div class="news-card-body">
                     <div>
-                        <div class="bento-meta">
-                            <span class="badge badge-primary" style="font-size:0.75rem;">PRESTASI</span>
+                        <div class="news-card-meta">
+                            <span class="badge-primary" style="font-size:0.72rem;">AKADEMIK LSP</span>
                             <span>&bull; 28 Mei 2026</span>
                         </div>
-                        <h2 class="bento-title">Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Jatim</h2>
-                        <p class="bento-excerpt">
-                            Prestasi membanggakan kembali ditorehkan oleh atlet pelajar SMKS MUHI dalam ajang Kejurprov Pelajar di Malang.
+                        <h3 class="news-card-title">100% Peserta Didik Lolos Uji Sertifikasi Profesi Nasional LSP-P1
+                            BNSP</h3>
+                        <p class="news-card-excerpt">
+                            Seluruh siswa kelas XII dari 8 konsentrasi keahlian berhasil meraih sertifikat kompetensi
+                            berlogo Garuda Emas dari Badan Nasional Sertifikasi Profesi.
                         </p>
                     </div>
-                    <div class="bento-read-cta">Baca selengkapnya &rarr;</div>
+                    <div class="news-card-footer">
+                        <span>Kampus MUHI</span>
+                        <span>Baca Warta &rarr;</span>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card 3: KARAOKE PRESTASI (Span 4 Kolom) -->
-            <article class="bento-news-card bento-col-4" data-category="prestasi" onclick="openArticleModal('berita-3')">
-                <div class="bento-thumb" style="background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);">
-                    <span class="bento-thumb-emoji">🎤</span>
+            <!-- Card 3: Hizbul Wathan Diklat -->
+            <article class="news-card" data-category="kegiatan" onclick="openNewsModal('kemah-hw')">
+                <div class="news-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900f4f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Perkemahan Hizbul Wathan" class="news-card-img">
                 </div>
-                <div class="bento-content">
+                <div class="news-card-body">
                     <div>
-                        <div class="bento-meta">
-                            <span class="badge badge-primary" style="font-size:0.75rem;">PRESTASI</span>
-                            <span>&bull; Mei 2026</span>
+                        <div class="news-card-meta">
+                            <span class="badge-primary" style="font-size:0.72rem;">KEGIATAN SISWA</span>
+                            <span>&bull; 15 Mei 2026</span>
                         </div>
-                        <h2 class="bento-title">Dua Siswi Smemsa Borong Juara Karaoke Indonesia Berbakat</h2>
-                        <p class="bento-excerpt">
-                            Banyuwangi kembali menjadi saksi talenta tarik suara dan kreativitas seni siswi SMKS Muhammadiyah 1 Genteng di kancah pencarian bakat.
+                        <h3 class="news-card-title">Kemah Tamu Penghela Hizbul Wathan Tanamkan Jiwa Kepemimpinan Islami
+                        </h3>
+                        <p class="news-card-excerpt">
+                            Ratusan siswa baru mengikuti kegiatan pembinaan kepanduan di bumi perkemahan dengan fokus
+                            pada kemandirian, survival, dan integritas.
                         </p>
                     </div>
-                    <div class="bento-read-cta">Baca selengkapnya &rarr;</div>
+                    <div class="news-card-footer">
+                        <span>Bumi Perkemahan</span>
+                        <span>Baca Warta &rarr;</span>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card 4: DARK EMERALD BKK CARD (Span 4 Kolom) -->
-            <article class="bento-news-card bento-card-dark" data-category="karir" onclick="openArticleModal('berita-4')">
-                <div class="bento-thumb" style="background: rgba(0,0,0,0.25);">
-                    <span class="bento-thumb-emoji">💼</span>
+            <!-- Card 4: Taekwondo Prestasi -->
+            <article class="news-card" data-category="prestasi" onclick="openNewsModal('taekwondo-liputan')">
+                <div class="news-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Taekwondo SMKS MUHI" class="news-card-img">
                 </div>
-                <div class="bento-content">
+                <div class="news-card-body">
                     <div>
-                        <div class="bento-meta">
-                            <span class="badge badge-amber" style="font-size:0.75rem;">KARIR & BKK</span>
-                            <span>&bull; Mei 2026</span>
+                        <div class="news-card-meta">
+                            <span class="badge-primary" style="font-size:0.72rem;">PRESTASI KEJUARAAN</span>
+                            <span>&bull; 2 Juni 2026</span>
                         </div>
-                        <h2 class="bento-title">Pembekalan Intensif PKL, Bekali Siswa dengan Kesiapan Kerja</h2>
-                        <p class="bento-excerpt">
-                            Panitia BKK menyelenggarakan seminar etika industri dan simulasi teknis sebelum pelepasan siswa magang ke 24+ mitra industri nasional.
+                        <h3 class="news-card-title">Dua Atlet Taekwondo Smemsa Boyong Medali Perunggu Kejurprov Jatim
+                        </h3>
+                        <p class="news-card-excerpt">
+                            Bertanding sengit di GOR Ken Arok Malang, kontingen bela diri SMKS MUHI sukses mengharumkan
+                            nama sekolah di podium provinsi.
                         </p>
                     </div>
-                    <div class="bento-read-cta">Pelajari Program BKK &rarr;</div>
+                    <div class="news-card-footer">
+                        <span>Malang, Jatim</span>
+                        <span>Baca Warta &rarr;</span>
+                    </div>
                 </div>
             </article>
 
-            <!-- Card 5: AMBER ACCENT EVENT CARD (Span 4 Kolom) -->
-            <article class="bento-news-card bento-card-amber" data-category="event" onclick="openArticleModal('berita-5')">
-                <div class="bento-thumb" style="background: rgba(0,0,0,0.2);">
-                    <span class="bento-thumb-emoji">🕌</span>
+            <!-- Card 5: Inovasi Software House RPL -->
+            <article class="news-card" data-category="akademik" onclick="openNewsModal('software-rpl')">
+                <div class="news-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Software House RPL" class="news-card-img">
                 </div>
-                <div class="bento-content">
+                <div class="news-card-body">
                     <div>
-                        <div class="bento-meta">
-                            <span class="badge" style="font-size:0.75rem; background:rgba(255,255,255,0.25); color:white; border:none;">EVENT & IPM</span>
-                            <span>&bull; 28 Mei 2026</span>
+                        <div class="news-card-meta">
+                            <span class="badge-primary" style="font-size:0.72rem;">TEKNOLOGI & TEFA</span>
+                            <span>&bull; 20 Mei 2026</span>
                         </div>
-                        <h2 class="bento-title">Sambut Idul Adha, SMKS Muhi Sembelih 2 Sapi dan 6 Kambing</h2>
-                        <p class="bento-excerpt">
-                            Kegiatan qurban tahunan diselenggarakan bersama pengurus IPM dan warga sekolah secara gotong royong dan disalurkan ke masyarakat sekitar.
+                        <h3 class="news-card-title">Teaching Factory RPL Rilis Aplikasi Smart School Berbasis RFID &
+                            Cloud</h3>
+                        <p class="news-card-excerpt">
+                            Inovasi perangkat lunak karya peserta didik kini resmi diimplementasikan untuk presensi
+                            real-time dan otomasi administrasi sekolah mitra.
                         </p>
                     </div>
-                    <div class="bento-read-cta">Lihat Dokumentasi &rarr;</div>
+                    <div class="news-card-footer">
+                        <span>Lab RPL MUHI</span>
+                        <span>Baca Warta &rarr;</span>
+                    </div>
                 </div>
             </article>
 
-        </div>
+            <!-- Card 6: Kelas Industri Honda TBSM -->
+            <article class="news-card" data-category="industri" onclick="openNewsModal('kelas-honda')">
+                <div class="news-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Bengkel TBSM Honda" class="news-card-img">
+                </div>
+                <div class="news-card-body">
+                    <div>
+                        <div class="news-card-meta">
+                            <span class="badge-primary" style="font-size:0.72rem;">KERJASAMA OTOMOTIF</span>
+                            <span>&bull; 5 Mei 2026</span>
+                        </div>
+                        <h3 class="news-card-title">Peresmian Standarisasi Bengkel Pos AHASS di SMKS Muhammadiyah 1
+                            Genteng</h3>
+                        <p class="news-card-excerpt">
+                            Kerja sama strategis PT MPM Honda Distributor Jawa Timur menghadirkan peralatan injeksi
+                            modern untuk sertifikasi mekanik resmi siswa.
+                        </p>
+                    </div>
+                    <div class="news-card-footer">
+                        <span>Bengkel TBSM</span>
+                        <span>Baca Warta &rarr;</span>
+                    </div>
+                </div>
+            </article>
 
-        <div style="text-align: center; margin-top: 4.5rem;">
-            <button class="btn btn-outline" style="padding: 0.9rem 2.5rem;" onclick="alert('Semua berita terkini telah ditampilkan dalam Bento Grid!')">
-                Muat Lebih Banyak Berita &darr;
-            </button>
         </div>
     </section>
 
-    <!-- 4. INTERACTIVE ARTICLE DETAIL MODAL -->
-    <div class="modal-overlay" id="article-modal-overlay" onclick="closeArticleModalOnOverlay(event)">
-        <div class="article-modal-card" id="article-modal-card">
-            <!-- Modal Header Banner -->
-            <div class="modal-banner" id="modal-article-banner">
-                <div class="modal-banner-emoji" id="modal-article-icon">💻</div>
-                <button class="modal-close-btn" onclick="closeArticleModal()" aria-label="Tutup Berita">&times;</button>
+    <!-- 5. INTERACTIVE NEWS DETAIL MODAL -->
+    <div class="modal-overlay" id="news-modal-overlay" onclick="closeNewsModalOnOverlay(event)">
+        <div class="news-modal-card" id="news-modal-card">
+            <!-- Modal Hero Header -->
+            <div class="modal-news-hero">
+                <img src="assets/juara-me-awards.jpg" alt="Header Berita" id="modal-news-img">
+                <button class="modal-close-btn" onclick="closeNewsModal()" aria-label="Tutup Berita">&times;</button>
             </div>
 
             <!-- Modal Content Body -->
             <div class="modal-body">
-                <div class="modal-meta-row">
-                    <span class="badge badge-amber" id="modal-article-category">AKADEMIK</span>
-                    <span id="modal-article-date">17 Juni 2026</span>
-                    <span>&bull; Oleh: <strong>Humas SMKS MUHI</strong></span>
+                <div style="display:flex; align-items:center; gap:0.8rem;">
+                    <span class="badge-gold" id="modal-news-category" style="font-size:0.75rem;">KATEGORI</span>
+                    <span id="modal-news-date"
+                        style="font-size:0.85rem; color:var(--text-subtle); font-weight:600;">Tanggal</span>
                 </div>
 
-                <h2 class="modal-headline" id="modal-article-title">
-                    Berbekal Fasilitas Modern, SMKS Muhammadiyah 1 Genteng Gelar Pengenalan Jurusan
-                </h2>
+                <h2 class="modal-headline" id="modal-news-title">Judul Berita Lengkap</h2>
 
-                <div class="modal-full-text" id="modal-article-body">
-                    <!-- Dynamic Body Text -->
+                <div class="modal-full-text" id="modal-news-body">
+                    <!-- Dynamic Full Text Paragraphs -->
                 </div>
 
-                <div class="modal-footer-share">
-                    <span style="font-size:0.88rem; color:var(--text-muted);">Bagikan artikel ini ke media sosial</span>
-                    <div style="display:flex; gap:0.5rem;">
-                        <a href="https://wa.me/?text=Baca%20berita%20SMKS%20MUHI" target="_blank" class="badge badge-primary" style="cursor:pointer;">💬 WhatsApp</a>
-                        <a href="redesign-web1.html#jurusan" class="btn btn-primary" style="padding:0.45rem 1.2rem; font-size:0.85rem;">Eksplorasi Jurusan</a>
-                    </div>
+                <div
+                    style="border-top:1px solid var(--border-card); padding-top:1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+                    <span style="font-size:0.88rem; color:var(--text-muted);">Bagikan warta ini ke civitas & alumni
+                        &bull; <strong>SMKS MUHI</strong></span>
+                    <a href="redesign-web1.html#ppdb" class="btn btn-primary"
+                        style="padding:0.5rem 1.4rem; font-size:0.88rem;">
+                        Gabung Bersama SMKS MUHI &rarr;
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- GSAP & Animations CDN -->
+    <!-- 6. FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand-box" style="margin-bottom:1.2rem;">
+                        <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
+                        <div
+                            style="color:#ffffff; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">
+                            SMKS MUHAMMADIYAH 1 GENTENG
+                        </div>
+                    </div>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
+                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
+                        Kabupaten Banyuwangi, Jawa Timur 68465
+                    </p>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7;">
+                        📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
+                        ✉️ smkmuhi.genteng1968@gmail.com
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Halaman Terkait</h4>
+                    <ul class="footer-links">
+                        <li><a href="visi-misi.html">🎯 Visi & Misi</a></li>
+                        <li><a href="fasilitas.html">🏢 Fasilitas Sekolah</a></li>
+                        <li><a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a></li>
+                        <li><a href="prestasi.html">🏆 Galeri Prestasi</a></li>
+                        <li><a href="berita.html">📰 Jurnal & Berita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>8 Konsentrasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="redesign-web1.html#jurusan">Rekayasa Perangkat Lunak</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Teknik Jaringan Komputer</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Desain Komunikasi Visual</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Bisnis Digital</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Akuntansi Lembaga</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Perhotelan & Kuliner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Identitas Lembaga</h4>
+                    <div
+                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#94a3b8;">
+                        <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
+                        <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
+                        <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
+                        <strong style="color:#ffffff;">Domain Resmi:</strong> smksmuh1gtg.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.</div>
+                <div>Website Redesign &bull; Kompetisi JHIC Jagoan Hosting</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Batch Animation for Bento Cards
-        ScrollTrigger.batch(".bento-news-card", {
-            onEnter: batch => gsap.to(batch, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.12,
-                ease: "power2.out"
-            }),
-            start: "top 88%",
-            once: true
-        });
-
-        // ==========================================
-        // DATA ARTIKEL & MODAL LOGIC
-        // ==========================================
-        const articlesData = {
-            'berita-1': {
-                category: "AKADEMIK",
-                date: "17 Juni 2026",
-                icon: "💻",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
-                title: "Berbekal Fasilitas Modern, SMKS Muhammadiyah 1 Genteng Gelar Pengenalan Jurusan",
+        // Data Berita
+        const newsDatabase = {
+            'me-awards-liputan': {
+                category: "HEADLINE PRESTASI",
+                date: "18 Juni 2026 • Tim Redaksi Jurnalistik MUHI",
+                img: "assets/juara-me-awards.jpg",
+                title: "SMKS MUHI Genteng Raih Juara Umum ME Awards Tingkat Nasional 2026",
                 body: `
-                    <p>Memasuki masa orientasi dan tahun ajaran baru 2026/2027, SMKS Muhammadiyah 1 Genteng menyelenggarakan agenda pengenalan fasilitas kejuruan secara komprehensif bagi seluruh calon siswa baru.</p>
-                    <p>Dalam kegiatan ini, peserta didik diajak mengunjungi laboratorium Software Development RPL, infrastruktur fiber optik dan cloud server TKJ, studio fotografi sinematik DKV, bengkel resmi Astra Motor, hingga dapur komersial berstandar internasional pada program Tata Boga.</p>
-                    <p>Kepala Sekolah Wahid Wahyudi, S.E., M.M. menegaskan bahwa pengenalan fasilitas sejak dini bertujuan menanamkan visi profesionalisme, etos kerja industri, dan kesiapan praktis siswa selama menempuh masa studi di SMK Pusat Keunggulan ini.</p>
+                    <p>Prestasi bersejarah kembali ditorehkan oleh civitas akademika SMKS Muhammadiyah 1 Genteng. Pada ajang bergengsi <strong>Muhammadiyah Education Awards (ME Awards) 2026</strong> yang digelar di Surabaya, kontingen SMKS MUHI berhasil menyabet predikat tertinggi sebagai <strong>Juara Umum Nasional</strong>.</p>
+                    <p>Kemenangan gemilang ini didapatkan setelah perwakilan peserta didik berhasil mendominasi medali emas dan perak di berbagai cabang kompetisi, meliputi Lomba Inovasi Robotika Vokasi, Desain Aplikasi Digital, Pidato Bahasa Asing, dan Manajemen Sekolah Kejuruan Unggul.</p>
+                    <p>Kepala Sekolah menyampaikan rasa syukur mendalam atas dedikasi para guru pembina dan kerja keras seluruh siswa yang pantang menyerah dalam berinovasi dan mengharumkan almamater di tingkat nasional.</p>
                 `
             },
-            'berita-2': {
-                category: "PRESTASI",
-                date: "28 Mei 2026",
-                icon: "🥋",
-                gradient: "linear-gradient(135deg, #0369a1 0%, #0284c7 100%)",
-                title: "Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Pelajar Jatim",
+            'jobfair-bkk': {
+                category: "BKK & INDUSTRI",
+                date: "10 Juni 2026 • Humas & Hubungan Industri",
+                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Bursa Kerja Khusus (BKK) MUHI Gandeng 35+ Perusahaan Multinasional",
                 body: `
-                    <p>Kontingen bela diri Taekwondo SMKS Muhammadiyah 1 Genteng kembali menorehkan prestasi gemilang dengan meraih Juara 3 pada Kejuaraan Provinsi (Kejurprov) Pelajar Jawa Timur yang digelar di Kota Malang.</p>
-                    <p>Kedua atlet kebanggaan sekolah ini berhasil mengungguli puluhan peserta dari berbagai kabupaten di Jawa Timur melalui perjuangan sengit pada babak penyisihan hingga semi final.</p>
-                    <p>Prestasi ini membuktikan bahwa SMKS MUHI senantiasa memberikan ruang aktualisasi maksimal bagi pengembangan potensi minat, bakat olahraga, dan pembentukan mental tangguh peserta didik.</p>
+                    <p>Untuk mempercepat penyerapan lulusan ke dunia kerja, Bursa Kerja Khusus (BKK) SMKS Muhammadiyah 1 Genteng menggelar Job Fair & Walk-in Interview terpadu yang diikuti oleh lebih dari 35 perusahaan ternama berskala nasional dan multinasional.</p>
+                    <p>Sektor industri yang terlibat mencakup teknologi informasi, perhotelan bintang lima, perbankan syariah, otomotif resmi, dan manufaktur presisi. Ratusan calon lulusan dan alumni memanfaatkan momentum ini untuk mendapatkan kontrak kerja langsung sebelum wisuda.</p>
                 `
             },
-            'berita-3': {
-                category: "PRESTASI",
-                date: "Mei 2026",
-                icon: "🎤",
-                gradient: "linear-gradient(135deg, #7c3aed 0%, #9333ea 100%)",
-                title: "Dua Siswi Smemsa Borong Juara Festival Musik & Seni Pelajar",
+            'uji-bnsp': {
+                category: "AKADEMIK LSP-P1",
+                date: "28 Mei 2026 • Tim LSP-P1 MUHI",
+                img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "100% Peserta Didik Lolos Uji Sertifikasi Profesi Nasional LSP-P1 BNSP",
                 body: `
-                    <p>Ajang festival musik dan pencarian bakat vokal pelajar tingkat kabupaten Banyuwangi menjadi panggung pembuktian bagi dua siswi SMKS Muhammadiyah 1 Genteng yang sukses menyabet gelar juara.</p>
-                    <p>Penampilan vokal yang matang, harmonisasi nada, dan pembawaan panggung yang percaya diri berhasil memukau dewan juri profesional.</p>
-                    <p>Kegiatan ekstrakurikuler seni musik di bawah naungan Ikatan Pelajar Muhammadiyah (IPM) terus berkomitmen mengasah talenta kreatif siswa sebagai penyeimbang soft-skill kejuruan.</p>
+                    <p>Lembaga Sertifikasi Profesi Pihak Pertama (LSP-P1) SMKS Muhammadiyah 1 Genteng yang telah terlisensi resmi oleh Badan Nasional Sertifikasi Profesi (BNSP) sukses menggelar Uji Sertifikasi Kompetensi (USK) bagi seluruh peserta didik tingkat akhir.</p>
+                    <p>Dengan standar asesmen ketat berbasis skema okupasi industri nasional, sebanyak 100% siswa dinyatakan kompeten dan berhak menyandang sertifikat profesi resmi berlogo Garuda Emas yang diakui secara nasional maupun di kawasan ASEAN.</p>
                 `
             },
-            'berita-4': {
-                category: "KARIR & BKK",
-                date: "Mei 2026",
-                icon: "💼",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #022c22 100%)",
-                title: "Pembekalan Intensif PKL, Bekali Siswa dengan Kesiapan Kerja Industri",
+            'kemah-hw': {
+                category: "KEGIATAN SISWA",
+                date: "15 Mei 2026 • Kwarda Hizbul Wathan",
+                img: "https://images.unsplash.com/photo-1533227268428-f9ed0900f4f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Kemah Tamu Penghela Hizbul Wathan Tanamkan Jiwa Kepemimpinan Islami",
                 body: `
-                    <p>Bursa Kerja Khusus (BKK) bekerjasama dengan mitra DUDI menyelenggarakan workshop pembekalan intensif Praktik Kerja Lapangan (PKL) bagi seluruh siswa kelas XI sebelum terjun ke dunia usaha dan dunia industri.</p>
-                    <p>Materi pembekalan mencakup budaya kerja industri 5S (Seiri, Seiton, Seiso, Seiketsu, Shitsuke), etika komunikasi profesional, kepatuhan K3 (Keselamatan dan Kesehatan Kerja), serta integritas profesi.</p>
-                    <p>Dengan pembekalan ini, siswa diharapkan mampu beradaptasi secara cepat dan berpeluang direkrut langsung oleh perusahaan tempat magang setelah lulus.</p>
+                    <p>Gerakan Kepanduan Hizbul Wathan (HW) Kafilah SMKS MUHI Genteng mengadakan kegiatan Perkemahan Tamu Penghela selama tiga hari penuh di kawasan alam terbuka Banyuwangi.</p>
+                    <p>Kegiatan ini dirancang untuk membentuk karakter mandiri, kedisiplinan baris-berbaris, teknik survival alam, kepemimpinan regu, serta penanaman aqidah dan ibadah praktis sehari-hari.</p>
                 `
             },
-            'berita-5': {
-                category: "EVENT & IPM",
-                date: "28 Mei 2026",
-                icon: "🕌",
-                gradient: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
-                title: "Sambut Idul Adha, SMKS Muhi Sembelih 2 Sapi dan 6 Kambing Qurban",
+            'taekwondo-liputan': {
+                category: "PRESTASI OLAHRAGA",
+                date: "2 Juni 2026 • Pembina Ekstrakurikuler Bela Diri",
+                img: "https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Dua Atlet Taekwondo Smemsa Boyong Medali Perunggu Kejurprov Jatim",
                 body: `
-                    <p>Dalam rangka menyemarakkan Hari Raya Idul Adha 1447 H, keluarga besar SMKS Muhammadiyah 1 Genteng melaksanakan penyembelihan hewan qurban berupa 2 ekor sapi dan 6 ekor kambing di lingkungan sekolah.</p>
-                    <p>Proses pemotongan dan pendistribusian daging qurban dikoordinasikan secara gotong royong oleh Pimpinan Ranting Ikatan Pelajar Muhammadiyah (PR IPM) bersama dewan guru dan karyawan.</p>
-                    <p>Paket daging qurban disalurkan langsung kepada masyarakat dhuafa di sekitar kampus Genteng Wetan sebagai wujud kepedulian sosial dan implementasi nilai-nilai keislaman berkemajuan.</p>
+                    <p>Dua atlet pelajar binaan ekstrakurikuler bela diri SMKS Muhammadiyah 1 Genteng menorehkan prestasi membanggakan pada Kejuaraan Provinsi (Kejurprov) Taekwondo Antar Pelajar Jawa Timur di Kota Malang.</p>
+                    <p>Melalui perjuangan sengit di kategori kyorugi dan poomsae, delegasi sekolah berhasil membawa pulang dua medali perunggu dan memperoleh apresiasi tinggi dari Pengprov Taekwondo Indonesia Jawa Timur.</p>
+                `
+            },
+            'software-rpl': {
+                category: "TEKNOLOGI & TEFA",
+                date: "20 Mei 2026 • Lab Rekayasa Perangkat Lunak",
+                img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Teaching Factory RPL Rilis Aplikasi Smart School Berbasis RFID & Cloud",
+                body: `
+                    <p>Unit Teaching Factory (TEFA) Rekayasa Perangkat Lunak SMKS MUHI resmi meluncurkan produk inovasi sistem informasi manajemen sekolah cerdas berbasis Internet of Things (IoT) dan komputasi awan (cloud).</p>
+                    <p>Aplikasi ini mengintegrasikan presensi kartu siswa RFID real-time, monitoring unit produksi TEFA, dan tracking portofolio sertifikasi siswa yang dapat diakses secara langsung oleh wali murid melalui aplikasi mobile.</p>
+                `
+            },
+            'kelas-honda': {
+                category: "KERJASAMA OTOMOTIF",
+                date: "5 Mei 2026 • Tim TBSM Astra Honda",
+                img: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Peresmian Standarisasi Bengkel Pos AHASS di SMKS Muhammadiyah 1 Genteng",
+                body: `
+                    <p>Kerja sama erat antara SMKS Muhammadiyah 1 Genteng dan PT MPM Distributor Honda Jawa Timur diwujudkan melalui peresmian Bengkel Teaching Factory berstandar resmi Astra Honda Authorized Service Station (AHASS).</p>
+                    <p>Fasilitas ini dilengkapi dengan diagnostic tools injeksi PGM-FI terkini, bike lift hidrolik, dan ruang sparepart resmi untuk memberikan pengalaman kerja bengkel riil kepada siswa konsentrasi Teknik Sepeda Motor.</p>
                 `
             }
         };
 
-        function openArticleModal(articleKey) {
-            const data = articlesData[articleKey];
+        function openNewsModal(newsKey) {
+            const data = newsDatabase[newsKey];
             if (!data) return;
 
-            document.getElementById('modal-article-category').innerText = data.category;
-            document.getElementById('modal-article-date').innerText = data.date;
-            document.getElementById('modal-article-title').innerText = data.title;
-            document.getElementById('modal-article-body').innerHTML = data.body;
-            document.getElementById('modal-article-icon').innerText = data.icon;
-            document.getElementById('modal-article-banner').style.background = data.gradient;
+            document.getElementById('modal-news-category').innerText = data.category;
+            document.getElementById('modal-news-date').innerText = data.date;
+            document.getElementById('modal-news-img').src = data.img;
+            document.getElementById('modal-news-title').innerText = data.title;
+            document.getElementById('modal-news-body').innerHTML = data.body;
 
-            const modalOverlay = document.getElementById('article-modal-overlay');
+            const modalOverlay = document.getElementById('news-modal-overlay');
             modalOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeArticleModal() {
-            const modalOverlay = document.getElementById('article-modal-overlay');
+        function closeNewsModal() {
+            const modalOverlay = document.getElementById('news-modal-overlay');
             modalOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        function closeArticleModalOnOverlay(e) {
-            if (e.target.id === 'article-modal-overlay') {
-                closeArticleModal();
+        function closeNewsModalOnOverlay(e) {
+            if (e.target.id === 'news-modal-overlay') {
+                closeNewsModal();
             }
         }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeArticleModal();
+            if (e.key === 'Escape') closeNewsModal();
         });
 
-        // Filter Category Logic
-        function filterBentoCategory(cat, btn) {
-            document.querySelectorAll('.filter-pill-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        // Filter Category
+        function filterCategory(cat) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-            const cards = document.querySelectorAll('.bento-news-card');
+            const cards = document.querySelectorAll('.news-card');
             cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (cat === 'all' || cardCat === cat) {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
                     card.style.display = 'flex';
-                    if (card.classList.contains('bento-col-8') && cat === 'all') {
-                        card.style.display = 'grid';
-                    }
                 } else {
                     card.style.display = 'none';
                 }
             });
         }
     </script>
+
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script>window.PX_CONFIG = { cards: ".news-card, .featured-news-card" };</script>
+    <script src="parallax-kit.js"></script>
 </body>
 
 </html>

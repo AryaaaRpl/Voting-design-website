@@ -1,140 +1,493 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fasilitas - SMKS Muhammadiyah 1 Genteng</title>
-    
-    <!-- Google Fonts -->
+    <title>Fasilitas & TEFA - SMKS Muhammadiyah 1 Genteng</title>
+
+    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
     <style>
-        /* DESIGN TOKENS - NEO-EDITORIAL */
+        /* ==========================================================================
+           1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
+           ========================================================================== */
         :root {
-            --primary: #064e3b;
-            --primary-light: #0d7056;
-            --secondary: #d97706;
-            --bg-main: #fafaf9;
-            --bg-alt: #f5f5f4;
-            --text-dark: #1c1917;
-            --text-muted: #57534e;
-            --border: #e7e5e4;
-            
-            --font-head: 'Space Grotesk', sans-serif;
+            --primary: #1e40af;
+            --primary-light: #2563eb;
+            --primary-dark: #16296b;
+            --primary-surface: rgba(30, 64, 175, 0.06);
+            --primary-glow: rgba(30, 64, 175, 0.2);
+
+            --secondary: #eab308;
+            --secondary-light: #facc15;
+            --secondary-surface: rgba(234, 179, 8, 0.1);
+            --secondary-glow: rgba(234, 179, 8, 0.25);
+
+            --accent-emerald: #facc15;
+            --accent-cyan: #3b82f6;
+
+            --bg-main: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-surface-card: #ffffff;
+            --bg-dark: #0f172a;
+            --bg-dark-card: #16213c;
+            --bg-dark-elevated: #1c2b4d;
+
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+            --text-light: #f8fafc;
+
+            --border-light: rgba(30, 64, 175, 0.1);
+            --border-card: #e2e8f0;
+            --border: #e2e8f0;
+            --border-dark: #263559;
+            --border-glow: rgba(234, 179, 8, 0.3);
+
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+
+            --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+            --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --transition: all 0.25s ease;
+            --transition-fast: all 0.15s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: var(--font-body); background-color: var(--bg-main);
-            color: var(--text-dark); line-height: 1.7; overflow-x: hidden;
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            letter-spacing: -0.012em;
+            background-image:
+                radial-gradient(circle at 10% 15%, rgba(30, 64, 175, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 75%, rgba(234, 179, 8, 0.04) 0%, transparent 45%);
+            background-attachment: fixed;
         }
 
-        h1, h2, h3, h4, .font-head { font-family: var(--font-head); }
-        a { text-decoration: none; color: inherit; }
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-head {
+            font-family: var(--font-head);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.035em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
 
         /* UTILITIES */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-        .section-padding { padding: 6rem 0; }
-        .text-center { text-align: center; }
-
-        /* 1. NAVBAR (Tipis Glassmorphism) */
-        .navbar {
-            position: fixed; top: 1rem; left: 5%; right: 5%; z-index: 100;
-            background: rgba(250, 250, 249, 0.85); backdrop-filter: blur(12px);
-            border: 1px solid var(--border); border-radius: 100px;
-            padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
         }
-        .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--primary); }
-        .logo span { color: var(--secondary); }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--secondary); }
-        
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* 1. FLOATING ISLAND NAVBAR */
+        .header-wrapper {
+            position: fixed;
+            top: 1rem;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0 5%;
+            pointer-events: none;
+        }
+
+        .nav-island {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-full);
+            padding: 0.65rem 1.4rem;
+            box-shadow: 0 12px 35px -8px rgba(30, 64, 175, 0.12), 0 0 0 1px rgba(30, 64, 175, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: auto;
+            transition: var(--transition);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            object-fit: contain;
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .brand-text-main {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.12rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .brand-text-sub {
+            font-size: 0.72rem;
+            color: var(--secondary);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-head);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 0.55rem 0.95rem;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            background: var(--primary-surface);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            padding: 0.55rem 1.4rem;
+            font-size: 0.88rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
+        }
+
         /* 2. PAGE HEADER */
         .page-header {
-            padding: 12rem 0 6rem;
-            background: linear-gradient(to bottom, #e7e5e433, var(--bg-main));
-            position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
+            padding: 10rem 0 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-card);
+            background: linear-gradient(to bottom, rgba(30, 64, 175, 0.04), var(--bg-main));
         }
+
         .header-bg-pattern {
-            position: absolute; right: -5%; top: 10%; width: 400px; height: 400px;
-            opacity: 0.05; pointer-events: none;
+            position: absolute;
+            right: -5%;
+            top: 10%;
+            width: 400px;
+            height: 400px;
+            opacity: 0.06;
+            pointer-events: none;
         }
-        .page-title { font-size: 4rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.1; }
-        .page-subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; }
+
+        .badge-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.2rem;
+            background: var(--secondary-surface);
+            border: 1px solid rgba(234, 179, 8, 0.35);
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            color: #a16207;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.2rem;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.8vw, 4rem);
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+        }
+
+        .page-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
 
         /* 3. FEATURED SECTION: TEFA (CROWN JEWEL) */
         .tefa-section {
-            background: var(--primary); color: white; padding: 6rem 0;
-            border-bottom: 5px solid var(--secondary); position: relative; overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 6rem 0;
+            border-bottom: 5px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
         }
-        .tefa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2; }
-        .tefa-title { font-size: 3rem; margin-bottom: 1.5rem; color: var(--bg-main); line-height: 1.1; }
-        .tefa-desc { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; }
-        .tefa-list { display: flex; flex-direction: column; gap: 1rem; }
+
+        .tefa-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tefa-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            line-height: 1.15;
+        }
+
+        .tefa-desc {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+
+        .tefa-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
         .tefa-item {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            padding: 1rem 1.5rem; border-radius: 8px; display: flex; align-items: center; gap: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1.1rem 1.6rem;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
         }
+
+        .tefa-item:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateX(8px);
+            border-color: var(--secondary-light);
+        }
+
         .tefa-number {
-            font-family: var(--font-head); color: var(--secondary); font-size: 1.5rem; font-weight: 700;
+            font-family: var(--font-display);
+            color: var(--secondary-light);
+            font-size: 1.6rem;
+            font-weight: 800;
         }
+
         .watermark {
-            position: absolute; bottom: -50px; right: -50px; font-family: var(--font-head);
-            font-size: 15rem; font-weight: 700; color: white; opacity: 0.03; line-height: 1; user-select: none;
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            font-family: var(--font-display);
+            font-size: 16rem;
+            font-weight: 800;
+            color: white;
+            opacity: 0.04;
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
         }
 
         /* 4. FASILITAS GRID (BENTO BOX) */
-        .fasilitas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 5rem; }
+        .fasilitas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
         .fac-card {
-            background: white; border: 1px solid var(--border); border-radius: 16px;
-            padding: 2.5rem; transition: transform 0.3s, box-shadow 0.3s;
-            display: flex; flex-direction: column;
+            background: white;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            box-shadow: var(--shadow-subtle);
         }
+
         .fac-card:hover {
-            transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.04);
-            border-color: var(--secondary);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--primary-light);
         }
+
         .fac-icon-wrapper {
-            width: 60px; height: 60px; background: var(--bg-alt); border-radius: 12px;
-            display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
-            color: var(--secondary);
+            width: 60px;
+            height: 60px;
+            background: var(--primary-surface);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            transition: var(--transition);
         }
-        .fac-card h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; }
-        .fac-card p { color: var(--text-muted); font-size: 0.95rem; }
-        
-        /* Kartu Wi-Fi ditarik memanjang 2 kolom untuk memecah kebosanan grid */
-        .fac-card.wide { grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
-        @media (max-width: 992px) { .fac-card.wide { grid-column: span 1; display: flex; } }
 
-        /* 5. KONSENTRASI KEAHLIAN (EX-SIDEBAR) */
-        .majors-section { padding: 6rem 0; border-top: 1px solid var(--border); background: var(--bg-alt); }
-        .visi-label { font-family: var(--font-head); color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; display: block; }
-        .majors-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+        .fac-card:hover .fac-icon-wrapper {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .fac-card h3 {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .fac-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .fac-card.wide {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        /* 5. KONSENTRASI KEAHLIAN CHIPS */
+        .majors-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-card);
+            background: var(--bg-alt);
+        }
+
+        .visi-label {
+            font-family: var(--font-head);
+            color: #a16207;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--secondary-surface);
+            padding: 0.35rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+        }
+
+        .majors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
         .major-chip {
-            padding: 1rem 2rem; border: 1px solid var(--border); border-radius: 50px;
-            font-family: var(--font-head); font-weight: 600; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            background: white; color: var(--text-dark); cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            padding: 0.85rem 1.6rem;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-full);
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: var(--transition);
+            background: #ffffff;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: var(--shadow-subtle);
         }
-        .major-chip:hover { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(6, 78, 59, 0.15); }
 
-        /* Interactive Facility Cards */
-        .fac-card { cursor: pointer; }
-        .fac-card:hover .fac-icon-wrapper { background: var(--primary); color: #ffffff; transform: scale(1.1); transition: all 0.3s; }
-        .tefa-item { cursor: pointer; transition: all 0.3s; }
-        .tefa-item:hover { background: rgba(255,255,255,0.15); transform: translateX(6px); border-color: var(--secondary); }
+        .major-chip:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
+        }
 
         /* 6. INTERACTIVE DETAIL MODAL */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(20, 18, 16, 0.65);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 2000;
@@ -144,7 +497,7 @@
             padding: 1.5rem;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: var(--transition);
         }
 
         .modal-overlay.active {
@@ -154,18 +507,18 @@
 
         .facility-modal-card {
             background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 24px;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
             max-width: 680px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
             transform: scale(0.92) translateY(20px);
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: var(--transition);
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+            scrollbar-color: var(--primary) rgba(30, 64, 175, 0.05);
         }
 
         /* Custom Sleek Scrollbar */
@@ -174,15 +527,15 @@
         }
 
         .facility-modal-card::-webkit-scrollbar-track {
-            background: rgba(6, 78, 59, 0.04);
-            border-radius: 0 24px 24px 0;
+            background: rgba(30, 64, 175, 0.04);
+            border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
             margin: 12px 0;
         }
 
         .facility-modal-card::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, var(--secondary), var(--primary));
-            border-radius: 10px;
-            transition: background 0.3s;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
         }
 
         .facility-modal-card::-webkit-scrollbar-thumb:hover {
@@ -200,18 +553,24 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
 
         .modal-banner-icon {
             font-size: 5rem;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
             animation: modalFloat 3s ease-in-out infinite;
         }
 
         @keyframes modalFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         .modal-close-btn {
@@ -230,7 +589,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: var(--transition);
             z-index: 10;
         }
 
@@ -248,7 +607,7 @@
             font-family: var(--font-head);
             font-size: 0.8rem;
             font-weight: 700;
-            color: var(--secondary);
+            color: #a16207;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 0.4rem;
@@ -256,9 +615,9 @@
         }
 
         .modal-title {
-            font-family: var(--font-head);
+            font-family: var(--font-display);
             font-size: 1.85rem;
-            color: var(--primary);
+            color: var(--primary-dark);
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
             line-height: 1.25;
@@ -286,33 +645,27 @@
             gap: 0.5rem;
         }
 
-        .modal-chips-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
         .modal-feature-chip {
             background: var(--bg-alt);
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-card);
             padding: 0.35rem 0.85rem;
-            border-radius: 8px;
+            border-radius: var(--radius-sm);
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--primary-dark);
+            color: var(--primary);
         }
 
         .modal-highlight-box {
-            background: rgba(6, 78, 59, 0.05);
-            border: 1px solid rgba(6, 78, 59, 0.12);
-            border-radius: 12px;
+            background: var(--primary-surface);
+            border: 1px solid rgba(30, 64, 175, 0.15);
+            border-radius: var(--radius);
             padding: 1.2rem;
             margin-bottom: 2rem;
         }
 
         .modal-highlight-text {
             font-size: 0.92rem;
-            color: var(--primary);
+            color: var(--primary-dark);
             font-weight: 600;
             line-height: 1.6;
         }
@@ -323,169 +676,332 @@
             justify-content: space-between;
             gap: 1rem;
             flex-wrap: wrap;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid var(--border-card);
             padding-top: 1.5rem;
         }
 
+        /* Footer */
+        .site-footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 6rem 0 2.5rem;
+            border-top: 1px solid var(--border-dark);
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(4px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            color: #64748b;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
         /* GSAP Prep */
-        .reveal { opacity: 0; transform: translateY(30px); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
 
         /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .fasilitas-grid { grid-template-columns: repeat(2, 1fr); }
-            .tefa-grid { grid-template-columns: 1fr; gap: 2rem; }
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
+
+        @media (max-width: 992px) {
+            .fasilitas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .fac-card.wide {
+                grid-column: span 2;
+            }
+
+            .tefa-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            .fasilitas-grid { grid-template-columns: 1fr; }
-            .page-title { font-size: 3rem; }
-            .tefa-title { font-size: 2.2rem; }
-            .nav-links { display: none; }
+            .fasilitas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fac-card.wide {
+                grid-column: span 1;
+                display: flex;
+            }
+
+            .page-title {
+                font-size: 2.4rem;
+            }
+
+            .tefa-title {
+                font-size: 2.2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo">SMKS MUHI <span>.</span></div>
-        <div class="nav-links">
-            <a href="redesign-web1.html">Beranda</a>
-            <a href="visi-misi.html">Profil & Visi Misi</a>
-            <a href="#" style="color: var(--primary); font-weight: 700;">Fasilitas</a>
-            <a href="prestasi.html">Prestasi</a>
-            <a href="redesign-web1.html#ppdb" style="background:var(--secondary); color:white; padding:0.5rem 1.2rem; border-radius:50px;">PPDB</a>
-        </div>
-    </nav>
+    <!-- 1. FLOATING ISLAND NAVBAR -->
+    <header class="header-wrapper">
+        <nav class="nav-island">
+            <a href="redesign-web1.html" class="brand-box">
+                <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
+                <div>
+                    <div class="brand-text-main">SMKS MUHI GENTENG</div>
+                    <div class="brand-text-sub">Infrastruktur & Fasilitas</div>
+                </div>
+            </a>
 
-    <!-- HEADER -->
+            <div class="nav-menu">
+                <a href="redesign-web1.html" class="nav-link">Beranda</a>
+                <a href="visi-misi.html" class="nav-link">Visi & Misi</a>
+                <a href="fasilitas.html" class="nav-link active">Fasilitas</a>
+                <a href="ekstrakurikuler.html" class="nav-link">Ekstrakurikuler</a>
+                <a href="prestasi.html" class="nav-link">Prestasi</a>
+                <a href="berita.html" class="nav-link">Berita</a>
+                <a href="redesign-web1.html#ppdb" class="btn-primary">Daftar PPDB</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. PAGE HEADER -->
     <header class="page-header">
         <svg class="header-bg-pattern" viewBox="0 0 100 100">
-            <rect x="20" y="20" width="60" height="60" fill="none" stroke="var(--primary)" stroke-width="2" transform="rotate(45 50 50)"/>
-            <circle cx="50" cy="50" r="15" fill="none" stroke="var(--secondary)" stroke-width="2"/>
+            <rect x="20" y="20" width="60" height="60" fill="none" stroke="var(--primary)" stroke-width="2"
+                transform="rotate(45 50 50)" />
+            <circle cx="50" cy="50" r="15" fill="none" stroke="var(--secondary)" stroke-width="2" />
         </svg>
         <div class="container reveal">
-            <h1 class="page-title">Infrastruktur &<br>Fasilitas Kampus.</h1>
-            <p class="page-subtitle">Lingkungan belajar modern yang didesain khusus untuk mendukung pengembangan keterampilan vokasi, kreativitas, dan inovasi peserta didik.</p>
+            <span class="badge-header">🏢 Kampus Vokasi Terpadu</span>
+            <h1 class="page-title">Infrastruktur &<br>Fasilitas Unggulan.</h1>
+            <p class="page-subtitle">Lingkungan belajar modern yang didesain khusus untuk mendukung pengembangan
+                keterampilan vokasi, kreativitas, dan inovasi peserta didik.</p>
         </div>
     </header>
 
-    <!-- TEFA SECTION (Featured) -->
-    <section class="tefa-section">
+    <!-- 3. TEFA SECTION (Featured) -->
+    <section class="tefa-section" data-px-stage="dark">
         <div class="watermark">TEFA</div>
         <div class="container tefa-grid">
             <div class="reveal">
-                <div class="visi-label" style="color:var(--secondary);">Standar Industri</div>
+                <div class="visi-label" style="background:rgba(234,179,8,0.2); color:var(--secondary-light);">Standar
+                    Industri</div>
                 <h2 class="tefa-title font-head">Teaching Factory (TEFA)<br>Terlengkap.</h2>
-                <p class="tefa-desc">SMKS Muhammadiyah 1 Genteng merupakan sekolah dengan Tefa terlengkap. Setiap kompetensi keahlian dilengkapi ruang produksi mandiri yang beroperasi mematuhi standar industri sesungguhnya. Memberikan siswa pengalaman praktik langsung di bawah bimbingan Dudika (Dunia Usaha Dunia Industri) terkait.</p>
+                <p class="tefa-desc" data-scroll-reveal>SMKS Muhammadiyah 1 Genteng merupakan sekolah dengan Tefa
+                    terlengkap. Setiap kompetensi keahlian dilengkapi ruang produksi mandiri yang beroperasi mematuhi
+                    standar industri sesungguhnya. Memberikan siswa pengalaman praktik langsung di bawah bimbingan
+                    Dudika (Dunia Usaha Dunia Industri) terkait.</p>
             </div>
             <div class="tefa-list reveal">
                 <div class="tefa-item" onclick="openItemModal('tefa-printing')">
                     <span class="tefa-number">01</span>
                     <div>
-                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Tefa Muhi Printing</strong><br>
-                        <span style="font-size: 0.9rem; opacity: 0.8;">Desain Komunikasi Visual (DKV)</span>
+                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Tefa Muhi
+                            Printing</strong><br>
+                        <span style="font-size: 0.9rem; opacity: 0.85;">Desain Komunikasi Visual (DKV)</span>
                     </div>
                 </div>
                 <div class="tefa-item" onclick="openItemModal('tefa-edotel')">
                     <span class="tefa-number">02</span>
                     <div>
-                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Edotel Muhi & Sun Wash Laundry</strong><br>
-                        <span style="font-size: 0.9rem; opacity: 0.8;">Perhotelan</span>
+                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Edotel Muhi & Sun Wash
+                            Laundry</strong><br>
+                        <span style="font-size: 0.9rem; opacity: 0.85;">Perhotelan & Hospitality</span>
                     </div>
                 </div>
                 <div class="tefa-item" onclick="openItemModal('tefa-pegadaian')">
                     <span class="tefa-number">03</span>
                     <div>
-                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Agen Pegadaian Mentari</strong><br>
-                        <span style="font-size: 0.9rem; opacity: 0.8;">Manajemen Perkantoran</span>
+                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Agen Pegadaian
+                            Mentari</strong><br>
+                        <span style="font-size: 0.9rem; opacity: 0.85;">Manajemen Perkantoran (MPLB)</span>
                     </div>
                 </div>
                 <div class="tefa-item" onclick="openItemModal('tefa-bank')">
                     <span class="tefa-number">04</span>
                     <div>
-                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Bank Mini Sekolah (BMS) BTM</strong><br>
-                        <span style="font-size: 0.9rem; opacity: 0.8;">Akuntansi dan Keuangan</span>
+                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Bank Mini Sekolah (BMS)
+                            BTM</strong><br>
+                        <span style="font-size: 0.9rem; opacity: 0.85;">Akuntansi dan Keuangan (AKL)</span>
                     </div>
                 </div>
                 <div class="tefa-item" onclick="openItemModal('tefa-tekaje')">
                     <span class="tefa-number">05</span>
                     <div>
-                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Tefa Tekaje</strong><br>
-                        <span style="font-size: 0.9rem; opacity: 0.8;">Teknik Komputer dan Jaringan</span>
+                        <strong style="font-family: var(--font-head); font-size: 1.1rem;">Tefa Tekaje
+                            Solution</strong><br>
+                        <span style="font-size: 0.9rem; opacity: 0.85;">Teknik Komputer dan Jaringan (TKJ)</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FASILITAS GRID -->
-    <section class="section-padding container">
-        <h2 class="font-head text-center reveal" style="font-size: 2.5rem; color: var(--primary);">Sarana Penunjang Lainnya</h2>
-        
+    <!-- 4. FASILITAS GRID -->
+    <section class="section-padding container" data-px-stage="subtle">
+        <div class="text-center reveal">
+            <span class="badge-header">Sarana Penunjang</span>
+            <h2 class="font-display" style="font-size: 2.5rem; color: var(--primary-dark); margin-top: 0.5rem;">
+                Fasilitas Kampus Unggulan</h2>
+        </div>
+
         <div class="fasilitas-grid">
             <!-- Lab Komputer -->
             <div class="fac-card reveal" onclick="openItemModal('fac-lab')">
                 <div class="fac-icon-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
                 </div>
-                <h3 class="font-head">Laboratorium Komputer</h3>
-                <p>Dilengkapi dengan perangkat komputer terkini yang mendukung proses pembelajaran IT. Tempat ideal bagi siswa untuk praktik pemrograman, desain grafis, jaringan, dan penguasaan aplikasi perangkat lunak.</p>
+                <h3>Laboratorium Komputer</h3>
+                <p>Dilengkapi dengan perangkat komputer terkini yang mendukung proses pembelajaran IT. Tempat ideal bagi
+                    siswa untuk praktik pemrograman, desain grafis, jaringan, dan penguasaan aplikasi perangkat lunak.
+                </p>
             </div>
 
             <!-- Studio Desain -->
             <div class="fac-card reveal" onclick="openItemModal('fac-studio')">
                 <div class="fac-icon-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.586 7.586"></path>
+                        <circle cx="11" cy="11" r="2"></circle>
+                    </svg>
                 </div>
-                <h3 class="font-head">Studio Desain</h3>
-                <p>Ruang kreatif yang dirancang khusus dengan peralatan multimedia terkini. Lingkungan yang kondusif bagi siswa DKV untuk bereksplorasi dalam ilustrasi, animasi, dan produksi media visual profesional.</p>
+                <h3>Studio Desain & Multimedia</h3>
+                <p>Ruang kreatif yang dirancang khusus dengan peralatan multimedia terkini. Lingkungan yang kondusif
+                    bagi siswa DKV untuk bereksplorasi dalam ilustrasi, animasi, dan produksi media visual profesional.
+                </p>
             </div>
 
             <!-- Perpustakaan -->
             <div class="fac-card reveal" onclick="openItemModal('fac-perpus')">
                 <div class="fac-icon-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
                 </div>
-                <h3 class="font-head">Perpustakaan Digital</h3>
-                <p>Pusat sumber belajar dengan koleksi buku dan jurnal yang komprehensif. Selain literatur cetak, perpustakaan ini juga menyediakan akses penuh ke sumber daya digital dan internet untuk riset mendalam.</p>
+                <h3>Perpustakaan Digital</h3>
+                <p>Pusat sumber belajar dengan koleksi buku dan jurnal yang komprehensif. Selain literatur cetak,
+                    perpustakaan ini juga menyediakan akses penuh ke sumber daya digital dan internet untuk riset
+                    mendalam.</p>
             </div>
 
             <!-- Wi-Fi (Wide Card) -->
             <div class="fac-card wide reveal" onclick="openItemModal('fac-wifi')">
                 <div class="fac-icon-wrapper" style="margin-bottom:0;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
                 </div>
                 <div>
-                    <h3 class="font-head">Konektivitas Wi-Fi Berkecepatan Tinggi</h3>
-                    <p>Mendukung proses pembelajaran digital (e-learning) tanpa batas. Jaringan Wi-Fi berkecepatan tinggi tersedia di seluruh area kelas maupun lingkungan sekolah, dapat diakses penuh oleh siswa dan staf agar senantiasa terhubung dengan teknologi dan sumber literasi global terkini.</p>
+                    <h3>Konektivitas Wi-Fi Berkecepatan Tinggi</h3>
+                    <p>Mendukung proses pembelajaran digital (e-learning) tanpa batas. Jaringan Wi-Fi berkecepatan
+                        tinggi tersedia di seluruh area kelas maupun lingkungan sekolah, dapat diakses penuh oleh siswa
+                        dan staf agar senantiasa terhubung dengan teknologi dan sumber literasi global terkini.</p>
                 </div>
             </div>
 
             <!-- Sarana Olahraga -->
             <div class="fac-card reveal" onclick="openItemModal('fac-sport')">
                 <div class="fac-icon-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
                 </div>
-                <h3 class="font-head">Sarana Olahraga</h3>
-                <p>Wadah pengembangan minat dan bakat fisik siswa. Kami menyediakan infrastruktur lengkap meliputi Lapangan Basket, Futsal, Bola Voli, Badminton, hingga fasilitas Tenis Meja.</p>
+                <h3>Sarana Olahraga Terpadu</h3>
+                <p>Wadah pengembangan minat dan bakat fisik siswa. Kami menyediakan infrastruktur lengkap meliputi
+                    Lapangan Basket, Futsal, Bola Voli, Badminton, hingga fasilitas Tenis Meja.</p>
             </div>
 
             <!-- Muhi Ball Room -->
             <div class="fac-card reveal" onclick="openItemModal('fac-ballroom')">
                 <div class="fac-icon-wrapper">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
                 </div>
-                <h3 class="font-head">Muhi Ball Room</h3>
-                <p>Ruang serbaguna representatif yang terintegrasi di kompleks perhotelan sekolah. Ideal dan sering digunakan untuk pelaksanaan meeting, seminar, rapat, maupun kegiatan seremonial formal lainnya.</p>
+                <h3>Muhi Ball Room & Convention</h3>
+                <p>Ruang serbaguna representatif yang terintegrasi di kompleks perhotelan sekolah. Ideal dan sering
+                    digunakan untuk pelaksanaan meeting, seminar, rapat, maupun kegiatan seremonial formal lainnya.</p>
             </div>
         </div>
     </section>
 
-    <!-- EX-SIDEBAR (Konsentrasi Keahlian Interaktif) -->
-    <section class="majors-section">
+    <!-- 5. KONSENTRASI KEAHLIAN (EX-SIDEBAR) -->
+    <section class="majors-section" data-px-stage="light">
         <div class="container">
             <span class="visi-label reveal">Integrasi Program</span>
-            <h2 class="font-head reveal" style="font-size: 2.5rem; color: var(--primary);">Konsentrasi Keahlian</h2>
+            <h2 class="font-display reveal" style="font-size: 2.5rem; color: var(--primary-dark);">Konsentrasi Keahlian
+                Terkait</h2>
             <div class="majors-grid reveal">
                 <button class="major-chip" onclick="openItemModal('major-rpl')">💻 Rekayasa Perangkat Lunak</button>
                 <button class="major-chip" onclick="openItemModal('major-tkj')">🌐 Teknik Komputer & Jaringan</button>
@@ -500,7 +1016,7 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE DETAIL MODAL -->
+    <!-- 6. INTERACTIVE DETAIL MODAL -->
     <div class="modal-overlay" id="facility-modal-overlay" onclick="closeItemModalOnOverlay(event)">
         <div class="facility-modal-card" id="facility-modal-card">
             <!-- Modal Header Banner -->
@@ -536,8 +1052,9 @@
                 </div>
 
                 <div class="modal-footer-cta">
-                    <span style="font-size:0.85rem; color:var(--text-muted);">Kampus Berstandar Industri &bull; <strong>SMKS MUHI</strong></span>
-                    <a href="redesign-web1.html#ppdb" style="background:var(--primary); color:#ffffff; padding:0.65rem 1.4rem; border-radius:50px; font-family:var(--font-head); font-weight:700; font-size:0.9rem; text-decoration:none;">
+                    <span style="font-size:0.85rem; color:var(--text-muted);">Kampus Berstandar Industri &bull;
+                        <strong>SMKS MUHI Genteng</strong></span>
+                    <a href="redesign-web1.html#ppdb" class="btn-primary" style="text-decoration:none;">
                         Daftar & Rasakan Fasilitasnya &rarr;
                     </a>
                 </div>
@@ -545,217 +1062,291 @@
         </div>
     </div>
 
+    <!-- 7. FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand-box" style="margin-bottom:1.2rem;">
+                        <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
+                        <div
+                            style="color:#ffffff; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">
+                            SMKS MUHAMMADIYAH 1 GENTENG
+                        </div>
+                    </div>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
+                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
+                        Kabupaten Banyuwangi, Jawa Timur 68465
+                    </p>
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7;">
+                        📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
+                        ✉️ smkmuhi.genteng1968@gmail.com
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Halaman Terkait</h4>
+                    <ul class="footer-links">
+                        <li><a href="visi-misi.html">🎯 Visi & Misi</a></li>
+                        <li><a href="fasilitas.html">🏢 Fasilitas Sekolah</a></li>
+                        <li><a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a></li>
+                        <li><a href="prestasi.html">🏆 Galeri Prestasi</a></li>
+                        <li><a href="berita.html">📰 Jurnal & Berita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>8 Konsentrasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="redesign-web1.html#jurusan">Rekayasa Perangkat Lunak</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Teknik Jaringan Komputer</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Desain Komunikasi Visual</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Bisnis Digital</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Akuntansi Lembaga</a></li>
+                        <li><a href="redesign-web1.html#jurusan">Perhotelan & Kuliner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Identitas Lembaga</h4>
+                    <div
+                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#94a3b8;">
+                        <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
+                        <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
+                        <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
+                        <strong style="color:#ffffff;">Domain Resmi:</strong> smksmuh1gtg.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.</div>
+                <div>Website Redesign &bull; Kompetisi JHIC Jagoan Hosting</div>
+            </div>
+        </div>
+    </footer>
+
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        
-        // Stagger Reveal for Grid Items
-        ScrollTrigger.batch(".reveal", {
-            onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" }),
-            start: "top 85%"
+
+        // Simple Reveal Animation
+        gsap.utils.toArray(".reveal").forEach(elem => {
+            gsap.to(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out"
+            });
         });
 
         // Parallax for Header Pattern
         gsap.to(".header-bg-pattern", {
-            y: 100, rotation: 15, ease: "none",
-            scrollTrigger: { trigger: ".page-header", start: "top top", end: "bottom top", scrub: true }
+            y: 80,
+            rotation: 20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".page-header",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
         });
 
         // ==========================================
-        // DATA FASILITAS, TEFA & JURUSAN MODAL LOGIC
+        // DATA FASILITAS & TEFA MODAL LOGIC
         // ==========================================
-        const modalData = {
-            // TEFA ITEMS
+        const facilitiesData = {
             'tefa-printing': {
                 tag: "TEACHING FACTORY • DKV",
-                title: "Tefa Muhi Printing (Studio Cetak & Merchandise)",
+                title: "Tefa Muhi Printing & Creative Production",
                 icon: "🖨️",
-                gradient: "linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)",
-                desc: "Unit produksi komersial mandiri bidang percetakan dan sablon merchandise. Melayani pesanan cetak banner, sablon kaos DTF/manual, mug, ID card, lanyard, dan plakat wisuda untuk kebutuhan internal maupun instansi luar.",
-                features: ["Mesin Cetak Banner High-Res", "Sablon DTF & Heat Press Modern", "Mesin Laminasi & Cutting Otomatis", "Studio Desain Proofing"],
-                highlight: "Siswa DKV belajar langsung mengelola alur bisnis percetakan nyata, kalkulasi harga pokok produksi (HPP), dan manajemen deadline klien profesional."
+                gradient: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
+                desc: "Unit produksi percetakan komersial yang melayani kebutuhan cetak offset, digital printing skala besar, sablon merchandise, banner promosi, serta branding kit industri.",
+                features: ["Digital Press & Offset Machine", "Large Format Outdoor & Indoor Plotter", "Mesin Cutting Stiker Presisi", "Workshop Sablon & Merchandise", "Sistem Manajemen Order Online"],
+                highlight: "Siswa DKV terlibat langsung dalam alur kerja industri nyata mulai dari kalkulasi biaya cetak, pra-cetak, finishing packaging, hingga customer handling."
             },
             'tefa-edotel': {
                 tag: "TEACHING FACTORY • PERHOTELAN",
                 title: "Edotel Muhi & Sun Wash Laundry",
                 icon: "🏨",
-                gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)",
-                desc: "Hotel mini pendidikan berstandar bintang 3 yang beroperasi melayani tamu umum dan instansi. Dilengkapi unit jasa Sun Wash Laundry profesional untuk pencucian linen hotel dan pakaian warga sekitar.",
-                features: ["Kamar Standar & VIP Ber-AC", "Sistem Resepsionis PMS Hotel", "Unit Laundry Otomatis Industri", "Housekeeping Amenities Standar Bintang"],
-                highlight: "Siswa Perhotelan mempraktikkan langsung hospitality ethics, front desk reservation, housekeeping room check, dan operasional binatu komersial."
+                gradient: "linear-gradient(135deg, #b45309 0%, #eab308 100%)",
+                desc: "Fasilitas hotel edukasi berstandar bintang dengan kamar representatif, lobby lounge, dan layanan binatu profesional Sun Wash yang melayani tamu umum dan corporate.",
+                features: ["Standard & Deluxe Hotel Rooms", "Front Desk Booking System", "Industrial Laundry & Dry Cleaning Machine", "Housekeeping Amenities Standard", "Layanan Room Service"],
+                highlight: "Memberikan siswa konsentrasi Perhotelan kompetensi operasional real-world dalam tata graha, pelayanan resepsionis, dan manajemen reservasi kamar hotel."
             },
             'tefa-pegadaian': {
-                tag: "TEACHING FACTORY • MPLB",
-                title: "Agen Pegadaian Mentari",
-                icon: "🏦",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0f766e 100%)",
-                desc: "Unit layanan kemitraan resmi bersama PT Pegadaian (Persero) yang melayani transaksi pembayaran tagihan, tabungan emas, dan layanan keuangan mikro syariah bagi warga sekolah dan masyarakat sekitar.",
-                features: ["Sistem Point of Sales Terintegrasi", "Layanan Tabungan Emas Resmi", "Loket Pembayaran Tagihan Terpadu", "Keamanan Transaksi Terstandarisasi"],
-                highlight: "Mengasah keterampilan siswa Manajemen Perkantoran dalam customer relationship, administrasi kasir perbankan, dan validasi transaksi digital."
+                tag: "TEACHING FACTORY • MANAJEMEN PERKANTORAN",
+                title: "Agen Pegadaian Mentari Muhi",
+                icon: "💳",
+                gradient: "linear-gradient(135deg, #16296b 0%, #1e40af 100%)",
+                desc: "Kantor layanan keuangan mikro kemitraan resmi dengan PT Pegadaian (Persero). Melayani transaksi tabungan emas, pembayaran tagihan multi-payment, dan pembiayaan terpadu.",
+                features: ["Aplikasi Sistem Transaksi Pegadaian", "Counter Teller Pelayanan Publik", "Digital Document Verification", "Standard Pelayanan Prima Frontliner", "Cash Flow Auditing"],
+                highlight: "Siswa jurusan MPLB dilatih mengoperasikan sistem administrasi keuangan resmi dan mempraktikkan etika komunikasi bisnis profesional kepada nasabah."
             },
             'tefa-bank': {
                 tag: "TEACHING FACTORY • AKUNTANSI",
-                title: "Bank Mini Sekolah (BMS) BTM",
-                icon: "📊",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #15803d 100%)",
-                desc: "Laboratorium perbankan syariah yang mengelola tabungan siswa, guru, dan operasional pos keuangan sekolah. Menerapkan akad-akad syariah (Wadi'ah & Mudharabah) serta sistem pembukuan digital.",
-                features: ["Sistem Core Banking Bank Mini", "Mesin Penghitung Uang Otomatis & UV Detector", "Buku Tabungan & Kartu Member", "SOP Teller & Customer Service"],
-                highlight: "Siswa Akuntansi terlatih menjadi teller, customer service, dan accounting staff yang cermat mengelola arus kas harian institusi."
+                title: "Bank Mini Sekolah (BMS) BTM Muhi",
+                icon: "🏦",
+                gradient: "linear-gradient(135deg, #1e40af 0%, #2563eb 100%)",
+                desc: "Lembaga keuangan mikro syariah internal sekolah yang mengelola tabungan harian siswa, kas ekstrakurikuler, serta simulasi pembiayaan syariah berbasis aplikasi komputer akuntansi.",
+                features: ["Software Core Banking Syariah", "Mesin Hitung Uang & Detektor Uang Palsu", "Simulasi Pembukuan GL & Neraca", "Buku Tabungan Berbasis Barcode", "SOP Teller & Customer Service"],
+                highlight: "Menjadi sarana praktikum akuntansi perbankan real-time sehingga lulusan memiliki keunggulan kompetitif saat terjun ke dunia industri perbankan nasional."
             },
             'tefa-tekaje': {
                 tag: "TEACHING FACTORY • TKJ",
-                title: "Tefa Tekaje (Pusat Servis IT & Instalasi Fiber)",
+                title: "Tefa Tekaje Solution & ISP Support",
                 icon: "🌐",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0369a1 100%)",
-                desc: "Unit layanan jasa perbaikan komputer/laptop, instalasi jaringan WiFi hotspot kantor/sekolah, maintenance server, dan penyambungan kabel fiber optik (splicing) bergaransi resmi.",
-                features: ["Fusion Splicer & OTDR Tester Fiber", "Toolbox Servis Hardware Komputer", "RouterBoard MikroTik & Switch Enterprise", "Server Rack & Patch Panel"],
-                highlight: "Siswa TKJ terjun langsung sebagai teknisi profesional menangani troubleshooting perangkat keras, konfigurasi router, dan deployment jaringan fiber."
+                gradient: "linear-gradient(135deg, #0f172a 0%, #1e40af 100%)",
+                desc: "Unit layanan jasa instalasi jaringan fiber optik, perakitan PC server, konfigurasi perangkat jaringan MikroTik/Cisco, dan maintenance perangkat IT untuk instansi sekolah maupun mitra.",
+                features: ["Splicer Fiber Optik & OTDR Tester", "Server Rack & Enterprise Switch", "Toolkit Maintenance Komputer Lengkap", "Jasa Perbaikan Hardware & Software", "Monitoring Bandwidth Management"],
+                highlight: "Mengasah kesiapan mental teknisi jaringan siswa untuk menangani troubleshooting jaringan riil dan sertifikasi kompetensi industri internasional."
             },
-
-            // FACILITY ITEMS
             'fac-lab': {
-                tag: "SARANA LAB IT UNGGULAN",
-                title: "Laboratorium Komputer & Software",
+                tag: "FASILITAS AKADEMIK",
+                title: "Laboratorium Komputer & Server Enterprise",
                 icon: "💻",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
-                desc: "Ruang komputasi modern dengan ratusan unit PC berkecepatan tinggi, full AC, dan koneksi internet Gigabit. Mendukung kegiatan koding web/mobile, simulasi jaringan, ujian berbasis CBT, dan latihan sertifikasi LSP-P1 BNSP.",
-                features: ["Intel Core i5/i7 High Performance", "Monitor Dual-Screen Koding", "Jaringan LAN Gigabit Terisolasi", "Software Berlisensi Resmi"],
-                highlight: "Memberikan kenyamanan belajar optimal saat mengerjakan proyek software berskala besar dan uji kompetensi keahlian."
+                gradient: "linear-gradient(135deg, #16296b 0%, #1e40af 100%)",
+                desc: "Laboratorium berpendingin udara dengan ratusan unit PC berspesifikasi tinggi, terkoneksi jaringan gigabit LAN, dan didukung server lokal untuk praktikum coding, simulasi cloud, dan ujian berbasis komputer.",
+                features: ["PC Core i7 & RAM 16GB", "Akses Jaringan Gigabit & VLAN", "Dedicated Local & Cloud Server", "Smart TV Interactive Board", "Full AC & Ergonomic Setup"],
+                highlight: "Memastikan proses pembelajaran coding, database, dan simulasi jaringan berjalan lancar tanpa kendala teknis."
             },
             'fac-studio': {
-                tag: "STUDIO PRODUKSI KREATIF",
-                title: "Studio Desain, Foto & Multimedia",
-                icon: "🎬",
-                gradient: "linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)",
-                desc: "Studio kreatif berpencahayaan profesional (softbox, spotlight, RGB) dengan backdrop green screen, kamera sinematik 4K, stabilizer gimbal, dan workstation rendering video berkinerja tinggi.",
-                features: ["Kamera Mirrorless 4K & Audio Wireless", "Lighting Studio Softbox & Diffuser", "Green Screen Cyclorama Wall", "Workstation Render GPU Dedicated"],
-                highlight: "Wadah eksklusif bagi siswa DKV memproduksi iklan komersial, company profile, podcast, animasi 2D/3D, dan pemotretan produk UMKM."
+                tag: "FASILITAS KREATIF",
+                title: "Studio Desain Komunikasi Visual & Podcast",
+                icon: "🎨",
+                gradient: "linear-gradient(135deg, #7c3aed 0%, #9333ea 100%)",
+                desc: "Fasilitas produksi konten kreatif dengan ruang kedap suara, pencahayaan studio sinematik (Godox/Aputure), kamera 4K, backdrop green screen, dan set rekaman podcast profesional.",
+                features: ["Set Pencahayaan Studio Multi-Point", "Kamera Cinema 4K & Audio Wireless Mic", "Soundproofing Acoustic Wall", "Workstation Video Editing RTX Series", "Green Screen Cyclorama"],
+                highlight: "Menyediakan ruang eksplorasi total bagi talenta muda perfilman, videografi, animasi, dan siaran podcast digital."
             },
             'fac-perpus': {
-                tag: "LITERASI & RISET DIGITAL",
-                title: "Perpustakaan Digital Terpadu",
+                tag: "FASILITAS LITERASI",
+                title: "Perpustakaan Digital & Ruang Riset",
                 icon: "📚",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #15803d 100%)",
-                desc: "Pusat sumber belajar yang menggabungkan ribuan koleksi buku teks kejuruan, literatur keagamaan Kemuhammadiyahan, jurnal ilmiah, serta akses e-book online melalui terminal komputer perpustakaan.",
-                features: ["Sistem Sirkulasi Barcode Digital", "Ribuan Judul Buku & Jurnal", "Ruang Baca Hening Ber-AC", "E-Library & Free Digital Access"],
-                highlight: "Mendukung budaya literasi ilmiah dan memfasilitasi riset akademik siswa dalam menuntaskan tugas akhir kejuruan."
+                gradient: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
+                desc: "Pusat sumber belajar modern yang menggabungkan ribuan koleksi buku fisik kejuruan, e-book reader, pojok baca lesehan yang nyaman, dan workstation penelusuran referensi ilmiah online.",
+                features: ["Katalog Online E-Library", "Koleksi Buku Referensi Kejuruan & Agama", "E-Reader Kiosk Station", "Ruang Diskusi & Silent Study Zone", "Koneksi Wi-Fi Dedicated"],
+                highlight: "Membangun budaya riset mandiri dan kebiasaan membaca komprehensif bagi seluruh warga sekolah."
             },
             'fac-wifi': {
-                tag: "INFRASTRUKTUR JARINGAN",
-                title: "Konektivitas Wi-Fi Fiber Optik Sekolah",
-                icon: "📡",
-                gradient: "linear-gradient(135deg, #0284c7 0%, #0369a1 100%)",
-                desc: "Jaringan internet nirkabel pita lebar dengan backbone serat optik berkecepatan tinggi yang menjangkau seluruh ruang kelas, lab, lapangan, dan area publik kampus SMKS MUHI.",
-                features: ["Bandwidth Fiber Optik Dedicated", "Access Point Enterprise Coverage", "Filter Konten Edukatif Aman", "Roaming Seamless Seluruh Kampus"],
-                highlight: "Memastikan proses pembelajaran blended learning, riset koding, dan akses materi digital berjalan tanpa kendala buffering."
+                tag: "INFRASTRUKTUR DIGITAL",
+                title: "Infrastruktur Wi-Fi Fiber Optik 1 Gbps",
+                icon: "📶",
+                gradient: "linear-gradient(135deg, #0f172a 0%, #1e40af 100%)",
+                desc: "Jaringan backbone fiber optik terintegrasi dengan puluhan access point enterprise di setiap ruang kelas, bengkel TEFA, dan area publik sekolah dengan alokasi bandwidth merata dan aman.",
+                features: ["Backbone Fiber Optik 1 Gbps", "Access Point Wi-Fi 6 Enterprise", "Firewall & Content Filtering Aman", "Bandwidth Management QoS", "Coverage 100% Area Kampus"],
+                highlight: "Memfasilitasi blended learning, akses sumber belajar digital internasional, dan riset teknologi terkini secara instan."
             },
             'fac-sport': {
-                tag: "KESEHATAN & BAKAT OLAHRAGA",
-                title: "Sarana Olahraga Multi-Fungsi",
+                tag: "SARANA OLAHRAGA",
+                title: "Sport Center & Gelanggang Olahraga",
                 icon: "⚽",
-                gradient: "linear-gradient(135deg, #d97706 0%, #ca8a04 100%)",
-                desc: "Area olahraga terpadu yang memfasilitasi cabang olahraga Futsal, Basket, Bola Voli, Badminton, hingga Tenis Meja dan latihan bela diri Taekwondo/Tapak Suci.",
-                features: ["Lapangan Futsal & Basket Standar", "Peralatan Olahraga Lengkap", "Pencahayaan Lapangan Malam Hari", "Tribun Penonton representatif"],
-                highlight: "Mencetak atlet-atlet pelajar berprestasi yang rutin membawa pulang piala kejuaraan tingkat kabupaten dan provinsi."
+                gradient: "linear-gradient(135deg, #eab308 0%, #ca8a04 100%)",
+                desc: "Kompleks sarana olahraga representatif dengan lapangan multifungsi untuk futsal, bola voli, bola basket, badminton, serta area latihan seni bela diri Tapak Suci.",
+                features: ["Lapangan Futsal & Basket Standar", "Lapangan Voli & Bulutangkis Indoor", "Matras & Perlengkapan Bela Diri Tapak Suci", "Tribun Penonton & Ruang Ganti", "Peralatan Olahraga Lengkap"],
+                highlight: "Menjaga kebugaran jasmani, sportivitas, dan melahirkan bibit atlet berprestasi di tingkat kabupaten hingga nasional."
             },
             'fac-ballroom': {
-                tag: "AUDITORIUM & CONVENTION",
+                tag: "SARANA AUDITORIUM",
                 title: "Muhi Ball Room & Convention Hall",
                 icon: "🏛️",
-                gradient: "linear-gradient(135deg, #1c1917 0%, #064e3b 100%)",
-                desc: "Gedung serbaguna megah berkapasitas ratusan orang dengan tata suara sound system profesional, panggung akustik, proyektor laser, dan pendingin ruangan terpusat.",
-                features: ["Kapasitas 500+ Undangan", "Sound System Digital Line Array", "Panggung Teatrikal & Lighting", "Full AC Central & VIP Lounge"],
-                highlight: "Tempat penyelenggaraan seminar nasional, job fair BKK, wisuda purnawiyata, dan pertunjukan seni pelajar berkemajuan."
+                gradient: "linear-gradient(135deg, #1e40af 0%, #16296b 100%)",
+                desc: "Auditorium megah berkapasitas ratusan orang dengan tata suara panggung konser, videotron LED screen besar, dan pendingin ruangan sentral untuk acara wisuda, seminar, dan festival budaya.",
+                features: ["Kapasitas hingga 800+ Kursi", "Videotron P2.5 High Definition", "Line Array Audio System Pro", "Panggung Teater & Lighting System", "Full Central Air Conditioning"],
+                highlight: "Gedung serbaguna prestisius untuk memfasilitasi berbagai perhelatan akbar tingkat daerah maupun provinsi."
             },
-
-            // MAJORS
             'major-rpl': {
-                tag: "PPLG / KONSENTRASI KEAHLIAN",
+                tag: "KONSENTRASI KEAHLIAN",
                 title: "Rekayasa Perangkat Lunak (RPL)",
                 icon: "💻",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
-                desc: "Fokus pada pengembangan aplikasi web modern, mobile apps (Flutter/Android), arsitektur basis data, dan logika komputasi siap pakai untuk industri teknologi.",
-                features: ["Fullstack Web Development", "Mobile App Development", "Database SQL & NoSQL", "Git CI/CD Pipeline"],
-                highlight: "Peluang karir: Software Engineer, Web Developer, Mobile App Developer, QA System Tester."
+                gradient: "linear-gradient(135deg, #16296b 0%, #1e40af 100%)",
+                desc: "Kurikulum vokasi pemrograman tingkat lanjut: fullstack web development, mobile application, database management, dan integrasi API.",
+                features: ["Fullstack JavaScript / PHP / Python", "Flutter & Android Development", "Cloud Deployment & DevOps", "Project Based Learning Software House"],
+                highlight: "Lulusan siap berkarir sebagai Software Developer atau melanjutkan kuliah di bidang Ilmu Komputer dan Informatika."
             },
             'major-tkj': {
-                tag: "TJKT / KONSENTRASI KEAHLIAN",
-                title: "Teknik Komputer & Jaringan (TKJ)",
+                tag: "KONSENTRASI KEAHLIAN",
+                title: "Teknik Jaringan Komputer & Telekomunikasi (TKJ)",
                 icon: "🌐",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0369a1 100%)",
-                desc: "Mempelajari instalasi jaringan enterprise, fiber optik, administrasi Cloud & Linux server, serta keamanan siber (cybersecurity) industri.",
-                features: ["MikroTik MTCNA Routing", "Linux Enterprise Cloud Server", "Fiber Optic Splicing", "Cyber Security Basics"],
-                highlight: "Peluang karir: Network Administrator, Cloud Engineer, Fiber Optic Specialist, SysAdmin."
+                gradient: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
+                desc: "Penguasaan perancangan jaringan komputer enterprise, fiber optik, administrasi server Linux/Cloud, dan cybersecurity.",
+                features: ["MikroTik Academy & Cisco Networking", "Instalasi Fiber Optik & Wireless", "Linux Enterprise Administration", "Network Security Protocols"],
+                highlight: "Disiapkan langsung menjadi Network Engineer dan IT Infrastructure Support tersertifikasi industri."
             },
             'major-bd': {
-                tag: "BISNIS / KONSENTRASI KEAHLIAN",
+                tag: "KONSENTRASI KEAHLIAN",
                 title: "Bisnis Digital",
                 icon: "💼",
-                gradient: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
-                desc: "Mempersiapkan praktisi e-commerce yang menguasai marketplace optimization, riset pasar digital, social media ads, dan SEO/SEM.",
-                features: ["Marketplace Management", "Meta & TikTok Advertising", "SEO/SEM Strategy", "Digital Analytics"],
-                highlight: "Peluang karir: Digital Marketer, E-Commerce Specialist, Social Media Strategist, Digital Business Lead."
+                gradient: "linear-gradient(135deg, #eab308 0%, #ca8a04 100%)",
+                desc: "Pendidikan wirausaha era digital: optimasi marketplace, social media marketing, SEO/SEM, copywriting, dan analytics toko daring.",
+                features: ["Marketplace Management", "Meta & TikTok Ads Campaign", "Content Creation & Copywriting", "Digital Business Strategy"],
+                highlight: "Lulusan mampu mendirikan start-up bisnis mandiri atau mengelola kanal penjualan digital perusahaan modern."
             },
             'major-mplb': {
-                tag: "LAYANAN BISNIS / KONSENTRASI KEAHLIAN",
-                title: "Manajemen Perkantoran (MPLB)",
+                tag: "KONSENTRASI KEAHLIAN",
+                title: "Manajemen Perkantoran & Layanan Bisnis (MPLB)",
                 icon: "🏢",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0f766e 100%)",
-                desc: "Keterampilan administrasi perkantoran modern, digital archiving, korespondensi bisnis formal, dan tata kelola kehumasan profesional.",
-                features: ["Digital Office Admin", "Cloud Document Archiving", "Public Relations Handling", "Business English"],
-                highlight: "Peluang karir: Administrative Officer, Executive Secretary, Public Relations Staff, HR Assistant."
+                gradient: "linear-gradient(135deg, #1e40af 0%, #2563eb 100%)",
+                desc: "Tata kelola administrasi korporat modern, kearsipan digital berbasis cloud, korespondensi formal, dan public relations.",
+                features: ["Digital Office Management", "Business Correspondence", "Public Relations & Event Handling", "Aplikasi Otomasi Kantor"],
+                highlight: "Mencetak staf administrasi eksekutif dan tenaga humas profesional dengan etika kerja unggul."
             },
             'major-akl': {
-                tag: "KEUANGAN / KONSENTRASI KEAHLIAN",
+                tag: "KONSENTRASI KEAHLIAN",
                 title: "Akuntansi & Keuangan Lembaga (AKL)",
                 icon: "📊",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #15803d 100%)",
-                desc: "Penguasaan pembukuan keuangan, perpajakan, audit laporan keuangan, komputer akuntansi (MYOB/Accurate), dan perbankan syariah.",
-                features: ["Komputer Akuntansi MYOB", "Laporan Keuangan & Perpajakan", "Perbankan Syariah", "Audit Keuangan"],
-                highlight: "Peluang karir: Junior Accountant, Tax Officer, Bank Teller Syariah, Financial Analyst Assistant."
+                gradient: "linear-gradient(135deg, #1e40af 0%, #0f766e 100%)",
+                desc: "Keahlian pembukuan keuangan, perpajakan, audit laporan akuntansi, komputer akuntansi Accurate/MYOB, dan perbankan syariah.",
+                features: ["Komputer Akuntansi (MYOB/Accurate)", "Perpajakan & Audit Keuangan", "Perbankan Syariah BTM", "Spreadsheet Financial Modeling"],
+                highlight: "Membuka jalan karir sebagai junior accountant, staf perpajakan, atau teller di instansi perbankan."
             },
             'major-hotel': {
-                tag: "PARIWISATA / KONSENTRASI KEAHLIAN",
+                tag: "KONSENTRASI KEAHLIAN",
                 title: "Perhotelan & Hospitality",
                 icon: "🏨",
-                gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)",
-                desc: "Keahlian pelayanan prima front office, tata graha (housekeeping) berstandar bintang lima, food and beverage service, dan hospitality ethics.",
-                features: ["Front Office Reservation", "Housekeeping Operations", "F&B Service", "Hotel Management System"],
-                highlight: "Peluang karir: Front Desk Agent, Guest Relation Officer, Housekeeping Supervisor, F&B Specialist."
+                gradient: "linear-gradient(135deg, #b45309 0%, #eab308 100%)",
+                desc: "Pelatihan keramahtamahan berstandar internasional: front office hotel, housekeeping, food and beverage service, serta manajemen event.",
+                features: ["Hotel Property Management System", "Housekeeping Operational Standard", "Food & Beverage Etiquette", "Hospitality Communication"],
+                highlight: "Siap kerja di jaringan hotel berbintang nasional maupun kapal pesiar internasional."
             },
             'major-dkv': {
-                tag: "KREATIF / KONSENTRASI KEAHLIAN",
+                tag: "KONSENTRASI KEAHLIAN",
                 title: "Desain Komunikasi Visual (DKV)",
                 icon: "🎬",
-                gradient: "linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)",
-                desc: "Desain grafis komersial, ilustrasi digital, videografi sinematik, animasi 2D/3D, motion graphics, dan branding media sosial.",
-                features: ["Adobe Photoshop & Illustrator", "Premiere Pro & After Effects", "Cinematography & Lighting", "Brand Identity"],
-                highlight: "Peluang karir: Graphic Designer, Video Editor, Motion Graphic Artist, UI/UX Designer, Creative Lead."
+                gradient: "linear-gradient(135deg, #7c3aed 0%, #9333ea 100%)",
+                desc: "Eksplorasi media kreatif: desain grafis periklanan, videografi komersial, motion graphic, fotografi studio, dan branding digital.",
+                features: ["Adobe Creative Suite Mastering", "Sinematografi & Video Editing", "Motion Graphics & 2D Animation", "Brand Identity Design"],
+                highlight: "Prospek kerja luas di agency periklanan, studio film, production house, atau sebagai visual artist freelance."
             },
             'major-boga': {
-                tag: "KULINER / KONSENTRASI KEAHLIAN",
+                tag: "KONSENTRASI KEAHLIAN",
                 title: "Tata Boga / Kuliner",
                 icon: "🍰",
-                gradient: "linear-gradient(135deg, #d97706 0%, #ca8a04 100%)",
-                desc: "Seni pengolahan kuliner nusantara & kontinental, bakery & pastry, hygiene sanitasi halal, serta manajemen usaha katering komersial.",
-                features: ["Bakery & Pastry Production", "Continental & Nusantara Food", "Halal Food Sanitation", "Catering Management"],
-                highlight: "Peluang karir: Pastry Chef, Commis Chef, Baker, Food Stylist, Wirausaha Kuliner Mandiri."
+                gradient: "linear-gradient(135deg, #eab308 0%, #facc15 100%)",
+                desc: "Pengolahan masakan nusantara dan kontinental, seni bakery & pastry, hygiene sanitasi halal, serta manajemen bisnis kuliner.",
+                features: ["Bakery & Pastry Production", "Indonesian & Western Cuisine", "Food Plating & Gastronomy", "Manajemen Usaha Katering"],
+                highlight: "Mencetak chef handal, pengusaha kuliner mandiri, dan barista tersertifikasi industri."
             },
             'major-tbsm': {
-                tag: "OTOMOTIF / KONSENTRASI KEAHLIAN",
-                title: "Teknik Sepeda Motor (TBSM)",
+                tag: "KONSENTRASI KEAHLIAN",
+                title: "Teknik & Bisnis Sepeda Motor (TBSM)",
                 icon: "🏍️",
-                gradient: "linear-gradient(135deg, #1c1917 0%, #064e3b 100%)",
-                desc: "Keahlian perawatan mesin injeksi, kelistrikan kendaraan, transmisi matik/manual, dan manajemen bengkel resmi berstandar Astra Honda (AHASS).",
-                features: ["EFI Diagnostic Scanner", "Engine Overhaul & Tune-Up", "Kelistrikan Sepeda Motor", "Manajemen Bengkel AHASS"],
-                highlight: "Peluang karir: Automotive Technician, Service Advisor Bengkel Resmi, Diagnostic Specialist, Wirausaha Bengkel."
+                gradient: "linear-gradient(135deg, #0f172a 0%, #1e40af 100%)",
+                desc: "Perawatan dan perbaikan mesin sepeda motor sistem injeksi (EFI), kelistrikan bodi, transmisi matik, serta manajemen bengkel resmi AHASS.",
+                features: ["Diagnostic Tool Injeksi Honda", "Overhaul Mesin & Transmisi", "Wiring System & Kelistrikan", "SOP Bengkel Resmi AHASS"],
+                highlight: "Lulusan langsung terserap di jaringan bengkel resmi sepeda motor atau mampu membuka bengkel mandiri."
             }
         };
 
         function openItemModal(itemKey) {
-            const data = modalData[itemKey];
+            const data = facilitiesData[itemKey];
             if (!data) return;
 
             document.getElementById('modal-tag').innerText = data.tag;
@@ -768,10 +1359,10 @@
             // Populate features
             const featuresContainer = document.getElementById('modal-features');
             featuresContainer.innerHTML = '';
-            data.features.forEach(feature => {
+            data.features.forEach(feat => {
                 const chip = document.createElement('span');
                 chip.className = 'modal-feature-chip';
-                chip.innerText = feature;
+                chip.innerText = feat;
                 featuresContainer.appendChild(chip);
             });
 
@@ -792,9 +1383,15 @@
             }
         }
 
+        // Close modal on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeItemModal();
         });
     </script>
+
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script>window.PX_CONFIG = { cards: ".fac-card, .tefa-item" };</script>
+    <script src="parallax-kit.js"></script>
 </body>
+
 </html>
