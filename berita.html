@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal & Kabar Kampus - SMKS Muhammadiyah 1 Genteng</title>
+    <meta name="description"
+        content="Pusat informasi resmi, kabar prestasi, agenda akademik, kegiatan ekstrakurikuler IPM, dan kerjasama industri SMKS Muhammadiyah 1 Genteng Banyuwangi.">
+
+    <!-- Modern Typography: Syne, Plus Jakarta Sans, Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN TOKENS - HYPER-BENTO & TECH-EDITORIAL PALETTE
+           ========================================================================== */
+        :root {
+            --primary: #064e3b;
+            --primary-light: #0d7056;
+            --primary-dark: #022c22;
+            --primary-surface: rgba(6, 78, 59, 0.08);
+
+            --secondary: #d97706;
+            --secondary-light: #f59e0b;
+            --secondary-surface: rgba(217, 119, 6, 0.12);
+
+            --accent-emerald: #10b981;
+            --accent-cyan: #06b6d4;
+
+            --bg-main: #fafaf9;
+            --bg-alt: #f5f5f4;
+            --bg-dark: #141210;
+            --bg-dark-card: #1c1917;
+
+            --text-dark: #1c1917;
+            --text-muted: #57534e;
+            --text-subtle: #78716c;
+            --text-light: #fafaf9;
+
+            --border-light: rgba(6, 78, 59, 0.12);
+            --border-card: #e7e5e4;
+            --border-dark: #332e2b;
+
+            --radius-sm: 10px;
+            --radius: 18px;
+            --radius-lg: 26px;
+            --radius-xl: 36px;
+            --radius-full: 9999px;
+
+            --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.03);
+            --shadow-card: 0 16px 36px -8px rgba(6, 78, 59, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+            --shadow-card-hover: 0 24px 50px -12px rgba(6, 78, 59, 0.16), 0 0 0 1px rgba(6, 78, 59, 0.15);
+
+            --font-display: 'Syne', 'Space Grotesk', sans-serif;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.65;
+            overflow-x: hidden;
+            letter-spacing: -0.012em;
+            background-image: 
+                radial-gradient(circle at 12% 18%, rgba(6, 78, 59, 0.035) 0%, transparent 40%),
+                radial-gradient(circle at 88% 65%, rgba(217, 119, 6, 0.04) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, .font-head {
+            font-family: var(--font-head);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.035em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Badge Components */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: 0 2px 10px rgba(6, 78, 59, 0.04);
+        }
+
+        .badge-amber {
+            background: var(--secondary-surface);
+            color: var(--secondary);
+            border-color: rgba(217, 119, 6, 0.3);
+        }
+
+        .badge-primary {
+            background: var(--primary-surface);
+            color: var(--primary);
+            border-color: rgba(6, 78, 59, 0.2);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 24px -4px rgba(6, 78, 59, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(6, 78, 59, 0.45);
+        }
+
+        .btn-outline {
+            background: #ffffff;
+            color: var(--primary);
+            border: 1.5px solid var(--border-card);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: var(--primary-surface);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           2. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0
+           ========================================================================== */
+        .header-wrapper {
+            position: fixed;
+            top: 1rem;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0 5%;
+            pointer-events: none;
+        }
+
+        .nav-island {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-full);
+            padding: 0.65rem 1.4rem;
+            box-shadow: 0 12px 35px -8px rgba(6, 78, 59, 0.12), 0 0 0 1px rgba(6, 78, 59, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: auto;
+            transition: var(--transition);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            object-fit: contain;
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .brand-text-main {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.12rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .brand-text-sub {
+            font-size: 0.72rem;
+            color: var(--secondary);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-head);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 0.55rem 0.95rem;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            background: var(--primary-surface);
+        }
+
+        /* ==========================================================================
+           3. PAGE HERO HEADER & FILTER CATEGORIES
+           ========================================================================== */
+        .page-header {
+            padding: 9.5rem 0 3.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+            color: var(--primary-dark);
+            margin: 0.8rem 0 1rem;
+            letter-spacing: -0.04em;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        /* Filter Pills */
+        .filter-pills-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-pill-btn {
+            background: #ffffff;
+            border: 1.5px solid var(--border-card);
+            padding: 0.55rem 1.3rem;
+            border-radius: var(--radius-full);
+            font-family: var(--font-head);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .filter-pill-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-pill-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px -4px rgba(6, 78, 59, 0.35);
+        }
+
+        /* ==========================================================================
+           4. ASYMMETRICAL HYPER-BENTO GRID NEWS SECTION
+           ========================================================================== */
+        .bento-news-section {
+            padding: 2rem 0 7.5rem;
+        }
+
+        .bento-news-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.8rem;
+        }
+
+        /* Bento Card Base */
+        .bento-news-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .bento-news-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 78, 59, 0.3);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        /* Card Visual Graphic / Hero Header */
+        .bento-thumb {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .bento-thumb-emoji {
+            font-size: 4.5rem;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+            transition: var(--transition);
+        }
+
+        .bento-news-card:hover .bento-thumb-emoji {
+            transform: scale(1.12) rotate(4deg);
+        }
+
+        .bento-content {
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .bento-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--text-subtle);
+            font-weight: 600;
+        }
+
+        .bento-title {
+            font-family: var(--font-head);
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.35;
+            transition: var(--transition);
+        }
+
+        .bento-news-card:hover .bento-title {
+            color: var(--secondary);
+        }
+
+        .bento-excerpt {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-read-cta {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: auto;
+            transition: var(--transition);
+        }
+
+        .bento-news-card:hover .bento-read-cta {
+            color: var(--secondary);
+            transform: translateX(4px);
+        }
+
+        /* 1. HERO FEATURED CARD (Span 8 Kolom) */
+        .bento-col-8 {
+            grid-column: span 8;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .bento-col-8 .bento-thumb {
+            height: 100%;
+            min-height: 320px;
+        }
+
+        .bento-col-8 .bento-title {
+            font-size: 1.85rem;
+            line-height: 1.25;
+        }
+
+        /* 2. SIDE CARD (Span 4 Kolom) */
+        .bento-col-4 {
+            grid-column: span 4;
+        }
+
+        /* 3. ROW 2 CARDS (Span 4 Kolom Masing-Masing) */
+        .bento-col-4-accent {
+            grid-column: span 4;
+            background: #ffffff;
+        }
+
+        /* 4. HIGH-IMPACT GRADIENT CARD (Span 4) */
+        .bento-card-dark {
+            grid-column: span 4;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #ffffff;
+            border: none;
+        }
+
+        .bento-card-dark .bento-title {
+            color: #ffffff;
+        }
+
+        .bento-card-dark .bento-excerpt {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .bento-card-dark .bento-meta {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .bento-card-dark .bento-read-cta {
+            color: var(--secondary-light);
+        }
+
+        /* 5. AMBER ACCENT CARD (Span 4) */
+        .bento-card-amber {
+            grid-column: span 4;
+            background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
+            color: #ffffff;
+            border: none;
+        }
+
+        .bento-card-amber .bento-title {
+            color: #ffffff;
+        }
+
+        .bento-card-amber .bento-excerpt {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .bento-card-amber .bento-meta {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .bento-card-amber .bento-read-cta {
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-full);
+            width: fit-content;
+        }
+
+        /* ==========================================================================
+           5. INTERACTIVE ARTICLE DETAIL MODAL
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 18, 16, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .article-modal-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            max-width: 720px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
+            transform: scale(0.92) translateY(20px);
+            transition: var(--transition);
+            position: relative;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+        }
+
+        /* Custom Sleek Scrollbar */
+        .article-modal-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .article-modal-card::-webkit-scrollbar-track {
+            background: rgba(6, 78, 59, 0.04);
+            border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+            margin: 12px 0;
+        }
+
+        .article-modal-card::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--secondary), var(--primary));
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .article-modal-card::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        .modal-overlay.active .article-modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-banner {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+
+        .modal-banner-emoji {
+            font-size: 5.5rem;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+            animation: modalFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes modalFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .modal-close-btn:hover {
+            background: #ffffff;
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+        }
+
+        .modal-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-subtle);
+        }
+
+        .modal-headline {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
+        }
+
+        .modal-full-text {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-full-text p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-footer-share {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-card);
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ==========================================================================
+           6. RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .bento-col-8 {
+                grid-column: span 12;
+            }
+
+            .bento-col-4, .bento-col-4-accent, .bento-card-dark, .bento-card-amber {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .bento-col-8 {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-col-4, .bento-col-4-accent, .bento-card-dark, .bento-card-amber {
+                grid-column: span 12;
+            }
+
+            .bento-content {
+                padding: 1.8rem;
+            }
+
+            .modal-body {
+                padding: 1.8rem;
+            }
+
+            .modal-headline {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. FLOATING ISLAND NAVBAR -->
+    <header class="header-wrapper">
+        <nav class="nav-island">
+            <a href="redesign-web1.html" class="brand-box">
+                <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
+                <div>
+                    <div class="brand-text-main">SMKS MUHI GENTENG</div>
+                    <div class="brand-text-sub">Pusat Keunggulan Vokasi</div>
+                </div>
+            </a>
+
+            <div class="nav-menu">
+                <a href="redesign-web1.html" class="nav-link">Beranda</a>
+                <a href="visi-misi.html" class="nav-link">Visi & Misi</a>
+                <a href="redesign-web1.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
+                <a href="berita.html" class="nav-link active">Berita</a>
+                <a href="prestasi.html" class="nav-link">Prestasi</a>
+                <a href="redesign-web1.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. PAGE HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <div class="badge badge-amber mb-2">Pusat Informasi & Liputan</div>
+            <h1 class="page-title">Jurnal & Kabar Kampus.</h1>
+            <p class="page-subtitle">
+                Informasi aktual seputar prestasi, inovasi teknologi, kegiatan ekstrakurikuler IPM, dan kemitraan industri di lingkungan SMKS Muhammadiyah 1 Genteng.
+            </p>
+
+            <!-- Filter Pills -->
+            <div class="filter-pills-row">
+                <button class="filter-pill-btn active" onclick="filterBentoCategory('all', this)">Semua Berita</button>
+                <button class="filter-pill-btn" onclick="filterBentoCategory('akademik', this)">Akademik</button>
+                <button class="filter-pill-btn" onclick="filterBentoCategory('prestasi', this)">Prestasi</button>
+                <button class="filter-pill-btn" onclick="filterBentoCategory('karir', this)">Karir & BKK</button>
+                <button class="filter-pill-btn" onclick="filterBentoCategory('event', this)">Event & IPM</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. ASYMMETRICAL HYPER-BENTO GRID -->
+    <section class="bento-news-section container">
+        <div class="bento-news-grid" id="bento-grid">
+
+            <!-- Card 1: HERO FEATURED (Span 8 Kolom) -->
+            <article class="bento-news-card bento-col-8" data-category="akademik" onclick="openArticleModal('berita-1')">
+                <div class="bento-thumb" style="background: linear-gradient(135deg, #064e3b 0%, #0d7056 100%);">
+                    <span class="bento-thumb-emoji">💻</span>
+                    <span class="badge" style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.9);">
+                        ⭐ FEATURED
+                    </span>
+                </div>
+                <div class="bento-content">
+                    <div>
+                        <div class="bento-meta">
+                            <span class="badge badge-primary" style="font-size:0.75rem;">AKADEMIK</span>
+                            <span>&bull; 17 Juni 2026</span>
+                        </div>
+                        <h2 class="bento-title">Berbekal Fasilitas Modern, SMKS Muhammadiyah 1 Genteng Gelar Pengenalan Jurusan</h2>
+                        <p class="bento-excerpt">
+                            Memasuki tahun ajaran baru, sekolah menggelar kegiatan intensif pengenalan laboratorium komputer IoT, Cloud Server, studio Multimedia, dan bengkel resmi untuk memperkuat fondasi keahlian vokasi siswa baru.
+                        </p>
+                    </div>
+                    <div class="bento-read-cta">Baca selengkapnya &rarr;</div>
+                </div>
+            </article>
+
+            <!-- Card 2: SIDE CARD PRESTASI (Span 4 Kolom) -->
+            <article class="bento-news-card bento-col-4" data-category="prestasi" onclick="openArticleModal('berita-2')">
+                <div class="bento-thumb" style="background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);">
+                    <span class="bento-thumb-emoji">🥋</span>
+                </div>
+                <div class="bento-content">
+                    <div>
+                        <div class="bento-meta">
+                            <span class="badge badge-primary" style="font-size:0.75rem;">PRESTASI</span>
+                            <span>&bull; 28 Mei 2026</span>
+                        </div>
+                        <h2 class="bento-title">Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Jatim</h2>
+                        <p class="bento-excerpt">
+                            Prestasi membanggakan kembali ditorehkan oleh atlet pelajar SMKS MUHI dalam ajang Kejurprov Pelajar di Malang.
+                        </p>
+                    </div>
+                    <div class="bento-read-cta">Baca selengkapnya &rarr;</div>
+                </div>
+            </article>
+
+            <!-- Card 3: KARAOKE PRESTASI (Span 4 Kolom) -->
+            <article class="bento-news-card bento-col-4" data-category="prestasi" onclick="openArticleModal('berita-3')">
+                <div class="bento-thumb" style="background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);">
+                    <span class="bento-thumb-emoji">🎤</span>
+                </div>
+                <div class="bento-content">
+                    <div>
+                        <div class="bento-meta">
+                            <span class="badge badge-primary" style="font-size:0.75rem;">PRESTASI</span>
+                            <span>&bull; Mei 2026</span>
+                        </div>
+                        <h2 class="bento-title">Dua Siswi Smemsa Borong Juara Karaoke Indonesia Berbakat</h2>
+                        <p class="bento-excerpt">
+                            Banyuwangi kembali menjadi saksi talenta tarik suara dan kreativitas seni siswi SMKS Muhammadiyah 1 Genteng di kancah pencarian bakat.
+                        </p>
+                    </div>
+                    <div class="bento-read-cta">Baca selengkapnya &rarr;</div>
+                </div>
+            </article>
+
+            <!-- Card 4: DARK EMERALD BKK CARD (Span 4 Kolom) -->
+            <article class="bento-news-card bento-card-dark" data-category="karir" onclick="openArticleModal('berita-4')">
+                <div class="bento-thumb" style="background: rgba(0,0,0,0.25);">
+                    <span class="bento-thumb-emoji">💼</span>
+                </div>
+                <div class="bento-content">
+                    <div>
+                        <div class="bento-meta">
+                            <span class="badge badge-amber" style="font-size:0.75rem;">KARIR & BKK</span>
+                            <span>&bull; Mei 2026</span>
+                        </div>
+                        <h2 class="bento-title">Pembekalan Intensif PKL, Bekali Siswa dengan Kesiapan Kerja</h2>
+                        <p class="bento-excerpt">
+                            Panitia BKK menyelenggarakan seminar etika industri dan simulasi teknis sebelum pelepasan siswa magang ke 24+ mitra industri nasional.
+                        </p>
+                    </div>
+                    <div class="bento-read-cta">Pelajari Program BKK &rarr;</div>
+                </div>
+            </article>
+
+            <!-- Card 5: AMBER ACCENT EVENT CARD (Span 4 Kolom) -->
+            <article class="bento-news-card bento-card-amber" data-category="event" onclick="openArticleModal('berita-5')">
+                <div class="bento-thumb" style="background: rgba(0,0,0,0.2);">
+                    <span class="bento-thumb-emoji">🕌</span>
+                </div>
+                <div class="bento-content">
+                    <div>
+                        <div class="bento-meta">
+                            <span class="badge" style="font-size:0.75rem; background:rgba(255,255,255,0.25); color:white; border:none;">EVENT & IPM</span>
+                            <span>&bull; 28 Mei 2026</span>
+                        </div>
+                        <h2 class="bento-title">Sambut Idul Adha, SMKS Muhi Sembelih 2 Sapi dan 6 Kambing</h2>
+                        <p class="bento-excerpt">
+                            Kegiatan qurban tahunan diselenggarakan bersama pengurus IPM dan warga sekolah secara gotong royong dan disalurkan ke masyarakat sekitar.
+                        </p>
+                    </div>
+                    <div class="bento-read-cta">Lihat Dokumentasi &rarr;</div>
+                </div>
+            </article>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 4.5rem;">
+            <button class="btn btn-outline" style="padding: 0.9rem 2.5rem;" onclick="alert('Semua berita terkini telah ditampilkan dalam Bento Grid!')">
+                Muat Lebih Banyak Berita &darr;
+            </button>
+        </div>
+    </section>
+
+    <!-- 4. INTERACTIVE ARTICLE DETAIL MODAL -->
+    <div class="modal-overlay" id="article-modal-overlay" onclick="closeArticleModalOnOverlay(event)">
+        <div class="article-modal-card" id="article-modal-card">
+            <!-- Modal Header Banner -->
+            <div class="modal-banner" id="modal-article-banner">
+                <div class="modal-banner-emoji" id="modal-article-icon">💻</div>
+                <button class="modal-close-btn" onclick="closeArticleModal()" aria-label="Tutup Berita">&times;</button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="modal-body">
+                <div class="modal-meta-row">
+                    <span class="badge badge-amber" id="modal-article-category">AKADEMIK</span>
+                    <span id="modal-article-date">17 Juni 2026</span>
+                    <span>&bull; Oleh: <strong>Humas SMKS MUHI</strong></span>
+                </div>
+
+                <h2 class="modal-headline" id="modal-article-title">
+                    Berbekal Fasilitas Modern, SMKS Muhammadiyah 1 Genteng Gelar Pengenalan Jurusan
+                </h2>
+
+                <div class="modal-full-text" id="modal-article-body">
+                    <!-- Dynamic Body Text -->
+                </div>
+
+                <div class="modal-footer-share">
+                    <span style="font-size:0.88rem; color:var(--text-muted);">Bagikan artikel ini ke media sosial</span>
+                    <div style="display:flex; gap:0.5rem;">
+                        <a href="https://wa.me/?text=Baca%20berita%20SMKS%20MUHI" target="_blank" class="badge badge-primary" style="cursor:pointer;">💬 WhatsApp</a>
+                        <a href="redesign-web1.html#jurusan" class="btn btn-primary" style="padding:0.45rem 1.2rem; font-size:0.85rem;">Eksplorasi Jurusan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP & Animations CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Batch Animation for Bento Cards
+        ScrollTrigger.batch(".bento-news-card", {
+            onEnter: batch => gsap.to(batch, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.12,
+                ease: "power2.out"
+            }),
+            start: "top 88%",
+            once: true
+        });
+
+        // ==========================================
+        // DATA ARTIKEL & MODAL LOGIC
+        // ==========================================
+        const articlesData = {
+            'berita-1': {
+                category: "AKADEMIK",
+                date: "17 Juni 2026",
+                icon: "💻",
+                gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
+                title: "Berbekal Fasilitas Modern, SMKS Muhammadiyah 1 Genteng Gelar Pengenalan Jurusan",
+                body: `
+                    <p>Memasuki masa orientasi dan tahun ajaran baru 2026/2027, SMKS Muhammadiyah 1 Genteng menyelenggarakan agenda pengenalan fasilitas kejuruan secara komprehensif bagi seluruh calon siswa baru.</p>
+                    <p>Dalam kegiatan ini, peserta didik diajak mengunjungi laboratorium Software Development RPL, infrastruktur fiber optik dan cloud server TKJ, studio fotografi sinematik DKV, bengkel resmi Astra Motor, hingga dapur komersial berstandar internasional pada program Tata Boga.</p>
+                    <p>Kepala Sekolah Wahid Wahyudi, S.E., M.M. menegaskan bahwa pengenalan fasilitas sejak dini bertujuan menanamkan visi profesionalisme, etos kerja industri, dan kesiapan praktis siswa selama menempuh masa studi di SMK Pusat Keunggulan ini.</p>
+                `
+            },
+            'berita-2': {
+                category: "PRESTASI",
+                date: "28 Mei 2026",
+                icon: "🥋",
+                gradient: "linear-gradient(135deg, #0369a1 0%, #0284c7 100%)",
+                title: "Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Pelajar Jatim",
+                body: `
+                    <p>Kontingen bela diri Taekwondo SMKS Muhammadiyah 1 Genteng kembali menorehkan prestasi gemilang dengan meraih Juara 3 pada Kejuaraan Provinsi (Kejurprov) Pelajar Jawa Timur yang digelar di Kota Malang.</p>
+                    <p>Kedua atlet kebanggaan sekolah ini berhasil mengungguli puluhan peserta dari berbagai kabupaten di Jawa Timur melalui perjuangan sengit pada babak penyisihan hingga semi final.</p>
+                    <p>Prestasi ini membuktikan bahwa SMKS MUHI senantiasa memberikan ruang aktualisasi maksimal bagi pengembangan potensi minat, bakat olahraga, dan pembentukan mental tangguh peserta didik.</p>
+                `
+            },
+            'berita-3': {
+                category: "PRESTASI",
+                date: "Mei 2026",
+                icon: "🎤",
+                gradient: "linear-gradient(135deg, #7c3aed 0%, #9333ea 100%)",
+                title: "Dua Siswi Smemsa Borong Juara Festival Musik & Seni Pelajar",
+                body: `
+                    <p>Ajang festival musik dan pencarian bakat vokal pelajar tingkat kabupaten Banyuwangi menjadi panggung pembuktian bagi dua siswi SMKS Muhammadiyah 1 Genteng yang sukses menyabet gelar juara.</p>
+                    <p>Penampilan vokal yang matang, harmonisasi nada, dan pembawaan panggung yang percaya diri berhasil memukau dewan juri profesional.</p>
+                    <p>Kegiatan ekstrakurikuler seni musik di bawah naungan Ikatan Pelajar Muhammadiyah (IPM) terus berkomitmen mengasah talenta kreatif siswa sebagai penyeimbang soft-skill kejuruan.</p>
+                `
+            },
+            'berita-4': {
+                category: "KARIR & BKK",
+                date: "Mei 2026",
+                icon: "💼",
+                gradient: "linear-gradient(135deg, #064e3b 0%, #022c22 100%)",
+                title: "Pembekalan Intensif PKL, Bekali Siswa dengan Kesiapan Kerja Industri",
+                body: `
+                    <p>Bursa Kerja Khusus (BKK) bekerjasama dengan mitra DUDI menyelenggarakan workshop pembekalan intensif Praktik Kerja Lapangan (PKL) bagi seluruh siswa kelas XI sebelum terjun ke dunia usaha dan dunia industri.</p>
+                    <p>Materi pembekalan mencakup budaya kerja industri 5S (Seiri, Seiton, Seiso, Seiketsu, Shitsuke), etika komunikasi profesional, kepatuhan K3 (Keselamatan dan Kesehatan Kerja), serta integritas profesi.</p>
+                    <p>Dengan pembekalan ini, siswa diharapkan mampu beradaptasi secara cepat dan berpeluang direkrut langsung oleh perusahaan tempat magang setelah lulus.</p>
+                `
+            },
+            'berita-5': {
+                category: "EVENT & IPM",
+                date: "28 Mei 2026",
+                icon: "🕌",
+                gradient: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
+                title: "Sambut Idul Adha, SMKS Muhi Sembelih 2 Sapi dan 6 Kambing Qurban",
+                body: `
+                    <p>Dalam rangka menyemarakkan Hari Raya Idul Adha 1447 H, keluarga besar SMKS Muhammadiyah 1 Genteng melaksanakan penyembelihan hewan qurban berupa 2 ekor sapi dan 6 ekor kambing di lingkungan sekolah.</p>
+                    <p>Proses pemotongan dan pendistribusian daging qurban dikoordinasikan secara gotong royong oleh Pimpinan Ranting Ikatan Pelajar Muhammadiyah (PR IPM) bersama dewan guru dan karyawan.</p>
+                    <p>Paket daging qurban disalurkan langsung kepada masyarakat dhuafa di sekitar kampus Genteng Wetan sebagai wujud kepedulian sosial dan implementasi nilai-nilai keislaman berkemajuan.</p>
+                `
+            }
+        };
+
+        function openArticleModal(articleKey) {
+            const data = articlesData[articleKey];
+            if (!data) return;
+
+            document.getElementById('modal-article-category').innerText = data.category;
+            document.getElementById('modal-article-date').innerText = data.date;
+            document.getElementById('modal-article-title').innerText = data.title;
+            document.getElementById('modal-article-body').innerHTML = data.body;
+            document.getElementById('modal-article-icon').innerText = data.icon;
+            document.getElementById('modal-article-banner').style.background = data.gradient;
+
+            const modalOverlay = document.getElementById('article-modal-overlay');
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            const modalOverlay = document.getElementById('article-modal-overlay');
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeArticleModalOnOverlay(e) {
+            if (e.target.id === 'article-modal-overlay') {
+                closeArticleModal();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeArticleModal();
+        });
+
+        // Filter Category Logic
+        function filterBentoCategory(cat, btn) {
+            document.querySelectorAll('.filter-pill-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.bento-news-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (cat === 'all' || cardCat === cat) {
+                    card.style.display = 'flex';
+                    if (card.classList.contains('bento-col-8') && cat === 'all') {
+                        card.style.display = 'grid';
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

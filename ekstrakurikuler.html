@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekstrakurikuler - SMKS Muhammadiyah 1 Genteng</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN TOKENS - NEO-EDITORIAL */
+        :root {
+            --primary: #064e3b;
+            --primary-light: #0d7056;
+            --secondary: #d97706;
+            --bg-main: #fafaf9;
+            --bg-alt: #f5f5f4;
+            --text-dark: #1c1917;
+            --text-muted: #57534e;
+            --border: #e7e5e4;
+            
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-body); background-color: var(--bg-main);
+            color: var(--text-dark); line-height: 1.6; overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-head { font-family: var(--font-head); }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* UTILITIES */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        .badge {
+            display: inline-block; padding: 0.4rem 1rem; background: var(--bg-alt);
+            border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem;
+            font-family: var(--font-head); font-weight: 700; color: var(--secondary);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;
+        }
+
+        /* 1. NAVBAR */
+        .navbar {
+            position: fixed; top: 1rem; left: 5%; right: 5%; z-index: 100;
+            background: rgba(250, 250, 249, 0.95); backdrop-filter: blur(8px);
+            border: 1px solid var(--border); border-radius: 100px;
+            padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; }
+        .nav-links a.active { color: var(--secondary); font-weight: 700; }
+
+        /* 2. PAGE HEADER */
+        .page-header {
+            padding: 10rem 0 5rem; text-align: center; border-bottom: 1px solid var(--border);
+            background: linear-gradient(to bottom, #e7e5e444, var(--bg-main));
+        }
+        .page-title { font-size: 4rem; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.1; }
+        .page-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* 3. EKSTRAKURIKULER GRID (MAGAZINE STYLE) */
+        .ekskul-section { padding: 6rem 0; }
+        
+        .ekskul-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(300px, auto);
+            gap: 2rem;
+        }
+
+        .ekskul-card {
+            position: relative; overflow: hidden; border-radius: 16px;
+            background: var(--primary); border: 1px solid var(--border);
+            display: flex; align-items: flex-end; cursor: pointer;
+        }
+        
+        .ekskul-card.featured { grid-column: span 2; grid-row: span 2; min-height: 500px; }
+        .ekskul-card.tall { grid-row: span 2; }
+
+        .card-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #a8a29e; 
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+            /* Perubahan di sini: transform dikendalikan JS/CSS sesuai kondisi */
+            transition: filter 0.6s, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            filter: grayscale(20%) brightness(0.8);
+            transform-origin: center center;
+        }
+        
+        /* Efek Hover: Zoom in background, hilangkan grayscale */
+        .ekskul-card:hover .card-bg { transform: scale(1.08) !important; filter: grayscale(0%) brightness(0.5); }
+
+        .card-content {
+            position: relative; z-index: 2; padding: 2rem; width: 100%;
+            background: linear-gradient(to top, rgba(6, 78, 59, 0.95) 0%, rgba(6, 78, 59, 0) 100%);
+            color: white; transform: translateY(30px); transition: transform 0.4s ease;
+        }
+        .ekskul-card:hover .card-content { transform: translateY(0); }
+
+        .tag {
+            display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 50px; font-size: 0.75rem; font-family: var(--font-head);
+            margin-bottom: 1rem; font-weight: 600; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px);
+        }
+
+        .card-title { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 0.5rem; line-height: 1.2; }
+        .featured .card-title { font-size: 2.5rem; }
+
+        .card-desc {
+            font-size: 0.95rem; opacity: 0; max-height: 0; overflow: hidden;
+            transition: opacity 0.4s ease, max-height 0.4s ease; color: rgba(255,255,255,0.9);
+        }
+        .ekskul-card:hover .card-desc { opacity: 1; max-height: 150px; margin-top: 1rem; }
+
+        .card-action {
+            margin-top: 1.5rem; display: inline-block; font-weight: 700; font-size: 0.9rem;
+            color: var(--secondary); opacity: 0; transition: opacity 0.4s;
+        }
+        .ekskul-card:hover .card-action { opacity: 1; }
+
+        /* GSAP Initial State untuk Card Wrapper */
+        .reveal-item { opacity: 0; transform: translateY(40px); }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .ekskul-grid { grid-template-columns: repeat(2, 1fr); }
+            .ekskul-card.featured { grid-column: span 2; grid-row: span 1; min-height: 400px; }
+            .ekskul-card.tall { grid-row: span 1; }
+        }
+        @media (max-width: 768px) {
+            .ekskul-grid { grid-template-columns: 1fr; }
+            .ekskul-card.featured { grid-column: span 1; }
+            .page-title { font-size: 3rem; }
+            .nav-links { display: none; }
+            .card-content { transform: translateY(0); background: rgba(6, 78, 59, 0.85); }
+            .card-desc { opacity: 1; max-height: none; margin-top: 1rem; }
+            .card-action { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">SMKS MUHI <span>.</span></div>
+        <div class="nav-links">
+            <a href="#">Beranda</a>
+            <a href="#">Konsentrasi Keahlian</a>
+            <a href="#">Berita</a>
+            <a href="#" class="active">Ekstrakurikuler</a>
+            <a href="#">Prestasi</a>
+            <a href="#" style="background:var(--secondary); color:white; padding:0.5rem 1.2rem; border-radius:50px;">BKK</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="container reveal-item">
+            <span class="badge">Pengembangan Diri</span>
+            <h1 class="page-title">Membentuk Karakter,<br>Mengasah Bakat.</h1>
+            <p class="page-subtitle">Beragam pilihan kegiatan ekstrakurikuler di SMKS Muhammadiyah 1 Genteng untuk menyalurkan potensi, minat, dan melatih kepemimpinan siswa.</p>
+        </div>
+    </header>
+
+    <!-- EKSTRAKURIKULER GRID -->
+    <section class="ekskul-section container">
+        <div class="ekskul-grid">
+            
+            <!-- 1. Hizbul Wathan -->
+            <div class="ekskul-card featured reveal-item">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1533227268428-f9ed0900f4f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag">Kepanduan Wajib</span>
+                    <h2 class="card-title">Hizbul Wathan (HW)</h2>
+                    <div class="card-desc">
+                        Diklat Kemah Tamu Penghela Hizbul Wathan sukses diselenggarakan. Ekstrakurikuler wajib kepanduan ini menanamkan kedisiplinan, kemandirian, dan nilai-nilai Islami.
+                    </div>
+                    <span class="card-action">Lihat Galeri Kegiatan &rarr;</span>
+                </div>
+            </div>
+
+            <!-- 2. Paskibra -->
+            <div class="ekskul-card tall reveal-item">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1544893774-325d70f20955?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag">Kedisiplinan</span>
+                    <h2 class="card-title">Paskibra</h2>
+                    <div class="card-desc">
+                        Mengajarkan siswa tentang kedisiplinan, kekompakan baris-berbaris, dan rasa tanggung jawab kebangsaan yang tinggi.
+                    </div>
+                    <span class="card-action">Detail &rarr;</span>
+                </div>
+            </div>
+
+            <!-- 3. Pencak Silat -->
+            <div class="ekskul-card reveal-item">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag">Bela Diri</span>
+                    <h2 class="card-title">Pencak Silat</h2>
+                    <div class="card-desc">
+                        Seni bela diri tradisional (Tapak Suci) untuk mengembangkan keterampilan fisik dan mentalitas sportif.
+                    </div>
+                    <span class="card-action">Detail &rarr;</span>
+                </div>
+            </div>
+
+            <!-- 4. Pramuka -->
+            <div class="ekskul-card reveal-item">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag">Kepanduan</span>
+                    <h2 class="card-title">Pramuka</h2>
+                    <div class="card-desc">
+                        Fokus pada pembinaan karakter, keterampilan bertahan hidup, dan aktivitas alam terbuka.
+                    </div>
+                    <span class="card-action">Detail &rarr;</span>
+                </div>
+            </div>
+
+            <!-- 5. PMR -->
+            <div class="ekskul-card reveal-item">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1584820927498-cafe2c1110e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag">Kesehatan & Sosial</span>
+                    <h2 class="card-title">PMR</h2>
+                    <div class="card-desc">
+                        Pelatihan pertolongan pertama, kesiapsiagaan bencana, dan pelayanan kesehatan dasar.
+                    </div>
+                    <span class="card-action">Detail &rarr;</span>
+                </div>
+            </div>
+
+            <!-- 6. Olahraga -->
+            <div class="ekskul-card reveal-item">
+                <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1526232761682-d26e03ac148e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag">Fisik & Atletik</span>
+                    <h2 class="card-title">Klub Olahraga</h2>
+                    <div class="card-desc">
+                        Mewadahi berbagai cabang olahraga (Futsal, Basket, Voli) untuk mencetak atlet berprestasi.
+                    </div>
+                    <span class="card-action">Detail &rarr;</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Header Reveal
+        gsap.to(".page-header .reveal-item", {
+            y: 0, opacity: 1, duration: 1, ease: "power3.out"
+        });
+
+        // 2. Card Reveal & Image Animation Batch
+        ScrollTrigger.batch(".ekskul-card", {
+            start: "top 85%",
+            once: true,
+            onEnter: batch => {
+                // Animasi masuk untuk bungkus card
+                gsap.to(batch, {
+                    opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out"
+                });
+
+                // Animasi Zoom-Out khusus untuk gambar (.card-bg) di dalam card
+                batch.forEach((card, index) => {
+                    let bg = card.querySelector(".card-bg");
+                    gsap.fromTo(bg, 
+                        { scale: 1.3 }, 
+                        { 
+                            scale: 1, 
+                            duration: 1.5, 
+                            delay: index * 0.15, // Sync dengan stagger card
+                            ease: "power2.out",
+                            clearProps: "transform" // Wajib! Agar efek hover CSS bisa berfungsi lagi setelah animasi selesai
+                        }
+                    );
+                });
+            }
+        });
+
+        // 3. Parallax Image Scrubbing
+        // Membuat gambar sedikit bergeser ke atas seiring user melakukan scroll
+        gsap.utils.toArray(".ekskul-card").forEach(card => {
+            let bg = card.querySelector(".card-bg");
+            gsap.to(bg, {
+                backgroundPosition: "50% 100%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+    </script>
+</body>
+</html>

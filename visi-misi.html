@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi & Misi - SMKS Muhammadiyah 1 Genteng</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* DESIGN TOKENS - NEO-EDITORIAL */
+        :root {
+            --primary: #064e3b;
+            --primary-light: #0d7056;
+            --secondary: #d97706;
+            --bg-main: #fafaf9;
+            --bg-alt: #f5f5f4;
+            --text-dark: #1c1917;
+            --text-muted: #57534e;
+            --border: #e7e5e4;
+
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-head {
+            font-family: var(--font-head);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* UTILITIES */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bg-alt {
+            background-color: var(--bg-alt);
+        }
+
+        /* 1. NAVBAR (Tipis Glassmorphism) */
+        .navbar {
+            position: fixed;
+            top: 1rem;
+            left: 5%;
+            right: 5%;
+            z-index: 100;
+            background: rgba(250, 250, 249, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* 2. PAGE HEADER */
+        .page-header {
+            padding: 12rem 0 6rem;
+            background: linear-gradient(to bottom, #e7e5e433, var(--bg-main));
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-bg-pattern {
+            position: absolute;
+            right: -5%;
+            top: 10%;
+            width: 400px;
+            height: 400px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .page-title {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        /* 3. VISI SECTION */
+        .visi-section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .visi-label {
+            font-family: var(--font-head);
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .visi-statement {
+            font-size: 3rem;
+            font-family: var(--font-head);
+            color: var(--primary);
+            line-height: 1.3;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-mark {
+            position: absolute;
+            top: -2rem;
+            left: -2rem;
+            font-size: 10rem;
+            font-family: var(--font-head);
+            color: var(--secondary);
+            opacity: 0.1;
+            line-height: 1;
+            z-index: 1;
+        }
+
+        /* 4. MISI SECTION */
+        .misi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .misi-item {
+            position: relative;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .misi-number {
+            position: absolute;
+            top: -1.5rem;
+            left: 0;
+            font-size: 3rem;
+            font-family: var(--font-head);
+            color: var(--bg-alt);
+            -webkit-text-stroke: 1px var(--primary);
+            font-weight: 700;
+        }
+
+        .misi-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        /* 5. TUJUAN SECTION */
+        .tujuan-section {
+            border-top: 1px solid var(--border);
+        }
+
+        .tujuan-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .tujuan-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .tujuan-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-color: var(--primary-light);
+        }
+
+        .tujuan-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            background: var(--bg-alt);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-family: var(--font-head);
+            font-weight: 700;
+        }
+
+        /* 6. KONSENTRASI KEAHLIAN (EX-SIDEBAR) */
+        .majors-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .majors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .major-chip {
+            padding: 1rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: white;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .major-chip:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(6, 78, 59, 0.15);
+        }
+
+        /* 7. INTERACTIVE DETAIL MODAL */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 18, 16, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .major-modal-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
+            transform: scale(0.92) translateY(20px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+        }
+
+        /* Custom Sleek Scrollbar */
+        .major-modal-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .major-modal-card::-webkit-scrollbar-track {
+            background: rgba(6, 78, 59, 0.04);
+            border-radius: 0 24px 24px 0;
+            margin: 12px 0;
+        }
+
+        .major-modal-card::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--secondary), var(--primary));
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .major-modal-card::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        .modal-overlay.active .major-modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-banner {
+            height: 190px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+
+        .modal-banner-icon {
+            font-size: 5rem;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+            animation: modalFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes modalFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .modal-close-btn:hover {
+            background: #ffffff;
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2.2rem;
+        }
+
+        .modal-tag {
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .modal-title {
+            font-family: var(--font-head);
+            font-size: 1.85rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .modal-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.8rem;
+        }
+
+        .modal-skills-box {
+            margin-bottom: 1.8rem;
+        }
+
+        .modal-section-title {
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-chips-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .modal-skill-chip {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .modal-career-box {
+            background: rgba(6, 78, 59, 0.05);
+            border: 1px solid rgba(6, 78, 59, 0.12);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .modal-career-text {
+            font-size: 0.92rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .modal-footer-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        /* GSAP Prep */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .visi-statement {
+                font-size: 2rem;
+            }
+
+            .misi-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .tujuan-card {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">SMKS MUHI <span>.</span></div>
+        <div class="nav-links">
+            <a href="redesign-web1.html">Beranda</a>
+            <a href="#" style="color: var(--primary); font-weight: 700;">Profil & Visi Misi</a>
+            <a href="redesign-web1.html#jurusan">Konsentrasi Keahlian</a>
+            <a href="prestasi.html">Prestasi</a>
+            <a href="redesign-web1.html#ppdb"
+                style="background:var(--secondary); color:white; padding:0.5rem 1.2rem; border-radius:50px;">PPDB</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <!-- Geometric Star SVG Pattern -->
+        <svg class="header-bg-pattern" viewBox="0 0 100 100">
+            <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="none" stroke="var(--primary)"
+                stroke-width="2" />
+            <circle cx="50" cy="50" r="30" fill="none" stroke="var(--secondary)" stroke-width="1"
+                stroke-dasharray="2 2" />
+        </svg>
+
+        <div class="container reveal">
+            <h1 class="page-title">Visi, Misi<br>& Tujuan.</h1>
+            <p class="page-subtitle">Arah dan landasan utama SMKS Muhammadiyah 1 Genteng dalam mencetak generasi unggul
+                dan berkarakter islami.</p>
+        </div>
+    </header>
+
+    <!-- VISI SECTION -->
+    <section class="container visi-section">
+        <div class="reveal">
+            <span class="visi-label">Visi Lembaga</span>
+            <blockquote class="visi-statement">
+                "Terwujudnya sekolah yang Islami, Berkarakter, Kompeten, dan Berwawasan Global."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- MISI SECTION (STICKY HEADLINE + DUAL COLUMN) -->
+    <section class="container misi-section">
+        <div class="misi-grid">
+            <div class="misi-left">
+                <span class="visi-label">Misi Lembaga</span>
+                <h2 class="font-head" style="font-size: 2.8rem; color: var(--primary); margin-top: 1rem;">Langkah Nyata
+                    Mencapai Visi.</h2>
+                <p style="color: var(--text-muted); margin-top: 1.5rem; line-height: 1.8;">
+                    Seluruh proses pendidikan dirancang secara sistematis untuk mewujudkan lulusan yang berakhlak mulia
+                    dan siap berkompetisi di tingkat nasional maupun internasional.
+                </p>
+            </div>
+            <div class="misi-right">
+                <div class="misi-item reveal">
+                    <div class="misi-number">01</div>
+                    <div>
+                        <h4 class="misi-title">Pendidikan Berbasis Karakter</h4>
+                        <p class="misi-desc">Menyelenggarakan pendidikan holistik berlandaskan nilai-nilai Al-Qur'an dan
+                            As-Sunnah untuk menumbuhkan integritas dan akhlakul karimah.</p>
+                    </div>
+                </div>
+                <div class="misi-item reveal">
+                    <div class="misi-number">02</div>
+                    <div>
+                        <h4 class="misi-title">Standar Kompetensi Industri</h4>
+                        <p class="misi-desc">Mengembangkan kurikulum kejuruan selaras dengan kebutuhan dunia kerja (DUDI)
+                            serta fasilitas laboratorium modern berstandar industri.</p>
+                    </div>
+                </div>
+                <div class="misi-item reveal">
+                    <div class="misi-number">03</div>
+                    <div>
+                        <h4 class="misi-title">Penguasaan Teknologi Terkini</h4>
+                        <p class="misi-desc">Mendorong transformasi digital melalui pembelajaran berbasis proyek (PBL) dan
+                            penguasaan perangkat teknologi mutakhir.</p>
+                    </div>
+                </div>
+                <div class="misi-item reveal">
+                    <div class="misi-number">04</div>
+                    <div>
+                        <h4 class="misi-title">Wirausaha & Kemandirian</h4>
+                        <p class="misi-desc">Membina jiwa kewirausahaan siswa melalui Teaching Factory (TEFA) dan unit
+                            produksi sekolah yang terintegrasi pasar.</p>
+                    </div>
+                </div>
+                <div class="misi-item reveal">
+                    <div class="misi-number">05</div>
+                    <div>
+                        <h4 class="misi-title">Kemitraan Global & Karir</h4>
+                        <p class="misi-desc">Memperluas jaringan kemitraan strategis nasional dan internasional untuk
+                            penyaluran kerja alumni yang cepat dan tepat sasaran.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TUJUAN SECTION -->
+    <section class="container tujuan-section">
+        <span class="visi-label reveal" style="margin-bottom: 1rem;">Tujuan Strategis</span>
+        <h2 class="font-head reveal" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 3rem;">Komitmen
+            Capaian Institusi</h2>
+
+        <div class="tujuan-list">
+            <div class="tujuan-card reveal">
+                <div class="tujuan-icon">1</div>
+                <p>Menghasilkan lulusan yang taat beribadah, memiliki akhlaq mulia dan menguasai ilmu pengetahuan dan
+                    teknologi sesuai dengan kompetensinya.</p>
+            </div>
+            <div class="tujuan-card reveal">
+                <div class="tujuan-icon">2</div>
+                <p>Membiasakan peserta didik untuk beradaptasi dengan perkembangan ilmu pengetahuan dan teknologi, dan
+                    menerapkan teknologi informasi dan digital dalam pembelajaran.</p>
+            </div>
+            <div class="tujuan-card reveal">
+                <div class="tujuan-icon">3</div>
+                <p>Mempersiapkan peserta didik agar lebih ulet, tangguh, produktif, mandiri dan gigih dalam
+                    berkompetisi, serta dapat beradaptasi di masyarakat dan mengembangkan sikap profesional dalam
+                    kompetensi yang diminatinya.</p>
+            </div>
+            <div class="tujuan-card reveal">
+                <div class="tujuan-icon">4</div>
+                <p>Membekali peserta didik agar bisa menjadi wirausahawan muda yang ulet, tangguh dan pantang menyerah
+                    sesuai dengan syariah.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPLACEMENT UNTUK SIDEBAR LAMA: INTERACTIVE MAJOR PILLS -->
+    <section class="majors-section container">
+        <span class="visi-label reveal" style="margin-bottom: 1rem;">Eksplorasi Program</span>
+        <h2 class="font-head reveal" style="font-size: 2.5rem; color: var(--primary);">Konsentrasi Keahlian</h2>
+        <div class="majors-grid reveal">
+            <button class="major-chip" onclick="openMajorModal('rpl')">💻 Rekayasa Perangkat Lunak</button>
+            <button class="major-chip" onclick="openMajorModal('tkj')">🌐 Teknik Komputer & Jaringan</button>
+            <button class="major-chip" onclick="openMajorModal('bd')">💼 Bisnis Digital</button>
+            <button class="major-chip" onclick="openMajorModal('mplb')">🏢 Manajemen Perkantoran</button>
+            <button class="major-chip" onclick="openMajorModal('akl')">📊 Akuntansi</button>
+            <button class="major-chip" onclick="openMajorModal('hotel')">🏨 Perhotelan</button>
+            <button class="major-chip" onclick="openMajorModal('dkv')">🎬 Desain Komunikasi Visual</button>
+            <button class="major-chip" onclick="openMajorModal('boga')">🍰 Tata Boga / Kuliner</button>
+            <button class="major-chip" onclick="openMajorModal('tbsm')">🏍️ Teknik Sepeda Motor (TBSM)</button>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE DETAIL MODAL -->
+    <div class="modal-overlay" id="major-modal-overlay" onclick="closeMajorModalOnOverlay(event)">
+        <div class="major-modal-card" id="major-modal-card">
+            <!-- Modal Header Banner with Animated Icon -->
+            <div class="modal-banner" id="modal-banner">
+                <div class="modal-banner-icon" id="modal-icon">💻</div>
+                <button class="modal-close-btn" onclick="closeMajorModal()" aria-label="Tutup Detail Jurusan">&times;</button>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="modal-body">
+                <span class="modal-tag" id="modal-tag">PPLG / Software Engineering</span>
+                <h3 class="modal-title" id="modal-title">Rekayasa Perangkat Lunak (RPL)</h3>
+                <p class="modal-desc" id="modal-desc">
+                    Fokus pada pengembangan aplikasi web modern, mobile apps, database arsitektur, dan logika komputasi. Siswa dibekali kemampuan membangun solusi software siap pakai untuk ekosistem industri digital.
+                </p>
+
+                <div class="modal-skills-box">
+                    <div class="modal-section-title">
+                        <span>🛠️</span> Kompetensi & Tools Unggulan:
+                    </div>
+                    <div class="modal-chips-row" id="modal-skills">
+                        <span class="modal-skill-chip">Web & Mobile Dev</span>
+                        <span class="modal-skill-chip">SQL & NoSQL Database</span>
+                        <span class="modal-skill-chip">API Integration</span>
+                        <span class="modal-skill-chip">Git & Version Control</span>
+                    </div>
+                </div>
+
+                <div class="modal-career-box">
+                    <div class="modal-section-title" style="color:var(--primary); margin-bottom:0.4rem;">
+                        <span>🚀</span> Peluang & Prospek Karir:
+                    </div>
+                    <div class="modal-career-text" id="modal-career">
+                        Software Engineer, Web Developer, Mobile App Developer, Database Administrator, QA Tester.
+                    </div>
+                </div>
+
+                <div class="modal-footer-cta">
+                    <span style="font-size:0.85rem; color:var(--text-muted);">Terlisensi <strong>LSP-P1 BNSP</strong> &bull; Kelas Industri</span>
+                    <a href="redesign-web1.html#ppdb" style="background:var(--primary); color:#ffffff; padding:0.65rem 1.4rem; border-radius:50px; font-family:var(--font-head); font-weight:700; font-size:0.9rem; text-decoration:none;">
+                        Daftar PPDB Jurusan Ini &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Simple Reveal Animation
+        gsap.utils.toArray(".reveal").forEach(elem => {
+            gsap.to(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        // Parallax for Header Pattern
+        gsap.to(".header-bg-pattern", {
+            y: 100,
+            rotation: 15,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".page-header",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // ==========================================
+        // DATA KONSENTRASI KEAHLIAN & MODAL LOGIC
+        // ==========================================
+        const majorsData = {
+            rpl: {
+                title: "Rekayasa Perangkat Lunak (RPL)",
+                tag: "PPLG / Software Engineering",
+                icon: "💻",
+                gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
+                desc: "Konsentrasi keahlian yang berfokus pada analisis kebutuhan, desain arsitektur perangkat lunak, pemrograman web dan mobile modern, manajemen basis data, serta pengujian sistem. Siswa dilatih langsung mengerjakan proyek riil sesuai standar industri software house.",
+                skills: ["Fullstack Web Development", "Mobile App (Flutter/Android)", "Database SQL & NoSQL", "API Integration", "Git & Github Workflow", "Clean Architecture"],
+                career: "Software Engineer, Web Developer, Frontend/Backend Developer, Mobile Developer, Database Administrator, QA System Tester."
+            },
+            tkj: {
+                title: "Teknik Jaringan Komputer & Telekomunikasi (TKJ)",
+                tag: "TJKT / Network & Cloud Infrastructure",
+                icon: "🌐",
+                gradient: "linear-gradient(135deg, #064e3b 0%, #0369a1 100%)",
+                desc: "Mempelajari perancangan, instalasi, dan pemeliharaan infrastruktur jaringan komputer enterprise, fiber optik, administrasi Cloud & Linux server, serta sistem keamanan siber (cybersecurity) untuk mendukung transformasi digital industri.",
+                skills: ["Routing & Switching (MikroTik MTCNA / Cisco)", "Linux Enterprise & Cloud Server", "Fiber Optic Splicing & OTDR", "Network Security & Firewall", "Wireless Network Deployment"],
+                career: "Network Administrator, Cloud Infrastructure Engineer, Fiber Optic Specialist, IT Support Specialist, System Administrator."
+            },
+            bd: {
+                title: "Bisnis Digital",
+                tag: "Digital Commerce & Marketing Strategy",
+                icon: "💼",
+                gradient: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
+                desc: "Mempersiapkan wirausahawan digital dan praktisi e-commerce yang menguasai marketplace optimization, riset pasar digital, social media marketing, strategi SEO/SEM, copywriting promosi, serta pengelolaan toko daring modern.",
+                skills: ["E-Commerce & Marketplace Management", "Social Media Advertising (Meta/Tiktok Ads)", "SEO & Content Marketing", "Digital Analytics", "Copywriting & Branding"],
+                career: "Digital Marketer, E-Commerce Specialist, Social Media Strategist, Digital Business Consultant, Marketplace Operations Lead."
+            },
+            mplb: {
+                title: "Manajemen Perkantoran & Layanan Bisnis (MPLB)",
+                tag: "Corporate Management & Digital Administration",
+                icon: "🏢",
+                gradient: "linear-gradient(135deg, #064e3b 0%, #0f766e 100%)",
+                desc: "Membekali siswa keterampilan administrasi perkantoran modern, digital document archiving, korespondensi bisnis formal, manajemen rapat, tata kelola kehumasan, serta kemampuan komunikasi profesional berstandar internasional.",
+                skills: ["Digital Office Administration", "Digital Archiving & Cloud Storage", "Business Correspondence", "Public Relations & Event Handling", "Customer Relationship Management"],
+                career: "Administrative Officer, Executive Secretary, Public Relations Staff, Customer Service Specialist, HR Administration Staff."
+            },
+            akl: {
+                title: "Akuntansi & Keuangan Lembaga (AKL)",
+                tag: "Financial Accounting & Islamic Banking",
+                icon: "📊",
+                gradient: "linear-gradient(135deg, #064e3b 0%, #15803d 100%)",
+                desc: "Fokus pada penguasaan pembukuan keuangan, perpajakan, audit laporan keuangan, komputer akuntansi (MYOB/Accurate), serta dasar-dasar operasional perbankan syariah yang presisi dan transparan.",
+                skills: ["Komputer Akuntansi (MYOB/Accurate)", "Laporan Keuangan & Audit", "Perpajakan (PPh & PPN)", "Operasional Perbankan Syariah", "Spreadsheet Analytics"],
+                career: "Junior Accountant, Tax Staff, Bank Teller & Customer Service, Financial Analyst Assistant, Bookkeeper."
+            },
+            hotel: {
+                title: "Perhotelan & Hospitality",
+                tag: "Tourism & Hotel Hospitality Industry",
+                icon: "🏨",
+                gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)",
+                desc: "Mengasah keahlian pelayanan prima berstandar bintang lima, tata kelola front office, tata graha (housekeeping), pelayanan makanan & minuman (food & beverage), serta etika keramahtamahan internasional.",
+                skills: ["Front Office Operations", "Housekeeping & Room Service", "Food & Beverage Service", "Hospitality Ethics & Communication", "Hotel Property Management System"],
+                career: "Front Desk Agent, Guest Relation Officer, Housekeeping Supervisor, F&B Service Specialist, Hotel Event Coordinator."
+            },
+            dkv: {
+                title: "Desain Komunikasi Visual (DKV)",
+                tag: "Creative Media & Visual Communication",
+                icon: "🎬",
+                gradient: "linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)",
+                desc: "Eksplorasi kreativitas visual tanpa batas meliputi desain grafis profesional, ilustrasi digital, videografi sinematik, animasi 2D/3D, motion graphics, audio production, dan konten promosi multimedia komersial.",
+                skills: ["Adobe Illustrator & Photoshop", "Premiere Pro & After Effects", "Motion Graphics 2D/3D", "Cinematography & Lighting", "Brand Identity Design"],
+                career: "Graphic Designer, Video Editor, Motion Graphic Artist, Videographer/Cinematographer, UI/UX Designer, Creative Director."
+            },
+            boga: {
+                title: "Tata Boga / Kuliner",
+                tag: "Culinary Arts & Bakery Production",
+                icon: "🍰",
+                gradient: "linear-gradient(135deg, #d97706 0%, #ca8a04 100%)",
+                desc: "Mempelajari seni pengolahan masakan nusantara dan internasional (kontinental), bakery & pastry, pengolahan makanan sehat, hygiene sanitasi halal, serta manajemen usaha katering komersial berstandar industri.",
+                skills: ["Bakery & Pastry Production", "Indonesian & Continental Cuisine", "Food Plating & Presentation", "Hygiene & Halal Food Sanitation", "Catering Business Management"],
+                career: "Pastry Chef, Commis Chef, Baker, Food Stylist, Restaurant/Catering Entrepreneur, F&B Supervisor."
+            },
+            tbsm: {
+                title: "Teknik & Bisnis Sepeda Motor (TBSM)",
+                tag: "Automotive Engineering & Workshop Management",
+                icon: "🏍️",
+                gradient: "linear-gradient(135deg, #1c1917 0%, #064e3b 100%)",
+                desc: "Mencetak teknisi otomotif roda dua profesional dengan keahlian perawatan mesin injeksi, kelistrikan kendaraan, sistem transmisi otomatis/manual, serta manajemen bengkel berstandar resmi Astra Honda Authorized Service Station (AHASS).",
+                skills: ["EFI & Injection Diagnostic Tools", "Engine Overhaul & Tune-Up", "Motorcycle Electrical Systems", "Brake & Suspension Maintenance", "Workshop Management"],
+                career: "Automotive Technician, Service Advisor Bengkel Resmi, Diagnostic Specialist, Sparepart Officer, Wirausaha Bengkel Motor Mandiri."
+            }
+        };
+
+        function openMajorModal(majorKey) {
+            const data = majorsData[majorKey];
+            if (!data) return;
+
+            document.getElementById('modal-tag').innerText = data.tag;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-desc').innerText = data.desc;
+            document.getElementById('modal-icon').innerText = data.icon;
+            document.getElementById('modal-banner').style.background = data.gradient;
+            document.getElementById('modal-career').innerText = data.career;
+
+            // Populate skills
+            const skillsContainer = document.getElementById('modal-skills');
+            skillsContainer.innerHTML = '';
+            data.skills.forEach(skill => {
+                const chip = document.createElement('span');
+                chip.className = 'modal-skill-chip';
+                chip.innerText = skill;
+                skillsContainer.appendChild(chip);
+            });
+
+            const modalOverlay = document.getElementById('major-modal-overlay');
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMajorModal() {
+            const modalOverlay = document.getElementById('major-modal-overlay');
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeMajorModalOnOverlay(e) {
+            if (e.target.id === 'major-modal-overlay') {
+                closeMajorModal();
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMajorModal();
+        });
+    </script>
+</body>
+
+</html>
