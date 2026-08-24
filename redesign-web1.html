@@ -64,7 +64,7 @@
             --shadow-card-hover: 0 24px 50px -12px rgba(6, 78, 59, 0.16), 0 0 0 1px rgba(6, 78, 59, 0.15);
             --shadow-dark: 0 20px 45px rgba(0, 0, 0, 0.4);
 
-            --font-display: 'Syne', 'Space Grotesk', sans-serif;
+            --font-display: 'Plus Jakarta Sans', sans-serif;
             --font-head: 'Space Grotesk', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
@@ -197,21 +197,25 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.4rem 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--border-light);
             border-radius: var(--radius-full);
-            font-size: 0.8rem;
             font-weight: 700;
             color: var(--primary);
-            box-shadow: 0 2px 10px rgba(6, 78, 59, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             transition: var(--transition);
         }
 
+        .badge span {
+            background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
         .badge-primary {
             background: var(--primary-surface);
-            color: var(--primary);
+            /* color: var(--primary); */
             border-color: rgba(6, 78, 59, 0.2);
         }
 
@@ -651,8 +655,9 @@
         }
 
         .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.95fr;
+            display: flex;
+            justify-content: center;
+            text-align: center;
             gap: 3.5rem;
             align-items: center;
             position: relative;
@@ -673,12 +678,12 @@
             background: linear-gradient(135deg, var(--secondary) 0%, #b45309 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
         }
 
         .hero-lead {
             font-size: 1.12rem;
             color: var(--text-muted);
+            text-align: center;
             line-height: 1.7;
             max-width: 600px;
             margin-bottom: 2rem;
@@ -736,9 +741,9 @@
 
         .hero-actions {
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 1.2rem;
-            flex-wrap: wrap;
         }
 
         /* Hero Hub Dashboard (Terminal / Card 3D-inspired) */
@@ -2125,141 +2130,23 @@
             <div class="hero-grid">
                 <!-- Left: Headline & Actions -->
                 <div>
-                    <div class="badge badge-primary">
-                        <span class="badge-pulse-dot"></span>
-                        Akreditasi A BAN-S/M &bull; NPSN 20525597 &bull; LSP-P1 BNSP
+                    <div class="badge">
+                        <p>Selamat datang di<span> SMKS Muhammadiyah 1 Genteng</span></p>
                     </div>
 
                     <h1 class="hero-headline">
-                        Membentuk Karakter, <span class="highlight-amber">Membangun Kompetensi.</span>
+                        Membentuk Karakter, <br><span class="highlight-amber">Membangun Kompetensi.</span>
                     </h1>
 
-                    <p class="hero-lead">
-                        Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi. Mengintegrasikan kurikulum berbasis proyek DUDI, lisensi kompetensi BNSP, dan penanaman akhlak Islami berkemajuan.
-                    </p>
-
-                    <!-- Quick Jurusan Search Bar -->
-                    <div class="hero-search-pill">
-                        <input type="text" id="hero-search-input" placeholder="Cari keahlian (contoh: coding, jaringan, desain)...">
-                        <button onclick="handleHeroSearch()">🔍 Cari Jurusan</button>
-                    </div>
-
-                    <div class="hero-actions">
-                        <a href="#ppdb" class="btn btn-primary">Daftar PPDB 2026 &rarr;</a>
-                        <a href="#jurusan" class="btn btn-outline">Jelajahi 8 Jurusan</a>
-                    </div>
-                </div>
-
-                <!-- Right: Interactive 3D Hero Hub Terminal -->
-                <div class="relative">
-                    <!-- Floating Badge Top Right -->
-                    <div class="floating-badge floating-badge-1">
-                        <span style="font-size:1.4rem;">🏆</span>
+                    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
                         <div>
-                            <strong style="display:block; font-size:0.85rem; color:var(--primary);">Juara Umum ME Awards</strong>
-                            <span style="font-size:0.75rem; color:var(--text-muted);">Tingkat Nasional 2026</span>
-                        </div>
-                    </div>
+                            <p class="hero-lead">
+                                Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi. Mengintegrasikan kurikulum berbasis proyek DUDI, lisensi kompetensi BNSP, dan penanaman akhlak Islami berkemajuan.
+                            </p>
 
-                    <!-- Floating Badge Bottom Left -->
-                    <div class="floating-badge floating-badge-2">
-                        <span style="font-size:1.4rem;">📜</span>
-                        <div>
-                            <strong style="display:block; font-size:0.85rem; color:var(--primary);">Sertifikasi LSP-P1 BNSP</strong>
-                            <span style="font-size:0.75rem; color:var(--text-muted);">Standar Kompetensi Kerja Nasional</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-hub-card">
-                        <div class="hub-header">
-                            <div class="hub-mac-dots">
-                                <span class="hub-mac-dot red"></span>
-                                <span class="hub-mac-dot amber"></span>
-                                <span class="hub-mac-dot emerald"></span>
-                            </div>
-                            <div class="hub-live-badge">
-                                <span class="badge-pulse-dot"></span> LIVE HUB TERMINAL
-                            </div>
-                        </div>
-
-                        <div class="hub-nav-tabs">
-                            <button class="hub-nav-tab active" onclick="switchHubTab('programs', this)">⭐ Keunggulan</button>
-                            <button class="hub-nav-tab" onclick="switchHubTab('projects', this)">💻 Proyek Siswa</button>
-                            <button class="hub-nav-tab" onclick="switchHubTab('career', this)">🤝 Karir & BKK</button>
-                        </div>
-
-                        <!-- Panel 1: Keunggulan -->
-                        <div class="hub-tab-panel active" id="hub-panel-programs">
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:var(--primary-surface); color:var(--primary);">💻</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Pusat Vokasi Digital</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Laboratorium Software, Cloud Server, & Studio Multimedia terstandarisasi industri.</p>
-                                </div>
-                            </div>
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:var(--secondary-surface); color:var(--secondary);">📜</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">LSP-P1 Berlisensi BNSP</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Siswa lulus berbekal ijazah dan sertifikat kompetensi profesi resmi negara.</p>
-                                </div>
-                            </div>
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:rgba(16, 185, 129, 0.12); color:#047857;">🕌</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Karakter Islami Berkemajuan</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Pembinaan akhlak mulia dan kepemimpinan melalui Ikatan Pelajar Muhammadiyah (IPM).</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Panel 2: Proyek Siswa -->
-                        <div class="hub-tab-panel" id="hub-panel-projects">
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:var(--primary-surface); color:var(--primary);">📱</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Smart School App (RPL)</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Aplikasi absensi RFID & monitoring nilai terintegrasi karya siswa RPL.</p>
-                                </div>
-                            </div>
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:var(--secondary-surface); color:var(--secondary);">🌐</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Hotspot Gateway Fiber (TKJ)</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Infrastruktur jaringan fiber optic kecepatan tinggi di seluruh area kampus.</p>
-                                </div>
-                            </div>
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:rgba(217, 119, 6, 0.15); color:var(--secondary);">🎬</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Company Profile Video (DKV)</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Produksi video sinematik komersial untuk mitra UMKM dan instansi Banyuwangi.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Panel 3: Penyaluran Karir -->
-                        <div class="hub-tab-panel" id="hub-panel-career">
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:var(--primary-surface); color:var(--primary);">🤝</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Kelas Industri Telkom & PLN</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Sinkronisasi kurikulum industri dan prioritas rekrutmen magang kerja.</p>
-                                </div>
-                            </div>
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:var(--secondary-surface); color:var(--secondary);">🏬</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Unit BLUD Mandiri</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Mengasah jiwa wirausaha via unit katering, merchandise, dan jasa servis IT.</p>
-                                </div>
-                            </div>
-                            <div class="hub-feature-row">
-                                <div class="hub-icon-wrap" style="background:rgba(16, 185, 129, 0.12); color:#047857;">📈</div>
-                                <div>
-                                    <strong style="font-size:0.95rem; color:var(--primary); display:block; margin-bottom:2px;">Bursa Kerja Khusus (BKK)</strong>
-                                    <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5;">Penyaluran cepat langsung ke mitra perbankan, software house, dan otomotif.</p>
-                                </div>
+                            <div class="hero-actions">
+                                <a href="#ppdb" class="btn btn-primary">Daftar PPDB 2026 &rarr;</a>
+                                <a href="#jurusan" class="btn btn-outline">Jelajahi 8 Jurusan</a>
                             </div>
                         </div>
                     </div>
