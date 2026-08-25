@@ -991,6 +991,166 @@
             display: inline-block;
         }
 
+        /* AI Chatbot Widget */
+        .chatbot-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.3);
+            font-size: 1.6rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .chat-panel {
+            position: fixed;
+            bottom: 6.5rem;
+            right: 2rem;
+            width: 360px;
+            max-width: 90vw;
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: var(--transition);
+        }
+
+        .chat-panel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .chat-header {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 1.2rem 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-head);
+            font-weight: 700;
+        }
+
+        .chat-body {
+            height: 280px;
+            padding: 1.2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            background: var(--bg-alt);
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
+        }
+
+        .chat-body::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .chat-body::-webkit-scrollbar-track {
+            background: rgba(30, 58, 138, 0.03);
+        }
+
+        .chat-body::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+
+        .chat-msg {
+            max-width: 82%;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .chat-msg.bot {
+            background: #ffffff;
+            color: var(--text-dark);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            align-self: flex-start;
+        }
+
+        .chat-msg.user {
+            background: var(--primary);
+            color: #ffffff;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+
+        .chat-quick-pills {
+            padding: 0.6rem 1rem;
+            background: #ffffff;
+            display: flex;
+            gap: 0.4rem;
+            overflow-x: auto;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .chat-pill {
+            background: var(--primary-surface);
+            color: var(--primary);
+            border: none;
+            padding: 0.35rem 0.7rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .chat-input-bar {
+            padding: 0.8rem 1rem;
+            background: #ffffff;
+            display: flex;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .chat-input-bar input {
+            flex: 1;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-full);
+            padding: 0.55rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        .chat-input-bar button {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.55rem 1.1rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
         .footer-bottom {
             padding-top: 2rem;
             border-top: 1px solid var(--border-dark);
@@ -1505,11 +1665,94 @@
         </div>
     </footer>
 
+    <!-- AI CHATBOT WIDGET -->
+    <button class="chatbot-btn" id="chatbot-toggle" aria-label="Buka Asisten AI">💬</button>
+    <div class="chat-panel" id="chat-panel">
+        <div class="chat-header">
+            <span>Asisten AI SMKS MUHI</span>
+            <span style="font-size:0.75rem; background:rgba(255,255,255,0.2); padding:0.2rem 0.5rem; border-radius:10px;">Online</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg bot">Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng. Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran PPDB, sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?</div>
+        </div>
+        <div class="chat-quick-pills">
+            <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">Info Jurusan</button>
+            <button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">Jadwal PPDB</button>
+            <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">LSP-P1 BNSP</button>
+            <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">Lowongan BKK</button>
+        </div>
+        <div class="chat-input-bar">
+            <input type="text" id="chat-input-text" placeholder="Ketik pertanyaan Anda...">
+            <button onclick="handleChatSubmit()">Kirim</button>
+        </div>
+    </div>
+
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
+        // AI Chatbot Logic
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatPanel = document.getElementById('chat-panel');
+        const chatBody = document.getElementById('chat-body');
+        const chatInput = document.getElementById('chat-input-text');
+
+        if (chatbotToggle) {
+            chatbotToggle.addEventListener('click', () => {
+                chatPanel.classList.toggle('active');
+            });
+        }
+
+        function appendMsg(text, sender) {
+            if (!chatBody) return;
+            const div = document.createElement('div');
+            div.className = `chat-msg ${sender}`;
+            div.innerText = text;
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            const text = input.toLowerCase();
+            if (text.includes('jurusan') || text.includes('prodi') || text.includes('keahlian')) {
+                return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL, TKJ, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+            } else if (text.includes('ppdb') || text.includes('daftar') || text.includes('syarat') || text.includes('biaya')) {
+                return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
+            } else if (text.includes('lsp') || text.includes('bnsp') || text.includes('sertifikat')) {
+                return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+            } else if (text.includes('loker') || text.includes('bkk') || text.includes('kerja') || text.includes('magang')) {
+                return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra industri terkemuka.";
+            } else if (text.includes('fasilitas') || text.includes('lab')) {
+                return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan TKJ, Studio DKV, Bengkel Otomotif, Dapur Komersial Tata Boga, dan Lapangan Olahraga.";
+            } else {
+                return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
+            }
+        }
+
+        function handleChatSubmit() {
+            if (!chatInput) return;
+            const text = chatInput.value.trim();
+            if (!text) return;
+            appendMsg(text, 'user');
+            chatInput.value = '';
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 400);
+        }
+
+        function sendQuickMsg(text) {
+            appendMsg(text, 'user');
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 400);
+        }
+
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleChatSubmit();
+            });
+        }
         gsap.registerPlugin(ScrollTrigger);
 
         // Batch Animation for Award Cards
