@@ -777,44 +777,197 @@
             transform: translateY(30px);
         }
 
-        /* 8. NEXT-GEN FOOTER & FLOATING AI CHATBOT */
+        /* ==========================================================================
+           FOOTER (PERSIS INDEX.HTML)
+           ========================================================================== */
         .site-footer {
             background: var(--bg-dark);
             color: var(--text-light);
-            padding: 6.5rem 0 2.5rem;
+            padding: 5.5rem 0 2.5rem;
             border-top: 1px solid var(--border-dark);
             position: relative;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
-            gap: 3.5rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
         }
 
-        .footer-col h4 {
+        .footer-col h4,
+        .footer-brand-title {
             font-family: var(--font-head);
-            font-size: 1.1rem;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-brand-name {
             color: #ffffff;
-            margin-bottom: 1.4rem;
-            letter-spacing: -0.02em;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.05rem;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-brand-sub {
+            color: var(--secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.2rem;
+        }
+
+        .footer-address {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-contact-icon {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-subtle);
+            stroke-width: 1.8;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-contact-link:hover {
+            color: var(--secondary-light);
+        }
+
+        .footer-social-row {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+        }
+
+        .footer-social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.25s ease;
+        }
+
+        .footer-social-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary-light);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+        }
+
+        .footer-social-btn:hover svg {
+            transform: scale(1.08);
+        }
+
+        .footer-nav {
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
         }
 
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0;
         }
 
         .footer-links a {
-            color: #a8a29e;
-            font-size: 0.92rem;
-            transition: var(--transition-fast);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+            min-height: 28px;
+        }
+
+        .footer-chevron {
+            opacity: 0;
+            transform: translateX(-4px);
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.05rem;
+            line-height: 1;
+            transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
         .footer-links a:hover {
             color: var(--secondary-light);
             transform: translateX(4px);
-            display: inline-block;
+        }
+
+        .footer-links a:hover .footer-chevron {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .footer-identity-card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 1.15rem 1.25rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-dark);
+            font-size: 0.85rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-identity-card strong {
+            color: #ffffff;
+            font-weight: 700;
         }
 
         .footer-bottom {
@@ -823,7 +976,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #78716c;
             flex-wrap: wrap;
             gap: 1rem;
@@ -1332,28 +1485,10 @@
 
                 <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
 
-                <!-- Karir & BLUD Dropdown -->
-                <div class="nav-item">
-                    <a href="index.html#blud" class="nav-link">
-                        Karir & BLUD <span style="font-size: 0.65rem;">▼</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="index.html#blud" class="dropdown-item">
-                            <span class="dropdown-icon">🏬</span>
-                            <div>
-                                <div>Unit Produksi BLUD</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Produk & Layanan Siswa</small>
-                            </div>
-                        </a>
-                        <a href="index.html#bkk" class="dropdown-item">
-                            <span class="dropdown-icon">💼</span>
-                            <div>
-                                <div>Bursa Kerja Khusus (BKK)</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Info Karir & Mitra DUDI</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <a href="bkk.html" class="nav-link">BKK (Bursa Kerja)</a>
+
+                <!-- Layanan Siswa (BLUD) -->
+                <a href="index.html#blud" class="nav-link">Layanan Siswa (BLUD)</a>
 
                 <a href="berita.html" class="nav-link">Berita</a>
                 <a href="index.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
@@ -1389,7 +1524,7 @@
             <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
             <a href="index.html#jurusan">💻 8 Program Keahlian</a>
             <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
-            <a href="index.html#bkk">💼 Bursa Kerja Khusus (BKK)</a>
+            <a href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
 
             <div style="margin-top: 1.5rem;">
                 <a href="index.html#ppdb" class="btn btn-primary"
@@ -1577,63 +1712,146 @@
 
     <footer class="site-footer">
         <div class="container">
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
             <div class="footer-grid">
+
+                <!-- Kolom 1: Profil Sekolah & Kontak -->
                 <div>
-                    <div class="brand-box" style="display:flex; align-items:center; gap:1rem; margin-bottom:1.4rem;">
-                        <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo" style="max-height:55px; width:auto; object-fit:contain;">
+                    <div class="brand-box" style="display:flex; align-items:center; gap:0.9rem; margin-bottom:1.2rem;">
+                        <img src="assets/logo.webp" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
+                            style="max-height:52px; width:auto; object-fit:contain;" width="52" height="52">
                         <div>
-                            <div style="color:#ffffff; font-family:var(--font-head); font-weight:800; font-size:1.1rem; line-height:1.2; letter-spacing:-0.01em;">
-                                SMKS MUHAMMADIYAH 1 GENTENG
-                            </div>
-                            <div style="color:var(--secondary); font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-top:0.25rem;">
-                                BANYUWANGI &bull; JAWA TIMUR
-                            </div>
+                            <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+                            <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
                         </div>
                     </div>
-                    <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
+                    <p class="footer-address">
                         Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
                         Kabupaten Banyuwangi, Jawa Timur 68465
                     </p>
-                    <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7;">
-                        📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
-                        ✉️ smkmuhi.genteng1968@gmail.com
-                    </p>
-                </div>
 
-                <div class="footer-col">
-                    <h4>Halaman Terkait</h4>
-                    <ul class="footer-links">
-                        <li><a href="visi-misi.html">🎯 Visi & Misi</a>
-</li>
-                        <li><a href="fasilitas.html">🏢 Fasilitas Sekolah</a></li>
-                        <li><a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a></li>
-                        <li><a href="prestasi.html">🏆 Galeri Prestasi</a></li>
-                        <li><a href="berita.html">📰 Jurnal & Berita</a></li>
+                    <!-- A. Baris Kontak dengan Inline SVG Stroke -->
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <a href="tel:0333845605" class="footer-contact-link">(0333) 845605</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                            <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer"
+                                class="footer-contact-link">0822-4135-6668 (WhatsApp)</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <a href="mailto:smkmuhi.genteng1968@gmail.com"
+                                class="footer-contact-link">smkmuhi.genteng1968@gmail.com</a>
+                        </li>
                     </ul>
-                </div>
 
-                <div class="footer-col">
-                    <h4>8 Konsentrasi</h4>
-                    <ul class="footer-links">
-                        <li><a href="#jurusan">Rekayasa Perangkat Lunak</a></li>
-                        <li><a href="#jurusan">Teknik Jaringan Komputer</a></li>
-                        <li><a href="#jurusan">Desain Komunikasi Visual</a></li>
-                        <li><a href="#jurusan">Bisnis Digital</a></li>
-                        <li><a href="#jurusan">Akuntansi Lembaga</a></li>
-                        <li><a href="#jurusan">Perhotelan & Kuliner</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Identitas Lembaga</h4>
-                    <div
-                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#a8a29e;">
-                        <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
-                        <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
-                        <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
-                        <strong style="color:#ffffff;">Domain Resmi:</strong> smksmuh1gtg.com
+                    <!-- C. Media Sosial Monokrom -->
+                    <div class="footer-social-row" aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/smkmuhigts/" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="Instagram SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none"
+                                    stroke="currentColor" stroke-width="2" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="YouTube SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                                    fill="none" stroke="currentColor" stroke-width="2" />
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/smkmuhigts" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="Facebook SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="TikTok SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Kolom 2: Halaman Terkait (A. Tanpa Emoji + Chevron Hover) -->
+                <div class="footer-col">
+                    <h4>Halaman Terkait</h4>
+                    <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
+                        <ul class="footer-links">
+                            <li><a href="bkk.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Bursa Kerja Khusus (BKK)</a></li>
+                            <li><a href="visi-misi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Visi &amp; Misi</a></li>
+                            <li><a href="fasilitas.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Fasilitas Kampus</a></li>
+                            <li><a href="ekstrakurikuler.html"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Ekstrakurikuler &amp; IPM</a></li>
+                            <li><a href="prestasi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Galeri Prestasi</a></li>
+                            <li><a href="berita.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Jurnal &amp; Berita</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Kolom 3: 8 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
+                <div class="footer-col">
+                    <h4>8 Konsentrasi</h4>
+                    <nav class="footer-nav" aria-label="Navigasi 8 Konsentrasi Keahlian">
+                        <ul class="footer-links">
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Rekayasa Perangkat Lunak</a></li>
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Teknik Komputer &amp; Jaringan</a></li>
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Desain Komunikasi Visual</a></li>
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Bisnis Digital</a></li>
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Akuntansi &amp; Keuangan Lembaga</a></li>
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Manajemen Perkantoran</a></li>
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Perhotelan &amp; Hospitality</a></li>
+                            <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Teknik Sepeda Motor (AHASS)</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Kolom 4: Identitas Lembaga Resmi -->
+                <div class="footer-col">
+                    <h4>Identitas Lembaga</h4>
+                    <div class="footer-identity-card">
+                        <div><strong>NPSN:</strong> 20525597</div>
+                        <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+                        <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+                        <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+                        <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="footer-bottom">
@@ -1641,6 +1859,7 @@
                 <div>Website Redesign &bull; Kompetisi JHIC Jagoan Hosting</div>
             </div>
         </div>
+    </footer>
     <!-- AI CHATBOT WIDGET -->
     <button class="chatbot-btn" id="chatbot-toggle" aria-label="Buka Asisten AI">💬</button>
     <div class="chat-panel" id="chat-panel">
