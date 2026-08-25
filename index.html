@@ -3846,6 +3846,251 @@
                 display: flex !important;
             }
         }
+    
+        /* ==========================================================================
+           10B. SINERGI TIGA PILAR VOKASI (DARK SECTION WITH GRADIENT & AURA)
+           ========================================================================== */
+        .sinergi-section {
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 5rem 0;
+            z-index: 1;
+        }
+
+        /* Latar Overlay Gradasi Gelap Terkurung dalam Section */
+        .sinergi-gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(15, 23, 42, 0.55) 0%,
+                rgba(15, 23, 42, 0.85) 45%,
+                rgba(15, 23, 42, 0.95) 100%);
+            z-index: 1;
+            pointer-events: none !important;
+        }
+
+        /* Radial Glow Aura di belakang bintang (filter blur murni, tanpa backdrop-filter) */
+        .sinergi-ambient-aura {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            max-width: 90vw;
+            max-height: 90vw;
+            background: radial-gradient(circle, var(--secondary-glow) 0%, rgba(234, 179, 8, 0.15) 40%, transparent 70%);
+            filter: blur(70px);
+            opacity: 0.45;
+            z-index: 1;
+            pointer-events: none !important;
+        }
+
+        .sinergi-stage-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            min-height: 70vh;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .synergy-svg-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            z-index: 1;
+            pointer-events: none !important;
+        }
+
+        .pillar-line {
+            stroke: var(--secondary-light);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            fill: none;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            pointer-events: none !important;
+        }
+
+        .pillar-node-group {
+            transform-origin: center;
+            pointer-events: none !important;
+        }
+
+        .pillar-node-ring {
+            fill: none;
+            stroke: var(--secondary);
+            stroke-width: 1.5;
+            opacity: 0.35;
+        }
+
+        .pillar-node-core {
+            fill: var(--secondary-light);
+        }
+
+        .pillar-node-label {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 800;
+            fill: var(--text-light);
+            text-anchor: middle;
+            letter-spacing: -0.01em;
+        }
+
+        .pillar-node-sub {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            fill: var(--text-subtle);
+            text-anchor: middle;
+        }
+
+        /* Star & Aura in Center */
+        .synergy-star-aura {
+            fill: url(#starAuraGrad);
+            opacity: 0;
+            pointer-events: none !important;
+        }
+
+        .synergy-center-star {
+            fill: var(--secondary-surface);
+            stroke: var(--secondary-light);
+            stroke-width: 2.5;
+            stroke-linejoin: round;
+            opacity: 0;
+            transform: scale(0);
+            pointer-events: none !important;
+        }
+
+        /* Synergy Text Content - Layered Over SVG */
+        .synergy-text-container {
+            position: relative;
+            z-index: 3;
+            max-width: 860px;
+            width: 100%;
+            min-height: 70vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .synergy-kicker {
+            font-family: var(--font-head);
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--secondary-light);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        .signature-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2.7vw, 2.25rem);
+            font-weight: 800;
+            color: var(--text-light);
+            max-width: 840px;
+            margin: 0 auto 1.2rem;
+            line-height: 1.38;
+            letter-spacing: -0.025em;
+        }
+
+        .synergy-highlight {
+            color: var(--secondary-light);
+        }
+
+        .synergy-closing {
+            font-family: var(--font-body);
+            font-size: 1.02rem;
+            color: var(--text-subtle);
+            max-width: 620px;
+            margin: 0 auto 1.8rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .synergy-action-btn {
+            opacity: 0;
+            transform: translateY(10px);
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 4;
+        }
+
+        /* Scroll Progress Rail */
+        .synergy-progress-rail {
+            width: 120px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-full);
+            margin: 2.2rem auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .synergy-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            border-radius: var(--radius-full);
+            box-shadow: 0 0 8px var(--secondary-glow);
+        }
+
+        /* Text Scroll Reveal (skiper31-style) */
+        .sr-word {
+            display: inline-block;
+            opacity: 0.18;
+            filter: blur(2px);
+            transform: translateY(0.12em);
+            will-change: opacity, filter, transform;
+        }
+
+        @media (max-width: 768px) {
+            .sinergi-ambient-aura {
+                filter: blur(40px) !important;
+                width: 320px;
+                height: 320px;
+            }
+            .pillar-node-sub {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .sr-word {
+                opacity: 1 !important;
+                filter: none !important;
+                transform: none !important;
+            }
+
+            .synergy-center-star,
+            .synergy-star-aura,
+            .synergy-kicker,
+            .synergy-closing {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
     </style>
 </head>
 
@@ -5176,97 +5421,114 @@
         </div>
     </div>
 
-    <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
+        <!-- 1. VENDOR LIBRARIES -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
-    <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
+    <!-- 2. ROBUST STANDARDIZED NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
     <script>
-        (function () {
-            function initNavigation() {
-                var hamburgerBtn = document.querySelector('#hamburger-btn') || document.querySelector('.hamburger') || document.querySelector('.nav-toggle');
-                var drawerCloseBtn = document.querySelector('#drawer-close-btn') || document.querySelector('.drawer-close');
-                var mobileDrawer = document.querySelector('#mobile-drawer') || document.querySelector('.mobile-drawer');
-                var mobileOverlay = document.querySelector('#mobile-overlay') || document.querySelector('.mobile-overlay');
+    (function () {
+        function initNavigation() {
+            var hamburgerBtn = document.querySelector('#hamburger-btn') || document.querySelector('.hamburger') || document.querySelector('.nav-toggle');
+            var drawerCloseBtn = document.querySelector('#drawer-close-btn') || document.querySelector('.drawer-close');
+            var mobileDrawer = document.querySelector('#mobile-drawer') || document.querySelector('.mobile-drawer');
+            var mobileOverlay = document.querySelector('#mobile-overlay') || document.querySelector('.mobile-overlay');
 
-                function openDrawer() {
-                    if (mobileDrawer) mobileDrawer.classList.add('active');
-                    if (mobileOverlay) mobileOverlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                    if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
-                    if (window.lenis) window.lenis.stop();
-                }
+            function openDrawer() {
+                if (mobileDrawer) mobileDrawer.classList.add('active');
+                if (mobileOverlay) mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
+                if (window.lenis) window.lenis.stop();
+            }
 
-                function closeDrawer() {
-                    if (mobileDrawer) mobileDrawer.classList.remove('active');
-                    if (mobileOverlay) mobileOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                    if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
-                    if (window.lenis) window.lenis.start();
-                }
+            function closeDrawer() {
+                if (mobileDrawer) mobileDrawer.classList.remove('active');
+                if (mobileOverlay) mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+                if (window.lenis) window.lenis.start();
+            }
 
-                if (hamburgerBtn) {
-                    hamburgerBtn.removeEventListener('click', openDrawer);
-                    hamburgerBtn.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        if (mobileDrawer && mobileDrawer.classList.contains('active')) {
-                            closeDrawer();
-                        } else {
-                            openDrawer();
-                        }
-                    });
-                }
-
-                if (drawerCloseBtn) {
-                    drawerCloseBtn.removeEventListener('click', closeDrawer);
-                    drawerCloseBtn.addEventListener('click', function (e) {
-                        e.preventDefault();
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (mobileDrawer && mobileDrawer.classList.contains('active')) {
                         closeDrawer();
-                    });
-                }
-
-                if (mobileOverlay) {
-                    mobileOverlay.removeEventListener('click', closeDrawer);
-                    mobileOverlay.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        closeDrawer();
-                    });
-                }
-
-                // Close on drawer link click
-                if (mobileDrawer) {
-                    var drawerLinks = mobileDrawer.querySelectorAll('a');
-                    drawerLinks.forEach(function (link) {
-                        link.addEventListener('click', function () {
-                            closeDrawer();
-                        });
-                    });
-                }
-
-                // Escape key listener
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape') {
-                        closeDrawer();
-                        if (typeof closeItemModal === 'function') closeItemModal();
-                        if (typeof closeNewsModal === 'function') closeNewsModal();
-                        if (typeof closeAwardModal === 'function') closeAwardModal();
-                        if (typeof closeMajorModal === 'function') closeMajorModal();
+                    } else {
+                        openDrawer();
                     }
                 });
             }
 
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initNavigation);
-            } else {
-                initNavigation();
+            if (drawerCloseBtn) {
+                drawerCloseBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    closeDrawer();
+                });
             }
-        })();
+
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    closeDrawer();
+                });
+            }
+
+            // Close on drawer link click
+            if (mobileDrawer) {
+                var drawerLinks = mobileDrawer.querySelectorAll('a');
+                drawerLinks.forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        closeDrawer();
+                    });
+                });
+            }
+
+            // Escape key listener
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    closeDrawer();
+                    if (typeof closeNewsModal === 'function') closeNewsModal();
+                    if (typeof closeAwardModal === 'function') closeAwardModal();
+                    if (typeof closeMajorModal === 'function') closeMajorModal();
+                }
+            });
+
+            // Scrolled Navbar Effect
+            var mainNav = document.getElementById('main-nav');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 40) {
+                    if (mainNav) mainNav.classList.add('scrolled');
+                } else {
+                    if (mainNav) mainNav.classList.remove('scrolled');
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNavigation);
+        } else {
+            initNavigation();
+        }
+    })();
     </script>
 
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-
+    <!-- 3. ORBIT, MAJORS, MODALS, CHATBOT & GSAP ANIMATIONS -->
     <script>
+    (function () {
+        try {
+<!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
+    
+    
+
+    
+
+    
+
+    
         // 1. Initialize Lenis Smooth Scroll
         const lenis = new Lenis({
             duration: 1.2,
@@ -5313,31 +5575,7 @@
             }
         });
 
-        // 3. Mobile Drawer Logic
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const drawerCloseBtn = document.getElementById('drawer-close-btn');
-        const mobileDrawer = document.getElementById('mobile-drawer');
-        const mobileOverlay = document.getElementById('mobile-overlay');
-
-        function openMobileDrawer() {
-            if (mobileDrawer) mobileDrawer.classList.add('active');
-            if (mobileOverlay) mobileOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
-            if (typeof lenis !== 'undefined' && lenis) lenis.stop();
-        }
-
-        function closeMobileDrawer() {
-            if (mobileDrawer) mobileDrawer.classList.remove('active');
-            if (mobileOverlay) mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
-            if (typeof lenis !== 'undefined' && lenis) lenis.start();
-        }
-
-        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileDrawer);
-        if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeMobileDrawer);
-        if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileDrawer);
+        
 
         // 4. Hero Hub Tabs
         function switchHubTab(tabName, btn) {
@@ -6306,7 +6544,27 @@
             duration: 22,
             repeat: -1
         });
+        } catch (err) {
+            console.warn('Index interactions warning:', err);
+        }
+    })();
     </script>
-</body>
 
+    <!-- 4. MANDATORY SAFETY FALLBACK -->
+    <script>
+    setTimeout(function () {
+        document.querySelectorAll('*').forEach(function (el) {
+            if (getComputedStyle(el).opacity === '0' && el.textContent.trim().length > 0) {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+                el.style.filter = 'none';
+            }
+        });
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+        }
+    }, 2000);
+    </script>
+
+</body>
 </html>
