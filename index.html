@@ -1165,7 +1165,7 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Mencegah elemen SVG bocor */
+            overflow: visible;
             z-index: 1;
             pointer-events: none;
         }
@@ -1248,6 +1248,8 @@
             letter-spacing: 0.12em;
             color: var(--secondary-light);
             margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(12px);
         }
 
         .signature-text {
@@ -1272,9 +1274,13 @@
             max-width: 620px;
             margin: 0 auto 1.8rem;
             line-height: 1.6;
+            opacity: 0;
+            transform: translateY(10px);
         }
 
         .synergy-action-btn {
+            opacity: 0;
+            transform: translateY(10px);
             margin-top: 0.5rem;
         }
 
@@ -1297,23 +1303,9 @@
             box-shadow: 0 0 8px var(--secondary-glow);
         }
 
-        @media (max-width: 768px) {
-            .synergy-svg-canvas {
-                transform: scale(0.85);
-                transform-origin: center center;
-            }
+        @media (max-width: 640px) {
             .pillar-node-sub {
                 display: none;
-            }
-            .pillar-node-label {
-                font-size: 12px !important;
-                font-weight: bold;
-            }
-            .signature-text {
-                font-size: clamp(1.3rem, 5.5vw, 2.15rem);
-            }
-            #aura {
-                r: 90px; /* Reduce aura radius for mobile */
             }
         }
 
@@ -4682,8 +4674,8 @@
                         </radialGradient>
                     </defs>
 
-                    <!-- Aura Cahaya di Pusat (Digambar lebih dulu agar di belakang bintang) -->
-                    <circle cx="250" cy="160" r="130" id="aura" style="fill: url(#starAuraGrad); opacity: 0;" />
+                    <!-- Aura Cahaya di Pusat -->
+                    <circle cx="250" cy="160" r="130" class="synergy-star-aura" id="synergy-star-aura" />
 
                     <!-- Garis Penghubung Tiga Pilar (Segitiga Sinergi) -->
                     <!-- Garis 1: Node Top (250, 48) ke Node Right (400, 240) -->
@@ -4694,12 +4686,8 @@
                     <path d="M 100 240 L 250 48" class="pillar-line" id="line-left-top" />
 
                     <!-- Bintang Pusat (Lahir dari leburan 3 pilar) -->
-                    <g id="star">
-                        <path id="starFill" d="M 250 100 L 265 145 L 310 160 L 265 175 L 250 220 L 235 175 L 190 160 L 235 145 Z" 
-                              style="fill: var(--secondary-surface); opacity: 0;" />
-                        <path id="starShape" d="M 250 100 L 265 145 L 310 160 L 265 175 L 250 220 L 235 175 L 190 160 L 235 145 Z" 
-                              style="stroke: var(--secondary-light); stroke-width: 2.5; stroke-linejoin: round; fill: none; stroke-dasharray: 400; stroke-dashoffset: 400; opacity: 0;" />
-                    </g>
+                    <path d="M 250 100 L 265 145 L 310 160 L 265 175 L 250 220 L 235 175 L 190 160 L 235 145 Z"
+                        class="synergy-center-star" id="synergy-center-star" />
 
                     <!-- Node 1: Keahlian Vokasi (Puncak Atas) -->
                     <g class="pillar-node-group" id="node-vokasi" transform="translate(0, 0)">
@@ -5188,12 +5176,11 @@
         </div>
     </div>
 
-    <!-- 1. VENDOR LIBRARIES -->
+    <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
-    <!-- 2. ROBUST STANDARDIZED NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
+    <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
     <script>
         (function () {
             function initNavigation() {
@@ -5219,6 +5206,7 @@
                 }
 
                 if (hamburgerBtn) {
+                    hamburgerBtn.removeEventListener('click', openDrawer);
                     hamburgerBtn.addEventListener('click', function (e) {
                         e.preventDefault();
                         e.stopPropagation();
@@ -5231,6 +5219,7 @@
                 }
 
                 if (drawerCloseBtn) {
+                    drawerCloseBtn.removeEventListener('click', closeDrawer);
                     drawerCloseBtn.addEventListener('click', function (e) {
                         e.preventDefault();
                         closeDrawer();
@@ -5238,6 +5227,7 @@
                 }
 
                 if (mobileOverlay) {
+                    mobileOverlay.removeEventListener('click', closeDrawer);
                     mobileOverlay.addEventListener('click', function (e) {
                         e.preventDefault();
                         closeDrawer();
@@ -5258,19 +5248,10 @@
                 document.addEventListener('keydown', function (e) {
                     if (e.key === 'Escape') {
                         closeDrawer();
+                        if (typeof closeItemModal === 'function') closeItemModal();
                         if (typeof closeNewsModal === 'function') closeNewsModal();
                         if (typeof closeAwardModal === 'function') closeAwardModal();
                         if (typeof closeMajorModal === 'function') closeMajorModal();
-                    }
-                });
-
-                // Scrolled Navbar Effect
-                var mainNav = document.getElementById('main-nav');
-                window.addEventListener('scroll', function () {
-                    if (window.scrollY > 40) {
-                        if (mainNav) mainNav.classList.add('scrolled');
-                    } else {
-                        if (mainNav) mainNav.classList.remove('scrolled');
                     }
                 });
             }
@@ -5283,502 +5264,448 @@
         })();
     </script>
 
-    <!-- 3. ORBIT, MAJORS, MODALS, CHATBOT & GSAP ANIMATIONS -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
     <script>
-        (function () {
-            try {
-                <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
+        // 1. Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            smoothTouch: false,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+            infinite: false,
+        });
 
+        // Synchronize Lenis with GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
 
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
 
+        gsap.ticker.lagSmoothing(0);
 
-
-
-
-
-                // 1. Initialize Lenis Smooth Scroll
-                const lenis = new Lenis({
-                    duration: 1.2,
-                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                    smoothWheel: true,
-                    smoothTouch: false,
-                    wheelMultiplier: 1,
-                    touchMultiplier: 2,
-                    infinite: false,
-                });
-
-                // Synchronize Lenis with GSAP ScrollTrigger
-                lenis.on('scroll', ScrollTrigger.update);
-
-                gsap.ticker.add((time) => {
-                    lenis.raf(time * 1000);
-                });
-
-                gsap.ticker.lagSmoothing(0);
-
-                // Smooth Scroll for anchor links using Lenis
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        const targetId = this.getAttribute('href');
-                        if (targetId && targetId !== '#' && targetId.length > 1) {
-                            const targetEl = document.querySelector(targetId);
-                            if (targetEl) {
-                                e.preventDefault();
-                                lenis.scrollTo(targetEl, { offset: -70, duration: 1.2 });
-                                // Close mobile drawer if open
-                                closeMobileDrawer();
-                            }
-                        }
-                    });
-                });
-
-                // 2. Navbar Scrolled Island Effect
-                const mainNav = document.getElementById('main-nav');
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 40) {
-                        mainNav.classList.add('scrolled');
-                    } else {
-                        mainNav.classList.remove('scrolled');
-                    }
-                });
-
-
-
-                // 4. Hero Hub Tabs
-                function switchHubTab(tabName, btn) {
-                    document.querySelectorAll('.hub-nav-tab').forEach(b => b.classList.remove('active'));
-                    document.querySelectorAll('.hub-tab-panel').forEach(p => p.classList.remove('active'));
-
-                    btn.classList.add('active');
-                    const target = document.getElementById('hub-panel-' + tabName);
-                    if (target) target.classList.add('active');
-                }
-
-                // 5. Hero Quick Search / Filter Jurusan
-                function handleHeroSearch() {
-                    const query = (document.getElementById('hero-search-input')?.value || '').toLowerCase().trim();
-                    if (!query) return;
-
-                    const jurusanSection = document.getElementById('jurusan');
-                    if (jurusanSection) {
-                        if (typeof lenis !== 'undefined' && lenis) {
-                            lenis.scrollTo(jurusanSection, { offset: -70, duration: 1.2 });
-                        } else {
-                            jurusanSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }
-
-                    if (query.includes('code') || query.includes('web') || query.includes('rpl') || query.includes('software') || query.includes('aplikasi') || query.includes('flutter')) {
-                        selectMajorPathway('rpl');
-                    } else if (query.includes('jaringan') || query.includes('tkj') || query.includes('network') || query.includes('server') || query.includes('wifi') || query.includes('fiber')) {
-                        selectMajorPathway('tkj');
-                    } else if (query.includes('desain') || query.includes('video') || query.includes('dkv') || query.includes('multimedia') || query.includes('foto') || query.includes('animasi')) {
-                        selectMajorPathway('dkv');
-                    } else if (query.includes('bisnis') || query.includes('digital') || query.includes('bd') || query.includes('marketing') || query.includes('toko') || query.includes('shopee')) {
-                        selectMajorPathway('bd');
-                    } else if (query.includes('akuntansi') || query.includes('uang') || query.includes('akl') || query.includes('pajak') || query.includes('bank')) {
-                        selectMajorPathway('akl');
-                    } else if (query.includes('kantor') || query.includes('mplb') || query.includes('admin') || query.includes('arsip') || query.includes('sekretaris')) {
-                        selectMajorPathway('mplb');
-                    } else if (query.includes('hotel') || query.includes('ph') || query.includes('wisata') || query.includes('hospitality') || query.includes('edutel')) {
-                        selectMajorPathway('ph');
-                    } else if (query.includes('motor') || query.includes('tbsm') || query.includes('bengkel') || query.includes('honda') || query.includes('ahass') || query.includes('otomotif')) {
-                        selectMajorPathway('tbsm');
+        // Smooth Scroll for anchor links using Lenis
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#' && targetId.length > 1) {
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        lenis.scrollTo(targetEl, { offset: -70, duration: 1.2 });
+                        // Close mobile drawer if open
+                        closeMobileDrawer();
                     }
                 }
+            });
+        });
 
-                document.getElementById('hero-search-input')?.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') handleHeroSearch();
-                });
+        // 2. Navbar Scrolled Island Effect
+        const mainNav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        });
 
-                // 6. KONSENTRASI KEAHLIAN: SATU SUMBER DATA TERPADU (8 JURUSAN LENGKAP)
-                const majorsData = [
-                    {
-                        key: 'rpl',
-                        code: 'RPL',
-                        num: '01',
-                        title: 'Rekayasa Perangkat Lunak',
-                        badge: 'ALUR PENDIDIKAN VOKASI • RPL',
-                        tefa: 'Software House TEFA MUHI & Lab iMac Cloud',
-                        certSummary: 'LSP-P1 BNSP Junior Web Developer & Cloud Database',
-                        logo: 'assets/major/RPL-removebg-preview.png',
-                        foto: 'assets/major-person/rpl.png',
-                        desc: 'Mencetak software engineer berkarakter Islami yang menguasai ekosistem web modern, mobile app development, backend cloud, dan siap terjun ke industri teknologi.',
-                        kompetensi: [
-                            'Web Modern (HTML5, CSS3, JS, Laravel/Node)',
-                            'Mobile Application (Flutter & Kotlin)',
-                            'Database SQL & Firebase Cloud Server'
-                        ],
-                        tempatPraktik: {
-                            title: 'Software House TEFA MUHI',
-                            items: [
-                                'Pengerjaan proyek sistem informasi & aplikasi web klien.',
-                                'Lab iMac & Workstation gigabit standar industri.'
-                            ],
-                            box: 'Portofolio live production sebelum wisuda.'
-                        },
-                        sertifikasi: {
-                            title: 'LSP-P1 BNSP & Cloud',
-                            items: [
-                                'Skema Junior Web Developer & Programmer (BNSP).',
-                                'Sertifikasi Internasional Cloud & Database.'
-                            ],
-                            box: 'Sertifikat Garuda Emas resmi diakui ASEAN.'
-                        },
-                        setelahLulus: {
-                            title: 'Mitra Dudika & Karir',
-                            items: [
-                                'Mitra: Semesta Multitekno, Hummatech, Jagoan Hosting.',
-                                'Karir: Frontend/Backend Developer, QA, IT Support.'
-                            ],
-                            box: 'Penyaluran via BKK & inkubasi startup.'
-                        }
-                    },
-                    {
-                        key: 'tkj',
-                        code: 'TKJ',
-                        num: '02',
-                        title: 'Teknik Komputer & Jaringan',
-                        badge: 'ALUR PENDIDIKAN VOKASI • TKJ',
-                        tefa: 'ISP & Network Operations Center (NOC) TEFA',
-                        certSummary: 'LSP-P1 BNSP Network Administrator & MikroTik MTCNA',
-                        logo: 'assets/major/TJKT-removebg-preview.png',
-                        foto: 'assets/major-person/tkj.png',
-                        desc: 'Spesialisasi arsitektur jaringan skala enterprise, instalasi fiber optic backbone, administrasi server Linux/Cloud, dan protokol pertahanan cyber security.',
-                        kompetensi: [
-                            'Routing-Switching Enterprise (Cisco & MikroTik)',
-                            'Instalasi & Splicing Kabel Fiber Optic (FTTH/OTDR)',
-                            'Administrasi Cloud Server Linux & Virtualisasi'
-                        ],
-                        tempatPraktik: {
-                            title: 'TEFA Network Operation Center',
-                            items: [
-                                'Pengelolaan infrastruktur internet kampus 24/7.',
-                                'Lab Fiber Optic & Cisco Router Rack industri.'
-                            ],
-                            box: 'Troubleshooting jaringan live production.'
-                        },
-                        sertifikasi: {
-                            title: 'MikroTik & BNSP',
-                            items: [
-                                'LSP-P1 BNSP: Network Administrator Madya & FO.',
-                                'Sertifikasi Internasional MikroTik (MTCNA).'
-                            ],
-                            box: 'Diakui oleh asosiasi APJII seluruh Indonesia.'
-                        },
-                        setelahLulus: {
-                            title: 'Mitra Dudika & Karir',
-                            items: [
-                                'Mitra: PT Telkom Indonesia, Telkomsel, Lintasarta.',
-                                'Karir: Network Engineer, Cloud Admin, Teknisi FO.'
-                            ],
-                            box: 'Prioritas rekrutmen ISP regional Jawa Timur.'
-                        }
-                    },
-                    {
-                        key: 'dkv',
-                        code: 'DKV',
-                        num: '03',
-                        title: 'Desain Komunikasi Visual',
-                        badge: 'ALUR PENDIDIKAN VOKASI • DKV',
-                        tefa: 'Studio Creative Agency & Multimedia Lab',
-                        certSummary: 'LSP-P1 BNSP Desainer Grafis & Adobe Certified Pro',
-                        logo: 'assets/major/dkv.png',
-                        foto: 'assets/major-person/dkv.png',
-                        desc: 'Pusat eksplorasi visual komersial, produksi video sinematik, animasi motion graphics 2D/3D, branding periklanan, dan perancangan antarmuka digital UI/UX.',
-                        kompetensi: [
-                            'Desain Komersial, Brand Identity & Ilustrasi Vektor',
-                            'Videografi Sinematik, Lighting & Audio Engineering',
-                            'User Interface & UX Design (Figma & Prototyping)'
-                        ],
-                        tempatPraktik: {
-                            title: 'Studio Creative Agency TEFA',
-                            items: [
-                                'Pesanan video profil korporat & foto produk UMKM.',
-                                'Studio Green Screen & Broadcast Audio Suite.'
-                            ],
-                            box: 'Produksi konten bernilai jual komersial tinggi.'
-                        },
-                        sertifikasi: {
-                            title: 'Adobe Certified & BNSP',
-                            items: [
-                                'LSP-P1 BNSP: Desainer Grafis Muda & Multimedia.',
-                                'Sertifikasi Adobe Certified Professional (Ps, Ai, Pr).'
-                            ],
-                            box: 'Standar kompetensi industri periklanan kreatif.'
-                        },
-                        setelahLulus: {
-                            title: 'Mitra Dudika & Karir',
-                            items: [
-                                'Mitra: Studio Kinetik, Citra Visual, Radar Banyuwangi.',
-                                'Karir: UI/UX Designer, Motion Animator, Creative Director.'
-                            ],
-                            box: 'Portofolio aktif Behance/Dribbble siap kerja.'
-                        }
-                    },
-                    {
-                        key: 'bd',
-                        code: 'BD',
-                        num: '04',
-                        title: 'Bisnis Digital',
-                        badge: 'ALUR PENDIDIKAN VOKASI • BISNIS DIGITAL',
-                        tefa: 'Muhi E-Commerce Hub & Live Studio TEFA',
-                        certSummary: 'LSP-P1 BNSP Toko Daring & Meta Certified Marketing',
-                        logo: 'assets/major/logo bdp.png',
-                        foto: 'assets/major-person/BD.png',
-                        desc: 'Mengolaborasikan strategi niaga modern dengan teknologi: manajemen marketplace omnichannel, paid digital ads (Meta & Google), live commerce selling, dan analitik data pasar.',
-                        kompetensi: [
-                            'Manajemen Marketplace (Shopee, TikTok Shop, Tokopedia)',
-                            'Digital Ads Marketing (Meta Ads, Google Ads & TikTok)',
-                            'Live Commerce Broadcasting & Copywriting Persuasif'
-                        ],
-                        tempatPraktik: {
-                            title: 'Muhi E-Commerce Hub TEFA',
-                            items: [
-                                'Studio Live Streaming komersial penjualan harian.',
-                                'Mini Fulfillment Center: pergudangan & ekspedisi.'
-                            ],
-                            box: 'Praktik omzet nyata dan kalkulasi profit harian.'
-                        },
-                        sertifikasi: {
-                            title: 'Digital Marketing BNSP',
-                            items: [
-                                'LSP-P1 BNSP: Pengelola Toko Daring & Digital Marketer.',
-                                'Meta Certified Digital Marketing Associate.'
-                            ],
-                            box: 'Legalitas kompetensi resmi agensi pemasaran.'
-                        },
-                        setelahLulus: {
-                            title: 'Mitra Dudika & Karir',
-                            items: [
-                                'Mitra: Astra International (Digital), JNE, Brand Fashion.',
-                                'Karir: E-Commerce Specialist, Ads Optimizer, Live Host.'
-                            ],
-                            box: 'Banyak siswa beromzet mandiri sebelum lulus.'
-                        }
-                    },
-                    {
-                        key: 'akl',
-                        code: 'AKL',
-                        num: '05',
-                        title: 'Akuntansi & Keuangan Lembaga',
-                        badge: 'ALUR PENDIDIKAN VOKASI • AKL',
-                        tefa: 'Bank Mini Syariah MUHI & Tax Center TEFA',
-                        certSummary: 'LSP-P1 BNSP Teknisi Akuntansi & Accurate Professional',
-                        logo: 'assets/major/logo AKL.png',
-                        foto: 'assets/major-person/ak.png',
-                        desc: 'Membina teknisi akuntansi handal yang menguasai software akuntansi komputer, perpajakan digital (e-Faktur/e-SPT), audit laporan korporasi, dan layanan perbankan syariah.',
-                        kompetensi: [
-                            'Software Komputer Akuntansi (Accurate & MYOB)',
-                            'Perpajakan Digital (e-SPT, e-Faktur, PPh 21/23/PPN)',
-                            'Penyusunan Laporan Keuangan Manufaktur & UMKM'
-                        ],
-                        tempatPraktik: {
-                            title: 'Bank Mini Syariah TEFA',
-                            items: [
-                                'Layanan tabungan siswa & simulasi teller perbankan riil.',
-                                'Tax Center: konsultasi & pengisian SPT tahunan.'
-                            ],
-                            box: 'Standar SOP Teller & CS perbankan nasional.'
-                        },
-                        sertifikasi: {
-                            title: 'Teknisi Akuntansi BNSP',
-                            items: [
-                                'LSP-P1 BNSP: Teknisi Akuntansi Yunior & Pajak Terapan.',
-                                'Sertifikasi Software Accurate Professional.'
-                            ],
-                            box: 'Diakui kantor akuntan publik & perbankan.'
-                        },
-                        setelahLulus: {
-                            title: 'Mitra Dudika & Karir',
-                            items: [
-                                'Mitra: Bank Jatim Syariah, BSI, BMT Genteng, KAP.',
-                                'Karir: Junior Accountant, Tax Officer, Teller Bank, Payroll.'
-                            ],
-                            box: 'Jalur prioritas rekrutmen institusi keuangan.'
-                        }
-                    },
-                    {
-                        key: 'mplb',
-                        code: 'MPLB',
-                        num: '06',
-                        title: 'Manajemen Perkantoran',
-                        badge: 'ALUR PENDIDIKAN VOKASI • MPLB',
-                        tefa: 'Muhi Office Service & Executive Meeting Room',
-                        certSummary: 'LSP-P1 BNSP Administrative Assistant & Digital Office',
-                        logo: '',
-                        emoji: '🏢',
-                        foto: 'assets/major-person/mp.png',
-                        desc: 'Mencetak staf administrasi eksekutif dan sekretaris cekatan dengan kemampuan public relations prima, otomasi perkantoran digital cloud, dan keprotokolan formal.',
-                        kompetensi: [
-                            'Otomasi Kantor Digital (Google Workspace & ERP Admin)',
-                            'Manajemen Kearsipan Elektronik Modern (E-Records)',
-                            'Komunikasi Bisnis Internasional & Public Relations'
-                        ],
-                        tempatPraktik: {
-                            title: 'Muhi Office Service TEFA',
-                            items: [
-                                'Pusat persuratan terpadu & resepsionis sekolah.',
-                                'Executive Meeting Simulator: tata ruang rapat korporat.'
-                            ],
-                            box: 'Membiasakan etika kantor eksekutif sejak dini.'
-                        },
-                        sertifikasi: {
-                            title: 'Administrasi Perkantoran BNSP',
-                            items: [
-                                'LSP-P1 BNSP: Executive Administrative Assistant & Arsip.',
-                                'Sertifikasi Digital Office Professional.'
-                            ],
-                            box: 'Standarisasi kesekretariatan instansi & BUMN.'
-                        },
-                        setelahLulus: {
-                            title: 'Mitra Dudika & Karir',
-                            items: [
-                                'Mitra: Instansi Pemerintah Daerah, PT Pelindo, Notaris.',
-                                'Karir: Sekretaris Eksekutif, Front Office Manager, HR Admin.'
-                            ],
-                            box: 'Terserap cepat di BUMN dan korporasi swasta.'
-                        }
-                    },
-                    {
-                        key: 'ph',
-                        code: 'PH',
-                        num: '07',
-                        title: 'Perhotelan & Hospitality',
-                        badge: 'ALUR PENDIDIKAN VOKASI • PERHOTELAN',
-                        tefa: 'Edutel Hotel Muhi & Mockup Suite Room TEFA',
-                        certSummary: 'LSP-P1 BNSP Front Office Receptionist & CHSE',
-                        logo: 'assets/major/PH.png',
-                        emoji: '🏨',
-                        foto: 'assets/major-person/PH.png',
-                        desc: 'Menyiapkan tenaga hospitality internasional: keahlian reservasi Front Office, tata graha Housekeeping bintang lima, food & beverage service, serta etiket perjamuan formal.',
-                        kompetensi: [
-                            'Property Management System (Front Office Reservation)',
-                            'Housekeeping Bintang Lima & Standard Bed Making',
-                            'Food & Beverage Service, Table Manner & Banquet'
-                        ],
-                        tempatPraktik: {
-                            title: 'Edutel Hotel Muhi TEFA',
-                            items: [
-                                'Fasilitas penginapan riil beroperasi melayani tamu umum.',
-                                'Mockup Suite Room, Bar Resto & Commercial Laundry.'
-                            ],
-                            box: 'Pengalaman melayani tamu standar hotel bintang 5.'
-                        },
-                        sertifikasi: {
-                            title: 'Hospitality BNSP & CHSE',
-                            items: [
-                                'LSP-P1 BNSP: Front Office Receptionist & Housekeeper.',
-                                'Sertifikasi Kebersihan & Keselamatan Hotel (CHSE).'
-                            ],
-                            box: 'Diakui jaringan hotel internasional & kapal pesiar.'
-                        },
-                        setelahLulus: {
-                            title: 'Mitra Dudika & Karir',
-                            items: [
-                                'Mitra: Hotel Ketapang Indah, Dialoog Banyuwangi, Aston.',
-                                'Karir: Front Desk Agent, Housekeeper, F&B Captain, GRO.'
-                            ],
-                            box: 'Peluang magang hotel resort Bali & kapal pesiar.'
-                        }
-                    },
-                ];
+        // 3. Mobile Drawer Logic
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const drawerCloseBtn = document.getElementById('drawer-close-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileOverlay = document.getElementById('mobile-overlay');
 
-                let activeMajorKey = 'rpl';
-                let hoverDebounceTimer = null;
-                let preloadedImages = [];
+        function openMobileDrawer() {
+            if (mobileDrawer) mobileDrawer.classList.add('active');
+            if (mobileOverlay) mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
+            if (typeof lenis !== 'undefined' && lenis) lenis.stop();
+        }
 
-                // B.2 PRELOAD SEMUA FOTO JURUSAN AGAR TIDAK ADA KEDIP SAAT HOVER
-                function preloadMajorImages() {
-                    majorsData.forEach(m => {
-                        if (m.foto) {
-                            const img = new Image();
-                            img.src = m.foto;
-                            preloadedImages.push(img);
-                        }
-                    });
+        function closeMobileDrawer() {
+            if (mobileDrawer) mobileDrawer.classList.remove('active');
+            if (mobileOverlay) mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+            if (typeof lenis !== 'undefined' && lenis) lenis.start();
+        }
+
+        if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileDrawer);
+        if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeMobileDrawer);
+        if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileDrawer);
+
+        // 4. Hero Hub Tabs
+        function switchHubTab(tabName, btn) {
+            document.querySelectorAll('.hub-nav-tab').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.hub-tab-panel').forEach(p => p.classList.remove('active'));
+
+            btn.classList.add('active');
+            const target = document.getElementById('hub-panel-' + tabName);
+            if (target) target.classList.add('active');
+        }
+
+        // 5. Hero Quick Search / Filter Jurusan
+        function handleHeroSearch() {
+            const query = (document.getElementById('hero-search-input')?.value || '').toLowerCase().trim();
+            if (!query) return;
+
+            const jurusanSection = document.getElementById('jurusan');
+            if (jurusanSection) {
+                if (typeof lenis !== 'undefined' && lenis) {
+                    lenis.scrollTo(jurusanSection, { offset: -70, duration: 1.2 });
+                } else {
+                    jurusanSection.scrollIntoView({ behavior: 'smooth' });
                 }
+            }
 
-                // B.1 Debounce 120ms untuk Mouse Enter
-                function handleMajorMouseEnter(majorKey) {
-                    clearTimeout(hoverDebounceTimer);
-                    if (window.innerWidth > 900 && majorKey !== activeMajorKey) {
-                        hoverDebounceTimer = setTimeout(() => {
-                            selectMajorPathway(majorKey);
-                        }, 120);
-                    }
+            if (query.includes('code') || query.includes('web') || query.includes('rpl') || query.includes('software') || query.includes('aplikasi') || query.includes('flutter')) {
+                selectMajorPathway('rpl');
+            } else if (query.includes('jaringan') || query.includes('tkj') || query.includes('network') || query.includes('server') || query.includes('wifi') || query.includes('fiber')) {
+                selectMajorPathway('tkj');
+            } else if (query.includes('desain') || query.includes('video') || query.includes('dkv') || query.includes('multimedia') || query.includes('foto') || query.includes('animasi')) {
+                selectMajorPathway('dkv');
+            } else if (query.includes('bisnis') || query.includes('digital') || query.includes('bd') || query.includes('marketing') || query.includes('toko') || query.includes('shopee')) {
+                selectMajorPathway('bd');
+            } else if (query.includes('akuntansi') || query.includes('uang') || query.includes('akl') || query.includes('pajak') || query.includes('bank')) {
+                selectMajorPathway('akl');
+            } else if (query.includes('kantor') || query.includes('mplb') || query.includes('admin') || query.includes('arsip') || query.includes('sekretaris')) {
+                selectMajorPathway('mplb');
+            } else if (query.includes('hotel') || query.includes('ph') || query.includes('wisata') || query.includes('hospitality') || query.includes('edutel')) {
+                selectMajorPathway('ph');
+            } else if (query.includes('motor') || query.includes('tbsm') || query.includes('bengkel') || query.includes('honda') || query.includes('ahass') || query.includes('otomotif')) {
+                selectMajorPathway('tbsm');
+            }
+        }
+
+        document.getElementById('hero-search-input')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleHeroSearch();
+        });
+
+        // 6. KONSENTRASI KEAHLIAN: SATU SUMBER DATA TERPADU (8 JURUSAN LENGKAP)
+        const majorsData = [
+            {
+                key: 'rpl',
+                code: 'RPL',
+                num: '01',
+                title: 'Rekayasa Perangkat Lunak',
+                badge: 'ALUR PENDIDIKAN VOKASI • RPL',
+                tefa: 'Software House TEFA MUHI & Lab iMac Cloud',
+                certSummary: 'LSP-P1 BNSP Junior Web Developer & Cloud Database',
+                logo: 'assets/major/RPL-removebg-preview.png',
+                foto: 'assets/major-person/rpl.png',
+                desc: 'Mencetak software engineer berkarakter Islami yang menguasai ekosistem web modern, mobile app development, backend cloud, dan siap terjun ke industri teknologi.',
+                kompetensi: [
+                    'Web Modern (HTML5, CSS3, JS, Laravel/Node)',
+                    'Mobile Application (Flutter & Kotlin)',
+                    'Database SQL & Firebase Cloud Server'
+                ],
+                tempatPraktik: {
+                    title: 'Software House TEFA MUHI',
+                    items: [
+                        'Pengerjaan proyek sistem informasi & aplikasi web klien.',
+                        'Lab iMac & Workstation gigabit standar industri.'
+                    ],
+                    box: 'Portofolio live production sebelum wisuda.'
+                },
+                sertifikasi: {
+                    title: 'LSP-P1 BNSP & Cloud',
+                    items: [
+                        'Skema Junior Web Developer & Programmer (BNSP).',
+                        'Sertifikasi Internasional Cloud & Database.'
+                    ],
+                    box: 'Sertifikat Garuda Emas resmi diakui ASEAN.'
+                },
+                setelahLulus: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        'Mitra: Semesta Multitekno, Hummatech, Jagoan Hosting.',
+                        'Karir: Frontend/Backend Developer, QA, IT Support.'
+                    ],
+                    box: 'Penyaluran via BKK & inkubasi startup.'
                 }
-
-                function handleMajorMouseLeave() {
-                    clearTimeout(hoverDebounceTimer);
+            },
+            {
+                key: 'tkj',
+                code: 'TKJ',
+                num: '02',
+                title: 'Teknik Komputer & Jaringan',
+                badge: 'ALUR PENDIDIKAN VOKASI • TKJ',
+                tefa: 'ISP & Network Operations Center (NOC) TEFA',
+                certSummary: 'LSP-P1 BNSP Network Administrator & MikroTik MTCNA',
+                logo: 'assets/major/TJKT-removebg-preview.png',
+                foto: 'assets/major-person/tkj.png',
+                desc: 'Spesialisasi arsitektur jaringan skala enterprise, instalasi fiber optic backbone, administrasi server Linux/Cloud, dan protokol pertahanan cyber security.',
+                kompetensi: [
+                    'Routing-Switching Enterprise (Cisco & MikroTik)',
+                    'Instalasi & Splicing Kabel Fiber Optic (FTTH/OTDR)',
+                    'Administrasi Cloud Server Linux & Virtualisasi'
+                ],
+                tempatPraktik: {
+                    title: 'TEFA Network Operation Center',
+                    items: [
+                        'Pengelolaan infrastruktur internet kampus 24/7.',
+                        'Lab Fiber Optic & Cisco Router Rack industri.'
+                    ],
+                    box: 'Troubleshooting jaringan live production.'
+                },
+                sertifikasi: {
+                    title: 'MikroTik & BNSP',
+                    items: [
+                        'LSP-P1 BNSP: Network Administrator Madya & FO.',
+                        'Sertifikasi Internasional MikroTik (MTCNA).'
+                    ],
+                    box: 'Diakui oleh asosiasi APJII seluruh Indonesia.'
+                },
+                setelahLulus: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        'Mitra: PT Telkom Indonesia, Telkomsel, Lintasarta.',
+                        'Karir: Network Engineer, Cloud Admin, Teknisi FO.'
+                    ],
+                    box: 'Prioritas rekrutmen ISP regional Jawa Timur.'
                 }
-
-                // Klik & Focus mengganti SEKETIKA tanpa jeda debounce
-                function handleMajorClick(majorKey) {
-                    clearTimeout(hoverDebounceTimer);
-                    selectMajorPathway(majorKey);
+            },
+            {
+                key: 'dkv',
+                code: 'DKV',
+                num: '03',
+                title: 'Desain Komunikasi Visual',
+                badge: 'ALUR PENDIDIKAN VOKASI • DKV',
+                tefa: 'Studio Creative Agency & Multimedia Lab',
+                certSummary: 'LSP-P1 BNSP Desainer Grafis & Adobe Certified Pro',
+                logo: 'assets/major/dkv.png',
+                foto: 'assets/major-person/dkv.png',
+                desc: 'Pusat eksplorasi visual komersial, produksi video sinematik, animasi motion graphics 2D/3D, branding periklanan, dan perancangan antarmuka digital UI/UX.',
+                kompetensi: [
+                    'Desain Komersial, Brand Identity & Ilustrasi Vektor',
+                    'Videografi Sinematik, Lighting & Audio Engineering',
+                    'User Interface & UX Design (Figma & Prototyping)'
+                ],
+                tempatPraktik: {
+                    title: 'Studio Creative Agency TEFA',
+                    items: [
+                        'Pesanan video profil korporat & foto produk UMKM.',
+                        'Studio Green Screen & Broadcast Audio Suite.'
+                    ],
+                    box: 'Produksi konten bernilai jual komersial tinggi.'
+                },
+                sertifikasi: {
+                    title: 'Adobe Certified & BNSP',
+                    items: [
+                        'LSP-P1 BNSP: Desainer Grafis Muda & Multimedia.',
+                        'Sertifikasi Adobe Certified Professional (Ps, Ai, Pr).'
+                    ],
+                    box: 'Standar kompetensi industri periklanan kreatif.'
+                },
+                setelahLulus: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        'Mitra: Studio Kinetik, Citra Visual, Radar Banyuwangi.',
+                        'Karir: UI/UX Designer, Motion Animator, Creative Director.'
+                    ],
+                    box: 'Portofolio aktif Behance/Dribbble siap kerja.'
                 }
-
-                function handleMajorFocus(majorKey) {
-                    clearTimeout(hoverDebounceTimer);
-                    if (majorKey !== activeMajorKey) {
-                        selectMajorPathway(majorKey);
-                    }
+            },
+            {
+                key: 'bd',
+                code: 'BD',
+                num: '04',
+                title: 'Bisnis Digital',
+                badge: 'ALUR PENDIDIKAN VOKASI • BISNIS DIGITAL',
+                tefa: 'Muhi E-Commerce Hub & Live Studio TEFA',
+                certSummary: 'LSP-P1 BNSP Toko Daring & Meta Certified Marketing',
+                logo: 'assets/major/logo bdp.png',
+                foto: 'assets/major-person/BD.png',
+                desc: 'Mengolaborasikan strategi niaga modern dengan teknologi: manajemen marketplace omnichannel, paid digital ads (Meta & Google), live commerce selling, dan analitik data pasar.',
+                kompetensi: [
+                    'Manajemen Marketplace (Shopee, TikTok Shop, Tokopedia)',
+                    'Digital Ads Marketing (Meta Ads, Google Ads & TikTok)',
+                    'Live Commerce Broadcasting & Copywriting Persuasif'
+                ],
+                tempatPraktik: {
+                    title: 'Muhi E-Commerce Hub TEFA',
+                    items: [
+                        'Studio Live Streaming komersial penjualan harian.',
+                        'Mini Fulfillment Center: pergudangan & ekspedisi.'
+                    ],
+                    box: 'Praktik omzet nyata dan kalkulasi profit harian.'
+                },
+                sertifikasi: {
+                    title: 'Digital Marketing BNSP',
+                    items: [
+                        'LSP-P1 BNSP: Pengelola Toko Daring & Digital Marketer.',
+                        'Meta Certified Digital Marketing Associate.'
+                    ],
+                    box: 'Legalitas kompetensi resmi agensi pemasaran.'
+                },
+                setelahLulus: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        'Mitra: Astra International (Digital), JNE, Brand Fashion.',
+                        'Karir: E-Commerce Specialist, Ads Optimizer, Live Host.'
+                    ],
+                    box: 'Banyak siswa beromzet mandiri sebelum lulus.'
                 }
-
-                // Navigasi Keyboard Panah Atas & Bawah antar Jurusan (A11y)
-                function handleMajorTabKey(event, currentIndex) {
-                    let nextIndex = currentIndex;
-                    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
-                        event.preventDefault();
-                        nextIndex = (currentIndex + 1) % majorsData.length;
-                    } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
-                        event.preventDefault();
-                        nextIndex = (currentIndex - 1 + majorsData.length) % majorsData.length;
-                    } else if (event.key === 'Home') {
-                        event.preventDefault();
-                        nextIndex = 0;
-                    } else if (event.key === 'End') {
-                        event.preventDefault();
-                        nextIndex = majorsData.length - 1;
-                    } else {
-                        return;
-                    }
-
-                    const nextMajor = majorsData[nextIndex];
-                    if (nextMajor) {
-                        selectMajorPathway(nextMajor.key);
-                        const nextBtn = document.getElementById(`tab-btn-${nextMajor.key}`);
-                        if (nextBtn) nextBtn.focus();
-                    }
+            },
+            {
+                key: 'akl',
+                code: 'AKL',
+                num: '05',
+                title: 'Akuntansi & Keuangan Lembaga',
+                badge: 'ALUR PENDIDIKAN VOKASI • AKL',
+                tefa: 'Bank Mini Syariah MUHI & Tax Center TEFA',
+                certSummary: 'LSP-P1 BNSP Teknisi Akuntansi & Accurate Professional',
+                logo: 'assets/major/logo AKL.png',
+                foto: 'assets/major-person/ak.png',
+                desc: 'Membina teknisi akuntansi handal yang menguasai software akuntansi komputer, perpajakan digital (e-Faktur/e-SPT), audit laporan korporasi, dan layanan perbankan syariah.',
+                kompetensi: [
+                    'Software Komputer Akuntansi (Accurate & MYOB)',
+                    'Perpajakan Digital (e-SPT, e-Faktur, PPh 21/23/PPN)',
+                    'Penyusunan Laporan Keuangan Manufaktur & UMKM'
+                ],
+                tempatPraktik: {
+                    title: 'Bank Mini Syariah TEFA',
+                    items: [
+                        'Layanan tabungan siswa & simulasi teller perbankan riil.',
+                        'Tax Center: konsultasi & pengisian SPT tahunan.'
+                    ],
+                    box: 'Standar SOP Teller & CS perbankan nasional.'
+                },
+                sertifikasi: {
+                    title: 'Teknisi Akuntansi BNSP',
+                    items: [
+                        'LSP-P1 BNSP: Teknisi Akuntansi Yunior & Pajak Terapan.',
+                        'Sertifikasi Software Accurate Professional.'
+                    ],
+                    box: 'Diakui kantor akuntan publik & perbankan.'
+                },
+                setelahLulus: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        'Mitra: Bank Jatim Syariah, BSI, BMT Genteng, KAP.',
+                        'Karir: Junior Accountant, Tax Officer, Teller Bank, Payroll.'
+                    ],
+                    box: 'Jalur prioritas rekrutmen institusi keuangan.'
                 }
-
-                // Attach Event Listeners Secara Terprogram (Opsi B)
-                function attachMajorListeners() {
-                    const buttons = document.querySelectorAll('.major-nav-item');
-                    buttons.forEach((btn, index) => {
-                        const key = btn.dataset.majorKey;
-                        btn.addEventListener('click', () => handleMajorClick(key));
-                        btn.addEventListener('mouseenter', () => handleMajorMouseEnter(key));
-                        btn.addEventListener('mouseleave', () => handleMajorMouseLeave());
-                        btn.addEventListener('focus', () => handleMajorFocus(key));
-                        btn.addEventListener('keydown', (e) => handleMajorTabKey(e, index));
-                    });
+            },
+            {
+                key: 'mplb',
+                code: 'MPLB',
+                num: '06',
+                title: 'Manajemen Perkantoran',
+                badge: 'ALUR PENDIDIKAN VOKASI • MPLB',
+                tefa: 'Muhi Office Service & Executive Meeting Room',
+                certSummary: 'LSP-P1 BNSP Administrative Assistant & Digital Office',
+                logo: '',
+                emoji: '🏢',
+                foto: 'assets/major-person/mp.png',
+                desc: 'Mencetak staf administrasi eksekutif dan sekretaris cekatan dengan kemampuan public relations prima, otomasi perkantoran digital cloud, dan keprotokolan formal.',
+                kompetensi: [
+                    'Otomasi Kantor Digital (Google Workspace & ERP Admin)',
+                    'Manajemen Kearsipan Elektronik Modern (E-Records)',
+                    'Komunikasi Bisnis Internasional & Public Relations'
+                ],
+                tempatPraktik: {
+                    title: 'Muhi Office Service TEFA',
+                    items: [
+                        'Pusat persuratan terpadu & resepsionis sekolah.',
+                        'Executive Meeting Simulator: tata ruang rapat korporat.'
+                    ],
+                    box: 'Membiasakan etika kantor eksekutif sejak dini.'
+                },
+                sertifikasi: {
+                    title: 'Administrasi Perkantoran BNSP',
+                    items: [
+                        'LSP-P1 BNSP: Executive Administrative Assistant & Arsip.',
+                        'Sertifikasi Digital Office Professional.'
+                    ],
+                    box: 'Standarisasi kesekretariatan instansi & BUMN.'
+                },
+                setelahLulus: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        'Mitra: Instansi Pemerintah Daerah, PT Pelindo, Notaris.',
+                        'Karir: Sekretaris Eksekutif, Front Office Manager, HR Admin.'
+                    ],
+                    box: 'Terserap cepat di BUMN dan korporasi swasta.'
                 }
+            },
+            {
+                key: 'ph',
+                code: 'PH',
+                num: '07',
+                title: 'Perhotelan & Hospitality',
+                badge: 'ALUR PENDIDIKAN VOKASI • PERHOTELAN',
+                tefa: 'Edutel Hotel Muhi & Mockup Suite Room TEFA',
+                certSummary: 'LSP-P1 BNSP Front Office Receptionist & CHSE',
+                logo: 'assets/major/PH.png',
+                emoji: '🏨',
+                foto: 'assets/major-person/PH.png',
+                desc: 'Menyiapkan tenaga hospitality internasional: keahlian reservasi Front Office, tata graha Housekeeping bintang lima, food & beverage service, serta etiket perjamuan formal.',
+                kompetensi: [
+                    'Property Management System (Front Office Reservation)',
+                    'Housekeeping Bintang Lima & Standard Bed Making',
+                    'Food & Beverage Service, Table Manner & Banquet'
+                ],
+                tempatPraktik: {
+                    title: 'Edutel Hotel Muhi TEFA',
+                    items: [
+                        'Fasilitas penginapan riil beroperasi melayani tamu umum.',
+                        'Mockup Suite Room, Bar Resto & Commercial Laundry.'
+                    ],
+                    box: 'Pengalaman melayani tamu standar hotel bintang 5.'
+                },
+                sertifikasi: {
+                    title: 'Hospitality BNSP & CHSE',
+                    items: [
+                        'LSP-P1 BNSP: Front Office Receptionist & Housekeeper.',
+                        'Sertifikasi Kebersihan & Keselamatan Hotel (CHSE).'
+                    ],
+                    box: 'Diakui jaringan hotel internasional & kapal pesiar.'
+                },
+                setelahLulus: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        'Mitra: Hotel Ketapang Indah, Dialoog Banyuwangi, Aston.',
+                        'Karir: Front Desk Agent, Housekeeper, F&B Captain, GRO.'
+                    ],
+                    box: 'Peluang magang hotel resort Bali & kapal pesiar.'
+                }
+            },
+        ];
 
-                // Render 8 Baris Jurusan dengan Aksesibilitas & Debounce Hover 120ms
-                function renderMajorTabList() {
-                    const container = document.getElementById('major-tablist-container');
-                    if (!container) return;
+        let activeMajorKey = 'rpl';
+        let hoverDebounceTimer = null;
+        let preloadedImages = [];
 
-                    container.innerHTML = majorsData.map((m, index) => `
+        // B.2 PRELOAD SEMUA FOTO JURUSAN AGAR TIDAK ADA KEDIP SAAT HOVER
+        function preloadMajorImages() {
+            majorsData.forEach(m => {
+                if (m.foto) {
+                    const img = new Image();
+                    img.src = m.foto;
+                    preloadedImages.push(img);
+                }
+            });
+        }
+
+        // Render 8 Baris Jurusan dengan Aksesibilitas & Debounce Hover 120ms (B.1)
+        function renderMajorTabList() {
+            const container = document.getElementById('major-tablist-container');
+            if (!container) return;
+
+            container.innerHTML = majorsData.map((m, index) => `
                 <button class="major-nav-item ${m.key === activeMajorKey ? 'active' : ''}"
                         id="tab-btn-${m.key}"
                         role="tab"
                         aria-selected="${m.key === activeMajorKey ? 'true' : 'false'}"
                         aria-controls="major-tabpanel-container"
                         tabindex="${m.key === activeMajorKey ? '0' : '-1'}"
-                        data-major-key="${m.key}"
                         onclick="handleMajorClick('${m.key}')"
                         onfocus="handleMajorFocus('${m.key}')"
                         onkeydown="handleMajorTabKey(event, ${index})"
@@ -5795,531 +5722,591 @@
                     <span class="major-nav-chevron">&rarr;</span>
                 </button>
             `).join('');
+        }
 
-                    attachMajorListeners();
-                }
-
-                // Lompat dari Hero Search / Chips
-                function jumpToMajor(majorKey) {
-                    const section = document.getElementById('jurusan');
-                    if (section) {
-                        if (typeof lenis !== 'undefined' && lenis) {
-                            lenis.scrollTo(section, { offset: -70, duration: 1.0 });
-                        } else {
-                            section.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }
+        // B.1 Debounce 120ms untuk Mouse Enter
+        function handleMajorMouseEnter(majorKey) {
+            clearTimeout(hoverDebounceTimer);
+            if (window.innerWidth > 900 && majorKey !== activeMajorKey) {
+                hoverDebounceTimer = setTimeout(() => {
                     selectMajorPathway(majorKey);
-                }
-
-                // Register all interactive functions to window scope for inline HTML compatibility
-                window.handleMajorClick = handleMajorClick;
-                window.handleMajorMouseEnter = handleMajorMouseEnter;
-                window.handleMajorMouseLeave = handleMajorMouseLeave;
-                window.handleMajorFocus = handleMajorFocus;
-                window.handleMajorTabKey = handleMajorTabKey;
-                window.jumpToMajor = jumpToMajor;
-                window.selectMajorPathway = selectMajorPathway;
-                window.switchHubTab = switchHubTab;
-                window.handleHeroSearch = handleHeroSearch;
-
-                let pathwaySwitchTimeout = null;
-
-                // B.3 Pilih Jurusan & Update Panel dengan Transisi Cepat (250ms) dan Overwrite Tween
-                function selectMajorPathway(majorKey) {
-                    const major = majorsData.find(m => m.key === majorKey);
-                    if (!major) return;
-
-                    activeMajorKey = majorKey;
-
-                    // 1. Update State Tombol Tab
-                    document.querySelectorAll('.major-nav-item').forEach(btn => {
-                        const isActive = btn.id === `tab-btn-${majorKey}`;
-                        btn.classList.toggle('active', isActive);
-                        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-                        btn.setAttribute('tabindex', isActive ? '0' : '-1');
-                    });
-
-                    // 2. Update Label Tabpanel
-                    const panelContainer = document.getElementById('major-tabpanel-container');
-                    if (panelContainer) {
-                        panelContainer.setAttribute('aria-labelledby', `tab-btn-${majorKey}`);
-                    }
-
-                    // 3. Update Konten Panel dengan Transisi Cepat (Maks 250ms)
-                    const pathwayView = document.getElementById('major-pathway-view');
-                    if (!pathwayView) return;
-
-                    // Batalkan timeout sebelumnya jika ada pergantian cepat
-                    if (pathwaySwitchTimeout) clearTimeout(pathwaySwitchTimeout);
-
-                    // Jika GSAP aktif, hentikan tween berjalan
-                    if (typeof gsap !== 'undefined') {
-                        gsap.killTweensOf(pathwayView);
-                    }
-
-                    pathwayView.classList.add('anim-switching');
-
-                    pathwaySwitchTimeout = setTimeout(() => {
-                        const photoEl = document.getElementById('panel-student-photo');
-                        const cornerLogoEl = document.getElementById('panel-figure-logo');
-                        const fallbackEl = document.getElementById('panel-figure-fallback');
-                        const fallbackCodeEl = document.getElementById('panel-fallback-code');
-                        const codeEl = document.getElementById('panel-major-code');
-                        const titleEl = document.getElementById('panel-major-title');
-                        const descEl = document.getElementById('panel-major-desc');
-                        const tefaNameEl = document.getElementById('panel-tefa-name');
-                        const certNameEl = document.getElementById('panel-cert-name');
-                        const stage1El = document.getElementById('panel-flow-stage1');
-                        const stage2El = document.getElementById('panel-flow-stage2');
-                        const stage2Box = document.getElementById('panel-flow-stage2-box');
-                        const stage3El = document.getElementById('panel-flow-stage3');
-                        const stage3Box = document.getElementById('panel-flow-stage3-box');
-                        const stage4El = document.getElementById('panel-flow-stage4');
-                        const stage4Box = document.getElementById('panel-flow-stage4-box');
-
-                        // Foto Siswa & Fallback
-                        if (photoEl) {
-                            if (major.foto) {
-                                photoEl.style.display = 'block';
-                                photoEl.src = major.foto;
-                                photoEl.alt = `Siswa Berseragam ${major.title}`;
-                                if (fallbackEl) fallbackEl.style.display = 'none';
-                            } else {
-                                photoEl.style.display = 'none';
-                                if (fallbackEl) {
-                                    fallbackEl.style.display = 'flex';
-                                    if (fallbackCodeEl) fallbackCodeEl.textContent = major.code;
-                                }
-                            }
-
-                            if (major.key === 'rpl') {
-                                photoEl.removeAttribute('loading');
-                            } else {
-                                photoEl.setAttribute('loading', 'lazy');
-                            }
-                        }
-
-                        // Logo Pojok Figur
-                        if (cornerLogoEl) {
-                            if (major.logo) {
-                                cornerLogoEl.innerHTML = `<img src="${major.logo}" alt="Logo ${major.code}" width="28" height="28">`;
-                            } else if (major.emoji) {
-                                cornerLogoEl.innerHTML = `<span class="corner-emoji">${major.emoji}</span>`;
-                            } else {
-                                cornerLogoEl.innerHTML = `<span class="corner-emoji">🎓</span>`;
-                            }
-                        }
-
-                        // Identitas Kanan
-                        if (codeEl) codeEl.textContent = major.code;
-                        if (titleEl) titleEl.textContent = major.title;
-                        if (descEl) descEl.textContent = major.desc;
-                        if (tefaNameEl) tefaNameEl.textContent = major.tefa;
-                        if (certNameEl) certNameEl.textContent = major.certSummary;
-
-                        // Alur 4 Tahap
-                        if (stage1El) {
-                            stage1El.innerHTML = major.kompetensi.map(c => `<li>${c}</li>`).join('');
-                        }
-                        if (stage2El) {
-                            stage2El.innerHTML = major.tempatPraktik.items.map(t => `<li>${t}</li>`).join('');
-                        }
-                        if (stage2Box) stage2Box.textContent = major.tempatPraktik.box;
-
-                        if (stage3El) {
-                            stage3El.innerHTML = major.sertifikasi.items.map(s => `<li>${s}</li>`).join('');
-                        }
-                        if (stage3Box) stage3Box.textContent = major.sertifikasi.box;
-
-                        if (stage4El) {
-                            stage4El.innerHTML = major.setelahLulus.items.map(l => `<li>${l}</li>`).join('');
-                        }
-                        if (stage4Box) stage4Box.textContent = major.setelahLulus.box;
-
-                        pathwayView.classList.remove('anim-switching');
-                        if (window.innerWidth <= 900) {
-                            setTimeout(() => {
-                                const panel = document.getElementById('major-tabpanel-container');
-                                if (panel) {
-                                    if (typeof lenis !== 'undefined' && lenis) {
-                                        lenis.scrollTo(panel, { offset: -60, duration: 0.8 });
-                                    } else {
-                                        panel.scrollIntoView({ behavior: 'smooth' });
-                                    }
-                                }
-                            }, 50);
-                        }
-                    }, 125);
-                }
-
-                // Inisialisasi awal saat load
-                preloadMajorImages();
-                renderMajorTabList();
-                selectMajorPathway('rpl');
-
-                // 7. AI Chatbot Logic
-                const chatbotToggle = document.getElementById('chatbot-toggle');
-                const chatPanel = document.getElementById('chat-panel');
-                const chatBody = document.getElementById('chat-body');
-                const chatInput = document.getElementById('chat-input-text');
-
-                if (chatbotToggle) {
-                    chatbotToggle.addEventListener('click', () => {
-                        chatPanel.classList.toggle('active');
-                    });
-                }
-
-                function appendMsg(text, sender) {
-                    const div = document.createElement('div');
-                    div.className = `chat-msg ${sender}`;
-                    div.innerText = text;
-                    chatBody.appendChild(div);
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                }
-
-                function getBotResponse(input) {
-                    const text = input.toLowerCase();
-                    if (text.includes('jurusan') || text.includes('prodi') || text.includes('keahlian')) {
-                        return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL (Software Dev), TKJ (Jaringan & Cloud), DKV (Desain & Multimedia), Bisnis Digital, Akuntansi Lembaga (AKL), Manajemen Perkantoran (MPLB), Perhotelan, serta Tata Boga & Otomotif (TBSM).";
-                    } else if (text.includes('ppdb') || text.includes('daftar') || text.includes('syarat') || text.includes('biaya')) {
-                        return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
-                    } else if (text.includes('lsp') || text.includes('bnsp') || text.includes('sertifikat')) {
-                        return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
-                    } else if (text.includes('kepala') || text.includes('wahid')) {
-                        return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
-                    } else if (text.includes('loker') || text.includes('bkk') || text.includes('kerja') || text.includes('magang')) {
-                        return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra seperti PT Digital Kreatif Nusantara, Hotel Ketapang Indah, Bank Jatim Syariah, dan Astra Motor.";
-                    } else if (text.includes('fasilitas') || text.includes('lab')) {
-                        return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan & Cloud Server TKJ, Studio Fotografi & Video DKV, Bengkel Otomotif Astra, Dapur Standar Komersial Tata Boga, dan Lapangan Olahraga.";
-                    } else {
-                        return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
-                    }
-                }
-
-                function handleChatSubmit() {
-                    const text = chatInput.value.trim();
-                    if (!text) return;
-                    appendMsg(text, 'user');
-                    chatInput.value = '';
-                    setTimeout(() => {
-                        appendMsg(getBotResponse(text), 'bot');
-                    }, 400);
-                }
-
-                function sendQuickMsg(text) {
-                    appendMsg(text, 'user');
-                    setTimeout(() => {
-                        appendMsg(getBotResponse(text), 'bot');
-                    }, 400);
-                }
-
-                window.handleChatSubmit = handleChatSubmit;
-                window.sendQuickMsg = sendQuickMsg;
-
-                if (chatInput) {
-                    chatInput.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') handleChatSubmit();
-                    });
-                }
-
-                // 8. GSAP ScrollTrigger Animations
-                gsap.registerPlugin(ScrollTrigger);
-
-                // Counter Numbers Animation
-                const counters = document.querySelectorAll('.counter-value');
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    ScrollTrigger.create({
-                        trigger: counter,
-                        start: "top 90%",
-                        once: true,
-                        onEnter: () => {
-                            let zero = { val: 0 };
-                            gsap.to(zero, {
-                                val: target,
-                                duration: 2,
-                                ease: "power2.out",
-                                onUpdate: () => { counter.innerHTML = Math.floor(zero.val); }
-                            });
-                        }
-                    });
-                });
-
-                /* =====================================================================
-                   TEXT SCROLL ANIMATION (skiper31-style)
-                   Kata demi kata memudar masuk seiring scroll, di-scrub oleh Lenis.
-                   ===================================================================== */
-                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-                // Pecah teks menjadi <span class="sr-word"> per kata (spasi dipertahankan)
-                function splitIntoWords(el) {
-                    if (el.dataset.srSplit === 'true') return Array.from(el.querySelectorAll('.sr-word'));
-                    const words = el.textContent.trim().split(/\s+/);
-                    el.textContent = '';
-                    const frag = document.createDocumentFragment();
-                    words.forEach((w, i) => {
-                        const span = document.createElement('span');
-                        span.className = 'sr-word';
-                        span.textContent = w;
-                        frag.appendChild(span);
-                        if (i < words.length - 1) frag.appendChild(document.createTextNode(' '));
-                    });
-                    el.appendChild(frag);
-                    el.dataset.srSplit = 'true';
-                    return Array.from(el.querySelectorAll('.sr-word'));
-                }
-
-                // Reveal mandiri (elemen yang tidak berada di dalam section ter-pin)
-                document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
-                    if (el.closest('.sinergi-section') || el.closest('#sinergi')) return; // ditangani timeline pinned di bawah
-                    const words = splitIntoWords(el);
-                    if (prefersReducedMotion) return;
-
-                    gsap.to(words, {
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        y: 0,
-                        ease: 'none',
-                        stagger: 0.6,
-                        scrollTrigger: {
-                            trigger: el,
-                            start: 'top 85%',
-                            end: 'bottom 60%',
-                            once: true,
-                            scrub: 0.8
-                        }
-                    });
-                });
-
-                /* =====================================================================
-                   SCROLL PARALLAX ENGINE
-                   Pakai atribut: data-parallax="0.25"  (positif = lebih lambat/turun,
-                   negatif = berlawanan arah). Nilai = fraksi dari tinggi section.
-                   ===================================================================== */
-                function initParallax() {
-                    if (prefersReducedMotion) return;
-
-                    document.querySelectorAll('[data-parallax]').forEach(layer => {
-                        const speed = parseFloat(layer.dataset.parallax) || 0;
-                        const section = layer.closest('section') || layer.parentElement;
-
-                        gsap.fromTo(layer,
-                            { yPercent: -speed * 50 },
-                            {
-                                yPercent: speed * 50,
-                                ease: 'none',
-                                scrollTrigger: {
-                                    trigger: section,
-                                    start: 'top bottom',
-                                    end: 'bottom top',
-                                    scrub: 1
-                                }
-                            }
-                        );
-                    });
-                }
-                initParallax();
-
-                // Depth reveal untuk kartu: naik + skala halus, berurutan
-                ['.major-path-card', '.why-bento-card', '.step-card', '.product-bento', '.article-card', '.stat-card'].forEach(sel => {
-                    const items = document.querySelectorAll(sel);
-                    if (!items.length || prefersReducedMotion) return;
-
-                    ScrollTrigger.batch(items, {
-                        start: 'top 85%',
-                        once: true,
-                        onEnter: batch => gsap.fromTo(batch,
-                            { opacity: 0, y: 40, scale: 0.98 },
-                            { opacity: 1, y: 0, scale: 1, duration: 0.65, stagger: 0.08, ease: 'power3.out', clearProps: 'transform' }
-                        )
-                    });
-                });
-
-                // 8. TIGA PILAR SINERGI VOKASI - GSAP PINNED SCROLLTRIGGER ANIMATION (STRICT ORDER VIA LABELS)
-                const synergyStage = document.getElementById('synergy-stage');
-                if (synergyStage && !prefersReducedMotion) {
-                    // Split quote text into word spans using splitIntoWords()
-                    const quoteEl = document.getElementById('synergy-main-quote');
-                    const quoteWords = quoteEl ? splitIntoWords(quoteEl) : [];
-
-                    const nodes = ['#node-vokasi', '#node-islami', '#node-bnsp'];
-                    const links = ['#line-top-right', '#line-right-left', '#line-left-top'];
-
-                    // Initial states solely set via GSAP (guarantees correct starting opacity/transform)
-                    gsap.set(nodes, { opacity: 0, scale: 0.3, svgOrigin: '250 160' });
-                    gsap.set(links, { opacity: 1, strokeDashoffset: 400 });
-                    gsap.set('#star', { scale: 0, svgOrigin: '250 160' });
-                    gsap.set('#starShape', { opacity: 0, strokeDashoffset: 400 });
-                    gsap.set('#starFill', { opacity: 0 });
-                    gsap.set('#aura', { opacity: 0 });
-                    gsap.set('#synergy-kicker', { opacity: 0, y: 14 });
-                    gsap.set(quoteWords, { opacity: 0.14, filter: 'blur(3px)', y: 8 });
-                    gsap.set('#synergy-closing', { opacity: 0, y: 14 });
-                    gsap.set('#synergy-action-btn', { opacity: 0, y: 14 });
-                    gsap.set('#synergy-progress-bar', { width: '0%' });
-
-                    // Master Timeline: Pinned and Scrubbed on #sinergi via matchMedia
-                    let mm = gsap.matchMedia();
-
-                    mm.add({
-                        isDesktop: "(min-width: 769px)",
-                        isMobile: "(max-width: 768px)"
-                    }, (context) => {
-                        let { isDesktop, isMobile } = context.conditions;
-
-                        const synergyTL = gsap.timeline({
-                            scrollTrigger: {
-                                trigger: "#sinergi",
-                                start: isMobile ? "top 85%" : "top top",
-                                end: isMobile ? "bottom 20%" : "+=220%",
-                                pin: isDesktop,
-                                scrub: isMobile ? 0.8 : 1,
-                                anticipatePin: 1,
-                                invalidateOnRefresh: true,
-                                onUpdate: (self) => {
-                                    const bar = document.getElementById('synergy-progress-bar');
-                                    if (bar) bar.style.width = (self.progress * 100) + '%';
-                                }
-                            }
-                        });
-
-                        synergyTL.addLabel('nodes')
-                            .to(nodes, { opacity: 1, scale: 1, duration: 0.6, stagger: 0.22, ease: 'back.out(1.7)' })
-                            
-                            .addLabel('links')
-                            .to(links, { strokeDashoffset: 0, duration: 0.7, stagger: 0.15, ease: 'power2.inOut' })
-                            
-                            .addLabel('merge')
-                            .to(nodes, { opacity: 0, scale: 0.3, duration: 0.45, ease: 'power2.in' })
-                            .to(links, { opacity: 0, duration: 0.45, ease: 'power2.in' }, '<')
-                            
-                            .addLabel('star')
-                            .to('#star', { scale: 1, duration: 0.55, ease: 'back.out(1.4)', svgOrigin: '250 160' })
-                            .to('#starShape', { opacity: 1, strokeDashoffset: 0, duration: 0.8, ease: 'none' }, '<')
-                            .to('#starFill', { opacity: 0.35, duration: 0.5 }, '-=0.3')
-                            .to('#aura', { opacity: 0.35, duration: 0.6 }, '<')
-                            
-                            .to({}, { duration: 0.4 })
-                            
-                            .addLabel('background')
-                            .to('#star', { rotation: 22, scale: isMobile ? 1.2 : 1.5, opacity: 0.3, duration: 0.8, svgOrigin: '250 160' })
-                            
-                            .addLabel('text')
-                            .to('#synergy-kicker', { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' })
-                            .to(quoteWords, {
-                                opacity: 1,
-                                filter: 'blur(0px)',
-                                y: 0,
-                                duration: 1.2,
-                                stagger: 0.065,
-                                ease: 'none'
-                            }, '-=0.15')
-                            
-                            .addLabel('outro')
-                            .to('#synergy-closing', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' })
-                            .to('#synergy-action-btn', { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.2');
-                    });
-
-                } else if (prefersReducedMotion) {
-                    // If reduced motion: make everything fully visible without pinning
-                    const quoteEl = document.getElementById('synergy-main-quote');
-                    if (quoteEl) splitIntoWords(quoteEl);
-                    document.querySelectorAll('.sr-word').forEach(w => {
-                        w.style.opacity = '1';
-                        w.style.filter = 'none';
-                        w.style.transform = 'none';
-                    });
-                    gsap.set(['#node-vokasi', '#node-islami', '#node-bnsp', '#star', '#starShape', '#starFill', '#aura', '#synergy-kicker', '#synergy-closing', '#synergy-action-btn'], {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0
-                    });
-                    const bar = document.getElementById('synergy-progress-bar');
-                    if (bar) bar.style.width = '100%';
-                }
-
-                // 9. Prestasi Section GSAP ScrollTrigger & Parallax
-                const timelineBar = document.getElementById('timeline-bar');
-                if (timelineBar) {
-                    gsap.to(timelineBar, {
-                        height: "100%",
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: ".timeline-box",
-                            start: "top 75%",
-                            end: "bottom 70%",
-                            scrub: 0.5
-                        }
-                    });
-                }
-
-                // Stagger Reveal for Timeline Cards
-                ScrollTrigger.batch(".prestasi-item", {
-                    onEnter: batch => gsap.fromTo(batch,
-                        { opacity: 0, x: -30 },
-                        { opacity: 1, x: 0, duration: 0.8, stagger: 0.18, ease: "power2.out" }
-                    ),
-                    start: "top 85%",
-                    once: true
-                });
-
-                // Parallax 3D Card Effect on Scroll
-                const testiCard = document.getElementById('testi-parallax-card');
-                if (testiCard) {
-                    gsap.fromTo(testiCard,
-                        { y: 60, rotationY: -4, rotationX: 4 },
-                        {
-                            y: -40,
-                            rotationY: 2,
-                            rotationX: -2,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: ".achievements-section",
-                                start: "top bottom",
-                                end: "bottom top",
-                                scrub: 1.2
-                            }
-                        }
-                    );
-                }
-
-                // Infinite Partner Marquee
-                // Refresh posisi ScrollTrigger setelah font & gambar selesai dimuat,
-                // supaya perhitungan parallax tidak meleset.
-                window.addEventListener('load', () => ScrollTrigger.refresh());
-                if (document.fonts && document.fonts.ready) {
-                    document.fonts.ready.then(() => ScrollTrigger.refresh());
-                }
-
-                gsap.to(".marquee-track", {
-                    xPercent: -50,
-                    ease: "none",
-                    duration: 22,
-                    repeat: -1
-                });
-            } catch (err) {
-                console.warn('Index interactions warning:', err);
+                }, 120);
             }
-        })();
-    </script>
+        }
 
-    <!-- 4. MANDATORY SAFETY FALLBACK -->
-    <script>
-        setTimeout(function () {
-            document.querySelectorAll('*').forEach(function (el) {
-                if (getComputedStyle(el).opacity === '0' && el.textContent.trim().length > 0) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'none';
-                    el.style.filter = 'none';
+        function handleMajorMouseLeave() {
+            clearTimeout(hoverDebounceTimer);
+        }
+
+        // Klik & Focus mengganti SEKETIKA tanpa jeda debounce
+        function handleMajorClick(majorKey) {
+            clearTimeout(hoverDebounceTimer);
+            selectMajorPathway(majorKey);
+        }
+
+        function handleMajorFocus(majorKey) {
+            clearTimeout(hoverDebounceTimer);
+            if (majorKey !== activeMajorKey) {
+                selectMajorPathway(majorKey);
+            }
+        }
+
+        // Navigasi Keyboard Panah Atas & Bawah antar Jurusan (A11y)
+        function handleMajorTabKey(event, currentIndex) {
+            let nextIndex = currentIndex;
+            if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+                event.preventDefault();
+                nextIndex = (currentIndex + 1) % majorsData.length;
+            } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+                event.preventDefault();
+                nextIndex = (currentIndex - 1 + majorsData.length) % majorsData.length;
+            } else if (event.key === 'Home') {
+                event.preventDefault();
+                nextIndex = 0;
+            } else if (event.key === 'End') {
+                event.preventDefault();
+                nextIndex = majorsData.length - 1;
+            } else {
+                return;
+            }
+
+            const nextMajor = majorsData[nextIndex];
+            if (nextMajor) {
+                selectMajorPathway(nextMajor.key);
+                const nextBtn = document.getElementById(`tab-btn-${nextMajor.key}`);
+                if (nextBtn) nextBtn.focus();
+            }
+        }
+
+        // Lompat dari Hero Search / Chips
+        function jumpToMajor(majorKey) {
+            const section = document.getElementById('jurusan');
+            if (section) {
+                if (typeof lenis !== 'undefined' && lenis) {
+                    lenis.scrollTo(section, { offset: -70, duration: 1.0 });
+                } else {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            selectMajorPathway(majorKey);
+        }
+
+        let pathwaySwitchTimeout = null;
+
+        // B.3 Pilih Jurusan & Update Panel dengan Transisi Cepat (250ms) dan Overwrite Tween
+        function selectMajorPathway(majorKey) {
+            const major = majorsData.find(m => m.key === majorKey);
+            if (!major) return;
+
+            activeMajorKey = majorKey;
+
+            // 1. Update State Tombol Tab
+            document.querySelectorAll('.major-nav-item').forEach(btn => {
+                const isActive = btn.id === `tab-btn-${majorKey}`;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                btn.setAttribute('tabindex', isActive ? '0' : '-1');
+            });
+
+            // 2. Update Label Tabpanel
+            const panelContainer = document.getElementById('major-tabpanel-container');
+            if (panelContainer) {
+                panelContainer.setAttribute('aria-labelledby', `tab-btn-${majorKey}`);
+            }
+
+            // 3. Update Konten Panel dengan Transisi Cepat (Maks 250ms)
+            const pathwayView = document.getElementById('major-pathway-view');
+            if (!pathwayView) return;
+
+            // Batalkan timeout sebelumnya jika ada pergantian cepat
+            if (pathwaySwitchTimeout) clearTimeout(pathwaySwitchTimeout);
+
+            // Jika GSAP aktif, hentikan tween berjalan
+            if (typeof gsap !== 'undefined') {
+                gsap.killTweensOf(pathwayView);
+            }
+
+            pathwayView.classList.add('anim-switching');
+
+            pathwaySwitchTimeout = setTimeout(() => {
+                const photoEl = document.getElementById('panel-student-photo');
+                const cornerLogoEl = document.getElementById('panel-figure-logo');
+                const fallbackEl = document.getElementById('panel-figure-fallback');
+                const fallbackCodeEl = document.getElementById('panel-fallback-code');
+                const codeEl = document.getElementById('panel-major-code');
+                const titleEl = document.getElementById('panel-major-title');
+                const descEl = document.getElementById('panel-major-desc');
+                const tefaNameEl = document.getElementById('panel-tefa-name');
+                const certNameEl = document.getElementById('panel-cert-name');
+                const stage1El = document.getElementById('panel-flow-stage1');
+                const stage2El = document.getElementById('panel-flow-stage2');
+                const stage2Box = document.getElementById('panel-flow-stage2-box');
+                const stage3El = document.getElementById('panel-flow-stage3');
+                const stage3Box = document.getElementById('panel-flow-stage3-box');
+                const stage4El = document.getElementById('panel-flow-stage4');
+                const stage4Box = document.getElementById('panel-flow-stage4-box');
+
+                // Foto Siswa & Fallback
+                if (photoEl) {
+                    if (major.foto) {
+                        photoEl.style.display = 'block';
+                        photoEl.src = major.foto;
+                        photoEl.alt = `Siswa Berseragam ${major.title}`;
+                        if (fallbackEl) fallbackEl.style.display = 'none';
+                    } else {
+                        photoEl.style.display = 'none';
+                        if (fallbackEl) {
+                            fallbackEl.style.display = 'flex';
+                            if (fallbackCodeEl) fallbackCodeEl.textContent = major.code;
+                        }
+                    }
+
+                    if (major.key === 'rpl') {
+                        photoEl.removeAttribute('loading');
+                    } else {
+                        photoEl.setAttribute('loading', 'lazy');
+                    }
+                }
+
+                // Logo Pojok Figur
+                if (cornerLogoEl) {
+                    if (major.logo) {
+                        cornerLogoEl.innerHTML = `<img src="${major.logo}" alt="Logo ${major.code}" width="28" height="28">`;
+                    } else if (major.emoji) {
+                        cornerLogoEl.innerHTML = `<span class="corner-emoji">${major.emoji}</span>`;
+                    } else {
+                        cornerLogoEl.innerHTML = `<span class="corner-emoji">🎓</span>`;
+                    }
+                }
+
+                // Identitas Kanan
+                if (codeEl) codeEl.textContent = major.code;
+                if (titleEl) titleEl.textContent = major.title;
+                if (descEl) descEl.textContent = major.desc;
+                if (tefaNameEl) tefaNameEl.textContent = major.tefa;
+                if (certNameEl) certNameEl.textContent = major.certSummary;
+
+                // Alur 4 Tahap
+                if (stage1El) {
+                    stage1El.innerHTML = major.kompetensi.map(c => `<li>${c}</li>`).join('');
+                }
+                if (stage2El) {
+                    stage2El.innerHTML = major.tempatPraktik.items.map(t => `<li>${t}</li>`).join('');
+                }
+                if (stage2Box) stage2Box.textContent = major.tempatPraktik.box;
+
+                if (stage3El) {
+                    stage3El.innerHTML = major.sertifikasi.items.map(s => `<li>${s}</li>`).join('');
+                }
+                if (stage3Box) stage3Box.textContent = major.sertifikasi.box;
+
+                if (stage4El) {
+                    stage4El.innerHTML = major.setelahLulus.items.map(l => `<li>${l}</li>`).join('');
+                }
+                if (stage4Box) stage4Box.textContent = major.setelahLulus.box;
+
+                pathwayView.classList.remove('anim-switching');
+                if (window.innerWidth <= 900) {
+                    setTimeout(() => {
+                        const panel = document.getElementById('major-tabpanel-container');
+                        if (panel) {
+                            if (typeof lenis !== 'undefined' && lenis) {
+                                lenis.scrollTo(panel, { offset: -60, duration: 0.8 });
+                            } else {
+                                panel.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    }, 50);
+                }
+            }, 125);
+        }
+
+        // Inisialisasi awal saat load
+        preloadMajorImages();
+        renderMajorTabList();
+        selectMajorPathway('rpl');
+
+        // 7. AI Chatbot Logic
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatPanel = document.getElementById('chat-panel');
+        const chatBody = document.getElementById('chat-body');
+        const chatInput = document.getElementById('chat-input-text');
+
+        if (chatbotToggle) {
+            chatbotToggle.addEventListener('click', () => {
+                chatPanel.classList.toggle('active');
+            });
+        }
+
+        function appendMsg(text, sender) {
+            const div = document.createElement('div');
+            div.className = `chat-msg ${sender}`;
+            div.innerText = text;
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            const text = input.toLowerCase();
+            if (text.includes('jurusan') || text.includes('prodi') || text.includes('keahlian')) {
+                return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL (Software Dev), TKJ (Jaringan & Cloud), DKV (Desain & Multimedia), Bisnis Digital, Akuntansi Lembaga (AKL), Manajemen Perkantoran (MPLB), Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+            } else if (text.includes('ppdb') || text.includes('daftar') || text.includes('syarat') || text.includes('biaya')) {
+                return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
+            } else if (text.includes('lsp') || text.includes('bnsp') || text.includes('sertifikat')) {
+                return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+            } else if (text.includes('kepala') || text.includes('wahid')) {
+                return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
+            } else if (text.includes('loker') || text.includes('bkk') || text.includes('kerja') || text.includes('magang')) {
+                return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra seperti PT Digital Kreatif Nusantara, Hotel Ketapang Indah, Bank Jatim Syariah, dan Astra Motor.";
+            } else if (text.includes('fasilitas') || text.includes('lab')) {
+                return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan & Cloud Server TKJ, Studio Fotografi & Video DKV, Bengkel Otomotif Astra, Dapur Standar Komersial Tata Boga, dan Lapangan Olahraga.";
+            } else {
+                return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
+            }
+        }
+
+        function handleChatSubmit() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            appendMsg(text, 'user');
+            chatInput.value = '';
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 400);
+        }
+
+        function sendQuickMsg(text) {
+            appendMsg(text, 'user');
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 400);
+        }
+
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleChatSubmit();
+            });
+        }
+
+        // 8. GSAP ScrollTrigger Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Counter Numbers Animation
+        const counters = document.querySelectorAll('.counter-value');
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            ScrollTrigger.create({
+                trigger: counter,
+                start: "top 90%",
+                once: true,
+                onEnter: () => {
+                    let zero = { val: 0 };
+                    gsap.to(zero, {
+                        val: target,
+                        duration: 2,
+                        ease: "power2.out",
+                        onUpdate: () => { counter.innerHTML = Math.floor(zero.val); }
+                    });
                 }
             });
-            if (typeof ScrollTrigger !== 'undefined') {
-                ScrollTrigger.refresh();
-            }
-        }, 2000);
-    </script>
+        });
 
+        /* =====================================================================
+           TEXT SCROLL ANIMATION (skiper31-style)
+           Kata demi kata memudar masuk seiring scroll, di-scrub oleh Lenis.
+           ===================================================================== */
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Pecah teks menjadi <span class="sr-word"> per kata (spasi dipertahankan)
+        function splitIntoWords(el) {
+            if (el.dataset.srSplit === 'true') return Array.from(el.querySelectorAll('.sr-word'));
+            const words = el.textContent.trim().split(/\s+/);
+            el.textContent = '';
+            const frag = document.createDocumentFragment();
+            words.forEach((w, i) => {
+                const span = document.createElement('span');
+                span.className = 'sr-word';
+                span.textContent = w;
+                frag.appendChild(span);
+                if (i < words.length - 1) frag.appendChild(document.createTextNode(' '));
+            });
+            el.appendChild(frag);
+            el.dataset.srSplit = 'true';
+            return Array.from(el.querySelectorAll('.sr-word'));
+        }
+
+        // Reveal mandiri (elemen yang tidak berada di dalam section ter-pin)
+        document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
+            if (el.closest('.sinergi-section') || el.closest('#sinergi')) return; // ditangani timeline pinned di bawah
+            const words = splitIntoWords(el);
+            if (prefersReducedMotion) return;
+
+            gsap.to(words, {
+                opacity: 1,
+                filter: 'blur(0px)',
+                y: 0,
+                ease: 'none',
+                stagger: 0.6,
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 85%',
+                    end: 'bottom 60%',
+                    once: true,
+                    scrub: 0.8
+                }
+            });
+        });
+
+        /* =====================================================================
+           SCROLL PARALLAX ENGINE
+           Pakai atribut: data-parallax="0.25"  (positif = lebih lambat/turun,
+           negatif = berlawanan arah). Nilai = fraksi dari tinggi section.
+           ===================================================================== */
+        function initParallax() {
+            if (prefersReducedMotion) return;
+
+            document.querySelectorAll('[data-parallax]').forEach(layer => {
+                const speed = parseFloat(layer.dataset.parallax) || 0;
+                const section = layer.closest('section') || layer.parentElement;
+
+                gsap.fromTo(layer,
+                    { yPercent: -speed * 50 },
+                    {
+                        yPercent: speed * 50,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1
+                        }
+                    }
+                );
+            });
+        }
+        initParallax();
+
+        // Depth reveal untuk kartu: naik + skala halus, berurutan
+        ['.major-path-card', '.why-bento-card', '.step-card', '.product-bento', '.article-card', '.stat-card'].forEach(sel => {
+            const items = document.querySelectorAll(sel);
+            if (!items.length || prefersReducedMotion) return;
+
+            ScrollTrigger.batch(items, {
+                start: 'top 85%',
+                once: true,
+                onEnter: batch => gsap.fromTo(batch,
+                    { opacity: 0, y: 40, scale: 0.98 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.65, stagger: 0.08, ease: 'power3.out', clearProps: 'transform' }
+                )
+            });
+        });
+
+        // 8. TIGA PILAR SINERGI VOKASI - GSAP PINNED SCROLLTRIGGER ANIMATION
+        const synergyStage = document.getElementById('synergy-stage');
+        if (synergyStage && !prefersReducedMotion) {
+            // Split quote text into word spans using existing splitIntoWords()
+            const quoteEl = document.getElementById('synergy-main-quote');
+            const quoteWords = quoteEl ? splitIntoWords(quoteEl) : [];
+
+            // Initial states via GSAP (so content stays visible if JS disabled)
+            gsap.set(['#node-vokasi', '#node-islami', '#node-bnsp'], { opacity: 0, scale: 0.3, svgOrigin: '250 160' });
+            gsap.set(['#line-top-right', '#line-right-left', '#line-left-top'], { strokeDashoffset: 400 });
+            gsap.set('#synergy-center-star', { opacity: 0, scale: 0, rotation: 0, svgOrigin: '250 160' });
+            gsap.set('#synergy-star-aura', { opacity: 0, scale: 0.2, svgOrigin: '250 160' });
+            gsap.set('#synergy-kicker', { opacity: 0, y: 14 });
+            gsap.set(quoteWords, { opacity: 0.15, filter: 'blur(2px)', y: 6 });
+            gsap.set('#synergy-closing', { opacity: 0, y: 12 });
+            gsap.set('#synergy-action-btn', { opacity: 0, y: 12 });
+            gsap.set('#synergy-progress-bar', { width: '0%' });
+
+            // Master Timeline: Pinned and Scrubbed on #sinergi
+            const synergyTL = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#sinergi",
+                    start: "top top",
+                    end: "+=200%",
+                    pin: true,
+                    scrub: 1,
+                    anticipatePin: 1,
+                    onUpdate: (self) => {
+                        // Progres rail tipis di bawah section
+                        const bar = document.getElementById('synergy-progress-bar');
+                        if (bar) bar.style.width = (self.progress * 100) + '%';
+                    }
+                }
+            });
+
+            // 1. Tiga node muncul berurutan (Keahlian Vokasi, Karakter Islami, Sertifikasi BNSP)
+            synergyTL.to('#node-vokasi', { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' })
+                .to('#node-islami', { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' }, "-=0.3")
+                .to('#node-bnsp', { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' }, "-=0.3");
+
+            // 2. Garis segitiga sinergi tergambar menghubungkan ketiga node
+            synergyTL.to(['#line-top-right', '#line-right-left', '#line-left-top'], {
+                strokeDashoffset: 0,
+                duration: 1.0,
+                stagger: 0.2,
+                ease: 'power2.inOut'
+            });
+
+            // Jeda agar garis & segitiga sempat terbaca (+=0.3)
+            // 3. Node & garis menyusut ke pusat lalu melebur
+            synergyTL.to(['#node-vokasi', '#node-islami', '#node-bnsp'], {
+                scale: 0,
+                opacity: 0,
+                duration: 0.7,
+                ease: 'power2.in'
+            }, "+=0.3")
+                .to(['#line-top-right', '#line-right-left', '#line-left-top'], {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.in'
+                }, "<");
+
+            // 4. Bintang lahir di pusat: skala 0 -> 1, garis luar + aura halus menyala (opacity 0.45)
+            synergyTL.to('#synergy-star-aura', {
+                opacity: 0.45,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, "-=0.2")
+                .to('#synergy-center-star', {
+                    opacity: 1,
+                    scale: 1.0,
+                    duration: 0.8,
+                    ease: 'back.out(2)'
+                }, "<");
+
+            // Jeda agar kelahiran bintang sempat terbaca (+=0.3)
+            // 5. Bintang membesar, berputar 22 derajat, opacity turun jadi 0.22 (scale 1.8), aura opacity 0.18 (scale 1.3)
+            synergyTL.to('#synergy-center-star', {
+                scale: 1.8,
+                rotation: 22,
+                opacity: 0.22,
+                duration: 1.0,
+                ease: 'power1.inOut'
+            }, "+=0.3")
+                .to('#synergy-star-aura', {
+                    scale: 1.3,
+                    opacity: 0.18,
+                    duration: 1.0,
+                    ease: 'power1.inOut'
+                }, "<");
+
+            // 6. Kicker "Tiga Pilar, Satu Tujuan" muncul
+            synergyTL.to('#synergy-kicker', {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: 'power2.out'
+            }, "-=0.4");
+
+            // 7. Kalimat utama tampil kata demi kata (.sr-word)
+            if (quoteWords.length > 0) {
+                synergyTL.to(quoteWords, {
+                    opacity: 1,
+                    filter: 'blur(0px)',
+                    y: 0,
+                    ease: 'none',
+                    stagger: 0.08,
+                    duration: 1.4
+                }, "-=0.2");
+            }
+
+            // 8. Kalimat penutup memudar masuk
+            synergyTL.to('#synergy-closing', {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out'
+            }, "-=0.3");
+
+            // 9. Tombol Ajakan Menuju Jurusan Tampil di Akhir
+            synergyTL.to('#synergy-action-btn', {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: 'power2.out'
+            }, "+=0.1");
+
+        } else if (prefersReducedMotion) {
+            // If reduced motion: make everything fully visible without pinning
+            const quoteEl = document.getElementById('synergy-main-quote');
+            if (quoteEl) splitIntoWords(quoteEl);
+            document.querySelectorAll('.sr-word').forEach(w => {
+                w.style.opacity = '1';
+                w.style.filter = 'none';
+                w.style.transform = 'none';
+            });
+            gsap.set(['#node-vokasi', '#node-islami', '#node-bnsp', '#synergy-center-star', '#synergy-star-aura', '#synergy-kicker', '#synergy-closing', '#synergy-action-btn'], {
+                opacity: 1,
+                scale: 1,
+                y: 0
+            });
+            const bar = document.getElementById('synergy-progress-bar');
+            if (bar) bar.style.width = '100%';
+        }
+
+        // 9. Prestasi Section GSAP ScrollTrigger & Parallax
+        const timelineBar = document.getElementById('timeline-bar');
+        if (timelineBar) {
+            gsap.to(timelineBar, {
+                height: "100%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".timeline-box",
+                    start: "top 75%",
+                    end: "bottom 70%",
+                    scrub: 0.5
+                }
+            });
+        }
+
+        // Stagger Reveal for Timeline Cards
+        ScrollTrigger.batch(".prestasi-item", {
+            onEnter: batch => gsap.fromTo(batch,
+                { opacity: 0, x: -30 },
+                { opacity: 1, x: 0, duration: 0.8, stagger: 0.18, ease: "power2.out" }
+            ),
+            start: "top 85%",
+            once: true
+        });
+
+        // Parallax 3D Card Effect on Scroll
+        const testiCard = document.getElementById('testi-parallax-card');
+        if (testiCard) {
+            gsap.fromTo(testiCard,
+                { y: 60, rotationY: -4, rotationX: 4 },
+                {
+                    y: -40,
+                    rotationY: 2,
+                    rotationX: -2,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".achievements-section",
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1.2
+                    }
+                }
+            );
+        }
+
+        // Infinite Partner Marquee
+        // Refresh posisi ScrollTrigger setelah font & gambar selesai dimuat,
+        // supaya perhitungan parallax tidak meleset.
+        window.addEventListener('load', () => ScrollTrigger.refresh());
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => ScrollTrigger.refresh());
+        }
+
+        gsap.to(".marquee-track", {
+            xPercent: -50,
+            ease: "none",
+            duration: 22,
+            repeat: -1
+        });
+    </script>
 </body>
 
 </html>
