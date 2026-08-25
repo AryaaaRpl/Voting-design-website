@@ -119,15 +119,22 @@
         .hero-proof-strip {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
             gap: 1.2rem;
             margin-top: 2rem;
             padding-top: 1.2rem;
             border-top: 1px solid rgba(30, 64, 175, 0.12);
+        }
+
+        .hero-lead {
             color: var(--text-muted);
-            font-size: 0.92rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            max-width: 46ch;
+            margin-top: 1.5rem;
         }
 
         .hero-proof-item {
@@ -194,6 +201,13 @@
             color: var(--primary);
             background: var(--primary-surface);
             transform: translateY(-2px);
+        }
+
+        .major-chip-icon {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            display: inline-block;
         }
 
         /* BKK Summary Banner */
@@ -858,13 +872,129 @@
         }
 
         .hero-grid {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            gap: 3.5rem;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 52% 48%;
+            gap: 3rem;
+            align-items: end;
             position: relative;
             z-index: 2;
+        }
+
+        .hero-text-col {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-image-col {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            min-height: 480px;
+        }
+
+        .hero-img-wrapper {
+            border-radius: 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-students-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .hero-fade-gradient {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 15%;
+            background: linear-gradient(to top, var(--bg-main) 0%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        .hero-proof-card-float {
+            position: absolute;
+            left: -40px;
+            bottom: 40px;
+            width: 260px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px -20px rgba(30, 64, 175, 0.35);
+            padding: 1.5rem;
+            z-index: 20;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: floatCardIn 0.5s ease-out 0.4s forwards;
+        }
+
+        @keyframes floatCardIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-proof-card-float {
+                animation: none;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-proof-card-float .proof-line {
+            width: 32px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-proof-card-float .proof-number {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 800;
+            font-family: var(--font-display);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-proof-card-float .proof-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (max-width: 900px) {
+            .hero-proof-card-float {
+                position: static;
+                margin: 2rem auto 0;
+                max-width: 320px;
+                width: 100%;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .hero-proof-card-float .proof-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        .mobile-only {
+            display: none;
         }
 
         .hero-headline {
@@ -883,16 +1013,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-lead {
-            font-size: 1.12rem;
-            color: var(--text-muted);
-            text-align: center;
-            line-height: 1.7;
-            max-width: 600px;
-            margin-bottom: 2rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
         /* Hero Quick Jurusan Search Pill */
         .hero-search-pill {
@@ -946,7 +1066,7 @@
 
         .hero-actions {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             gap: 1.2rem;
         }
@@ -1429,9 +1549,15 @@
         .marquee-track {
             display: flex;
             align-items: center;
-            gap: 4rem;
             white-space: nowrap;
             width: max-content;
+        }
+
+        .marquee-group {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding-right: 4rem;
         }
 
         .mitra-item {
@@ -1449,6 +1575,20 @@
         .mitra-item:hover {
             color: var(--primary);
             transform: scale(1.05);
+        }
+
+        .mitra-item img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition-fast);
+        }
+
+        .mitra-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
         /* ==========================================================================
@@ -3454,6 +3594,29 @@
                 /* Prevents iOS auto zoom */
             }
 
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text-col {
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-proof-strip {
+                justify-content: center;
+            }
+
+            .hero-students-img {
+                max-height: 320px;
+            }
+
             /* HERO SECTION (C) */
             .hero-section {
                 padding: 5.5rem 0 3.5rem !important;
@@ -3667,6 +3830,18 @@
 
             .hero-stats-strip {
                 grid-template-columns: 1fr !important;
+            }
+
+            .desktop-only {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+
+            .hero-students-img {
+                max-height: 260px;
             }
 
             .p-icon-hero {
@@ -3986,7 +4161,7 @@
 
         <div class="container">
             <div class="hero-grid">
-                <div>
+                <div class="hero-text-col">
                     <div class="badge badge-primary">
                         <span class="badge-pulse-dot"></span>
                         <p>Selamat datang di <span>SMKS Muhammadiyah 1 Genteng</span></p>
@@ -3996,55 +4171,101 @@
                         Good Skill, <br><span class="highlight-amber">Good Attitude.</span>
                     </h1>
 
-                    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                        <div>
-                            <p class="hero-lead">
-                                Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi. Mengintegrasikan
-                                kurikulum berbasis proyek DUDI, lisensi kompetensi BNSP, dan penanaman akhlak Islami
-                                berkemajuan.
-                            </p>
+                    <p class="hero-lead">
+                        Mengintegrasikan kurikulum DUDI, sertifikasi BNSP, dan karakter Islami berkemajuan.
+                    </p>
 
-                            <div class="hero-actions">
-                                <a href="#ppdb" class="btn btn-primary">Daftar PPDB 2026 &rarr;</a>
-                                <a href="#jurusan" class="btn btn-outline">Jelajahi 8 Konsentrasi Keahlian &rarr;</a>
-                            </div>
+                    <div class="hero-actions">
+                        <a href="#ppdb" class="btn btn-primary">Daftar PPDB 2026 &rarr;</a>
+                        <a href="#jurusan" class="btn btn-outline">Jelajahi 8 Konsentrasi Keahlian &rarr;</a>
+                    </div>
 
-                            <!-- Hero Thin Proof Strip (B.5) -->
-                            <div class="hero-proof-strip" aria-label="Bukti Keunggulan Lembaga">
-                                <div class="hero-proof-item">
-                                    <span>🏛️</span>
-                                    <span>Sejak 1968</span>
-                                </div>
-                                <span class="hero-proof-dot">&bull;</span>
-                                <div class="hero-proof-item">
-                                    <span>🏆</span>
-                                    <span>Akreditasi A (Unggul)</span>
-                                </div>
-                                <span class="hero-proof-dot">&bull;</span>
-                                <div class="hero-proof-item">
-                                    <span>🎓</span>
-                                    <span>8 Konsentrasi Keahlian</span>
-                                </div>
-                            </div>
-
-                            <!-- 8 Major Quick Jump Chips (A.1) -->
-                            <div class="major-quick-chips-wrapper">
-                                <div class="major-chips-label">Pilih & Lompat ke Program Keahlian:</div>
-                                <div class="major-chips-list" role="navigation" aria-label="Daftar Cepat Jurusan">
-                                    <button class="major-chip-btn" onclick="jumpToMajor('rpl')">💻 RPL</button>
-                                    <button class="major-chip-btn" onclick="jumpToMajor('tkj')">🌐 TKJ</button>
-                                    <button class="major-chip-btn" onclick="jumpToMajor('dkv')">🎬 DKV</button>
-                                    <button class="major-chip-btn" onclick="jumpToMajor('bd')">💼 Bisnis
-                                        Digital</button>
-                                    <button class="major-chip-btn" onclick="jumpToMajor('akl')">📊 Akuntansi</button>
-                                    <button class="major-chip-btn" onclick="jumpToMajor('mplb')">🏢 Perkantoran</button>
-                                    <button class="major-chip-btn" onclick="jumpToMajor('ph')">🏨 Perhotelan</button>
-                                    <button class="major-chip-btn" onclick="jumpToMajor('tbsm')">🏍️ TBSM Honda</button>
-                                </div>
-                            </div>
-
+                    <!-- Hero Thin Proof Strip (B.5) -->
+                    <div class="hero-proof-strip" aria-label="Bukti Keunggulan Lembaga">
+                        <div class="hero-proof-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21h18"></path>
+                                <path d="M4 21V9"></path>
+                                <path d="M20 21V9"></path>
+                                <path d="M12 21V9"></path>
+                                <path d="M2 9h20l-10-7L2 9z"></path>
+                            </svg>
+                            <span>Sejak 1968</span>
+                        </div>
+                        <span class="hero-proof-dot">&bull;</span>
+                        <div class="hero-proof-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                                <path d="M4 22h16"></path>
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                            </svg>
+                            <span>Akreditasi A (Unggul)</span>
+                        </div>
+                        <span class="hero-proof-dot">&bull;</span>
+                        <div class="hero-proof-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                            <span>8 Konsentrasi Keahlian</span>
                         </div>
                     </div>
+                </div>
+
+                <div class="hero-image-col">
+                    <div class="hero-img-wrapper">
+                        <img src="assets/background/3orang.png" class="hero-students-img desktop-only"
+                            alt="Tiga siswa SMKS Muhammadiyah 1 Genteng mengenakan seragam jurusan" width="1200"
+                            height="900">
+                        <img src="assets/background/hero-students-mobile.webp" class="hero-students-img mobile-only"
+                            alt="Siswa SMKS Muhammadiyah 1 Genteng mengenakan seragam jurusan" width="600" height="900">
+                        
+                        <!-- Gradasi Pemudar -->
+                        <div class="hero-fade-gradient" aria-hidden="true"></div>
+                        
+                        <!-- Kartu Bukti Melayang -->
+                        <div class="hero-proof-card-float">
+                            <div class="proof-line"></div>
+                            <div class="proof-number">92,4%</div>
+                            <div class="proof-label">Lulusan terserap kerja &amp; studi lanjut</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8 Major Quick Jump Chips (A.1) - Moved outside hero -->
+    <section class="major-quick-chips-section"
+        style="background-color: var(--bg-alt); padding: 1.5rem 0; border-bottom: 1px solid var(--border-card);">
+        <div class="container">
+            <div class="major-quick-chips-wrapper">
+                <div class="major-chips-label"
+                    style="text-align: center; margin-bottom: 1rem; font-weight: 600; color: var(--text-muted);">Pilih &
+                    Lompat ke Program Keahlian:</div>
+                <div class="major-chips-list" role="navigation" aria-label="Daftar Cepat Jurusan"
+                    style="justify-content: center; flex-wrap: wrap; display: flex; gap: 0.75rem;">
+                    <button class="major-chip-btn" onclick="jumpToMajor('rpl')"><img
+                            src="assets/major/RPL-removebg-preview.png" alt="RPL" class="major-chip-icon"> RPL</button>
+                    <button class="major-chip-btn" onclick="jumpToMajor('tkj')"><img
+                            src="assets/major/TJKT-removebg-preview.png" alt="TKJ" class="major-chip-icon"> TKJ</button>
+                    <button class="major-chip-btn" onclick="jumpToMajor('dkv')"><img src="assets/major/dkv.png"
+                            alt="DKV" class="major-chip-icon"> DKV</button>
+                    <button class="major-chip-btn" onclick="jumpToMajor('bd')"><img src="assets/major/logo bdp.png"
+                            alt="Bisnis Digital" class="major-chip-icon"> Bisnis Digital</button>
+                    <button class="major-chip-btn" onclick="jumpToMajor('akl')"><img src="assets/major/logo AKL.png"
+                            alt="Akuntansi" class="major-chip-icon"> Akuntansi</button>
+                    <button class="major-chip-btn" onclick="jumpToMajor('mplb')"><img src="assets/major/mp.jpeg"
+                            alt="Perkantoran" class="major-chip-icon"> Perkantoran</button>
+                    <button class="major-chip-btn" onclick="jumpToMajor('ph')"><img src="assets/major/PH.png"
+                            alt="Perhotelan" class="major-chip-icon"> Perhotelan</button>
                 </div>
             </div>
         </div>
@@ -4053,23 +4274,43 @@
     <!-- 3. MARQUEE MITRA INDUSTRI DUDI -->
     <section class="marquee-section" aria-label="Mitra Industri DUDI">
         <div class="marquee-track">
-            <div class="mitra-item"><span>🔨</span> Semesta Multitekno</div>
-            <div class="mitra-item"><span>⚡</span> Hummatech</div>
-            <div class="mitra-item"><span>🏦</span> Bank Jatim Syariah</div>
-            <div class="mitra-item"><span>🏨</span> Hotel Ketapang Indah</div>
-            <div class="mitra-item"><span>🛵</span> Astra Honda Motor (AHASS)</div>
-            <div class="mitra-item"><span>☁️</span> Jagoan Hosting Indonesia</div>
-            <div class="mitra-item"><span>🏛️</span> Yayasan Pendidikan Muhammadiyah</div>
-            <div class="mitra-item"><span>📡</span> Diskominfo Banyuwangi</div>
+            <div class="marquee-group">
+                <div class="mitra-item"><img src="assets/mitra/1.jpg" alt="Mitra 1"></div>
+                <div class="mitra-item"><img src="assets/mitra/2.jpg" alt="Mitra 2"></div>
+                <div class="mitra-item"><img src="assets/mitra/3.jpg" alt="Mitra 3"></div>
+                <div class="mitra-item"><img src="assets/mitra/4.jpg" alt="Mitra 4"></div>
+                <div class="mitra-item"><img src="assets/mitra/5.jpg" alt="Mitra 5"></div>
+                <div class="mitra-item"><img src="assets/mitra/6.jpg" alt="Mitra 6"></div>
+                <div class="mitra-item"><img src="assets/mitra/7.jpg" alt="Mitra 7"></div>
+                <div class="mitra-item"><img src="assets/mitra/8.jpg" alt="Mitra 8"></div>
+                <div class="mitra-item"><img src="assets/mitra/9.jpg" alt="Mitra 9"></div>
+                <div class="mitra-item"><img src="assets/mitra/10.jpg" alt="Mitra 10"></div>
+                <div class="mitra-item"><img src="assets/mitra/11.jpg" alt="Mitra 11"></div>
+                <div class="mitra-item"><img src="assets/mitra/12.jpg" alt="Mitra 12"></div>
+                <div class="mitra-item"><img src="assets/mitra/13.jpg" alt="Mitra 13"></div>
+                <div class="mitra-item"><img src="assets/mitra/14.jpg" alt="Mitra 14"></div>
+                <div class="mitra-item"><img src="assets/mitra/15.jpg" alt="Mitra 15"></div>
+                <div class="mitra-item"><img src="assets/mitra/16.jpg" alt="Mitra 16"></div>
+            </div>
             <!-- Seamless Loop Duplicate -->
-            <div class="mitra-item"><span>🔨</span> Semesta Multitekno</div>
-            <div class="mitra-item"><span>⚡</span> Hummatech</div>
-            <div class="mitra-item"><span>🏦</span> Bank Jatim Syariah</div>
-            <div class="mitra-item"><span>🏨</span> Hotel Ketapang Indah</div>
-            <div class="mitra-item"><span>🛵</span> Astra Honda Motor (AHASS)</div>
-            <div class="mitra-item"><span>☁️</span> Jagoan Hosting Indonesia</div>
-            <div class="mitra-item"><span>🏛️</span> Yayasan Pendidikan Muhammadiyah</div>
-            <div class="mitra-item"><span>📡</span> Diskominfo Banyuwangi</div>
+            <div class="marquee-group" aria-hidden="true">
+                <div class="mitra-item"><img src="assets/mitra/1.jpg" alt="Mitra 1"></div>
+                <div class="mitra-item"><img src="assets/mitra/2.jpg" alt="Mitra 2"></div>
+                <div class="mitra-item"><img src="assets/mitra/3.jpg" alt="Mitra 3"></div>
+                <div class="mitra-item"><img src="assets/mitra/4.jpg" alt="Mitra 4"></div>
+                <div class="mitra-item"><img src="assets/mitra/5.jpg" alt="Mitra 5"></div>
+                <div class="mitra-item"><img src="assets/mitra/6.jpg" alt="Mitra 6"></div>
+                <div class="mitra-item"><img src="assets/mitra/7.jpg" alt="Mitra 7"></div>
+                <div class="mitra-item"><img src="assets/mitra/8.jpg" alt="Mitra 8"></div>
+                <div class="mitra-item"><img src="assets/mitra/9.jpg" alt="Mitra 9"></div>
+                <div class="mitra-item"><img src="assets/mitra/10.jpg" alt="Mitra 10"></div>
+                <div class="mitra-item"><img src="assets/mitra/11.jpg" alt="Mitra 11"></div>
+                <div class="mitra-item"><img src="assets/mitra/12.jpg" alt="Mitra 12"></div>
+                <div class="mitra-item"><img src="assets/mitra/13.jpg" alt="Mitra 13"></div>
+                <div class="mitra-item"><img src="assets/mitra/14.jpg" alt="Mitra 14"></div>
+                <div class="mitra-item"><img src="assets/mitra/15.jpg" alt="Mitra 15"></div>
+                <div class="mitra-item"><img src="assets/mitra/16.jpg" alt="Mitra 16"></div>
+            </div>
         </div>
     </section>
 
@@ -4110,7 +4351,7 @@
         <div class="container">
             <div class="text-center section-header" style="margin-bottom: 2.5rem;">
                 <div class="badge badge-amber mb-2">Pilar Vokasi Unggul</div>
-                <h2 class="section-title">Mengapa Memilih SMKS MUHI Genteng?</h2>
+                <h2 class="section-title">Mengapa Memilih SMKS SMEMSA?</h2>
                 <p class="section-desc" style="margin: 0 auto;">
                     Sinergi kurikulum industri, fasilitas Teaching Factory modern, sertifikasi lisensi BNSP, dan
                     pembentukan karakter Islami berkemajuan.
@@ -4747,7 +4988,7 @@
         <div class="container">
             <div class="text-center section-header">
                 <div class="badge badge-amber mb-2">Tahun Ajaran 2026/2027</div>
-                <h2 class="section-title">Penerimaan Peserta Didik Baru (PPDB)</h2>
+                <h2 class="section-title">Sistem Penerimaan Siswa Baru (SPMB)</h2>
                 <p class="section-desc" style="margin: 0 auto;">Wujudkan cita-cita kejuruan masa depan Anda bersama SMKS
                     Muhammadiyah 1 Genteng.</p>
             </div>
@@ -4885,7 +5126,7 @@
         <div class="container">
             <div class="text-center section-header">
                 <div class="badge badge-amber mb-2">Jurnal & Informasi</div>
-                <h2 class="section-title">Kabar & Agenda Kampus</h2>
+                <h2 class="section-title">Kabar & Berita Sang Legenda</h2>
                 <p class="section-desc" style="margin: 0 auto;">Liputan kegiatan, prestasi terbaru, dan pengumuman resmi
                     SMKS Muhammadiyah 1 Genteng.</p>
             </div>
@@ -5601,7 +5842,7 @@
                 badge: 'ALUR PENDIDIKAN VOKASI • MPLB',
                 tefa: 'Muhi Office Service & Executive Meeting Room',
                 certSummary: 'LSP-P1 BNSP Administrative Assistant & Digital Office',
-                logo: '',
+                logo: 'assets/major/mp.jpeg',
                 emoji: '🏢',
                 foto: 'assets/major-person/mp.png',
                 desc: 'Mencetak staf administrasi eksekutif dan sekretaris cekatan dengan kemampuan public relations prima, otomasi perkantoran digital cloud, dan keprotokolan formal.',
@@ -6056,6 +6297,31 @@
                 }
             });
         });
+
+        /* =====================================================================
+           HERO SECTION ANIMATIONS
+           ===================================================================== */
+        if (!prefersReducedMotion) {
+            const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+            // Left column texts
+            const leftEls = ['.hero-text-col .badge-primary', '.hero-text-col .hero-headline', '.hero-text-col .hero-lead', '.hero-text-col .hero-actions', '.hero-text-col .hero-proof-strip'];
+            heroTL.from(leftEls, {
+                opacity: 0,
+                x: -24,
+                duration: 0.8,
+                stagger: 0.1
+            });
+
+            // Right column images
+            const rightEls = ['.hero-students-img'];
+            heroTL.from(rightEls, {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                stagger: 0.12
+            }, "-=0.6");
+        }
 
         /* =====================================================================
            SCROLL PARALLAX ENGINE

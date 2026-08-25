@@ -4,17 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visi & Misi - SMKS Muhammadiyah 1 Genteng</title>
+    <title>Jurnal & Warta Berita - SMKS Muhammadiyah 1 Genteng</title>
+    <meta name="description"
+        content="Pusat informasi warta kampus, liputan kegiatan vokasi, inovasi pendidikan, dan pengumuman resmi SMKS Muhammadiyah 1 Genteng Banyuwangi.">
 
-    <!-- Modern Typography: Plus Jakarta Sans -->
+    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
 
     <style>
-        /* DESIGN TOKENS - SMKS MUHI BLUE & AMBER */
+        /* ==========================================================================
+           1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
+           ========================================================================== */
         :root {
             --primary: #1e40af;
             --primary-light: #2563eb;
@@ -27,15 +31,26 @@
             --secondary-surface: rgba(234, 179, 8, 0.1);
             --secondary-glow: rgba(234, 179, 8, 0.25);
 
+            --accent-emerald: #facc15;
+            --accent-cyan: #3b82f6;
+
             --bg-main: #ffffff;
             --bg-alt: #f8fafc;
+            --bg-surface-card: #ffffff;
             --bg-dark: #0f172a;
+            --bg-dark-card: #16213c;
+            --bg-dark-elevated: #1c2b4d;
+
             --text-dark: #0f172a;
             --text-muted: #64748b;
             --text-subtle: #94a3b8;
+            --text-light: #f8fafc;
+
+            --border-light: rgba(30, 64, 175, 0.1);
             --border-card: #e2e8f0;
             --border: #e2e8f0;
             --border-dark: #263559;
+            --border-glow: rgba(234, 179, 8, 0.3);
 
             --radius-xs: 4px;
             --radius-sm: 8px;
@@ -44,9 +59,16 @@
             --radius-xl: 20px;
             --radius-full: 9999px;
 
+            --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+            --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+            --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
+
             --font-display: 'Plus Jakarta Sans', sans-serif;
             --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
             --transition: all 0.25s ease;
             --transition-fast: all 0.15s ease;
         }
@@ -61,8 +83,13 @@
             font-family: var(--font-body);
             background-color: var(--bg-main);
             color: var(--text-dark);
-            line-height: 1.7;
+            line-height: 1.65;
             overflow-x: hidden;
+            letter-spacing: -0.012em;
+            background-image:
+                radial-gradient(circle at 10% 15%, rgba(30, 64, 175, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 75%, rgba(234, 179, 8, 0.04) 0%, transparent 45%);
+            background-attachment: fixed;
         }
 
         h1,
@@ -71,35 +98,84 @@
         h4,
         .font-head {
             font-family: var(--font-head);
-            font-weight: 800;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.035em;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
         }
 
-        ul {
-            list-style: none;
-        }
-
-        /* UTILITIES */
         .container {
             max-width: 1320px;
             margin: 0 auto;
             padding: 0 5%;
         }
 
-        .section-padding {
-            padding: 6rem 0;
+        /* Badges */
+        .badge-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.2rem;
+            background: var(--secondary-surface);
+            border: 1px solid rgba(234, 179, 8, 0.35);
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            color: #a16207;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .text-center {
-            text-align: center;
+        .badge-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            background: var(--primary-surface);
+            border: 1px solid rgba(30, 64, 175, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        .bg-alt {
-            background-color: var(--bg-alt);
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
         }
 
         /* 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 */
@@ -233,28 +309,6 @@
             border-radius: var(--radius-xs);
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: #ffffff;
-            padding: 0.55rem 1.4rem;
-            font-size: 0.88rem;
-            font-family: var(--font-head);
-            font-weight: 700;
-            border-radius: var(--radius-full);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
-        }
-
         .hamburger {
             display: none;
             background: transparent;
@@ -342,236 +396,207 @@
 
         /* 2. PAGE HEADER */
         .page-header {
-            padding: 12rem 0 6rem;
-            background: linear-gradient(to bottom, #e7e5e433, var(--bg-main));
+            padding: 10rem 0 4rem;
+            text-align: center;
             position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .header-bg-pattern {
-            position: absolute;
-            right: -5%;
-            top: 10%;
-            width: 400px;
-            height: 400px;
-            opacity: 0.05;
-            pointer-events: none;
         }
 
         .page-title {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            line-height: 1.1;
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 4.8vw, 4rem);
+            color: var(--primary-dark);
+            margin: 0.8rem 0 1.2rem;
+            letter-spacing: -0.04em;
         }
 
         .page-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.12rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 680px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
         }
 
-        /* 3. VISI SECTION */
-        .visi-section {
-            padding: 8rem 0;
-            position: relative;
-        }
-
-        .visi-label {
-            font-family: var(--font-head);
-            color: var(--secondary);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 2rem;
-            display: block;
-        }
-
-        .visi-statement {
-            font-size: 3rem;
-            font-family: var(--font-head);
-            color: var(--primary);
-            line-height: 1.3;
-            font-weight: 500;
-            position: relative;
-            z-index: 2;
-        }
-
-        .quote-mark {
-            position: absolute;
-            top: -2rem;
-            left: -2rem;
-            font-size: 10rem;
-            font-family: var(--font-head);
-            color: var(--secondary);
-            opacity: 0.1;
-            line-height: 1;
-            z-index: 1;
-        }
-
-        /* 4. MISI SECTION */
-        .misi-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .misi-item {
-            position: relative;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .misi-number {
-            position: absolute;
-            top: -1.5rem;
-            left: 0;
-            font-size: 3rem;
-            font-family: var(--font-head);
-            color: var(--bg-alt);
-            -webkit-text-stroke: 1px var(--primary);
-            font-weight: 700;
-        }
-
-        .misi-text {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-        }
-
-        /* 5. TUJUAN SECTION (INTERAKSI TIMELINE BOX CONCEPT) */
-        .tujuan-section {
-            border-top: 1px solid var(--border);
-        }
-
-        .tujuan-box {
-            position: relative;
-            padding-left: 2.2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .tujuan-progress-line {
-            position: absolute;
-            left: 6px;
-            top: 12px;
-            bottom: 12px;
-            width: 3px;
-            background: rgba(30, 64, 175, 0.12);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .tujuan-progress-bar {
-            width: 100%;
-            height: 0%;
-            background: linear-gradient(to bottom, var(--secondary) 0%, var(--primary) 100%);
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
-            transition: height 0.1s linear;
-        }
-
-        .tujuan-card {
-            position: relative;
-            background: #ffffff;
-            padding: 1.75rem 2rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-card);
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            box-shadow: var(--shadow-subtle);
-            margin-bottom: 1.75rem;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-origin: left center;
-        }
-
-        .tujuan-card:hover {
-            border-color: var(--primary);
-            transform: translateX(8px) scale(1.01);
-            box-shadow: 0 14px 30px rgba(30, 64, 175, 0.1);
-        }
-
-        .tujuan-card::before {
-            content: '';
-            position: absolute;
-            left: -2.85rem;
-            top: 2rem;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 3.5px solid var(--secondary);
-            box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
-            transition: all 0.3s;
-            z-index: 3;
-        }
-
-        .tujuan-card:hover::before {
-            background: var(--secondary);
-            transform: scale(1.2);
-            box-shadow: 0 0 0 6px rgba(234, 179, 8, 0.35);
-        }
-
-        .tujuan-icon {
-            width: 42px;
-            height: 42px;
-            background: var(--secondary-surface);
-            border: 1px solid var(--secondary);
-            border-radius: 50%;
+        /* Category Filter Pills */
+        .filter-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-dark);
-            font-weight: 800;
-            flex-shrink: 0;
-            font-family: var(--font-head);
-        }
-
-        /* 6. KONSENTRASI KEAHLIAN (EX-SIDEBAR) */
-        .majors-section {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .majors-grid {
-            display: flex;
+            gap: 0.8rem;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
+            margin-bottom: 3.5rem;
         }
 
-        .major-chip {
-            padding: 1rem 2rem;
-            border: 1px solid var(--border);
-            border-radius: 50px;
+        .filter-btn {
+            padding: 0.6rem 1.4rem;
+            border-radius: var(--radius-full);
             font-family: var(--font-head);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            background: white;
-            color: var(--text-dark);
+            font-size: 0.88rem;
+            font-weight: 700;
+            background: #ffffff;
+            color: var(--text-muted);
+            border: 1px solid var(--border-card);
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
         }
 
-        .major-chip:hover {
+        .filter-btn:hover,
+        .filter-btn.active {
             background: var(--primary);
-            color: white;
+            color: #ffffff;
             border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(6, 78, 59, 0.15);
+            box-shadow: 0 6px 18px rgba(30, 64, 175, 0.25);
         }
 
-        /* 7. INTERACTIVE DETAIL MODAL */
+        /* 3. GURU & PIMPINAN SEKOLAH */
+        .guru-pimpinan-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .guru-pimpinan-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .guru-pimpinan-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .guru-pimpinan-body {
+            padding: 4rem;
+        }
+
+        .guru-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .tendik-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tendik-grid .guru-card {
+            font-size: 0.95em;
+        }
+
+        .guru-wakasek-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .guru-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .guru-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background-color: var(--bg-alt);
+        }
+
+        .guru-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.4s ease;
+        }
+
+        .guru-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(30, 64, 175, 0.4) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .guru-info {
+            padding: 1.25rem 1rem;
+            text-align: center;
+            background: #ffffff;
+            transition: background-color 0.4s ease;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .guru-name {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+            transition: color 0.4s ease;
+        }
+
+        .guru-jabatan {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.4s ease;
+        }
+
+        /* Hover Effects */
+        .guru-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--primary);
+        }
+
+        .guru-card:hover .guru-img {
+            transform: scale(1.04);
+        }
+
+        .guru-card:hover .guru-overlay {
+            opacity: 1;
+        }
+
+        .guru-card:hover .guru-info {
+            background: var(--primary);
+        }
+
+        .guru-card:hover .guru-name {
+            color: #ffffff;
+        }
+
+        .guru-card:hover .guru-jabatan {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* 5. NEWS READER MODAL */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(20, 18, 16, 0.65);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 2000;
@@ -581,7 +606,7 @@
             padding: 1.5rem;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: var(--transition);
         }
 
         .modal-overlay.active {
@@ -589,73 +614,53 @@
             visibility: visible;
         }
 
-        .major-modal-card {
+        .news-modal-card {
             background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            max-width: 680px;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            max-width: 780px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
             transform: scale(0.92) translateY(20px);
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: var(--transition);
             position: relative;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+            scrollbar-color: var(--primary) rgba(30, 64, 175, 0.05);
         }
 
-        /* Custom Sleek Scrollbar */
-        .major-modal-card::-webkit-scrollbar {
+        .news-modal-card::-webkit-scrollbar {
             width: 6px;
         }
 
-        .major-modal-card::-webkit-scrollbar-track {
-            background: rgba(6, 78, 59, 0.04);
-            border-radius: 0 24px 24px 0;
+        .news-modal-card::-webkit-scrollbar-track {
+            background: rgba(30, 64, 175, 0.04);
+            border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
             margin: 12px 0;
         }
 
-        .major-modal-card::-webkit-scrollbar-thumb {
+        .news-modal-card::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, var(--secondary), var(--primary));
             border-radius: 10px;
             transition: background 0.3s;
         }
 
-        .major-modal-card::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
-        }
-
-        .modal-overlay.active .major-modal-card {
+        .modal-overlay.active .news-modal-card {
             transform: scale(1) translateY(0);
         }
 
-        .modal-banner {
-            height: 190px;
+        .modal-news-hero {
+            height: 320px;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: var(--bg-dark);
         }
 
-        .modal-banner-icon {
-            font-size: 5rem;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
-            animation: modalFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes modalFloat {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
+        .modal-news-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .modal-close-btn {
@@ -664,9 +669,9 @@
             right: 1.2rem;
             width: 38px;
             height: 38px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             color: #ffffff;
             font-size: 1.2rem;
@@ -674,7 +679,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: var(--transition);
             z-index: 10;
         }
 
@@ -685,103 +690,33 @@
         }
 
         .modal-body {
-            padding: 2.2rem;
+            padding: 2.5rem;
         }
 
-        .modal-tag {
-            font-family: var(--font-head);
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.4rem;
-            display: block;
-        }
-
-        .modal-title {
-            font-family: var(--font-head);
+        .modal-headline {
+            font-family: var(--font-display);
             font-size: 1.85rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            line-height: 1.25;
-        }
-
-        .modal-desc {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 1.8rem;
-        }
-
-        .modal-skills-box {
-            margin-bottom: 1.8rem;
-        }
-
-        .modal-section-title {
-            font-family: var(--font-head);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .modal-chips-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .modal-skill-chip {
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            padding: 0.35rem 0.85rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
             color: var(--primary-dark);
+            margin: 0.8rem 0 1.2rem;
+            line-height: 1.28;
         }
 
-        .modal-career-box {
-            background: rgba(6, 78, 59, 0.05);
-            border: 1px solid rgba(6, 78, 59, 0.12);
-            border-radius: 12px;
-            padding: 1.2rem;
+        .modal-full-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.8;
             margin-bottom: 2rem;
         }
 
-        .modal-career-text {
-            font-size: 0.92rem;
-            color: var(--primary);
-            font-weight: 600;
-            line-height: 1.6;
+        .modal-full-text p {
+            margin-bottom: 1.2rem;
         }
 
-        .modal-footer-cta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-            border-top: 1px solid var(--border);
-            padding-top: 1.5rem;
-        }
-
-        /* GSAP Prep */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        /* 8. NEXT-GEN FOOTER & FLOATING AI CHATBOT */
+        /* Footer */
         .site-footer {
             background: var(--bg-dark);
             color: var(--text-light);
-            padding: 6.5rem 0 2.5rem;
+            padding: 6rem 0 2.5rem;
             border-top: 1px solid var(--border-dark);
             position: relative;
         }
@@ -801,12 +736,16 @@
             letter-spacing: -0.02em;
         }
 
+        .footer-links {
+            list-style: none;
+        }
+
         .footer-links li {
             margin-bottom: 0.75rem;
         }
 
         .footer-links a {
-            color: #a8a29e;
+            color: #94a3b8;
             font-size: 0.92rem;
             transition: var(--transition-fast);
         }
@@ -989,39 +928,70 @@
             cursor: pointer;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE GURU GRID */
         @media (max-width: 1024px) {
+            .guru-grid, .guru-wakasek-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .tendik-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
-            }
-
-            .visi-statement {
-                font-size: 2rem;
-            }
-
-            .misi-grid {
+        @media (max-width: 900px) {
+            .guru-pimpinan-card {
                 grid-template-columns: 1fr;
-                gap: 4rem;
             }
 
-            .tujuan-card {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1.5rem;
+            .guru-pimpinan-img-wrap {
+                min-height: 400px;
+                max-height: 500px;
             }
 
-            .nav-links {
+            .guru-pimpinan-body {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
                 display: none;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .guru-grid, .guru-wakasek-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .tendik-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .guru-name {
+                font-size: 14px;
+            }
+
+            .guru-jabatan {
+                font-size: 0.75rem;
+            }
+
+            .guru-pimpinan-body {
+                padding: 1.5rem;
+            }
+
+            .guru-pimpinan-img-wrap {
+                min-height: 350px;
             }
         }
     
@@ -1288,7 +1258,7 @@
 
                 <!-- Profil & Info Dropdown -->
                 <div class="nav-item">
-                    <a href="index.html#sambutan" class="nav-link active">
+                    <a href="index.html#sambutan" class="nav-link">
                         Profil & Info <span style="font-size: 0.65rem;">▼</span>
                     </a>
                     <div class="dropdown-menu">
@@ -1355,7 +1325,7 @@
                     </div>
                 </div>
 
-                <a href="berita.html" class="nav-link">Berita</a>
+                <a href="berita.html" class="nav-link active">Berita</a>
                 <a href="index.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
             </div>
 
@@ -1379,11 +1349,12 @@
             <a href="index.html">🏠 Beranda</a>
 
             <div class="drawer-section-title">Halaman Informasi</div>
-            <a href="visi-misi.html" class="active">🎯 Visi & Misi Sekolah</a>
+            <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
+            <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
 <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
             <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
             <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
-            <a href="berita.html">📰 Jurnal & Kabar Kampus</a>
+            <a href="berita.html" class="active">📰 Jurnal & Kabar Kampus</a>
 
             <div class="drawer-section-title">Navigasi Halaman Utama</div>
             <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
@@ -1398,183 +1369,236 @@
         </div>
     </div>
 
-    <!-- HEADER -->
-    <header class="page-header">
-        <!-- Geometric Star SVG Pattern -->
-        <svg class="header-bg-pattern" viewBox="0 0 100 100">
-            <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="none" stroke="var(--primary)"
-                stroke-width="2" />
-            <circle cx="50" cy="50" r="30" fill="none" stroke="var(--secondary)" stroke-width="1"
-                stroke-dasharray="2 2" />
-        </svg>
+    <!-- 2. PAGE HEADER -->
+    <header class="page-header" style="margin-bottom: 4rem;">
+        <div class="container">
+            <span class="badge-gold">👥 Tenaga Pendidik</span>
+            <h1 class="page-title">Orang-Orang di Balik<br>Setiap Kompetensi.</h1>
+            <p class="page-subtitle">
+                Mengenal lebih dekat para pendidik inspiratif dan tenaga kependidikan dedikatif 
+                yang membimbing siswa-siswi SMKS Muhammadiyah 1 Genteng menuju prestasi gemilang.
+            </p>
 
-        <div class="container reveal">
-            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--primary-surface); border:1px solid var(--border-light); padding:0.4rem 1rem; border-radius:var(--radius-full); font-size:0.85rem; font-weight:700; color:var(--primary); margin-bottom:1.2rem;">
-                <span>✨</span> SMKS Muhammadiyah 1 Genteng
+            <!-- Stats Strip -->
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary); font-family: var(--font-display); line-height: 1;">24+</div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">Guru Profesional</div>
+                </div>
+                <div style="width: 1px; background: var(--border-card);"></div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary); font-family: var(--font-display); line-height: 1;">8</div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">Tenaga Kependidikan</div>
+                </div>
+                <div style="width: 1px; background: var(--border-card);"></div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary); font-family: var(--font-display); line-height: 1;">8</div>
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">Konsentrasi Keahlian</div>
+                </div>
             </div>
-            <h1 class="page-title">Visi, Misi & Tujuan</h1>
-            <p class="page-subtitle">Arah dan landasan utama SMKS Muhammadiyah 1 Genteng dalam mencetak generasi Islam yang berkemajuan, kompeten, dan berjiwa wirausaha.</p>
         </div>
     </header>
 
-    <!-- VISI SECTION -->
-    <section class="container visi-section">
-        <div class="reveal">
-            <div class="visi-card-wrapper" style="background: linear-gradient(135deg, #1e40af 0%, #16296b 100%); color: #ffffff; border-radius: var(--radius-xl); padding: 3.5rem 3rem; position: relative; overflow: hidden; box-shadow: 0 20px 40px -10px rgba(30, 64, 175, 0.3);">
-                <div style="position: absolute; right: -20px; bottom: -20px; opacity: 0.08; font-size: 15rem; font-family: var(--font-head); font-weight: 800; line-height: 1; pointer-events: none;">VISI</div>
-                <span class="visi-label" style="color: var(--secondary); display: inline-block; background: rgba(234, 179, 8, 0.15); padding: 0.3rem 1rem; border-radius: var(--radius-full); font-size: 0.85rem; letter-spacing: 2px;">VISI SEKOLAH</span>
-                <blockquote class="visi-statement" style="color: #ffffff; margin-top: 1.5rem; font-size: 2.2rem; font-weight: 700; line-height: 1.4;">
-                    "Terwujudnya Peserta Didik Islami, Berkemajuan, Kompeten dan Berjiwa Wirausaha."
+    <!-- 3. PIMPINAN SEKOLAH -->
+    <section class="container" style="margin-bottom: 5rem;">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Pimpinan Sekolah</h2>
+        
+        <!-- Kepala Sekolah -->
+        <div class="guru-pimpinan-card">
+            <div class="guru-pimpinan-img-wrap">
+                <img src="assets/guru/kepsek.webp" alt="Foto Kepala Sekolah" class="guru-img">
+                <div class="guru-overlay"></div>
+            </div>
+            <div class="guru-pimpinan-body">
+                <div class="guru-name" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Taslim, S.Pd., M.Pd.</div>
+                <div class="guru-jabatan" style="font-size: 1.1rem; color: var(--primary); font-weight: 600; margin-bottom: 1.5rem;">Kepala SMKS Muhammadiyah 1 Genteng</div>
+                <blockquote style="font-style: italic; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; border-left: 4px solid var(--primary-light); padding-left: 1.2rem;">
+                    "Berkomitmen mencetak lulusan yang kompeten di bidangnya, berkarakter Islami, dan siap bersaing di era digital melalui pendidikan vokasi yang bermutu."
                 </blockquote>
             </div>
         </div>
-    </section>
 
-    <!-- MISI SECTION -->
-    <section class="container misi-section" style="padding-bottom: 6rem;">
-        <div class="misi-header reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem;">
-            <span class="visi-label">Misi Lembaga</span>
-            <h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem;">Misi Sekolah</h2>
-            <p style="color: var(--text-muted); margin-top: 0.5rem;">Langkah-langkah strategis untuk mewujudkan Visi SMKS Muhammadiyah 1 Genteng.</p>
-        </div>
-
-        <div class="misi-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-            <div class="misi-card reveal" style="background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
-                <div style="font-size: 2rem; font-weight: 800; color: var(--primary); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">01</div>
-                <div style="width: 48px; height: 48px; background: var(--primary-surface); border-radius: var(--radius-sm); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;">1</div>
-                <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Menerapkan karakter utama pendidikan Al-Islam dan Kemuhammadiyahan yang holistik dalam semua mata pelajaran.</p>
-            </div>
-
-            <div class="misi-card reveal" style="background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
-                <div style="font-size: 2rem; font-weight: 800; color: var(--primary); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">02</div>
-                <div style="width: 48px; height: 48px; background: var(--primary-surface); border-radius: var(--radius-sm); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;">2</div>
-                <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Melakukan sinkronisasi dengan dunia kerja dan dunia industri untuk memenuhi kebutuhan dunia kerja dan mengembangkan potensi didik.</p>
-            </div>
-
-            <div class="misi-card reveal" style="background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
-                <div style="font-size: 2rem; font-weight: 800; color: var(--primary); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">03</div>
-                <div style="width: 48px; height: 48px; background: var(--primary-surface); border-radius: var(--radius-sm); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;">3</div>
-                <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Melakukan transformasi, berdaya saing global, dan berbasis teknologi informasi dan digitalisasi.</p>
-            </div>
-
-            <div class="misi-card reveal" style="background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
-                <div style="font-size: 2rem; font-weight: 800; color: var(--primary); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">04</div>
-                <div style="width: 48px; height: 48px; background: var(--primary-surface); border-radius: var(--radius-sm); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;">4</div>
-                <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Mengimplementasikan tata kelola modern yang transparan dan akuntabel serta pendidikan yang inklusif.</p>
-            </div>
-
-            <div class="misi-card reveal" style="grid-column: 1 / -1; background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
-                <div style="font-size: 2rem; font-weight: 800; color: var(--primary); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">05</div>
-                <div style="width: 48px; height: 48px; background: var(--primary-surface); border-radius: var(--radius-sm); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;">5</div>
-                <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Meningkatkan kolaborasi dan kemitraan antar Lembaga Pendidikan baik internal dan eksternal Muhammadiyah serta dunia kerja.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- TUJUAN SECTION -->
-    <section class="tujuan-section section-padding bg-alt" style="padding: 6rem 0;">
-        <div class="container">
-            <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem;">
-                <span class="visi-label">Tujuan Institusi</span>
-                <h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem;">Tujuan Sekolah</h2>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Komitmen nyata pembinaan peserta didik di SMKS Muhammadiyah 1 Genteng.</p>
-            </div>
-
-            <div class="tujuan-box">
-                <div class="tujuan-progress-line">
-                    <div class="tujuan-progress-bar" id="tujuan-bar"></div>
+        <!-- Wakil Kepala Sekolah -->
+        <div class="guru-wakasek-grid" style="margin-top: 3rem;">
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/wakasek1.webp" alt="Foto Wakasek Kurikulum" class="guru-img">
+                    <div class="guru-overlay"></div>
                 </div>
-
-                <div class="tujuan-card reveal">
-                    <div class="tujuan-icon">1</div>
-                    <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.7; margin: 0;">Mempersiapkan peserta didik yang berakidah Islam dalam beriman dan bertaqwa kepada Allah SWT dengan perilaku akhlak mulia.</p>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Wakasek 1, S.T.</div>
+                    <div class="guru-jabatan">Wakasek Kurikulum</div>
                 </div>
-                <div class="tujuan-card reveal">
-                    <div class="tujuan-icon">2</div>
-                    <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.7; margin: 0;">Membiasakan peserta didik untuk beradaptasi dengan perkembangan ilmu pengetahuan dan teknologi, dan menerapkan teknologi informasi dan digital dalam pembelajaran.</p>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/wakasek2.webp" alt="Foto Wakasek Kesiswaan" class="guru-img">
+                    <div class="guru-overlay"></div>
                 </div>
-                <div class="tujuan-card reveal">
-                    <div class="tujuan-icon">3</div>
-                    <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.7; margin: 0;">Mempersiapkan peserta didik agar lebih ulet, Tangguh, produktif, mandiri dan gigih dalam berkompetisi, serta dapat beradaptasi di masyarakat dan mengembangkan sikap profesional dalam kompetensi yang diminatinya.</p>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Wakasek 2, S.Pd.</div>
+                    <div class="guru-jabatan">Wakasek Kesiswaan</div>
                 </div>
-                <div class="tujuan-card reveal">
-                    <div class="tujuan-icon">4</div>
-                    <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.7; margin: 0;">Membekali peserta didik agar bisa menjadi wirausahawan muda yang ulet, tangguh dan pantang menyerah sesuai dengan syariah.</p>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/wakasek3.webp" alt="Foto Wakasek Humas" class="guru-img">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Wakasek 3, S.Kom.</div>
+                    <div class="guru-jabatan">Wakasek Humas & BKK</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/wakasek4.webp" alt="Foto Wakasek Sarpras" class="guru-img">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Wakasek 4, S.E.</div>
+                    <div class="guru-jabatan">Wakasek Sarpras</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KONSENTRASI KEAHLIAN (EX-SIDEBAR SEPERTI DI GAMBAR) -->
-    <section class="majors-section container" style="padding: 6rem 0;">
-        <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
-            <span class="visi-label">Program Unggulan</span>
-            <h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem;">Konsentrasi Keahlian</h2>
-            <p style="color: var(--text-muted); margin-top: 0.5rem;">Daftar konsentrasi keahlian yang diselenggarakan di SMKS Muhammadiyah 1 Genteng sesuai data gambar rujukan.</p>
-        </div>
-        <div class="majors-grid reveal" style="justify-content: center;">
-            <button class="major-chip" onclick="openMajorModal('rpl')">💻 Rekayasa Perangkat Lunak</button>
-            <button class="major-chip" onclick="openMajorModal('tkj')">🌐 Teknik Komputer dan Jaringan</button>
-            <button class="major-chip" onclick="openMajorModal('bd')">💼 Bisnis Digital</button>
-            <button class="major-chip" onclick="openMajorModal('mplb')">🏢 Manajemen Perkantoran</button>
-            <button class="major-chip" onclick="openMajorModal('akl')">📊 Akuntansi</button>
-            <button class="major-chip" onclick="openMajorModal('hotel')">🏨 Perhotelan</button>
-            <button class="major-chip" onclick="openMajorModal('dkv')">🎬 Desain Komunikasi Visual</button>
+    <!-- 4. GURU & PENDIDIK -->
+    <section class="container" style="margin-bottom: 5rem;">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Guru & Pendidik</h2>
+        <div class="guru-grid">
+            <!-- Dummy Data -->
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru1.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.Kom.</div>
+                    <div class="guru-jabatan">Produktif RPL</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru2.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.Pd.</div>
+                    <div class="guru-jabatan">Bahasa Inggris</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru3.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.T.</div>
+                    <div class="guru-jabatan">Produktif TKJ</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru4.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.Pd.I.</div>
+                    <div class="guru-jabatan">Pendidikan Agama Islam</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru5.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.Pd.</div>
+                    <div class="guru-jabatan">Matematika</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru6.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.Sn.</div>
+                    <div class="guru-jabatan">Produktif DKV</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru7.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.E.</div>
+                    <div class="guru-jabatan">Produktif Akuntansi</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/guru8.webp" alt="Foto Guru" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Guru, S.Pd.</div>
+                    <div class="guru-jabatan">Bahasa Indonesia</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- INTERACTIVE DETAIL MODAL -->
-    <div class="modal-overlay" id="major-modal-overlay" onclick="closeMajorModalOnOverlay(event)">
-        <div class="major-modal-card" id="major-modal-card">
-            <!-- Modal Header Banner with Animated Icon -->
-            <div class="modal-banner" id="modal-banner">
-                <div class="modal-banner-icon" id="modal-icon">💻</div>
-                <button class="modal-close-btn" onclick="closeMajorModal()"
-                    aria-label="Tutup Detail Jurusan">&times;</button>
+    <!-- 5. TENAGA KEPENDIDIKAN -->
+    <section class="container" style="margin-bottom: 5rem;">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Tenaga Kependidikan</h2>
+        <div class="guru-grid tendik-grid">
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/tendik1.webp" alt="Foto Tenaga Kependidikan" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Tendik</div>
+                    <div class="guru-jabatan">Kepala Tata Usaha</div>
+                </div>
             </div>
-
-            <!-- Modal Content Body -->
-            <div class="modal-body">
-                <span class="modal-tag" id="modal-tag">PPLG / Software Engineering</span>
-                <h3 class="modal-title" id="modal-title">Rekayasa Perangkat Lunak (RPL)</h3>
-                <p class="modal-desc" id="modal-desc">
-                    Fokus pada pengembangan aplikasi web modern, mobile apps, database arsitektur, dan logika komputasi.
-                    Siswa dibekali kemampuan membangun solusi software siap pakai untuk ekosistem industri digital.
-                </p>
-
-                <div class="modal-skills-box">
-                    <div class="modal-section-title">
-                        <span>🛠️</span> Kompetensi & Tools Unggulan:
-                    </div>
-                    <div class="modal-chips-row" id="modal-skills">
-                        <span class="modal-skill-chip">Web & Mobile Dev</span>
-                        <span class="modal-skill-chip">SQL & NoSQL Database</span>
-                        <span class="modal-skill-chip">API Integration</span>
-                        <span class="modal-skill-chip">Git & Version Control</span>
-                    </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/tendik2.webp" alt="Foto Tenaga Kependidikan" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
                 </div>
-
-                <div class="modal-career-box">
-                    <div class="modal-section-title" style="color:var(--primary); margin-bottom:0.4rem;">
-                        <span>🚀</span> Peluang & Prospek Karir:
-                    </div>
-                    <div class="modal-career-text" id="modal-career">
-                        Software Engineer, Web Developer, Mobile App Developer, Database Administrator, QA Tester.
-                    </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Tendik</div>
+                    <div class="guru-jabatan">Staf Administrasi</div>
                 </div>
-
-                <div class="modal-footer-cta">
-                    <span style="font-size:0.85rem; color:var(--text-muted);">Terlisensi <strong>LSP-P1 BNSP</strong>
-                        &bull; Kelas Industri</span>
-                    <a href="index.html#ppdb"
-                        style="background:var(--primary); color:#ffffff; padding:0.65rem 1.4rem; border-radius:50px; font-family:var(--font-head); font-weight:700; font-size:0.9rem; text-decoration:none;">
-                        Daftar PPDB Jurusan Ini &rarr;
-                    </a>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/tendik3.webp" alt="Foto Tenaga Kependidikan" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Tendik</div>
+                    <div class="guru-jabatan">Staf Keuangan</div>
+                </div>
+            </div>
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    <img src="assets/guru/tendik4.webp" alt="Foto Tenaga Kependidikan" class="guru-img" loading="lazy">
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">Nama Tendik</div>
+                    <div class="guru-jabatan">Petugas Kebersihan</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- 6. FOOTER -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -1590,11 +1614,11 @@
                             </div>
                         </div>
                     </div>
-                    <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
                         Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
                         Kabupaten Banyuwangi, Jawa Timur 68465
                     </p>
-                    <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7;">
+                    <p style="color:#94a3b8; font-size:0.92rem; line-height:1.7;">
                         📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
                         ✉️ smkmuhi.genteng1968@gmail.com
                     </p>
@@ -1615,19 +1639,19 @@
                 <div class="footer-col">
                     <h4>8 Konsentrasi</h4>
                     <ul class="footer-links">
-                        <li><a href="#jurusan">Rekayasa Perangkat Lunak</a></li>
-                        <li><a href="#jurusan">Teknik Jaringan Komputer</a></li>
-                        <li><a href="#jurusan">Desain Komunikasi Visual</a></li>
-                        <li><a href="#jurusan">Bisnis Digital</a></li>
-                        <li><a href="#jurusan">Akuntansi Lembaga</a></li>
-                        <li><a href="#jurusan">Perhotelan & Kuliner</a></li>
+                        <li><a href="index.html#jurusan">Rekayasa Perangkat Lunak</a></li>
+                        <li><a href="index.html#jurusan">Teknik Jaringan Komputer</a></li>
+                        <li><a href="index.html#jurusan">Desain Komunikasi Visual</a></li>
+                        <li><a href="index.html#jurusan">Bisnis Digital</a></li>
+                        <li><a href="index.html#jurusan">Akuntansi Lembaga</a></li>
+                        <li><a href="index.html#jurusan">Perhotelan & Kuliner</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4>Identitas Lembaga</h4>
                     <div
-                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#a8a29e;">
+                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#94a3b8;">
                         <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
                         <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
                         <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
@@ -1663,9 +1687,10 @@
         </div>
     </div>
 
-    <!-- GSAP CDN -->
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <script>
         // AI Chatbot Logic
         const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -1730,182 +1755,116 @@
         }
         gsap.registerPlugin(ScrollTrigger);
 
-        // Simple Reveal Animation
-        gsap.utils.toArray(".reveal").forEach(elem => {
-            gsap.to(elem, {
-                scrollTrigger: {
-                    trigger: elem,
-                    start: "top 85%",
-                },
-                y: 0,
-                opacity: 1,
-                duration: 0.8,
-                ease: "power2.out"
-            });
-        });
-
-        // Timeline Progress Bar ScrollTrigger Animation for Tujuan Section
-        const tujuanBar = document.getElementById('tujuan-bar');
-        if (tujuanBar) {
-            gsap.to(tujuanBar, {
-                height: "100%",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: ".tujuan-box",
-                    start: "top 75%",
-                    end: "bottom 70%",
-                    scrub: 0.5
-                }
-            });
-        }
-
-        // Parallax for Header Pattern
-        gsap.to(".header-bg-pattern", {
-            y: 100,
-            rotation: 15,
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".page-header",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            }
-        });
-
-        // ==========================================
-        // DATA KONSENTRASI KEAHLIAN & MODAL LOGIC
-        // ==========================================
-        const majorsData = {
-            rpl: {
-                title: "Rekayasa Perangkat Lunak (RPL)",
-                tag: "PPLG / Software Engineering",
-                icon: "💻",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
-                desc: "Konsentrasi keahlian yang berfokus pada analisis kebutuhan, desain arsitektur perangkat lunak, pemrograman web dan mobile modern, manajemen basis data, serta pengujian sistem. Siswa dilatih langsung mengerjakan proyek riil sesuai standar industri software house.",
-                skills: ["Fullstack Web Development", "Mobile App (Flutter/Android)", "Database SQL & NoSQL", "API Integration", "Git & Github Workflow", "Clean Architecture"],
-                career: "Software Engineer, Web Developer, Frontend/Backend Developer, Mobile Developer, Database Administrator, QA System Tester."
+        // Data Berita
+        const newsDatabase = {
+            'me-awards-liputan': {
+                category: "HEADLINE PRESTASI",
+                date: "18 Juni 2026 • Tim Redaksi Jurnalistik MUHI",
+                img: "assets/juara-me-awards.jpg",
+                title: "SMKS MUHI Genteng Raih Juara Umum ME Awards Tingkat Nasional 2026",
+                body: `
+                    <p>Prestasi bersejarah kembali ditorehkan oleh civitas akademika SMKS Muhammadiyah 1 Genteng. Pada ajang bergengsi <strong>Muhammadiyah Education Awards (ME Awards) 2026</strong> yang digelar di Surabaya, kontingen SMKS MUHI berhasil menyabet predikat tertinggi sebagai <strong>Juara Umum Nasional</strong>.</p>
+                    <p>Kemenangan gemilang ini didapatkan setelah perwakilan peserta didik berhasil mendominasi medali emas dan perak di berbagai cabang kompetisi, meliputi Lomba Inovasi Robotika Vokasi, Desain Aplikasi Digital, Pidato Bahasa Asing, dan Manajemen Sekolah Kejuruan Unggul.</p>
+                    <p>Kepala Sekolah menyampaikan rasa syukur mendalam atas dedikasi para guru pembina dan kerja keras seluruh siswa yang pantang menyerah dalam berinovasi dan mengharumkan almamater di tingkat nasional.</p>
+                `
             },
-            tkj: {
-                title: "Teknik Jaringan Komputer & Telekomunikasi (TKJ)",
-                tag: "TJKT / Network & Cloud Infrastructure",
-                icon: "🌐",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0369a1 100%)",
-                desc: "Mempelajari perancangan, instalasi, dan pemeliharaan infrastruktur jaringan komputer enterprise, fiber optik, administrasi Cloud & Linux server, serta sistem keamanan siber (cybersecurity) untuk mendukung transformasi digital industri.",
-                skills: ["Routing & Switching (MikroTik MTCNA / Cisco)", "Linux Enterprise & Cloud Server", "Fiber Optic Splicing & OTDR", "Network Security & Firewall", "Wireless Network Deployment"],
-                career: "Network Administrator, Cloud Infrastructure Engineer, Fiber Optic Specialist, IT Support Specialist, System Administrator."
+            'jobfair-bkk': {
+                category: "BKK & INDUSTRI",
+                date: "10 Juni 2026 • Humas & Hubungan Industri",
+                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Bursa Kerja Khusus (BKK) MUHI Gandeng 35+ Perusahaan Multinasional",
+                body: `
+                    <p>Untuk mempercepat penyerapan lulusan ke dunia kerja, Bursa Kerja Khusus (BKK) SMKS Muhammadiyah 1 Genteng menggelar Job Fair & Walk-in Interview terpadu yang diikuti oleh lebih dari 35 perusahaan ternama berskala nasional dan multinasional.</p>
+                    <p>Sektor industri yang terlibat mencakup teknologi informasi, perhotelan bintang lima, perbankan syariah, otomotif resmi, dan manufaktur presisi. Ratusan calon lulusan dan alumni memanfaatkan momentum ini untuk mendapatkan kontrak kerja langsung sebelum wisuda.</p>
+                `
             },
-            bd: {
-                title: "Bisnis Digital",
-                tag: "Digital Commerce & Marketing Strategy",
-                icon: "💼",
-                gradient: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
-                desc: "Mempersiapkan wirausahawan digital dan praktisi e-commerce yang menguasai marketplace optimization, riset pasar digital, social media marketing, strategi SEO/SEM, copywriting promosi, serta pengelolaan toko daring modern.",
-                skills: ["E-Commerce & Marketplace Management", "Social Media Advertising (Meta/Tiktok Ads)", "SEO & Content Marketing", "Digital Analytics", "Copywriting & Branding"],
-                career: "Digital Marketer, E-Commerce Specialist, Social Media Strategist, Digital Business Consultant, Marketplace Operations Lead."
+            'uji-bnsp': {
+                category: "AKADEMIK LSP-P1",
+                date: "28 Mei 2026 • Tim LSP-P1 MUHI",
+                img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "100% Peserta Didik Lolos Uji Sertifikasi Profesi Nasional LSP-P1 BNSP",
+                body: `
+                    <p>Lembaga Sertifikasi Profesi Pihak Pertama (LSP-P1) SMKS Muhammadiyah 1 Genteng yang telah terlisensi resmi oleh Badan Nasional Sertifikasi Profesi (BNSP) sukses menggelar Uji Sertifikasi Kompetensi (USK) bagi seluruh peserta didik tingkat akhir.</p>
+                    <p>Dengan standar asesmen ketat berbasis skema okupasi industri nasional, sebanyak 100% siswa dinyatakan kompeten dan berhak menyandang sertifikat profesi resmi berlogo Garuda Emas yang diakui secara nasional maupun di kawasan ASEAN.</p>
+                `
             },
-            mplb: {
-                title: "Manajemen Perkantoran & Layanan Bisnis (MPLB)",
-                tag: "Corporate Management & Digital Administration",
-                icon: "🏢",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #0f766e 100%)",
-                desc: "Membekali siswa keterampilan administrasi perkantoran modern, digital document archiving, korespondensi bisnis formal, manajemen rapat, tata kelola kehumasan, serta kemampuan komunikasi profesional berstandar internasional.",
-                skills: ["Digital Office Administration", "Digital Archiving & Cloud Storage", "Business Correspondence", "Public Relations & Event Handling", "Customer Relationship Management"],
-                career: "Administrative Officer, Executive Secretary, Public Relations Staff, Customer Service Specialist, HR Administration Staff."
+            'kemah-hw': {
+                category: "KEGIATAN SISWA",
+                date: "15 Mei 2026 • Kwarda Hizbul Wathan",
+                img: "https://images.unsplash.com/photo-1533227268428-f9ed0900f4f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Kemah Tamu Penghela Hizbul Wathan Tanamkan Jiwa Kepemimpinan Islami",
+                body: `
+                    <p>Gerakan Kepanduan Hizbul Wathan (HW) Kafilah SMKS MUHI Genteng mengadakan kegiatan Perkemahan Tamu Penghela selama tiga hari penuh di kawasan alam terbuka Banyuwangi.</p>
+                    <p>Kegiatan ini dirancang untuk membentuk karakter mandiri, kedisiplinan baris-berbaris, teknik survival alam, kepemimpinan regu, serta penanaman aqidah dan ibadah praktis sehari-hari.</p>
+                `
             },
-            akl: {
-                title: "Akuntansi & Keuangan Lembaga (AKL)",
-                tag: "Financial Accounting & Islamic Banking",
-                icon: "📊",
-                gradient: "linear-gradient(135deg, #064e3b 0%, #15803d 100%)",
-                desc: "Fokus pada penguasaan pembukuan keuangan, perpajakan, audit laporan keuangan, komputer akuntansi (MYOB/Accurate), serta dasar-dasar operasional perbankan syariah yang presisi dan transparan.",
-                skills: ["Komputer Akuntansi (MYOB/Accurate)", "Laporan Keuangan & Audit", "Perpajakan (PPh & PPN)", "Operasional Perbankan Syariah", "Spreadsheet Analytics"],
-                career: "Junior Accountant, Tax Staff, Bank Teller & Customer Service, Financial Analyst Assistant, Bookkeeper."
+            'taekwondo-liputan': {
+                category: "PRESTASI OLAHRAGA",
+                date: "2 Juni 2026 • Pembina Ekstrakurikuler Bela Diri",
+                img: "https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Dua Atlet Taekwondo Smemsa Boyong Medali Perunggu Kejurprov Jatim",
+                body: `
+                    <p>Dua atlet pelajar binaan ekstrakurikuler bela diri SMKS Muhammadiyah 1 Genteng menorehkan prestasi membanggakan pada Kejuaraan Provinsi (Kejurprov) Taekwondo Antar Pelajar Jawa Timur di Kota Malang.</p>
+                    <p>Melalui perjuangan sengit di kategori kyorugi dan poomsae, delegasi sekolah berhasil membawa pulang dua medali perunggu dan memperoleh apresiasi tinggi dari Pengprov Taekwondo Indonesia Jawa Timur.</p>
+                `
             },
-            hotel: {
-                title: "Perhotelan & Hospitality",
-                tag: "Tourism & Hotel Hospitality Industry",
-                icon: "🏨",
-                gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)",
-                desc: "Mengasah keahlian pelayanan prima berstandar bintang lima, tata kelola front office, tata graha (housekeeping), pelayanan makanan & minuman (food & beverage), serta etika keramahtamahan internasional.",
-                skills: ["Front Office Operations", "Housekeeping & Room Service", "Food & Beverage Service", "Hospitality Ethics & Communication", "Hotel Property Management System"],
-                career: "Front Desk Agent, Guest Relation Officer, Housekeeping Supervisor, F&B Service Specialist, Hotel Event Coordinator."
+            'software-rpl': {
+                category: "TEKNOLOGI & TEFA",
+                date: "20 Mei 2026 • Lab Rekayasa Perangkat Lunak",
+                img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Teaching Factory RPL Rilis Aplikasi Smart School Berbasis RFID & Cloud",
+                body: `
+                    <p>Unit Teaching Factory (TEFA) Rekayasa Perangkat Lunak SMKS MUHI resmi meluncurkan produk inovasi sistem informasi manajemen sekolah cerdas berbasis Internet of Things (IoT) dan komputasi awan (cloud).</p>
+                    <p>Aplikasi ini mengintegrasikan presensi kartu siswa RFID real-time, monitoring unit produksi TEFA, dan tracking portofolio sertifikasi siswa yang dapat diakses secara langsung oleh wali murid melalui aplikasi mobile.</p>
+                `
             },
-            dkv: {
-                title: "Desain Komunikasi Visual (DKV)",
-                tag: "Creative Media & Visual Communication",
-                icon: "🎬",
-                gradient: "linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)",
-                desc: "Eksplorasi kreativitas visual tanpa batas meliputi desain grafis profesional, ilustrasi digital, videografi sinematik, animasi 2D/3D, motion graphics, audio production, dan konten promosi multimedia komersial.",
-                skills: ["Adobe Illustrator & Photoshop", "Premiere Pro & After Effects", "Motion Graphics 2D/3D", "Cinematography & Lighting", "Brand Identity Design"],
-                career: "Graphic Designer, Video Editor, Motion Graphic Artist, Videographer/Cinematographer, UI/UX Designer, Creative Director."
-            },
-            boga: {
-                title: "Tata Boga / Kuliner",
-                tag: "Culinary Arts & Bakery Production",
-                icon: "🍰",
-                gradient: "linear-gradient(135deg, #d97706 0%, #ca8a04 100%)",
-                desc: "Mempelajari seni pengolahan masakan nusantara dan internasional (kontinental), bakery & pastry, pengolahan makanan sehat, hygiene sanitasi halal, serta manajemen usaha katering komersial berstandar industri.",
-                skills: ["Bakery & Pastry Production", "Indonesian & Continental Cuisine", "Food Plating & Presentation", "Hygiene & Halal Food Sanitation", "Catering Business Management"],
-                career: "Pastry Chef, Commis Chef, Baker, Food Stylist, Restaurant/Catering Entrepreneur, F&B Supervisor."
-            },
-            tbsm: {
-                title: "Teknik & Bisnis Sepeda Motor (TBSM)",
-                tag: "Automotive Engineering & Workshop Management",
-                icon: "🏍️",
-                gradient: "linear-gradient(135deg, #1c1917 0%, #064e3b 100%)",
-                desc: "Mencetak teknisi otomotif roda dua profesional dengan keahlian perawatan mesin injeksi, kelistrikan kendaraan, sistem transmisi otomatis/manual, serta manajemen bengkel berstandar resmi Astra Honda Authorized Service Station (AHASS).",
-                skills: ["EFI & Injection Diagnostic Tools", "Engine Overhaul & Tune-Up", "Motorcycle Electrical Systems", "Brake & Suspension Maintenance", "Workshop Management"],
-                career: "Automotive Technician, Service Advisor Bengkel Resmi, Diagnostic Specialist, Sparepart Officer, Wirausaha Bengkel Motor Mandiri."
+            'kelas-honda': {
+                category: "KERJASAMA OTOMOTIF",
+                date: "5 Mei 2026 • Tim TBSM Astra Honda",
+                img: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                title: "Peresmian Standarisasi Bengkel Pos AHASS di SMKS Muhammadiyah 1 Genteng",
+                body: `
+                    <p>Kerja sama erat antara SMKS Muhammadiyah 1 Genteng dan PT MPM Distributor Honda Jawa Timur diwujudkan melalui peresmian Bengkel Teaching Factory berstandar resmi Astra Honda Authorized Service Station (AHASS).</p>
+                    <p>Fasilitas ini dilengkapi dengan diagnostic tools injeksi PGM-FI terkini, bike lift hidrolik, dan ruang sparepart resmi untuk memberikan pengalaman kerja bengkel riil kepada siswa konsentrasi Teknik Sepeda Motor.</p>
+                `
             }
         };
 
-        function openMajorModal(majorKey) {
-            const data = majorsData[majorKey];
+        function openNewsModal(newsKey) {
+            const data = newsDatabase[newsKey];
             if (!data) return;
 
-            document.getElementById('modal-tag').innerText = data.tag;
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-desc').innerText = data.desc;
-            document.getElementById('modal-icon').innerText = data.icon;
-            document.getElementById('modal-banner').style.background = data.gradient;
-            document.getElementById('modal-career').innerText = data.career;
+            document.getElementById('modal-news-category').innerText = data.category;
+            document.getElementById('modal-news-date').innerText = data.date;
+            document.getElementById('modal-news-img').src = data.img;
+            document.getElementById('modal-news-title').innerText = data.title;
+            document.getElementById('modal-news-body').innerHTML = data.body;
 
-            // Populate skills
-            const skillsContainer = document.getElementById('modal-skills');
-            skillsContainer.innerHTML = '';
-            data.skills.forEach(skill => {
-                const chip = document.createElement('span');
-                chip.className = 'modal-skill-chip';
-                chip.innerText = skill;
-                skillsContainer.appendChild(chip);
-            });
-
-            const modalOverlay = document.getElementById('major-modal-overlay');
+            const modalOverlay = document.getElementById('news-modal-overlay');
             modalOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeMajorModal() {
-            const modalOverlay = document.getElementById('major-modal-overlay');
+        function closeNewsModal() {
+            const modalOverlay = document.getElementById('news-modal-overlay');
             modalOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        function closeMajorModalOnOverlay(e) {
-            if (e.target.id === 'major-modal-overlay') {
-                closeMajorModal();
+        function closeNewsModalOnOverlay(e) {
+            if (e.target.id === 'news-modal-overlay') {
+                closeNewsModal();
             }
         }
 
-        // Close modal on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                closeMajorModal();
+                closeNewsModal();
                 closeMobileDrawer();
             }
         });
 
-        // Navbar Scrolled Effect
+        // Navbar scrolled island effect
         const mainNav = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 40) {
@@ -1916,8 +1875,25 @@
         });
 
         
+
+        // Filter Category
+        function filterCategory(cat) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.news-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 
+    
     <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
     <script>
     (function() {
@@ -2002,6 +1978,9 @@
     })();
     </script>
 
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script>window.PX_CONFIG = { cards: ".news-card, .featured-news-card" };</script>
+    <script>try { var s = document.createElement("script"); s.src = "parallax-kit.js"; document.body.appendChild(s); } catch(e) { console.warn(e); }</script>
 </body>
 
 </html>
