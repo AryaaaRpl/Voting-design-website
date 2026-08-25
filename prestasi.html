@@ -8,12 +8,39 @@
     <meta name="description"
         content="Pusat rekam jejak prestasi, piala penghargaan nasional, kejuaraan lomba kejuruan, teknologi, seni, dan bela diri SMKS Muhammadiyah 1 Genteng Banyuwangi.">
 
-    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
+    <!-- Typography: Plus Jakarta Sans with display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
+
+    <!-- Schema.org JSON-LD Structured Data for School Awards -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "School",
+      "name": "SMKS Muhammadiyah 1 Genteng",
+      "url": "https://smkmuhigenteng.sch.id",
+      "logo": "https://smkmuhigenteng.sch.id/assets/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. KH. Imam Bahri No.10, Krajan, Genteng Wetan",
+        "addressLocality": "Banyuwangi",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "68465",
+        "addressCountry": "ID"
+      },
+      "award": [
+        "Juara Umum Muhammadiyah Education Awards (ME Awards) Tingkat Nasional 2026",
+        "Juara 1 Lomba Inovasi Digital Nasional Bidang Software Rekayasa Perangkat Lunak 2026",
+        "Juara 3 Kejurprov Taekwondo Antar Pelajar Jawa Timur 2026",
+        "Juara 1 Open Competition Panji Laras Kategori Seni Tunggal IPSI 2025",
+        "Juara 1 MPL Student League Regional & Delegasi Nasional Surabaya 2025",
+        "Juara 1 Festival Seni Vokal & Musik Pelajar Kabupaten Banyuwangi 2026"
+      ]
+    }
+    </script>
 
     <style>
         /* ==========================================================================
@@ -32,7 +59,7 @@
             --secondary-surface: rgba(234, 179, 8, 0.1);
             --secondary-glow: rgba(234, 179, 8, 0.25);
 
-            --accent-emerald: #facc15;
+            --accent-yellow: #facc15;
             --accent-cyan: #3b82f6;
 
             --bg-main: #ffffff;
@@ -67,7 +94,7 @@
             --font-display: 'Plus Jakarta Sans', sans-serif;
             --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --font-mono: 'Plus Jakarta Sans', sans-serif;
 
             --transition: all 0.25s ease;
             --transition-fast: all 0.15s ease;
@@ -98,14 +125,21 @@
         h4,
         .font-head {
             font-family: var(--font-head);
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.2;
         }
 
         .font-display {
             font-family: var(--font-display);
+            font-weight: 800;
             letter-spacing: -0.035em;
+        }
+
+        .font-mono {
+            font-family: var(--font-mono);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         a {
@@ -131,10 +165,10 @@
             border-radius: var(--radius-full);
             font-size: 0.82rem;
             font-family: var(--font-head);
-            font-weight: 700;
+            font-weight: 800;
             color: #a16207;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         .badge-primary {
@@ -146,8 +180,24 @@
             border: 1px solid rgba(30, 64, 175, 0.2);
             border-radius: var(--radius-full);
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .badge-level-national {
+            background: var(--secondary-surface);
+            color: #b45309;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            font-weight: 800;
+        }
+
+        .badge-level-regional {
+            background: var(--primary-surface);
+            color: var(--primary);
+            border: 1px solid rgba(30, 64, 175, 0.2);
+            font-weight: 700;
         }
 
         /* Buttons */
@@ -432,6 +482,7 @@
         .page-title {
             font-family: var(--font-display);
             font-size: clamp(2.4rem, 4.8vw, 4rem);
+            font-weight: 800;
             color: var(--primary-dark);
             margin: 0.8rem 0 1.2rem;
             letter-spacing: -0.04em;
@@ -445,19 +496,19 @@
             line-height: 1.7;
         }
 
-        /* Stats Cards Strip */
+        /* Stats Cards Strip - Homogenized number + label */
         .awards-stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .award-stat-card {
             background: #ffffff;
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
-            padding: 1.8rem;
+            padding: 1.8rem 1.4rem;
             text-align: center;
             box-shadow: var(--shadow-subtle);
             transition: var(--transition);
@@ -469,31 +520,28 @@
             box-shadow: var(--shadow-card-hover);
         }
 
-        .stat-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-
         .stat-number {
             font-family: var(--font-display);
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             font-weight: 800;
             color: var(--primary);
             line-height: 1;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
         }
 
         .stat-title {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
             font-weight: 600;
+            line-height: 1.4;
         }
 
         /* ==========================================================================
            4. PINNACLE AWARD: CROWN JEWEL BANNER (ME AWARDS JUARA UMUM)
            ========================================================================== */
         .pinnacle-section {
-            margin-bottom: 5.5rem;
+            margin-bottom: 5rem;
         }
 
         .pinnacle-card {
@@ -508,6 +556,7 @@
             box-shadow: 0 25px 60px -15px rgba(30, 64, 175, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .pinnacle-card::after {
@@ -532,24 +581,25 @@
             padding: 0.4rem 1.1rem;
             border-radius: var(--radius-full);
             font-family: var(--font-head);
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             margin-bottom: 1.2rem;
         }
 
         .pinnacle-title {
             font-family: var(--font-display);
             font-size: clamp(2rem, 3.2vw, 2.8rem);
+            font-weight: 800;
             color: #ffffff;
             line-height: 1.18;
             margin-bottom: 1.2rem;
         }
 
         .pinnacle-desc {
-            color: rgba(255, 255, 255, 0.88);
-            font-size: 1.08rem;
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 1.05rem;
             line-height: 1.75;
             margin-bottom: 2rem;
         }
@@ -558,7 +608,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
             padding-top: 1.5rem;
         }
 
@@ -566,21 +616,23 @@
             display: block;
             font-family: var(--font-head);
             font-size: 1.1rem;
+            font-weight: 800;
             color: var(--secondary-light);
         }
 
         .pinnacle-meta-item span {
             font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.75);
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .pinnacle-trophy-box {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: var(--radius-lg);
-            padding: 2.8rem 2rem;
+            padding: 2.2rem;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -592,8 +644,7 @@
 
         .pinnacle-img-frame {
             width: 100%;
-            max-width: 380px;
-            height: 230px;
+            height: 220px;
             border-radius: var(--radius);
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.3);
@@ -610,51 +661,203 @@
         }
 
         .pinnacle-card:hover .pinnacle-img-frame img {
-            transform: scale(1.06);
-        }
-
-        .trophy-emoji {
-            font-size: 6.5rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
-            animation: trophyBounce 4s ease-in-out infinite;
-        }
-
-        @keyframes trophyBounce {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-10px) rotate(3deg);
-            }
+            transform: scale(1.05);
         }
 
         /* ==========================================================================
-           5. ASYMMETRICAL HALL OF FAME BENTO GRID
+           5. INTERACTIVE CATALOG CONTROLS (SEARCH, FILTERS, VIEW SWITCH)
            ========================================================================== */
-        .fame-section {
-            padding-bottom: 7.5rem;
-        }
-
-        .fame-header-row {
+        .catalog-control-panel {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            padding: 1.8rem 2rem;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 2.5rem;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 3.5rem;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 1.5rem;
         }
 
-        .fame-bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
+        .catalog-top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .award-bento-card {
+        /* Search input bar */
+        .award-search-box {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+            max-width: 480px;
+        }
+
+        .award-search-box input {
+            width: 100%;
+            border: 1.5px solid var(--border-card);
+            border-radius: var(--radius-full);
+            padding: 0.65rem 1.2rem 0.65rem 2.6rem;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            color: var(--text-dark);
+            background: var(--bg-alt);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .award-search-box input:focus {
+            border-color: var(--primary);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12);
+        }
+
+        .search-icon-svg {
+            position: absolute;
+            left: 0.95rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-subtle);
+            pointer-events: none;
+        }
+
+        /* View switcher (Grid vs Timeline) */
+        .view-switcher-group {
+            display: inline-flex;
+            background: var(--bg-alt);
+            padding: 0.3rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-card);
+            gap: 0.25rem;
+        }
+
+        .view-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 1.1rem;
+            border-radius: var(--radius-full);
+            border: none;
+            background: transparent;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .view-toggle-btn.active,
+        .view-toggle-btn[aria-pressed="true"] {
+            background: #ffffff;
+            color: var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Filter Chips row */
+        .catalog-filters-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--border-card);
+            padding-top: 1.2rem;
+        }
+
+        .category-chip-list {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .category-chip {
+            padding: 0.45rem 1.1rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-card);
+            background: #ffffff;
+            font-family: var(--font-head);
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .category-chip:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+            background: var(--primary-surface);
+        }
+
+        .category-chip.active,
+        .category-chip[aria-pressed="true"] {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
+        }
+
+        /* Year Filter Select */
+        .year-select-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .year-select-wrap label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .year-select-dropdown {
+            padding: 0.45rem 1rem;
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--border-card);
+            background: #ffffff;
+            font-family: var(--font-head);
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            outline: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .year-select-dropdown:focus {
+            border-color: var(--primary);
+        }
+
+        /* Results Counter Live Region */
+        .catalog-status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           6. CATALOG VIEW A: MODERN TYPOGRAPHIC GRID
+           ========================================================================== */
+        .awards-catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .award-card {
             background: #ffffff;
             border: 1px solid var(--border-card);
             border-radius: var(--radius-xl);
@@ -668,116 +871,231 @@
             position: relative;
         }
 
-        .award-bento-card:hover {
+        .award-card:hover {
             transform: translateY(-6px);
             border-color: var(--primary-light);
             box-shadow: var(--shadow-card-hover);
         }
 
-        .award-thumb-banner {
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Typographic Hero Area (No Emoji) */
+        .award-card-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 1.8rem 1.6rem;
+            color: #ffffff;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 155px;
         }
 
-        .award-thumb-emoji {
-            font-size: 4.5rem;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-            transition: var(--transition);
+        .award-card-header::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
-        .award-bento-card:hover .award-thumb-emoji {
-            transform: scale(1.15) rotate(5deg);
+        .award-card-tags-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
         }
 
-        .award-body {
-            padding: 2.2rem;
+        .award-badge-pill {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            backdrop-filter: blur(4px);
+        }
+
+        .award-badge-pill.national {
+            background: var(--secondary);
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .award-year-tag {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .award-headline-typo {
+            font-family: var(--font-display);
+            font-size: 1.22rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .award-card-body {
+            padding: 1.6rem;
             display: flex;
             flex-direction: column;
             flex: 1;
             justify-content: space-between;
         }
 
-        .award-meta-tag {
+        .award-sub-meta {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 0.8rem;
-            font-size: 0.82rem;
+            gap: 0.6rem;
+            font-size: 0.8rem;
             color: var(--text-subtle);
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.6rem;
         }
 
-        .award-name {
+        .award-card-title {
             font-family: var(--font-head);
-            font-size: 1.35rem;
+            font-size: 1.05rem;
+            font-weight: 800;
             color: var(--primary-dark);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             line-height: 1.35;
-            transition: var(--transition);
         }
 
-        .award-bento-card:hover .award-name {
-            color: var(--primary);
-        }
-
-        .award-excerpt {
+        .award-card-desc {
             color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.65;
-            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
         }
 
-        .award-footer-bar {
+        .award-card-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-top: 1px solid var(--border-card);
-            padding-top: 1.2rem;
+            padding-top: 1rem;
             margin-top: auto;
         }
 
-        .award-location {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-muted);
+        .award-organizer {
+            font-size: 0.82rem;
+            color: var(--text-subtle);
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 60%;
         }
 
-        .award-cta-link {
+        .award-view-link {
             font-family: var(--font-head);
-            font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
+            font-weight: 800;
             color: var(--primary);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 0.3rem;
         }
 
-        /* Column Span Allocations */
-        .award-col-6 {
-            grid-column: span 6;
+        /* ==========================================================================
+           7. CATALOG VIEW B: CHRONOLOGICAL TIMELINE
+           ========================================================================== */
+        .awards-timeline-wrap {
+            display: none;
+            position: relative;
+            margin: 2rem auto 4rem;
+            max-width: 900px;
         }
 
-        .award-col-4 {
-            grid-column: span 4;
+        .awards-timeline-wrap.active {
+            display: block;
         }
 
-        .award-col-8 {
-            grid-column: span 8;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .timeline-year-block {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3.5rem;
+            border-left: 2px solid var(--border-card);
         }
 
-        .award-col-8 .award-thumb-banner {
-            height: 100%;
-            min-height: 300px;
+        .timeline-year-marker {
+            position: absolute;
+            left: -19px;
+            top: 0;
+            background: var(--primary);
+            color: #ffffff;
+            font-family: var(--font-head);
+            font-size: 0.82rem;
+            font-weight: 800;
+            padding: 0.3rem 0.85rem;
+            border-radius: var(--radius-full);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .timeline-item-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .timeline-item-card:hover {
+            border-color: var(--primary);
+            transform: translateX(6px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .timeline-card-content h3 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin: 0.3rem 0 0.5rem;
+            font-weight: 800;
+        }
+
+        /* Load More Action */
+        .load-more-section {
+            text-align: center;
+            margin: 3rem 0 5rem;
+        }
+
+        /* Empty State */
+        .catalog-empty-state {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-alt);
+            border-radius: var(--radius-xl);
+            border: 1px dashed var(--border-card);
+            margin-bottom: 3rem;
+        }
+
+        .catalog-empty-state.active {
+            display: block;
         }
 
         /* ==========================================================================
-           6. INTERACTIVE AWARD DETAIL MODAL
+           8. INTERACTIVE AWARD DETAIL MODAL
            ========================================================================== */
         .modal-overlay {
             position: fixed;
@@ -1082,28 +1400,32 @@
                             <span class="dropdown-icon">🎯</span>
                             <div>
                                 <div>Visi & Misi</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan Lembaga</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan
+                                    Lembaga</small>
                             </div>
                         </a>
                         <a href="fasilitas.html" class="dropdown-item">
                             <span class="dropdown-icon">🏢</span>
                             <div>
                                 <div>Fasilitas Kampus</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang Belajar</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang
+                                    Belajar</small>
                             </div>
                         </a>
                         <a href="ekstrakurikuler.html" class="dropdown-item">
                             <span class="dropdown-icon">⚽</span>
                             <div>
                                 <div>Ekstrakurikuler & IPM</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni & Karakter</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni &
+                                    Karakter</small>
                             </div>
                         </a>
                         <a href="prestasi.html" class="dropdown-item">
                             <span class="dropdown-icon">🏆</span>
                             <div>
                                 <div>Galeri Prestasi</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan Nasional</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan
+                                    Nasional</small>
                             </div>
                         </a>
                     </div>
@@ -1121,21 +1443,24 @@
                             <span class="dropdown-icon">🏬</span>
                             <div>
                                 <div>Unit Produksi BLUD</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Produk & Layanan Siswa</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Produk & Layanan
+                                    Siswa</small>
                             </div>
                         </a>
                         <a href="redesign-web1.html#bkk" class="dropdown-item">
                             <span class="dropdown-icon">💼</span>
                             <div>
                                 <div>Bursa Kerja Khusus (BKK)</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Info Karir & Mitra DUDI</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Info Karir & Mitra
+                                    DUDI</small>
                             </div>
                         </a>
                     </div>
                 </div>
 
                 <a href="berita.html" class="nav-link">Berita</a>
-                <a href="redesign-web1.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
+                <a href="redesign-web1.html#ppdb" class="btn btn-primary"
+                    style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
             </div>
 
             <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
@@ -1180,32 +1505,28 @@
     <!-- 2. PAGE HEADER -->
     <header class="page-header">
         <div class="container">
-            <span class="badge-gold">🏆 Rekam Jejak Prestasi & Kejuaraan</span>
+            <span class="badge-gold">Rekam Jejak Prestasi & Kejuaraan</span>
             <h1 class="page-title">Tradisi Juara &<br>Hall of Fame Prestasi.</h1>
             <p class="page-subtitle">
                 Dedikasi, inovasi rekayasa, dan kerja keras peserta didik SMKS Muhammadiyah 1 Genteng yang telah diakui
                 hingga podium tertinggi kejuaraan tingkat regional, provinsi, dan nasional.
             </p>
 
-            <!-- Stats Bar -->
+            <!-- Stats Bar: Homogenized Number + Label -->
             <div class="awards-stats-grid">
                 <div class="award-stat-card">
-                    <div class="stat-icon">🏆</div>
-                    <div class="stat-number">Juara Umum</div>
-                    <div class="stat-title">ME Awards Nasional 2026</div>
+                    <div class="stat-number">1×</div>
+                    <div class="stat-title">Juara Umum ME Awards Nasional 2026</div>
                 </div>
                 <div class="award-stat-card">
-                    <div class="stat-icon">🥇</div>
                     <div class="stat-number">48+</div>
-                    <div class="stat-title">Piala Kejuaraan Tingkat Daerah</div>
+                    <div class="stat-title">Piala Kejuaraan Tingkat Daerah & Jatim</div>
                 </div>
                 <div class="award-stat-card">
-                    <div class="stat-icon">📜</div>
                     <div class="stat-number">100%</div>
                     <div class="stat-title">Kelulusan Bersertifikasi BNSP</div>
                 </div>
                 <div class="award-stat-card">
-                    <div class="stat-icon">🌟</div>
                     <div class="stat-number">58 Th</div>
                     <div class="stat-title">Pengabdian Vokasi Sejak 1968</div>
                 </div>
@@ -1215,11 +1536,12 @@
 
     <!-- 3. PINNACLE AWARD: ME AWARDS JUARA UMUM NASIONAL -->
     <section class="pinnacle-section container" data-px-stage="gold">
-        <div class="pinnacle-card" onclick="openAwardModal('me-awards')">
+        <div class="pinnacle-card" onclick="openAwardModal('me-awards')" role="button" tabindex="0"
+            aria-label="Buka rincian Juara Umum ME Awards Nasional">
             <div>
-                <div class="pinnacle-badge">⭐ Mahkota Prestasi Nasional 2026</div>
+                <div class="pinnacle-badge">Mahkota Prestasi Nasional 2026</div>
                 <h2 class="pinnacle-title">Juara Umum Muhammadiyah Education Awards (ME Awards) Nasional</h2>
-                <p class="pinnacle-desc" data-scroll-reveal>
+                <p class="pinnacle-desc" id="pinnacle-text-reveal">
                     Pencapaian puncak prestisius yang membuktikan keunggulan komprehensif SMKS Muhammadiyah 1 Genteng.
                     Mengungguli ratusan sekolah kejuruan se-Indonesia dalam bidang riset inovasi digital, robotika, seni
                     budaya, dan kepemimpinan Islami.
@@ -1243,167 +1565,136 @@
 
             <div class="pinnacle-trophy-box">
                 <div class="pinnacle-img-frame">
-                    <img src="assets/juara-me-awards.jpg" alt="Penyerahan Piala Juara Umum ME Awards SMKS MUHI">
+                    <img src="assets/juara-me-awards.jpg"
+                        alt="Dokumentasi Penyerahan Piala Juara Umum ME Awards SMKS MUHI" loading="lazy">
                 </div>
                 <span class="badge-gold" style="font-size:0.78rem;">JUARA UMUM NASIONAL</span>
-                <p style="font-size:0.85rem; margin-top:0.6rem; opacity:0.85;">Klik untuk membaca liputan lengkap</p>
+                <p style="font-size:0.85rem; margin-top:0.6rem; opacity:0.85;">Klik untuk membaca liputan lengkap &rarr;
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- 4. HALL OF FAME ASYMMETRICAL BENTO GRID -->
-    <section class="fame-section container" data-px-stage="light">
-        <div class="fame-header-row">
-            <div>
-                <span class="badge-gold">Katalog Kejuaraan</span>
-                <h2 class="font-display" style="font-size:2.4rem; color:var(--primary); margin-top:0.6rem;">Galeri
-                    Prestasi Unggulan</h2>
+    <!-- 4. REAL INTERACTIVE CATALOG SECTION -->
+    <section class="container" id="katalog-prestasi" style="padding-bottom: 5rem;">
+
+        <!-- Control Panel: Search, Category Filters, Year Select, View Switcher -->
+        <div class="catalog-control-panel">
+            <div class="catalog-top-bar">
+                <!-- Search input -->
+                <div class="award-search-box">
+                    <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="award-search-input"
+                        placeholder="Cari nama kejuaraan, penyelenggara, atau kata kunci..."
+                        aria-label="Cari prestasi kejuaraan">
+                </div>
+
+                <!-- View Switcher -->
+                <div class="view-switcher-group" role="group" aria-label="Pilihan tampilan katalog">
+                    <button class="view-toggle-btn active" id="view-grid-btn" aria-pressed="true"
+                        onclick="switchCatalogView('grid')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        Grid
+                    </button>
+                    <button class="view-toggle-btn" id="view-timeline-btn" aria-pressed="false"
+                        onclick="switchCatalogView('timeline')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Linimasa
+                    </button>
+                </div>
             </div>
-            <p style="color:var(--text-muted); max-width:450px;">
-                Pencapaian luar biasa di bidang teknologi informasi, olahraga bela diri, seni musik, dan kompetisi
-                akademik kejuruan.
-            </p>
+
+            <!-- Category & Year Filter Row -->
+            <div class="catalog-filters-row">
+                <div class="category-chip-list" role="toolbar" aria-label="Filter kategori prestasi">
+                    <button class="category-chip active" aria-pressed="true" data-category="all"
+                        onclick="filterByCategory('all', this)">Semua</button>
+                    <button class="category-chip" aria-pressed="false" data-category="teknologi"
+                        onclick="filterByCategory('teknologi', this)">Teknologi</button>
+                    <button class="category-chip" aria-pressed="false" data-category="bela-diri"
+                        onclick="filterByCategory('bela-diri', this)">Bela Diri</button>
+                    <button class="category-chip" aria-pressed="false" data-category="seni"
+                        onclick="filterByCategory('seni', this)">Seni</button>
+                    <button class="category-chip" aria-pressed="false" data-category="akademik"
+                        onclick="filterByCategory('akademik', this)">Akademik</button>
+                    <button class="category-chip" aria-pressed="false" data-category="esports"
+                        onclick="filterByCategory('esports', this)">E-Sports</button>
+                </div>
+
+                <div class="year-select-wrap">
+                    <label for="award-year-filter">Tahun:</label>
+                    <select id="award-year-filter" class="year-select-dropdown" onchange="filterByYear(this.value)"
+                        aria-label="Filter tahun kejuaraan">
+                        <option value="all">Semua Tahun</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
-        <div class="fame-bento-grid">
-
-            <!-- Card 1: Taekwondo Kejurprov (Span 6) -->
-            <article class="award-bento-card award-col-6" onclick="openAwardModal('taekwondo')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
-                    <span class="award-thumb-emoji">🥋</span>
-                    <span class="badge-gold"
-                        style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.95); font-size:0.75rem;">
-                        MEDALI PERUNGGU
-                    </span>
-                </div>
-                <div class="award-body">
-                    <div>
-                        <div class="award-meta-tag">
-                            <span class="badge-primary" style="font-size:0.72rem;">BELA DIRI</span>
-                            <span>&bull; Juni 2026</span>
-                        </div>
-                        <h3 class="award-name">Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Jatim</h3>
-                        <p class="award-excerpt">
-                            Berlaga di Kota Malang, dua atlet pelajar binaan ekstrakurikuler bela diri SMKS MUHI sukses
-                            membawa pulang medali perunggu pada kejuaraan provinsi pelajar Jawa Timur.
-                        </p>
-                    </div>
-                    <div class="award-footer-bar">
-                        <span class="award-location">Malang, Jawa Timur</span>
-                        <span class="award-cta-link">Detail Prestasi &rarr;</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 2: Lomba Inovasi Digital Tim RPL (Span 6) -->
-            <article class="award-bento-card award-col-6" onclick="openAwardModal('inovasi-rpl')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #16296b 0%, #1e40af 100%);">
-                    <span class="award-thumb-emoji">💻</span>
-                    <span class="badge-gold"
-                        style="position: absolute; top: 1.2rem; left: 1.2rem; background: rgba(255,255,255,0.95); font-size:0.75rem;">
-                        MEDALI EMAS NASIONAL
-                    </span>
-                </div>
-                <div class="award-body">
-                    <div>
-                        <div class="award-meta-tag">
-                            <span class="badge-primary" style="font-size:0.72rem;">TEKNOLOGI IT</span>
-                            <span>&bull; Mei 2026</span>
-                        </div>
-                        <h3 class="award-name">Juara 1 Lomba Inovasi Digital Tingkat Nasional (Tim RPL)</h3>
-                        <p class="award-excerpt">
-                            Pengembangan aplikasi terpadu manajemen vokasi berbasis smart cloud berhasil membawa tim
-                            Rekayasa Perangkat Lunak meraih juara pertama tingkat nasional.
-                        </p>
-                    </div>
-                    <div class="award-footer-bar">
-                        <span class="award-location">Jakarta / Nasional</span>
-                        <span class="award-cta-link">Detail Prestasi &rarr;</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 3: Seni Suara Karaoke (Span 4) -->
-            <article class="award-bento-card award-col-4" onclick="openAwardModal('karaoke')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);">
-                    <span class="award-thumb-emoji">🎤</span>
-                </div>
-                <div class="award-body">
-                    <div>
-                        <div class="award-meta-tag">
-                            <span class="badge-primary" style="font-size:0.72rem;">SENI MUSIK</span>
-                            <span>&bull; Juni 2026</span>
-                        </div>
-                        <h3 class="award-name">Dua Siswi Smemsa Borong Juara Festival Vokal Berbakat</h3>
-                        <p class="award-excerpt">
-                            Kolaborasi vokal yang memukau dewan juri mengukuhkan talenta seni peserta didik SMKS MUHI di
-                            kancah pencarian bakat pelajar.
-                        </p>
-                    </div>
-                    <div class="award-footer-bar">
-                        <span class="award-location">Banyuwangi</span>
-                        <span class="award-cta-link">Detail &rarr;</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 4: Pencak Silat Panji Laras (Span 4) -->
-            <article class="award-bento-card award-col-4" onclick="openAwardModal('silat')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);">
-                    <span class="award-thumb-emoji">🗡️</span>
-                </div>
-                <div class="award-body">
-                    <div>
-                        <div class="award-meta-tag">
-                            <span class="badge-primary" style="font-size:0.72rem;">PENCAK SILAT</span>
-                            <span>&bull; 2025</span>
-                        </div>
-                        <h3 class="award-name">Juara 1 Open Competition Panji Laras Kategori Seni Tunggal</h3>
-                        <p class="award-excerpt">
-                            Pesilat Tapak Suci SMKS MUHI mendominasi kompetisi seni tunggal IPSI tingkat kabupaten
-                            dengan nilai tertinggi.
-                        </p>
-                    </div>
-                    <div class="award-footer-bar">
-                        <span class="award-location">Banyuwangi</span>
-                        <span class="award-cta-link">Detail &rarr;</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 5: E-Sports Student League (Span 4) -->
-            <article class="award-bento-card award-col-4" onclick="openAwardModal('esports')">
-                <div class="award-thumb-banner" style="background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);">
-                    <span class="award-thumb-emoji">🎮</span>
-                </div>
-                <div class="award-body">
-                    <div>
-                        <div class="award-meta-tag">
-                            <span class="badge-primary" style="font-size:0.72rem;">E-SPORTS</span>
-                            <span>&bull; 2025</span>
-                        </div>
-                        <h3 class="award-name">Juara 1 MPL Student League & Lolos ke Tingkat Nasional</h3>
-                        <p class="award-excerpt">
-                            Kekompakan strategi tim e-sports sekolah mengantarkan delegasi SMKS MUHI melaju mewakili
-                            daerah ke babak grand final Surabaya.
-                        </p>
-                    </div>
-                    <div class="award-footer-bar">
-                        <span class="award-location">Surabaya</span>
-                        <span class="award-cta-link">Detail &rarr;</span>
-                    </div>
-                </div>
-            </article>
-
+        <!-- Accessible Status Live Region -->
+        <div class="catalog-status-bar" id="catalog-status-bar" aria-live="polite">
+            <span id="catalog-count-text">Menampilkan 6 dari 48 prestasi</span>
+            <span id="active-filter-indicator" style="font-size:0.85rem; color:var(--primary); font-weight:700;"></span>
         </div>
+
+        <!-- VIEW 1: Modern Typographic Grid -->
+        <div class="awards-catalog-grid" id="awards-grid-container">
+            <!-- Rendered by JavaScript -->
+        </div>
+
+        <!-- VIEW 2: Chronological Timeline -->
+        <div class="awards-timeline-wrap" id="awards-timeline-container">
+            <!-- Rendered by JavaScript -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="catalog-empty-state" id="catalog-empty-state">
+            <h3 style="color:var(--primary-dark); font-size:1.4rem; margin-bottom:0.6rem;">Tidak ada prestasi yang cocok
+            </h3>
+            <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">Coba gunakan kata kunci
+                pencarian lain atau atur ulang filter kategori dan tahun.</p>
+            <button class="btn btn-outline" onclick="resetAllFilters()">Atur Ulang Filter</button>
+        </div>
+
+        <!-- Load More Section -->
+        <div class="load-more-section" id="load-more-container">
+            <button class="btn btn-outline" id="load-more-btn" onclick="loadMoreAwards()" style="min-width: 220px;">
+                Muat Lebih Banyak (+6)
+            </button>
+        </div>
+
     </section>
 
     <!-- 5. INTERACTIVE AWARD DETAIL MODAL -->
-    <div class="modal-overlay" id="award-modal-overlay" onclick="closeAwardModalOnOverlay(event)">
+    <div class="modal-overlay" id="award-modal-overlay" onclick="closeAwardModalOnOverlay(event)" role="dialog"
+        aria-modal="true" aria-labelledby="modal-award-title">
         <div class="award-modal-card" id="award-modal-card">
-            <!-- Modal Header Banner -->
-            <div class="modal-banner" id="modal-award-banner">
-                <div class="modal-banner-emoji" id="modal-award-icon">🏆</div>
+            <!-- Modal Header Typographic Banner -->
+            <div class="modal-banner" id="modal-award-banner"
+                style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);">
+                <div style="text-align: center; color: #ffffff; padding: 1.5rem;">
+                    <span class="badge-gold" id="modal-award-badge" style="font-size:0.78rem;">TINGKAT NASIONAL</span>
+                    <div id="modal-banner-sub"
+                        style="font-family:var(--font-mono); font-size:0.85rem; margin-top:0.6rem; opacity:0.9;">
+                        Kategori Kejuaraan Vokasi</div>
+                </div>
                 <button class="modal-close-btn" onclick="closeAwardModal()"
                     aria-label="Tutup Detail Prestasi">&times;</button>
             </div>
@@ -1411,7 +1702,7 @@
             <!-- Modal Content Body -->
             <div class="modal-body">
                 <div class="modal-meta-row">
-                    <span class="badge-gold" id="modal-award-badge" style="font-size:0.75rem;">TINGKAT NASIONAL</span>
+                    <span class="badge-primary" id="modal-award-cat" style="font-size:0.75rem;">TEKNOLOGI</span>
                     <span id="modal-award-location">Surabaya &bull; 2026</span>
                 </div>
 
@@ -1447,7 +1738,6 @@
             <div class="footer-grid">
                 <div>
                     <div class="brand-box" style="margin-bottom:1.2rem;">
-                        <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo">
                         <div
                             style="color:#ffffff; font-family:var(--font-display); font-weight:800; font-size:1.15rem;">
                             SMKS MUHAMMADIYAH 1 GENTENG
@@ -1512,112 +1802,503 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Batch Animation for Award Cards
-        ScrollTrigger.batch(".award-bento-card", {
-            onEnter: batch => gsap.to(batch, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.12,
-                ease: "power2.out"
-            }),
-            start: "top 88%",
-            once: true
-        });
-
         // ==========================================
-        // DATA PRESTASI & MODAL LOGIC
+        // 1. DATA PRESTASI & KATALOG (Array of Objects)
         // ==========================================
-        const awardsData = {
-            'me-awards': {
-                badge: "JUARA UMUM TINGKAT NASIONAL",
-                location: "Surabaya / Nasional • 2026",
+        const awardsList = [
+            {
+                id: 'me-awards',
                 title: "Juara Umum Muhammadiyah Education Awards (ME Awards) Nasional 2026",
-                icon: "🏆",
-                gradient: "linear-gradient(135deg, #1e40af 0%, #eab308 100%)",
+                category: "akademik",
+                categoryLabel: "Akademik & Vokasi",
+                level: "nasional",
+                badge: "JUARA UMUM TINGKAT NASIONAL",
+                year: "2026",
+                dateStr: "Maret 2026",
+                location: "Surabaya / Nasional",
                 org: "Pimpinan Wilayah Muhammadiyah & Majelis Dikdasmen Nasional",
-                desc: `
+                excerpt: "Mengungguli ratusan sekolah kejuruan se-Indonesia dalam kompetisi riset inovasi digital, robotika, seni budaya, dan kepemimpinan Islami.",
+                photo: "assets/juara-me-awards.jpg",
+                photoAlt: "Dokumentasi Penyerahan Piala Juara Umum ME Awards 2026",
+                fullDesc: `
                     <div style="margin-bottom: 1.5rem; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-                        <img src="assets/juara-me-awards.jpg" alt="Dokumentasi Penyerahan Juara Umum ME Awards" style="width: 100%; height: auto; display: block;">
+                        <img src="assets/juara-me-awards.jpg" alt="Dokumentasi Penyerahan Juara Umum ME Awards" loading="lazy" style="width: 100%; height: auto; display: block;">
                     </div>
                     <p>SMKS Muhammadiyah 1 Genteng berhasil menorehkan sejarah gemilang dengan dinobatkan sebagai <strong>Juara Umum Tingkat Nasional</strong> dalam perhelatan akbar Muhammadiyah Education Awards (ME Awards) 2026.</p>
                     <p>Prestasi ini diraih berkat akumulasi medali emas dan perak pada berbagai cabang perlombaan bergengsi, meliputi Lomba Inovasi Robotika Vokasi, Desain Aplikasi Digital Software, Pidato Bahasa Asing, Seni Budaya, dan Tata Kelola Sekolah Kejuruan Unggul.</p>
                     <p>Pencapaian ini membuktikan komitmen civitas akademika SMKS MUHI dalam mengintegrasikan keahlian sains teknologi abad ke-21 dengan penanaman akhlakul karimah yang berwawasan global.</p>
                 `
             },
-            'taekwondo': {
-                badge: "MEDALI PERUNGGU PROVINSI",
-                location: "Malang, Jawa Timur • Juni 2026",
-                title: "Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Pelajar se-Jatim",
-                icon: "🥋",
-                gradient: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
-                org: "Pengurus Provinsi Taekwondo Indonesia (TI) Jawa Timur",
-                desc: `
-                    <p>Dua atlet pelajar SMKS Muhammadiyah 1 Genteng sukses merebut medali perunggu pada ajang Kejuaraan Provinsi (Kejurprov) Taekwondo Antar Pelajar se-Jawa Timur yang diselenggarakan di GOR Ken Arok, Malang.</p>
-                    <p>Melalui latihan disiplin intensif di bawah naungan ekstrakurikuler bela diri sekolah, atlet binaan SMKS MUHI mampu bersaing secara tangguh menghadapi atlet-atlet unggulan dari berbagai kota besar di Jawa Timur.</p>
-                `
-            },
-            'inovasi-rpl': {
+            {
+                id: 'inovasi-rpl',
+                title: "Juara 1 Lomba Inovasi Digital Nasional (Tim Rekayasa Perangkat Lunak)",
+                category: "teknologi",
+                categoryLabel: "Teknologi IT",
+                level: "nasional",
                 badge: "MEDALI EMAS NASIONAL",
-                location: "Jakarta / Nasional • Mei 2026",
-                title: "Juara 1 Lomba Inovasi Digital Tingkat Nasional (Tim Rekayasa Perangkat Lunak)",
-                icon: "💻",
-                gradient: "linear-gradient(135deg, #16296b 0%, #1e40af 100%)",
-                org: "Kementerian Pendidikan & Asosiasi Industri Software House Indonesia",
-                desc: `
+                year: "2026",
+                dateStr: "Mei 2026",
+                location: "Jakarta / Nasional",
+                org: "Kementerian Pendidikan & Asosiasi Industri Software House",
+                excerpt: "Pengembangan software terintegrasi 'Smart Vocational Cloud' untuk monitoring presensi RFID dan portofolio kompetensi BNSP siswa.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Tim RPL SMKS MUHI meraih Medali Emas Lomba Inovasi Digital",
+                fullDesc: `
                     <p>Tim siswa konsentrasi keahlian Rekayasa Perangkat Lunak (RPL) SMKS Muhammadiyah 1 Genteng berhasil meraih <strong>Juara 1 Nasional</strong> dalam kompetisi inovasi perangkat lunak terapan.</p>
                     <p>Produk yang dikembangkan adalah <em>'Smart Vocational Management System'</em>, aplikasi cloud terintegrasi untuk absensi RFID real-time, monitoring unit produksi Teaching Factory, dan tracking sertifikasi BNSP siswa.</p>
                 `
             },
-            'karaoke': {
+            {
+                id: 'taekwondo',
+                title: "Dua Atlet Taekwondo Smemsa Raih Juara 3 Kejurprov Pelajar se-Jatim",
+                category: "bela-diri",
+                categoryLabel: "Bela Diri",
+                level: "provinsi",
+                badge: "MEDALI PERUNGGU PROVINSI",
+                year: "2026",
+                dateStr: "Juni 2026",
+                location: "Malang, Jawa Timur",
+                org: "Pengurus Provinsi Taekwondo Indonesia (TI) Jawa Timur",
+                excerpt: "Dua atlet pelajar binaan ekstrakurikuler bela diri SMKS MUHI sukses merebut podium ketiga pada kejuaraan provinsi di GOR Ken Arok Malang.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Penyerahan Medali Taekwondo Kejurprov Jatim",
+                fullDesc: `
+                    <p>Dua atlet pelajar SMKS Muhammadiyah 1 Genteng sukses merebut medali perunggu pada ajang Kejuaraan Provinsi (Kejurprov) Taekwondo Antar Pelajar se-Jawa Timur yang diselenggarakan di GOR Ken Arok, Malang.</p>
+                    <p>Melalui latihan disiplin intensif di bawah naungan ekstrakurikuler bela diri sekolah, atlet binaan SMKS MUHI mampu bersaing secara tangguh menghadapi atlet-atlet unggulan dari berbagai kota besar di Jawa Timur.</p>
+                `
+            },
+            {
+                id: 'karaoke',
+                title: "Dua Siswi Smemsa Borong Juara Festival Vokal Pelajar Berbakat",
+                category: "seni",
+                categoryLabel: "Seni Musik",
+                level: "kabupaten",
                 badge: "JUARA FESTIVAL SENI",
-                location: "Banyuwangi • Juni 2026",
-                title: "Dua Siswi Smemsa Borong Juara Festival Karaoke Pelajar Berbakat",
-                icon: "🎤",
-                gradient: "linear-gradient(135deg, #7c3aed 0%, #9333ea 100%)",
+                year: "2026",
+                dateStr: "Juni 2026",
+                location: "Banyuwangi",
                 org: "Dinas Kebudayaan & Pariwisata Kabupaten Banyuwangi",
-                desc: `
+                excerpt: "Harmonisasi nada dan olah vokal memukau mengantarkan delegasi siswi SMKS MUHI memboyong piala juara festival musik pelajar daerah.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Pemenang Festival Seni Suara Pelajar",
+                fullDesc: `
                     <p>Penampilan vokal yang memukau dan harmonisasi nada yang matang mengantarkan dua siswi SMKS MUHI memboyong piala juara pada festival pencarian bakat vokal pelajar tingkat kabupaten Banyuwangi.</p>
                     <p>Sekolah memberikan apresiasi tinggi bagi pengembangan bakat seni dan kepercayaan diri siswa sebagai penyeimbang keterampilan teknis vokasi.</p>
                 `
             },
-            'silat': {
-                badge: "JUARA 1 SENI TUNGGAL",
-                location: "Banyuwangi • 2025",
+            {
+                id: 'silat',
                 title: "Juara 1 Open Competition Panji Laras Kategori Seni Tunggal IPSI",
-                icon: "🗡️",
-                gradient: "linear-gradient(135deg, #eab308 0%, #ca8a04 100%)",
+                category: "bela-diri",
+                categoryLabel: "Pencak Silat",
+                level: "regional",
+                badge: "JUARA 1 SENI TUNGGAL",
+                year: "2025",
+                dateStr: "November 2025",
+                location: "Banyuwangi",
                 org: "Ikatan Pencak Silat Indonesia (IPSI) Kabupaten Banyuwangi",
-                desc: `
+                excerpt: "Pesilat Tapak Suci SMKS MUHI mendominasi kompetisi seni tunggal IPSI dengan keindahan jurus dan presisi gerakan berstandar nasional.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Pesilat Tapak Suci SMKS MUHI di Podium Juara",
+                fullDesc: `
                     <p>Pesilat Tapak Suci Putera Muhammadiyah SMKS MUHI berhasil menyabet Juara 1 kategori Seni Tunggal Putra pada Kejuaraan Terbuka Panji Laras se-Kabupaten Banyuwangi.</p>
                     <p>Gerakan jurus yang presisi, ketegasan sikap, dan penghayatan gerak seni bela diri tradisional mengantarkan pesilat sekolah memperoleh skor tertinggi dari dewan juri IPSI.</p>
                 `
             },
-            'esports': {
+            {
+                id: 'esports',
+                title: "Juara 1 MPL Student League & Delegasi Grand Final Tingkat Nasional",
+                category: "esports",
+                categoryLabel: "E-Sports",
+                level: "nasional",
                 badge: "JUARA 1 & DELEGASI NASIONAL",
-                location: "Surabaya • 2025",
-                title: "Juara 1 MPL Student League & Lolos ke Tingkat Nasional Surabaya",
-                icon: "🎮",
-                gradient: "linear-gradient(135deg, #0f172a 0%, #1e40af 100%)",
+                year: "2025",
+                dateStr: "Oktober 2025",
+                location: "Surabaya & Karesidenan",
                 org: "Indonesia Esports Association (IESPA) Jawa Timur",
-                desc: `
+                excerpt: "Kerja sama taktis dan kepiawaian strategi tim e-sports sekolah membawa SMKS MUHI lolos melaju ke babak Grand Final nasional Surabaya.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Tim E-Sports SMKS MUHI memegang Trofi Juara",
+                fullDesc: `
                     <p>Tim E-Sports SMKS Muhammadiyah 1 Genteng membuktikan keunggulan strategi, koordinasi tim, dan ketangkasan kognitif dengan menjuarai kualifikasi MPL Student League regional.</p>
                     <p>Prestasi ini mengantarkan tim mewakili karesidenan ke babak Grand Final tingkat nasional di Surabaya.</p>
                 `
+            },
+            {
+                id: 'lks-tkj',
+                title: "Juara 1 Lomba Kompetensi Siswa (LKS) IT Network System Administration",
+                category: "teknologi",
+                categoryLabel: "Teknologi IT",
+                level: "provinsi",
+                badge: "MEDALI EMAS LKS WILAYAH",
+                year: "2025",
+                dateStr: "Agustus 2025",
+                location: "Jember & Banyuwangi",
+                org: "Musyawarah Kerja Kepala Sekolah (MKKS) & Dinas Pendidikan Jatim",
+                excerpt: "Konfigurasi routing enterprise, virtualization server, dan network security mengantarkan siswa TKJ SMKS MUHI ke posisi puncak LKS.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Siswa TKJ Juara LKS Network Administration",
+                fullDesc: `
+                    <p>Siswa konsentrasi keahlian Teknik Komputer dan Jaringan (TKJ) SMKS MUHI meraih Juara 1 pada ajang Lomba Kompetensi Siswa (LKS) bidang IT Network System Administration.</p>
+                    <p>Kemampuan konfigurasi server Linux, firewall, dan routing Cisco secara cepat dan aman di bawah batasan waktu ketat mengesankan para penguji dari kalangan praktisi industri telekomunikasi.</p>
+                `
+            },
+            {
+                id: 'animasi-dkv',
+                title: "Pemenang Karya Terbaik Festival Film Pendek Animasi 2D Pelajar Vokasi",
+                category: "seni",
+                categoryLabel: "Desain & Animasi",
+                level: "nasional",
+                badge: "KARYA TERBAIK NASIONAL",
+                year: "2025",
+                dateStr: "September 2025",
+                location: "Yogyakarta",
+                org: "Asosiasi Industri Animasi & Konten Kreatif Indonesia (AINAKI)",
+                excerpt: "Karya animasi edukasi bertema kearifan lokal karya siswa DKV berhasil menyabet penghargaan Best Storytelling & Visual Appeal.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Siswa DKV Pemenang Festival Animasi",
+                fullDesc: `
+                    <p>Siswa konsentrasi Desain Komunikasi Visual (DKV) SMKS MUHI menciptakan film pendek animasi 2D yang memadukan cerita edukasi karakter dengan visual grafis modern.</p>
+                    <p>Karya ini terpilih sebagai salah satu karya terbaik di antara ratusan submisi pelajar SMK se-Indonesia dalam festival animasi nasional di Yogyakarta.</p>
+                `
+            },
+            {
+                id: 'robotika-otomasi',
+                title: "Juara 2 National Vocational Robotic Competition (Line Follower Micro)",
+                category: "teknologi",
+                categoryLabel: "Robotika",
+                level: "nasional",
+                badge: "JUARA 2 NASIONAL",
+                year: "2024",
+                dateStr: "Desember 2024",
+                location: "Semarang",
+                org: "Federasi Robotika Indonesia & Polines",
+                excerpt: "Robot line follower mikrokontroler presisi tinggi hasil rancangan siswa Teknik Mekatronika meraih waktu tercepat kedua di lintasan sirkuit nasional.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Tim Robotika SMKS MUHI dengan Trofi Robotika",
+                fullDesc: `
+                    <p>Tim Robotika SMKS Muhammadiyah 1 Genteng merancang robot lintasan otomatis berkecepatan tinggi dengan algoritma PID terkalibrasi presisi.</p>
+                    <p>Kompetisi ini menguji integrasi sensor optik, pemrograman embedded C, dan perancangan sirkuit PCB mandiri siswa.</p>
+                `
+            },
+            {
+                id: 'debat-bahasa',
+                title: "Best Speaker & Juara 2 English Debate Championship Pelajar",
+                category: "akademik",
+                categoryLabel: "Bahasa & Debat",
+                level: "provinsi",
+                badge: "BEST SPEAKER PROVINSI",
+                year: "2024",
+                dateStr: "November 2024",
+                location: "Surabaya",
+                org: "English Teachers Association (MGMP) Jawa Timur",
+                excerpt: "Keterampilan argumentasi kritis dalam bahasa Inggris mengenai isu global vokasi dan teknologi membawa siswa MUHI meraih gelar Best Speaker.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Siswa Peraih Best Speaker English Debate",
+                fullDesc: `
+                    <p>Kemampuan komunikasi bahasa internasional dan daya nalar kritis siswa SMKS MUHI terbukti unggul dalam kompetisi debat bahasa Inggris tingkat Jawa Timur.</p>
+                    <p>Dukungan program bilingual dan native speaking club sekolah menjadi fondasi utama keberhasilan ini.</p>
+                `
+            },
+            {
+                id: 'otomotif-tbsm',
+                title: "Juara 1 Kontes Keterampilan Mekanik Sepeda Motor Honda se-Karesidenan",
+                category: "teknologi",
+                categoryLabel: "Otomotif",
+                level: "regional",
+                badge: "JUARA 1 MEKANIK TERBAIK",
+                year: "2024",
+                dateStr: "Oktober 2024",
+                location: "Jember",
+                org: "PT Mitra Pinasthika Mulia (MPM Honda Motor Jatim)",
+                excerpt: "Ketepatan diagnosa sistem injeksi PGM-FI dan kecepatan overhaul mesin membawa siswa TBSM meraih predikat mekanik pelajar terbaik.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Siswa TBSM Juara Kontes Mekanik Honda",
+                fullDesc: `
+                    <p>Siswa Teknik & Bisnis Sepeda Motor (TBSM) SMKS MUHI unjuk kebolehan dalam uji kompetensi pemecahan masalah mesin injeksi (troubleshooting) standar bengkel resmi AHASS.</p>
+                    <p>Pencapaian ini membuka kesempatan langsung bagi siswa untuk memperoleh golden ticket rekrutmen mekanik resmi sebelum lulus.</p>
+                `
+            },
+            {
+                id: 'tapak-suci-jatim',
+                title: "Juara Umum 2 Kejuaraan Daerah Tapak Suci Putera Muhammadiyah",
+                category: "bela-diri",
+                categoryLabel: "Pencak Silat",
+                level: "provinsi",
+                badge: "JUARA UMUM 2 KEJURDA",
+                year: "2024",
+                dateStr: "Agustus 2024",
+                location: "Banyuwangi",
+                org: "Pimpinan Wilayah Tapak Suci Jawa Timur",
+                excerpt: "Kontingen pesilat SMKS MUHI membawa pulang 4 medali emas, 3 perak, dan 2 perunggu dalam kejuaraan tanding dan seni antar perguruan.",
+                photo: "assets/prestasi-placeholder.jpg",
+                photoAlt: "Foto Kontingen Tapak Suci SMKS MUHI",
+                fullDesc: `
+                    <p>Kontingen atlet Tapak Suci SMKS Muhammadiyah 1 Genteng tampil perkasa pada Kejuaraan Daerah dengan memborong berbagai kelas tanding dan seni beregu.</p>
+                    <p>Kombinasi ketahanan fisik, penguasaan jurus, dan akhlak sportivitas islami menjadi kunci keberhasilan pesilat sekolah.</p>
+                `
             }
-        };
+        ];
 
-        function openAwardModal(awardKey) {
-            const data = awardsData[awardKey];
-            if (!data) return;
+        // ==========================================
+        // 2. STATE MANAGEMENT & FILTER CONTROLS
+        // ==========================================
+        let currentCategory = 'all';
+        let currentYear = 'all';
+        let searchQuery = '';
+        let currentView = 'grid';
+        const pageSize = 6;
+        let displayedCount = pageSize;
 
-            document.getElementById('modal-award-badge').innerText = data.badge;
-            document.getElementById('modal-award-location').innerText = data.location;
-            document.getElementById('modal-award-title').innerText = data.title;
-            document.getElementById('modal-award-org').innerText = data.org;
-            document.getElementById('modal-award-desc').innerHTML = data.desc;
-            document.getElementById('modal-award-icon').innerText = data.icon;
-            document.getElementById('modal-award-banner').style.background = data.gradient;
+        function getFilteredAwards() {
+            return awardsList.filter(item => {
+                const matchCategory = (currentCategory === 'all' || item.category === currentCategory);
+                const matchYear = (currentYear === 'all' || item.year === currentYear);
+                const query = searchQuery.trim().toLowerCase();
+                const matchSearch = !query ||
+                    item.title.toLowerCase().includes(query) ||
+                    item.org.toLowerCase().includes(query) ||
+                    item.categoryLabel.toLowerCase().includes(query) ||
+                    item.location.toLowerCase().includes(query) ||
+                    item.excerpt.toLowerCase().includes(query);
+
+                return matchCategory && matchYear && matchSearch;
+            });
+        }
+
+        // Render Catalog Grid View
+        function renderGridView(itemsToRender) {
+            const gridContainer = document.getElementById('awards-grid-container');
+            if (!gridContainer) return;
+
+            if (itemsToRender.length === 0) {
+                gridContainer.innerHTML = '';
+                return;
+            }
+
+            const html = itemsToRender.map(item => {
+                const isNational = item.level === 'nasional';
+                const badgeClass = isNational ? 'award-badge-pill national' : 'award-badge-pill';
+
+                return `
+                    <article class="award-card" onclick="openAwardModal('${item.id}')" role="button" tabindex="0" aria-label="Detail prestasi: ${item.title}">
+                        <div class="award-card-header">
+                            <div class="award-card-tags-row">
+                                <span class="${badgeClass}">${item.badge}</span>
+                                <span class="award-year-tag">${item.year}</span>
+                            </div>
+                            <div class="award-headline-typo">${item.categoryLabel}</div>
+                        </div>
+                        <div class="award-card-body">
+                            <div>
+                                <div class="award-sub-meta">
+                                    <span>${item.dateStr}</span>
+                                    <span>&bull;</span>
+                                    <span>${item.location}</span>
+                                </div>
+                                <h3 class="award-card-title">${item.title}</h3>
+                                <p class="award-card-desc">${item.excerpt}</p>
+                            </div>
+                            <div class="award-card-footer">
+                                <span class="award-organizer" title="${item.org}">${item.org}</span>
+                                <span class="award-view-link">Detail &rarr;</span>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            gridContainer.innerHTML = html;
+        }
+
+        // Render Timeline View (Grouped by Year)
+        function renderTimelineView(filteredList) {
+            const timelineContainer = document.getElementById('awards-timeline-container');
+            if (!timelineContainer) return;
+
+            if (filteredList.length === 0) {
+                timelineContainer.innerHTML = '';
+                return;
+            }
+
+            // Group by year descending
+            const grouped = {};
+            filteredList.forEach(item => {
+                if (!grouped[item.year]) grouped[item.year] = [];
+                grouped[item.year].push(item);
+            });
+
+            const sortedYears = Object.keys(grouped).sort((a, b) => b - a);
+
+            const html = sortedYears.map(yr => {
+                const itemsInYear = grouped[yr].map(item => {
+                    const isNational = item.level === 'nasional';
+                    const badgeClass = isNational ? 'badge-gold' : 'badge-primary';
+
+                    return `
+                        <div class="timeline-item-card" onclick="openAwardModal('${item.id}')" role="button" tabindex="0" aria-label="${item.title}">
+                            <div class="timeline-card-content">
+                                <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.3rem;">
+                                    <span class="${badgeClass}" style="font-size:0.72rem;">${item.badge}</span>
+                                    <span style="font-size:0.8rem; color:var(--text-subtle);">${item.dateStr} &bull; ${item.location}</span>
+                                </div>
+                                <h3>${item.title}</h3>
+                                <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:0.4rem;">${item.excerpt}</p>
+                                <span style="font-size:0.8rem; color:var(--text-subtle);">${item.org}</span>
+                            </div>
+                            <span class="award-view-link" style="white-space:nowrap;">Lihat &rarr;</span>
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="timeline-year-block">
+                        <div class="timeline-year-marker">${yr}</div>
+                        ${itemsInYear}
+                    </div>
+                `;
+            }).join('');
+
+            timelineContainer.innerHTML = html;
+        }
+
+        // Main Refresh Function
+        function updateCatalog() {
+            const filtered = getFilteredAwards();
+            const totalMatching = filtered.length;
+            const itemsToShow = filtered.slice(0, displayedCount);
+
+            // Render Views
+            if (currentView === 'grid') {
+                renderGridView(itemsToShow);
+                document.getElementById('awards-grid-container').style.display = 'grid';
+                document.getElementById('awards-timeline-container').style.display = 'none';
+            } else {
+                renderTimelineView(itemsToShow);
+                document.getElementById('awards-grid-container').style.display = 'none';
+                document.getElementById('awards-timeline-container').style.display = 'block';
+            }
+
+            // Status count & live region update
+            const countText = document.getElementById('catalog-count-text');
+            const totalCount = awardsList.length;
+            if (totalMatching === 0) {
+                countText.innerText = `Menampilkan 0 dari ${totalCount} prestasi`;
+                document.getElementById('catalog-empty-state').classList.add('active');
+                document.getElementById('load-more-container').style.display = 'none';
+            } else {
+                const currentShown = Math.min(displayedCount, totalMatching);
+                countText.innerText = `Menampilkan ${currentShown} dari ${totalMatching} prestasi (Total ${totalCount} koleksi)`;
+                document.getElementById('catalog-empty-state').classList.remove('active');
+
+                // Load More Button visibility
+                const loadMoreBtn = document.getElementById('load-more-container');
+                if (displayedCount >= totalMatching) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                }
+            }
+        }
+
+        // Event Handlers for Filters
+        function filterByCategory(category, btnElement) {
+            currentCategory = category;
+            displayedCount = pageSize; // reset pagination
+
+            // Update ARIA pressed state
+            document.querySelectorAll('.category-chip').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
+            if (btnElement) {
+                btnElement.classList.add('active');
+                btnElement.setAttribute('aria-pressed', 'true');
+            }
+
+            updateCatalog();
+        }
+
+        function filterByYear(year) {
+            currentYear = year;
+            displayedCount = pageSize;
+            updateCatalog();
+        }
+
+        function switchCatalogView(viewType) {
+            currentView = viewType;
+            const gridBtn = document.getElementById('view-grid-btn');
+            const timelineBtn = document.getElementById('view-timeline-btn');
+
+            if (viewType === 'grid') {
+                gridBtn.classList.add('active');
+                gridBtn.setAttribute('aria-pressed', 'true');
+                timelineBtn.classList.remove('active');
+                timelineBtn.setAttribute('aria-pressed', 'false');
+            } else {
+                timelineBtn.classList.add('active');
+                timelineBtn.setAttribute('aria-pressed', 'true');
+                gridBtn.classList.remove('active');
+                gridBtn.setAttribute('aria-pressed', 'false');
+            }
+
+            updateCatalog();
+        }
+
+        function loadMoreAwards() {
+            displayedCount += pageSize;
+            updateCatalog();
+        }
+
+        function resetAllFilters() {
+            currentCategory = 'all';
+            currentYear = 'all';
+            searchQuery = '';
+            displayedCount = pageSize;
+
+            const searchInput = document.getElementById('award-search-input');
+            if (searchInput) searchInput.value = '';
+
+            const yearSelect = document.getElementById('award-year-filter');
+            if (yearSelect) yearSelect.value = 'all';
+
+            document.querySelectorAll('.category-chip').forEach(btn => {
+                if (btn.dataset.category === 'all') {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-pressed', 'true');
+                } else {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                }
+            });
+
+            updateCatalog();
+        }
+
+        // Search Input Listener
+        const searchInputEl = document.getElementById('award-search-input');
+        if (searchInputEl) {
+            searchInputEl.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                displayedCount = pageSize;
+                updateCatalog();
+            });
+        }
+
+        // ==========================================
+        // 3. MODAL DIALOG LOGIC
+        // ==========================================
+        function openAwardModal(awardId) {
+            const item = awardsList.find(a => a.id === awardId);
+            if (!item) return;
+
+            document.getElementById('modal-award-badge').innerText = item.badge;
+            document.getElementById('modal-award-cat').innerText = item.categoryLabel;
+            document.getElementById('modal-award-location').innerText = `${item.location} • ${item.year}`;
+            document.getElementById('modal-award-title').innerText = item.title;
+            document.getElementById('modal-award-org').innerText = item.org;
+            document.getElementById('modal-award-desc').innerHTML = item.fullDesc;
+            document.getElementById('modal-banner-sub').innerText = `Kategori: ${item.categoryLabel} • Tahun ${item.year}`;
 
             const modalOverlay = document.getElementById('award-modal-overlay');
             modalOverlay.classList.add('active');
@@ -1643,7 +2324,9 @@
             }
         });
 
-        // Navbar Scrolled Effect
+        // ==========================================
+        // 4. NAVBAR & MOBILE DRAWER
+        // ==========================================
         const mainNav = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 40) {
@@ -1653,7 +2336,6 @@
             }
         });
 
-        // Mobile Drawer Logic
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const drawerCloseBtn = document.getElementById('drawer-close-btn');
         const mobileDrawer = document.getElementById('mobile-drawer');
@@ -1678,6 +2360,52 @@
         if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileDrawer);
         if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeMobileDrawer);
         if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileDrawer);
+
+        // ==========================================
+        // 5. WORD REVEAL ANIMATION FIX & SCROLLTRIGGER REFRESH
+        // ==========================================
+        function initWordReveal() {
+            const revealTarget = document.getElementById('pinnacle-text-reveal');
+            if (revealTarget) {
+                const words = revealTarget.innerText.split(' ');
+                revealTarget.innerHTML = words.map(w => `<span class="reveal-word" style="opacity: 0.25; display: inline-block; transition: opacity 0.2s;">${w}</span>`).join(' ');
+
+                const wordSpans = revealTarget.querySelectorAll('.reveal-word');
+
+                gsap.to(wordSpans, {
+                    opacity: 1,
+                    stagger: 0.05,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".pinnacle-card",
+                        start: "top 85%",
+                        end: "bottom 60%",
+                        scrub: 0.5,
+                        onLeave: () => {
+                            // Force 100% opacity when scrolling past
+                            gsap.set(wordSpans, { opacity: 1 });
+                        }
+                    }
+                });
+            }
+        }
+
+        // Initialize catalog & animations on DOM ready
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCatalog();
+            initWordReveal();
+        });
+
+        // Refresh ScrollTrigger when all fonts and window load complete
+        window.addEventListener('load', () => {
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => {
+                    ScrollTrigger.refresh();
+                });
+            } else {
+                ScrollTrigger.refresh();
+            }
+        });
     </script>
 
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
