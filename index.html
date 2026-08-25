@@ -3682,7 +3682,7 @@
                 font-size: 1.4rem !important;
             }
         }
-    
+
         /* ==========================================================================
            ROBUST STANDARD NAVBAR & MOBILE DRAWER (Z-INDEX & ACCESSIBILITY FIX)
            ========================================================================== */
@@ -3823,12 +3823,15 @@
                 width: calc(100% - 20px) !important;
                 border-radius: 20px !important;
             }
+
             .nav-island {
                 padding: 0.6rem 1rem !important;
             }
+
             .nav-menu {
                 display: none !important;
             }
+
             .nav-mobile-cta {
                 display: inline-flex !important;
                 margin-left: auto;
@@ -3837,12 +3840,12 @@
                 font-size: 0.82rem !important;
                 min-height: 40px !important;
             }
+
             .hamburger,
             .nav-toggle {
                 display: flex !important;
             }
         }
-
     </style>
 </head>
 
@@ -5098,7 +5101,7 @@
                                     Galeri Prestasi</a></li>
                             <li><a href="berita.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
                                     Jurnal &amp; Berita</a></li>
-                            </ul>
+                        </ul>
                     </nav>
                 </div>
 
@@ -5176,89 +5179,89 @@
     <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
+
     <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
     <script>
-    (function() {
-        function initNavigation() {
-            var hamburgerBtn = document.querySelector('#hamburger-btn') || document.querySelector('.hamburger') || document.querySelector('.nav-toggle');
-            var drawerCloseBtn = document.querySelector('#drawer-close-btn') || document.querySelector('.drawer-close');
-            var mobileDrawer = document.querySelector('#mobile-drawer') || document.querySelector('.mobile-drawer');
-            var mobileOverlay = document.querySelector('#mobile-overlay') || document.querySelector('.mobile-overlay');
+        (function () {
+            function initNavigation() {
+                var hamburgerBtn = document.querySelector('#hamburger-btn') || document.querySelector('.hamburger') || document.querySelector('.nav-toggle');
+                var drawerCloseBtn = document.querySelector('#drawer-close-btn') || document.querySelector('.drawer-close');
+                var mobileDrawer = document.querySelector('#mobile-drawer') || document.querySelector('.mobile-drawer');
+                var mobileOverlay = document.querySelector('#mobile-overlay') || document.querySelector('.mobile-overlay');
 
-            function openDrawer() {
-                if (mobileDrawer) mobileDrawer.classList.add('active');
-                if (mobileOverlay) mobileOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
-                if (window.lenis) window.lenis.stop();
-            }
+                function openDrawer() {
+                    if (mobileDrawer) mobileDrawer.classList.add('active');
+                    if (mobileOverlay) mobileOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
+                    if (window.lenis) window.lenis.stop();
+                }
 
-            function closeDrawer() {
-                if (mobileDrawer) mobileDrawer.classList.remove('active');
-                if (mobileOverlay) mobileOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
-                if (window.lenis) window.lenis.start();
-            }
+                function closeDrawer() {
+                    if (mobileDrawer) mobileDrawer.classList.remove('active');
+                    if (mobileOverlay) mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    if (window.lenis) window.lenis.start();
+                }
 
-            if (hamburgerBtn) {
-                hamburgerBtn.removeEventListener('click', openDrawer);
-                hamburgerBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+                if (hamburgerBtn) {
+                    hamburgerBtn.removeEventListener('click', openDrawer);
+                    hamburgerBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+                            closeDrawer();
+                        } else {
+                            openDrawer();
+                        }
+                    });
+                }
+
+                if (drawerCloseBtn) {
+                    drawerCloseBtn.removeEventListener('click', closeDrawer);
+                    drawerCloseBtn.addEventListener('click', function (e) {
+                        e.preventDefault();
                         closeDrawer();
-                    } else {
-                        openDrawer();
+                    });
+                }
+
+                if (mobileOverlay) {
+                    mobileOverlay.removeEventListener('click', closeDrawer);
+                    mobileOverlay.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        closeDrawer();
+                    });
+                }
+
+                // Close on drawer link click
+                if (mobileDrawer) {
+                    var drawerLinks = mobileDrawer.querySelectorAll('a');
+                    drawerLinks.forEach(function (link) {
+                        link.addEventListener('click', function () {
+                            closeDrawer();
+                        });
+                    });
+                }
+
+                // Escape key listener
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        closeDrawer();
+                        if (typeof closeItemModal === 'function') closeItemModal();
+                        if (typeof closeNewsModal === 'function') closeNewsModal();
+                        if (typeof closeAwardModal === 'function') closeAwardModal();
+                        if (typeof closeMajorModal === 'function') closeMajorModal();
                     }
                 });
             }
 
-            if (drawerCloseBtn) {
-                drawerCloseBtn.removeEventListener('click', closeDrawer);
-                drawerCloseBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    closeDrawer();
-                });
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initNavigation);
+            } else {
+                initNavigation();
             }
-
-            if (mobileOverlay) {
-                mobileOverlay.removeEventListener('click', closeDrawer);
-                mobileOverlay.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    closeDrawer();
-                });
-            }
-
-            // Close on drawer link click
-            if (mobileDrawer) {
-                var drawerLinks = mobileDrawer.querySelectorAll('a');
-                drawerLinks.forEach(function(link) {
-                    link.addEventListener('click', function() {
-                        closeDrawer();
-                    });
-                });
-            }
-
-            // Escape key listener
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeDrawer();
-                    if (typeof closeItemModal === 'function') closeItemModal();
-                    if (typeof closeNewsModal === 'function') closeNewsModal();
-                    if (typeof closeAwardModal === 'function') closeAwardModal();
-                    if (typeof closeMajorModal === 'function') closeMajorModal();
-                }
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initNavigation);
-        } else {
-            initNavigation();
-        }
-    })();
+        })();
     </script>
 
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
@@ -5517,7 +5520,7 @@
                 tefa: 'Muhi E-Commerce Hub & Live Studio TEFA',
                 certSummary: 'LSP-P1 BNSP Toko Daring & Meta Certified Marketing',
                 logo: 'assets/major/logo bdp.png',
-                foto: 'assets/major-person/bd.png',
+                foto: 'assets/major-person/BD.png',
                 desc: 'Mengolaborasikan strategi niaga modern dengan teknologi: manajemen marketplace omnichannel, paid digital ads (Meta & Google), live commerce selling, dan analitik data pasar.',
                 kompetensi: [
                     'Manajemen Marketplace (Shopee, TikTok Shop, Tokopedia)',
@@ -5642,7 +5645,7 @@
                 certSummary: 'LSP-P1 BNSP Front Office Receptionist & CHSE',
                 logo: 'assets/major/PH.png',
                 emoji: '🏨',
-                foto: 'assets/major-person/ph.png',
+                foto: 'assets/major-person/PH.png',
                 desc: 'Menyiapkan tenaga hospitality internasional: keahlian reservasi Front Office, tata graha Housekeeping bintang lima, food & beverage service, serta etiket perjamuan formal.',
                 kompetensi: [
                     'Property Management System (Front Office Reservation)',
