@@ -1136,7 +1136,7 @@
         }
 
         .sinergi-section {
-            min-height: 100vh;
+            min-height: 100dvh;
             display: grid;
             place-items: center;
             background: var(--bg-dark);
@@ -2900,40 +2900,192 @@
         .site-footer {
             background: var(--bg-dark);
             color: var(--text-light);
-            padding: 6.5rem 0 2.5rem;
+            padding: 5.5rem 0 2.5rem;
             border-top: 1px solid var(--border-dark);
             position: relative;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
-            gap: 3.5rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
         }
 
-        .footer-col h4 {
+        /* D. Judul Kolom Footer: 0.78rem, weight 800, letter-spacing 0.1em, uppercase, var(--text-subtle) */
+        .footer-col h4,
+        .footer-brand-title {
             font-family: var(--font-head);
-            font-size: 1.1rem;
-            color: #ffffff;
-            margin-bottom: 1.4rem;
-            letter-spacing: -0.02em;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+            margin-bottom: 1.2rem;
         }
 
-        .footer-links li {
-            margin-bottom: 0.75rem;
+        .footer-brand-name {
+            color: #ffffff;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.05rem;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-brand-sub {
+            color: var(--secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.2rem;
+        }
+
+        .footer-address {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+        }
+
+        /* A. Baris Kontak dengan Inline SVG Stroke Sederhana (16x16, var(--text-subtle)) */
+        .footer-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-contact-icon {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-subtle);
+            stroke-width: 1.8;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-contact-link:hover {
+            color: var(--secondary-light);
+        }
+
+        /* C. Media Sosial Monokrom (Tombol Lingkaran 36px, SVG 18x18) */
+        .footer-social-row {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+        }
+
+        .footer-social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.25s ease;
+        }
+
+        .footer-social-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary-light);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+        }
+
+        .footer-social-btn:hover svg {
+            transform: scale(1.08);
+        }
+
+        /* A. & D. Tautan Navigasi Footer: Jarak 0.7rem, Tap Target Nyaman, Chevron Saat Hover */
+        .footer-nav {
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
         }
 
         .footer-links a {
-            color: #a8a29e;
-            font-size: 0.92rem;
-            transition: var(--transition-fast);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+            min-height: 28px;
+        }
+
+        .footer-chevron {
+            opacity: 0;
+            transform: translateX(-4px);
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.05rem;
+            line-height: 1;
+            transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
         .footer-links a:hover {
             color: var(--secondary-light);
             transform: translateX(4px);
-            display: inline-block;
+        }
+
+        .footer-links a:hover .footer-chevron {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Kartu Identitas Lembaga */
+        .footer-identity-card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 1.15rem 1.25rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-dark);
+            font-size: 0.85rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-identity-card strong {
+            color: #ffffff;
+            font-weight: 700;
         }
 
         .footer-bottom {
@@ -2942,10 +3094,29 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #78716c;
             flex-wrap: wrap;
             gap: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         /* AI Chatbot Widget */
@@ -3193,6 +3364,485 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* ==========================================================================
+           15. COMPREHENSIVE MOBILE ULTRA-OPTIMIZATION (360px, 390px, 768px)
+           ========================================================================== */
+        /* Tap Target & Global Padding Standard */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px !important;
+            }
+
+            html,
+            body {
+                overflow-x: hidden !important;
+                max-width: 100vw !important;
+            }
+
+            /* Disable heavy effects for silky smooth mobile scroll (I) */
+            .px-stage,
+            .px-orb,
+            .px-grid,
+            .achieve-glow-bg {
+                display: none !important;
+            }
+
+            /* Responsive Navbar (B) */
+            .header-wrapper {
+                top: 0.5rem;
+                width: calc(100% - 20px);
+                border-radius: 20px;
+            }
+
+            .nav-island {
+                padding: 0.6rem 1rem !important;
+            }
+
+            .brand-logo {
+                max-height: 42px;
+                max-width: 130px;
+            }
+
+            .nav-menu {
+                display: none !important;
+            }
+
+            .nav-mobile-cta {
+                display: inline-flex !important;
+                margin-left: auto;
+                margin-right: 0.5rem;
+                padding: 0.45rem 0.9rem !important;
+                font-size: 0.8rem !important;
+                min-height: 38px;
+            }
+
+            .hamburger {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                min-height: 44px;
+                border-radius: 8px;
+                background: var(--primary-surface);
+                color: var(--primary);
+                font-size: 1.4rem;
+                padding: 0;
+            }
+
+            .mobile-drawer {
+                width: 85vw;
+                max-width: 340px;
+                background: #ffffff !important;
+            }
+
+            .drawer-close {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .drawer-links a {
+                min-height: 44px;
+                font-size: 16px;
+                /* Prevents iOS auto zoom */
+            }
+
+            /* HERO SECTION (C) */
+            .hero-section {
+                padding: 5.5rem 0 3.5rem !important;
+            }
+
+            .hero-headline {
+                font-size: clamp(1.75rem, 7.5vw, 2.4rem) !important;
+                line-height: 1.2 !important;
+                letter-spacing: -0.03em;
+            }
+
+            .hero-cta-group {
+                flex-direction: column !important;
+                width: 100%;
+                gap: 0.75rem !important;
+            }
+
+            .hero-cta-group .btn {
+                width: 100% !important;
+                min-height: 46px;
+                font-size: 16px;
+            }
+
+            .hero-stats-strip {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+
+            .hero-strip-item {
+                padding: 0.75rem 0.5rem;
+                text-align: center;
+            }
+
+            /* KONSENTRASI KEAHLIAN (D) */
+            .majors-hero-orbit {
+                height: 280px !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .orbit-hero-stage {
+                height: 280px !important;
+            }
+
+            .orbit-ring-outer {
+                display: none !important;
+            }
+
+            .orbit-ring-inner {
+                width: 240px !important;
+                height: 240px !important;
+            }
+
+            .orbit-ring-inner .orbit-slot {
+                transform: rotate(var(--a)) translateY(-120px) !important;
+            }
+
+            .orbit-ring-inner .orbit-icon {
+                width: 42px !important;
+                height: 42px !important;
+            }
+
+            .orbit-hero-center {
+                max-width: 290px !important;
+                padding: 1rem !important;
+            }
+
+            .orbit-hero-title {
+                font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+                line-height: 1.25 !important;
+            }
+
+            .orbit-hero-desc {
+                font-size: 0.88rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .majors-split-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .major-nav-item {
+                min-height: 64px !important;
+                padding: 0.9rem 1.1rem !important;
+            }
+
+            .major-nav-name {
+                font-size: 0.98rem !important;
+            }
+
+            .majors-detail-col {
+                position: static !important;
+                top: auto !important;
+            }
+
+            .major-panel-head-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.2rem !important;
+                padding: 1.2rem !important;
+            }
+
+            .major-figure-wrapper {
+                max-width: 240px !important;
+                margin: 0 auto !important;
+                aspect-ratio: 3 / 4 !important;
+            }
+
+            .major-steps-track {
+                grid-template-columns: 1fr !important;
+                gap: 0.85rem !important;
+            }
+
+            .major-step-box {
+                padding: 0.9rem !important;
+                border-left: 3px solid var(--primary) !important;
+            }
+
+            .major-step-box:nth-child(4) {
+                border-left-color: var(--secondary) !important;
+            }
+
+            .major-step-header {
+                margin-bottom: 0.4rem;
+            }
+
+            .major-step-list {
+                font-size: 0.84rem !important;
+                line-height: 1.5 !important;
+            }
+
+            /* BKK SECTION & TABLE (G) */
+            .bkk-table-header {
+                display: none !important;
+            }
+
+            .bkk-table-row {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.4rem !important;
+                padding: 1rem !important;
+                border-bottom: 1px solid var(--border-card) !important;
+            }
+
+            .bkk-table-row:last-child {
+                border-bottom: none !important;
+            }
+
+            /* PRESTASI & TESTIMONI */
+            .achieve-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+            }
+
+            .timeline-card {
+                padding: 1.2rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            /* FOOTER (H) */
+            .site-footer {
+                padding: 4rem 0 2rem !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .footer-social-row {
+                justify-content: flex-start !important;
+            }
+
+            .footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.5rem !important;
+            }
+
+            /* CHATBOT FLOATING BUTTON */
+            .chatbot-btn {
+                width: 50px !important;
+                height: 50px !important;
+                bottom: 1.2rem !important;
+                right: 1.2rem !important;
+                font-size: 1.3rem !important;
+            }
+
+            .chat-panel {
+                bottom: 4.8rem !important;
+                right: 1rem !important;
+                left: 1rem !important;
+                width: auto !important;
+                max-width: none !important;
+            }
+        }
+
+        /* 360px & 390px (Narrow Mobile Benchmark) */
+        @media (max-width: 560px) {
+
+            .orbit-hero-svg circle:nth-child(1),
+            .orbit-ring-inner .orbit-slot {
+                display: none !important;
+            }
+
+            .orbit-hero-center {
+                max-width: 100% !important;
+                padding: 0.8rem 0.5rem !important;
+            }
+
+            .hero-stats-strip {
+                grid-template-columns: 1fr !important;
+            }
+
+            .p-icon-hero {
+                font-size: 2.5rem !important;
+            }
+
+            .countdown-row {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+
+            .countdown-val {
+                font-size: 1.4rem !important;
+            }
+        }
+    
+        /* ==========================================================================
+           ROBUST STANDARD NAVBAR & MOBILE DRAWER (Z-INDEX & ACCESSIBILITY FIX)
+           ========================================================================== */
+        .header-wrapper {
+            position: fixed !important;
+            top: 1rem;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 90% !important;
+            max-width: 1320px !important;
+            z-index: 9999 !important;
+            background: #ffffff !important;
+            border-radius: 50px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+            border: 1px solid var(--border-card) !important;
+            pointer-events: auto !important;
+        }
+
+        .nav-island {
+            width: 100% !important;
+            padding: 0.8rem 1.8rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+
+        /* Hamburger button MUST have relative position, high z-index, and pointer-events */
+        .hamburger,
+        .nav-toggle {
+            display: none;
+            background: var(--primary-surface) !important;
+            border: 1px solid rgba(30, 64, 175, 0.15) !important;
+            color: var(--primary) !important;
+            font-size: 1.4rem !important;
+            cursor: pointer !important;
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            border-radius: 10px !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: relative !important;
+            z-index: 10000 !important;
+            pointer-events: auto !important;
+            transition: all 0.2s ease !important;
+            user-select: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+
+        .hamburger:hover,
+        .nav-toggle:hover,
+        .hamburger:focus,
+        .nav-toggle:focus {
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            outline: none !important;
+        }
+
+        /* Mobile Drawer */
+        .mobile-overlay {
+            position: fixed !important;
+            inset: 0 !important;
+            background: rgba(15, 23, 42, 0.65) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            z-index: 99998 !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: opacity 0.3s ease, visibility 0.3s ease !important;
+            pointer-events: none !important;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+        }
+
+        .mobile-drawer {
+            position: fixed !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 85vw !important;
+            max-width: 340px !important;
+            height: 100dvh !important;
+            background: #ffffff !important;
+            z-index: 99999 !important;
+            padding: 2rem 1.6rem !important;
+            transform: translateX(100%) !important;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            pointer-events: auto !important;
+        }
+
+        .mobile-drawer.active {
+            transform: translateX(0) !important;
+        }
+
+        .drawer-close {
+            background: var(--bg-alt) !important;
+            border: 1px solid var(--border-card) !important;
+            color: var(--text-dark) !important;
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            border-radius: 50% !important;
+            font-size: 1.4rem !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-bottom: 1.5rem !important;
+            position: relative !important;
+            z-index: 100000 !important;
+            pointer-events: auto !important;
+        }
+
+        /* Ensure decorative layers do NOT block touch events */
+        .px-stage,
+        .px-orb,
+        .px-grid,
+        .px-ring,
+        .watermark,
+        .header-bg-pattern {
+            pointer-events: none !important;
+        }
+
+        @media (max-width: 900px) {
+            .header-wrapper {
+                top: 0.5rem !important;
+                width: calc(100% - 20px) !important;
+                border-radius: 20px !important;
+            }
+            .nav-island {
+                padding: 0.6rem 1rem !important;
+            }
+            .nav-menu {
+                display: none !important;
+            }
+            .nav-mobile-cta {
+                display: inline-flex !important;
+                margin-left: auto;
+                margin-right: 0.6rem;
+                padding: 0.45rem 1rem !important;
+                font-size: 0.82rem !important;
+                min-height: 40px !important;
+            }
+            .hamburger,
+            .nav-toggle {
+                display: flex !important;
+            }
+        }
+
     </style>
 </head>
 
@@ -3281,7 +3931,8 @@
                     PPDB</a>
             </div>
 
-            <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
+            <a href="#ppdb" class="btn btn-primary nav-mobile-cta" style="display:none;">Daftar PPDB</a> <button
+                class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
         </nav>
     </header>
 
@@ -4340,76 +4991,154 @@
                 </div>
             </div>
         </div>
-    </section>;</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
     </section>
 
     <!-- 13. FOOTER -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
+
+                <!-- Kolom 1: Profil Sekolah & Kontak -->
                 <div>
-                    <div class="brand-box" style="display:flex; align-items:center; gap:1rem; margin-bottom:1.4rem;">
-                        <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo"
-                            style="max-height:55px; width:auto; object-fit:contain;">
+                    <div class="brand-box" style="display:flex; align-items:center; gap:0.9rem; margin-bottom:1.2rem;">
+                        <img src="assets/logo.webp" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
+                            style="max-height:52px; width:auto; object-fit:contain;" width="52" height="52">
                         <div>
-                            <div
-                                style="color:#ffffff; font-family:var(--font-head); font-weight:800; font-size:1.1rem; line-height:1.2; letter-spacing:-0.01em;">
-                                SMKS MUHAMMADIYAH 1 GENTENG
-                            </div>
-                            <div
-                                style="color:var(--secondary); font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-top:0.25rem;">
-                                BANYUWANGI &bull; JAWA TIMUR
-                            </div>
+                            <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+                            <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
                         </div>
                     </div>
-                    <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7; margin-bottom:1.2rem;">
+                    <p class="footer-address">
                         Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Kec. Genteng,
                         Kabupaten Banyuwangi, Jawa Timur 68465
                     </p>
-                    <p style="color:#a8a29e; font-size:0.92rem; line-height:1.7;">
-                        📞 (0333) 845605 &bull; 💬 0822-4135-6668<br>
-                        ✉️ smkmuhi.genteng1968@gmail.com
-                    </p>
-                </div>
 
-                <div class="footer-col">
-                    <h4>Halaman Terkait</h4>
-                    <ul class="footer-links">
-                        <li><a href="visi-misi.html">🎯 Visi & Misi</a></li>
-                        <li><a href="fasilitas.html">🏢 Fasilitas Sekolah</a></li>
-                        <li><a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a></li>
-                        <li><a href="prestasi.html">🏆 Galeri Prestasi</a></li>
-                        <li><a href="berita.html">📰 Jurnal & Berita</a></li>
+                    <!-- A. Baris Kontak dengan Inline SVG Stroke -->
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            <a href="tel:0333845605" class="footer-contact-link">(0333) 845605</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                            <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer"
+                                class="footer-contact-link">0822-4135-6668 (WhatsApp)</a>
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            <a href="mailto:smkmuhi.genteng1968@gmail.com"
+                                class="footer-contact-link">smkmuhi.genteng1968@gmail.com</a>
+                        </li>
                     </ul>
-                </div>
 
-                <div class="footer-col">
-                    <h4>8 Konsentrasi</h4>
-                    <ul class="footer-links">
-                        <li><a href="#jurusan">Rekayasa Perangkat Lunak</a></li>
-                        <li><a href="#jurusan">Teknik Jaringan Komputer</a></li>
-                        <li><a href="#jurusan">Desain Komunikasi Visual</a></li>
-                        <li><a href="#jurusan">Bisnis Digital</a></li>
-                        <li><a href="#jurusan">Akuntansi Lembaga</a></li>
-                        <li><a href="#jurusan">Perhotelan & Kuliner</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Identitas Lembaga</h4>
-                    <div
-                        style="background:rgba(255,255,255,0.05); padding:1rem; border-radius:var(--radius); border:1px solid var(--border-dark); font-size:0.85rem; line-height:1.7; color:#a8a29e;">
-                        <strong style="color:#ffffff;">NPSN:</strong> 20525597<br>
-                        <strong style="color:#ffffff;">Akreditasi:</strong> A (Unggul BAN-S/M)<br>
-                        <strong style="color:#ffffff;">Lembaga Sertifikasi:</strong> LSP-P1 BNSP<br>
-                        <strong style="color:#ffffff;">Domain Resmi:</strong> smksmuh1gtg.com
+                    <!-- C. Media Sosial Monokrom -->
+                    <div class="footer-social-row" aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/smkmuhigts/" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="Instagram SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none"
+                                    stroke="currentColor" stroke-width="2" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="YouTube SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                                    fill="none" stroke="currentColor" stroke-width="2" />
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/smkmuhigts" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="Facebook SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none"
+                                    stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </a>
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn" aria-label="TikTok SMKS Muhammadiyah 1 Genteng">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Kolom 2: Halaman Terkait (A. Tanpa Emoji + Chevron Hover) -->
+                <div class="footer-col">
+                    <h4>Halaman Terkait</h4>
+                    <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
+                        <ul class="footer-links">
+                            <li><a href="visi-misi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Visi &amp; Misi</a></li>
+                            <li><a href="fasilitas.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Fasilitas Kampus</a></li>
+                            <li><a href="ekstrakurikuler.html"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Ekstrakurikuler &amp; IPM</a></li>
+                            <li><a href="prestasi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Galeri Prestasi</a></li>
+                            <li><a href="berita.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                                    Jurnal &amp; Berita</a></li>
+                            </ul>
+                    </nav>
+                </div>
+
+                <!-- Kolom 3: 8 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
+                <div class="footer-col">
+                    <h4>8 Konsentrasi</h4>
+                    <nav class="footer-nav" aria-label="Navigasi 8 Konsentrasi Keahlian">
+                        <ul class="footer-links">
+                            <li><a href="#jurusan" onclick="jumpToMajor('rpl')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Rekayasa Perangkat Lunak</a></li>
+                            <li><a href="#jurusan" onclick="jumpToMajor('tkj')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Teknik Komputer &amp; Jaringan</a></li>
+                            <li><a href="#jurusan" onclick="jumpToMajor('dkv')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Desain Komunikasi Visual</a></li>
+                            <li><a href="#jurusan" onclick="jumpToMajor('bd')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Bisnis Digital</a></li>
+                            <li><a href="#jurusan" onclick="jumpToMajor('akl')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Akuntansi &amp; Keuangan Lembaga</a></li>
+                            <li><a href="#jurusan" onclick="jumpToMajor('mplb')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Manajemen Perkantoran</a></li>
+                            <li><a href="#jurusan" onclick="jumpToMajor('ph')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Perhotelan &amp; Hospitality</a></li>
+                            <li><a href="#jurusan" onclick="jumpToMajor('tbsm')"><span class="footer-chevron"
+                                        aria-hidden="true">&rsaquo;</span> Teknik Sepeda Motor (AHASS)</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Kolom 4: Identitas Lembaga Resmi -->
+                <div class="footer-col">
+                    <h4>Identitas Lembaga</h4>
+                    <div class="footer-identity-card">
+                        <div><strong>NPSN:</strong> 20525597</div>
+                        <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+                        <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+                        <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+                        <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="footer-bottom">
@@ -4447,6 +5176,91 @@
     <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
+    <script>
+    (function() {
+        function initNavigation() {
+            var hamburgerBtn = document.querySelector('#hamburger-btn') || document.querySelector('.hamburger') || document.querySelector('.nav-toggle');
+            var drawerCloseBtn = document.querySelector('#drawer-close-btn') || document.querySelector('.drawer-close');
+            var mobileDrawer = document.querySelector('#mobile-drawer') || document.querySelector('.mobile-drawer');
+            var mobileOverlay = document.querySelector('#mobile-overlay') || document.querySelector('.mobile-overlay');
+
+            function openDrawer() {
+                if (mobileDrawer) mobileDrawer.classList.add('active');
+                if (mobileOverlay) mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
+                if (window.lenis) window.lenis.stop();
+            }
+
+            function closeDrawer() {
+                if (mobileDrawer) mobileDrawer.classList.remove('active');
+                if (mobileOverlay) mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+                if (window.lenis) window.lenis.start();
+            }
+
+            if (hamburgerBtn) {
+                hamburgerBtn.removeEventListener('click', openDrawer);
+                hamburgerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+                        closeDrawer();
+                    } else {
+                        openDrawer();
+                    }
+                });
+            }
+
+            if (drawerCloseBtn) {
+                drawerCloseBtn.removeEventListener('click', closeDrawer);
+                drawerCloseBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeDrawer();
+                });
+            }
+
+            if (mobileOverlay) {
+                mobileOverlay.removeEventListener('click', closeDrawer);
+                mobileOverlay.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeDrawer();
+                });
+            }
+
+            // Close on drawer link click
+            if (mobileDrawer) {
+                var drawerLinks = mobileDrawer.querySelectorAll('a');
+                drawerLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        closeDrawer();
+                    });
+                });
+            }
+
+            // Escape key listener
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeDrawer();
+                    if (typeof closeItemModal === 'function') closeItemModal();
+                    if (typeof closeNewsModal === 'function') closeNewsModal();
+                    if (typeof closeAwardModal === 'function') closeAwardModal();
+                    if (typeof closeMajorModal === 'function') closeMajorModal();
+                }
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNavigation);
+        } else {
+            initNavigation();
+        }
+    })();
+    </script>
+
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
     <script>
@@ -4503,15 +5317,19 @@
         const mobileOverlay = document.getElementById('mobile-overlay');
 
         function openMobileDrawer() {
-            mobileDrawer.classList.add('active');
-            mobileOverlay.classList.add('active');
+            if (mobileDrawer) mobileDrawer.classList.add('active');
+            if (mobileOverlay) mobileOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
+            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
+            if (typeof lenis !== 'undefined' && lenis) lenis.stop();
         }
 
         function closeMobileDrawer() {
-            mobileDrawer.classList.remove('active');
-            mobileOverlay.classList.remove('active');
+            if (mobileDrawer) mobileDrawer.classList.remove('active');
+            if (mobileOverlay) mobileOverlay.classList.remove('active');
             document.body.style.overflow = '';
+            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+            if (typeof lenis !== 'undefined' && lenis) lenis.start();
         }
 
         if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMobileDrawer);
@@ -4822,7 +5640,7 @@
                 badge: 'ALUR PENDIDIKAN VOKASI • PERHOTELAN',
                 tefa: 'Edutel Hotel Muhi & Mockup Suite Room TEFA',
                 certSummary: 'LSP-P1 BNSP Front Office Receptionist & CHSE',
-                logo: '',
+                logo: 'assets/major/PH.png',
                 emoji: '🏨',
                 foto: 'assets/major-person/ph.png',
                 desc: 'Menyiapkan tenaga hospitality internasional: keahlian reservasi Front Office, tata graha Housekeeping bintang lima, food & beverage service, serta etiket perjamuan formal.',
@@ -5085,6 +5903,18 @@
                 if (stage4Box) stage4Box.textContent = major.setelahLulus.box;
 
                 pathwayView.classList.remove('anim-switching');
+                if (window.innerWidth <= 900) {
+                    setTimeout(() => {
+                        const panel = document.getElementById('major-tabpanel-container');
+                        if (panel) {
+                            if (typeof lenis !== 'undefined' && lenis) {
+                                lenis.scrollTo(panel, { offset: -60, duration: 0.8 });
+                            } else {
+                                panel.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    }, 50);
+                }
             }, 125);
         }
 

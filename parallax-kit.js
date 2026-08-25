@@ -15,9 +15,6 @@
      data-parallax="0.25"                     -> geser elemen (+ searah, - lawan)
      data-scroll-reveal                       -> teks muncul kata demi kata
      data-px-depth                            -> kartu naik + skala saat masuk layar
-
-   OVERRIDE (opsional, taruh SEBELUM script ini):
-     <script>window.PX_CONFIG = { cards: '.fac-card, .misi-item' };</script>
 ============================================================================= */
 
 (function () {
@@ -33,36 +30,36 @@
     var CFG = Object.assign({
         cards: '[data-px-depth]',
         smooth: true,
-        headerParallax: true
+        headerParallax: false // Disabled hardcoded fading header to prevent vanishing titles
     }, window.PX_CONFIG || {});
 
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------------------------------------------------------------------
-       1. STYLE — disuntik dari JS supaya halaman tidak perlu diedit CSS-nya
+       1. STYLE — disuntik dari JS (Warna: Biru Navy & Kuning Emas)
     --------------------------------------------------------------------- */
     var css = [
-        ':root{--px-c1:6,78,59;--px-c2:217,119,6;}',
+        ':root{--px-c1:30,64,175;--px-c2:234,179,8;}',
         '[data-parallax]{will-change:transform;}',
         '[data-px-stage]{position:relative;overflow:hidden;}',
         '[data-px-stage] > *:not(.px-stage){position:relative;z-index:2;}',
         '.px-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}',
-        '.px-orb{position:absolute;border-radius:50%;filter:blur(70px);}',
-        '.px-orb-1{background:radial-gradient(circle,rgba(var(--px-c1),.45) 0%,rgba(var(--px-c1),0) 70%);}',
-        '.px-orb-2{background:radial-gradient(circle,rgba(var(--px-c2),.40) 0%,rgba(var(--px-c2),0) 70%);}',
+        '.px-orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}',
+        '.px-orb-1{background:radial-gradient(circle,rgba(var(--px-c1),.35) 0%,rgba(var(--px-c1),0) 70%);}',
+        '.px-orb-2{background:radial-gradient(circle,rgba(var(--px-c2),.30) 0%,rgba(var(--px-c2),0) 70%);}',
         '.px-grid{position:absolute;inset:-25% -12%;background-image:' +
-        'linear-gradient(to right,rgba(var(--px-c1),.07) 1px,transparent 1px),' +
-        'linear-gradient(to bottom,rgba(var(--px-c1),.07) 1px,transparent 1px);' +
+        'linear-gradient(to right,rgba(var(--px-c1),.05) 1px,transparent 1px),' +
+        'linear-gradient(to bottom,rgba(var(--px-c1),.05) 1px,transparent 1px);' +
         'background-size:64px 64px;' +
         '-webkit-mask-image:radial-gradient(ellipse at center,#000 18%,transparent 72%);' +
-        'mask-image:radial-gradient(ellipse at center,#000 18%,transparent 72%);}',
+        'mask-image:radial-gradient(ellipse at center,#000 18%,transparent 72%);pointer-events:none;}',
         '.px-stage-dark .px-grid{background-image:' +
         'linear-gradient(to right,rgba(255,255,255,.055) 1px,transparent 1px),' +
         'linear-gradient(to bottom,rgba(255,255,255,.055) 1px,transparent 1px);}',
-        '.px-ring{position:absolute;border-radius:50%;border:1px solid rgba(var(--px-c1),.10);}',
+        '.px-ring{position:absolute;border-radius:50%;border:1px solid rgba(var(--px-c1),.10);pointer-events:none;}',
         '.px-stage-dark .px-ring{border-color:rgba(255,255,255,.08);}',
-        '.px-word{display:inline-block;opacity:.18;filter:blur(2px);transform:translateY(.12em);will-change:opacity,filter,transform;}',
-        '@media(max-width:900px){.px-orb{opacity:.35;}.px-ring{display:none;}}',
+        '.px-word{display:inline-block;transition:opacity 0.2s;}',
+        '@media(max-width:900px){.px-orb{opacity:.25;}.px-ring{display:none;}}',
         '@media(prefers-reduced-motion:reduce){.px-stage{display:none;}.px-word{opacity:1!important;filter:none!important;transform:none!important;}}'
     ].join('');
 
@@ -101,7 +98,7 @@
             });
         });
 
-        // Modal membekukan body -> Lenis ikut berhenti, biar latar tidak ngesot
+        // Modal membekukan body -> Lenis ikut berhenti
         var mo = new MutationObserver(function () {
             var locked = getComputedStyle(document.body).overflow === 'hidden';
             if (locked) { lenis.stop(); } else { lenis.start(); }
@@ -155,8 +152,7 @@
     });
 
     /* ---------------------------------------------------------------------
-       4. MESIN PARALLAX — nilai = fraksi tinggi section, bukan piksel,
-          jadi otomatis menyesuaikan ukuran layar
+       4. MESIN PARALLAX
     --------------------------------------------------------------------- */
     if (!reduced) {
         document.querySelectorAll('[data-parallax]').forEach(function (layer) {
@@ -175,7 +171,7 @@
     }
 
     /* ---------------------------------------------------------------------
-       5. TEXT SCROLL REVEAL — kata demi kata, di-scrub scroll
+       5. TEXT SCROLL REVEAL (Safe: starts visible or subtle, never permanently hidden)
     --------------------------------------------------------------------- */
     function splitWords(el) {
         if (el.dataset.pxSplit === 'true') return Array.prototype.slice.call(el.querySelectorAll('.px-word'));
@@ -196,55 +192,64 @@
 
     document.querySelectorAll('[data-scroll-reveal]').forEach(function (el) {
         var words = splitWords(el);
-        if (reduced) return;
-        gsap.to(words, {
-            opacity: 1, filter: 'blur(0px)', y: 0, ease: 'none', stagger: 0.6,
-            scrollTrigger: { trigger: el, start: 'top 82%', end: 'bottom 55%', scrub: 0.8 }
-        });
+        if (reduced) {
+            gsap.set(words, { opacity: 1 });
+            return;
+        }
+        gsap.fromTo(words, 
+            { opacity: 0.25 },
+            {
+                opacity: 1, ease: 'none', stagger: 0.05,
+                scrollTrigger: { 
+                    trigger: el, 
+                    start: 'top 90%', 
+                    end: 'bottom 60%', 
+                    scrub: 0.5,
+                    once: true,
+                    onLeave: function () { gsap.set(words, { opacity: 1 }); }
+                }
+            }
+        );
     });
 
     /* ---------------------------------------------------------------------
-       6. DEPTH REVEAL untuk kartu
+       6. REVEAL ANIMATIONS FOR .reveal ELEMENTS (Robust & Safe)
     --------------------------------------------------------------------- */
-    if (!reduced && CFG.cards) {
-        var cards = document.querySelectorAll(CFG.cards);
-        if (cards.length) {
-            ScrollTrigger.batch(cards, {
-                start: 'top 88%',
-                once: true,
-                onEnter: function (batch) {
-                    gsap.fromTo(batch,
-                        { opacity: 0, y: 44, scale: 0.97 },
-                        {
-                            opacity: 1, y: 0, scale: 1, duration: 0.75,
-                            stagger: 0.09, ease: 'power3.out', clearProps: 'transform'
+    if (!reduced) {
+        var reveals = document.querySelectorAll('.reveal');
+        if (reveals.length) {
+            reveals.forEach(function (elem) {
+                gsap.fromTo(elem,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.7,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: 'top 90%',
+                            once: true
                         }
-                    );
-                }
+                    }
+                );
             });
         }
     }
 
     /* ---------------------------------------------------------------------
-       7. PAGE HEADER — judul naik pelan + memudar saat halaman di-scroll
+       7. SAFETY TIMEOUT — Garansi 100% teks terbaca setelah 2 detik
     --------------------------------------------------------------------- */
-    if (!reduced && CFG.headerParallax) {
-        var header = document.querySelector('.page-header');
-        if (header) {
-            var inner = header.querySelector('.container');
-            if (inner) {
-                gsap.to(inner, {
-                    yPercent: -14,
-                    opacity: 0.25,
-                    ease: 'none',
-                    scrollTrigger: { trigger: header, start: 'top top', end: 'bottom top', scrub: 0.6 }
-                });
+    setTimeout(function () {
+        document.querySelectorAll('.reveal, .px-word, [data-scroll-reveal], .tefa-desc').forEach(function (el) {
+            if (getComputedStyle(el).opacity === '0' || getComputedStyle(el).opacity < '0.3') {
+                gsap.set(el, { opacity: 1, y: 0, filter: 'none', clearProps: 'transform,opacity' });
             }
-        }
-    }
+        });
+    }, 2000);
 
     /* ---------------------------------------------------------------------
-       8. REFRESH — font & gambar sering selesai memuat setelah layout dihitung
+       8. REFRESH
     --------------------------------------------------------------------- */
     window.addEventListener('load', function () { ScrollTrigger.refresh(); });
     if (document.fonts && document.fonts.ready) {
