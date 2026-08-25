@@ -8,11 +8,43 @@
     <meta name="description"
         content="Website Resmi SMKS Muhammadiyah 1 Genteng (SMKS MUHI / SMEMSA Genteng) Banyuwangi. SMK Pusat Keunggulan, Akreditasi A BAN-S/M, Berlisensi LSP-P1 BNSP, dengan 8 Konsentrasi Keahlian Industri.">
 
-    <!-- Modern Typography: Syne, Plus Jakarta Sans, JetBrains Mono -->
+    <!-- Open Graph / WhatsApp Preview Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smksmuh1gtg.com/">
+    <meta property="og:title" content="SMKS Muhammadiyah 1 Genteng - Good Skill, Good Attitude">
+    <meta property="og:description"
+        content="SMK Pusat Keunggulan di Genteng Banyuwangi. Terakreditasi A, LSP-P1 BNSP, Kelas Industri Dudika, dan 8 Konsentrasi Keahlian Unggulan.">
+    <meta property="og:image" content="assets/logo.png">
+
+    <!-- Structured Data (JSON-LD) for School -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "School",
+      "name": "SMKS Muhammadiyah 1 Genteng",
+      "alternateName": ["SMKS MUHI", "SMEMSA Genteng"],
+      "url": "https://smksmuh1gtg.com",
+      "logo": "assets/logo.png",
+      "image": "assets/logo.png",
+      "description": "Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi dengan 8 Konsentrasi Keahlian Industri dan Lisensi LSP-P1 BNSP.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan",
+        "addressLocality": "Genteng, Banyuwangi",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "68465",
+        "addressCountry": "ID"
+      },
+      "telephone": "+62-333-845605",
+      "email": "smkmuhi.genteng1968@gmail.com"
+    }
+    </script>
+
+    <!-- Typography: Plus Jakarta Sans with display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
 
     <style>
@@ -32,7 +64,7 @@
             --secondary-surface: rgba(234, 179, 8, 0.1);
             --secondary-glow: rgba(234, 179, 8, 0.25);
 
-            --accent-emerald: #facc15;
+            --accent-yellow: #facc15;
             --accent-cyan: #3b82f6;
 
             --bg-main: #ffffff;
@@ -67,10 +99,202 @@
             --font-display: 'Plus Jakarta Sans', sans-serif;
             --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --font-mono: 'Plus Jakarta Sans', sans-serif;
 
             --transition: all 0.2s ease;
             --transition-fast: all 0.15s ease;
+        }
+
+        /* Focus Visible for High Accessibility (A11y) */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        [tabindex="0"]:focus-visible {
+            outline: 2px solid #d97706 !important;
+            outline-offset: 3px !important;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Hero Proof Strip */
+        .hero-proof-strip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(30, 64, 175, 0.12);
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .hero-proof-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-dark);
+            font-family: var(--font-head);
+            font-weight: 700;
+        }
+
+        .hero-proof-dot {
+            color: #d97706;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        /* Quick Major Chips Bar */
+        .major-quick-chips-wrapper {
+            margin: 2.2rem auto 0;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .major-chips-label {
+            font-size: 0.82rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .major-chips-list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .major-chip-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            padding: 0.45rem 0.9rem;
+            border-radius: var(--radius-full);
+            font-family: var(--font-head);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .major-chip-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-surface);
+            transform: translateY(-2px);
+        }
+
+        /* BKK Summary Banner */
+        .bkk-summary-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            border-radius: var(--radius-xl);
+            padding: 2.5rem 3rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: 0 15px 35px -10px rgba(30, 64, 175, 0.25);
+        }
+
+        .bkk-summary-number {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: var(--secondary-light);
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+
+        .bkk-summary-text h3 {
+            font-family: var(--font-head);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.4rem;
+        }
+
+        .bkk-summary-text p {
+            font-size: 0.96rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* PPDB Quota Progress Bars */
+        .ppdb-quota-card {
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 1.6rem;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .quota-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .quota-item {
+            margin-bottom: 0.85rem;
+        }
+
+        .quota-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-family: var(--font-head);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .quota-bar-track {
+            width: 100%;
+            height: 7px;
+            background: #e2e8f0;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .quota-bar-fill {
+            height: 100%;
+            border-radius: var(--radius-full);
+            transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* BLUD Learner Managed Tag */
+        .blud-learner-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(234, 179, 8, 0.15);
+            color: #facc15;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            border-radius: var(--radius-full);
+            padding: 0.25rem 0.75rem;
+            font-family: var(--font-head);
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            width: fit-content;
         }
 
         /* Base Resets & Lenis Compatibility */
@@ -122,18 +346,29 @@
         h6,
         .font-head {
             font-family: var(--font-head);
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.18;
         }
 
         .font-display {
             font-family: var(--font-display);
+            font-weight: 800;
             letter-spacing: -0.035em;
         }
 
         .font-mono {
             font-family: var(--font-mono);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .badge,
+        .step-badge-tag,
+        .major-code-pill,
+        .skill-tag {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         a {
@@ -232,12 +467,12 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--accent-emerald);
+            background: var(--accent-yellow);
             box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
-            animation: pulseEmerald 2s infinite;
+            animation: pulseYellow 2s infinite;
         }
 
-        @keyframes pulseEmerald {
+        @keyframes pulseYellow {
             0% {
                 transform: scale(0.95);
                 box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
@@ -655,6 +890,8 @@
             line-height: 1.7;
             max-width: 600px;
             margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Hero Quick Jurusan Search Pill */
@@ -888,38 +1125,188 @@
         }
 
         /* ==========================================================================
-           5. SIGNATURE DRAWING & MODERN PARTNERS MARQUEE
+           5. SAMBUTAN SECTION (UNPINNED) & SINERGI TIGA PILAR (PINNED)
            ========================================================================== */
-        .signature-section {
-            padding: 5rem 0;
-            text-align: center;
+        .sambutan-section {
+            padding: 7.5rem 0 8.5rem;
             background: var(--bg-alt);
             position: relative;
-            overflow: hidden;
             border-top: 1px solid var(--border-card);
             border-bottom: 1px solid var(--border-card);
         }
 
-        .svg-container {
-            max-width: 140px;
-            margin: 0 auto 1.5rem;
+        .sinergi-section {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 4rem 0;
         }
 
-        .svg-path {
-            stroke: var(--primary);
+        .sinergi-stage-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            min-height: 70vh;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .synergy-svg-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .pillar-line {
+            stroke: var(--secondary-light);
             stroke-width: 2.5;
-            fill: transparent;
+            stroke-linecap: round;
+            fill: none;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+        }
+
+        .pillar-node-group {
+            transform-origin: center;
+        }
+
+        .pillar-node-ring {
+            fill: none;
+            stroke: var(--secondary);
+            stroke-width: 1.5;
+            opacity: 0.35;
+        }
+
+        .pillar-node-core {
+            fill: var(--secondary-light);
+        }
+
+        .pillar-node-label {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 800;
+            fill: var(--text-light);
+            text-anchor: middle;
+            letter-spacing: -0.01em;
+        }
+
+        .pillar-node-sub {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            fill: var(--text-subtle);
+            text-anchor: middle;
+        }
+
+        /* Star & Aura in Center */
+        .synergy-star-aura {
+            fill: url(#starAuraGrad);
+            opacity: 0;
+        }
+
+        .synergy-center-star {
+            fill: var(--secondary-surface);
+            stroke: var(--secondary-light);
+            stroke-width: 2.5;
+            stroke-linejoin: round;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        /* Synergy Text Content - Layered Over SVG */
+        .synergy-text-container {
+            position: relative;
+            z-index: 3;
+            max-width: 860px;
+            width: 100%;
+            min-height: 70vh;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .synergy-kicker {
+            font-family: var(--font-head);
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--secondary-light);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(12px);
         }
 
         .signature-text {
             font-family: var(--font-display);
-            font-size: clamp(1.4rem, 2.5vw, 2rem);
-            font-weight: 700;
-            color: var(--primary-dark);
+            font-size: clamp(1.4rem, 2.7vw, 2.25rem);
+            font-weight: 800;
+            color: var(--text-light);
             max-width: 840px;
-            margin: 0 auto;
-            line-height: 1.4;
+            margin: 0 auto 1.2rem;
+            line-height: 1.38;
             letter-spacing: -0.025em;
+        }
+
+        .synergy-highlight {
+            color: var(--secondary-light);
+        }
+
+        .synergy-closing {
+            font-family: var(--font-body);
+            font-size: 1.02rem;
+            color: var(--text-subtle);
+            max-width: 620px;
+            margin: 0 auto 1.8rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .synergy-action-btn {
+            opacity: 0;
+            transform: translateY(10px);
+            margin-top: 0.5rem;
+        }
+
+        /* Scroll Progress Rail */
+        .synergy-progress-rail {
+            width: 120px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-full);
+            margin: 2.2rem auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .synergy-progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            border-radius: var(--radius-full);
+            box-shadow: 0 0 8px var(--secondary-glow);
+        }
+
+        @media (max-width: 640px) {
+            .pillar-node-sub {
+                display: none;
+            }
         }
 
         /* ---- Text Scroll Reveal (skiper31-style, word by word) ---- */
@@ -935,6 +1322,14 @@
             .sr-word {
                 opacity: 1 !important;
                 filter: none !important;
+                transform: none !important;
+            }
+
+            .synergy-center-star,
+            .synergy-star-aura,
+            .synergy-kicker,
+            .synergy-closing {
+                opacity: 1 !important;
                 transform: none !important;
             }
         }
@@ -1228,60 +1623,211 @@
         }
 
         /* ==========================================================================
-           8. 8 VOCATIONAL MAJORS - HYPER-BENTO MATRIX WITH TABS
+           8. KONSENTRASI KEAHLIAN: "DARI KELAS X KE TEMPAT KERJA" (JHIC COMPETITION)
            ========================================================================== */
         .majors-section {
             padding: 7.5rem 0;
-            background: var(--bg-alt);
+            background: #fafaf9;
+            position: relative;
+            overflow: hidden;
         }
 
-        .majors-nav-pills {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 3.5rem;
+        .majors-grid-8 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 2rem;
         }
 
-        .major-nav-btn {
+        /* 3:4 Aspect Ratio Student Major Card */
+        .major-path-card {
             background: #ffffff;
             border: 1.5px solid var(--border-card);
-            padding: 0.75rem 1.6rem;
-            border-radius: var(--radius-full);
-            font-family: var(--font-head);
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: var(--text-muted);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.04);
             cursor: pointer;
-            transition: var(--transition-fast);
-            box-shadow: var(--shadow-subtle);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            outline: none;
         }
 
-        .major-nav-btn:hover {
+        .major-path-card:focus-visible {
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.25);
+        }
+
+        .major-path-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 35px -10px rgba(30, 64, 175, 0.12), 0 0 0 1px rgba(30, 64, 175, 0.1);
+        }
+
+        .major-path-card.active {
+            border-color: var(--primary);
+            background: #ffffff;
+            box-shadow: 0 20px 40px -10px rgba(30, 64, 175, 0.18), 0 0 0 2px var(--primary);
+        }
+
+        .major-card-photo-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: linear-gradient(145deg, #eff6ff 0%, #f0f9ff 50%, #fef9c3 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .major-card-photo-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .major-student-portrait {
+            width: 90%;
+            height: 94%;
+            object-fit: contain;
+            object-position: bottom center;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 10px 18px rgba(30, 64, 175, 0.2));
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: bottom center;
+        }
+
+        .major-path-card:hover .major-student-portrait,
+        .major-path-card.active .major-student-portrait {
+            transform: scale(1.06);
+        }
+
+        /* Secondary Logo Marker (Top-Right Badge) */
+        .major-corner-logo {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(30, 64, 175, 0.15);
+            border-radius: var(--radius-sm);
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            z-index: 3;
+            transition: transform 0.3s;
+        }
+
+        .major-corner-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .major-corner-logo .emoji-logo {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .major-path-card:hover .major-corner-logo {
+            transform: scale(1.1) rotate(4deg);
+        }
+
+        /* Short Code Pill (Top-Left) */
+        .major-code-pill {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 3;
+            background: var(--primary);
+            color: #ffffff;
+            font-family: var(--font-head);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 10px rgba(30, 64, 175, 0.3);
+        }
+
+        .major-card-info {
+            padding: 1.4rem 1.2rem;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .major-card-name {
+            font-family: var(--font-head);
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: #1c1917;
+            line-height: 1.35;
+            margin-bottom: 0.6rem;
+            transition: color 0.25s;
+        }
+
+        .major-path-card:hover .major-card-name,
+        .major-path-card.active .major-card-name {
             color: var(--primary);
         }
 
-        .major-nav-btn.active {
-            background: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary);
-            box-shadow: none;
+        .major-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--secondary);
+            transition: transform 0.25s;
         }
 
-        .major-tab-pane {
+        .major-path-card.active .major-trigger-btn {
+            color: var(--primary);
+        }
+
+        /* ==========================================================================
+           INLINE EXPANDABLE PATHWAY PANEL ("DARI KELAS X KE TEMPAT KERJA")
+           ========================================================================== */
+        .major-pathway-panel {
+            background: #ffffff;
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            margin-top: 2rem;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 25px 60px -15px rgba(30, 64, 175, 0.15), 0 0 0 1px rgba(30, 64, 175, 0.1);
+            position: relative;
+            overflow: hidden;
             display: none;
-            animation: fadeInMajor 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .major-tab-pane.active {
+        .major-pathway-panel.open {
             display: block;
+            animation: panelFadeSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes fadeInMajor {
+        @keyframes panelFadeSlide {
             from {
                 opacity: 0;
-                transform: translateY(12px);
+                transform: translateY(20px);
             }
 
             to {
@@ -1290,79 +1836,317 @@
             }
         }
 
-        .major-spotlight-card {
-            background: #ffffff;
+        .panel-close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f4;
             border: 1px solid var(--border-card);
-            border-radius: var(--radius-xl);
-            padding: 3.5rem;
-            box-shadow: var(--shadow-card);
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 3.5rem;
-            align-items: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .major-hero-icon-box {
-            height: 300px;
-            background: linear-gradient(135deg, var(--primary-surface) 0%, rgba(234, 179, 8, 0.08) 100%);
-            border-radius: var(--radius-lg);
+            color: #57534e;
+            font-size: 1.4rem;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--border-card);
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s;
+            z-index: 10;
         }
 
-        .major-hero-icon-box .big-emoji {
-            font-size: 6rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+        .panel-close-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            transform: rotate(90deg);
         }
 
-        .skills-chip-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin: 1.5rem 0;
-        }
-
-        .skill-tag {
-            font-family: var(--font-mono);
+        .panel-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--secondary-surface);
+            color: #a16207;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            border-radius: var(--radius-full);
+            padding: 0.4rem 1.1rem;
+            font-family: var(--font-head);
+            font-weight: 700;
             font-size: 0.82rem;
-            font-weight: 600;
-            background: var(--bg-alt);
-            color: var(--primary-dark);
-            padding: 0.35rem 0.85rem;
-            border-radius: var(--radius-xs);
-            border: 1px solid var(--border-card);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
         }
 
-        /* 8 Majors Sub-Grid */
-        .majors-sub-grid {
+        .panel-title {
+            font-family: var(--font-head);
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .panel-desc {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: #57534e;
+            max-width: 850px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        /* 4-STAGE HORIZONTAL CONNECTED PATHWAY TIMELINE */
+        .pathway-horizontal-track {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            position: relative;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
         }
 
-        .major-mini-card {
-            background: #ffffff;
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            box-shadow: var(--shadow-subtle);
+        /* Continuous Connector Line across steps */
+        .pathway-horizontal-track::before {
+            content: '';
+            position: absolute;
+            top: 26px;
+            left: 5%;
+            right: 5%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 50%, var(--secondary) 100%);
+            z-index: 1;
+        }
+
+        .pathway-step {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: var(--transition);
+            align-items: flex-start;
         }
 
-        .major-mini-card:hover {
-            transform: translateY(-4px);
+        .step-node-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .step-circle-number {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 3.5px solid var(--primary);
+            color: var(--primary);
+            font-family: var(--font-head);
+            font-size: 1.25rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(30, 64, 175, 0.18);
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .pathway-step:hover .step-circle-number {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .step-title {
+            font-family: var(--font-head);
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.25;
+        }
+
+        .step-content-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.2rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: border-color 0.25s;
+        }
+
+        .pathway-step:hover .step-content-card {
             border-color: var(--primary);
-            box-shadow: var(--shadow-card);
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .step-list li {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: #44403c;
+            line-height: 1.55;
+            margin-bottom: 0.55rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .step-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.8rem;
+        }
+
+        .step-badge-tag {
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .step-highlight-box {
+            background: rgba(234, 179, 8, 0.08);
+            border-left: 3px solid var(--secondary);
+            padding: 0.7rem 0.9rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.84rem;
+            color: #78350f;
+            line-height: 1.5;
+            margin-top: 0.5rem;
+        }
+
+        /* ALUMNI / STUDENT QUOTE STRIP */
+        .major-alumni-quote-box {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 2rem 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 12px 30px rgba(22, 41, 107, 0.25);
+            position: relative;
+        }
+
+        .alumni-avatar-frame {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            border: 3px solid #f59e0b;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .alumni-avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .alumni-quote-content {
+            flex: 1;
+        }
+
+        .alumni-quote-text {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: #f5f5f4;
+            margin-bottom: 0.6rem;
+        }
+
+        .alumni-author {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: #facc15;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .alumni-role {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            font-size: 0.82rem;
+        }
+
+        /* RESPONSIVE BREAKPOINTS & ACCESSIBILITY */
+        @media (max-width: 1100px) {
+            .majors-grid-8 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .majors-grid-8 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+
+            .major-pathway-panel {
+                padding: 1.8rem;
+            }
+
+            /* Responsive: Alur 4 tahap menjadi vertikal di bawah 768px */
+            .pathway-horizontal-track {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            .pathway-horizontal-track::before {
+                top: 0;
+                bottom: 0;
+                left: 26px;
+                width: 3px;
+                height: 100%;
+                right: auto;
+            }
+
+            .major-alumni-quote-box {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .majors-grid-8 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .major-path-card,
+            .major-student-portrait,
+            .major-pathway-panel,
+            .step-circle-number {
+                transition: none !important;
+                animation: none !important;
+                transform: none !important;
+            }
         }
 
         /* ==========================================================================
@@ -2210,7 +2994,7 @@
         </div>
     </div>
 
-    <!-- 2. HERO SECTION - NEXT-GEN ASYMMETRICAL TECH-EDITORIAL -->
+    <!-- 2. HERO SECTION - WITH PROOF STRIP & 8 MAJOR QUICK CHIPS -->
     <section class="hero-section" id="hero">
         <div class="px-stage" aria-hidden="true">
             <div class="px-grid px-grid-dark" data-parallax="0.10"></div>
@@ -2222,14 +3006,14 @@
 
         <div class="container">
             <div class="hero-grid">
-                <!-- Left: Headline & Actions -->
                 <div>
-                    <div class="badge">
-                        <p>Selamat datang di<span> SMKS Muhammadiyah 1 Genteng</span></p>
+                    <div class="badge badge-primary">
+                        <span class="badge-pulse-dot"></span>
+                        <p>Selamat datang di <span>SMKS Muhammadiyah 1 Genteng</span></p>
                     </div>
 
                     <h1 class="hero-headline">
-                        Good Skill, <br><span class="highlight-amber">Good Atittude.</span>
+                        Good Skill, <br><span class="highlight-amber">Good Attitude.</span>
                     </h1>
 
                     <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
@@ -2244,6 +3028,41 @@
                                 <a href="#ppdb" class="btn btn-primary">Daftar PPDB 2026 &rarr;</a>
                                 <a href="#jurusan" class="btn btn-outline">Jelajahi 8 Konsentrasi Keahlian &rarr;</a>
                             </div>
+
+                            <!-- Hero Thin Proof Strip (B.5) -->
+                            <div class="hero-proof-strip" aria-label="Bukti Keunggulan Lembaga">
+                                <div class="hero-proof-item">
+                                    <span>🏛️</span>
+                                    <span>Sejak 1968</span>
+                                </div>
+                                <span class="hero-proof-dot">&bull;</span>
+                                <div class="hero-proof-item">
+                                    <span>🏆</span>
+                                    <span>Akreditasi A (Unggul)</span>
+                                </div>
+                                <span class="hero-proof-dot">&bull;</span>
+                                <div class="hero-proof-item">
+                                    <span>🎓</span>
+                                    <span>8 Konsentrasi Keahlian</span>
+                                </div>
+                            </div>
+
+                            <!-- 8 Major Quick Jump Chips (A.1) -->
+                            <div class="major-quick-chips-wrapper">
+                                <div class="major-chips-label">Pilih & Lompat ke Program Keahlian:</div>
+                                <div class="major-chips-list" role="navigation" aria-label="Daftar Cepat Jurusan">
+                                    <button class="major-chip-btn" onclick="jumpToMajor('rpl')">💻 RPL</button>
+                                    <button class="major-chip-btn" onclick="jumpToMajor('tkj')">🌐 TKJ</button>
+                                    <button class="major-chip-btn" onclick="jumpToMajor('dkv')">🎬 DKV</button>
+                                    <button class="major-chip-btn" onclick="jumpToMajor('bd')">💼 Bisnis
+                                        Digital</button>
+                                    <button class="major-chip-btn" onclick="jumpToMajor('akl')">📊 Akuntansi</button>
+                                    <button class="major-chip-btn" onclick="jumpToMajor('mplb')">🏢 Perkantoran</button>
+                                    <button class="major-chip-btn" onclick="jumpToMajor('ph')">🏨 Perhotelan</button>
+                                    <button class="major-chip-btn" onclick="jumpToMajor('tbsm')">🏍️ TBSM Honda</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -2251,29 +3070,15 @@
         </div>
     </section>
 
-    <!-- 3. GSAP PINNED SIGNATURE SECTION -->
-    <section class="signature-section">
-        <div class="container">
-            <div class="svg-container">
-                <svg viewBox="0 0 100 100" class="svg-star">
-                    <path class="svg-path"
-                        d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z M50 20 L65 35 L80 50 L65 65 L50 80 L35 65 L20 50 L35 35 Z" />
-                </svg>
-            </div>
-            <div class="signature-text font-display" data-scroll-reveal>
-                "Sinergi Keahlian Vokasi, Karakter Islami, & Sertifikasi BNSP Menuju Generasi Emas"
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. MARQUEE MITRA INDUSTRI DUDI -->
-    <section class="marquee-section">
+    <!-- 3. MARQUEE MITRA INDUSTRI DUDI -->
+    <section class="marquee-section" aria-label="Mitra Industri DUDI">
         <div class="marquee-track">
             <div class="mitra-item"><span>🔨</span> Semesta Multitekno</div>
             <div class="mitra-item"><span>⚡</span> Hummatech</div>
             <div class="mitra-item"><span>🏦</span> Bank Jatim Syariah</div>
             <div class="mitra-item"><span>🏨</span> Hotel Ketapang Indah</div>
-            <div class="mitra-item"><span>🛵</span> Astra Motor</div>
+            <div class="mitra-item"><span>🛵</span> Astra Honda Motor (AHASS)</div>
+            <div class="mitra-item"><span>☁️</span> Jagoan Hosting Indonesia</div>
             <div class="mitra-item"><span>🏛️</span> Yayasan Pendidikan Muhammadiyah</div>
             <div class="mitra-item"><span>📡</span> Diskominfo Banyuwangi</div>
             <!-- Seamless Loop Duplicate -->
@@ -2281,98 +3086,15 @@
             <div class="mitra-item"><span>⚡</span> Hummatech</div>
             <div class="mitra-item"><span>🏦</span> Bank Jatim Syariah</div>
             <div class="mitra-item"><span>🏨</span> Hotel Ketapang Indah</div>
-            <div class="mitra-item"><span>🛵</span> Astra Motor</div>
+            <div class="mitra-item"><span>🛵</span> Astra Honda Motor (AHASS)</div>
+            <div class="mitra-item"><span>☁️</span> Jagoan Hosting Indonesia</div>
             <div class="mitra-item"><span>🏛️</span> Yayasan Pendidikan Muhammadiyah</div>
             <div class="mitra-item"><span>📡</span> Diskominfo Banyuwangi</div>
         </div>
     </section>
 
-    <!-- 5. SAMBUTAN KEPALA SEKOLAH (EXECUTIVE EDITORIAL CARD) -->
-    <section class="executive-section" id="sambutan">
-        <div class="container">
-            <div class="executive-card">
-                <div class="executive-photo-frame">
-                    <img src="assets/PAK-WAHID-AI-e1781064934191.png" alt="Kepala Sekolah Wahid Wahyudi S.E. M.M.">
-                    <div class="executive-photo-badge">
-                        <strong style="display:block; color:var(--primary); font-size:1.05rem;">Wahid Wahyudi, S.E.,
-                            M.M.</strong>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">Kepala Sekolah SMKS Muhammadiyah 1
-                            Genteng</span>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="badge badge-amber mb-2" style="margin-bottom:1rem;">Sambutan Pimpinan Lembaga</div>
-                    <h3 class="executive-quote">"Sekolah yang baik adalah sekolah yang mengantar siswanya sampai ke
-                        tujuan, bukan hanya sampai ke ijazah."</h3>
-                    <p class="executive-bio-text" data-scroll-reveal>
-                        Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap secara teknis dan adaptif
-                        terhadap revolusi industri, tetapi juga memiliki fondasi akhlak Islami yang kokoh. Di SMKS MUHI
-                        Genteng, setiap siswa dibekali sertifikasi kompetensi resmi BNSP melalui LSP-P1, kurikulum
-                        berbasis industri, dan ruang aktualisasi wirausaha nyata.
-                    </p>
-                    <div class="flex" style="gap:1rem; flex-wrap:wrap;">
-                        <a href="visi-misi.html" class="btn btn-outline">Visi & Misi Sekolah &rarr;</a>
-                        <a href="fasilitas.html" class="btn btn-outline">Jelajahi Fasilitas &rarr;</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Why Choose MUHI Bento Grid -->
-            <div class="why-bento-grid">
-                <div class="why-bento-card why-col-8">
-                    <div>
-                        <div class="badge badge-dark mb-2" style="margin-bottom:1.5rem;">Pilar Utama</div>
-                        <h3 class="font-display" style="font-size:2rem; margin-bottom:1rem; line-height:1.2;">Kemitraan
-                            Industri Kuat (DUDI)</h3>
-                        <p style="opacity: 0.92; line-height:1.7; font-size:1.05rem; max-width:650px;">
-                            Kurikulum disinkronisasi bersama 24+ mitra industri nasional (Semesta Multitekno, Hummatech,
-                            Astra Motor, Bank Jatim Syariah). Memastikan keahlian relevan dan peluang magang langsung di
-                            lini industri terdepan.
-                        </p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="#bkk" class="btn btn-outline-light">Info Kerjasama & BKK &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="why-bento-card why-col-4">
-                    <div class="why-icon-box">📜</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">LSP-P1
-                        Berlisensi BNSP</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Memiliki Lembaga Sertifikasi
-                        Profesi Pihak Kesatu terlisensi resmi BNSP untuk menguji standar kompetensi kerja nasional.</p>
-                </div>
-
-                <div class="why-bento-card why-col-4">
-                    <div class="why-icon-box">💡</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">
-                        Teaching Factory</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Pembelajaran kontekstual
-                        mengerjakan pesanan riil dari klien, membangun portofolio profesional sejak dini.</p>
-                </div>
-
-                <div class="why-bento-card why-col-4">
-                    <div class="why-icon-box">🏬</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">Unit
-                        BLUD Mandiri</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Wadah siswa berlatih
-                        wirausaha mandiri dan mengelola bisnis profesional berizin resmi di sekolah.</p>
-                </div>
-
-                <div class="why-bento-card why-col-4">
-                    <div class="why-icon-box">🕌</div>
-                    <h4 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">
-                        Karakter Islami IPM</h4>
-                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Penanaman nilai integritas,
-                        etos kerja tinggi, dan akhlakul karimah melalui pembinaan Ikatan Pelajar Muhammadiyah.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. COUNTER STATS STRIP -->
-    <section class="stats-section">
+    <!-- 4. COUNTER STATS STRIP (Section 2 in Flow: Hero -> Statistik) -->
+    <section class="stats-section" id="statistik" aria-label="Statistik Lembaga">
         <div class="px-stage" aria-hidden="true">
             <div class="px-grid" data-parallax="0.16"></div>
             <div class="px-ring" style="width:520px; height:520px; top:-180px; left:8%;" data-parallax="0.30"></div>
@@ -2403,7 +3125,72 @@
         </div>
     </section>
 
-    <!-- 7. 8 VOCATIONAL MAJORS - HYPER-BENTO MATRIX -->
+    <!-- 5. KEUNGGULAN SEKOLAH (Section 3 in Flow: Hero -> Statistik -> Keunggulan) -->
+    <section class="executive-section" id="keunggulan">
+        <div class="container">
+            <div class="text-center section-header" style="margin-bottom: 2.5rem;">
+                <div class="badge badge-amber mb-2">Pilar Vokasi Unggul</div>
+                <h2 class="section-title">Mengapa Memilih SMKS MUHI Genteng?</h2>
+                <p class="section-desc" style="margin: 0 auto;">
+                    Sinergi kurikulum industri, fasilitas Teaching Factory modern, sertifikasi lisensi BNSP, dan
+                    pembentukan karakter Islami berkemajuan.
+                </p>
+            </div>
+
+            <!-- Why Choose MUHI Bento Grid -->
+            <div class="why-bento-grid" style="margin-top: 1rem;">
+                <div class="why-bento-card why-col-8">
+                    <div>
+                        <div class="badge badge-dark mb-2" style="margin-bottom:1.5rem;">Pilar Utama</div>
+                        <h3 class="font-display" style="font-size:2rem; margin-bottom:1rem; line-height:1.2;">Kemitraan
+                            Industri Kuat (DUDI)</h3>
+                        <p style="opacity: 0.92; line-height:1.7; font-size:1.05rem; max-width:650px;">
+                            Kurikulum disinkronisasi bersama 24+ mitra industri nasional (Semesta Multitekno, Hummatech,
+                            Astra Motor, Bank Jatim Syariah). Memastikan keahlian relevan dan peluang magang langsung di
+                            lini industri terdepan.
+                        </p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#bkk" class="btn btn-outline-light">Info Kerjasama & BKK &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="why-bento-card why-col-4">
+                    <div class="why-icon-box">📜</div>
+                    <h3 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">LSP-P1
+                        Berlisensi BNSP</h3>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Memiliki Lembaga Sertifikasi
+                        Profesi Pihak Kesatu terlisensi resmi BNSP untuk menguji standar kompetensi kerja nasional.</p>
+                </div>
+
+                <div class="why-bento-card why-col-4">
+                    <div class="why-icon-box">💡</div>
+                    <h3 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">
+                        Teaching Factory</h3>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Pembelajaran kontekstual
+                        mengerjakan pesanan riil dari klien, membangun portofolio profesional sejak dini.</p>
+                </div>
+
+                <div class="why-bento-card why-col-4">
+                    <div class="why-icon-box">🏬</div>
+                    <h3 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">Unit
+                        BLUD Mandiri</h3>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Wadah siswa berlatih
+                        wirausaha mandiri dan mengelola bisnis profesional berizin resmi di sekolah.</p>
+                </div>
+
+                <div class="why-bento-card why-col-4">
+                    <div class="why-icon-box">🕌</div>
+                    <h3 class="font-head" style="font-size:1.25rem; color:var(--primary); margin-bottom:0.5rem;">
+                        Karakter Islami IPM</h3>
+                    <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Penanaman nilai integritas,
+                        etos kerja tinggi, dan akhlakul karimah melalui pembinaan Ikatan Pelajar Muhammadiyah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. KONSENTRASI KEAHLIAN - "DARI KELAS X KE TEMPAT KERJA" (Section 4 in Flow) -->
     <section class="majors-section" id="jurusan">
         <div class="px-stage" aria-hidden="true">
             <div class="px-grid px-grid-dark" data-parallax="0.09"></div>
@@ -2411,221 +3198,449 @@
                 data-parallax="0.20"></div>
         </div>
         <div class="container">
-            <div class="text-center section-header">
+            <div class="text-center section-header" style="margin-bottom: 3.5rem;">
                 <div class="badge badge-primary mb-2">Konsentrasi Keahlian</div>
-                <h2 class="section-title">8 Program Keahlian Vokasi Industri</h2>
-                <p class="section-desc" style="margin: 0 auto;">Spesialisasi kejuruan yang dirancang sesuai standar
-                    SKKNI dan kebutuhan transformasi digital masa kini.</p>
+                <h2 class="section-title" style="color: var(--primary-dark); font-weight: 800;">
+                    Dari Kelas X ke Tempat Kerja
+                </h2>
+                <p class="section-desc" style="margin: 0 auto; color: var(--text-muted); font-size: 1.08rem;">
+                    Pilih jurusan untuk melihat alur pembelajaran nyata dari bangku sekolah, praktik industri Teaching
+                    Factory, sertifikasi profesi BNSP, hingga penyerapan kerja di Dudika.
+                </p>
             </div>
 
-            <!-- Tab Switcher Navigation -->
-            <div class="majors-nav-pills">
-                <button class="major-nav-btn active" data-target="rpl" onclick="switchMajorTab('rpl', this)">💻 RPL
-                    (Software Dev)</button>
-                <button class="major-nav-btn" data-target="tkj" onclick="switchMajorTab('tkj', this)">🌐 TKJ (Jaringan &
-                    Cloud)</button>
-                <button class="major-nav-btn" data-target="mm" onclick="switchMajorTab('mm', this)">🎬 DKV (Desain &
-                    Video)</button>
-            </div>
+            <!-- 8 Major Cards Grid (Ratio 3:4) -->
+            <div class="majors-grid-8" role="region" aria-label="Daftar 8 Program Keahlian Vokasi">
 
-            <!-- Pane 1: RPL -->
-            <div class="major-tab-pane active" id="pane-rpl">
-                <div class="major-spotlight-card">
-                    <div class="major-hero-icon-box">
-                        <span class="big-emoji">💻</span>
-                        <div class="badge badge-primary">PPLG / Software Engineering</div>
+                <!-- Card 1: RPL -->
+                <div class="major-path-card active" id="card-rpl" tabindex="0" role="button" aria-expanded="true"
+                    aria-controls="major-pathway-panel" onclick="selectMajorPathway('rpl')"
+                    onkeydown="handleMajorCardKey(event, 'rpl')">
+                    <div class="major-card-photo-wrapper">
+                        <span class="major-code-pill">RPL</span>
+                        <div class="major-corner-logo" title="Logo Program Keahlian RPL">
+                            <img src="assets/major/RPL-removebg-preview.png" alt="Logo RPL" width="34" height="34"
+                                loading="lazy">
+                        </div>
+                        <img src="assets/major-person/RPL 01.png" alt="Siswa Berseragam Rekayasa Perangkat Lunak"
+                            class="major-student-portrait" width="280" height="370" loading="lazy">
                     </div>
-                    <div>
-                        <div class="badge badge-amber mb-2">Unggulan Digital</div>
-                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">
-                            Rekayasa Perangkat Lunak (RPL)</h3>
-                        <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7;">
-                            Fokus pada pengembangan aplikasi web modern, mobile apps, database arsitektur, dan logika
-                            komputasi. Siswa dibekali kemampuan membangun solusi software siap pakai untuk ekosistem
-                            industri digital.
+                    <div class="major-card-info">
+                        <h3 class="major-card-name">Rekayasa Perangkat Lunak</h3>
+                        <div class="major-trigger-btn">
+                            <span>Jelajahi Alur Karir</span>
+                            <span class="trigger-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: TKJ -->
+                <div class="major-path-card" id="card-tkj" tabindex="0" role="button" aria-expanded="false"
+                    aria-controls="major-pathway-panel" onclick="selectMajorPathway('tkj')"
+                    onkeydown="handleMajorCardKey(event, 'tkj')">
+                    <div class="major-card-photo-wrapper">
+                        <span class="major-code-pill">TKJ</span>
+                        <div class="major-corner-logo" title="Logo Program Keahlian TKJ">
+                            <img src="assets/major/TJKT-removebg-preview.png" alt="Logo TKJ" width="34" height="34"
+                                loading="lazy">
+                        </div>
+                        <img src="assets/major-person/TKJ 01.png" alt="Siswa Berseragam Teknik Komputer dan Jaringan"
+                            class="major-student-portrait" width="280" height="370" loading="lazy">
+                    </div>
+                    <div class="major-card-info">
+                        <h3 class="major-card-name">Teknik Komputer & Jaringan</h3>
+                        <div class="major-trigger-btn">
+                            <span>Jelajahi Alur Karir</span>
+                            <span class="trigger-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: DKV -->
+                <div class="major-path-card" id="card-dkv" tabindex="0" role="button" aria-expanded="false"
+                    aria-controls="major-pathway-panel" onclick="selectMajorPathway('dkv')"
+                    onkeydown="handleMajorCardKey(event, 'dkv')">
+                    <div class="major-card-photo-wrapper">
+                        <span class="major-code-pill">DKV</span>
+                        <div class="major-corner-logo" title="Logo Program Keahlian DKV">
+                            <img src="assets/major/dkv.png" alt="Logo DKV" width="34" height="34" loading="lazy">
+                        </div>
+                        <img src="assets/major-person/DKV 01.png" alt="Siswa Berseragam Desain Komunikasi Visual"
+                            class="major-student-portrait" width="280" height="370" loading="lazy">
+                    </div>
+                    <div class="major-card-info">
+                        <h3 class="major-card-name">Desain Komunikasi Visual</h3>
+                        <div class="major-trigger-btn">
+                            <span>Jelajahi Alur Karir</span>
+                            <span class="trigger-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: BD -->
+                <div class="major-path-card" id="card-bd" tabindex="0" role="button" aria-expanded="false"
+                    aria-controls="major-pathway-panel" onclick="selectMajorPathway('bd')"
+                    onkeydown="handleMajorCardKey(event, 'bd')">
+                    <div class="major-card-photo-wrapper">
+                        <span class="major-code-pill">BD</span>
+                        <div class="major-corner-logo" title="Logo Program Keahlian Bisnis Digital">
+                            <img src="assets/major/logo bdp.png" alt="Logo Bisnis Digital" width="34" height="34"
+                                loading="lazy">
+                        </div>
+                        <img src="assets/major-person/BD.png" alt="Siswa Berseragam Bisnis Digital"
+                            class="major-student-portrait" width="280" height="370" loading="lazy">
+                    </div>
+                    <div class="major-card-info">
+                        <h3 class="major-card-name">Bisnis Digital</h3>
+                        <div class="major-trigger-btn">
+                            <span>Jelajahi Alur Karir</span>
+                            <span class="trigger-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: AKL -->
+                <div class="major-path-card" id="card-akl" tabindex="0" role="button" aria-expanded="false"
+                    aria-controls="major-pathway-panel" onclick="selectMajorPathway('akl')"
+                    onkeydown="handleMajorCardKey(event, 'akl')">
+                    <div class="major-card-photo-wrapper">
+                        <span class="major-code-pill">AKL</span>
+                        <div class="major-corner-logo" title="Logo Program Keahlian Akuntansi">
+                            <img src="assets/major/logo AKL.png" alt="Logo AKL" width="34" height="34" loading="lazy">
+                        </div>
+                        <img src="assets/major-person/AK 01.png" alt="Siswa Berseragam Akuntansi"
+                            class="major-student-portrait" width="280" height="370" loading="lazy">
+                    </div>
+                    <div class="major-card-info">
+                        <h3 class="major-card-name">Akuntansi Lembaga</h3>
+                        <div class="major-trigger-btn">
+                            <span>Jelajahi Alur Karir</span>
+                            <span class="trigger-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: MPLB -->
+                <div class="major-path-card" id="card-mplb" tabindex="0" role="button" aria-expanded="false"
+                    aria-controls="major-pathway-panel" onclick="selectMajorPathway('mplb')"
+                    onkeydown="handleMajorCardKey(event, 'mplb')">
+                    <div class="major-card-photo-wrapper">
+                        <span class="major-code-pill">MPLB</span>
+                        <div class="major-corner-logo" title="Logo Manajemen Perkantoran">
+                            <span class="emoji-logo">🏢</span>
+                        </div>
+                        <img src="assets/major-person/MP 01.png" alt="Siswa Berseragam Manajemen Perkantoran"
+                            class="major-student-portrait" width="280" height="370" loading="lazy">
+                    </div>
+                    <div class="major-card-info">
+                        <h3 class="major-card-name">Manajemen Perkantoran</h3>
+                        <div class="major-trigger-btn">
+                            <span>Jelajahi Alur Karir</span>
+                            <span class="trigger-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: PH -->
+                <div class="major-path-card" id="card-ph" tabindex="0" role="button" aria-expanded="false"
+                    aria-controls="major-pathway-panel" onclick="selectMajorPathway('ph')"
+                    onkeydown="handleMajorCardKey(event, 'ph')">
+                    <div class="major-card-photo-wrapper">
+                        <span class="major-code-pill">PH</span>
+                        <div class="major-corner-logo" title="Logo Perhotelan">
+                            <span class="emoji-logo">🏨</span>
+                        </div>
+                        <img src="assets/major-person/PH.png" alt="Siswa Berseragam Perhotelan"
+                            class="major-student-portrait" width="280" height="370" loading="lazy">
+                    </div>
+                    <div class="major-card-info">
+                        <h3 class="major-card-name">Perhotelan & Hospitality</h3>
+                        <div class="major-trigger-btn">
+                            <span>Jelajahi Alur Karir</span>
+                            <span class="trigger-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INLINE EXPANDABLE 4-STAGE PATHWAY PANEL (Single open panel at a time) -->
+            <div class="major-pathway-panel open" id="major-pathway-panel" aria-live="polite">
+                <button class="panel-close-btn" onclick="closeMajorPathway()"
+                    aria-label="Tutup Panel Alur Jurusan">&times;</button>
+
+                <div class="panel-header-badge" id="panel-major-badge">ALUR PENDIDIKAN VOKASI &bull; RPL</div>
+                <h3 class="panel-title" id="panel-major-title">Rekayasa Perangkat Lunak</h3>
+                <p class="panel-desc" id="panel-major-desc">
+                    Mencetak software engineer berkarakter Islami yang siap berkontribusi langsung pada industri
+                    teknologi digital nasional dan global.
+                </p>
+
+                <!-- 4-Stage Horizontal Pathway Timeline -->
+                <div class="pathway-horizontal-track">
+
+                    <!-- Stage 1 -->
+                    <div class="pathway-step">
+                        <div class="step-node-header">
+                            <div class="step-circle-number">1</div>
+                            <div class="step-title">Yang Dipelajari</div>
+                        </div>
+                        <div class="step-content-card">
+                            <span class="step-badge-tag">4 Kompetensi Inti</span>
+                            <ul class="step-list" id="panel-stage-1">
+                                <li>Pemrograman Web Modern (HTML, CSS, JS, PHP/Laravel)</li>
+                                <li>Pengembangan Mobile App (Flutter & Kotlin)</li>
+                                <li>Arsitektur Basis Data SQL & NoSQL Cloud</li>
+                                <li>REST API, Git Version Control & CI/CD</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="pathway-step">
+                        <div class="step-node-header">
+                            <div class="step-circle-number">2</div>
+                            <div class="step-title">Tempat Praktik</div>
+                        </div>
+                        <div class="step-content-card">
+                            <span class="step-badge-tag">Teaching Factory (TEFA)</span>
+                            <ul class="step-list" id="panel-stage-2">
+                                <li><strong>Software House TEFA MUHI</strong>: Mengerjakan proyek riil aplikasi web &
+                                    mobile untuk sekolah mitra dan UMKM</li>
+                                <li><strong>Lab iMac & Cloud Workstation</strong> berkecepatan tinggi</li>
+                            </ul>
+                            <div class="step-highlight-box" id="panel-stage-2-box">
+                                Portofolio teruji dengan klien nyata sebelum kelulusan.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="pathway-step">
+                        <div class="step-node-header">
+                            <div class="step-circle-number">3</div>
+                            <div class="step-title">Sertifikasi Profesi</div>
+                        </div>
+                        <div class="step-content-card">
+                            <span class="step-badge-tag">Skema Resmi BNSP</span>
+                            <ul class="step-list" id="panel-stage-3">
+                                <li><strong>LSP-P1 SMKS MUHI (BNSP)</strong>: Skema Junior Web Developer & Software
+                                    Programmer</li>
+                                <li>Sertifikasi Internasional Cloud & Database Foundation</li>
+                            </ul>
+                            <div class="step-highlight-box" id="panel-stage-3-box">
+                                Sertifikat kompetensi Garuda Emas diakui ASEAN.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="pathway-step">
+                        <div class="step-node-header">
+                            <div class="step-circle-number"
+                                style="border-color:var(--secondary); color:var(--secondary);">4</div>
+                            <div class="step-title" style="color:var(--secondary);">Setelah Lulus</div>
+                        </div>
+                        <div class="step-content-card" style="border-color: rgba(234, 179, 8, 0.3);">
+                            <span class="step-badge-tag"
+                                style="color:var(--secondary); border-color:rgba(234, 179, 8, 0.2);">Mitra
+                                Dudika & Karir</span>
+                            <ul class="step-list" id="panel-stage-4">
+                                <li><strong>Mitra Industri:</strong> Semesta Multitekno, Hummatech, PT Digital Kreatif
+                                    Nusantara</li>
+                                <li><strong>Posisi Kerja Nyata:</strong> Frontend Developer, Backend Developer, QA
+                                    Tester, IT Support Specialist</li>
+                            </ul>
+                            <div class="step-highlight-box"
+                                style="background:var(--primary-surface); border-left-color:var(--primary); color:var(--primary-dark);"
+                                id="panel-stage-4-box">
+                                Penyaluran langsung via Bursa Kerja Khusus (BKK).
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Alumni / Student Quote Box -->
+                <div class="major-alumni-quote-box">
+                    <div class="alumni-avatar-frame">
+                        <img src="assets/major-person/RPL 01.png" alt="Foto Siswa Alumni RPL Reynaldo Septian"
+                            id="panel-quote-avatar" width="75" height="75" loading="lazy">
+                    </div>
+                    <div class="alumni-quote-content">
+                        <p class="alumni-quote-text" id="panel-quote-text">
+                            "Di RPL SMKS MUHI, kami tidak hanya diajari teori coding, tapi langsung mengerjakan pesanan
+                            aplikasi nyata di Teaching Factory. Saat lulus, portofolio dan sertifikat BNSP saya langsung
+                            diterima di software house mitra."
                         </p>
-
-                        <div class="skills-chip-row">
-                            <span class="skill-tag">Web & Mobile Dev</span>
-                            <span class="skill-tag">Basis Data SQL & NoSQL</span>
-                            <span class="skill-tag">API Integration</span>
-                            <span class="skill-tag">Git & CI/CD</span>
-                        </div>
-
-                        <div
-                            style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
-                            <strong>Prospek Karir:</strong> <span
-                                style="color:var(--secondary); font-weight:700;">Software Engineer, Web Developer,
-                                Mobile App Developer, QA Tester</span>
+                        <div class="alumni-author" id="panel-quote-author">
+                            <span>Reynaldo Septian</span>
+                            <span class="alumni-role">&bull; Alumni RPL &bull; Junior Frontend Developer di Semesta
+                                Multitekno</span>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-            <!-- Pane 2: TKJ -->
-            <div class="major-tab-pane" id="pane-tkj">
-                <div class="major-spotlight-card">
-                    <div class="major-hero-icon-box">
-                        <span class="big-emoji">🌐</span>
-                        <div class="badge badge-primary">TJKT / Network Architecture</div>
-                    </div>
-                    <div>
-                        <div class="badge badge-amber mb-2">Infrastruktur Cyber</div>
-                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">
-                            Teknik Komputer & Jaringan (TKJ)</h3>
-                        <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7;">
-                            Mencetak arsitek infrastruktur digital yang handal menangani routing-switching enterprise,
-                            fiber optic splicing, administrasi Linux server/Cloud, dan keamanan jaringan cyber.
-                        </p>
+        </div>
+    </section>
 
-                        <div class="skills-chip-row">
-                            <span class="skill-tag">MikroTik MTCNA</span>
-                            <span class="skill-tag">Linux Cloud Server</span>
-                            <span class="skill-tag">Fiber Optic Splicing</span>
-                            <span class="skill-tag">Network Security</span>
-                        </div>
-
-                        <div
-                            style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
-                            <strong>Prospek Karir:</strong> <span
-                                style="color:var(--secondary); font-weight:700;">Network Administrator, IT
-                                Infrastructure Engineer, Fiber Optic Specialist, SysAdmin</span>
-                        </div>
-                    </div>
+    <!-- 7. TEFA & UNIT PRODUKSI BLUD SISWA (Section 5 in Flow: Jurusan -> TEFA/BLUD) -->
+    <section class="blud-section" id="blud">
+        <div class="px-stage" aria-hidden="true">
+            <div class="px-grid" data-parallax="0.14"></div>
+            <div class="px-orb px-orb-blue" style="width:560px; height:560px; top:-180px; right:-140px;"
+                data-parallax="0.26"></div>
+            <div class="px-orb px-orb-amber" style="width:380px; height:380px; bottom:-160px; left:-100px;"
+                data-parallax="-0.20"></div>
+        </div>
+        <div class="container">
+            <div class="flex justify-between items-center flex-wrap" style="margin-bottom:3.5rem; gap:1.5rem;">
+                <div>
+                    <div class="badge badge-amber mb-2">Teaching Factory & Kewirausahaan Nyata</div>
+                    <h2 class="section-title" style="color:#ffffff; margin: 0.5rem 0;">Karya & Unit Usaha Dikelola Siswa
+                        (BLUD)</h2>
+                    <p style="opacity:0.85; max-width:640px;">Bukti pembelajaran aplikatif: siswa dilatih mengelola unit
+                        bisnis mandiri, menghasilkan produk komersial dan melayani pelanggan sesungguhnya.</p>
                 </div>
+                <a href="#jurusan" class="btn btn-amber">Lihat Unit Praktek Jurusan &rarr;</a>
             </div>
 
-            <!-- Pane 3: DKV -->
-            <div class="major-tab-pane" id="pane-mm">
-                <div class="major-spotlight-card">
-                    <div class="major-hero-icon-box">
-                        <span class="big-emoji">🎬</span>
-                        <div class="badge badge-primary">Industri Kreatif & Visual</div>
-                    </div>
+            <div class="blud-grid">
+                <!-- Product 1 -->
+                <div class="product-bento">
                     <div>
-                        <div class="badge badge-amber mb-2">Media & Cinematography</div>
-                        <h3 class="font-display" style="font-size:2.4rem; color:var(--primary); margin:0.5rem 0 1rem;">
-                            Desain Komunikasi Visual (DKV)</h3>
-                        <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.7;">
-                            Mengeksplorasi kreativitas visual tanpa batas. Membangun portofolio profesional dalam desain
-                            grafis komersial, videografi sinematik, animasi, motion graphics, dan strategi branding
-                            media sosial.
-                        </p>
-
-                        <div class="skills-chip-row">
-                            <span class="skill-tag">Graphic Design & UI/UX</span>
-                            <span class="skill-tag">Cinematography & Editing</span>
-                            <span class="skill-tag">Motion Graphics 2D/3D</span>
-                            <span class="skill-tag">Content Strategy</span>
-                        </div>
-
-                        <div
-                            style="margin-top: 1.5rem; font-size:0.95rem; border-top:1px solid var(--border-card); padding-top:1.2rem;">
-                            <strong>Prospek Karir:</strong> <span
-                                style="color:var(--secondary); font-weight:700;">Graphic Designer, Video Editor, Motion
-                                Designer, Creative Director</span>
-                        </div>
+                        <div class="p-icon-hero">👕</div>
+                        <div class="blud-learner-tag">🎨 Dikelola Siswa DKV</div>
+                        <h3 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.4rem 0 0.4rem;">Sablon &
+                            Merchandise Custom</h3>
+                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Layanan cetak sablon kaos, mug,
+                            lanyard, ID card, dan plakat wisuda berkualitas tinggi pesanan instansi.</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- 8 Majors Complete Grid -->
-            <div class="majors-sub-grid">
-                <div class="major-mini-card">
-                    <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">💼</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
-                            Bisnis Digital</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">E-commerce management,
-                            digital marketing, marketplace SEO, dan analisis bisnis online.</p>
-                    </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Bisnis &
-                        Manajemen</span>
+                    <div class="p-price-tag">Mulai Rp45.000</div>
                 </div>
 
-                <div class="major-mini-card">
+                <!-- Product 2 -->
+                <div class="product-bento">
                     <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">📊</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
-                            Akuntansi Lembaga (AKL)</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Komputer akuntansi
-                            (MYOB/Accurate), perpajakan, audit pembukuan, dan perbankan syariah.</p>
+                        <div class="p-icon-hero">🍱</div>
+                        <div class="blud-learner-tag">🥐 Dikelola Siswa Tata Boga & Perhotelan</div>
+                        <h3 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.4rem 0 0.4rem;">Katering
+                            & Bakery Snack Box</h3>
+                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Kue kering, roti lembut, dan menu
+                            konsumsi rapat higienis bersertifikasi halal untuk kebutuhan instansi & hajatan.</p>
                     </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Keuangan</span>
+                    <div class="p-price-tag">Mulai Rp18.000</div>
                 </div>
 
-                <div class="major-mini-card">
+                <!-- Product 3 -->
+                <div class="product-bento">
                     <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏢</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
-                            Manajemen Perkantoran (MPLB)</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Administrasi perkantoran
-                            modern, digital archiving, tata kelola humas, dan kesekretariatan.</p>
+                        <div class="p-icon-hero">🔧</div>
+                        <div class="blud-learner-tag">🏍️ Dikelola Siswa TKJ & Otomotif Honda</div>
+                        <h3 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.4rem 0 0.4rem;">Servis
+                            IT & Pos AHASS Motor</h3>
+                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Servis komputer, instalasi jaringan
+                            WiFi kantor, serta tune-up injeksi berkala motor Honda masyarakat di pos AHASS resmi.</p>
                     </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Layanan
-                        Bisnis</span>
-                </div>
-
-                <div class="major-mini-card">
-                    <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏨</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
-                            Perhotelan & Hospitality</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Front office,
-                            housekeeping berstandar bintang lima, food and beverage service, dan hospitality.</p>
-                    </div>
-                    <span class="badge badge-primary"
-                        style="margin-top:1.2rem; align-self:flex-start;">Pariwisata</span>
-                </div>
-
-                <div class="major-mini-card">
-                    <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">🍰</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">Tata
-                            Boga / Kuliner</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Keahlian bakery &
-                            pastry, pengolahan makanan nusantara & kontinental, hygiene sanitasi halal.</p>
-                    </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Kuliner</span>
-                </div>
-
-                <div class="major-mini-card">
-                    <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏍️</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
-                            Teknik Sepeda Motor (TBSM)</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Perawatan mesin injeksi,
-                            kelistrikan, diagnosis kerusakan berstandar bengkel resmi Astra Honda.</p>
-                    </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Otomotif</span>
-                </div>
-
-                <div class="major-mini-card">
-                    <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">🏦</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
-                            Perbankan Syariah</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Prinsip akad syariah,
-                            operasional teller dan customer service lembaga keuangan mikro syariah.</p>
-                    </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Syariah</span>
-                </div>
-
-                <div class="major-mini-card">
-                    <div>
-                        <div style="font-size:2.2rem; margin-bottom:0.8rem;">🤝</div>
-                        <h4 class="font-head" style="color:var(--primary); font-size:1.2rem; margin-bottom:0.4rem;">
-                            Teaching Factory Kolaboratif</h4>
-                        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Proyek kolaborasi lintas
-                            jurusan memproduksi produk unggulan untuk pasar komersial.</p>
-                    </div>
-                    <span class="badge badge-primary" style="margin-top:1.2rem; align-self:flex-start;">Inovasi</span>
+                    <div class="p-price-tag">Mulai Rp30.000</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 8. PRESTASI & TESTIMONI STRIP WITH GSAP PARALLAX -->
+    <!-- 8. BURSA KERJA KHUSUS (BKK) (Section 6 in Flow: TEFA/BLUD -> BKK) -->
+    <section class="bkk-section" id="bkk">
+        <div class="container">
+            <div class="text-center section-header">
+                <div class="badge badge-primary mb-2">Penyaluran Lulusan & Karir</div>
+                <h2 class="section-title">Bursa Kerja Khusus (BKK)</h2>
+                <p class="section-desc" style="margin: 0 auto;">Jembatan karir terpercaya menghubungkan alumni dan siswa
+                    dengan lowongan kerja mitra industri terkemuka.</p>
+            </div>
+
+            <!-- BKK Big Impact Summary Banner (B.7) -->
+            <div class="bkk-summary-banner">
+                <div class="bkk-summary-number">
+                    <span>92.4%</span>
+                </div>
+                <div class="bkk-summary-text">
+                    <h3>Tingkat Keterserapan Alumni SMKS MUHI</h3>
+                    <p>Sebanyak <strong>450+ lulusan tahun terakhir</strong> langsung terserap kerja di mitra DUDIKA,
+                        berwirausaha mandiri lewat BLUD, dan melanjutkan studi ke perguruan tinggi negeri/swasta
+                        ternama.</p>
+                </div>
+            </div>
+
+            <div class="bkk-table-card">
+                <div class="bkk-table-header">
+                    <div>Perusahaan Mitra</div>
+                    <div>Posisi Pekerjaan</div>
+                    <div>Tipe</div>
+                    <div>Status</div>
+                    <div>Aksi</div>
+                </div>
+
+                <!-- Job 1 -->
+                <div class="bkk-table-row">
+                    <div>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Digital Kreatif
+                            Nusantara</strong>
+                        <small style="color:var(--text-muted);">Surabaya / Banyuwangi</small>
+                    </div>
+                    <div style="font-weight:600;">Junior Web Developer</div>
+                    <div><span class="skill-tag">Full-time</span></div>
+                    <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
+                    <div><a href="#bkk" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="bkk-table-row">
+                    <div>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Hotel Ketapang
+                            Indah</strong>
+                        <small style="color:var(--text-muted);">Banyuwangi</small>
+                    </div>
+                    <div style="font-weight:600;">PKL Perhotelan & Tata Boga</div>
+                    <div><span class="skill-tag">Magang / PKL</span></div>
+                    <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
+                    <div><a href="#bkk" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="bkk-table-row">
+                    <div>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Bank Jatim Syariah
+                            Genteng</strong>
+                        <small style="color:var(--text-muted);">Genteng, Banyuwangi</small>
+                    </div>
+                    <div style="font-weight:600;">Staff Administrasi Operasional</div>
+                    <div><span class="skill-tag">Full-time</span></div>
+                    <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
+                    <div><a href="#bkk" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="bkk-table-row">
+                    <div>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Astra Motor AHASS
+                            Genteng</strong>
+                        <small style="color:var(--text-muted);">Banyuwangi</small>
+                    </div>
+                    <div style="font-weight:600;">Teknisi Mekanik Honda</div>
+                    <div><span class="skill-tag">Full-time</span></div>
+                    <div><span class="badge badge-amber" style="font-size:0.75rem;">Segera</span></div>
+                    <div><a href="#bkk" style="color:var(--text-muted); font-weight:700; font-size:0.9rem;">Detail Loker
+                            &rarr;</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. PRESTASI & TESTIMONI STRIP (Section 7 in Flow: BKK -> Prestasi) -->
     <section class="achievements-section" id="prestasi">
         <div class="achieve-glow-bg"></div>
         <div class="container">
@@ -2646,22 +3661,22 @@
 
                         <div class="timeline-card prestasi-item">
                             <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juli 2026</span>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara
-                                Umum ME Awards 2026</h4>
+                            <h3 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara
+                                Umum ME Awards 2026</h3>
                             <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Nasional (Muhammadiyah
                                 Education Awards)</p>
                         </div>
                         <div class="timeline-card prestasi-item">
                             <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juni 2026</span>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara
-                                3 Taekwondo Kejurprov Pelajar</h4>
+                            <h3 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">Juara
+                                3 Taekwondo Kejurprov Pelajar</h3>
                             <p style="font-size:0.9rem; color:var(--text-muted);">Tingkat Provinsi Jawa Timur (Malang)
                             </p>
                         </div>
                         <div class="timeline-card prestasi-item">
                             <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Mei 2026</span>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">
-                                Perwakilan Lomba Inovasi Digital Nasional</h4>
+                            <h3 class="font-head" style="font-size:1.2rem; color:var(--primary); margin:0.3rem 0;">
+                                Perwakilan Lomba Inovasi Digital Nasional</h3>
                             <p style="font-size:0.9rem; color:var(--text-muted);">Aplikasi Manajemen Vokasi Terpadu (Tim
                                 RPL)</p>
                         </div>
@@ -2705,7 +3720,126 @@
         </div>
     </section>
 
-    <!-- 9. PPDB 2026/2027 INTERACTIVE STEPPER & COUNTDOWN -->
+    <!-- 10. SAMBUTAN KEPALA SEKOLAH (Unpinned) -->
+    <section class="sambutan-section" id="sambutan" aria-label="Sambutan Pimpinan Lembaga">
+        <div class="container">
+            <div class="executive-card" style="text-align: left;">
+                <div class="executive-photo-frame">
+                    <img src="assets/PAK-WAHID-AI-e1781064934191.png"
+                        alt="Kepala Sekolah SMKS MUHI Wahid Wahyudi S.E. M.M." width="480" height="580" loading="lazy">
+                    <div class="executive-photo-badge">
+                        <strong style="display:block; color:var(--primary); font-size:1.05rem;">Wahid Wahyudi, S.E.,
+                            M.M.</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Kepala Sekolah SMKS Muhammadiyah 1
+                            Genteng</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="badge badge-amber mb-2" style="margin-bottom:1rem;">Pesan Pimpinan Lembaga</div>
+                    <h3 class="executive-quote">"Sekolah yang baik adalah sekolah yang mengantar siswanya sampai ke
+                        tujuan, bukan hanya sampai ke ijazah."</h3>
+                    <p class="executive-bio-text">
+                        Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap secara teknis dan adaptif
+                        terhadap revolusi industri, tetapi juga memiliki fondasi akhlak Islami yang kokoh. Di SMKS MUHI
+                        Genteng, setiap siswa dibekali sertifikasi kompetensi resmi BNSP melalui LSP-P1, kurikulum
+                        berbasis industri, dan ruang aktualisasi wirausaha nyata.
+                    </p>
+                    <div class="flex" style="gap:1rem; flex-wrap:wrap;">
+                        <a href="visi-misi.html" class="btn btn-outline">Visi & Misi Sekolah &rarr;</a>
+                        <a href="fasilitas.html" class="btn btn-outline">Jelajahi Fasilitas &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10B. SINERGI TIGA PILAR VOKASI (Pinned Scrubbed) -->
+    <section class="sinergi-section" id="sinergi" aria-label="Sinergi Tiga Pilar Keunggulan Vokasi">
+        <div class="container">
+            <!-- TIGA PILAR SINERGI VOKASI - STAGE & KONTEN -->
+            <div class="sinergi-stage-wrapper" id="synergy-stage">
+                <!-- SVG Canvas Tiga Pilar menyatu jadi Bintang -->
+                <svg viewBox="0 0 500 320" class="synergy-svg-canvas" preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true">
+                    <defs>
+                        <!-- Radial Gradient Aura Bintang -->
+                        <radialGradient id="starAuraGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="var(--secondary-light)" stop-opacity="0.6" />
+                            <stop offset="50%" stop-color="var(--secondary)" stop-opacity="0.2" />
+                            <stop offset="100%" stop-color="var(--secondary)" stop-opacity="0" />
+                        </radialGradient>
+                    </defs>
+
+                    <!-- Aura Cahaya di Pusat -->
+                    <circle cx="250" cy="160" r="130" class="synergy-star-aura" id="synergy-star-aura" />
+
+                    <!-- Garis Penghubung Tiga Pilar (Segitiga Sinergi) -->
+                    <!-- Garis 1: Node Top (250, 48) ke Node Right (400, 240) -->
+                    <path d="M 250 48 L 400 240" class="pillar-line" id="line-top-right" />
+                    <!-- Garis 2: Node Right (400, 240) ke Node Left (100, 240) -->
+                    <path d="M 400 240 L 100 240" class="pillar-line" id="line-right-left" />
+                    <!-- Garis 3: Node Left (100, 240) ke Node Top (250, 48) -->
+                    <path d="M 100 240 L 250 48" class="pillar-line" id="line-left-top" />
+
+                    <!-- Bintang Pusat (Lahir dari leburan 3 pilar) -->
+                    <path d="M 250 100 L 265 145 L 310 160 L 265 175 L 250 220 L 235 175 L 190 160 L 235 145 Z"
+                        class="synergy-center-star" id="synergy-center-star" />
+
+                    <!-- Node 1: Keahlian Vokasi (Puncak Atas) -->
+                    <g class="pillar-node-group" id="node-vokasi" transform="translate(0, 0)">
+                        <circle cx="250" cy="48" r="22" class="pillar-node-ring" />
+                        <circle cx="250" cy="48" r="8" class="pillar-node-core" />
+                        <text x="250" y="16" class="pillar-node-label">Keahlian Vokasi</text>
+                        <text x="250" y="30" class="pillar-node-sub">8 konsentrasi keahlian</text>
+                    </g>
+
+                    <!-- Node 2: Karakter Islami (Kanan Bawah) -->
+                    <g class="pillar-node-group" id="node-islami" transform="translate(0, 0)">
+                        <circle cx="400" cy="240" r="22" class="pillar-node-ring" />
+                        <circle cx="400" cy="240" r="8" class="pillar-node-core" />
+                        <text x="400" y="278" class="pillar-node-label">Karakter Islami</text>
+                        <text x="400" y="294" class="pillar-node-sub">akhlak berkemajuan</text>
+                    </g>
+
+                    <!-- Node 3: Sertifikasi BNSP (Kiri Bawah) -->
+                    <g class="pillar-node-group" id="node-bnsp" transform="translate(0, 0)">
+                        <circle cx="100" cy="240" r="22" class="pillar-node-ring" />
+                        <circle cx="100" cy="240" r="8" class="pillar-node-core" />
+                        <text x="100" y="278" class="pillar-node-label">Sertifikasi BNSP</text>
+                        <text x="100" y="294" class="pillar-node-sub">diakui secara nasional</text>
+                    </g>
+                </svg>
+
+                <!-- Teks Sinergi & Kutipan -->
+                <div class="synergy-text-container">
+                    <div class="synergy-kicker" id="synergy-kicker">Tiga Pilar, Satu Tujuan</div>
+                    <h2 class="signature-text font-display" id="synergy-main-quote">
+                        <span class="synergy-highlight">Sinergi</span> Keahlian Vokasi, Karakter Islami, & Sertifikasi
+                        BNSP Menuju Generasi Emas
+                    </h2>
+                    <p class="synergy-closing" id="synergy-closing">
+                        Fondasi holistik yang mengantarkan setiap lulusan siap kerja, kompeten bersertifikat, dan
+                        berakhlakul karimah.
+                    </p>
+
+                    <!-- CTA Keluar Menuju Jurusan (Improvisasi 14) -->
+                    <div class="synergy-action-btn" id="synergy-action-btn">
+                        <a href="#jurusan" class="btn btn-amber" style="padding: 0.75rem 1.6rem; font-size: 0.92rem;">
+                            Lihat 8 Konsentrasi Keahlian &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Rel Progres Scroll Tipis -->
+                    <div class="synergy-progress-rail" aria-hidden="true">
+                        <div class="synergy-progress-bar" id="synergy-progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. PPDB 2026/2027 INTERACTIVE STEPPER & COUNTDOWN (Section 9 in Flow: Kutipan -> PPDB) -->
     <section class="ppdb-section" id="ppdb">
         <div class="container">
             <div class="text-center section-header">
@@ -2721,8 +3855,8 @@
                     <div class="step-card">
                         <div class="step-number-box">1</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
-                                Isi Formulir Online</h4>
+                            <h3 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Isi Formulir Online</h3>
                             <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Lengkapi data calon
                                 siswa secara online melalui formulir resmi PPDB SMKS MUHI.</p>
                         </div>
@@ -2731,8 +3865,8 @@
                     <div class="step-card">
                         <div class="step-number-box">2</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
-                                Unggah Berkas Persyaratan</h4>
+                            <h3 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Unggah Berkas Persyaratan</h3>
                             <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Siapkan scan pas
                                 foto, Kartu Keluarga, SKHUN/Ijazah, dan piagam prestasi (jalur beasiswa).</p>
                         </div>
@@ -2741,8 +3875,8 @@
                     <div class="step-card">
                         <div class="step-number-box">3</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
-                                Verifikasi Panitia</h4>
+                            <h3 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Verifikasi Panitia</h3>
                             <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Panitia PPDB akan
                                 memvalidasi data dan mengonfirmasi jurusan pilihan Anda dalam 1x24 jam.</p>
                         </div>
@@ -2751,8 +3885,8 @@
                     <div class="step-card">
                         <div class="step-number-box">4</div>
                         <div>
-                            <h4 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
-                                Daftar Ulang & Orientasi</h4>
+                            <h3 class="font-head" style="font-size:1.2rem; color:var(--primary); margin-bottom:0.3rem;">
+                                Daftar Ulang & Orientasi</h3>
                             <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6;">Daftar ulang fisik
                                 di kampus, fitting seragam kejuruan, dan pembekalan Masa Pengenalan Lingkungan Sekolah.
                             </p>
@@ -2760,175 +3894,90 @@
                     </div>
                 </div>
 
-                <!-- Right: Countdown Card -->
-                <div class="ppdb-live-card">
-                    <div class="badge badge-dark mb-2"
-                        style="background:rgba(0,0,0,0.25); border:none; margin-bottom:1rem;">GELOMBANG 1 SEDANG
-                        BERJALAN</div>
-                    <h3 class="font-display" style="font-size:2.2rem; margin-bottom:0.8rem; line-height:1.2;">Amankan
-                        Kuota Jurusan Anda</h3>
-                    <p style="opacity:0.95; font-size:1rem; line-height:1.6;">Dapatkan potongan khusus pendaftaran
-                        gelombang 1 dan jaminan kelas industri pilihan.</p>
-
-                    <div class="countdown-row">
-                        <div class="countdown-box"><span class="countdown-val">14</span><span
-                                class="countdown-lbl">Hari</span></div>
-                        <div class="countdown-box"><span class="countdown-val">08</span><span
-                                class="countdown-lbl">Jam</span></div>
-                        <div class="countdown-box"><span class="countdown-val">42</span><span
-                                class="countdown-lbl">Menit</span></div>
-                        <div class="countdown-box"><span class="countdown-val">19</span><span
-                                class="countdown-lbl">Detik</span></div>
-                    </div>
-
-                    <button class="btn btn-outline-light"
-                        style="width:100%; font-size:1rem; padding:1rem; font-weight:700;">
-                        Daftar Sekarang Secara Online &rarr;
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 10. UNIT BLUD SISWA & BKK -->
-    <section class="blud-section" id="blud">
-        <div class="px-stage" aria-hidden="true">
-            <div class="px-grid" data-parallax="0.14"></div>
-            <div class="px-orb px-orb-blue" style="width:560px; height:560px; top:-180px; right:-140px;"
-                data-parallax="0.26"></div>
-            <div class="px-orb px-orb-amber" style="width:380px; height:380px; bottom:-160px; left:-100px;"
-                data-parallax="-0.20"></div>
-        </div>
-        <div class="container">
-            <div class="flex justify-between items-center flex-wrap" style="margin-bottom:3.5rem; gap:1.5rem;">
+                <!-- Right: Countdown Card & Quota Status Bar (B.8) -->
                 <div>
-                    <div class="badge badge-amber mb-2">Teaching Factory & Unit Produksi</div>
-                    <h2 class="section-title" style="color:#ffffff; margin: 0.5rem 0;">Produk Unggulan BLUD Siswa</h2>
-                    <p style="opacity:0.85; max-width:620px;">Hasil karya mandiri dan layanan profesional produksi siswa
-                        berstandar pasar komersial.</p>
-                </div>
-                <button class="btn btn-amber">Katalog Layanan Lengkap &rarr;</button>
-            </div>
+                    <div class="ppdb-live-card">
+                        <div class="badge badge-dark mb-2"
+                            style="background:rgba(0,0,0,0.25); border:none; margin-bottom:1rem;">GELOMBANG 1 SEDANG
+                            BERJALAN</div>
+                        <h3 class="font-display" style="font-size:2.2rem; margin-bottom:0.8rem; line-height:1.2;">
+                            Amankan Kuota Jurusan Anda</h3>
+                        <p style="opacity:0.95; font-size:1rem; line-height:1.6;">Dapatkan potongan khusus pendaftaran
+                            gelombang 1 dan jaminan kelas industri pilihan.</p>
 
-            <div class="blud-grid">
-                <div class="product-bento">
-                    <div>
-                        <div class="p-icon-hero">👕</div>
-                        <span class="badge badge-dark">Multimedia & DKV</span>
-                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Sablon &
-                            Merchandise Custom</h4>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Layanan cetak sablon kaos, mug,
-                            lanyard, ID card, dan plakat wisuda berkualitas tinggi.</p>
+                        <div class="countdown-row">
+                            <div class="countdown-box"><span class="countdown-val">14</span><span
+                                    class="countdown-lbl">Hari</span></div>
+                            <div class="countdown-box"><span class="countdown-val">08</span><span
+                                    class="countdown-lbl">Jam</span></div>
+                            <div class="countdown-box"><span class="countdown-val">42</span><span
+                                    class="countdown-lbl">Menit</span></div>
+                            <div class="countdown-box"><span class="countdown-val">19</span><span
+                                    class="countdown-lbl">Detik</span></div>
+                        </div>
+
+                        <a href="https://wa.me/6282241356668" target="_blank" rel="noopener"
+                            class="btn btn-outline-light"
+                            style="width:100%; font-size:1rem; padding:1rem; font-weight:700; text-decoration:none;">
+                            Daftar Sekarang Secara Online &rarr;
+                        </a>
                     </div>
-                    <div class="p-price-tag">Mulai Rp45.000</div>
-                </div>
 
-                <div class="product-bento">
-                    <div>
-                        <div class="p-icon-hero">🍱</div>
-                        <span class="badge badge-dark">Tata Boga</span>
-                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Katering
-                            & Bakery Snack Box</h4>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Kue kering, roti lembut, dan menu
-                            konsumsi rapat higienis bersertifikasi halal.</p>
+                    <!-- Live Quota Status Progress (B.8) -->
+                    <div class="ppdb-quota-card">
+                        <div class="quota-header">
+                            <strong style="color:var(--primary-dark); font-size:0.92rem;">Status Keterisian Kuota
+                                Gelombang 1</strong>
+                            <span class="badge badge-primary" style="font-size:0.75rem;">Sisa 42 Kursi</span>
+                        </div>
+
+                        <div class="quota-item">
+                            <div class="quota-labels">
+                                <span>RPL (Software Dev)</span>
+                                <span style="color:var(--primary); font-weight:700;">85% Terisi</span>
+                            </div>
+                            <div class="quota-bar-track">
+                                <div class="quota-bar-fill" style="width: 85%; background: var(--primary);"></div>
+                            </div>
+                        </div>
+
+                        <div class="quota-item">
+                            <div class="quota-labels">
+                                <span>TKJ (Network & Cloud)</span>
+                                <span style="color:var(--primary); font-weight:700;">78% Terisi</span>
+                            </div>
+                            <div class="quota-bar-track">
+                                <div class="quota-bar-fill" style="width: 78%; background: var(--primary);"></div>
+                            </div>
+                        </div>
+
+                        <div class="quota-item">
+                            <div class="quota-labels">
+                                <span>DKV (Visual Creative)</span>
+                                <span style="color:var(--secondary); font-weight:700;">90% Terisi</span>
+                            </div>
+                            <div class="quota-bar-track">
+                                <div class="quota-bar-fill" style="width: 90%; background: var(--secondary);"></div>
+                            </div>
+                        </div>
+
+                        <div class="quota-item" style="margin-bottom: 0;">
+                            <div class="quota-labels">
+                                <span>Bisnis Digital & Keuangan (AKL)</span>
+                                <span style="color:var(--primary-light); font-weight:700;">72% Terisi</span>
+                            </div>
+                            <div class="quota-bar-track">
+                                <div class="quota-bar-fill" style="width: 72%; background: var(--primary-light);"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-price-tag">Mulai Rp18.000</div>
                 </div>
 
-                <div class="product-bento">
-                    <div>
-                        <div class="p-icon-hero">🔧</div>
-                        <span class="badge badge-dark">TKJ & Otomotif</span>
-                        <h4 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.8rem 0 0.4rem;">Servis
-                            IT & Tune-up Kendaraan</h4>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Servis komputer, instalasi jaringan
-                            WiFi sekolah/kantor, serta servis berkala motor injeksi.</p>
-                    </div>
-                    <div class="p-price-tag">Mulai Rp30.000</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 11. BKK JOBS PORTAL -->
-    <section class="bkk-section" id="bkk">
-        <div class="container">
-            <div class="text-center section-header">
-                <div class="badge badge-primary mb-2">Penyaluran Lulusan</div>
-                <h2 class="section-title">Bursa Kerja Khusus (BKK)</h2>
-                <p class="section-desc" style="margin: 0 auto;">Jembatan karir terpercaya menghubungkan alumni dan siswa
-                    dengan lowongan kerja mitra industri terkemuka.</p>
-            </div>
-
-            <div class="bkk-table-card">
-                <div class="bkk-table-header">
-                    <div>Perusahaan Mitra</div>
-                    <div>Posisi Pekerjaan</div>
-                    <div>Tipe</div>
-                    <div>Status</div>
-                    <div>Aksi</div>
-                </div>
-
-                <!-- Job 1 -->
-                <div class="bkk-table-row">
-                    <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Digital Kreatif
-                            Nusantara</strong>
-                        <small style="color:var(--text-muted);">Surabaya / Banyuwangi</small>
-                    </div>
-                    <div style="font-weight:600;">Junior Web Developer</div>
-                    <div><span class="skill-tag">Full-time</span></div>
-                    <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
-                            &rarr;</a></div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="bkk-table-row">
-                    <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Hotel Ketapang
-                            Indah</strong>
-                        <small style="color:var(--text-muted);">Banyuwangi</small>
-                    </div>
-                    <div style="font-weight:600;">PKL Perhotelan & Tata Boga</div>
-                    <div><span class="skill-tag">Magang / PKL</span></div>
-                    <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
-                            &rarr;</a></div>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="bkk-table-row">
-                    <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Bank Jatim Syariah
-                            Genteng</strong>
-                        <small style="color:var(--text-muted);">Genteng, Banyuwangi</small>
-                    </div>
-                    <div style="font-weight:600;">Staff Administrasi Operasional</div>
-                    <div><span class="skill-tag">Full-time</span></div>
-                    <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="#" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Detail Loker
-                            &rarr;</a></div>
-                </div>
-
-                <!-- Job 4 -->
-                <div class="bkk-table-row">
-                    <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Astra Motor
-                            Banyuwangi</strong>
-                        <small style="color:var(--text-muted);">Banyuwangi</small>
-                    </div>
-                    <div style="font-weight:600;">PKL Teknisi Otomotif & Mekanik</div>
-                    <div><span class="skill-tag">Magang / PKL</span></div>
-                    <div><span class="badge badge-amber" style="font-size:0.75rem;">Segera</span></div>
-                    <div><a href="#" style="color:var(--text-muted); font-weight:700; font-size:0.9rem;">Detail Loker
-                            &rarr;</a></div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- 12. NEWS & EDITORIAL JOURNAL -->
+    <!-- 12. NEWS & EDITORIAL JOURNAL (Section 10 in Flow: PPDB -> Berita) -->
     <section class="news-section" id="berita">
         <div class="container">
             <div class="text-center section-header">
@@ -2941,8 +3990,8 @@
             <div class="news-grid">
                 <!-- Sidebar Category Filter -->
                 <div class="news-filter-card">
-                    <h4 class="font-head" style="font-size:1.15rem; color:var(--primary); margin-bottom:1rem;">Kategori
-                        Jurnal</h4>
+                    <h3 class="font-head" style="font-size:1.15rem; color:var(--primary); margin-bottom:1rem;">Kategori
+                        Jurnal</h3>
                     <ul class="news-filter-list">
                         <li><a href="berita.html" class="active">Semua Berita <span>(14)</span></a></li>
                         <li><a href="prestasi.html">Prestasi & Prestisius <span>(8)</span></a></li>
@@ -2959,10 +4008,10 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">17 Juni 2026</span>
-                                <h4 class="font-head"
+                                <h3 class="font-head"
                                     style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Berbekal Fasilitas Modern, SMEMSAGTG Gelar Pengenalan Jurusan
-                                </h4>
+                                </h3>
                                 <p
                                     style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
                                     Memperkenalkan ekosistem laboratorium IoT, Cloud, dan studio Multimedia kepada calon
@@ -2981,10 +4030,10 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juni 2026</span>
-                                <h4 class="font-head"
+                                <h3 class="font-head"
                                     style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Dua Atlet Taekwondo SMKS MUHI Raih Juara 3 Kejurprov Jatim
-                                </h4>
+                                </h3>
                                 <p
                                     style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
                                     Prestasi membanggakan dipersembahkan atlet pelajar SMKS MUHI dalam ajang Kejurprov
@@ -3003,10 +4052,10 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Juni 2026</span>
-                                <h4 class="font-head"
+                                <h3 class="font-head"
                                     style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Siswa Borong Juara Festival Musik & Seni Pelajar Berbakat
-                                </h4>
+                                </h3>
                                 <p
                                     style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
                                     Mengembangkan soft-skill, kepercayaan diri, dan kreativitas seni siswa secara
@@ -3025,10 +4074,10 @@
                         <div class="article-body">
                             <div>
                                 <span class="badge badge-primary mb-2" style="font-size:0.75rem;">Mei 2026</span>
-                                <h4 class="font-head"
+                                <h3 class="font-head"
                                     style="font-size:1.15rem; color:var(--primary); margin:0.4rem 0 0.6rem; line-height:1.35;">
                                     Penandatanganan MoU Kelas Industri Bersama Mitra Strategis
-                                </h4>
+                                </h3>
                                 <p
                                     style="font-size:0.88rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
                                     Perluasan penyerapan lulusan ke industri teknologi dan manufaktur nasional.
@@ -3042,6 +4091,12 @@
                 </div>
             </div>
         </div>
+    </section>;</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </section>
 
     <!-- 13. FOOTER -->
@@ -3215,23 +4270,34 @@
 
         // 5. Hero Quick Search / Filter Jurusan
         function handleHeroSearch() {
-            const query = document.getElementById('hero-search-input').value.toLowerCase().trim();
+            const query = (document.getElementById('hero-search-input')?.value || '').toLowerCase().trim();
             if (!query) return;
 
             const jurusanSection = document.getElementById('jurusan');
             if (jurusanSection) {
-                lenis.scrollTo(jurusanSection, { offset: -70, duration: 1.2 });
+                if (typeof lenis !== 'undefined' && lenis) {
+                    lenis.scrollTo(jurusanSection, { offset: -70, duration: 1.2 });
+                } else {
+                    jurusanSection.scrollIntoView({ behavior: 'smooth' });
+                }
             }
 
-            if (query.includes('code') || query.includes('web') || query.includes('rpl') || query.includes('software') || query.includes('aplikasi')) {
-                const btn = document.querySelector('.major-nav-btn[data-target="rpl"]');
-                if (btn) btn.click();
-            } else if (query.includes('jaringan') || query.includes('tkj') || query.includes('network') || query.includes('server') || query.includes('wifi')) {
-                const btn = document.querySelector('.major-nav-btn[data-target="tkj"]');
-                if (btn) btn.click();
-            } else if (query.includes('desain') || query.includes('video') || query.includes('dkv') || query.includes('multimedia') || query.includes('foto')) {
-                const btn = document.querySelector('.major-nav-btn[data-target="mm"]');
-                if (btn) btn.click();
+            if (query.includes('code') || query.includes('web') || query.includes('rpl') || query.includes('software') || query.includes('aplikasi') || query.includes('flutter')) {
+                selectMajorPathway('rpl');
+            } else if (query.includes('jaringan') || query.includes('tkj') || query.includes('network') || query.includes('server') || query.includes('wifi') || query.includes('fiber')) {
+                selectMajorPathway('tkj');
+            } else if (query.includes('desain') || query.includes('video') || query.includes('dkv') || query.includes('multimedia') || query.includes('foto') || query.includes('animasi')) {
+                selectMajorPathway('dkv');
+            } else if (query.includes('bisnis') || query.includes('digital') || query.includes('bd') || query.includes('marketing') || query.includes('toko') || query.includes('shopee')) {
+                selectMajorPathway('bd');
+            } else if (query.includes('akuntansi') || query.includes('uang') || query.includes('akl') || query.includes('pajak') || query.includes('bank')) {
+                selectMajorPathway('akl');
+            } else if (query.includes('kantor') || query.includes('mplb') || query.includes('admin') || query.includes('arsip') || query.includes('sekretaris')) {
+                selectMajorPathway('mplb');
+            } else if (query.includes('hotel') || query.includes('ph') || query.includes('wisata') || query.includes('hospitality') || query.includes('edutel')) {
+                selectMajorPathway('ph');
+            } else if (query.includes('motor') || query.includes('tbsm') || query.includes('bengkel') || query.includes('honda') || query.includes('ahass') || query.includes('otomotif')) {
+                selectMajorPathway('tbsm');
             }
         }
 
@@ -3239,15 +4305,522 @@
             if (e.key === 'Enter') handleHeroSearch();
         });
 
-        // 6. Major Tabs Logic
-        function switchMajorTab(targetId, btn) {
-            document.querySelectorAll('.major-nav-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.major-tab-pane').forEach(p => p.classList.remove('active'));
+        // 6. KONSENTRASI KEAHLIAN: "DARI KELAS X KE TEMPAT KERJA" (JHIC COMPETITION)
+        const majorPathwayData = {
+            rpl: {
+                code: 'RPL',
+                title: 'Rekayasa Perangkat Lunak',
+                badge: 'ALUR PENDIDIKAN VOKASI • RPL',
+                desc: 'Mencetak software engineer berkarakter Islami yang menguasai ekosistem web, mobile app, cloud backend, dan siap berkontribusi langsung pada industri teknologi digital.',
+                stage1: [
+                    'Pemrograman Web Modern (HTML5, CSS3, JavaScript, PHP/Laravel)',
+                    'Pengembangan Mobile Application (Flutter, Dart & Kotlin)',
+                    'Arsitektur Basis Data Terdistribusi (MySQL, PostgreSQL, Firebase Cloud)',
+                    'RESTful API Development, Git Version Control & CI/CD Pipeline'
+                ],
+                stage2: {
+                    title: 'Software House TEFA MUHI',
+                    items: [
+                        '<strong>Software House TEFA MUHI:</strong> Siswa mengerjakan proyek riil aplikasi web & portal sistem informasi untuk sekolah mitra dan UMKM.',
+                        '<strong>Lab iMac & Cloud Server Workstation</strong> dengan koneksi gigabit untuk simulasi deployment server produksi.'
+                    ],
+                    box: 'Portofolio teruji dengan klien nyata dan live production sebelum kelulusan.'
+                },
+                stage3: {
+                    title: 'LSP-P1 BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Sertifikasi Junior Web Developer & Software Programmer.',
+                        'Sertifikasi Internasional Cloud Computing & Database Fundamentals.'
+                    ],
+                    box: 'Sertifikat kompetensi Berlogo Garuda Emas resmi diakui di kawasan ASEAN.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> Semesta Multitekno, Hummatech, PT Digital Kreatif Nusantara, Jagoan Hosting.',
+                        '<strong>Posisi Kerja Nyata:</strong> Frontend Developer, Backend Engineer, Mobile App Developer, QA Automation, IT Support.'
+                    ],
+                    box: 'Penyaluran langsung lewat Bursa Kerja Khusus (BKK) dan inkubasi startup mandiri.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/RPL 01.png',
+                    text: '"Di RPL SMKS MUHI, kami tidak hanya diajari teori sintaks coding, tapi langsung mengerjakan proyek web dan aplikasi nyata di Teaching Factory. Saat lulus, portofolio dan sertifikat BNSP saya langsung diterima di industri software house mitra."',
+                    name: 'Ahmad Fauzi',
+                    role: 'Alumni RPL • Junior Frontend Developer di Semesta Multitekno'
+                }
+            },
+            tkj: {
+                code: 'TKJ',
+                title: 'Teknik Komputer & Jaringan',
+                badge: 'ALUR PENDIDIKAN VOKASI • TKJ',
+                desc: 'Spesialisasi arsitektur jaringan skala enterprise, instalasi Fiber Optic backbone, administrasi Cloud Server Linux, serta proteksi keamanan siber modern.',
+                stage1: [
+                    'Konfigurasi Jaringan Enterprise, Routing-Switching (Cisco & MikroTik)',
+                    'Instalasi & Splicing Kabel Fiber Optic (FTTH & Backbone OTDR)',
+                    'Administrasi Cloud Server Linux, Virtualisasi Docker & DevOps',
+                    'Protokol Cyber Security Defense, Firewall & Network Monitoring'
+                ],
+                stage2: {
+                    title: 'ISP & Server Lab TEFA',
+                    items: [
+                        '<strong>TEFA Network Operation Center (NOC):</strong> Pengelolaan jaringan internet sekolah dan pemeliharaan infrastruktur data center mandiri.',
+                        '<strong>Lab Fiber Optic & Cisco Router Rack:</strong> Praktik splicing, OTDR measuring, dan router cluster industri.'
+                    ],
+                    box: 'Praktik langsung troubleshooting koneksi internet kampus 24/7.'
+                },
+                stage3: {
+                    title: 'MikroTik & BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Network Administrator Madya & Teknisi Fiber Optic.',
+                        'Sertifikasi Internasional MikroTik Certified Network Associate (MTCNA).'
+                    ],
+                    box: 'Diakui oleh asosiasi penyedia jasa internet (APJII) seluruh Indonesia.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> PT Telkom Indonesia, Telkomsel, PT Jagoan Hosting Indonesia, Lintasarta.',
+                        '<strong>Posisi Kerja Nyata:</strong> Network Engineer, Cloud System Admin, NOC Engineer, Teknisi Fiber Optic FTTH.'
+                    ],
+                    box: 'Banyak alumni langsung ditarik oleh ISP regional Jawa Timur sebelum wisuda.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/TKJ 01.png',
+                    text: '"Lab TKJ MUHI punya rack server Cisco dan alat splicing FO lengkap berstandar industri. Berkat sertifikasi MikroTik MTCNA yang saya dapat di kelas XII, saya langsung bekerja di divisi Network Ops Center."',
+                    name: 'Bima Satria',
+                    role: 'Alumni TKJ • Network Infrastructure Support di PT Telkom Regional'
+                }
+            },
+            dkv: {
+                code: 'DKV',
+                title: 'Desain Komunikasi Visual',
+                badge: 'ALUR PENDIDIKAN VOKASI • DKV',
+                desc: 'Pusat eksplorasi visual komersial, produksi videografi sinematik, animasi 2D/3D, motion graphic periklanan, hingga perancangan desain antarmuka digital UI/UX.',
+                stage1: [
+                    'Desain Grafis Komersial, Brand Identity & Vektor Ilustrasi',
+                    'Produksi Videografi Sinematik, Lighting & Audio Engineering',
+                    'Motion Graphic 2D/3D, Visual Effects (VFX) & Animasi Iklan',
+                    'User Interface & User Experience Design (UI/UX Design di Figma)'
+                ],
+                stage2: {
+                    title: 'Studio Creative Agency TEFA',
+                    items: [
+                        '<strong>TEFA Muhi Media Lab & Studio Fotografi:</strong> Menerima pesanan video profil korporat, pemotretan komersial produk UMKM, dan branding.',
+                        '<strong>Studio Green Screen & Audio Editing Suite</strong> dengan lighting broadcast profesional.'
+                    ],
+                    box: 'Siswa memproduksi konten kreatif bernilai jual tinggi untuk publik.'
+                },
+                stage3: {
+                    title: 'Adobe Certified & BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Desainer Grafis Muda & Pembuat Konten Multimedia.',
+                        'Sertifikasi Adobe Certified Professional (Photoshop, Illustrator, Premiere Pro).'
+                    ],
+                    box: 'Standar kompetensi industri advertising dan creative house internasional.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> Studio Kinetik, Citra Visual Production, Jawa Pos Radar Banyuwangi, Digital Agency.',
+                        '<strong>Posisi Kerja Nyata:</strong> UI/UX Designer, Motion Animator, Video Editor, Graphic Designer, Creative Director.'
+                    ],
+                    box: 'Lulusan memiliki portofolio Behance/Dribbble aktif dan siap kerja mandiri.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/DKV 01.png',
+                    text: '"Studio fotografi dan video di SMKS MUHI sangat profesional. Sejak kelas XI saya sudah terbiasa mengoperasikan kamera bioskop dan software Adobe, sehingga saat magang tidak canggung lagi."',
+                    name: 'Nabila Putri',
+                    role: 'Siswa Kelas XII DKV • Juara 1 Desain Poster Festival Kreatif 2026'
+                }
+            },
+            bd: {
+                code: 'BD',
+                title: 'Bisnis Digital',
+                badge: 'ALUR PENDIDIKAN VOKASI • BISNIS DIGITAL',
+                desc: 'Menggabungkan strategi niaga kontemporer dengan teknologi informasi: manajemen marketplace omnichannel, Meta & Google digital ads, live selling, dan analitik pasar.',
+                stage1: [
+                    'Manajemen Toko Daring & Omnichannel Marketplace (Shopee, TikTok Shop, Tokopedia)',
+                    'Digital Ads Marketing (Meta Ads, TikTok Ads, Google Search Optimization)',
+                    'Live Commerce Broadcasting, Scriptwriting & Strategic Copywriting',
+                    'E-Commerce Data Analytics & Customer Relationship Management (CRM)'
+                ],
+                stage2: {
+                    title: 'Muhi E-Commerce Hub TEFA',
+                    items: [
+                        '<strong>TEFA Muhi E-Commerce Hub:</strong> Studio Live Streaming komersial yang mengelola penjualan produk lokal & mitra industri setiap hari.',
+                        '<strong>Mini Fulfillment Center:</strong> Praktik pergudangan modern, quality check, hingga pengiriman pesanan online.'
+                    ],
+                    box: 'Praktik langsung perputaran omzet nyata dan kalkulasi profit harian.'
+                },
+                stage3: {
+                    title: 'Digital Marketing BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Pengelola Toko Daring & Digital Marketing Specialist.',
+                        'Sertifikasi Meta Certified Digital Marketing Associate.'
+                    ],
+                    box: 'Legalitas kompetensi resmi untuk agensi pemasaran digital modern.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> PT Astra International (Digital Div), JNE Express, Bukalapak Mitra, Brand Fashion Lokal.',
+                        '<strong>Posisi Kerja Nyata:</strong> E-Commerce Specialist, Digital Ads Specialist, Live Host Streamer, Marketplace Admin.'
+                    ],
+                    box: 'Banyak siswa telah berpenghasilan mandiri dari toko online sebelum lulus.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/BD.png',
+                    text: '"Studio live streaming di sekolah membantu saya menguasai teknik negosiasi dan live commerce. Sekarang saya dipercaya memegang campaign ads online salah satu brand lokal ternama."',
+                    name: 'Rian Hidayat',
+                    role: 'Alumni Bisnis Digital • Digital Marketing Lead di Brand Lokal'
+                }
+            },
+            akl: {
+                code: 'AKL',
+                title: 'Akuntansi & Keuangan Lembaga',
+                badge: 'ALUR PENDIDIKAN VOKASI • AKL',
+                desc: 'Membina akuntan muda yang teliti, menguasai software akuntansi komputer modern, audit keuangan korporasi, perpajakan digital (e-Faktur), dan layanan perbankan syariah.',
+                stage1: [
+                    'Software Komputer Akuntansi Terstandar (Accurate, MYOB Accounting & Spreadsheet)',
+                    'Perpajakan Digital (e-SPT, e-Faktur, PPh 21, PPh 23, dan PPN)',
+                    'Penyusunan Laporan Keuangan Manufaktur & Entitas Tanpa Akuntabilitas Publik',
+                    'Operasional Administrasi Perbankan Syariah & Lembaga Keuangan Mikro'
+                ],
+                stage2: {
+                    title: 'Bank Mini Syariah TEFA',
+                    items: [
+                        '<strong>TEFA Bank Mini Syariah MUHI:</strong> Melayani transaksi tabungan siswa, pembayaran sekolah, dan simulasi teller perbankan riil.',
+                        '<strong>Tax Center & Konsultasi Pajak Sekolah:</strong> Pelatihan pengisian SPT tahunan wajib pajak.'
+                    ],
+                    box: 'Pelayanan prima dengan standar Customer Service dan Teller perbankan nasional.'
+                },
+                stage3: {
+                    title: 'Teknisi Akuntansi BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Teknisi Akuntansi Yunior & Pengelola Pajak Terapan.',
+                        'Sertifikasi Kompetensi Software Accurate Professional.'
+                    ],
+                    box: 'Standar kompetensi yang dibutuhkan perbankan dan kantor akuntan publik.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> Bank Jatim Syariah, BSI, BMT Genteng, Kantor Akuntan Publik (KAP), Koperasi Surya Mentari.',
+                        '<strong>Posisi Kerja Nyata:</strong> Junior Accountant, Tax Officer, Teller Bank, Staff Payroll, Auditor Assistant.'
+                    ],
+                    box: 'Jalur prioritas rekrutmen institusi keuangan syariah se-Karesidenan Besuki.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/AK 01.png',
+                    text: '"Praktik di Bank Mini Syariah MUHI melatih ketelitian saya dalam software Accurate dan rekonsiliasi kas. Saya merasa sangat percaya diri saat menghadapi tes kerja di perbankan."',
+                    name: 'Siti Nurhaliza',
+                    role: 'Alumni AKL • Staff Administrasi Keuangan di Bank Jatim Syariah'
+                }
+            },
+            mplb: {
+                code: 'MPLB',
+                title: 'Manajemen Perkantoran & Layanan Bisnis',
+                badge: 'ALUR PENDIDIKAN VOKASI • MPLB',
+                desc: 'Mencetak staf administrasi modern dan sekretaris eksekutif cekatan dengan kemampuan public relations prima, otomasi perkantoran digital, dan keprotokolan formal.',
+                stage1: [
+                    'Otomasi Perkantoran Digital (Google Workspace Enterprise & ERP Admin)',
+                    'Manajemen Kearsipan Elektronik (Electronic Records Management System)',
+                    'Komunikasi Bisnis Internasional & Public Relations Berkelas',
+                    'Keprotokolan Formal, Event Organizing & Pengelolaan Perjalanan Dinas'
+                ],
+                stage2: {
+                    title: 'Simulasi Kantor Eksekutif TEFA',
+                    items: [
+                        '<strong>TEFA Muhi Office Service:</strong> Mengelola pusat persuratan terpadu, layanan administrasi digital, dan resepsionis representatif sekolah.',
+                        '<strong>Executive Meeting Room Simulator:</strong> Praktik tata ruang rapat korporat dan notulensi digital terintegrasi.'
+                    ],
+                    box: 'Membiasakan etika tata krama kantor eksekutif sejak dini.'
+                },
+                stage3: {
+                    title: 'Administrasi Perkantoran BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Executive Administrative Assistant & Arsiparis Digital.',
+                        'Sertifikasi Kompetensi Digital Office Professional.'
+                    ],
+                    box: 'Sertifikasi resmi untuk standarisasi posisi kesekretariatan instansi dan BUMN.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> Instansi Pemerintah Daerah, PT Pelindo, Perusahaan Swasta Nasional, Kantor Notaris.',
+                        '<strong>Posisi Kerja Nyata:</strong> Sekretaris Eksekutif, Front Office Manager, Staff HRD, Admin Legal, Public Relations Officer.'
+                    ],
+                    box: 'Terserap cepat di berbagai instansi pemerintah, BUMN, dan korporasi swasta.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/MP 01.png',
+                    text: '"Di MPLB kami dibentuk memiliki sikap profesional, etika komunikasi yang santun, dan penguasaan aplikasi kantor modern. Keterampilan ini sangat dihargai di dunia kerja kantoran."',
+                    name: 'Dinda Rahmadani',
+                    role: 'Siswa Kelas XII MPLB • Juara 1 Lomba Resepsionis & Kearsipan Pelajar'
+                }
+            },
+            ph: {
+                code: 'PH',
+                title: 'Perhotelan & Hospitality',
+                badge: 'ALUR PENDIDIKAN VOKASI • PERHOTELAN',
+                desc: 'Menyiapkan tenaga profesional perhotelan dan pariwisata internasional dengan standar hospitality prima: reservasi Front Office, Housekeeping bintang lima, dan tata hidang F&B.',
+                stage1: [
+                    'Sistem Manajemen Properti Hotel (Front Office Property Management System)',
+                    'Housekeeping Bintang Lima & Penataan Kamar Standar Internasional',
+                    'Food & Beverage Service, Table Manner & Tata Hidang Perjamuan Kenegaraan',
+                    'Etiket Hospitality Internasional, Bahasa Inggris Terapan & Grooming Prima'
+                ],
+                stage2: {
+                    title: 'Edutel Hotel Muhi TEFA',
+                    items: [
+                        '<strong>Edutel (Hotel Praktik Sekolah):</strong> Fasilitas penginapan riil dengan standard room komersial yang beroperasi melayani tamu umum.',
+                        '<strong>Mock-up Suite Room & Bar Resto:</strong> Praktik live check-in/out, laundry industrial, dan room service.'
+                    ],
+                    box: 'Pengalaman melayani tamu sesungguhnya dengan standar hotel bintang 5.'
+                },
+                stage3: {
+                    title: 'Hospitality BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Front Office Receptionist & Executive Housekeeping.',
+                        'Sertifikat Standar Kebersihan & Keselamatan Hotel Internasional (CHSE).'
+                    ],
+                    box: 'Standar kompetensi yang diakui jaringan hotel internasional dan kapal pesiar.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> Hotel Ketapang Indah, Dialoog Hotel Banyuwangi, Aston Hotel, Kapal Pesiar Internasional.',
+                        '<strong>Posisi Kerja Nyata:</strong> Front Desk Agent, Executive Housekeeper, F&B Captain, Guest Relation Officer.'
+                    ],
+                    box: 'Peluang magang dan penempatan kerja hingga jaringan hotel resort Bali & kapal pesiar.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/PH.png',
+                    text: '"Belajar di Edutel SMKS MUHI membuat kami merasakan langsung atmosfer hotel berbintang. Grooming, kedisiplinan, dan bahasa Inggris kami ditempa setiap hari."',
+                    name: 'Kevin Pratama',
+                    role: 'Alumni Perhotelan • Guest Relations Officer di Hotel Dialoog'
+                }
+            },
+            tbsm: {
+                code: 'TBSM',
+                title: 'Teknik Sepeda Motor (Honda AHASS)',
+                badge: 'ALUR PENDIDIKAN VOKASI • TBSM HONDA',
+                desc: 'Spesialisasi mekanik sepeda motor modern binaan Astra Honda Motor (AHM): penguasaan sistem injeksi PGM-FI, kelistrikan komputer ECU, hingga manajemen bengkel resmi AHASS.',
+                stage1: [
+                    'Diagnosa Kerusakan Sistem Injeksi Bahan Bakar Elektronik (Honda PGM-FI & HIDS)',
+                    'Overhaul Mesin 4-Tak & Transmisi Otomatis/Manual Standar Pabrikan',
+                    'Sistem Kelistrikan Bodi, Pengereman ABS/CBS, dan Smart Key System',
+                    'Manajemen Operasional & Layanan Service Advisor Bengkel Resmi AHASS'
+                ],
+                stage2: {
+                    title: 'Pos Resmi AHASS TEFA',
+                    items: [
+                        '<strong>TEFA Pos Resmi AHASS MUHI:</strong> Bengkel resmi yang melayani servis berkala sepeda motor Honda masyarakat umum setiap hari kerja.',
+                        '<strong>Special Tools & Diagnostic Scanner Honda</strong> berlisensi resmi PT Astra Honda Motor.'
+                    ],
+                    box: 'Praktik servis nyata langsung pada motor konsumen dengan standar SOP Astra Honda.'
+                },
+                stage3: {
+                    title: 'Sertifikasi AHM & BNSP',
+                    items: [
+                        '<strong>LSP-P1 SMKS MUHI (BNSP):</strong> Skema Teknisi Sepeda Motor Injeksi Roda Dua.',
+                        'Sertifikasi Resmi Mekanik Honda Tingkat 1 (TTL-1) dari PT Astra Honda Motor.'
+                    ],
+                    box: 'Sertifikat TTL Honda menjadi jaminan rekrutmen bengkel AHASS seluruh Indonesia.'
+                },
+                stage4: {
+                    title: 'Mitra Dudika & Karir',
+                    items: [
+                        '<strong>Mitra Dudika:</strong> PT Astra Honda Motor (AHM), PT MPM Motor Jawa Timur, Jaringan Bengkel AHASS se-Indonesia.',
+                        '<strong>Posisi Kerja Nyata:</strong> Mekanik Ahli AHASS, Service Advisor, Kepala Mekanik, Wirausaha Bengkel Motor Mandiri.'
+                    ],
+                    box: 'Lulusan prioritas direkrut langsung oleh jaringan dealer dan bengkel MPM Honda.'
+                },
+                quote: {
+                    avatar: 'assets/major-person/TKJ 01.png',
+                    text: '"Bengkel TEFA AHASS di SMKS MUHI langsung melayani motor konsumen asli. Pengalaman diagnosa scanner HIDS membuat saya lolos sertifikasi mekanik Astra Honda dengan nilai sempurna."',
+                    name: 'Rizky Ramadhan',
+                    role: 'Alumni TBSM • Mekanik Senior di AHASS MPM Motor Genteng'
+                }
+            }
+        };
 
-            btn.classList.add('active');
-            const pane = document.getElementById('pane-' + targetId);
-            if (pane) pane.classList.add('active');
+        function jumpToMajor(majorKey) {
+            const jurusanSection = document.getElementById('jurusan');
+            if (jurusanSection) {
+                if (typeof lenis !== 'undefined' && lenis) {
+                    lenis.scrollTo(jurusanSection, { offset: -70, duration: 1.0 });
+                } else {
+                    jurusanSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            selectMajorPathway(majorKey);
         }
+
+        function selectMajorPathway(majorKey) {
+            const data = majorPathwayData[majorKey];
+            if (!data) return;
+
+            // Update active state in cards
+            document.querySelectorAll('.major-path-card').forEach(card => {
+                card.classList.remove('active');
+                card.setAttribute('aria-expanded', 'false');
+            });
+
+            const activeCard = document.getElementById('card-' + majorKey);
+            if (activeCard) {
+                activeCard.classList.add('active');
+                activeCard.setAttribute('aria-expanded', 'true');
+            }
+
+            // Populate Panel
+            const badgeEl = document.getElementById('panel-major-badge');
+            const titleEl = document.getElementById('panel-major-title');
+            const descEl = document.getElementById('panel-major-desc');
+            const stage1El = document.getElementById('panel-stage-1');
+            const stage2El = document.getElementById('panel-stage-2');
+            const stage2Box = document.getElementById('panel-stage-2-box');
+            const stage3El = document.getElementById('panel-stage-3');
+            const stage3Box = document.getElementById('panel-stage-3-box');
+            const stage4El = document.getElementById('panel-stage-4');
+            const stage4Box = document.getElementById('panel-stage-4-box');
+            const quoteAvatar = document.getElementById('panel-quote-avatar');
+            const quoteText = document.getElementById('panel-quote-text');
+            const quoteAuthor = document.getElementById('panel-quote-author');
+
+            if (badgeEl) badgeEl.innerText = data.badge;
+            if (titleEl) titleEl.innerText = data.title;
+            if (descEl) descEl.innerText = data.desc;
+
+            // Stage 1
+            if (stage1El) {
+                stage1El.innerHTML = data.stage1.map(item => `<li>${item}</li>`).join('');
+            }
+
+            // Stage 2
+            if (stage2El) {
+                stage2El.innerHTML = data.stage2.items.map(item => `<li>${item}</li>`).join('');
+            }
+            if (stage2Box) stage2Box.innerText = data.stage2.box;
+
+            // Stage 3
+            if (stage3El) {
+                stage3El.innerHTML = data.stage3.items.map(item => `<li>${item}</li>`).join('');
+            }
+            if (stage3Box) stage3Box.innerText = data.stage3.box;
+
+            // Stage 4
+            if (stage4El) {
+                stage4El.innerHTML = data.stage4.items.map(item => `<li>${item}</li>`).join('');
+            }
+            if (stage4Box) stage4Box.innerText = data.stage4.box;
+
+            // Quote
+            if (quoteAvatar) quoteAvatar.src = data.quote.avatar;
+            if (quoteText) quoteText.innerText = data.quote.text;
+            if (quoteAuthor) {
+                quoteAuthor.innerHTML = `<span>${data.quote.name}</span> <span class="alumni-role">&bull; ${data.quote.role}</span>`;
+            }
+
+            const panel = document.getElementById('major-pathway-panel');
+            if (panel) {
+                panel.classList.add('open');
+                panel.style.display = 'block';
+
+                // GSAP smooth reveal if not reduced motion
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (!prefersReducedMotion && typeof gsap !== 'undefined') {
+                    gsap.fromTo(panel,
+                        { opacity: 0, y: 25 },
+                        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }
+                    );
+                    gsap.fromTo('.pathway-step',
+                        { opacity: 0, y: 15 },
+                        { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out', delay: 0.1 }
+                    );
+                }
+
+                // Auto-scroll Lenis to panel (A.4)
+                if (typeof lenis !== 'undefined' && lenis) {
+                    lenis.scrollTo(panel, { offset: -100, duration: 0.9 });
+                } else {
+                    panel.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'nearest' });
+                }
+            }
+        }
+
+        function closeMajorPathway() {
+            const panel = document.getElementById('major-pathway-panel');
+            if (panel) {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (!prefersReducedMotion && typeof gsap !== 'undefined') {
+                    gsap.to(panel, {
+                        opacity: 0,
+                        y: 15,
+                        duration: 0.3,
+                        ease: 'power2.in',
+                        onComplete: () => {
+                            panel.style.display = 'none';
+                            panel.classList.remove('open');
+                        }
+                    });
+                } else {
+                    panel.style.display = 'none';
+                    panel.classList.remove('open');
+                }
+            }
+            document.querySelectorAll('.major-path-card').forEach(card => {
+                card.classList.remove('active');
+                card.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        // Close on Escape Key (A.4)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMajorPathway();
+            }
+        });
+
+        function handleMajorCardKey(e, majorKey) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                selectMajorPathway(majorKey);
+            }
+        }
+
+        // Hero Search integration with the 8 majors
+        function handleHeroSearch() {
+            const query = (document.getElementById('hero-search-input')?.value || '').toLowerCase().trim();
+            if (!query) return;
+
+            const targetSection = document.getElementById('jurusan');
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            if (query.includes('code') || query.includes('web') || query.includes('rpl') || query.includes('software') || query.includes('aplikasi') || query.includes('flutter')) {
+                selectMajorPathway('rpl');
+            } else if (query.includes('jaringan') || query.includes('tkj') || query.includes('network') || query.includes('server') || query.includes('wifi') || query.includes('fiber')) {
+                selectMajorPathway('tkj');
+            } else if (query.includes('desain') || query.includes('video') || query.includes('dkv') || query.includes('multimedia') || query.includes('foto') || query.includes('animasi')) {
+                selectMajorPathway('dkv');
+            } else if (query.includes('bisnis') || query.includes('digital') || query.includes('bd') || query.includes('marketing') || query.includes('toko') || query.includes('shopee')) {
+                selectMajorPathway('bd');
+            } else if (query.includes('akuntansi') || query.includes('uang') || query.includes('akl') || query.includes('pajak') || query.includes('bank')) {
+                selectMajorPathway('akl');
+            } else if (query.includes('kantor') || query.includes('mplb') || query.includes('admin') || query.includes('arsip') || query.includes('sekretaris')) {
+                selectMajorPathway('mplb');
+            } else if (query.includes('hotel') || query.includes('ph') || query.includes('wisata') || query.includes('hospitality') || query.includes('edutel')) {
+                selectMajorPathway('ph');
+            } else if (query.includes('motor') || query.includes('tbsm') || query.includes('bengkel') || query.includes('honda') || query.includes('ahass') || query.includes('otomotif')) {
+                selectMajorPathway('tbsm');
+            }
+        }
+
+        document.getElementById('hero-search-input')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleHeroSearch();
+        });
 
         // 7. AI Chatbot Logic
         const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -3360,7 +4933,7 @@
 
         // Reveal mandiri (elemen yang tidak berada di dalam section ter-pin)
         document.querySelectorAll('[data-scroll-reveal]').forEach(el => {
-            if (el.closest('.signature-section')) return; // ditangani timeline pinned di bawah
+            if (el.closest('.sinergi-section') || el.closest('#sinergi')) return; // ditangani timeline pinned di bawah
             const words = splitIntoWords(el);
             if (prefersReducedMotion) return;
 
@@ -3372,8 +4945,9 @@
                 stagger: 0.6,
                 scrollTrigger: {
                     trigger: el,
-                    start: 'top 82%',
-                    end: 'bottom 55%',
+                    start: 'top 85%',
+                    end: 'bottom 60%',
+                    once: true,
                     scrub: 0.8
                 }
             });
@@ -3409,54 +4983,164 @@
         initParallax();
 
         // Depth reveal untuk kartu: naik + skala halus, berurutan
-        ['.major-mini-card', '.why-bento-card', '.step-card', '.product-bento', '.article-card', '.stat-card'].forEach(sel => {
+        ['.major-path-card', '.why-bento-card', '.step-card', '.product-bento', '.article-card', '.stat-card'].forEach(sel => {
             const items = document.querySelectorAll(sel);
             if (!items.length || prefersReducedMotion) return;
 
             ScrollTrigger.batch(items, {
-                start: 'top 88%',
+                start: 'top 85%',
                 once: true,
                 onEnter: batch => gsap.fromTo(batch,
-                    { opacity: 0, y: 44, scale: 0.97 },
-                    { opacity: 1, y: 0, scale: 1, duration: 0.75, stagger: 0.09, ease: 'power3.out', clearProps: 'transform' }
+                    { opacity: 0, y: 40, scale: 0.98 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.65, stagger: 0.08, ease: 'power3.out', clearProps: 'transform' }
                 )
             });
         });
 
-        // Signature SVG Animation (Pinned)
-        const signaturePath = document.querySelector(".svg-path");
-        if (signaturePath) {
-            const length = signaturePath.getTotalLength();
-            gsap.set(signaturePath, { strokeDasharray: length, strokeDashoffset: length });
+        // 8. TIGA PILAR SINERGI VOKASI - GSAP PINNED SCROLLTRIGGER ANIMATION
+        const synergyStage = document.getElementById('synergy-stage');
+        if (synergyStage && !prefersReducedMotion) {
+            // Split quote text into word spans using existing splitIntoWords()
+            const quoteEl = document.getElementById('synergy-main-quote');
+            const quoteWords = quoteEl ? splitIntoWords(quoteEl) : [];
 
-            const tl = gsap.timeline({
+            // Initial states via GSAP (so content stays visible if JS disabled)
+            gsap.set(['#node-vokasi', '#node-islami', '#node-bnsp'], { opacity: 0, scale: 0.3, svgOrigin: '250 160' });
+            gsap.set(['#line-top-right', '#line-right-left', '#line-left-top'], { strokeDashoffset: 400 });
+            gsap.set('#synergy-center-star', { opacity: 0, scale: 0, rotation: 0, svgOrigin: '250 160' });
+            gsap.set('#synergy-star-aura', { opacity: 0, scale: 0.2, svgOrigin: '250 160' });
+            gsap.set('#synergy-kicker', { opacity: 0, y: 14 });
+            gsap.set(quoteWords, { opacity: 0.15, filter: 'blur(2px)', y: 6 });
+            gsap.set('#synergy-closing', { opacity: 0, y: 12 });
+            gsap.set('#synergy-action-btn', { opacity: 0, y: 12 });
+            gsap.set('#synergy-progress-bar', { width: '0%' });
+
+            // Master Timeline: Pinned and Scrubbed on #sinergi
+            const synergyTL = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".signature-section",
-                    start: "center center",
-                    end: "+=150%",
+                    trigger: "#sinergi",
+                    start: "top top",
+                    end: "+=200%",
                     pin: true,
-                    scrub: 1
+                    scrub: 1,
+                    anticipatePin: 1,
+                    onUpdate: (self) => {
+                        // Progres rail tipis di bawah section
+                        const bar = document.getElementById('synergy-progress-bar');
+                        if (bar) bar.style.width = (self.progress * 100) + '%';
+                    }
                 }
             });
 
-            tl.to(signaturePath, { strokeDashoffset: 0, duration: 1, ease: "none" });
+            // 1. Tiga node muncul berurutan (Keahlian Vokasi, Karakter Islami, Sertifikasi BNSP)
+            synergyTL.to('#node-vokasi', { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' })
+                .to('#node-islami', { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' }, "-=0.3")
+                .to('#node-bnsp', { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' }, "-=0.3");
 
-            const sigEl = document.querySelector(".signature-text[data-scroll-reveal]");
-            if (sigEl) {
-                const sigWords = splitIntoWords(sigEl);
-                if (prefersReducedMotion) {
-                    gsap.set(sigWords, { opacity: 1, filter: 'blur(0px)', y: 0 });
-                } else {
-                    tl.to(sigWords, {
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        y: 0,
-                        ease: 'none',
-                        duration: 0.9,
-                        stagger: { each: 0.05, from: 'start' }
-                    }, "-=0.15");
-                }
+            // 2. Garis segitiga sinergi tergambar menghubungkan ketiga node
+            synergyTL.to(['#line-top-right', '#line-right-left', '#line-left-top'], {
+                strokeDashoffset: 0,
+                duration: 1.0,
+                stagger: 0.2,
+                ease: 'power2.inOut'
+            });
+
+            // Jeda agar garis & segitiga sempat terbaca (+=0.3)
+            // 3. Node & garis menyusut ke pusat lalu melebur
+            synergyTL.to(['#node-vokasi', '#node-islami', '#node-bnsp'], {
+                scale: 0,
+                opacity: 0,
+                duration: 0.7,
+                ease: 'power2.in'
+            }, "+=0.3")
+                .to(['#line-top-right', '#line-right-left', '#line-left-top'], {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.in'
+                }, "<");
+
+            // 4. Bintang lahir di pusat: skala 0 -> 1, garis luar + aura halus menyala (opacity 0.45)
+            synergyTL.to('#synergy-star-aura', {
+                opacity: 0.45,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            }, "-=0.2")
+                .to('#synergy-center-star', {
+                    opacity: 1,
+                    scale: 1.0,
+                    duration: 0.8,
+                    ease: 'back.out(2)'
+                }, "<");
+
+            // Jeda agar kelahiran bintang sempat terbaca (+=0.3)
+            // 5. Bintang membesar, berputar 22 derajat, opacity turun jadi 0.22 (scale 1.8), aura opacity 0.18 (scale 1.3)
+            synergyTL.to('#synergy-center-star', {
+                scale: 1.8,
+                rotation: 22,
+                opacity: 0.22,
+                duration: 1.0,
+                ease: 'power1.inOut'
+            }, "+=0.3")
+                .to('#synergy-star-aura', {
+                    scale: 1.3,
+                    opacity: 0.18,
+                    duration: 1.0,
+                    ease: 'power1.inOut'
+                }, "<");
+
+            // 6. Kicker "Tiga Pilar, Satu Tujuan" muncul
+            synergyTL.to('#synergy-kicker', {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: 'power2.out'
+            }, "-=0.4");
+
+            // 7. Kalimat utama tampil kata demi kata (.sr-word)
+            if (quoteWords.length > 0) {
+                synergyTL.to(quoteWords, {
+                    opacity: 1,
+                    filter: 'blur(0px)',
+                    y: 0,
+                    ease: 'none',
+                    stagger: 0.08,
+                    duration: 1.4
+                }, "-=0.2");
             }
+
+            // 8. Kalimat penutup memudar masuk
+            synergyTL.to('#synergy-closing', {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out'
+            }, "-=0.3");
+
+            // 9. Tombol Ajakan Menuju Jurusan Tampil di Akhir
+            synergyTL.to('#synergy-action-btn', {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: 'power2.out'
+            }, "+=0.1");
+
+        } else if (prefersReducedMotion) {
+            // If reduced motion: make everything fully visible without pinning
+            const quoteEl = document.getElementById('synergy-main-quote');
+            if (quoteEl) splitIntoWords(quoteEl);
+            document.querySelectorAll('.sr-word').forEach(w => {
+                w.style.opacity = '1';
+                w.style.filter = 'none';
+                w.style.transform = 'none';
+            });
+            gsap.set(['#node-vokasi', '#node-islami', '#node-bnsp', '#synergy-center-star', '#synergy-star-aura', '#synergy-kicker', '#synergy-closing', '#synergy-action-btn'], {
+                opacity: 1,
+                scale: 1,
+                y: 0
+            });
+            const bar = document.getElementById('synergy-progress-bar');
+            if (bar) bar.style.width = '100%';
         }
 
         // 9. Prestasi Section GSAP ScrollTrigger & Parallax
