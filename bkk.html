@@ -76,7 +76,11 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, .font-head {
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-head {
             font-family: var(--font-head);
             font-weight: 800;
         }
@@ -227,7 +231,8 @@
             transition: var(--transition-fast);
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--primary);
             background: var(--primary-surface);
         }
@@ -267,7 +272,8 @@
             transition: var(--transition-fast);
         }
 
-        .dropdown-item:hover, .dropdown-item.active {
+        .dropdown-item:hover,
+        .dropdown-item.active {
             background: var(--primary-surface);
             color: var(--primary);
         }
@@ -348,7 +354,8 @@
             color: var(--text-dark);
         }
 
-        .drawer-links a.active, .drawer-links a:hover {
+        .drawer-links a.active,
+        .drawer-links a:hover {
             background: var(--primary-surface);
             color: var(--primary);
         }
@@ -611,265 +618,266 @@
             color: var(--text-muted);
             line-height: 1.6;
         }
-/* ==========================================================================
+
+        /* ==========================================================================
    13. NEXT-GEN FOOTER
    ========================================================================== */
-.site-footer {
-    background: var(--bg-dark);
-    color: var(--text-light);
-    padding: 5.5rem 0 2.5rem;
-    border-top: 1px solid var(--border-dark);
-    position: relative;
-}
+        .site-footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 5.5rem 0 2.5rem;
+            border-top: 1px solid var(--border-dark);
+            position: relative;
+        }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
-    gap: 3rem;
-    margin-bottom: 3.5rem;
-}
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
 
-/* Judul Kolom Footer */
-.footer-col h4,
-.footer-brand-title {
-    font-family: var(--font-head);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-subtle);
-    margin-bottom: 1.2rem;
-}
+        /* Judul Kolom Footer */
+        .footer-col h4,
+        .footer-brand-title {
+            font-family: var(--font-head);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+            margin-bottom: 1.2rem;
+        }
 
-.footer-brand-name {
-    color: #ffffff;
-    font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 1.05rem;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-}
+        .footer-brand-name {
+            color: #ffffff;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.05rem;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
 
-.footer-brand-sub {
-    color: var(--secondary);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.2rem;
-}
+        .footer-brand-sub {
+            color: var(--secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.2rem;
+        }
 
-.footer-address {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.88rem;
-    line-height: 1.65;
-    margin-bottom: 1.2rem;
-}
+        .footer-address {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+        }
 
-/* Baris Kontak dengan Inline SVG Stroke */
-.footer-contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
+        /* Baris Kontak dengan Inline SVG Stroke */
+        .footer-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
 
-.footer-contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.7);
-}
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-.footer-contact-icon {
-    width: 16px;
-    height: 16px;
-    stroke: var(--text-subtle);
-    stroke-width: 1.8;
-    fill: none;
-    flex-shrink: 0;
-}
+        .footer-contact-icon {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-subtle);
+            stroke-width: 1.8;
+            fill: none;
+            flex-shrink: 0;
+        }
 
-.footer-contact-link {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
+        .footer-contact-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
 
-.footer-contact-link:hover {
-    color: var(--secondary-light);
-}
+        .footer-contact-link:hover {
+            color: var(--secondary-light);
+        }
 
-/* Media Sosial Monokrom */
-.footer-social-row {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    margin-top: 0.5rem;
-}
+        /* Media Sosial Monokrom */
+        .footer-social-row {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 0.5rem;
+        }
 
-.footer-social-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    text-decoration: none;
-}
+        .footer-social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+        }
 
-.footer-social-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-    transition: transform 0.25s ease;
-}
+        .footer-social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.25s ease;
+        }
 
-.footer-social-btn:hover {
-    background: var(--primary);
-    border-color: var(--primary-light);
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
-}
+        .footer-social-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary-light);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+        }
 
-.footer-social-btn:hover svg {
-    transform: scale(1.08);
-}
+        .footer-social-btn:hover svg {
+            transform: scale(1.08);
+        }
 
-/* Tautan Navigasi Footer */
-.footer-nav {
-    display: block;
-}
+        /* Tautan Navigasi Footer */
+        .footer-nav {
+            display: block;
+        }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-}
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
 
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    transition: color 0.2s ease, transform 0.2s ease;
-    min-height: 28px;
-}
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+            min-height: 28px;
+        }
 
-.footer-chevron {
-    opacity: 0;
-    transform: translateX(-4px);
-    color: var(--secondary);
-    font-weight: bold;
-    font-size: 1.05rem;
-    line-height: 1;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
+        .footer-chevron {
+            opacity: 0;
+            transform: translateX(-4px);
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.05rem;
+            line-height: 1;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
 
-.footer-links a:hover {
-    color: var(--secondary-light);
-    transform: translateX(4px);
-}
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(4px);
+        }
 
-.footer-links a:hover .footer-chevron {
-    opacity: 1;
-    transform: translateX(0);
-}
+        .footer-links a:hover .footer-chevron {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
-/* Kartu Identitas Lembaga */
-.footer-identity-card {
-    background: rgba(255, 255, 255, 0.04);
-    padding: 1.15rem 1.25rem;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-dark);
-    font-size: 0.85rem;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.7);
-}
+        /* Kartu Identitas Lembaga */
+        .footer-identity-card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 1.15rem 1.25rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-dark);
+            font-size: 0.85rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-.footer-identity-card strong {
-    color: #ffffff;
-    font-weight: 700;
-}
+        .footer-identity-card strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
 
-.footer-bottom {
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-dark);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    color: #78716c;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #78716c;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-/* ===== Responsive ===== */
-@media (max-width: 992px) {
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem;
-    }
-}
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
 
-@media (max-width: 600px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2.2rem;
-    }
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.2rem;
+            }
 
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
 
-@media (max-width: 1024px) {
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-/* Ultra-optimization mobile override */
-@media (max-width: 768px) {
-    .site-footer {
-        padding: 4rem 0 2rem !important;
-    }
+        /* Ultra-optimization mobile override */
+        @media (max-width: 768px) {
+            .site-footer {
+                padding: 4rem 0 2rem !important;
+            }
 
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-    }
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
 
-    .footer-social-row {
-        justify-content: flex-start !important;
-    }
+            .footer-social-row {
+                justify-content: flex-start !important;
+            }
 
-    .footer-bottom {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 0.5rem !important;
-    }
-}
+            .footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 0.5rem !important;
+            }
+        }
 
         /* RESPONSIVE */
         @media (max-width: 992px) {
@@ -920,16 +928,16 @@
     <!-- 1. HEADER NAVBAR -->
     <header class="header-wrapper">
         <nav class="nav-island" id="main-nav">
-            <a href="index.html" class="brand-box">
+            <a href="#hero" class="brand-box">
                 <img src="assets/logo.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo">
             </a>
 
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="#hero" class="nav-link active">Beranda</a>
 
                 <!-- Profil & Info Dropdown -->
                 <div class="nav-item">
-                    <a href="index.html#sambutan" class="nav-link">
+                    <a href="#sambutan" class="nav-link">
                         Profil & Info <span style="font-size: 0.65rem;">▼</span>
                     </a>
                     <div class="dropdown-menu">
@@ -937,47 +945,58 @@
                             <span class="dropdown-icon">🎯</span>
                             <div>
                                 <div>Visi & Misi</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan Lembaga</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan
+                                    Lembaga</small>
+                            </div>
+                        </a>
+                        <a href="guru.html" class="dropdown-item">
+                            <span class="dropdown-icon">👥</span>
+                            <div>
+                                <div>Guru & Tendik</div>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Tenaga Pendidik</small>
                             </div>
                         </a>
                         <a href="fasilitas.html" class="dropdown-item">
                             <span class="dropdown-icon">🏢</span>
                             <div>
-                                <div>Fasilitas Kampus</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang Belajar</small>
+                                <div>Fasilitas Sekolah</div>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang
+                                    Belajar</small>
                             </div>
                         </a>
                         <a href="ekstrakurikuler.html" class="dropdown-item">
                             <span class="dropdown-icon">⚽</span>
                             <div>
                                 <div>Ekstrakurikuler & IPM</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni & Karakter</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni &
+                                    Karakter</small>
                             </div>
                         </a>
                         <a href="prestasi.html" class="dropdown-item">
                             <span class="dropdown-icon">🏆</span>
                             <div>
                                 <div>Galeri Prestasi</div>
-                                <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan Nasional</small>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan
+                                    Nasional</small>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
+                <a href="#jurusan" class="nav-link">Konsentrasi Keahlian</a>
 
-                <!-- BKK Anchor Link di Navbar -->
-                <a href="bkk.html" class="nav-link active">BKK (Bursa Kerja)</a>
+                <a href="bkk.html" class="nav-link">BKK (Bursa Kerja)</a>
 
                 <!-- Layanan Siswa (BLUD) -->
-                <a href="index.html#blud" class="nav-link">Layanan Siswa (BLUD)</a>
+                <a href="#blud" class="nav-link">Layanan Siswa (BLUD)</a>
 
                 <a href="berita.html" class="nav-link">Berita</a>
-                <a href="index.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar PPDB</a>
+                <a href="#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar
+                    PPDB</a>
             </div>
 
-            <a href="index.html#ppdb" class="btn btn-primary nav-mobile-cta" style="display:none;">Daftar PPDB</a>
-            <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
+            <a href="#ppdb" class="btn btn-primary nav-mobile-cta" style="display:none;">Daftar SPMB</a> <button
+                class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
         </nav>
     </header>
 
@@ -1011,7 +1030,7 @@
 
             <div style="margin-top: 1.5rem;">
                 <a href="index.html#ppdb" class="btn btn-primary"
-                    style="width: 100%; text-align: center; justify-content: center;">Daftar PPDB 2026</a>
+                    style="width: 100%; text-align: center; justify-content: center;">Daftar SPMB 2026</a>
             </div>
         </div>
     </div>
@@ -1019,22 +1038,25 @@
     <!-- 2. PAGE HEADER -->
     <header class="page-header">
         <svg class="header-bg-pattern" viewBox="0 0 100 100">
-            <rect x="20" y="20" width="60" height="60" fill="none" stroke="var(--primary)" stroke-width="2" transform="rotate(45 50 50)" />
+            <rect x="20" y="20" width="60" height="60" fill="none" stroke="var(--primary)" stroke-width="2"
+                transform="rotate(45 50 50)" />
             <circle cx="50" cy="50" r="15" fill="none" stroke="var(--secondary)" stroke-width="2" />
         </svg>
         <div class="container">
-            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:0.4rem 1rem; border-radius:var(--radius-full); font-size:0.85rem; font-weight:700; color:var(--secondary-light); margin-bottom:1.2rem;">
+            <div
+                style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:0.4rem 1rem; border-radius:var(--radius-full); font-size:0.85rem; font-weight:700; color:var(--secondary-light); margin-bottom:1.2rem;">
                 <span>💼</span> Penyaluran Lulusan & Karir Alumni
             </div>
             <h1 class="page-title">Bursa Kerja Khusus (BKK)<br>SMKS Muhammadiyah 1 Genteng</h1>
-            <p class="page-subtitle">Jembatan karir terpercaya yang menghubungkan alumni dan peserta didik dengan ratusan lowongan kerja di mitra industri & DUDIKA terkemuka secara nasional.</p>
+            <p class="page-subtitle">Jembatan karir terpercaya yang menghubungkan alumni dan peserta didik dengan
+                ratusan lowongan kerja di mitra industri & DUDIKA terkemuka secara nasional.</p>
         </div>
     </header>
 
     <!-- 3. MAIN CONTENT BKK -->
     <section class="section-padding">
         <div class="container">
-            
+
             <!-- BKK Impact Summary Banner -->
             <div class="bkk-summary-banner">
                 <div class="bkk-summary-number">
@@ -1043,7 +1065,8 @@
                 <div class="bkk-summary-text">
                     <h3>Tingkat Keterserapan Alumni SMKS MUHI</h3>
                     <p>Sebanyak <strong>450+ lulusan tahun terakhir</strong> langsung terserap kerja di mitra DUDIKA,
-                        berwirausaha mandiri lewat BLUD, dan melanjutkan studi ke perguruan tinggi negeri/swasta ternama.</p>
+                        berwirausaha mandiri lewat BLUD, dan melanjutkan studi ke perguruan tinggi negeri/swasta
+                        ternama.</p>
                 </div>
             </div>
 
@@ -1074,8 +1097,10 @@
             <!-- Section Title for Job Portal -->
             <div class="text-center" style="margin-bottom: 2.5rem;">
                 <span class="badge badge-primary mb-2">Portal Lowongan Kerja BKK</span>
-                <h2 class="font-head" style="font-size: 2.2rem; color: var(--primary-dark); margin-top: 0.5rem;">Informasi Loker & Magang Terkini</h2>
-                <p style="color: var(--text-muted); max-width: 650px; margin: 0.5rem auto 0;">Daftar lowongan kerja resmi yang diverifikasi langsung oleh Tim BKK SMKS Muhammadiyah 1 Genteng.</p>
+                <h2 class="font-head" style="font-size: 2.2rem; color: var(--primary-dark); margin-top: 0.5rem;">
+                    Informasi Loker & Magang Terkini</h2>
+                <p style="color: var(--text-muted); max-width: 650px; margin: 0.5rem auto 0;">Daftar lowongan kerja
+                    resmi yang diverifikasi langsung oleh Tim BKK SMKS Muhammadiyah 1 Genteng.</p>
             </div>
 
             <!-- BKK Table Card -->
@@ -1091,61 +1116,62 @@
                 <!-- Job 1 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Digital Kreatif Nusantara</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Digital Kreatif
+                            Nusantara</strong>
                         <small style="color:var(--text-muted);">Surabaya / Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">Junior Web Developer</div>
                     <div><span class="skill-tag">Full-time</span></div>
                     <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Junior%20Web%20Developer" target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar Loker &rarr;</a></div>
+                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Junior%20Web%20Developer"
+                            target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar
+                            Loker &rarr;</a></div>
                 </div>
 
                 <!-- Job 2 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Hotel Ketapang Indah</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Hotel Ketapang
+                            Indah</strong>
                         <small style="color:var(--text-muted);">Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">PKL Perhotelan & Tata Boga</div>
                     <div><span class="skill-tag">Magang / PKL</span></div>
                     <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20PKL%20Perhotelan" target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar Loker &rarr;</a></div>
+                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20PKL%20Perhotelan"
+                            target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar
+                            Loker &rarr;</a></div>
                 </div>
 
                 <!-- Job 3 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Bank Jatim Syariah Genteng</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Bank Jatim Syariah
+                            Genteng</strong>
                         <small style="color:var(--text-muted);">Genteng, Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">Staff Administrasi Operasional</div>
                     <div><span class="skill-tag">Full-time</span></div>
                     <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Staff%20Administrasi" target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar Loker &rarr;</a></div>
+                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Staff%20Administrasi"
+                            target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar
+                            Loker &rarr;</a></div>
                 </div>
 
-                <!-- Job 4 -->
-                <div class="bkk-table-row">
-                    <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">Astra Motor AHASS Genteng</strong>
-                        <small style="color:var(--text-muted);">Banyuwangi</small>
-                    </div>
-                    <div style="font-weight:600;">Teknisi Mekanik Honda</div>
-                    <div><span class="skill-tag">Full-time</span></div>
-                    <div><span class="badge badge-amber" style="font-size:0.75rem;">Segera</span></div>
-                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Teknisi%20AHASS" target="_blank" style="color:var(--primary); font-weight:700; font-size:0.9rem;">Lamar Loker &rarr;</a></div>
-                </div>
 
                 <!-- Job 5 -->
                 <div class="bkk-table-row">
                     <div>
-                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Telkom Indonesia (Witel Jatim)</strong>
+                        <strong style="color:var(--primary); font-size:1.05rem; display:block;">PT Telkom Indonesia
+                            (Witel Jatim)</strong>
                         <small style="color:var(--text-muted);">Jember / Banyuwangi</small>
                     </div>
                     <div style="font-weight:600;">Teknisi Jaringan & Fiber Optik</div>
                     <div><span class="skill-tag">Full-time</span></div>
                     <div><span class="badge badge-primary" style="font-size:0.75rem;">Dibuka</span></div>
-                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Teknisi%20Jaringan" target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar Loker &rarr;</a></div>
+                    <div><a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Teknisi%20Jaringan"
+                            target="_blank" style="color:var(--secondary); font-weight:700; font-size:0.9rem;">Lamar
+                            Loker &rarr;</a></div>
                 </div>
             </div>
 
@@ -1153,30 +1179,36 @@
             <div style="margin-top: 5rem;">
                 <div class="text-center">
                     <span class="badge badge-primary mb-2">Program & Fasilitas BKK</span>
-                    <h2 class="font-head" style="font-size: 2.2rem; color: var(--primary-dark); margin-top: 0.5rem;">Layanan Karir Komprehensif</h2>
-                    <p style="color: var(--text-muted); max-width: 650px; margin: 0.5rem auto 0;">BKK SMKS Muhammadiyah 1 Genteng membekali siswa sejak bangku sekolah hingga siap kerja di dunia industri.</p>
+                    <h2 class="font-head" style="font-size: 2.2rem; color: var(--primary-dark); margin-top: 0.5rem;">
+                        Layanan Karir Komprehensif</h2>
+                    <p style="color: var(--text-muted); max-width: 650px; margin: 0.5rem auto 0;">BKK SMKS Muhammadiyah
+                        1 Genteng membekali siswa sejak bangku sekolah hingga siap kerja di dunia industri.</p>
                 </div>
 
                 <div class="service-grid">
                     <div class="service-card">
                         <div class="service-icon">💼</div>
                         <h3>Penyaluran Kerja Direct</h3>
-                        <p>Rekrutmen kampus langsung (Campus Recruitment) bekerjasama dengan puluhan perusahan DUDI terkemuka nasional.</p>
+                        <p>Rekrutmen kampus langsung (Campus Recruitment) bekerjasama dengan puluhan perusahan DUDI
+                            terkemuka nasional.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">📝</div>
                         <h3>Bimbingan Karir & CV Workshop</h3>
-                        <p>Pelatihan pembuatan CV profesional, portofolio digital, dan psikotes kerja bagi seluruh calon lulusan.</p>
+                        <p>Pelatihan pembuatan CV profesional, portofolio digital, dan psikotes kerja bagi seluruh calon
+                            lulusan.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🎙️</div>
                         <h3>Simulasi Interview Kerja</h3>
-                        <p>Sesi wawancara kerja tiruan dengan instruktur industri agar alumni percaya diri saat menghadapi HRD perusahaan.</p>
+                        <p>Sesi wawancara kerja tiruan dengan instruktur industri agar alumni percaya diri saat
+                            menghadapi HRD perusahaan.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🏢</div>
                         <h3>Program Praktik Kerja Lapangan (PKL)</h3>
-                        <p>Penempatan magang terstruktur di Teaching Factory dan industri mitra sesuai bidang kompetensi masing-masing.</p>
+                        <p>Penempatan magang terstruktur di Teaching Factory dan industri mitra sesuai bidang kompetensi
+                            masing-masing.</p>
                     </div>
                 </div>
             </div>
@@ -1185,8 +1217,10 @@
             <div style="margin-top: 5rem;">
                 <div class="text-center">
                     <span class="badge badge-amber mb-2">DUDIKA Partner</span>
-                    <h2 class="font-head" style="font-size: 2.2rem; color: var(--primary-dark); margin-top: 0.5rem;">Perusahaan Mitra Industri Utama</h2>
-                    <p style="color: var(--text-muted); max-width: 650px; margin: 0.5rem auto 0;">Jaringan kemitraan strategis SMKS MUHI Genteng bersama institusi dan korporasi terkemuka.</p>
+                    <h2 class="font-head" style="font-size: 2.2rem; color: var(--primary-dark); margin-top: 0.5rem;">
+                        Perusahaan Mitra Industri Utama</h2>
+                    <p style="color: var(--text-muted); max-width: 650px; margin: 0.5rem auto 0;">Jaringan kemitraan
+                        strategis SMKS MUHI Genteng bersama institusi dan korporasi terkemuka.</p>
                 </div>
 
                 <div class="mitra-grid">
@@ -1338,7 +1372,7 @@
                             <li><a href="visi-misi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
                                     Visi &amp; Misi</a></li>
                             <li><a href="fasilitas.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
-                                    Fasilitas Kampus</a></li>
+                                    Fasilitas Sekolah</a></li>
                             <li><a href="ekstrakurikuler.html"><span class="footer-chevron"
                                         aria-hidden="true">&rsaquo;</span> Ekstrakurikuler &amp; IPM</a></li>
                             <li><a href="prestasi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
@@ -1349,10 +1383,10 @@
                     </nav>
                 </div>
 
-                <!-- Kolom 3: 8 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
+                <!-- Kolom 3:7 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
                 <div class="footer-col">
-                    <h4>8 Konsentrasi</h4>
-                    <nav class="footer-nav" aria-label="Navigasi 8 Konsentrasi Keahlian">
+                    <h4>7 Konsentrasi</h4>
+                    <nav class="footer-nav" aria-label="Navigasi 7 Konsentrasi Keahlian">
                         <ul class="footer-links">
                             <li><a href="#jurusan" onclick="jumpToMajor('rpl')"><span class="footer-chevron"
                                         aria-hidden="true">&rsaquo;</span> Rekayasa Perangkat Lunak</a></li>
@@ -1368,8 +1402,6 @@
                                         aria-hidden="true">&rsaquo;</span> Manajemen Perkantoran</a></li>
                             <li><a href="#jurusan" onclick="jumpToMajor('ph')"><span class="footer-chevron"
                                         aria-hidden="true">&rsaquo;</span> Perhotelan &amp; Hospitality</a></li>
-                            <li><a href="#jurusan" onclick="jumpToMajor('tbsm')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span> Teknik Sepeda Motor (AHASS)</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -1390,7 +1422,7 @@
 
             <div class="footer-bottom">
                 <div>&copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.</div>
-                <div>Website Redesign &bull; Kompetisi JHIC Jagoan Hosting</div>
+                <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
             </div>
         </div>
     </footer>
