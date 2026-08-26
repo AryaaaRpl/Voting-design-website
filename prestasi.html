@@ -96,8 +96,8 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'Plus Jakarta Sans', sans-serif;
 
-            --transition: all 0.25s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
@@ -218,6 +218,7 @@
         }
 
         .btn-primary {
+            transition: var(--transition);
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: #ffffff;
             box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
@@ -229,6 +230,7 @@
         }
 
         .btn-amber {
+            transition: var(--transition);
             background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             color: var(--text-dark);
             box-shadow: 0 8px 24px -4px rgba(234, 179, 8, 0.35);
@@ -240,6 +242,7 @@
         }
 
         .btn-outline {
+            transition: var(--transition);
             background: #ffffff;
             color: var(--primary);
             border: 1.5px solid var(--border-card);
@@ -444,6 +447,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -1820,6 +1824,7 @@
             }
 
             .drawer-links a {
+            transition: var(--transition);
                 min-height: 44px;
                 font-size: 16px;
             }
@@ -2096,7 +2101,6 @@
             transform: translateX(-50%) !important;
             width: 90% !important;
             max-width: 1320px !important;
-            z-index: 9999 !important;
             background: #ffffff !important;
             border-radius: 50px !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
@@ -2111,7 +2115,6 @@
             align-items: center !important;
             justify-content: space-between !important;
             position: relative !important;
-            z-index: 9999 !important;
         }
 
         /* Hamburger button MUST have relative position, high z-index, and pointer-events */
@@ -2266,7 +2269,11 @@
 
                 <!-- Profil & Info Dropdown -->
                 <div class="nav-item">
+<<<<<<< HEAD
                     <a href="#sambutan" class="nav-link">
+=======
+                    <a href="index.html#sambutan" class="nav-link active">
+>>>>>>> 63121c281ee57446f21dedc6f937b52a31b4de29
                         Profil & Info <span style="font-size: 0.65rem;">▼</span>
                     </a>
                     <div class="dropdown-menu">

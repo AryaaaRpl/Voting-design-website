@@ -58,8 +58,8 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
 
-            --transition: all 0.25s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
@@ -158,6 +158,7 @@
         }
 
         .btn-primary {
+            transition: var(--transition);
             background: var(--primary);
             color: #ffffff;
             box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
@@ -169,23 +170,37 @@
             box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
         }
 
-        /* HEADER NAVBAR */
+        /* HEADER NAVBAR - FLOATING ISLAND WITH GLASSMORPHISM 2.0 (MATCHING INDEX.HTML) */
         .header-wrapper {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #ffffff;
-            border-bottom: 1px solid var(--border-card);
+            position: fixed !important;
+            top: 1rem;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 90% !important;
+            max-width: 1320px !important;
+            z-index: 1000 !important;
+            background: #ffffff !important;
+            border-radius: 50px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+            border: 1px solid var(--border-card) !important;
+            pointer-events: auto !important;
         }
 
         .nav-island {
+            width: 100% !important;
             max-width: 1320px;
             margin: 0 auto;
-            padding: 1rem 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 0.8rem 1.8rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: relative !important;
             transition: var(--transition);
+        }
+
+        .nav-island.scrolled {
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
         }
 
         .brand-box {
@@ -201,11 +216,12 @@
             max-height: 60px;
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .brand-logo:hover {
             transform: translateY(-2px);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
         }
 
         .nav-menu {
@@ -237,19 +253,20 @@
             background: var(--primary-surface);
         }
 
+        /* Dropdown styling */
         .dropdown-menu {
             position: absolute;
-            top: 100%;
+            top: calc(100% + 12px);
             left: 0;
-            width: 260px;
+            min-width: 250px;
             background: #ffffff;
             border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius);
             padding: 0.6rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
+            transform: translateY(10px) scale(0.98);
             transition: var(--transition);
             z-index: 100;
         }
@@ -257,14 +274,14 @@
         .nav-item:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         .dropdown-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.65rem 0.85rem;
+            gap: 0.8rem;
+            padding: 0.65rem 0.9rem;
             border-radius: var(--radius-sm);
             font-size: 0.88rem;
             font-weight: 600;
@@ -276,68 +293,113 @@
         .dropdown-item.active {
             background: var(--primary-surface);
             color: var(--primary);
+            transform: translateX(4px);
         }
 
         .dropdown-icon {
             font-size: 1.1rem;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(30, 58, 138, 0.06);
+            border-radius: var(--radius-xs);
         }
 
-        .hamburger {
+        .hamburger,
+        .nav-toggle {
             display: none;
-            background: none;
-            border: none;
-            font-size: 1.6rem;
-            color: var(--text-dark);
-            cursor: pointer;
+            background: var(--primary-surface) !important;
+            border: 1px solid rgba(30, 64, 175, 0.15) !important;
+            color: var(--primary) !important;
+            font-size: 1.4rem !important;
+            cursor: pointer !important;
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            border-radius: 10px !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: relative !important;
+            z-index: 10000 !important;
+            pointer-events: auto !important;
+            transition: all 0.2s ease !important;
+            user-select: none !important;
+            -webkit-tap-highlight-color: transparent !important;
         }
 
-        /* MOBILE DRAWER */
+        .hamburger:hover,
+        .nav-toggle:hover,
+        .hamburger:focus,
+        .nav-toggle:focus {
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            outline: none !important;
+        }
+
+        /* Mobile Drawer */
         .mobile-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(4px);
-            z-index: 1050;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
+            position: fixed !important;
+            inset: 0 !important;
+            background: rgba(15, 23, 42, 0.65) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            z-index: 99998 !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: opacity 0.3s ease, visibility 0.3s ease !important;
+            pointer-events: none !important;
         }
 
         .mobile-overlay.active {
-            opacity: 1;
-            visibility: visible;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
         }
 
         .mobile-drawer {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 320px;
-            height: 100%;
-            background: #ffffff;
-            z-index: 1100;
-            padding: 2rem 1.5rem;
-            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-            transition: var(--transition);
-            overflow-y: auto;
+            position: fixed !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 85vw !important;
+            max-width: 340px !important;
+            height: 100dvh !important;
+            background: #ffffff !important;
+            z-index: 99999 !important;
+            padding: 2rem 1.6rem !important;
+            transform: translateX(100%) !important;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            pointer-events: auto !important;
         }
 
         .mobile-drawer.active {
-            right: 0;
+            transform: translateX(0) !important;
         }
 
         .drawer-close {
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            cursor: pointer;
+            background: var(--bg-alt) !important;
+            border: 1px solid var(--border-card) !important;
+            color: var(--text-dark) !important;
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            border-radius: 50% !important;
+            font-size: 1.4rem !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-bottom: 1.5rem !important;
+            position: relative !important;
+            z-index: 100000 !important;
+            pointer-events: auto !important;
         }
 
         .drawer-links {
@@ -347,6 +409,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             padding: 0.75rem 1rem;
             border-radius: var(--radius-sm);
             font-weight: 600;
@@ -369,12 +432,42 @@
             letter-spacing: 0.05em;
         }
 
+        @media (max-width: 900px) {
+            .header-wrapper {
+                top: 0.5rem !important;
+                width: calc(100% - 20px) !important;
+                border-radius: 20px !important;
+            }
+
+            .nav-island {
+                padding: 0.6rem 1rem !important;
+            }
+
+            .nav-menu {
+                display: none !important;
+            }
+
+            .nav-mobile-cta {
+                display: inline-flex !important;
+                margin-left: auto;
+                margin-right: 0.6rem;
+                padding: 0.45rem 1rem !important;
+                font-size: 0.82rem !important;
+                min-height: 40px !important;
+            }
+
+            .hamburger,
+            .nav-toggle {
+                display: flex !important;
+            }
+        }
+
         /* PAGE HEADER */
         .page-header {
             position: relative;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             color: #ffffff;
-            padding: 5rem 0 4rem;
+            padding: 8rem 0 4rem;
             overflow: hidden;
         }
 
@@ -919,6 +1012,184 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            /* CHATBOT FLOATING BUTTON RESPONSIVE */
+            .chatbot-btn {
+                transition: var(--transition);
+                width: 50px !important;
+                height: 50px !important;
+                bottom: 1.2rem !important;
+                right: 1.2rem !important;
+                font-size: 1.3rem !important;
+            }
+
+            .chat-panel {
+                bottom: 4.8rem !important;
+                right: 1rem !important;
+                left: 1rem !important;
+                width: auto !important;
+                max-width: none !important;
+            }
+        }
+
+        /* AI Chatbot Widget */
+        .chatbot-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            border: none;
+            box-shadow: var(--shadow-card-hover);
+            font-size: 1.6rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .chat-panel {
+            position: fixed;
+            bottom: 6.5rem;
+            right: 2rem;
+            width: 360px;
+            max-width: 90vw;
+            background: #ffffff;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-card-hover);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: var(--transition);
+        }
+
+        .chat-panel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .chat-header {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 1.2rem 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-head);
+            font-weight: 700;
+        }
+
+        .chat-body {
+            height: 280px;
+            padding: 1.2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            background: var(--bg-alt);
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
+        }
+
+        .chat-body::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .chat-body::-webkit-scrollbar-track {
+            background: rgba(30, 58, 138, 0.03);
+        }
+
+        .chat-body::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+
+        .chat-msg {
+            max-width: 82%;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .chat-msg.bot {
+            background: #ffffff;
+            color: var(--text-dark);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            align-self: flex-start;
+        }
+
+        .chat-msg.user {
+            background: var(--primary);
+            color: #ffffff;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+
+        .chat-quick-pills {
+            padding: 0.6rem 1rem;
+            background: #ffffff;
+            display: flex;
+            gap: 0.4rem;
+            overflow-x: auto;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .chat-pill {
+            background: var(--primary-surface);
+            color: var(--primary);
+            border: none;
+            padding: 0.35rem 0.7rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .chat-input-bar {
+            padding: 0.8rem 1rem;
+            background: #ffffff;
+            display: flex;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .chat-input-bar input {
+            flex: 1;
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-full);
+            padding: 0.55rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        .chat-input-bar button {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.55rem 1.1rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -947,6 +1218,13 @@
                                 <div>Visi & Misi</div>
                                 <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan
                                     Lembaga</small>
+                            </div>
+                        </a>
+                        <a href="guru.html" class="dropdown-item">
+                            <span class="dropdown-icon">👥</span>
+                            <div>
+                                <div>Guru & Tendik</div>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Tenaga Pendidik</small>
                             </div>
                         </a>
                         <a href="guru.html" class="dropdown-item">
@@ -1427,7 +1705,31 @@
         </div>
     </footer>
 
-    <!-- MOBILE DRAWER SCRIPT -->
+    <!-- 14. CHATBOT AI ASISTEN VIRTUAL -->
+    <button class="chatbot-btn" id="chatbot-toggle" aria-label="Buka Asisten AI">💬</button>
+    <div class="chat-panel" id="chat-panel">
+        <div class="chat-header">
+            <span>Asisten AI SMKS MUHI</span>
+            <span style="font-size:0.75rem; background:rgba(255,255,255,0.2); padding:0.2rem 0.5rem; border-radius:10px;">Online</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg bot">Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng. Ada yang bisa
+                saya bantu terkait info 8 jurusan, pendaftaran PPDB, sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
+            </div>
+        </div>
+        <div class="chat-quick-pills">
+            <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">Info Jurusan</button>
+            <button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">Jadwal PPDB</button>
+            <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">LSP-P1 BNSP</button>
+            <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">Lowongan BKK</button>
+        </div>
+        <div class="chat-input-bar">
+            <input type="text" id="chat-input-text" placeholder="Ketik pertanyaan Anda...">
+            <button onclick="handleChatSubmit()">Kirim</button>
+        </div>
+    </div>
+
+    <!-- MOBILE DRAWER & NAVBAR SCRIPT -->
     <script>
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const drawerCloseBtn = document.getElementById('drawer-close-btn');
@@ -1435,20 +1737,93 @@
         const mobileOverlay = document.getElementById('mobile-overlay');
 
         function openDrawer() {
-            mobileDrawer.classList.add('active');
-            mobileOverlay.classList.add('active');
+            if (mobileDrawer) mobileDrawer.classList.add('active');
+            if (mobileOverlay) mobileOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeDrawer() {
-            mobileDrawer.classList.remove('active');
-            mobileOverlay.classList.remove('active');
+            if (mobileDrawer) mobileDrawer.classList.remove('active');
+            if (mobileOverlay) mobileOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
 
         if (hamburgerBtn) hamburgerBtn.addEventListener('click', openDrawer);
         if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
         if (mobileOverlay) mobileOverlay.addEventListener('click', closeDrawer);
+
+        window.addEventListener('scroll', () => {
+            const navIsland = document.querySelector('.nav-island');
+            if (navIsland) {
+                if (window.scrollY > 20) {
+                    navIsland.classList.add('scrolled');
+                } else {
+                    navIsland.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // AI Chatbot Logic
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatPanel = document.getElementById('chat-panel');
+        const chatBody = document.getElementById('chat-body');
+        const chatInput = document.getElementById('chat-input-text');
+
+        if (chatbotToggle) {
+            chatbotToggle.addEventListener('click', () => {
+                chatPanel.classList.toggle('active');
+            });
+        }
+
+        function appendMsg(text, sender) {
+            const div = document.createElement('div');
+            div.className = `chat-msg ${sender}`;
+            div.innerText = text;
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            const text = input.toLowerCase();
+            if (text.includes('jurusan') || text.includes('prodi') || text.includes('keahlian')) {
+                return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL (Software Dev), TKJ (Jaringan & Cloud), DKV (Desain & Multimedia), Bisnis Digital, Akuntansi Lembaga (AKL), Manajemen Perkantoran (MPLB), Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+            } else if (text.includes('ppdb') || text.includes('daftar') || text.includes('syarat') || text.includes('biaya')) {
+                return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
+            } else if (text.includes('lsp') || text.includes('bnsp') || text.includes('sertifikat')) {
+                return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+            } else if (text.includes('kepala') || text.includes('wahid')) {
+                return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
+            } else if (text.includes('loker') || text.includes('bkk') || text.includes('kerja') || text.includes('magang')) {
+                return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra seperti PT Digital Kreatif Nusantara, Hotel Ketapang Indah, Bank Jatim Syariah, dan ";
+            } else if (text.includes('fasilitas') || text.includes('lab')) {
+                return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan & Cloud Server TKJ, Studio Fotografi & Video DKV, Bengkel Otomotif Astra, Dapur Standar Komersial Tata Boga, dan Lapangan Olahraga.";
+            } else {
+                return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
+            }
+        }
+
+        function handleChatSubmit() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            appendMsg(text, 'user');
+            chatInput.value = '';
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 400);
+        }
+
+        function sendQuickMsg(text) {
+            appendMsg(text, 'user');
+            setTimeout(() => {
+                appendMsg(getBotResponse(text), 'bot');
+            }, 400);
+        }
+
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleChatSubmit();
+            });
+        }
     </script>
 </body>
 

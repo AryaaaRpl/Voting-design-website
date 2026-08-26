@@ -47,8 +47,8 @@
             --font-display: 'Plus Jakarta Sans', sans-serif;
             --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --transition: all 0.25s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
@@ -314,6 +314,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -574,7 +575,7 @@
             background: rgba(20, 18, 16, 0.65);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            z-index: 2000;
+            z-index: 2000 !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1234,6 +1235,7 @@
             }
 
             .drawer-links a {
+                transition: var(--transition);
                 min-height: 44px;
                 font-size: 16px;
             }
@@ -1289,7 +1291,7 @@
             transform: translateX(-50%) !important;
             width: 90% !important;
             max-width: 1320px !important;
-            z-index: 9999 !important;
+            z-index: 1000 !important;
             background: #ffffff !important;
             border-radius: 50px !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
@@ -1304,7 +1306,6 @@
             align-items: center !important;
             justify-content: space-between !important;
             position: relative !important;
-            z-index: 9999 !important;
         }
 
         /* Hamburger button MUST have relative position, high z-index, and pointer-events */
@@ -1450,12 +1451,20 @@
     <!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
     <header class="header-wrapper">
         <nav class="nav-island" id="main-nav">
+<<<<<<< HEAD
             <a href="#hero" class="brand-box">
+=======
+            <a href="index.html#hero" class="brand-box">
+>>>>>>> 63121c281ee57446f21dedc6f937b52a31b4de29
                 <img src="assets/logo.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo">
             </a>
 
             <div class="nav-menu">
+<<<<<<< HEAD
                 <a href="#hero" class="nav-link active">Beranda</a>
+=======
+                <a href="index.html#hero" class="nav-link">Beranda</a>
+>>>>>>> 63121c281ee57446f21dedc6f937b52a31b4de29
 
                 <!-- Profil & Info Dropdown -->
                 <div class="nav-item">
@@ -1513,12 +1522,21 @@
                 <a href="#blud" class="nav-link">Layanan Siswa (BLUD)</a>
 
                 <a href="berita.html" class="nav-link">Berita</a>
+<<<<<<< HEAD
                 <a href="#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar
                     PPDB</a>
             </div>
 
             <a href="#ppdb" class="btn btn-primary nav-mobile-cta" style="display:none;">Daftar SPMB</a> <button
                 class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
+=======
+                <a href="index.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar
+                    PPDB</a>
+            </div>
+
+            <a href="index.html#ppdb" class="btn btn-primary nav-mobile-cta" style="display:none;">Daftar SPMB</a>
+            <button class="hamburger nav-toggle" id="hamburger-btn" aria-label="Buka Menu Navigasi" aria-expanded="false">☰</button>
+>>>>>>> 63121c281ee57446f21dedc6f937b52a31b4de29
         </nav>
     </header>
 
@@ -1539,6 +1557,10 @@
 
             <div class="drawer-section-title">Halaman Informasi</div>
             <a href="visi-misi.html" class="active">🎯 Visi & Misi Sekolah</a>
+<<<<<<< HEAD
+=======
+            <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
+>>>>>>> 63121c281ee57446f21dedc6f937b52a31b4de29
             <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
             <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
             <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
@@ -1660,6 +1682,7 @@
                 </p>
             </div>
 
+<<<<<<< HEAD
             <div class="misi-card reveal"
                 style="grid-column: 1 / -1; background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
                 <div
@@ -1671,6 +1694,12 @@
                 <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Meningkatkan
                     kolaborasi dan kemitraan antar Lembaga Pendidikan baik internal dan eksternal Muhammadiyah serta
                     dunia kerja.</p>
+=======
+            <div class="misi-card reveal" style="background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">05</div>
+                <div style="width: 48px; height: 48px; background: var(--primary-surface); border-radius: var(--radius-sm); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;">5</div>
+                <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Meningkatkan kolaborasi dan kemitraan antar Lembaga Pendidikan baik internal dan eksternal Muhammadiyah serta dunia kerja.</p>
+>>>>>>> 63121c281ee57446f21dedc6f937b52a31b4de29
             </div>
         </div>
     </section>
@@ -1792,6 +1821,10 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+=======
+    <!-- FOOTER -->
+>>>>>>> 63121c281ee57446f21dedc6f937b52a31b4de29
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
