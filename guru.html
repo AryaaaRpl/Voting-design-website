@@ -143,7 +143,7 @@
         font-size: 0.82rem;
         font-family: var(--font-head);
         font-weight: 700;
-        color: #a16207;
+        color: #ff9500;
         text-transform: uppercase;
         letter-spacing: 0.05em;
       }
@@ -491,46 +491,158 @@
         box-shadow: 0 6px 18px rgba(30, 64, 175, 0.25);
       }
 
-      /* 3. GURU & PIMPINAN SEKOLAH */
-
-      .guru-pimpinan-img-wrap {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 400px;
-        overflow: hidden;
+      /* 3. GURU & PIMPINAN SEKOLAH - STRUKTUR 1 SKETSA (KEPSEK & WAKASEK) */
+      .struktur1-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
       }
 
-      .guru-pimpinan-img-wrap img {
+      .struktur1-card {
+        background: #ffffff;
+        border: 1px solid var(--border-card);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-card);
+        display: flex;
+        overflow: hidden;
+        transition: var(--transition);
+        min-height: 290px;
+        position: relative;
+      }
+
+      .struktur1-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-card-hover);
+        border-color: var(--primary);
+      }
+
+      .struktur1-card.kepsek-card {
+        flex-direction: row;
+      }
+
+      .struktur1-card.wakasek-card {
+        flex-direction: row;
+      }
+
+      .struktur1-img-wrap {
+        flex: 0 0 42%;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--bg-alt);
+      }
+
+      .struktur1-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center top;
+        transition: transform 0.4s ease;
       }
 
-      .guru-pimpinan-body {
-        padding: 4rem;
+      .struktur1-card:hover .struktur1-img {
+        transform: scale(1.04);
       }
 
-      .guru-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
+      .struktur1-body {
+        flex: 1;
+        padding: 2.2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      .tendik-grid {
-        grid-template-columns: repeat(4, 1fr);
+      .struktur1-name {
+        font-family: var(--font-head);
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 0.35rem;
+        line-height: 1.25;
+      }
+
+      .struktur1-role {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .struktur1-desc {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        font-style: italic;
+        background: var(--bg-alt);
+        padding: 0.9rem 1.1rem;
+        border-radius: var(--radius);
+        border-left: 3px solid var(--secondary);
+      }
+
+      @media (max-width: 992px) {
+        .struktur1-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .struktur1-card.kepsek-card {
+          flex-direction: column;
+        }
+
+        .struktur1-card.wakasek-card {
+          flex-direction: column-reverse;
+        }
+
+        .struktur1-img-wrap {
+          flex: 0 0 250px;
+          width: 100%;
+        }
+      }
+
+      /* STRUKTUR 2 SKETSA (HORIZONTAL SCROLL CONTAINER) */
+      .struktur2-scroll-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .struktur2-scroll-container {
+        display: flex;
         gap: 1.5rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0.5rem 0.5rem 1.4rem 0.5rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
       }
 
-      .tendik-grid .guru-card {
-        font-size: 0.95em;
+      /* Custom Horizontal Scrollbar */
+      .struktur2-scroll-container::-webkit-scrollbar {
+        height: 10px;
       }
 
-      .guru-wakasek-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
+      .struktur2-scroll-container::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border: 1px solid var(--border-card);
+        border-radius: var(--radius-full);
+      }
+
+      .struktur2-scroll-container::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+        border-radius: var(--radius-full);
+        box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.15);
+      }
+
+      .struktur2-scroll-container::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
+      }
+
+      .struktur2-scroll-container .guru-card {
+        flex: 0 0 260px;
+        width: 260px;
+        max-width: 260px;
+        scroll-snap-align: start;
       }
 
       .guru-card {
@@ -1713,7 +1825,7 @@
     <!-- 2. PAGE HEADER -->
     <header class="page-header" style="margin-bottom: 4rem">
       <div class="container">
-        <span class="badge-gold">👥 Tenaga Pendidik</span>
+        <span class="badge-gold">Tenaga Pendidik</span>
         <h1 class="page-title">Orang-Orang di Balik<br />Setiap Kompetensi.</h1>
         <p class="page-subtitle">
           Mengenal lebih dekat para pendidik inspiratif dan tenaga kependidikan
@@ -1862,7 +1974,7 @@
         <div class="badge-primary" style="margin-bottom: 1rem">
           Manajemen Sekolah
         </div>
-        <h2 class="section-title">Pimpinan Sekolah</h2>
+        <h2 class="section-title">Pimpinan Utama Sekolah</h2>
         <div
           style="
             width: 60px;
@@ -1874,39 +1986,44 @@
         ></div>
       </div>
 
-      <div id="pimpinan-utama-container"></div>
-      <div
-        id="wakasek-container"
-        class="guru-wakasek-grid"
-        style="margin-top: 3rem"
-      ></div>
+      <!-- Struktur 1: Layout 2 Card (Kepsek: Foto di Kiri | Wakasek: Foto di Kanan) -->
+      <div id="pimpinan-utama-container" class="struktur1-grid"></div>
+
+      <!-- Guru Pemimpin Lainnya dengan Struktur 2 (Scrollbar Menyamping) -->
+      <div style="margin-top: 3.5rem">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="font-family: var(--font-head); font-size: 1.25rem; font-weight: 800; color: var(--primary-dark); display: flex; align-items: center; gap: 0.5rem;">
+            <span>👔</span> Guru Pemimpin & Waka Lainnya
+          </h3>
+          <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600; background: var(--bg-alt); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); border: 1px solid var(--border-card);">Geser menyamping ➔</span>
+        </div>
+        <div class="struktur2-scroll-wrapper">
+          <div id="wakasek-container" class="struktur2-scroll-container"></div>
+        </div>
+      </div>
     </section>
 
-    <!-- SECTION BARU: KEPALA KONSENTRASI KEAHLIAN -->
+    <!-- KEPALA KONSENTRASI KEAHLIAN -->
     <section
       id="k3"
       class="container"
       style="margin-bottom: 5rem; scroll-margin-top: 150px"
     >
-      <div style="text-align: center; margin-bottom: 3rem">
-        <div class="badge-primary" style="margin-bottom: 1rem">
-          Ketua Program
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div class="badge-primary" style="margin-bottom: 0.5rem">
+            Ketua Program
+          </div>
+          <h2 class="section-title" style="text-align: left;">Kepala Konsentrasi Keahlian</h2>
+          <p style="color: var(--text-muted); margin-top: 0.3rem">
+            Penanggung jawab tiap program keahlian vokasi
+          </p>
         </div>
-        <h2 class="section-title">Kepala Konsentrasi Keahlian</h2>
-        <div
-          style="
-            width: 60px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 1rem auto 0;
-            border-radius: 2px;
-          "
-        ></div>
-        <p style="color: var(--text-muted); margin-top: 1rem">
-          Penanggung jawab tiap program keahlian vokasi.
-        </p>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background: var(--bg-alt); padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--border-card);">Geser menyamping ➔</span>
       </div>
-      <div id="k3-container" class="guru-grid"></div>
+      <div class="struktur2-scroll-wrapper">
+        <div id="k3-container" class="struktur2-scroll-container"></div>
+      </div>
     </section>
 
     <!-- 4. GURU & PENDIDIK -->
@@ -1915,22 +2032,21 @@
       class="container"
       style="margin-bottom: 5rem; scroll-margin-top: 150px"
     >
-      <div style="text-align: center; margin-bottom: 3rem">
-        <div class="badge-primary" style="margin-bottom: 1rem">
-          Tenaga Pengajar
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div class="badge-primary" style="margin-bottom: 0.5rem">
+            Tenaga Pengajar
+          </div>
+          <h2 class="section-title" style="text-align: left;">Guru & Pendidik</h2>
+          <p style="color: var(--text-muted); margin-top: 0.3rem">
+            Pendidik inspiratif bidang keahlian dan mata pelajaran umum
+          </p>
         </div>
-        <h2 class="section-title">Guru & Pendidik</h2>
-        <div
-          style="
-            width: 60px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 1rem auto 0;
-            border-radius: 2px;
-          "
-        ></div>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background: var(--bg-alt); padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--border-card);">Geser menyamping ➔</span>
       </div>
-      <div id="guru-container" class="guru-grid"></div>
+      <div class="struktur2-scroll-wrapper">
+        <div id="guru-container" class="struktur2-scroll-container"></div>
+      </div>
     </section>
 
     <!-- 5. TENAGA KEPENDIDIKAN -->
@@ -1939,22 +2055,21 @@
       class="container"
       style="margin-bottom: 5rem; scroll-margin-top: 150px"
     >
-      <div style="text-align: center; margin-bottom: 3rem">
-        <div class="badge-primary" style="margin-bottom: 1rem">
-          Staf Administrasi
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div class="badge-primary" style="margin-bottom: 0.5rem">
+            Staf Administrasi
+          </div>
+          <h2 class="section-title" style="text-align: left;">Tenaga Kependidikan</h2>
+          <p style="color: var(--text-muted); margin-top: 0.3rem">
+            Staf kependidikan & administrasi sekolah
+          </p>
         </div>
-        <h2 class="section-title">Tenaga Kependidikan</h2>
-        <div
-          style="
-            width: 60px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 1rem auto 0;
-            border-radius: 2px;
-          "
-        ></div>
+        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background: var(--bg-alt); padding: 0.4rem 1rem; border-radius: var(--radius-full); border: 1px solid var(--border-card);">Geser menyamping ➔</span>
       </div>
-      <div id="tendik-container" class="tendik-grid guru-grid"></div>
+      <div class="struktur2-scroll-wrapper">
+        <div id="tendik-container" class="struktur2-scroll-container"></div>
+      </div>
     </section>
 
     <noscript>
@@ -1977,7 +2092,7 @@
           <li><strong>Wuri Handayani, S.E</strong> - BENDAHARA SEKOLAH</li>
           <li><strong>Misrok, A.Md</strong> - KEPALA TU</li>
           <li><strong>Nur Rohman, M.Pd</strong> - MUTU</li>
-          <li><strong>Taslim, S.Ag., M.Pd</strong> - PEMBINA UTAMA (PU)</li>
+          <li><strong>Wahid Wahyudi, S.Ag., M.Pd</strong> - PEMBINA UTAMA (PU)</li>
           <li><strong>Drei herba Ta'abudi. M.Hum</strong> - WAKA HUMAS</li>
           <li><strong>Siti Muawanah, S.Pd.</strong> - WAKA ISMUBA</li>
           <li><strong>Muh. Najib Rosi, S.Pd</strong> - WAKA KESISWAAN</li>
@@ -2514,10 +2629,10 @@
           foto: "assets/guru/kategori-pimpinan/MUTU - Nur Rohman, M.Pd.webp",
         },
         {
-          nama: "Taslim, S.Ag., M.Pd",
+          nama: "Wahid Wahyudi, S.Ag., M.Pd",
           jabatan: "PEMBINA UTAMA (PU)",
           kategori: "pimpinan",
-          foto: "assets/guru/kategori-pimpinan/PEMBINA UTAMA (PU) - Taslim, S.Ag., M.Pd.webp",
+          foto: "assets/PAK-WAHID-AI-e1781064934191.png",
         },
         {
           nama: "Drei herba Ta'abudi. M.Hum",
@@ -2925,6 +3040,8 @@
         const guruContainer = document.getElementById("guru-container");
         const tendikContainer = document.getElementById("tendik-container");
 
+        let kepsekCardHTML = "";
+        let wakasekCardHTML = "";
         let wakasekHTML = "";
         let k3HTML = "";
         let guruHTML = "";
@@ -2935,32 +3052,42 @@
         dataToRender.forEach((guru) => {
           if (guru.kategori === "pimpinan") {
             if (
-              guru.nama.includes("Taslim") ||
+              guru.nama.includes("Wahid Wahyudi") ||
               guru.nama.includes("Aan Cahyanto")
             ) {
-              let isKepsek = guru.nama.includes("Taslim");
+              let isKepsek = guru.nama.includes("Wahid Wahyudi");
               let quote = isKepsek
                 ? "Berkomitmen mencetak lulusan yang kompeten di bidangnya, berkarakter Islami, dan siap bersaing di era digital melalui pendidikan vokasi yang bermutu."
-                : "Mengawal seluruh program unggulan dengan kedisiplinan dan inovasi tiada henti.";
+                : "Mengawal seluruh program unggulan dengan kedisiplinan dan inovasi tiada henti untuk pencapaian keunggulan bersama.";
               let title = isKepsek
                 ? "Kepala SMKS Muhammadiyah 1 Genteng"
                 : "Wakil Kepala Sekolah";
 
-              let card = `
-                        <div class="guru-pimpinan-card">
-                            <div class="guru-pimpinan-img-wrap">
-                                <img src="${guru.foto}" alt="Foto ${guru.nama}" class="guru-img">
-                                <div class="guru-overlay"></div>
-                            </div>
-                            <div class="guru-pimpinan-body">
-                                <div class="guru-name" style="font-size: 1.8rem; margin-bottom: 0.5rem; justify-content: flex-start;">${guru.nama}</div>
-                                <div class="guru-jabatan" style="font-size: 1.1rem; color: var(--primary); font-weight: 600; margin-bottom: 1.5rem;">${title}</div>
-                                <blockquote class="headmaster-quote">
-                                    ${quote}
-                                </blockquote>
-                            </div>
-                        </div>`;
-              if (utamaContainer) utamaContainer.innerHTML += card;
+              if (isKepsek) {
+                kepsekCardHTML = `
+                  <div class="struktur1-card kepsek-card">
+                    <div class="struktur1-img-wrap">
+                      <img src="${guru.foto}" alt="Foto ${guru.nama}" class="struktur1-img">
+                    </div>
+                    <div class="struktur1-body">
+                      <div class="struktur1-name">${guru.nama}</div>
+                      <div class="struktur1-role">${title}</div>
+                      <div class="struktur1-desc">"${quote}"</div>
+                    </div>
+                  </div>`;
+              } else {
+                wakasekCardHTML = `
+                  <div class="struktur1-card wakasek-card">
+                    <div class="struktur1-body">
+                      <div class="struktur1-name">${guru.nama}</div>
+                      <div class="struktur1-role">${title}</div>
+                      <div class="struktur1-desc">"${quote}"</div>
+                    </div>
+                    <div class="struktur1-img-wrap">
+                      <img src="${guru.foto}" alt="Foto ${guru.nama}" class="struktur1-img">
+                    </div>
+                  </div>`;
+              }
             } else {
               wakasekHTML += createCardHTML(guru);
             }
@@ -2973,10 +3100,13 @@
           }
         });
 
-        if (wakasekContainer) wakasekContainer.innerHTML = wakasekHTML;
-        if (k3Container) k3Container.innerHTML = k3HTML;
-        if (guruContainer) guruContainer.innerHTML = guruHTML;
-        if (tendikContainer) tendikContainer.innerHTML = tendikHTML;
+        if (utamaContainer) {
+          utamaContainer.innerHTML = kepsekCardHTML + wakasekCardHTML;
+        }
+        if (wakasekContainer) wakasekContainer.innerHTML = wakasekHTML || '<p style="color:var(--text-muted); font-size:0.9rem; padding:1rem;">Tidak ada profil ditemukan.</p>';
+        if (k3Container) k3Container.innerHTML = k3HTML || '<p style="color:var(--text-muted); font-size:0.9rem; padding:1rem;">Tidak ada profil ditemukan.</p>';
+        if (guruContainer) guruContainer.innerHTML = guruHTML || '<p style="color:var(--text-muted); font-size:0.9rem; padding:1rem;">Tidak ada profil ditemukan.</p>';
+        if (tendikContainer) tendikContainer.innerHTML = tendikHTML || '<p style="color:var(--text-muted); font-size:0.9rem; padding:1rem;">Tidak ada profil ditemukan.</p>';
 
         // Update stats
         const statGuru = document.getElementById("stat-guru");
