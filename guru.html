@@ -72,8 +72,8 @@
         --font-body: "Plus Jakarta Sans", sans-serif;
         --font-mono: "JetBrains Mono", monospace;
 
-        --transition: all 0.3s ease;
-        --transition-fast: all 0.2s ease;
+        --transition: all 0.25s ease;
+        --transition-fast: all 0.15s ease;
       }
 
       * {
@@ -179,7 +179,6 @@
       }
 
       .btn-primary {
-        transition: var(--transition);
         background: linear-gradient(
           135deg,
           var(--primary) 0%,
@@ -386,7 +385,6 @@
       }
 
       .drawer-links a {
-        transition: var(--transition);
         display: flex;
         align-items: center;
         gap: 0.8rem;
@@ -468,17 +466,6 @@
       }
 
       /* 3. GURU & PIMPINAN SEKOLAH */
-      .guru-pimpinan-card {
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-xl);
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        box-shadow: var(--shadow-card);
-        margin-bottom: 2rem;
-        align-items: center;
-      }
 
       .guru-pimpinan-img-wrap {
         position: relative;
@@ -573,21 +560,6 @@
         justify-content: center;
       }
 
-      .guru-name {
-        font-size: 15px;
-        font-weight: 800;
-        color: var(--primary-dark);
-        margin-bottom: 0.25rem;
-        transition: color 0.4s ease;
-      }
-
-      .guru-jabatan {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        font-weight: 500;
-        transition: color 0.4s ease;
-      }
-
       /* Hover Effects */
       .guru-card:hover {
         transform: translateY(-5px);
@@ -607,16 +579,10 @@
         background: var(--primary);
       }
 
-      .guru-card:hover .guru-name {
-        color: #ffffff;
-      }
+      .guru-card:hover .guru-card:hover
 
-      .guru-card:hover .guru-jabatan {
-        color: rgba(255, 255, 255, 0.85);
-      }
-
-      /* 5. NEWS READER MODAL */
-      .modal-overlay {
+        /* 5. NEWS READER MODAL */
+        .modal-overlay {
         position: fixed;
         inset: 0;
         background: rgba(15, 23, 42, 0.65);
@@ -1112,6 +1078,147 @@
         cursor: pointer;
       }
 
+      .guru-pimpinan-card {
+        background: #fff;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 38% 62%;
+        box-shadow: var(--shadow-card);
+        margin-bottom: 2rem;
+        align-items: stretch;
+        border-left: 4px solid var(--secondary);
+      }
+
+      .guru-card:hover .guru-img {
+        transform: scale(1.05);
+      }
+
+      .guru-card:hover .guru-overlay {
+        background: linear-gradient(
+          to top,
+          rgba(30, 64, 175, 0.85) 0%,
+          transparent 70%
+        );
+      }
+
+      .guru-card:hover .guru-name {
+        color: #fff;
+        position: relative;
+        z-index: 2;
+      }
+
+      .guru-name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--primary-dark);
+        margin-bottom: 0.25rem;
+        transition: color 0.4s ease;
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .guru-jabatan {
+        color: var(--text-muted);
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      .headmaster-quote {
+        font-style: italic;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        padding-left: 1.2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .headmaster-quote::after {
+        content: '"';
+        position: absolute;
+        top: -15px;
+        left: -5px;
+        font-family: Georgia, serif;
+        font-size: 5rem;
+        color: var(--secondary-surface);
+        z-index: -1;
+        opacity: 0.6;
+      }
+
+      .sticky-nav-container {
+        position: sticky;
+        top: 70px;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        margin-top: 3rem;
+        border-bottom: 1px solid var(--border-card);
+      }
+
+      .search-wrapper {
+        max-width: 500px;
+        margin: 2rem auto;
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 16px;
+        border: 2px solid var(--border-card);
+        border-radius: 30px;
+        transition: var(--transition);
+        background: #ffffff;
+        color: var(--primary-dark);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+      }
+
+      #backToTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: none;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #backToTopBtn:hover {
+        background: var(--primary-dark);
+      }
+
+      @media (max-width: 900px) {
+        .guru-pimpinan-card {
+          grid-template-columns: 1fr;
+        }
+
+        .guru-pimpinan-img-wrap {
+          min-height: 400px;
+          max-height: 500px;
+        }
+      }
+
       /* RESPONSIVE GURU GRID */
       @media (max-width: 1024px) {
         .guru-grid,
@@ -1129,10 +1236,6 @@
       }
 
       @media (max-width: 900px) {
-        .guru-pimpinan-card {
-          grid-template-columns: 1fr;
-        }
-
         .guru-pimpinan-img-wrap {
           min-height: 400px;
           max-height: 500px;
@@ -1164,14 +1267,6 @@
           grid-template-columns: repeat(2, 1fr);
         }
 
-        .guru-name {
-          font-size: 14px;
-        }
-
-        .guru-jabatan {
-          font-size: 0.75rem;
-        }
-
         .guru-pimpinan-body {
           padding: 1.5rem;
         }
@@ -1186,26 +1281,32 @@
         .container {
           padding: 0 20px !important;
         }
+
         html,
         body {
           overflow-x: hidden !important;
           max-width: 100vw !important;
         }
+
         .header-wrapper {
           top: 0.5rem;
           width: calc(100% - 20px);
           border-radius: 20px;
         }
+
         .nav-island {
           padding: 0.6rem 1rem !important;
         }
+
         .brand-logo {
           max-height: 42px;
           max-width: 130px;
         }
+
         .nav-menu {
           display: none !important;
         }
+
         .hamburger {
           display: flex !important;
           align-items: center;
@@ -1218,20 +1319,23 @@
           font-size: 1.4rem;
           padding: 0;
         }
+
         .mobile-drawer {
           width: 85vw;
           max-width: 340px;
           background: #ffffff !important;
         }
+
         .drawer-close {
           width: 44px;
           height: 44px;
         }
+
         .drawer-links a {
-          transition: var(--transition);
           min-height: 44px;
           font-size: 16px;
         }
+
         /* Grid collapse to single column */
         .facility-grid,
         .ekskul-grid,
@@ -1244,6 +1348,7 @@
           grid-template-columns: 1fr !important;
           gap: 1.5rem !important;
         }
+
         /* Magazine & Card Descriptions permanently visible on mobile */
         .magazine-desc,
         .facility-card-desc,
@@ -1254,15 +1359,18 @@
           position: relative !important;
           inset: auto !important;
         }
+
         /* Visi quote line clamp */
         .visi-quote {
           font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
           line-height: 1.5 !important;
         }
+
         .footer-grid {
           grid-template-columns: 1fr !important;
           gap: 2rem !important;
         }
+
         .btn {
           min-height: 44px;
         }
@@ -1410,12 +1518,15 @@
           width: calc(100% - 20px) !important;
           border-radius: 20px !important;
         }
+
         .nav-island {
           padding: 0.6rem 1rem !important;
         }
+
         .nav-menu {
           display: none !important;
         }
+
         .nav-mobile-cta {
           display: inline-flex !important;
           margin-left: auto;
@@ -1424,6 +1535,7 @@
           font-size: 0.82rem !important;
           min-height: 40px !important;
         }
+
         .hamburger,
         .nav-toggle {
           display: flex !important;
@@ -1436,7 +1548,7 @@
     <!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
     <header class="header-wrapper">
       <nav class="nav-island" id="main-nav">
-        <a href="index.html" class="brand-box">
+        <a href="#hero" class="brand-box">
           <img
             src="assets/logo.png"
             alt="Logo SMKS Muhammadiyah 1 Genteng"
@@ -1445,11 +1557,11 @@
         </a>
 
         <div class="nav-menu">
-          <a href="index.html" class="nav-link">Beranda</a>
+          <a href="#hero" class="nav-link active">Beranda</a>
 
           <!-- Profil & Info Dropdown -->
           <div class="nav-item">
-            <a href="index.html#sambutan" class="nav-link">
+            <a href="#sambutan" class="nav-link">
               Profil & Info <span style="font-size: 0.65rem">▼</span>
             </a>
             <div class="dropdown-menu">
@@ -1474,7 +1586,7 @@
               <a href="fasilitas.html" class="dropdown-item">
                 <span class="dropdown-icon">🏢</span>
                 <div>
-                  <div>Fasilitas Kampus</div>
+                  <div>Fasilitas Sekolah</div>
                   <small style="color: var(--text-subtle); font-size: 0.75rem"
                     >Laboratorium & Ruang Belajar</small
                   >
@@ -1501,16 +1613,16 @@
             </div>
           </div>
 
-          <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
+          <a href="#jurusan" class="nav-link">Konsentrasi Keahlian</a>
 
           <a href="bkk.html" class="nav-link">BKK (Bursa Kerja)</a>
 
           <!-- Layanan Siswa (BLUD) -->
-          <a href="index.html#blud" class="nav-link">Layanan Siswa (BLUD)</a>
+          <a href="#blud" class="nav-link">Layanan Siswa (BLUD)</a>
 
           <a href="berita.html" class="nav-link">Berita</a>
           <a
-            href="index.html#ppdb"
+            href="#ppdb"
             class="btn btn-primary"
             style="padding: 0.55rem 1.4rem; font-size: 0.88rem"
             >Daftar PPDB</a
@@ -1518,16 +1630,15 @@
         </div>
 
         <a
-          href="index.html#ppdb"
+          href="#ppdb"
           class="btn btn-primary nav-mobile-cta"
           style="display: none"
-          >Daftar PPDB</a
+          >Daftar SPMB</a
         >
         <button
-          class="hamburger nav-toggle"
+          class="hamburger"
           id="hamburger-btn"
           aria-label="Buka Menu Navigasi"
-          aria-expanded="false"
         >
           ☰
         </button>
@@ -1573,7 +1684,7 @@
             href="index.html#ppdb"
             class="btn btn-primary"
             style="width: 100%; text-align: center; justify-content: center"
-            >Daftar PPDB 2026</a
+            >Daftar SPMB 2026</a
           >
         </div>
       </div>
@@ -1636,7 +1747,7 @@
                 line-height: 1;
               "
             >
-              8
+              <span id="stat-k3">7</span>
             </div>
             <div
               style="
@@ -1681,316 +1792,298 @@
       </div>
     </header>
 
-    <!-- 3. PIMPINAN SEKOLAH -->
-    <section class="container" style="margin-bottom: 5rem">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem">
-        Pimpinan Sekolah
-      </h2>
-
-      <!-- Kepala Sekolah -->
-      <div class="guru-pimpinan-card">
-        <div class="guru-pimpinan-img-wrap">
-          <img
-            src="assets/guru/kepsek.webp"
-            alt="Foto Kepala Sekolah"
-            class="guru-img"
+    <!-- STICKY NAV & SEARCH -->
+    <div class="sticky-nav-container">
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="#pimpinan" class="filter-btn">Pimpinan</a>
+          <a href="#k3" class="filter-btn">Kepala Konsentrasi</a>
+          <a href="#guru" class="filter-btn">Guru</a>
+          <a href="#tendik" class="filter-btn">Tenaga Kependidikan</a>
+        </div>
+        <div class="search-wrapper">
+          <input
+            type="text"
+            id="guru-search"
+            class="search-input"
+            placeholder="Cari nama atau jabatan guru..."
+            aria-label="Cari guru"
           />
-          <div class="guru-overlay"></div>
-        </div>
-        <div class="guru-pimpinan-body">
           <div
-            class="guru-name"
-            style="font-size: 1.8rem; margin-bottom: 0.5rem"
-          >
-            Taslim, S.Pd., M.Pd.
-          </div>
-          <div
-            class="guru-jabatan"
+            id="search-live-region"
+            aria-live="polite"
+            class="sr-only"
             style="
-              font-size: 1.1rem;
-              color: var(--primary);
-              font-weight: 600;
-              margin-bottom: 1.5rem;
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
             "
-          >
-            Kepala SMKS Muhammadiyah 1 Genteng
-          </div>
-          <blockquote
-            style="
-              font-style: italic;
-              color: var(--text-muted);
-              font-size: 1.05rem;
-              line-height: 1.7;
-              border-left: 4px solid var(--primary-light);
-              padding-left: 1.2rem;
-            "
-          >
-            "Berkomitmen mencetak lulusan yang kompeten di bidangnya,
-            berkarakter Islami, dan siap bersaing di era digital melalui
-            pendidikan vokasi yang bermutu."
-          </blockquote>
+          ></div>
         </div>
+      </div>
+    </div>
+
+    <!-- 3. PIMPINAN SEKOLAH -->
+    <section
+      id="pimpinan"
+      class="container"
+      style="margin-bottom: 5rem; scroll-margin-top: 150px"
+    >
+      <div style="text-align: center; margin-bottom: 3rem">
+        <div class="badge-primary" style="margin-bottom: 1rem">
+          Manajemen Sekolah
+        </div>
+        <h2 class="section-title">Pimpinan Sekolah</h2>
+        <div
+          style="
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+          "
+        ></div>
       </div>
 
-      <!-- Wakil Kepala Sekolah -->
-      <div class="guru-wakasek-grid" style="margin-top: 3rem">
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/wakasek1.webp"
-              alt="Foto Wakasek Kurikulum"
-              class="guru-img"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Wakasek 1, S.T.</div>
-            <div class="guru-jabatan">Wakasek Kurikulum</div>
-          </div>
+      <div id="pimpinan-utama-container"></div>
+      <div
+        id="wakasek-container"
+        class="guru-wakasek-grid"
+        style="margin-top: 3rem"
+      ></div>
+    </section>
+
+    <!-- SECTION BARU: KEPALA KONSENTRASI KEAHLIAN -->
+    <section
+      id="k3"
+      class="container"
+      style="margin-bottom: 5rem; scroll-margin-top: 150px"
+    >
+      <div style="text-align: center; margin-bottom: 3rem">
+        <div class="badge-primary" style="margin-bottom: 1rem">
+          Ketua Program
         </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/wakasek2.webp"
-              alt="Foto Wakasek Kesiswaan"
-              class="guru-img"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Wakasek 2, S.Pd.</div>
-            <div class="guru-jabatan">Wakasek Kesiswaan</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/wakasek3.webp"
-              alt="Foto Wakasek Humas"
-              class="guru-img"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Wakasek 3, S.Kom.</div>
-            <div class="guru-jabatan">Wakasek Humas & BKK</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/wakasek4.webp"
-              alt="Foto Wakasek Sarpras"
-              class="guru-img"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Wakasek 4, S.E.</div>
-            <div class="guru-jabatan">Wakasek Sarpras</div>
-          </div>
-        </div>
+        <h2 class="section-title">Kepala Konsentrasi Keahlian</h2>
+        <div
+          style="
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+          "
+        ></div>
+        <p style="color: var(--text-muted); margin-top: 1rem">
+          Penanggung jawab tiap program keahlian vokasi.
+        </p>
       </div>
+      <div id="k3-container" class="guru-grid"></div>
     </section>
 
     <!-- 4. GURU & PENDIDIK -->
-    <section class="container" style="margin-bottom: 5rem">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem">
-        Guru & Pendidik
-      </h2>
-      <div class="guru-grid">
-        <!-- Dummy Data -->
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru1.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.Kom.</div>
-            <div class="guru-jabatan">Produktif RPL</div>
-          </div>
+    <section
+      id="guru"
+      class="container"
+      style="margin-bottom: 5rem; scroll-margin-top: 150px"
+    >
+      <div style="text-align: center; margin-bottom: 3rem">
+        <div class="badge-primary" style="margin-bottom: 1rem">
+          Tenaga Pengajar
         </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru2.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.Pd.</div>
-            <div class="guru-jabatan">Bahasa Inggris</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru3.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.T.</div>
-            <div class="guru-jabatan">Produktif TKJ</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru4.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.Pd.I.</div>
-            <div class="guru-jabatan">Pendidikan Agama Islam</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru5.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.Pd.</div>
-            <div class="guru-jabatan">Matematika</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru6.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.Sn.</div>
-            <div class="guru-jabatan">Produktif DKV</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru7.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.E.</div>
-            <div class="guru-jabatan">Produktif Akuntansi</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/guru8.webp"
-              alt="Foto Guru"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Guru, S.Pd.</div>
-            <div class="guru-jabatan">Bahasa Indonesia</div>
-          </div>
-        </div>
+        <h2 class="section-title">Guru & Pendidik</h2>
+        <div
+          style="
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+          "
+        ></div>
       </div>
+      <div id="guru-container" class="guru-grid"></div>
     </section>
 
     <!-- 5. TENAGA KEPENDIDIKAN -->
-    <section class="container" style="margin-bottom: 5rem">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem">
-        Tenaga Kependidikan
-      </h2>
-      <div class="guru-grid tendik-grid">
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/tendik1.webp"
-              alt="Foto Tenaga Kependidikan"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Tendik</div>
-            <div class="guru-jabatan">Kepala Tata Usaha</div>
-          </div>
+    <section
+      id="tendik"
+      class="container"
+      style="margin-bottom: 5rem; scroll-margin-top: 150px"
+    >
+      <div style="text-align: center; margin-bottom: 3rem">
+        <div class="badge-primary" style="margin-bottom: 1rem">
+          Staf Administrasi
         </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/tendik2.webp"
-              alt="Foto Tenaga Kependidikan"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Tendik</div>
-            <div class="guru-jabatan">Staf Administrasi</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/tendik3.webp"
-              alt="Foto Tenaga Kependidikan"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Tendik</div>
-            <div class="guru-jabatan">Staf Keuangan</div>
-          </div>
-        </div>
-        <div class="guru-card">
-          <div class="guru-img-wrap">
-            <img
-              src="assets/guru/tendik4.webp"
-              alt="Foto Tenaga Kependidikan"
-              class="guru-img"
-              loading="lazy"
-            />
-            <div class="guru-overlay"></div>
-          </div>
-          <div class="guru-info">
-            <div class="guru-name">Nama Tendik</div>
-            <div class="guru-jabatan">Petugas Kebersihan</div>
-          </div>
-        </div>
+        <h2 class="section-title">Tenaga Kependidikan</h2>
+        <div
+          style="
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+          "
+        ></div>
       </div>
+      <div id="tendik-container" class="tendik-grid guru-grid"></div>
     </section>
+
+    <noscript>
+      <div
+        class="container"
+        style="
+          padding: 2rem;
+          background: #fff3cd;
+          color: #856404;
+          border-radius: 8px;
+          margin-bottom: 2rem;
+        "
+      >
+        <strong>Perhatian:</strong> JavaScript dinonaktifkan di browser Anda.
+        Berikut adalah daftar guru dan tenaga kependidikan SMKS Muhammadiyah 1
+        Genteng:
+
+        <h3 style="margin-top: 1.5rem">Pimpinan Sekolah</h3>
+        <ul style="padding-left: 1.5rem">
+          <li><strong>Wuri Handayani, S.E</strong> - BENDAHARA SEKOLAH</li>
+          <li><strong>Misrok, A.Md</strong> - KEPALA TU</li>
+          <li><strong>Nur Rohman, M.Pd</strong> - MUTU</li>
+          <li><strong>Taslim, S.Ag., M.Pd</strong> - PEMBINA UTAMA (PU)</li>
+          <li><strong>Drei herba Ta'abudi. M.Hum</strong> - WAKA HUMAS</li>
+          <li><strong>Siti Muawanah, S.Pd.</strong> - WAKA ISMUBA</li>
+          <li><strong>Muh. Najib Rosi, S.Pd</strong> - WAKA KESISWAAN</li>
+          <li><strong>Latifah ambarwati, S.Pd</strong> - WAKA KURIKULUM</li>
+          <li><strong>Shulhi Firdaus, S.Kom</strong> - WAKA SAPRAS</li>
+          <li><strong>Aan Cahyanto Sri Setyo, M.Pd</strong> - WAKIL KS</li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem">Kepala Konsentrasi Keahlian</h3>
+        <ul style="padding-left: 1.5rem">
+          <li>
+            <strong>Dedy Wijanarko, SST.,Par.,S.Pd</strong> - Ketua Program
+          </li>
+          <li><strong>Dinda Nurmawati, S.Kom</strong> - Ketua Program</li>
+          <li><strong>Marita NurLailaty, S.Pd</strong> - Ketua Program</li>
+          <li>
+            <strong>Moh. Ihya' Nur Ulumuddin, S.Kom.</strong> - Ketua Program
+          </li>
+          <li><strong>Suci Fitria N., S.Pd</strong> - Ketua Program</li>
+          <li><strong>Teguh Santosa, S.Kom</strong> - Ketua Program</li>
+          <li><strong>Tri Wahyu S, S.Pd</strong> - Ketua Program</li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem">Guru & Pendidik</h3>
+        <ul style="padding-left: 1.5rem">
+          <li>
+            <strong>Ainun Nisa, S.E</strong> - Kewirausahaan / Bisnis Digital
+          </li>
+          <li><strong>Akmal, S.Kom.</strong> - Produktif Kejuruan IT</li>
+          <li>
+            <strong>Ana Fitriani, S.Tr.Par.</strong> - Produktif Perhotelan
+          </li>
+          <li><strong>Anis Soraya, S.Pd.</strong> - Mata Pelajaran Umum</li>
+          <li>
+            <strong>Devi Ariya Sinta, S.Tr. Par</strong> - Guru Mata Pelajaran
+          </li>
+          <li>
+            <strong>Dina Istiningrum, S.Pd.</strong> - Mata Pelajaran Umum
+          </li>
+          <li><strong>Dwi Puspitasari, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li>
+            <strong>Dwi Santi Y, S.Sos.,S.Pd.,M.Pd</strong> - Mata Pelajaran
+            Umum
+          </li>
+          <li><strong>Endah Dila K., S.Kom</strong> - Produktif Kejuruan IT</li>
+          <li><strong>Hafidz Azhari, S.Pd.</strong> - Mata Pelajaran Umum</li>
+          <li><strong>Hamamatul Baidhok,S,Pd</strong> - Guru Mata Pelajaran</li>
+          <li><strong>Irva Maftukha, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li><strong>Karyono, S.Pd.I</strong> - Pendidikan Agama Islam</li>
+          <li><strong>Kukuh Hartanto, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li><strong>Ledy Kus Raharjo, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li>
+            <strong>Liya ayu Destiana, S.Tr.Par</strong> - Produktif Perhotelan
+          </li>
+          <li><strong>Lutfia Rachmah, S.Psi</strong> - Guru Mata Pelajaran</li>
+          <li><strong>M.Saifulloh, S.Kom</strong> - Produktif Kejuruan IT</li>
+          <li>
+            <strong>Muhammad Andri Subakti, S.Pd.</strong> - Mata Pelajaran Umum
+          </li>
+          <li>
+            <strong>Nalida Rahmi Sekar Arum, S.Pd.</strong> - Mata Pelajaran
+            Umum
+          </li>
+          <li><strong>Nuraini Latifa, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li><strong>Rausyan Risyda, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li>
+            <strong>Rifki Ahmad Fauzi Hasan, S.Tr.Par</strong> - Produktif
+            Perhotelan
+          </li>
+          <li>
+            <strong>Rita Andria Betrix, S.Pd</strong> - Mata Pelajaran Umum
+          </li>
+          <li><strong>Serli Nur Aini, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li><strong>Siti Nur Rohmah, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li><strong>Sri Wahyuni, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li><strong>Ulfatun Nikmah, S.Pd</strong> - Mata Pelajaran Umum</li>
+          <li>
+            <strong>Warokoh Ibnu Noval, S.Pd</strong> - Mata Pelajaran Umum
+          </li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem">Tenaga Kependidikan</h3>
+        <ul style="padding-left: 1.5rem">
+          <li><strong>Agus Supriyono</strong> - Tenaga Kependidikan</li>
+          <li><strong>Andi Sukono</strong> - Tenaga Kependidikan</li>
+          <li><strong>Ariel Nuristian Putra</strong> - Tenaga Kependidikan</li>
+          <li><strong>Beni Putra Iskandar</strong> - Tenaga Kependidikan</li>
+          <li><strong>Bibit Wahyudi</strong> - Tenaga Kependidikan</li>
+          <li>
+            <strong>Cheppy Sukmawardhana, S.T.</strong> - Tenaga Kependidikan
+          </li>
+          <li><strong>Darmaji</strong> - Tenaga Kependidikan</li>
+          <li><strong>Didit Eko Priyantoro</strong> - Tenaga Kependidikan</li>
+          <li><strong>Edy Kuswanto</strong> - Tenaga Kependidikan</li>
+          <li><strong>Fandie Eko Prasetiyo</strong> - Tenaga Kependidikan</li>
+          <li><strong>Nama menyusul</strong> - Tenaga Kependidikan</li>
+          <li><strong>Nama menyusul</strong> - Tenaga Kependidikan</li>
+          <li><strong>Moch. Afif Aliyansyah</strong> - Tenaga Kependidikan</li>
+          <li>
+            <strong>Prayoga Krisna Febri Aji</strong> - Tenaga Kependidikan
+          </li>
+          <li><strong>Rahmat Viky Susanto</strong> - Tenaga Kependidikan</li>
+          <li><strong>Rudi Hariyanto</strong> - Tenaga Kependidikan</li>
+        </ul>
+      </div>
+    </noscript>
+
+    <button
+      id="backToTopBtn"
+      aria-label="Kembali ke atas"
+      title="Kembali ke atas"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
 
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -2207,7 +2300,7 @@
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
-                    Fasilitas Kampus</a
+                    Fasilitas Sekolah</a
                   >
                 </li>
                 <li>
@@ -2238,16 +2331,16 @@
             </nav>
           </div>
 
-          <!-- Kolom 3: 8 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
+          <!-- Kolom 3:7 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
           <div class="footer-col">
-            <h4>8 Konsentrasi</h4>
+            <h4>7 Konsentrasi</h4>
             <nav
               class="footer-nav"
-              aria-label="Navigasi 8 Konsentrasi Keahlian"
+              aria-label="Navigasi 7 Konsentrasi Keahlian"
             >
               <ul class="footer-links">
                 <li>
-                  <a href="index.html#jurusan"
+                  <a href="#jurusan" onclick="jumpToMajor('rpl')"
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
@@ -2255,7 +2348,7 @@
                   >
                 </li>
                 <li>
-                  <a href="index.html#jurusan"
+                  <a href="#jurusan" onclick="jumpToMajor('tkj')"
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
@@ -2263,7 +2356,7 @@
                   >
                 </li>
                 <li>
-                  <a href="index.html#jurusan"
+                  <a href="#jurusan" onclick="jumpToMajor('dkv')"
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
@@ -2271,7 +2364,7 @@
                   >
                 </li>
                 <li>
-                  <a href="index.html#jurusan"
+                  <a href="#jurusan" onclick="jumpToMajor('bd')"
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
@@ -2279,7 +2372,7 @@
                   >
                 </li>
                 <li>
-                  <a href="index.html#jurusan"
+                  <a href="#jurusan" onclick="jumpToMajor('akl')"
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
@@ -2287,7 +2380,7 @@
                   >
                 </li>
                 <li>
-                  <a href="index.html#jurusan"
+                  <a href="#jurusan" onclick="jumpToMajor('mplb')"
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
@@ -2295,19 +2388,11 @@
                   >
                 </li>
                 <li>
-                  <a href="index.html#jurusan"
+                  <a href="#jurusan" onclick="jumpToMajor('ph')"
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
                     Perhotelan &amp; Hospitality</a
-                  >
-                </li>
-                <li>
-                  <a href="index.html#jurusan"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Teknik Sepeda Motor (AHASS)</a
                   >
                 </li>
               </ul>
@@ -2332,7 +2417,7 @@
             &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta
             dilindungi.
           </div>
-          <div>Website Redesign &bull; Kompetisi JHIC Jagoan Hosting</div>
+          <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
         </div>
       </div>
     </footer>
@@ -2387,6 +2472,565 @@
         <button onclick="handleChatSubmit()">Kirim</button>
       </div>
     </div>
+
+    <script>
+      const guruData = [
+        {
+          nama: "Wuri Handayani, S.E",
+          jabatan: "BENDAHARA SEKOLAH",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/BENDAHARA SEKOLAH - Wuri Handayani, S.E.webp",
+        },
+        {
+          nama: "Misrok, A.Md",
+          jabatan: "KEPALA TU",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/KEPALA TU - Misrok, A.Md.webp",
+        },
+        {
+          nama: "Nur Rohman, M.Pd",
+          jabatan: "MUTU",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/MUTU - Nur Rohman, M.Pd.webp",
+        },
+        {
+          nama: "Taslim, S.Ag., M.Pd",
+          jabatan: "PEMBINA UTAMA (PU)",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/PEMBINA UTAMA (PU) - Taslim, S.Ag., M.Pd.webp",
+        },
+        {
+          nama: "Drei herba Ta'abudi. M.Hum",
+          jabatan: "WAKA HUMAS",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/WAKA HUMAS - Drei herba Ta'abudi. M.Hum.webp",
+        },
+        {
+          nama: "Siti Muawanah, S.Pd.",
+          jabatan: "WAKA ISMUBA",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/WAKA ISMUBA - Siti Muawanah, S.Pd..webp",
+        },
+        {
+          nama: "Muh. Najib Rosi, S.Pd",
+          jabatan: "WAKA KESISWAAN",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/WAKA KESISWAAN - Muh. Najib Rosi, S.Pd.webp",
+        },
+        {
+          nama: "Latifah ambarwati, S.Pd",
+          jabatan: "WAKA KURIKULUM",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/WAKA KURIKULUM - Latifah ambarwati, S.Pd.webp",
+        },
+        {
+          nama: "Shulhi Firdaus, S.Kom",
+          jabatan: "WAKA SAPRAS",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/WAKA SAPRAS- Shulhi Firdaus, S.Kom.webp",
+        },
+        {
+          nama: "Aan Cahyanto Sri Setyo, M.Pd",
+          jabatan: "WAKIL KS",
+          kategori: "pimpinan",
+          foto: "assets/guru/kategori-pimpinan/WAKIL KS - Aan Cahyanto Sri Setyo, M.Pd.webp",
+        },
+        {
+          nama: "Dedy Wijanarko, SST.,Par.,S.Pd",
+          jabatan: "Ketua Program",
+          kategori: "k3",
+          foto: "assets/guru/kategori-k3/Dedy Wijanarko, SST.,Par.,S.Pd.webp",
+        },
+        {
+          nama: "Dinda Nurmawati, S.Kom",
+          jabatan: "Ketua Program",
+          kategori: "k3",
+          foto: "assets/guru/kategori-k3/Dinda Nurmawati, S.Kom.webp",
+        },
+        {
+          nama: "Marita NurLailaty, S.Pd",
+          jabatan: "Ketua Program",
+          kategori: "k3",
+          foto: "assets/guru/kategori-k3/Marita NurLailaty, S.Pd.webp",
+        },
+        {
+          nama: "Moh. Ihya' Nur Ulumuddin, S.Kom.",
+          jabatan: "Ketua Program",
+          kategori: "k3",
+          foto: "assets/guru/kategori-k3/Moh. Ihya' Nur Ulumuddin, S.Kom..webp",
+        },
+        {
+          nama: "Suci Fitria N., S.Pd",
+          jabatan: "Ketua Program",
+          kategori: "k3",
+          foto: "assets/guru/kategori-k3/Suci Fitria N., S.Pd.webp",
+        },
+        {
+          nama: "Teguh Santosa, S.Kom",
+          jabatan: "Ketua Program",
+          kategori: "k3",
+          foto: "assets/guru/kategori-k3/Teguh Santosa, S.Kom.webp",
+        },
+        {
+          nama: "Tri Wahyu S, S.Pd",
+          jabatan: "Ketua Program",
+          kategori: "k3",
+          foto: "assets/guru/kategori-k3/Tri Wahyu S, S.Pd.webp",
+        },
+        {
+          nama: "Ainun Nisa, S.E",
+          jabatan: "Kewirausahaan / Bisnis Digital",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Ainun Nisa, S.E.webp",
+        },
+        {
+          nama: "Akmal, S.Kom.",
+          jabatan: "Produktif Kejuruan IT",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Akmal, S.Kom..webp",
+        },
+        {
+          nama: "Ana Fitriani, S.Tr.Par.",
+          jabatan: "Produktif Perhotelan",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Ana Fitriani, S.Tr.Par..webp",
+        },
+        {
+          nama: "Anis Soraya, S.Pd.",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Anis Soraya, S.Pd..webp",
+        },
+        {
+          nama: "Devi Ariya Sinta, S.Tr. Par",
+          jabatan: "Guru Mata Pelajaran",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Devi Ariya Sinta, S.Tr. Par.webp",
+        },
+        {
+          nama: "Dina Istiningrum, S.Pd.",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Dina Istiningrum, S.Pd..webp",
+        },
+        {
+          nama: "Dwi Puspitasari, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Dwi Puspitasari, S.Pd.webp",
+        },
+        {
+          nama: "Dwi Santi Y, S.Sos.,S.Pd.,M.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Dwi Santi Y, S.Sos.,S.Pd.,M.Pd.webp",
+        },
+        {
+          nama: "Endah Dila K., S.Kom",
+          jabatan: "Produktif Kejuruan IT",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Endah Dila K., S.Kom.webp",
+        },
+        {
+          nama: "Hafidz Azhari, S.Pd.",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Hafidz Azhari, S.Pd..webp",
+        },
+        {
+          nama: "Hamamatul Baidhok,S,Pd",
+          jabatan: "Guru Mata Pelajaran",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Hamamatul Baidhok,S,Pd.webp",
+        },
+        {
+          nama: "Irva Maftukha, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Irva Maftukha, S.Pd.webp",
+        },
+        {
+          nama: "Karyono, S.Pd.I",
+          jabatan: "Pendidikan Agama Islam",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Karyono, S.Pd.I.webp",
+        },
+        {
+          nama: "Kukuh Hartanto, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Kukuh Hartanto, S.Pd.webp",
+        },
+        {
+          nama: "Ledy Kus Raharjo, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Ledy Kus Raharjo, S.Pd.webp",
+        },
+        {
+          nama: "Liya ayu Destiana, S.Tr.Par",
+          jabatan: "Produktif Perhotelan",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Liya ayu Destiana, S.Tr.Par.webp",
+        },
+        {
+          nama: "Lutfia Rachmah, S.Psi",
+          jabatan: "Guru Mata Pelajaran",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Lutfia Rachmah, S.Psi.webp",
+        },
+        {
+          nama: "M.Saifulloh, S.Kom",
+          jabatan: "Produktif Kejuruan IT",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/M.Saifulloh, S.Kom.webp",
+        },
+        {
+          nama: "Muhammad Andri Subakti, S.Pd.",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Muhammad Andri Subakti, S.Pd..webp",
+        },
+        {
+          nama: "Nalida Rahmi Sekar Arum, S.Pd.",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Nalida Rahmi Sekar Arum, S.Pd..webp",
+        },
+        {
+          nama: "Nuraini Latifa, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Nuraini Latifa, S.Pd.webp",
+        },
+        {
+          nama: "Rausyan Risyda, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Rausyan Risyda, S.Pd.webp",
+        },
+        {
+          nama: "Rifki Ahmad Fauzi Hasan, S.Tr.Par",
+          jabatan: "Produktif Perhotelan",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Rifki Ahmad Fauzi Hasan, S.Tr.Par.webp",
+        },
+        {
+          nama: "Rita Andria Betrix, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Rita Andria Betrix, S.Pd.webp",
+        },
+        {
+          nama: "Serli Nur Aini, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Serli Nur Aini, S.Pd.webp",
+        },
+        {
+          nama: "Siti Nur Rohmah, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Siti Nur Rohmah, S.Pd.webp",
+        },
+        {
+          nama: "Sri Wahyuni, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Sri Wahyuni, S.Pd.webp",
+        },
+        {
+          nama: "Ulfatun Nikmah, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Ulfatun Nikmah, S.Pd.webp",
+        },
+        {
+          nama: "Warokoh Ibnu Noval, S.Pd",
+          jabatan: "Mata Pelajaran Umum",
+          kategori: "guru",
+          foto: "assets/guru/kategori-guru/Warokoh Ibnu Noval, S.Pd.webp",
+        },
+        {
+          nama: "Agus Supriyono",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Agus Supriyono.webp",
+        },
+        {
+          nama: "Andi Sukono",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Andi Sukono.webp",
+        },
+        {
+          nama: "Ariel Nuristian Putra",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Ariel Nuristian Putra.webp",
+        },
+        {
+          nama: "Beni Putra Iskandar",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Beni Putra Iskandar.webp",
+        },
+        {
+          nama: "Bibit Wahyudi",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Bibit Wahyudi.webp",
+        },
+        {
+          nama: "Cheppy Sukmawardhana, S.T.",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Cheppy Sukmawardhana, S.T..webp",
+        },
+        {
+          nama: "Darmaji",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Darmaji.webp",
+        },
+        {
+          nama: "Didit Eko Priyantoro",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Didit Eko Priyantoro.webp",
+        },
+        {
+          nama: "Edy Kuswanto",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Edy Kuswanto.webp",
+        },
+        {
+          nama: "Fandie Eko Prasetiyo",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Fandie Eko Prasetiyo.webp",
+        },
+        {
+          nama: "Nama menyusul",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/IMGL4229.webp",
+        },
+        {
+          nama: "Nama menyusul",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/IMGL4284.webp",
+        },
+        {
+          nama: "Moch. Afif Aliyansyah",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Moch. Afif Aliyansyah.webp",
+        },
+        {
+          nama: "Prayoga Krisna Febri Aji",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Prayoga Krisna Febri Aji.webp",
+        },
+        {
+          nama: "Rahmat Viky Susanto",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Rahmat Viky Susanto.webp",
+        },
+        {
+          nama: "Rudi Hariyanto",
+          jabatan: "Tenaga Kependidikan",
+          kategori: "tendik",
+          foto: "assets/guru/kategori-karyawan/Rudi Hariyanto.webp",
+        },
+      ];
+
+      function createFallbackImage(name) {
+        let n = name !== "Nama menyusul" ? name : "NN";
+        const initials = n
+          .split(" ")
+          .map((part) => part[0])
+          .slice(0, 2)
+          .join("")
+          .toUpperCase();
+        return `<div style="width:100%; height:100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #fff; font-family: var(--font-display); font-weight: 800;">${initials}</div>`;
+      }
+
+      function createCardHTML(guru) {
+        let imgHTML = `<img src="${guru.foto}" alt="Foto ${guru.nama}, ${guru.jabatan}" class="guru-img" loading="lazy" onerror="this.outerHTML=createFallbackImage('${guru.nama.replace(/'/g, "\\'")}')">`;
+
+        let badgeHTML = "";
+        let linkHTML = "";
+        if (guru.kategori === "k3") {
+          let major =
+            guru.jabatan !== "Ketua Program" ? guru.jabatan : "Konsentrasi";
+          if (guru.nama.includes("Dinda")) major = "RPL";
+          else if (guru.nama.includes("Dedy")) major = "Perhotelan";
+          else if (guru.nama.includes("Marita")) major = "AKL";
+          else if (guru.nama.includes("Ihya")) major = "TKJ";
+          else if (guru.nama.includes("Suci")) major = "MPLB";
+          else if (guru.nama.includes("Teguh")) major = "DKV";
+          else if (guru.nama.includes("Tri Wahyu")) major = "Bisnis Digital";
+          else major = guru.jabatan;
+
+          badgeHTML = `<div style="position: absolute; top: 1rem; right: 1rem; background: var(--secondary); color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 700; font-size: 0.75rem; z-index: 10;">${major}</div>`;
+          linkHTML = `<a href="index.html#jurusan" style="display: block; font-size: 0.75rem; color: var(--primary); font-weight: 700; margin-top: 0.5rem;">Lihat alur karier jurusan ini &rarr;</a>`;
+        }
+
+        return `
+            <div class="guru-card">
+                <div class="guru-img-wrap">
+                    ${badgeHTML}
+                    ${imgHTML}
+                    <div class="guru-overlay"></div>
+                </div>
+                <div class="guru-info">
+                    <div class="guru-name">${guru.nama}</div>
+                    <div class="guru-jabatan">${guru.kategori === "k3" ? "Kepala Konsentrasi " + (guru.jabatan !== "Ketua Program" ? guru.jabatan : "") : guru.jabatan}</div>
+                    ${linkHTML}
+                </div>
+            </div>`;
+      }
+
+      function renderGuru(dataToRender = guruData) {
+        const utamaContainer = document.getElementById(
+          "pimpinan-utama-container",
+        );
+        const wakasekContainer = document.getElementById("wakasek-container");
+        const k3Container = document.getElementById("k3-container");
+        const guruContainer = document.getElementById("guru-container");
+        const tendikContainer = document.getElementById("tendik-container");
+
+        let wakasekHTML = "";
+        let k3HTML = "";
+        let guruHTML = "";
+        let tendikHTML = "";
+
+        if (utamaContainer) utamaContainer.innerHTML = "";
+
+        dataToRender.forEach((guru) => {
+          if (guru.kategori === "pimpinan") {
+            if (
+              guru.nama.includes("Taslim") ||
+              guru.nama.includes("Aan Cahyanto")
+            ) {
+              let isKepsek = guru.nama.includes("Taslim");
+              let quote = isKepsek
+                ? "Berkomitmen mencetak lulusan yang kompeten di bidangnya, berkarakter Islami, dan siap bersaing di era digital melalui pendidikan vokasi yang bermutu."
+                : "Mengawal seluruh program unggulan dengan kedisiplinan dan inovasi tiada henti.";
+              let title = isKepsek
+                ? "Kepala SMKS Muhammadiyah 1 Genteng"
+                : "Wakil Kepala Sekolah";
+
+              let card = `
+                        <div class="guru-pimpinan-card">
+                            <div class="guru-pimpinan-img-wrap">
+                                <img src="${guru.foto}" alt="Foto ${guru.nama}" class="guru-img">
+                                <div class="guru-overlay"></div>
+                            </div>
+                            <div class="guru-pimpinan-body">
+                                <div class="guru-name" style="font-size: 1.8rem; margin-bottom: 0.5rem; justify-content: flex-start;">${guru.nama}</div>
+                                <div class="guru-jabatan" style="font-size: 1.1rem; color: var(--primary); font-weight: 600; margin-bottom: 1.5rem;">${title}</div>
+                                <blockquote class="headmaster-quote">
+                                    ${quote}
+                                </blockquote>
+                            </div>
+                        </div>`;
+              if (utamaContainer) utamaContainer.innerHTML += card;
+            } else {
+              wakasekHTML += createCardHTML(guru);
+            }
+          } else if (guru.kategori === "k3") {
+            k3HTML += createCardHTML(guru);
+          } else if (guru.kategori === "guru") {
+            guruHTML += createCardHTML(guru);
+          } else if (guru.kategori === "tendik") {
+            tendikHTML += createCardHTML(guru);
+          }
+        });
+
+        if (wakasekContainer) wakasekContainer.innerHTML = wakasekHTML;
+        if (k3Container) k3Container.innerHTML = k3HTML;
+        if (guruContainer) guruContainer.innerHTML = guruHTML;
+        if (tendikContainer) tendikContainer.innerHTML = tendikHTML;
+
+        // Update stats
+        const statGuru = document.getElementById("stat-guru");
+        const statTendik = document.getElementById("stat-tendik");
+        const statK3 = document.getElementById("stat-k3");
+
+        if (statGuru)
+          statGuru.innerText = dataToRender.filter(
+            (g) => g.kategori === "guru" || g.kategori === "pimpinan",
+          ).length;
+        if (statTendik)
+          statTendik.innerText = dataToRender.filter(
+            (g) => g.kategori === "tendik",
+          ).length;
+        if (statK3)
+          statK3.innerText = dataToRender.filter(
+            (g) => g.kategori === "k3",
+          ).length;
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderGuru();
+
+        const searchInput = document.getElementById("guru-search");
+        const ariaLive = document.getElementById("search-live-region");
+        if (searchInput) {
+          searchInput.addEventListener("input", (e) => {
+            const q = e.target.value.toLowerCase();
+            const filtered = guruData.filter(
+              (g) =>
+                g.nama.toLowerCase().includes(q) ||
+                g.jabatan.toLowerCase().includes(q),
+            );
+            renderGuru(filtered);
+
+            if (ariaLive) {
+              ariaLive.innerText = `Menampilkan ${filtered.length} profil`;
+            }
+          });
+        }
+
+        // Back to top
+        const btt = document.getElementById("backToTopBtn");
+        if (btt) {
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 600) {
+              btt.style.display = "flex";
+              btt.style.opacity = "1";
+            } else {
+              btt.style.opacity = "0";
+              setTimeout(() => {
+                if (window.scrollY <= 600) btt.style.display = "none";
+              }, 300);
+            }
+          });
+          btt.addEventListener("click", () => {
+            if (window.lenis) lenis.scrollTo(0);
+            else window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+
+        // Fix sticky chips
+        document.querySelectorAll(".filter-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const target = document.querySelector(btn.getAttribute("href"));
+            if (target) {
+              if (window.lenis) lenis.scrollTo(target, { offset: -160 });
+              else target.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+      });
+    </script>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
