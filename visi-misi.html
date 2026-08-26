@@ -47,8 +47,8 @@
             --font-display: 'Plus Jakarta Sans', sans-serif;
             --font-head: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --transition: all 0.25s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
@@ -314,6 +314,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -574,7 +575,7 @@
             background: rgba(20, 18, 16, 0.65);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            z-index: 2000;
+            z-index: 2000 !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1224,6 +1225,7 @@
                 height: 44px;
             }
             .drawer-links a {
+                transition: var(--transition);
                 min-height: 44px;
                 font-size: 16px;
             }
@@ -1274,7 +1276,7 @@
             transform: translateX(-50%) !important;
             width: 90% !important;
             max-width: 1320px !important;
-            z-index: 9999 !important;
+            z-index: 1000 !important;
             background: #ffffff !important;
             border-radius: 50px !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
@@ -1289,7 +1291,6 @@
             align-items: center !important;
             justify-content: space-between !important;
             position: relative !important;
-            z-index: 9999 !important;
         }
 
         /* Hamburger button MUST have relative position, high z-index, and pointer-events */
@@ -1459,7 +1460,7 @@
                                 <small style="color:var(--text-subtle); font-size:0.75rem;">Tenaga Pendidik</small>
                             </div>
                         </a>
-<a href="fasilitas.html" class="dropdown-item">
+                        <a href="fasilitas.html" class="dropdown-item">
                             <span class="dropdown-icon">🏢</span>
                             <div>
                                 <div>Fasilitas Kampus</div>
@@ -1515,7 +1516,7 @@
 
             <div class="drawer-section-title">Halaman Informasi</div>
             <a href="visi-misi.html" class="active">🎯 Visi & Misi Sekolah</a>
-<a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
+            <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
             <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
             <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
             <a href="berita.html">📰 Jurnal & Kabar Kampus</a>
@@ -1598,7 +1599,7 @@
                 <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Mengimplementasikan tata kelola modern yang transparan dan akuntabel serta pendidikan yang inklusif.</p>
             </div>
 
-            <div class="misi-card reveal" style="grid-column: 1 / -1; background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
+            <div class="misi-card reveal" style="background: var(--bg-main); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem; transition: var(--transition); box-shadow: var(--shadow-card); position: relative; overflow: hidden;">
                 <div style="font-size: 2rem; font-weight: 800; color: var(--primary); opacity: 0.15; position: absolute; top: 1rem; right: 1.5rem;">05</div>
                 <div style="width: 48px; height: 48px; background: var(--primary-surface); border-radius: var(--radius-sm); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem;">5</div>
                 <p style="font-size: 1.05rem; font-weight: 500; color: var(--text-dark); line-height: 1.7;">Meningkatkan kolaborasi dan kemitraan antar Lembaga Pendidikan baik internal dan eksternal Muhammadiyah serta dunia kerja.</p>
@@ -1710,8 +1711,6 @@
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="container">
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container">

@@ -67,8 +67,8 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
 
-            --transition: all 0.25s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
@@ -333,6 +333,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -1028,6 +1029,7 @@
                 height: 44px;
             }
             .drawer-links a {
+            transition: var(--transition);
                 min-height: 44px;
                 font-size: 16px;
             }
@@ -1850,6 +1852,7 @@
     <script>
     setTimeout(function () {
         document.querySelectorAll('*').forEach(function (el) {
+            if (el.classList.contains('footer-chevron')) return;
             if (getComputedStyle(el).opacity === '0' && el.textContent.trim().length > 0) {
                 el.style.opacity = '1';
                 el.style.transform = 'none';

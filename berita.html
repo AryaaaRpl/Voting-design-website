@@ -69,8 +69,8 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
 
-            --transition: all 0.25s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
@@ -168,6 +168,7 @@
         }
 
         .btn-primary {
+            transition: var(--transition);
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: #ffffff;
             box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
@@ -368,6 +369,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -1218,6 +1220,7 @@
                 height: 44px;
             }
             .drawer-links a {
+            transition: var(--transition);
                 min-height: 44px;
                 font-size: 16px;
             }

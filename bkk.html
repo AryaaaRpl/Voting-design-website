@@ -58,8 +58,8 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
 
-            --transition: all 0.25s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         * {
@@ -154,6 +154,7 @@
         }
 
         .btn-primary {
+            transition: var(--transition);
             background: var(--primary);
             color: #ffffff;
             box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
@@ -341,6 +342,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             padding: 0.75rem 1rem;
             border-radius: var(--radius-sm);
             font-weight: 600;
@@ -938,6 +940,13 @@
                             <div>
                                 <div>Visi & Misi</div>
                                 <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan Lembaga</small>
+                            </div>
+                        </a>
+                        <a href="guru.html" class="dropdown-item">
+                            <span class="dropdown-icon">👥</span>
+                            <div>
+                                <div>Guru & Tendik</div>
+                                <small style="color:var(--text-subtle); font-size:0.75rem;">Tenaga Pendidik</small>
                             </div>
                         </a>
                         <a href="fasilitas.html" class="dropdown-item">

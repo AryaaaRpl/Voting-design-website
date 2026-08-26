@@ -101,8 +101,8 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-mono: 'Plus Jakarta Sans', sans-serif;
 
-            --transition: all 0.2s ease;
-            --transition-fast: all 0.15s ease;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
         }
 
         /* Focus Visible for High Accessibility (A11y) */
@@ -526,6 +526,7 @@
         }
 
         .btn-primary {
+            transition: var(--transition);
             background: var(--primary);
             color: #ffffff;
         }
@@ -536,6 +537,7 @@
         }
 
         .btn-amber {
+            transition: var(--transition);
             background: var(--secondary);
             color: var(--text-dark);
         }
@@ -545,6 +547,7 @@
         }
 
         .btn-outline {
+            transition: var(--transition);
             background: #ffffff;
             color: var(--primary);
             border: 1.5px solid var(--border-card);
@@ -556,6 +559,7 @@
         }
 
         .btn-outline-light {
+            transition: var(--transition);
             background: transparent;
             color: #ffffff;
             border: 1.5px solid rgba(255, 255, 255, 0.35);
@@ -607,6 +611,7 @@
         }
 
         .bento-card-dark {
+            transition: var(--transition);
             background: var(--bg-dark-card);
             border: 1px solid var(--border-dark);
             color: var(--text-light);
@@ -831,6 +836,7 @@
         }
 
         .drawer-links a {
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -1697,6 +1703,7 @@
         }
 
         .why-col-8 {
+            transition: var(--transition);
             grid-column: span 8;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: #ffffff;
@@ -3606,6 +3613,7 @@
             }
 
             .drawer-links a {
+            transition: var(--transition);
                 min-height: 44px;
                 font-size: 16px;
                 /* Prevents iOS auto zoom */
@@ -3816,6 +3824,7 @@
 
             /* CHATBOT FLOATING BUTTON */
             .chatbot-btn {
+            transition: var(--transition);
                 width: 50px !important;
                 height: 50px !important;
                 bottom: 1.2rem !important;
@@ -4168,7 +4177,6 @@
             <div class="hero-grid">
                 <div class="hero-text-col">
                     <div class="badge badge-primary">
-                        <span class="badge-pulse-dot"></span>
                         <p>Selamat datang di <span>SMKS Muhammadiyah 1 Genteng</span></p>
                     </div>
 
