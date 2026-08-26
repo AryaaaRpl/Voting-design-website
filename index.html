@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMKS Muhammadiyah 1 Genteng - Pusat Keunggulan Vokasi & Karakter Islami</title>
     <meta name="description"
-        content="Website Resmi SMKS Muhammadiyah 1 Genteng (SMKS MUHI / SMEMSA Genteng) Banyuwangi. SMK Pusat Keunggulan, Akreditasi A BAN-S/M, Berlisensi LSP-P1 BNSP, dengan 8 Konsentrasi Keahlian Industri.">
+        content="Website Resmi SMKS Muhammadiyah 1 Genteng (SMKS MUHI / SMEMSA Genteng) Banyuwangi. SMK Pusat Keunggulan, Akreditasi A BAN-S/M, Berlisensi LSP-P1 BNSP, dengan 7 Konsentrasi Keahlian Industri.">
 
     <!-- Open Graph / WhatsApp Preview Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smksmuh1gtg.com/">
     <meta property="og:title" content="SMKS Muhammadiyah 1 Genteng - Good Skill, Good Attitude">
     <meta property="og:description"
-        content="SMK Pusat Keunggulan di Genteng Banyuwangi. Terakreditasi A, LSP-P1 BNSP, Kelas Industri Dudika, dan 8 Konsentrasi Keahlian Unggulan.">
+        content="SMK Pusat Keunggulan di Genteng Banyuwangi. Terakreditasi A, LSP-P1 BNSP, Kelas Industri Dudika, dan 7 Konsentrasi Keahlian Unggulan.">
     <meta property="og:image" content="assets/logo.png">
 
     <!-- Structured Data (JSON-LD) for School -->
@@ -26,7 +26,7 @@
       "url": "https://smksmuh1gtg.com",
       "logo": "assets/logo.png",
       "image": "assets/logo.png",
-      "description": "Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi dengan 8 Konsentrasi Keahlian Industri dan Lisensi LSP-P1 BNSP.",
+      "description": "Sekolah Menengah Kejuruan Pusat Keunggulan di Genteng Banyuwangi dengan 7 Konsentrasi Keahlian Industri dan Lisensi LSP-P1 BNSP.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jl. KH Imam Bahri No.10, Dusun Krajan, Genteng Wetan",
@@ -447,6 +447,7 @@
         .badge {
             display: inline-flex;
             align-items: center;
+            margin-top: 10px;
             gap: 0.5rem;
             padding: 0.4rem 1rem;
             border-radius: var(--radius-full);
@@ -921,74 +922,86 @@
             z-index: 15;
         }
 
-        .hero-proof-card-float {
+        .hero-proof-bar-bottom {
             position: absolute;
-            left: -40px;
-            bottom: 40px;
-            width: 260px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 88%;
+            height: 88px;
             background: #ffffff;
             border-radius: 16px;
-            box-shadow: 0 20px 40px -20px rgba(30, 64, 175, 0.35);
-            padding: 1.5rem;
+            box-shadow: 0 20px 45px -22px rgba(30, 64, 175, 0.35);
             z-index: 20;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: floatCardIn 0.5s ease-out 0.4s forwards;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-top: 3px solid var(--secondary);
         }
 
-        @keyframes floatCardIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-proof-bar-bottom .proof-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .hero-proof-card-float {
-                animation: none;
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-proof-bar-bottom .proof-col:not(:last-child) {
+            border-right: 1px solid rgba(30, 64, 175, 0.1);
         }
 
-        .hero-proof-card-float .proof-line {
-            width: 32px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-            margin-bottom: 0.8rem;
-        }
-
-        .hero-proof-card-float .proof-number {
-            font-size: 2.5rem;
+        .hero-proof-bar-bottom .proof-number {
+            font-size: 1.5rem;
             color: var(--primary);
             font-weight: 800;
             font-family: var(--font-display);
             line-height: 1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.1rem;
         }
 
-        .hero-proof-card-float .proof-label {
-            font-size: 0.85rem;
+        .hero-proof-bar-bottom .proof-label {
+            font-size: 0.72rem;
             color: var(--text-muted);
-            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
         }
 
         @media (max-width: 900px) {
-            .hero-proof-card-float {
+            .hero-proof-bar-bottom {
                 position: static;
-                margin: 2rem auto 0;
-                max-width: 320px;
+                transform: none;
                 width: 100%;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                margin: 2rem auto 0;
+                height: auto;
+                padding: 1rem 0;
             }
         }
 
         @media (max-width: 560px) {
-            .hero-proof-card-float .proof-number {
+            .hero-proof-bar-bottom {
+                flex-wrap: wrap;
+                padding: 1rem;
+                gap: 1rem 0;
+            }
+
+            .hero-proof-bar-bottom .proof-col {
+                flex: 1 1 40%;
+            }
+
+            .hero-proof-bar-bottom .proof-col:nth-child(2) {
+                border-right: none;
+            }
+
+            .hero-proof-bar-bottom .proof-col:nth-child(3) {
+                flex: 1 1 100%;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(30, 64, 175, 0.1);
+            }
+
+            .hero-proof-bar-bottom .proof-number {
                 font-size: 1.6rem;
             }
         }
@@ -2874,7 +2887,7 @@
 
         .blud-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
         }
 
@@ -3449,7 +3462,7 @@
             }
 
             .blud-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-grid {
@@ -3478,6 +3491,10 @@
 
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blud-grid {
+                grid-template-columns: 1fr !important;
             }
 
             .majors-sub-grid {
@@ -4093,10 +4110,10 @@
 
                 <a href="berita.html" class="nav-link">Berita</a>
                 <a href="#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem;">Daftar
-                    PPDB</a>
+                    SPMB</a>
             </div>
 
-            <a href="#ppdb" class="btn btn-primary nav-mobile-cta" style="display:none;">Daftar PPDB</a> <button
+            <a href="#ppdb" class="btn btn-primary nav-mobile-cta" style="display:none;">Daftar SPMB</a> <button
                 class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">☰</button>
         </nav>
     </header>
@@ -4155,6 +4172,11 @@
                         <p>Selamat datang di <span>SMKS Muhammadiyah 1 Genteng</span></p>
                     </div>
 
+                    <div class="badge"
+                        style="background: var(--secondary-surface); color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; margin-bottom: 1rem; border: 1px solid rgba(234, 179, 8, 0.3);">
+                        SMK Pusat Keunggulan &bull; Excellent School
+                    </div>
+
                     <h1 class="hero-headline">
                         Good Skill, <br><span class="highlight-amber">Good Attitude.</span>
                     </h1>
@@ -4165,7 +4187,7 @@
 
                     <div class="hero-actions">
                         <a href="#ppdb" class="btn btn-primary">Daftar PPDB 2026 &rarr;</a>
-                        <a href="#jurusan" class="btn btn-outline">Jelajahi 8 Konsentrasi Keahlian &rarr;</a>
+                        <a href="#jurusan" class="btn btn-outline">Jelajahi 7 Konsentrasi Keahlian &rarr;</a>
                     </div>
 
                     <!-- Hero Thin Proof Strip (B.5) -->
@@ -4201,7 +4223,7 @@
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                                 <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                             </svg>
-                            <span>8 Konsentrasi Keahlian</span>
+                            <span>7 Konsentrasi Keahlian</span>
                         </div>
                     </div>
                 </div>
@@ -4218,10 +4240,19 @@
                         <div class="hero-fade-gradient" aria-hidden="true"></div>
 
                         <!-- Kartu Bukti Melayang -->
-                        <div class="hero-proof-card-float">
-                            <div class="proof-line"></div>
-                            <div class="proof-number">92,4%</div>
-                            <div class="proof-label">Lulusan terserap kerja &amp; studi lanjut</div>
+                        <div class="hero-proof-bar-bottom">
+                            <div class="proof-col">
+                                <div class="proof-number">92,4%</div>
+                                <div class="proof-label">Terserap Kerja</div>
+                            </div>
+                            <div class="proof-col">
+                                <div class="proof-number">1968</div>
+                                <div class="proof-label">Tahun Berdiri</div>
+                            </div>
+                            <div class="proof-col">
+                                <div class="proof-number">A</div>
+                                <div class="proof-label">Akreditasi Unggul</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4230,7 +4261,7 @@
         </div>
     </section>
 
-    <!-- 8 Major Quick Jump Chips (A.1) - Moved outside hero -->
+    <!-- 7 Major Quick Jump Chips (A.1) - Moved outside hero -->
     <section class="major-quick-chips-section"
         style="background-color: var(--bg-alt); padding: 1.5rem 0; border-bottom: 1px solid var(--border-card);">
         <div class="container">
@@ -4338,7 +4369,7 @@
     <section class="executive-section" id="keunggulan">
         <div class="container">
             <div class="text-center section-header" style="margin-bottom: 2.5rem;">
-                <div class="badge badge-amber mb-2">Pilar Vokasi Unggul</div>
+                <div class="badge badge-amber mb-2">SMK Pusat Keunggulan</div>
                 <h2 class="section-title">Mengapa Memilih SMKS SMEMSA?</h2>
                 <p class="section-desc" style="margin: 0 auto;">
                     Sinergi kurikulum industri, fasilitas Teaching Factory modern, sertifikasi lisensi BNSP, dan
@@ -4355,7 +4386,7 @@
                             Industri Kuat (DUDI)</h3>
                         <p style="opacity: 0.92; line-height:1.7; font-size:1.05rem; max-width:650px;">
                             Kurikulum disinkronisasi bersama 24+ mitra industri nasional (Semesta Multitekno, Hummatech,
-                            Astra Motor, Bank Jatim Syariah). Memastikan keahlian relevan dan peluang magang langsung di
+                            Bank Jatim Syariah). Memastikan keahlian relevan dan peluang magang langsung di
                             lini industri terdepan.
                         </p>
                     </div>
@@ -4476,7 +4507,7 @@
                         <div class="orbit-slot" style="--a: 135deg; --r: 300px;">
                             <div class="orbit-center">
                                 <div class="orbit-icon">
-                                    <span class="orbit-node-emoji">🏢</span>
+                                    <img src="assets/major/PH.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -4484,7 +4515,7 @@
                         <div class="orbit-slot" style="--a: 225deg; --r: 300px;">
                             <div class="orbit-center">
                                 <div class="orbit-icon">
-                                    <span class="orbit-node-emoji">🏨</span>
+                                    <img src="assets/major/mp.jpeg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -4638,45 +4669,8 @@
                 <a href="#jurusan" class="btn btn-amber">Lihat Unit Praktek Jurusan &rarr;</a>
             </div>
 
-            <div class="blud-grid">
-                <!-- Product 1 -->
-                <div class="product-bento">
-                    <div>
-                        <div class="p-icon-hero">👕</div>
-                        <div class="blud-learner-tag">🎨 Dikelola Siswa DKV</div>
-                        <h3 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.4rem 0 0.4rem;">Sablon &
-                            Merchandise Custom</h3>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Layanan cetak sablon kaos, mug,
-                            lanyard, ID card, dan plakat wisuda berkualitas tinggi pesanan instansi.</p>
-                    </div>
-                    <div class="p-price-tag">Mulai Rp45.000</div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product-bento">
-                    <div>
-                        <div class="p-icon-hero">🍱</div>
-                        <div class="blud-learner-tag">🥐 Dikelola Siswa Tata Boga & Perhotelan</div>
-                        <h3 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.4rem 0 0.4rem;">Katering
-                            & Bakery Snack Box</h3>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Kue kering, roti lembut, dan menu
-                            konsumsi rapat higienis bersertifikasi halal untuk kebutuhan instansi & hajatan.</p>
-                    </div>
-                    <div class="p-price-tag">Mulai Rp18.000</div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-bento">
-                    <div>
-                        <div class="p-icon-hero">🔧</div>
-                        <div class="blud-learner-tag">🏍️ Dikelola Siswa TKJ & Otomotif Honda</div>
-                        <h3 class="font-head" style="font-size:1.3rem; color:#ffffff; margin: 0.4rem 0 0.4rem;">Servis
-                            IT & Pos AHASS Motor</h3>
-                        <p style="font-size:0.9rem; color:#a8a29e; line-height:1.6;">Servis komputer, instalasi jaringan
-                            WiFi kantor, serta tune-up injeksi berkala motor Honda masyarakat di pos AHASS resmi.</p>
-                    </div>
-                    <div class="p-price-tag">Mulai Rp30.000</div>
-                </div>
+            <div class="blud-grid" id="blud-container">
+                <!-- Data produk akan dirender oleh JavaScript -->
             </div>
         </div>
     </section>
@@ -4832,7 +4826,7 @@
                         <circle cx="250" cy="48" r="22" class="pillar-node-ring" />
                         <circle cx="250" cy="48" r="8" class="pillar-node-core" />
                         <text x="250" y="16" class="pillar-node-label">Keahlian Vokasi</text>
-                        <text x="250" y="30" class="pillar-node-sub">8 konsentrasi keahlian</text>
+                        <text x="250" y="30" class="pillar-node-sub">7 konsentrasi keahlian</text>
                     </g>
 
                     <!-- Node 2: Karakter Islami (Kanan Bawah) -->
@@ -4867,7 +4861,7 @@
                     <!-- CTA Keluar Menuju Jurusan (Improvisasi 14) -->
                     <div class="synergy-action-btn" id="synergy-action-btn">
                         <a href="#jurusan" class="btn btn-amber" style="padding: 0.75rem 1.6rem; font-size: 0.92rem;">
-                            Lihat 8 Konsentrasi Keahlian &rarr;
+                            Lihat 7 Konsentrasi Keahlian &rarr;
                         </a>
                     </div>
 
@@ -5245,10 +5239,10 @@
                     </nav>
                 </div>
 
-                <!-- Kolom 3: 8 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
+                <!-- Kolom 3:7 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
                 <div class="footer-col">
-                    <h4>8 Konsentrasi</h4>
-                    <nav class="footer-nav" aria-label="Navigasi 8 Konsentrasi Keahlian">
+                    <h4>7 Konsentrasi</h4>
+                    <nav class="footer-nav" aria-label="Navigasi 7 Konsentrasi Keahlian">
                         <ul class="footer-links">
                             <li><a href="#jurusan" onclick="jumpToMajor('rpl')"><span class="footer-chevron"
                                         aria-hidden="true">&rsaquo;</span> Rekayasa Perangkat Lunak</a></li>
@@ -5524,7 +5518,7 @@
             if (e.key === 'Enter') handleHeroSearch();
         });
 
-        // 6. KONSENTRASI KEAHLIAN: SATU SUMBER DATA TERPADU (8 JURUSAN LENGKAP)
+        // 6. KONSENTRASI KEAHLIAN: SATU SUMBER DATA TERPADU (7 JURUSAN LENGKAP)
         const majorsData = [
             {
                 key: 'rpl',
@@ -6095,7 +6089,7 @@
             } else if (text.includes('kepala') || text.includes('wahid')) {
                 return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
             } else if (text.includes('loker') || text.includes('bkk') || text.includes('kerja') || text.includes('magang')) {
-                return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra seperti PT Digital Kreatif Nusantara, Hotel Ketapang Indah, Bank Jatim Syariah, dan Astra Motor.";
+                return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra seperti PT Digital Kreatif Nusantara, Hotel Ketapang Indah, Bank Jatim Syariah, dan ";
             } else if (text.includes('fasilitas') || text.includes('lab')) {
                 return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan & Cloud Server TKJ, Studio Fotografi & Video DKV, Bengkel Otomotif Astra, Dapur Standar Komersial Tata Boga, dan Lapangan Olahraga.";
             } else {
@@ -6202,7 +6196,7 @@
             const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
             // Left column texts
-            const leftEls = ['.hero-text-col .badge-primary', '.hero-text-col .hero-headline', '.hero-text-col .hero-lead', '.hero-text-col .hero-actions', '.hero-text-col .hero-proof-strip'];
+            const leftEls = ['.hero-text-col .badge', '.hero-text-col .hero-headline', '.hero-text-col .hero-lead', '.hero-text-col .hero-actions'];
             heroTL.from(leftEls, {
                 opacity: 0,
                 x: -24,
@@ -6469,6 +6463,100 @@
             duration: 22,
             repeat: -1
         });
+
+        /* ======================================================================
+           X. RENDER BLUD PRODUCTS
+           ====================================================================== */
+        const bludProducts = [
+            {
+                name: "Eners Perfume",
+                desc: "Parfum Badan",
+                jurusan: "Perhotelan (PH)",
+                varian: "Bubblegum, Taylor Swift, Scandalous, Baccarat",
+                kemasan: "Eau de Parfum 35 mL",
+                foto: "assets/produk/produk-parfum-ph.webp"
+            },
+            {
+                name: "Eners Perfume Laundry",
+                desc: "Parfum Laundry",
+                jurusan: "Perhotelan (PH)",
+                varian: "Snappy, Sakura",
+                kemasan: "250 mL",
+                foto: "assets/produk/produk-ph.webp"
+            },
+            {
+                name: "Catet Coffee",
+                desc: "Kopi Bubuk",
+                jurusan: "RPL & TJKT (kolaborasi)",
+                catatan: "cocok untuk French Press, V60, Espresso",
+                kemasan: "30 gram",
+                foto: "assets/produk/produk-rpl-tkjt-kopi.webp"
+            },
+            {
+                name: "Drasina",
+                desc: "Snack Ladrang Daun Sirih Cina",
+                jurusan: "Bisnis Digital (BD)",
+                rasa: "Gurih",
+                kemasan: "200 gram",
+                foto: "assets/produk/produk-snack-bd.webp"
+            },
+            {
+                name: "Mie Daun Junggul",
+                jurusan: "Bisnis Digital (BD)",
+                foto: null
+            },
+            {
+                name: "Totebag Daur Ulang Banner",
+                jurusan: "DKV",
+                foto: null
+            },
+            {
+                name: "iCareMu & MinduCare",
+                desc: "Aplikasi Digital",
+                jurusan: "RPL",
+                foto: null
+            },
+            {
+                name: "Jasa Reparasi & Instalasi Komputer",
+                jurusan: "TKJ",
+                foto: null
+            }
+        ];
+
+        function renderBludProducts() {
+            const container = document.getElementById('blud-container');
+            if (!container) return;
+
+            let html = '';
+            bludProducts.forEach(prod => {
+                let imageHtml = '';
+                if (prod.foto) {
+                    imageHtml = `<img src="${prod.foto}" alt="${prod.name}" width="400" height="300" loading="lazy" style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.2rem;">`;
+                } else {
+                    imageHtml = `<div style="width: 100%; height: 220px; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; margin-bottom: 1.2rem; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);"><h4 style="color: #fff; font-family: var(--font-display); font-size: 1.4rem; line-height: 1.3; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">${prod.name}</h4></div>`;
+                }
+
+                let detailsHtml = '';
+                if (prod.desc) detailsHtml += `<p style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">${prod.desc}</p>`;
+                if (prod.varian) detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Varian:</strong> ${prod.varian}</p>`;
+                if (prod.rasa) detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Rasa:</strong> ${prod.rasa}</p>`;
+                if (prod.kemasan) detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Kemasan:</strong> ${prod.kemasan}</p>`;
+                if (prod.catatan) detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Catatan:</strong> ${prod.catatan}</p>`;
+
+                html += `
+                <div class="product-bento" style="padding: 1.5rem; justify-content: flex-start;">
+                    ${imageHtml}
+                    <div class="blud-learner-tag">💼 Dikelola siswa ${prod.jurusan}</div>
+                    <h3 class="font-head" style="font-size:1.25rem; color:#ffffff; margin: 0.4rem 0 0.8rem; line-height: 1.3;">${prod.name}</h3>
+                    ${detailsHtml}
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        renderBludProducts();
     </script>
 </body>
 
