@@ -3342,7 +3342,7 @@
         const targetId = locationToFacilityMap[locationId];
         if (!targetId) return;
 
-        let card = document.querySelector('[onclick*="' + targetId + '"]');
+        let card = document.querySelector('.facilities-grid [onclick*="' + targetId + '"], .tefa-grid [onclick*="' + targetId + '"]');
         if (!card) return;
 
         document
@@ -3352,11 +3352,6 @@
           });
         card.classList.add("highlighted-card");
 
-        if (window.lenis) {
-          window.lenis.scrollTo(card, { offset: -120, duration: 1.2 });
-        } else {
-          card.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
         setTimeout(function () {
           card.classList.remove("highlighted-card");
         }, 3000);
