@@ -916,7 +916,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        align-items: start;
         min-height: 480px;
       }
 
@@ -1655,14 +1655,8 @@
         height: 60px;
         width: auto;
         object-fit: contain;
-        filter: grayscale(100%);
-        opacity: 0.7;
-        transition: var(--transition-fast);
-      }
-
-      .mitra-item:hover img {
-        filter: grayscale(0%);
         opacity: 1;
+        transition: var(--transition-fast);
       }
 
       /* ==========================================================================
@@ -1794,7 +1788,6 @@
         font-size: 1.6rem;
         margin-bottom: 1.2rem;
         background: var(--primary-surface);
-        color: var(--primary);
       }
 
       /* ==========================================================================
@@ -5333,6 +5326,71 @@
       </div>
     </section>
 
+    <section
+      class="sambutan-section"
+      id="sambutan"
+      aria-label="Sambutan Pimpinan Lembaga"
+    >
+      <div class="container">
+        <div class="executive-card" style="text-align: left">
+          <div class="executive-photo-frame">
+            <img
+              src="assets/PAK-WAHID-AI-e1781064934191.png"
+              alt="Kepala Sekolah SMKS MUHI Wahid Wahyudi S.E. M.M."
+              width="480"
+              height="580"
+              loading="lazy"
+              onerror="
+                this.closest('.card')
+                  ? this.closest('.card').classList.add('no-image')
+                  : null;
+                this.remove();
+              "
+            />
+            <div class="executive-photo-badge">
+              <strong
+                style="
+                  display: block;
+                  color: var(--primary);
+                  font-size: 1.05rem;
+                "
+                >Wahid Wahyudi, S.E., M.M.</strong
+              >
+              <span style="font-size: 0.85rem; color: var(--text-muted)"
+                >Kepala Sekolah SMKS Muhammadiyah 1 Genteng</span
+              >
+            </div>
+          </div>
+
+          <div>
+            <div class="badge badge-amber mb-2" style="margin-bottom: 1rem">
+              Pesan Pimpinan Lembaga
+            </div>
+            <h3 class="executive-quote">
+              "Sekolah yang baik adalah sekolah yang mengantar siswanya sampai
+              ke tujuan, bukan hanya sampai ke ijazah."
+            </h3>
+            <p class="executive-bio-text">
+              Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap
+              secara teknis dan adaptif terhadap revolusi industri, tetapi juga
+              memiliki fondasi akhlak Islami yang kokoh. Di SMKS MUHI Genteng,
+              setiap siswa dibekali sertifikasi kompetensi resmi BNSP melalui
+              LSP-P1, kurikulum berbasis industri, dan ruang aktualisasi
+              wirausaha nyata.
+            </p>
+            <div class="flex" style="gap: 1rem; flex-wrap: wrap">
+              <a href="visi-misi.html" class="btn btn-outline"
+                >Visi & Misi Sekolah &rarr;</a
+              >
+              <a href="fasilitas.html" class="btn btn-outline"
+                >Jelajahi Fasilitas &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 5. KEUNGGULAN SEKOLAH (Section 3 in Flow: Hero -> Statistik -> Keunggulan) -->
     <section class="executive-section" id="keunggulan">
       <div class="container">
@@ -5348,16 +5406,17 @@
 
         <!-- Why Choose MUHI Bento Grid -->
         <div class="why-bento-grid" style="margin-top: 1rem">
+          <!-- Card 1 (Main Hero Card - Span 8) -->
           <div class="why-bento-card why-col-8">
             <div>
-              <div class="badge badge-dark mb-2" style="margin-bottom: 1.5rem">
-                Pilar Utama
+              <div class="why-icon-box" style="background: rgba(255,255,255,0.15); color: #ffffff;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.71 1.1-1.42 1.5-2.02l2.5-2.5a2 2 0 0 0 0-2.83l-1.65-1.65a2 2 0 0 0-2.83 0l-2.5 2.5c-.6.4-1.31.79-2.02 1.5z"/><path d="M12 15l-3-3"/><path d="M15 12l-3-3"/><path d="M13.5 6.5C14.7 4.7 17.5 2 22 2c0 4.5-2.7 7.3-4.5 8.5L13.5 6.5z"/></svg>
               </div>
               <h3
                 class="font-display"
-                style="font-size: 2rem; margin-bottom: 1rem; line-height: 1.2"
+                style="font-size: 1.8rem; margin-bottom: 0.8rem; line-height: 1.25"
               >
-                Kemitraan Industri Kuat (DUDI)
+                1. Sekolah yang Berorientasi Masa Depan
               </h3>
               <p
                 style="
@@ -5367,21 +5426,21 @@
                   max-width: 650px;
                 "
               >
-                Kurikulum disinkronisasi bersama 24+ mitra industri nasional
-                (Semesta Multitekno, Hummatech, Bank Jatim Syariah). Memastikan
-                keahlian relevan dan peluang magang langsung di lini industri
-                terdepan.
+                Mengembangkan potensi peserta didik dengan kurikulum inovatif dan wawasan global untuk menghadapi tantangan masa depan.
               </p>
             </div>
-            <div style="margin-top: 2rem">
-              <a href="bkk.html" class="btn btn-outline-light"
-                >Info Kerjasama & BKK &rarr;</a
+            <div style="margin-top: 1.5rem">
+              <a href="ppdb.html" class="btn btn-outline-light"
+                >Daftar Sekarang &rarr;</a
               >
             </div>
           </div>
 
+          <!-- Card 2 (Span 4) -->
           <div class="why-bento-card why-col-4">
-            <div class="why-icon-box">📜</div>
+            <div class="why-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+            </div>
             <h3
               class="font-head"
               style="
@@ -5390,7 +5449,7 @@
                 margin-bottom: 0.5rem;
               "
             >
-              LSP-P1 Berlisensi BNSP
+              2. Unggul dalam Teknologi & Digital
             </h3>
             <p
               style="
@@ -5399,13 +5458,15 @@
                 line-height: 1.6;
               "
             >
-              Memiliki Lembaga Sertifikasi Profesi Pihak Kesatu terlisensi resmi
-              BNSP untuk menguji standar kompetensi kerja nasional.
+              Fasilitas laboratorium modern dan ekosistem pembelajaran berbasis digital terkini.
             </p>
           </div>
 
+          <!-- Card 3 (Span 4) -->
           <div class="why-bento-card why-col-4">
-            <div class="why-icon-box">💡</div>
+            <div class="why-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trophy"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            </div>
             <h3
               class="font-head"
               style="
@@ -5414,7 +5475,7 @@
                 margin-bottom: 0.5rem;
               "
             >
-              Teaching Factory
+              3. Prestasi & Kompetisi
             </h3>
             <p
               style="
@@ -5423,13 +5484,38 @@
                 line-height: 1.6;
               "
             >
-              Pembelajaran kontekstual mengerjakan pesanan riil dari klien,
-              membangun portofolio profesional sejak dini.
+              Mendorong siswa berprestasi di tingkat regional, nasional, hingga internasional.
             </p>
           </div>
 
-          <div class="why-bento-card why-col-4">
-            <div class="why-icon-box">🏬</div>
+          <!-- Card 4 (Span 8) -->
+          <div class="why-bento-card why-col-8">
+            <div>
+              <div class="why-icon-box" style="background: rgba(255,255,255,0.15); color: #ffffff;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <h3
+                class="font-head font-size: 1.8rem; margin-bottom: 0.8rem; line-height: 1.25"
+              >
+                4. Link & Match dengan Dunia Industri
+              </h3>
+              <p
+                style="
+                  opacity: 0.92;
+                  line-height: 1.7;
+                  font-size: 1.05rem;
+                "
+              >
+                Kemitraan erat dengan puluhan DUDI nasional untuk penyusunan kurikulum bersama, program magang industri, dan penyaluran kerja lulusan.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 (Span 6) -->
+          <div class="why-bento-card why-col-6">
+            <div class="why-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
             <h3
               class="font-head"
               style="
@@ -5438,7 +5524,7 @@
                 margin-bottom: 0.5rem;
               "
             >
-              Unit BLUD Mandiri
+              5. Fokus pada Skill & Karakter
             </h3>
             <p
               style="
@@ -5447,13 +5533,15 @@
                 line-height: 1.6;
               "
             >
-              Wadah siswa berlatih wirausaha mandiri dan mengelola bisnis
-              profesional berizin resmi di sekolah.
+              Keseimbangan antara kompetensi teknis (hard skill) dan karakter Islami yang tangguh (soft skill).
             </p>
           </div>
 
-          <div class="why-bento-card why-col-4">
-            <div class="why-icon-box">🕌</div>
+          <!-- Card 6 (Span 6) -->
+          <div class="why-bento-card why-col-6">
+            <div class="why-icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+            </div>
             <h3
               class="font-head"
               style="
@@ -5462,7 +5550,7 @@
                 margin-bottom: 0.5rem;
               "
             >
-              Karakter Islami IPM
+              6. Siap Kerja, Kuliah, & Berwirausaha
             </h3>
             <p
               style="
@@ -5471,8 +5559,7 @@
                 line-height: 1.6;
               "
             >
-              Penanaman nilai integritas, etos kerja tinggi, dan akhlakul
-              karimah melalui pembinaan Ikatan Pelajar Muhammadiyah.
+              Mencetak lulusan BMW (Bekerja, Melanjutkan studi, Wirausaha) yang mandiri dan profesional.
             </p>
           </div>
         </div>
@@ -6027,72 +6114,6 @@
                   >
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. SAMBUTAN KEPALA SEKOLAH (Unpinned) -->
-    <section
-      class="sambutan-section"
-      id="sambutan"
-      aria-label="Sambutan Pimpinan Lembaga"
-    >
-      <div class="container">
-        <div class="executive-card" style="text-align: left">
-          <div class="executive-photo-frame">
-            <img
-              src="assets/PAK-WAHID-AI-e1781064934191.png"
-              alt="Kepala Sekolah SMKS MUHI Wahid Wahyudi S.E. M.M."
-              width="480"
-              height="580"
-              loading="lazy"
-              onerror="
-                this.closest('.card')
-                  ? this.closest('.card').classList.add('no-image')
-                  : null;
-                this.remove();
-              "
-            />
-            <div class="executive-photo-badge">
-              <strong
-                style="
-                  display: block;
-                  color: var(--primary);
-                  font-size: 1.05rem;
-                "
-                >Wahid Wahyudi, S.E., M.M.</strong
-              >
-              <span style="font-size: 0.85rem; color: var(--text-muted)"
-                >Kepala Sekolah SMKS Muhammadiyah 1 Genteng</span
-              >
-            </div>
-          </div>
-
-          <div>
-            <div class="badge badge-amber mb-2" style="margin-bottom: 1rem">
-              Pesan Pimpinan Lembaga
-            </div>
-            <h3 class="executive-quote">
-              "Sekolah yang baik adalah sekolah yang mengantar siswanya sampai
-              ke tujuan, bukan hanya sampai ke ijazah."
-            </h3>
-            <p class="executive-bio-text">
-              Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap
-              secara teknis dan adaptif terhadap revolusi industri, tetapi juga
-              memiliki fondasi akhlak Islami yang kokoh. Di SMKS MUHI Genteng,
-              setiap siswa dibekali sertifikasi kompetensi resmi BNSP melalui
-              LSP-P1, kurikulum berbasis industri, dan ruang aktualisasi
-              wirausaha nyata.
-            </p>
-            <div class="flex" style="gap: 1rem; flex-wrap: wrap">
-              <a href="visi-misi.html" class="btn btn-outline"
-                >Visi & Misi Sekolah &rarr;</a
-              >
-              <a href="fasilitas.html" class="btn btn-outline"
-                >Jelajahi Fasilitas &rarr;</a
-              >
             </div>
           </div>
         </div>
@@ -8605,7 +8626,13 @@
           foto: null,
         },
         {
-          name: "iCareMu & MinduCare",
+          name: "iCareMu",
+          desc: "Aplikasi Digital",
+          jurusan: "RPL",
+          foto: null,
+        },
+        {
+          name: "MinduCare",
           desc: "Aplikasi Digital",
           jurusan: "RPL",
           foto: null,
