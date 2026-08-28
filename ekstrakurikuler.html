@@ -17,7 +17,7 @@
 
   <style>
     /* ==========================================================================
-           1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
+           1. DESIGN TOKENS - SMEMSA BLUE & AMBER (MATCHING LANDING PAGE)
            ========================================================================== */
     :root {
       --primary: #1e40af;
@@ -722,7 +722,7 @@
     }
 
     .footer-chevron {
-      opacity: 0;
+      opacity: 0 !important;
       transform: translateX(-4px);
       color: var(--secondary);
       font-weight: bold;
@@ -739,7 +739,7 @@
     }
 
     .footer-links a:hover .footer-chevron {
-      opacity: 1;
+      opacity: 1 !important;
       transform: translateX(0);
     }
 
@@ -1403,14 +1403,14 @@
   <div class="mobile-drawer" id="mobile-drawer">
     <button class="drawer-close" id="drawer-close-btn">&times;</button>
     <div class="brand-box" style="margin-bottom: 2rem">
-      <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo" onerror="
+      <img src="assets/logo.webp" alt="Logo SMEMSA" class="brand-logo" onerror="
             this.closest('.card')
               ? this.closest('.card').classList.add('no-image')
               : null;
             this.remove();
           " />
       <div>
-        <strong style="color: var(--primary); font-size: 1.1rem; display: block">SMKS MUHI GENTENG</strong>
+        <strong style="color: var(--primary); font-size: 1.1rem; display: block">SMEMSA GENTENG</strong>
         <small style="color: var(--text-muted); font-size: 0.75rem">NPSN 20525597 &bull; Akreditasi A</small>
       </div>
     </div>
@@ -1550,7 +1550,7 @@
             "></div>
         <div class="card-content">
           <span class="tag">Kesehatan & Kemanusiaan</span>
-          <h2 class="card-title">PMR Wira Unit MUHI</h2>
+          <h2 class="card-title">PMR Wira Unit SMEMSA</h2>
           <div class="card-desc">
             Pelatihan pertolongan pertama pada kecelakaan (P3K), kesiapsiagaan
             bencana darurat, dan aksi donor darah sukarela.
@@ -1752,7 +1752,7 @@
               <li>
                 <a href="#jurusan" onclick="jumpToMajor('ph')"><span class="footer-chevron"
                     aria-hidden="true">&rsaquo;</span>
-                  Perhotelan &amp; Hospitality</a>
+                  Perhotelan</a>
               </li>
             </ul>
           </nav>
@@ -1795,7 +1795,7 @@
   </button>
   <div class="chat-panel" id="chat-panel">
     <div class="chat-header">
-      <span>Asisten AI SMKS MUHI</span>
+      <span>Asisten AI SMEMSA</span>
       <span style="
             font-size: 0.75rem;
             background: rgba(255, 255, 255, 0.2);
@@ -1862,7 +1862,7 @@
         text.includes("prodi") ||
         text.includes("keahlian")
       ) {
-        return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL, TKJ, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+        return "SMEMSA Genteng memiliki 8 program keahlian: RPL, TKJ, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
       } else if (
         text.includes("ppdb") ||
         text.includes("daftar") ||
@@ -1875,7 +1875,7 @@
         text.includes("bnsp") ||
         text.includes("sertifikat")
       ) {
-        return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+        return "SMEMSA memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
       } else if (
         text.includes("loker") ||
         text.includes("bkk") ||
@@ -2105,6 +2105,7 @@
     setTimeout(function () {
       document.querySelectorAll("*").forEach(function (el) {
         if (
+          !el.classList.contains("footer-chevron") &&
           getComputedStyle(el).opacity === "0" &&
           el.textContent.trim().length > 0
         ) {

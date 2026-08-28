@@ -8,7 +8,7 @@
     </title>
     <meta
       name="description"
-      content="Website Resmi SMKS Muhammadiyah 1 Genteng (SMKS MUHI / SMEMSA Genteng) Banyuwangi. SMK Pusat Keunggulan, Akreditasi A BAN-S/M, Berlisensi LSP-P1 BNSP, dengan 7 Konsentrasi Keahlian Industri."
+      content="Website Resmi SMKS Muhammadiyah 1 Genteng (SMEMSA / SMEMSA Genteng) Banyuwangi. SMK Pusat Keunggulan, Akreditasi A BAN-S/M, Berlisensi LSP-P1 BNSP, dengan 7 Konsentrasi Keahlian Industri."
     />
 
     <!-- Open Graph / WhatsApp Preview Meta Tags -->
@@ -30,7 +30,7 @@
         "@context": "https://schema.org",
         "@type": "School",
         "name": "SMKS Muhammadiyah 1 Genteng",
-        "alternateName": ["SMKS MUHI", "SMEMSA Genteng"],
+        "alternateName": ["SMEMSA", "SMEMSA Genteng"],
         "url": "https://smksmuh1gtg.com",
         "logo": "assets/logo.png",
         "image": "assets/logo.png",
@@ -1727,7 +1727,7 @@
         margin-bottom: 2rem;
       }
 
-      /* Why Choose MUHI Bento Cards - Matched to gridcontext.PNG */
+      /* Why Choose SMEMSA Bento Cards - Matched to gridcontext.PNG */
       .why-bento-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1741,46 +1741,45 @@
         border-radius: var(--radius-xl);
         padding: 2rem 1.8rem;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-        transition: var(--transition) !important;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         position: relative;
         overflow: hidden;
+        cursor: pointer;
+      }
+
+      .why-bento-card h3 {
+        color: var(--text-dark, #1e293b);
+        transition: color 0.35s ease;
+      }
+
+      .why-bento-card p {
+        color: var(--text-muted, #64748b);
+        transition: color 0.35s ease;
       }
 
       .why-bento-card:hover {
-        border-style: solid;
-        border-color: var(--primary);
-        box-shadow: var(--shadow-card-hover);
-        transform: translateY(-3px);
+        background: var(--primary) !important;
+        border-style: solid !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 14px 32px rgba(30, 64, 175, 0.3) !important;
+        transform: translateY(-5px) !important;
       }
 
-      /* Card Highlight Merah / Primary (Posisi Posisi Baris 1 Kolom 2) */
-      .why-bento-card.bento-highlight {
-        background: var(--primary); /* Merah sesuai gridcontext.PNG */
-        color: #ffffff;
-        border: none;
-      }
-
-      .why-bento-card.bento-highlight h3 {
+      .why-bento-card:hover h3 {
         color: #ffffff !important;
       }
 
-      .why-bento-card.bento-highlight p {
-        color: rgba(255, 255, 255, 0.9) !important;
+      .why-bento-card:hover p {
+        color: rgba(255, 255, 255, 0.92) !important;
       }
 
-      .why-bento-card.bento-highlight .why-icon-box {
-        background: #ffffff;
-        color: var(--primary);
-      }
-
-      .why-bento-card.bento-highlight .bento-arrow-top {
-        position: absolute;
-        top: 1.8rem;
-        right: 1.8rem;
-        color: #ffffff;
+      .why-bento-card:hover .why-icon-box {
+        background: #ffffff !important;
+        color: var(--primary) !important;
+        transform: scale(1.08);
       }
 
       .why-icon-box {
@@ -1794,6 +1793,7 @@
         background: #f1f5f9;
         color: #334155;
         flex-shrink: 0;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       /* ==========================================================================
@@ -4738,7 +4738,7 @@
             margin-bottom: 2rem;
         }
 
-        /* Why Choose MUHI Bento Cards */
+        /* Why Choose SMEMSA Bento Cards */
         .why-bento-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -4756,8 +4756,10 @@
         }
 
         .why-bento-card:hover {
-            border-color: rgba(30, 58, 138, 0.3);
-            box-shadow: var(--shadow-card-hover);
+            background: var(--primary) !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 14px 32px rgba(30, 64, 175, 0.3) !important;
+            transform: translateY(-5px) !important;
         }
 
         .why-col-8 {
@@ -7350,7 +7352,7 @@
       <div class="brand-box" style="margin-bottom: 2rem">
         <img
           src="assets/logo.webp"
-          alt="Logo SMKS MUHI"
+          alt="Logo SMEMSA"
           class="brand-logo"
           onerror="
             this.closest('.card')
@@ -7362,7 +7364,7 @@
         <div>
           <strong
             style="color: var(--primary); font-size: 1.1rem; display: block"
-            >SMKS MUHI GENTENG</strong
+            >SMEMSA GENTENG</strong
           >
           <small style="color: var(--text-muted); font-size: 0.75rem"
             >NPSN 20525597 &bull; Akreditasi A</small
@@ -8334,7 +8336,7 @@
           <div class="executive-photo-frame">
             <img
               src="assets/PAK-WAHID-AI-e1781064934191.png"
-              alt="Kepala Sekolah SMKS MUHI Wahid Wahyudi S.E. M.M."
+              alt="Kepala Sekolah SMEMSA Wahid Wahyudi S.E. M.M."
               width="480"
               height="580"
               loading="lazy"
@@ -8371,7 +8373,7 @@
             <p class="executive-bio-text">
               Kami berkomitmen mencetak generasi unggul yang tidak hanya cakap
               secara teknis dan adaptif terhadap revolusi industri, tetapi juga
-              memiliki fondasi akhlak Islami yang kokoh. Di SMKS MUHI Genteng,
+              memiliki fondasi akhlak Islami yang kokoh. Di SMEMSA Genteng,
               setiap siswa dibekali sertifikasi kompetensi resmi BNSP melalui
               LSP-P1, kurikulum berbasis industri, dan ruang aktualisasi
               wirausaha nyata.
@@ -8402,26 +8404,10 @@
           </p>
         </div>
 
-        <!-- Why Choose MUHI Bento Grid - Matched to gridcontext.PNG -->
+        <!-- Why Choose SMEMSA Bento Grid -->
         <div class="why-bento-grid">
-          <!-- Card 1 (Baris 1 Kolom 1 - HIGHLIGHT MERAH) -->
-          <div class="why-bento-card bento-highlight">
-            <div class="bento-arrow-top">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
+          <!-- Card 1 (Baris 1 Kolom 1) -->
+          <div class="why-bento-card">
             <div class="why-icon-box">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -8486,21 +8472,11 @@
             </div>
             <h3
               class="font-head"
-              style="
-                font-size: 1.15rem;
-                color: var(--text-dark);
-                margin-bottom: 0.6rem;
-              "
+              style="font-size: 1.15rem; margin-bottom: 0.6rem"
             >
-              Unggul Teknologi & Digital
+              Unggul Teknologi &amp; Digital
             </h3>
-            <p
-              style="
-                font-size: 0.9rem;
-                color: var(--text-muted);
-                line-height: 1.6;
-              "
-            >
+            <p style="font-size: 0.9rem; line-height: 1.6">
               Pembekalan skill digital modern, lab canggih, dan ekosistem
               pembelajaran berbasis teknologi terkini.
             </p>
@@ -8535,21 +8511,11 @@
             </div>
             <h3
               class="font-head"
-              style="
-                font-size: 1.15rem;
-                color: var(--text-dark);
-                margin-bottom: 0.6rem;
-              "
+              style="font-size: 1.15rem; margin-bottom: 0.6rem"
             >
-              Prestasi & Kompetisi
+              Prestasi &amp; Kompetisi
             </h3>
-            <p
-              style="
-                font-size: 0.9rem;
-                color: var(--text-muted);
-                line-height: 1.6;
-              "
-            >
+            <p style="font-size: 0.9rem; line-height: 1.6">
               Mendorong siswa berprestasi di tingkat regional, nasional, hingga
               internasional dengan pembinaan intensif.
             </p>
@@ -8580,21 +8546,11 @@
             </div>
             <h3
               class="font-head"
-              style="
-                font-size: 1.15rem;
-                color: var(--text-dark);
-                margin-bottom: 0.6rem;
-              "
+              style="font-size: 1.15rem; margin-bottom: 0.6rem"
             >
-              Link & Match Industri
+              Link &amp; Match Industri
             </h3>
-            <p
-              style="
-                font-size: 0.9rem;
-                color: var(--text-muted);
-                line-height: 1.6;
-              "
-            >
+            <p style="font-size: 0.9rem; line-height: 1.6">
               Kemitraan erat dengan puluhan DUDI nasional untuk penyusunan
               kurikulum bersama, magang, dan penyaluran kerja.
             </p>
@@ -8622,21 +8578,11 @@
             </div>
             <h3
               class="font-head"
-              style="
-                font-size: 1.15rem;
-                color: var(--text-dark);
-                margin-bottom: 0.6rem;
-              "
+              style="font-size: 1.15rem; margin-bottom: 0.6rem"
             >
-              Fokus Skill & Karakter
+              Fokus Skill &amp; Karakter
             </h3>
-            <p
-              style="
-                font-size: 0.9rem;
-                color: var(--text-muted);
-                line-height: 1.6;
-              "
-            >
+            <p style="font-size: 0.9rem; line-height: 1.6">
               Keseimbangan antara penguasaan kompetensi teknis (hard skill) dan
               pembentukan karakter Islami yang tangguh.
             </p>
@@ -8663,21 +8609,11 @@
             </div>
             <h3
               class="font-head"
-              style="
-                font-size: 1.15rem;
-                color: var(--text-dark);
-                margin-bottom: 0.6rem;
-              "
+              style="font-size: 1.15rem; margin-bottom: 0.6rem"
             >
-              Siap Kerja & Berwirausaha
+              Siap Kerja &amp; Berwirausaha
             </h3>
-            <p
-              style="
-                font-size: 0.9rem;
-                color: var(--text-muted);
-                line-height: 1.6;
-              "
-            >
+            <p style="font-size: 0.9rem; line-height: 1.6">
               Mencetak lulusan BMW (Bekerja, Melanjutkan studi, Wirausaha) yang
               mandiri, kompeten, dan berdaya saing.
             </p>
@@ -8962,7 +8898,7 @@
                       <div>
                         <span class="major-info-label">TEFA:</span>
                         <span id="panel-tefa-name"
-                          >Software House TEFA MUHI & Lab iMac Cloud</span
+                          >Software House TEFA SMEMSA & Lab iMac Cloud</span
                         >
                       </div>
                     </div>
@@ -9089,7 +9025,7 @@
             <div class="badge badge-amber mb-2" style="margin-bottom: 1rem">
               Tradisi Kejuaraan
             </div>
-            <h2 class="section-title">Jejak Prestasi Siswa SMKS MUHI</h2>
+            <h2 class="section-title">Jejak Prestasi Siswa SMEMSA</h2>
             <p
               style="
                 color: var(--text-muted);
@@ -9432,7 +9368,7 @@
                   "
                 >
                   Lengkapi data calon siswa secara online melalui formulir resmi
-                  PPDB SMKS MUHI.
+                  PPDB SMEMSA.
                 </p>
               </div>
             </div>
@@ -9772,7 +9708,7 @@
                       line-height: 1.35;
                     "
                   >
-                    Dua Atlet Taekwondo SMKS MUHI Raih Juara 3 Kejurprov Jatim
+                    Dua Atlet Taekwondo SMEMSA Raih Juara 3 Kejurprov Jatim
                   </h3>
                   <p
                     style="
@@ -9782,7 +9718,7 @@
                       margin-bottom: 1rem;
                     "
                   >
-                    Prestasi membanggakan dipersembahkan atlet pelajar SMKS MUHI
+                    Prestasi membanggakan dipersembahkan atlet pelajar SMEMSA
                     dalam ajang Kejurprov di Malang.
                   </p>
                 </div>
@@ -10201,7 +10137,7 @@
                     ><span class="footer-chevron" aria-hidden="true"
                       >&rsaquo;</span
                     >
-                    Perhotelan &amp; Hospitality</a
+                    Perhotelan</a
                   >
                 </li>
               </ul>
@@ -10259,7 +10195,7 @@
     </button>
     <div class="chat-panel" id="chat-panel">
       <div class="chat-header">
-        <span>Asisten AI SMKS MUHI</span>
+        <span>Asisten AI SMEMSA</span>
         <span
           style="
             font-size: 0.75rem;
@@ -10596,7 +10532,7 @@
           num: "01",
           title: "Rekayasa Perangkat Lunak",
           badge: "ALUR PENDIDIKAN VOKASI • RPL",
-          tefa: "Software House TEFA MUHI & Lab iMac Cloud",
+          tefa: "Software House TEFA SMEMSA & Lab iMac Cloud",
           certSummary: "LSP-P1 BNSP Junior Web Developer & Cloud Database",
           logo: "assets/major/RPL-removebg-preview.png",
           foto: "assets/major-person/rpl.png",
@@ -10607,7 +10543,7 @@
             "Database SQL & Firebase Cloud Server",
           ],
           tempatPraktik: {
-            title: "Software House TEFA MUHI",
+            title: "Software House TEFA SMEMSA",
             items: [
               "Pengerjaan proyek sistem informasi & aplikasi web klien.",
               "Lab iMac & Workstation gigabit standar industri.",
@@ -10719,7 +10655,7 @@
           num: "04",
           title: "Bisnis Digital",
           badge: "ALUR PENDIDIKAN VOKASI • BISNIS DIGITAL",
-          tefa: "Muhi E-Commerce Hub & Live Studio TEFA",
+          tefa: "SMEMSA E-Commerce Hub & Live Studio TEFA",
           certSummary: "LSP-P1 BNSP Toko Daring & Meta Certified Marketing",
           logo: "assets/major/logo bdp.png",
           foto: "assets/major-person/BD.png",
@@ -10730,7 +10666,7 @@
             "Live Commerce Broadcasting & Copywriting Persuasif",
           ],
           tempatPraktik: {
-            title: "Muhi E-Commerce Hub TEFA",
+            title: "SMEMSA E-Commerce Hub TEFA",
             items: [
               "Studio Live Streaming komersial penjualan harian.",
               "Mini Fulfillment Center: pergudangan & ekspedisi.",
@@ -10760,7 +10696,7 @@
           num: "05",
           title: "Akuntansi & Keuangan Lembaga",
           badge: "ALUR PENDIDIKAN VOKASI • AKL",
-          tefa: "Bank Mini Syariah MUHI & Tax Center TEFA",
+          tefa: "Bank Mini Syariah SMEMSA & Tax Center TEFA",
           certSummary: "LSP-P1 BNSP Teknisi Akuntansi & Accurate Professional",
           logo: "assets/major/logo AKL.png",
           foto: "assets/major-person/ak.png",
@@ -10801,7 +10737,7 @@
           num: "06",
           title: "Manajemen Perkantoran",
           badge: "ALUR PENDIDIKAN VOKASI • MPLB",
-          tefa: "Muhi Office Service & Executive Meeting Room",
+          tefa: "SMEMSA Office Service & Executive Meeting Room",
           certSummary: "LSP-P1 BNSP Administrative Assistant & Digital Office",
           logo: "assets/major/mp.jpeg",
           emoji: "🏢",
@@ -10813,7 +10749,7 @@
             "Komunikasi Bisnis Internasional & Public Relations",
           ],
           tempatPraktik: {
-            title: "Muhi Office Service TEFA",
+            title: "SMEMSA Office Service TEFA",
             items: [
               "Pusat persuratan terpadu & resepsionis sekolah.",
               "Executive Meeting Simulator: tata ruang rapat korporat.",
@@ -10841,9 +10777,9 @@
           key: "ph",
           code: "PH",
           num: "07",
-          title: "Perhotelan & Hospitality",
+          title: "Perhotelan",
           badge: "ALUR PENDIDIKAN VOKASI • PERHOTELAN",
-          tefa: "Edutel Hotel Muhi & Mockup Suite Room TEFA",
+          tefa: "Edutel Hotel SMEMSA & Mockup Suite Room TEFA",
           certSummary: "LSP-P1 BNSP Front Office Receptionist & CHSE",
           logo: "assets/major/PH.png",
           emoji: "🏨",
@@ -10855,7 +10791,7 @@
             "Food & Beverage Service, Table Manner & Banquet",
           ],
           tempatPraktik: {
-            title: "Edutel Hotel Muhi TEFA",
+            title: "Edutel Hotel SMEMSA TEFA",
             items: [
               "Fasilitas penginapan riil beroperasi melayani tamu umum.",
               "Mockup Suite Room, Bar Resto & Commercial Laundry.",
@@ -11170,7 +11106,7 @@
           text.includes("prodi") ||
           text.includes("keahlian")
         ) {
-          return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL (Software Dev), TKJ (Jaringan & Cloud), DKV (Desain & Multimedia), Bisnis Digital, Akuntansi Lembaga (AKL), Manajemen Perkantoran (MPLB), Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+          return "SMEMSA Genteng memiliki 8 program keahlian: RPL (Software Dev), TKJ (Jaringan & Cloud), DKV (Desain & Multimedia), Bisnis Digital, Akuntansi Lembaga (AKL), Manajemen Perkantoran (MPLB), Perhotelan, serta Tata Boga & Otomotif (TBSM).";
         } else if (
           text.includes("ppdb") ||
           text.includes("daftar") ||
@@ -11183,7 +11119,7 @@
           text.includes("bnsp") ||
           text.includes("sertifikat")
         ) {
-          return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+          return "SMEMSA memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
         } else if (text.includes("kepala") || text.includes("wahid")) {
           return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
         } else if (
