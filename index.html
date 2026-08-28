@@ -1166,6 +1166,81 @@
       }
     }
 
+    /* ==========================================================================
+       PERBAIKAN MOBILE: UKURAN TAP TARGET & LUAPAN
+       ========================================================================== */
+    @media (max-width: 900px) {
+
+      /* Semua elemen interaktif minimal 44x44px (pedoman WCAG) */
+      .btn,
+      .btn-amber,
+      .btn-primary,
+      .btn-outline,
+      .nav-cta,
+      .major-chip,
+      .filter-btn,
+      .news-filter-item,
+      .spmb-cta-btn,
+      .mobile-drawer a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Jarak antar target sentuh agar tidak salah ketuk */
+      .hero-cta-row,
+      .hero-chip-row {
+        gap: 0.75rem;
+      }
+    }
+
+    /* Tombol hero: 44px cukup, jangan lebih besar dari itu di layar kecil */
+    @media (max-width: 560px) {
+
+      .hero-cta-row .btn,
+      .hero-cta-row .btn-amber,
+      .hero-cta-row .btn-primary,
+      .hero-cta-row .btn-outline {
+        min-height: 44px;
+        padding: 0.7rem 1.1rem;
+        font-size: 0.86rem;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+
+      /* Dua tombol berdampingan agar tidak memakan tinggi layar */
+      .hero-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .hero-cta-row>* {
+        flex: 1 1 auto;
+      }
+
+      /* Cegah scroll horizontal di seluruh halaman */
+      html,
+      body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
+      /* Gambar tidak boleh melebihi lebar layar */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Input tidak memicu auto-zoom di iOS */
+      input,
+      select,
+      textarea {
+        font-size: 16px;
+      }
+    }
+
     .mobile-only {
       display: none;
     }
@@ -2769,6 +2844,10 @@
       .majors-detail-col {
         position: relative;
         top: 0;
+        /* Mode akordeon: panel menempel pada baris jurusan di atasnya */
+        margin: 0 0 1rem 0;
+        border-top: 2px solid var(--secondary);
+        border-radius: 0 0 14px 14px;
       }
 
       .major-panel-head-grid {
@@ -6695,6 +6774,38 @@
 
         .stats-grid {
           grid-template-columns: repeat(2, 1fr);
+          gap: 0;
+        }
+
+        /* Garis pemisah dibuat rapi seperti kisi, bukan hanya kanan */
+        .stats-grid .stat-card {
+          padding: 1.2rem 0.8rem;
+          border-right: 1px solid rgba(255, 255, 255, 0.12);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .stats-grid .stat-card:nth-child(2n) {
+          border-right: none;
+        }
+
+        .stats-grid .stat-card:nth-last-child(-n + 2) {
+          border-bottom: none;
+        }
+
+        .stats-grid .stat-num {
+          font-size: 2rem;
+          margin-bottom: 0.35rem;
+        }
+
+        /* Label panjang seperti "Tahun Berdiri (58+ Th Pengabdian)"
+           dan "Akreditasi BAN-S/M Kemendikbudristek" perlu dikecilkan
+           agar tidak pecah berantakan di kolom sempit. */
+        .stats-grid .stat-label {
+          font-size: 0.76rem;
+          line-height: 1.4;
+          opacity: 0.85;
+          hyphens: auto;
+          -webkit-hyphens: auto;
         }
 
         .blud-grid {
@@ -7064,7 +7175,11 @@
         }
 
         .hero-students-img {
-          max-height: 260px;
+          max-height: 300px;
+          width: auto;
+          margin: 0 auto;
+          display: block;
+          object-fit: contain;
         }
 
         .p-icon-hero {
@@ -7495,20 +7610,11 @@
 
         <div class="hero-image-col">
           <div class="hero-img-wrapper">
-            <img src="assets/background/3orang.png" class="hero-students-img desktop-only"
-              alt="Tiga siswa SMKS Muhammadiyah 1 Genteng mengenakan seragam jurusan" width="1200" height="900" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            <img src="assets/background/hero-students-mobile.webp" class="hero-students-img mobile-only"
-              alt="Siswa SMKS Muhammadiyah 1 Genteng mengenakan seragam jurusan" width="600" height="900" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
+            <!-- SATU gambar untuk semua ukuran layar. Kelas desktop-only /
+                 mobile-only dihapus agar tidak pernah tampil ganda. -->
+            <img src="assets/background/3orang.png" class="hero-students-img"
+              alt="Tiga siswa SMKS Muhammadiyah 1 Genteng mengenakan seragam jurusan" width="1200" height="900" />
+
 
             <!-- Gradasi Pemudar -->
             <div class="hero-fade-gradient" aria-hidden="true"></div>
@@ -9379,12 +9485,11 @@
       if (typeof lenis !== "undefined" && lenis) lenis.start();
     }
 
-    if (hamburgerBtn)
-      hamburgerBtn.addEventListener("click", openMobileDrawer);
-    if (drawerCloseBtn)
-      drawerCloseBtn.addEventListener("click", closeMobileDrawer);
-    if (mobileOverlay)
-      mobileOverlay.addEventListener("click", closeMobileDrawer);
+    /* Listener navbar DIHAPUS di sini — sudah ditangani initNavigation()
+       yang memakai toggle. Dua listener pada tombol yang sama membuat
+       drawer langsung terbuka lagi setiap kali ditutup. Fungsi
+       openMobileDrawer/closeMobileDrawer tetap ada karena masih
+       dipanggil dari handler anchor Lenis. */
 
     // 4. Hero Hub Tabs
     function switchHubTab(tabName, btn) {
@@ -9853,6 +9958,21 @@
     }
 
     // Klik & Focus mengganti SEKETIKA tanpa jeda debounce
+    /* Kembalikan panel ke kolom aslinya saat layar melebar ke desktop */
+    let majorLayoutTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(majorLayoutTimer);
+      majorLayoutTimer = setTimeout(function () {
+        const panel = document.getElementById("major-tabpanel-container");
+        const grid = document.querySelector(".majors-content-grid")
+          || document.querySelector(".majors-list-col")?.parentNode;
+        if (!panel || !grid) return;
+        if (window.innerWidth > 900 && panel.parentNode !== grid) {
+          grid.appendChild(panel);
+        }
+      }, 200);
+    });
+
     function handleMajorClick(majorKey) {
       clearTimeout(hoverDebounceTimer);
       selectMajorPathway(majorKey);
@@ -10031,14 +10151,26 @@
         if (stage4Box) stage4Box.textContent = major.setelahLulus.box;
 
         pathwayView.classList.remove("anim-switching");
+
+        /* MOBILE: panel dipindahkan tepat DI BAWAH baris jurusan yang
+           diketuk, sehingga bekerja seperti akordeon. Pengguna tidak
+           perlu menggulir naik-turun untuk berpindah jurusan. */
         if (window.innerWidth <= 900) {
           setTimeout(() => {
             const panel = document.getElementById("major-tabpanel-container");
-            if (panel) {
-              if (typeof lenis !== "undefined" && lenis) {
-                lenis.scrollTo(panel, { offset: -60, duration: 0.8 });
-              } else {
-                panel.scrollIntoView({ behavior: "smooth" });
+            const item = document.getElementById("tab-btn-" + majorKey);
+            if (panel && item && item.parentNode) {
+              if (item.nextElementSibling !== panel) {
+                item.parentNode.insertBefore(panel, item.nextElementSibling);
+              }
+              // Gulir hanya sedikit, cukup agar panel terlihat
+              const rect = panel.getBoundingClientRect();
+              if (rect.top < 0 || rect.top > window.innerHeight * 0.6) {
+                if (typeof lenis !== "undefined" && lenis) {
+                  lenis.scrollTo(item, { offset: -90, duration: 0.6 });
+                } else {
+                  item.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
               }
             }
           }, 50);
