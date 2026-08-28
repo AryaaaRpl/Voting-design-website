@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="id">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Visi &amp; Misi - SMKS Muhammadiyah 1 Genteng</title>
-<!-- Modern Typography: Plus Jakarta Sans -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
-<style>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Visi &amp; Misi - SMKS Muhammadiyah 1 Genteng</title>
+    <!-- Modern Typography: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
       /* DESIGN TOKENS - SMKS MUHI BLUE & AMBER */
       :root {
         --primary: #1e40af;
@@ -181,7 +184,7 @@
       /* Dropdown styling */
       .dropdown-menu {
         position: absolute;
-        top: calc(100% + 12px);
+        top: calc(80% + 12px);
         left: 0;
         min-width: 250px;
         background: #ffffff;
@@ -346,7 +349,7 @@
 
       /* 2. PAGE HEADER */
       .page-header {
-        padding: 12rem 0 6rem;
+        padding: 1rem 5%;
         background: linear-gradient(to bottom, #e7e5e433, var(--bg-main));
         position: relative;
         overflow: hidden;
@@ -577,7 +580,9 @@
         justify-content: center;
         padding: 4px;
         flex-shrink: 0;
-        transition: transform 0.3s ease, background-color 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          background-color 0.3s ease;
       }
 
       .major-chip-img {
@@ -1503,164 +1508,277 @@
         }
       }
     </style>
-</head>
-<body>
-<!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
- <header class="header-wrapper">
-<nav class="nav-island" id="main-nav">
-<a class="brand-box" href="index.html#hero">
-<img alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
+  </head>
+  <body>
+    <!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
+    <header class="header-wrapper">
+      <nav class="nav-island" id="main-nav">
+        <a class="brand-box" href="index.html#hero">
+          <img
+            alt="Logo SMKS Muhammadiyah 1 Genteng"
+            class="brand-logo"
+            onerror="
               this.closest('.card')
                 ? this.closest('.card').classList.add('no-image')
                 : null;
               this.remove();
-            " src="assets/logo.png"/>
-</a>
-<div class="nav-menu">
-<a class="nav-link" href="index.html#hero">Beranda</a>
-<!-- Profil & Info Dropdown -->
-<div class="nav-item">
-<a class="nav-link" href="visi-misi.html#sambutan">
-                        Profil &amp; Info <span style="font-size: 0.65rem">▼</span>
-</a>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="visi-misi.html">
-<span class="dropdown-icon">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<circle cx="12" cy="12" r="10"></circle>
-<circle cx="12" cy="12" r="6"></circle>
-<circle cx="12" cy="12" r="2"></circle>
-</svg>
-</span>
-<div>
-<div>Visi &amp; Misi</div>
-<small style="color: var(--text-subtle); font-size: 0.75rem">Arah &amp; Tujuan Lembaga</small>
-</div>
-</a>
-<a class="dropdown-item" href="guru.html">
-<span class="dropdown-icon">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
-<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-</svg>
-</span>
-<div>
-<div>Guru &amp; Tendik</div>
-<small style="color: var(--text-subtle); font-size: 0.75rem">Tenaga Pendidik</small>
-</div>
-</a>
-<a class="dropdown-item" href="fasilitas.html">
-<span class="dropdown-icon">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-<path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-<path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-<path d="M10 6h4"></path>
-<path d="M10 10h4"></path>
-<path d="M10 14h4"></path>
-<path d="M10 18h4"></path>
-</svg>
-</span>
-<div>
-<div>Fasilitas Sekolah</div>
-<small style="color: var(--text-subtle); font-size: 0.75rem">Laboratorium &amp; Ruang Belajar</small>
-</div>
-</a>
-<a class="dropdown-item" href="ekstrakurikuler.html">
-<span class="dropdown-icon">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path>
-</svg>
-</span>
-<div>
-<div>Ekstrakurikuler &amp; IPM</div>
-<small style="color: var(--text-subtle); font-size: 0.75rem">Bakat, Seni &amp; Karakter</small>
-</div>
-</a>
-<a class="dropdown-item" href="prestasi.html">
-<span class="dropdown-icon">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-<path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-<path d="M4 22h16"></path>
-<path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-<path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-<path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-</svg>
-</span>
-<div>
-<div>Galeri Prestasi</div>
-<small style="color: var(--text-subtle); font-size: 0.75rem">Piala &amp; Penghargaan Nasional</small>
-</div>
-</a>
-</div>
-</div>
-<a class="nav-link" href="index.html#jurusan">Konsentrasi Keahlian</a>
-<a class="nav-link" href="lsp.html">LSP-P1</a>
-<a class="nav-link" href="bkk.html">BKK (Bursa Kerja)</a>
-<!-- Layanan Siswa (BLUD) -->
-<a class="nav-link" href="index.html#blud">Layanan Siswa (BLUD)</a>
-<a class="nav-link" href="berita.html">Berita</a>
-<a class="btn btn-primary" href="index.html#ppdb" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar PPDB</a>
-</div>
-<a class="btn btn-primary nav-mobile-cta" href="index.html#ppdb" style="display: none">Daftar SPMB</a>
-<button aria-label="Buka Menu Navigasi" class="hamburger" id="hamburger-btn">
-                ☰
-            </button>
-</nav>
-</header>
+            "
+            src="assets/logo.png"
+          />
+        </a>
+        <div class="nav-menu">
+          <a class="nav-link" href="index.html#hero">Beranda</a>
+          <!-- Profil & Info Dropdown -->
+          <div class="nav-item">
+            <a class="nav-link active" href="visi-misi.html#sambutan">
+              Profil &amp; Info <span style="font-size: 0.65rem">▼</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item active" href="visi-misi.html">
+                <span class="dropdown-icon">
+                  <svg
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewbox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                </span>
+                <div>
+                  <div>Visi &amp; Misi</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Arah &amp; Tujuan Lembaga</small
+                  >
+                </div>
+              </a>
+              <a class="dropdown-item" href="guru.html">
+                <span class="dropdown-icon">
+                  <svg
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewbox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </span>
+                <div>
+                  <div>Guru &amp; Tendik</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Tenaga Pendidik</small
+                  >
+                </div>
+              </a>
+              <a class="dropdown-item" href="fasilitas.html">
+                <span class="dropdown-icon">
+                  <svg
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewbox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+                    <path d="M10 6h4"></path>
+                    <path d="M10 10h4"></path>
+                    <path d="M10 14h4"></path>
+                    <path d="M10 18h4"></path>
+                  </svg>
+                </span>
+                <div>
+                  <div>Fasilitas Sekolah</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Laboratorium &amp; Ruang Belajar</small
+                  >
+                </div>
+              </a>
+              <a class="dropdown-item" href="ekstrakurikuler.html">
+                <span class="dropdown-icon">
+                  <svg
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewbox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+                    ></path>
+                  </svg>
+                </span>
+                <div>
+                  <div>Ekstrakurikuler &amp; IPM</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Bakat, Seni &amp; Karakter</small
+                  >
+                </div>
+              </a>
+              <a class="dropdown-item" href="prestasi.html">
+                <span class="dropdown-icon">
+                  <svg
+                    fill="none"
+                    height="20"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewbox="0 0 24 24"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16"></path>
+                    <path
+                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                    ></path>
+                    <path
+                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                    ></path>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <div>Galeri Prestasi</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Piala &amp; Penghargaan Nasional</small
+                  >
+                </div>
+              </a>
+            </div>
+          </div>
+          <a class="nav-link" href="index.html#jurusan">Konsentrasi Keahlian</a>
+          <a class="nav-link" href="lsp.html">LSP</a>
+          <a class="nav-link" href="bkk.html">BKK</a>
+          <!-- Layanan Siswa (BLUD) -->
+          <a class="nav-link" href="index.html#blud">BLUD</a>
+          <a class="nav-link" href="berita.html">Berita</a>
+          <a
+            class="btn btn-primary"
+            href="index.html#ppdb"
+            style="padding: 0.55rem 1.4rem; font-size: 0.88rem"
+            >Daftar PPDB</a
+          >
+        </div>
+        <a
+          class="btn btn-primary nav-mobile-cta"
+          href="index.html#ppdb"
+          style="display: none"
+          >Daftar SPMB</a
+        >
+        <button
+          aria-label="Buka Menu Navigasi"
+          class="hamburger"
+          id="hamburger-btn"
+        >
+          ☰
+        </button>
+      </nav>
+    </header>
 
-<!-- Mobile Drawer -->
+    <!-- Mobile Drawer -->
 
-
-<!-- Mobile Drawer -->
-<div class="mobile-overlay" id="mobile-overlay"></div>
-<div class="mobile-drawer" id="mobile-drawer">
-<button class="drawer-close" id="drawer-close-btn">×</button>
-<div class="brand-box" style="margin-bottom: 2rem">
-<img alt="Logo SMKS MUHI" class="brand-logo" onerror="
+    <!-- Mobile Drawer -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+      <button class="drawer-close" id="drawer-close-btn">×</button>
+      <div class="brand-box" style="margin-bottom: 2rem">
+        <img
+          alt="Logo SMKS MUHI"
+          class="brand-logo"
+          onerror="
             this.closest('.card')
               ? this.closest('.card').classList.add('no-image')
               : null;
             this.remove();
-          " src="assets/logo.webp"/>
-<div>
-<strong style="color: var(--primary); font-size: 1.1rem; display: block">SMKS MUHI GENTENG</strong>
-<small style="color: var(--text-muted); font-size: 0.75rem">NPSN 20525597 • Akreditasi A</small>
-</div>
-</div>
-<div class="drawer-links">
-<a class="" href="index.html#hero">🏠 Beranda</a>
-<div class="drawer-section-title">Halaman Informasi</div>
-<a class="" href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
-<a href="visi-misi.html">🎯 Visi &amp; Misi Sekolah</a>
-<a href="guru.html">👥 Guru &amp; Tenaga Kependidikan</a>
-<a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
-<a href="ekstrakurikuler.html">⚽ Ekstrakurikuler &amp; IPM</a>
-<a href="prestasi.html">🏆 Prestasi &amp; Penghargaan</a>
-<a class="" href="berita.html">📰 Jurnal &amp; Kabar Kampus</a>
-<div class="drawer-section-title">Navigasi Halaman Utama</div>
-<a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
-<a href="index.html#jurusan">💻 7 Program Keahlian</a>
-<a class="" href="lsp.html">📜 LSP-P1</a>
-<a href="index.html#blud">🏬 Unit Produksi BLUD</a>
-<div style="margin-top: 1.5rem">
-<a class="btn btn-primary" href="index.html#ppdb" style="width: 100%; text-align: center; justify-content: center">Daftar SPMB 2026</a>
-</div>
-</div>
-</div>
+          "
+          src="assets/logo.webp"
+        />
+        <div>
+          <strong
+            style="color: var(--primary); font-size: 1.1rem; display: block"
+            >SMKS MUHI GENTENG</strong
+          >
+          <small style="color: var(--text-muted); font-size: 0.75rem"
+            >NPSN 20525597 • Akreditasi A</small
+          >
+        </div>
+      </div>
+      <div class="drawer-links">
+        <a class="" href="index.html#hero">🏠 Beranda</a>
+        <div class="drawer-section-title">Halaman Informasi</div>
+        <a class="" href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
+        <a href="visi-misi.html">🎯 Visi &amp; Misi Sekolah</a>
+        <a href="guru.html">👥 Guru &amp; Tenaga Kependidikan</a>
+        <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
+        <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler &amp; IPM</a>
+        <a href="prestasi.html">🏆 Prestasi &amp; Penghargaan</a>
+        <a class="" href="berita.html">📰 Jurnal &amp; Kabar Kampus</a>
+        <div class="drawer-section-title">Navigasi Halaman Utama</div>
+        <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
+        <a href="index.html#jurusan">💻 7 Program Keahlian</a>
+        <a class="" href="lsp.html">📜 LSP-P1</a>
+        <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
+        <div style="margin-top: 1.5rem">
+          <a
+            class="btn btn-primary"
+            href="index.html#ppdb"
+            style="width: 100%; text-align: center; justify-content: center"
+            >Daftar SPMB 2026</a
+          >
+        </div>
+      </div>
+    </div>
 
-<!-- HEADER -->
-<header class="page-header">
-<!-- Geometric Star SVG Pattern -->
-<svg class="header-bg-pattern" viewbox="0 0 100 100">
-<path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="none" stroke="var(--primary)" stroke-width="2"></path>
-<circle cx="50" cy="50" fill="none" r="30" stroke="var(--secondary)" stroke-dasharray="2 2" stroke-width="1"></circle>
-</svg>
-<div class="container reveal">
-<div style="
+    <!-- HEADER -->
+    <header class="page-header">
+      <!-- Geometric Star SVG Pattern -->
+      <svg class="header-bg-pattern" viewbox="0 0 100 100">
+        <path
+          d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
+          fill="none"
+          stroke="var(--primary)"
+          stroke-width="2"
+        ></path>
+        <circle
+          cx="50"
+          cy="50"
+          fill="none"
+          r="30"
+          stroke="var(--secondary)"
+          stroke-dasharray="2 2"
+          stroke-width="1"
+        ></circle>
+      </svg>
+      <div class="container reveal">
+        <div
+          style="
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -1672,20 +1790,23 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 1.2rem;
-          ">
-<span>✨</span> SMKS Muhammadiyah 1 Genteng
+          "
+        >
+          <span>✨</span> SMKS Muhammadiyah 1 Genteng
         </div>
-<h1 class="page-title">Visi, Misi &amp; Tujuan</h1>
-<p class="page-subtitle">
+        <h1 class="page-title">Visi, Misi &amp; Tujuan</h1>
+        <p class="page-subtitle">
           Arah dan landasan utama SMKS Muhammadiyah 1 Genteng dalam mencetak
           generasi Islam yang berkemajuan, kompeten, dan berjiwa wirausaha.
         </p>
-</div>
-</header>
-<!-- VISI SECTION -->
-<section class="container visi-section">
-<div class="reveal">
-<div class="visi-card-wrapper" style="
+      </div>
+    </header>
+    <!-- VISI SECTION -->
+    <section class="container visi-section">
+      <div class="reveal">
+        <div
+          class="visi-card-wrapper"
+          style="
             background: linear-gradient(135deg, #1e40af 0%, #16296b 100%);
             color: #ffffff;
             border-radius: var(--radius-xl);
@@ -1693,8 +1814,10 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 40px -10px rgba(30, 64, 175, 0.3);
-          ">
-<div style="
+          "
+        >
+          <div
+            style="
               position: absolute;
               right: -20px;
               bottom: -20px;
@@ -1704,10 +1827,13 @@
               font-weight: 800;
               line-height: 1;
               pointer-events: none;
-            ">
+            "
+          >
             VISI
           </div>
-<span class="visi-label" style="
+          <span
+            class="visi-label"
+            style="
               color: var(--secondary);
               display: inline-block;
               background: rgba(234, 179, 8, 0.15);
@@ -1715,38 +1841,54 @@
               border-radius: var(--radius-full);
               font-size: 0.85rem;
               letter-spacing: 2px;
-            ">VISI SEKOLAH</span>
-<blockquote class="visi-statement" style="
+            "
+            >VISI SEKOLAH</span
+          >
+          <blockquote
+            class="visi-statement"
+            style="
               color: #ffffff;
               margin-top: 1.5rem;
               font-size: 2.2rem;
               font-weight: 700;
               line-height: 1.4;
-            ">
+            "
+          >
             "Terwujudnya Peserta Didik Islami, Berkemajuan, Kompeten dan Berjiwa
             Wirausaha."
           </blockquote>
-</div>
-</div>
-</section>
-<!-- MISI SECTION -->
-<section class="container misi-section" style="padding-bottom: 6rem">
-<div class="misi-header reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem">
-<span class="visi-label">Misi Lembaga</span>
-<h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem">
+        </div>
+      </div>
+    </section>
+    <!-- MISI SECTION -->
+    <section class="container misi-section" style="padding-bottom: 6rem">
+      <div
+        class="misi-header reveal"
+        style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem"
+      >
+        <span class="visi-label">Misi Lembaga</span>
+        <h2
+          class="font-head"
+          style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem"
+        >
           Misi Sekolah
         </h2>
-<p style="color: var(--text-muted); margin-top: 0.5rem">
+        <p style="color: var(--text-muted); margin-top: 0.5rem">
           Langkah-langkah strategis untuk mewujudkan Visi SMKS Muhammadiyah 1
           Genteng.
         </p>
-</div>
-<div class="misi-cards-container" style="
+      </div>
+      <div
+        class="misi-cards-container"
+        style="
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
           gap: 1.5rem;
-        ">
-<div class="misi-card reveal" style="
+        "
+      >
+        <div
+          class="misi-card reveal"
+          style="
             background: var(--bg-main);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
@@ -1755,8 +1897,10 @@
             box-shadow: var(--shadow-card);
             position: relative;
             overflow: hidden;
-          ">
-<div style="
+          "
+        >
+          <div
+            style="
               font-size: 2rem;
               font-weight: 800;
               color: var(--primary);
@@ -1764,10 +1908,12 @@
               position: absolute;
               top: 1rem;
               right: 1.5rem;
-            ">
+            "
+          >
             01
           </div>
-<div style="
+          <div
+            style="
               width: 48px;
               height: 48px;
               background: var(--primary-surface);
@@ -1779,20 +1925,25 @@
               font-size: 1.25rem;
               font-weight: 800;
               margin-bottom: 1.25rem;
-            ">
+            "
+          >
             1
           </div>
-<p style="
+          <p
+            style="
               font-size: 1.05rem;
               font-weight: 500;
               color: var(--text-dark);
               line-height: 1.7;
-            ">
+            "
+          >
             Menerapkan karakter utama pendidikan Al-Islam dan Kemuhammadiyahan
             yang holistik dalam semua mata pelajaran.
           </p>
-</div>
-<div class="misi-card reveal" style="
+        </div>
+        <div
+          class="misi-card reveal"
+          style="
             background: var(--bg-main);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
@@ -1801,8 +1952,10 @@
             box-shadow: var(--shadow-card);
             position: relative;
             overflow: hidden;
-          ">
-<div style="
+          "
+        >
+          <div
+            style="
               font-size: 2rem;
               font-weight: 800;
               color: var(--primary);
@@ -1810,10 +1963,12 @@
               position: absolute;
               top: 1rem;
               right: 1.5rem;
-            ">
+            "
+          >
             02
           </div>
-<div style="
+          <div
+            style="
               width: 48px;
               height: 48px;
               background: var(--primary-surface);
@@ -1825,20 +1980,25 @@
               font-size: 1.25rem;
               font-weight: 800;
               margin-bottom: 1.25rem;
-            ">
+            "
+          >
             2
           </div>
-<p style="
+          <p
+            style="
               font-size: 1.05rem;
               font-weight: 500;
               color: var(--text-dark);
               line-height: 1.7;
-            ">
+            "
+          >
             Melakukan sinkronisasi dengan dunia kerja dan dunia industri untuk
             memenuhi kebutuhan dunia kerja dan mengembangkan potensi didik.
           </p>
-</div>
-<div class="misi-card reveal" style="
+        </div>
+        <div
+          class="misi-card reveal"
+          style="
             background: var(--bg-main);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
@@ -1847,8 +2007,10 @@
             box-shadow: var(--shadow-card);
             position: relative;
             overflow: hidden;
-          ">
-<div style="
+          "
+        >
+          <div
+            style="
               font-size: 2rem;
               font-weight: 800;
               color: var(--primary);
@@ -1856,10 +2018,12 @@
               position: absolute;
               top: 1rem;
               right: 1.5rem;
-            ">
+            "
+          >
             03
           </div>
-<div style="
+          <div
+            style="
               width: 48px;
               height: 48px;
               background: var(--primary-surface);
@@ -1871,20 +2035,25 @@
               font-size: 1.25rem;
               font-weight: 800;
               margin-bottom: 1.25rem;
-            ">
+            "
+          >
             3
           </div>
-<p style="
+          <p
+            style="
               font-size: 1.05rem;
               font-weight: 500;
               color: var(--text-dark);
               line-height: 1.7;
-            ">
+            "
+          >
             Melakukan transformasi, berdaya saing global, dan berbasis teknologi
             informasi dan digitalisasi.
           </p>
-</div>
-<div class="misi-card reveal" style="
+        </div>
+        <div
+          class="misi-card reveal"
+          style="
             background: var(--bg-main);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
@@ -1893,8 +2062,10 @@
             box-shadow: var(--shadow-card);
             position: relative;
             overflow: hidden;
-          ">
-<div style="
+          "
+        >
+          <div
+            style="
               font-size: 2rem;
               font-weight: 800;
               color: var(--primary);
@@ -1902,10 +2073,12 @@
               position: absolute;
               top: 1rem;
               right: 1.5rem;
-            ">
+            "
+          >
             04
           </div>
-<div style="
+          <div
+            style="
               width: 48px;
               height: 48px;
               background: var(--primary-surface);
@@ -1917,20 +2090,25 @@
               font-size: 1.25rem;
               font-weight: 800;
               margin-bottom: 1.25rem;
-            ">
+            "
+          >
             4
           </div>
-<p style="
+          <p
+            style="
               font-size: 1.05rem;
               font-weight: 500;
               color: var(--text-dark);
               line-height: 1.7;
-            ">
+            "
+          >
             Mengimplementasikan tata kelola modern yang transparan dan akuntabel
             serta pendidikan yang inklusif.
           </p>
-</div>
-<div class="misi-card reveal" style="
+        </div>
+        <div
+          class="misi-card reveal"
+          style="
             background: var(--bg-main);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
@@ -1939,8 +2117,10 @@
             box-shadow: var(--shadow-card);
             position: relative;
             overflow: hidden;
-          ">
-<div style="
+          "
+        >
+          <div
+            style="
               font-size: 2rem;
               font-weight: 800;
               color: var(--primary);
@@ -1948,10 +2128,12 @@
               position: absolute;
               top: 1rem;
               right: 1.5rem;
-            ">
+            "
+          >
             05
           </div>
-<div style="
+          <div
+            style="
               width: 48px;
               height: 48px;
               background: var(--primary-surface);
@@ -1963,196 +2145,270 @@
               font-size: 1.25rem;
               font-weight: 800;
               margin-bottom: 1.25rem;
-            ">
+            "
+          >
             5
           </div>
-<p style="
+          <p
+            style="
               font-size: 1.05rem;
               font-weight: 500;
               color: var(--text-dark);
               line-height: 1.7;
-            ">
+            "
+          >
             Meningkatkan kolaborasi dan kemitraan antar Lembaga Pendidikan baik
             internal dan eksternal Muhammadiyah serta dunia kerja.
           </p>
-</div>
-</div>
-</section>
-<!-- TUJUAN SECTION -->
-<section class="tujuan-section section-padding bg-alt" style="padding: 6rem 0">
-<div class="container">
-<div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem">
-<span class="visi-label">Tujuan Institusi</span>
-<h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem">
+        </div>
+      </div>
+    </section>
+    <!-- TUJUAN SECTION -->
+    <section
+      class="tujuan-section section-padding bg-alt"
+      style="padding: 6rem 0"
+    >
+      <div class="container">
+        <div
+          class="reveal"
+          style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem"
+        >
+          <span class="visi-label">Tujuan Institusi</span>
+          <h2
+            class="font-head"
+            style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem"
+          >
             Tujuan Sekolah
           </h2>
-<p style="color: var(--text-muted); margin-top: 0.5rem">
+          <p style="color: var(--text-muted); margin-top: 0.5rem">
             Komitmen nyata pembinaan peserta didik di SMKS Muhammadiyah 1
             Genteng.
           </p>
-</div>
-<div class="tujuan-box">
-<div class="tujuan-progress-line">
-<div class="tujuan-progress-bar" id="tujuan-bar"></div>
-</div>
-<div class="tujuan-card reveal">
-<div class="tujuan-icon">1</div>
-<p style="
+        </div>
+        <div class="tujuan-box">
+          <div class="tujuan-progress-line">
+            <div class="tujuan-progress-bar" id="tujuan-bar"></div>
+          </div>
+          <div class="tujuan-card reveal">
+            <div class="tujuan-icon">1</div>
+            <p
+              style="
                 font-size: 1.05rem;
                 color: var(--text-dark);
                 line-height: 1.7;
                 margin: 0;
-              ">
+              "
+            >
               Mempersiapkan peserta didik yang berakidah Islam dalam beriman dan
               bertaqwa kepada Allah SWT dengan perilaku akhlak mulia.
             </p>
-</div>
-<div class="tujuan-card reveal">
-<div class="tujuan-icon">2</div>
-<p style="
+          </div>
+          <div class="tujuan-card reveal">
+            <div class="tujuan-icon">2</div>
+            <p
+              style="
                 font-size: 1.05rem;
                 color: var(--text-dark);
                 line-height: 1.7;
                 margin: 0;
-              ">
+              "
+            >
               Membiasakan peserta didik untuk beradaptasi dengan perkembangan
               ilmu pengetahuan dan teknologi, dan menerapkan teknologi informasi
               dan digital dalam pembelajaran.
             </p>
-</div>
-<div class="tujuan-card reveal">
-<div class="tujuan-icon">3</div>
-<p style="
+          </div>
+          <div class="tujuan-card reveal">
+            <div class="tujuan-icon">3</div>
+            <p
+              style="
                 font-size: 1.05rem;
                 color: var(--text-dark);
                 line-height: 1.7;
                 margin: 0;
-              ">
+              "
+            >
               Mempersiapkan peserta didik agar lebih ulet, Tangguh, produktif,
               mandiri dan gigih dalam berkompetisi, serta dapat beradaptasi di
               masyarakat dan mengembangkan sikap profesional dalam kompetensi
               yang diminatinya.
             </p>
-</div>
-<div class="tujuan-card reveal">
-<div class="tujuan-icon">4</div>
-<p style="
+          </div>
+          <div class="tujuan-card reveal">
+            <div class="tujuan-icon">4</div>
+            <p
+              style="
                 font-size: 1.05rem;
                 color: var(--text-dark);
                 line-height: 1.7;
                 margin: 0;
-              ">
+              "
+            >
               Membekali peserta didik agar bisa menjadi wirausahawan muda yang
               ulet, tangguh dan pantang menyerah sesuai dengan syariah.
             </p>
-</div>
-</div>
-</div>
-</section>
-<!-- KONSENTRASI KEAHLIAN (EX-SIDEBAR SEPERTI DI GAMBAR) -->
-<section class="majors-section container" style="padding: 6rem 0">
-<div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3rem">
-<span class="visi-label">Program Unggulan</span>
-<h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- KONSENTRASI KEAHLIAN (EX-SIDEBAR SEPERTI DI GAMBAR) -->
+    <section class="majors-section container" style="padding: 6rem 0">
+      <div
+        class="reveal"
+        style="text-align: center; max-width: 700px; margin: 0 auto 3rem"
+      >
+        <span class="visi-label">Program Unggulan</span>
+        <h2
+          class="font-head"
+          style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem"
+        >
           Konsentrasi Keahlian
         </h2>
-<p style="color: var(--text-muted); margin-top: 0.5rem">
+        <p style="color: var(--text-muted); margin-top: 0.5rem">
           Daftar konsentrasi keahlian yang diselenggarakan di SMKS Muhammadiyah
           1 Genteng sesuai data gambar rujukan.
         </p>
-</div>
-<div class="majors-grid reveal" style="justify-content: center">
-<button class="major-chip" onclick="openMajorModal('rpl')">
-<div class="major-chip-img-wrapper">
-<img alt="RPL Logo" class="major-chip-img" src="assets/major/RPL-removebg-preview.png"/>
-</div>
-<span>Rekayasa Perangkat Lunak</span>
-</button>
-<button class="major-chip" onclick="openMajorModal('tkj')">
-<div class="major-chip-img-wrapper">
-<img alt="TKJ Logo" class="major-chip-img" src="assets/major/TJKT-removebg-preview.png"/>
-</div>
-<span>Teknik Komputer dan Jaringan</span>
-</button>
-<button class="major-chip" onclick="openMajorModal('bd')">
-<div class="major-chip-img-wrapper">
-<img alt="Bisnis Digital Logo" class="major-chip-img" src="assets/major/logo bdp.png"/>
-</div>
-<span>Bisnis Digital</span>
-</button>
-<button class="major-chip" onclick="openMajorModal('mplb')">
-<div class="major-chip-img-wrapper">
-<img alt="MPLB Logo" class="major-chip-img" src="assets/major/mp.jpeg"/>
-</div>
-<span>Manajemen Perkantoran</span>
-</button>
-<button class="major-chip" onclick="openMajorModal('akl')">
-<div class="major-chip-img-wrapper">
-<img alt="AKL Logo" class="major-chip-img" src="assets/major/logo AKL.png"/>
-</div>
-<span>Akuntansi</span>
-</button>
-<button class="major-chip" onclick="openMajorModal('hotel')">
-<div class="major-chip-img-wrapper">
-<img alt="Perhotelan Logo" class="major-chip-img" src="assets/major/PH.png"/>
-</div>
-<span>Perhotelan</span>
-</button>
-<button class="major-chip" onclick="openMajorModal('dkv')">
-<div class="major-chip-img-wrapper">
-<img alt="DKV Logo" class="major-chip-img" src="assets/major/dkv.png"/>
-</div>
-<span>Desain Komunikasi Visual</span>
-</button>
-</div>
-</section>
-<!-- INTERACTIVE DETAIL MODAL -->
-<div class="modal-overlay" id="major-modal-overlay" onclick="closeMajorModalOnOverlay(event)">
-<div class="major-modal-card" id="major-modal-card">
-<!-- Modal Header Banner with Animated Icon -->
-<div class="modal-banner" id="modal-banner">
-<div class="modal-banner-icon" id="modal-icon">
-<img alt="Major Logo" id="modal-icon-img" src="assets/major/RPL-removebg-preview.png"/>
-</div>
-<button aria-label="Tutup Detail Jurusan" class="modal-close-btn" onclick="closeMajorModal()">
+      </div>
+      <div class="majors-grid reveal" style="justify-content: center">
+        <button class="major-chip" onclick="openMajorModal('rpl')">
+          <div class="major-chip-img-wrapper">
+            <img
+              alt="RPL Logo"
+              class="major-chip-img"
+              src="assets/major/RPL-removebg-preview.png"
+            />
+          </div>
+          <span>Rekayasa Perangkat Lunak</span>
+        </button>
+        <button class="major-chip" onclick="openMajorModal('tkj')">
+          <div class="major-chip-img-wrapper">
+            <img
+              alt="TKJ Logo"
+              class="major-chip-img"
+              src="assets/major/TJKT-removebg-preview.png"
+            />
+          </div>
+          <span>Teknik Komputer dan Jaringan</span>
+        </button>
+        <button class="major-chip" onclick="openMajorModal('bd')">
+          <div class="major-chip-img-wrapper">
+            <img
+              alt="Bisnis Digital Logo"
+              class="major-chip-img"
+              src="assets/major/logo bdp.png"
+            />
+          </div>
+          <span>Bisnis Digital</span>
+        </button>
+        <button class="major-chip" onclick="openMajorModal('mplb')">
+          <div class="major-chip-img-wrapper">
+            <img
+              alt="MPLB Logo"
+              class="major-chip-img"
+              src="assets/major/mp.jpeg"
+            />
+          </div>
+          <span>Manajemen Perkantoran</span>
+        </button>
+        <button class="major-chip" onclick="openMajorModal('akl')">
+          <div class="major-chip-img-wrapper">
+            <img
+              alt="AKL Logo"
+              class="major-chip-img"
+              src="assets/major/logo AKL.png"
+            />
+          </div>
+          <span>Akuntansi</span>
+        </button>
+        <button class="major-chip" onclick="openMajorModal('hotel')">
+          <div class="major-chip-img-wrapper">
+            <img
+              alt="Perhotelan Logo"
+              class="major-chip-img"
+              src="assets/major/PH.png"
+            />
+          </div>
+          <span>Perhotelan</span>
+        </button>
+        <button class="major-chip" onclick="openMajorModal('dkv')">
+          <div class="major-chip-img-wrapper">
+            <img
+              alt="DKV Logo"
+              class="major-chip-img"
+              src="assets/major/dkv.png"
+            />
+          </div>
+          <span>Desain Komunikasi Visual</span>
+        </button>
+      </div>
+    </section>
+    <!-- INTERACTIVE DETAIL MODAL -->
+    <div
+      class="modal-overlay"
+      id="major-modal-overlay"
+      onclick="closeMajorModalOnOverlay(event)"
+    >
+      <div class="major-modal-card" id="major-modal-card">
+        <!-- Modal Header Banner with Animated Icon -->
+        <div class="modal-banner" id="modal-banner">
+          <div class="modal-banner-icon" id="modal-icon">
+            <img
+              alt="Major Logo"
+              id="modal-icon-img"
+              src="assets/major/RPL-removebg-preview.png"
+            />
+          </div>
+          <button
+            aria-label="Tutup Detail Jurusan"
+            class="modal-close-btn"
+            onclick="closeMajorModal()"
+          >
             ×
           </button>
-</div>
-<!-- Modal Content Body -->
-<div class="modal-body">
-<span class="modal-tag" id="modal-tag">PPLG / Software Engineering</span>
-<h3 class="modal-title" id="modal-title">
+        </div>
+        <!-- Modal Content Body -->
+        <div class="modal-body">
+          <span class="modal-tag" id="modal-tag"
+            >PPLG / Software Engineering</span
+          >
+          <h3 class="modal-title" id="modal-title">
             Rekayasa Perangkat Lunak (RPL)
           </h3>
-<p class="modal-desc" id="modal-desc">
+          <p class="modal-desc" id="modal-desc">
             Fokus pada pengembangan aplikasi web modern, mobile apps, database
             arsitektur, dan logika komputasi. Siswa dibekali kemampuan membangun
             solusi software siap pakai untuk ekosistem industri digital.
           </p>
-<div class="modal-skills-box">
-<div class="modal-section-title">
-<span>🛠️</span> Kompetensi &amp; Tools Unggulan:
+          <div class="modal-skills-box">
+            <div class="modal-section-title">
+              <span>🛠️</span> Kompetensi &amp; Tools Unggulan:
             </div>
-<div class="modal-chips-row" id="modal-skills">
-<span class="modal-skill-chip">Web &amp; Mobile Dev</span>
-<span class="modal-skill-chip">SQL &amp; NoSQL Database</span>
-<span class="modal-skill-chip">API Integration</span>
-<span class="modal-skill-chip">Git &amp; Version Control</span>
-</div>
-</div>
-<div class="modal-career-box">
-<div class="modal-section-title" style="color: var(--primary); margin-bottom: 0.4rem">
-<span>🚀</span> Peluang &amp; Prospek Karir:
+            <div class="modal-chips-row" id="modal-skills">
+              <span class="modal-skill-chip">Web &amp; Mobile Dev</span>
+              <span class="modal-skill-chip">SQL &amp; NoSQL Database</span>
+              <span class="modal-skill-chip">API Integration</span>
+              <span class="modal-skill-chip">Git &amp; Version Control</span>
             </div>
-<div class="modal-career-text" id="modal-career">
+          </div>
+          <div class="modal-career-box">
+            <div
+              class="modal-section-title"
+              style="color: var(--primary); margin-bottom: 0.4rem"
+            >
+              <span>🚀</span> Peluang &amp; Prospek Karir:
+            </div>
+            <div class="modal-career-text" id="modal-career">
               Software Engineer, Web Developer, Mobile App Developer, Database
               Administrator, QA Tester.
             </div>
-</div>
-<div class="modal-footer-cta">
-<span style="font-size: 0.85rem; color: var(--text-muted)">Terlisensi <strong>LSP-P1 BNSP</strong> • Kelas
-              Industri</span>
-<a href="index.html#ppdb" style="
+          </div>
+          <div class="modal-footer-cta">
+            <span style="font-size: 0.85rem; color: var(--text-muted)"
+              >Terlisensi <strong>LSP BNSP</strong> • Kelas Industri</span
+            >
+            <a
+              href="index.html#ppdb"
+              style="
                 background: var(--primary);
                 color: #ffffff;
                 padding: 0.65rem 1.4rem;
@@ -2161,228 +2417,392 @@
                 font-weight: 700;
                 font-size: 0.9rem;
                 text-decoration: none;
-              ">
+              "
+            >
               Daftar SPMB Jurusan Ini →
             </a>
-</div>
-</div>
-</div>
-</div>
-<!-- FOOTER -->
- <footer class="site-footer">
-<div class="container">
-<div class="footer-grid">
-<!-- Kolom 1: Profil Sekolah & Kontak -->
-<div>
-<div class="brand-box" style="
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Kolom 1: Profil Sekolah & Kontak -->
+          <div>
+            <div
+              class="brand-box"
+              style="
                 display: flex;
                 align-items: center;
                 gap: 0.9rem;
                 margin-bottom: 1.2rem;
-              ">
-<img alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" height="52" onerror="
+              "
+            >
+              <img
+                alt="Logo SMKS Muhammadiyah 1 Genteng"
+                class="brand-logo"
+                height="52"
+                onerror="
                   this.closest('.card')
                     ? this.closest('.card').classList.add('no-image')
                     : null;
                   this.remove();
-                " src="assets/logo.webp" style="max-height: 52px; width: auto; object-fit: contain" width="52"/>
-<div>
-<div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
-<div class="footer-brand-sub">BANYUWANGI • JAWA TIMUR</div>
-</div>
-</div>
-<p class="footer-address">
-                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
-                        Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
-                        68465
-                    </p>
-<!-- A. Baris Kontak dengan Inline SVG Stroke -->
-<ul class="footer-contact-list">
-<li class="footer-contact-item">
-<svg aria-hidden="true" class="footer-contact-icon" viewbox="0 0 24 24">
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-</svg>
-<a class="footer-contact-link" href="tel:0333845605">(0333) 845605</a>
-</li>
-<li class="footer-contact-item">
-<svg aria-hidden="true" class="footer-contact-icon" viewbox="0 0 24 24">
-<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-</svg>
-<a class="footer-contact-link" href="https://wa.me/6282241356668" rel="noopener noreferrer" target="_blank">0822-4135-6668 (WhatsApp)</a>
-</li>
-<li class="footer-contact-item">
-<svg aria-hidden="true" class="footer-contact-icon" viewbox="0 0 24 24">
-<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-<polyline points="22,6 12,13 2,6"></polyline>
-</svg>
-<a class="footer-contact-link" href="mailto:smkmuhi.genteng1968@gmail.com">smkmuhi.genteng1968@gmail.com</a>
-</li>
-</ul>
-<!-- C. Media Sosial Monokrom -->
-<div aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng" class="footer-social-row">
-<a aria-label="Instagram SMKS Muhammadiyah 1 Genteng" class="footer-social-btn" href="https://www.instagram.com/smkmuhigts/" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<rect fill="none" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" width="20" x="2" y="2"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"></path>
-<line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-</svg>
-</a>
-<a aria-label="YouTube SMKS Muhammadiyah 1 Genteng" class="footer-social-btn" href="https://www.youtube.com/@smkmuhigts" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" fill="none" stroke="currentColor" stroke-width="2"></path>
-<polygon fill="currentColor" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-</svg>
-</a>
-<a aria-label="Facebook SMKS Muhammadiyah 1 Genteng" class="footer-social-btn" href="https://www.facebook.com/smkmuhigts" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</a>
-<a aria-label="TikTok SMKS Muhammadiyah 1 Genteng" class="footer-social-btn" href="https://www.tiktok.com/@smkmuhigts" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</a>
-</div>
-</div>
-<!-- Kolom 2: Halaman Terkait -->
-<div class="footer-col">
-<h4>Halaman Terkait</h4>
-<nav aria-label="Navigasi Halaman Terkait" class="footer-nav">
-<ul class="footer-links">
-<li>
-<a href="bkk.html"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Bursa Kerja Khusus (BKK)</a>
-</li>
-<li>
-<a href="visi-misi.html"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Visi &amp; Misi</a>
-</li>
-<li>
-<a href="fasilitas.html"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Fasilitas Sekolah</a>
-</li>
-<li>
-<a href="ekstrakurikuler.html"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Ekstrakurikuler &amp; IPM</a>
-</li>
-<li>
-<a href="prestasi.html"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Galeri Prestasi</a>
-</li>
-<li>
-<a href="berita.html"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Jurnal &amp; Berita</a>
-</li>
-</ul>
-</nav>
-</div>
-<!-- Kolom 3: 7 Konsentrasi Keahlian -->
-<div class="footer-col">
-<h4>7 Konsentrasi</h4>
-<nav aria-label="Navigasi 7 Konsentrasi Keahlian" class="footer-nav">
-<ul class="footer-links">
-<li>
-<a href="index.html#jurusan" onclick="jumpToMajor('rpl')"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Rekayasa Perangkat Lunak</a>
-</li>
-<li>
-<a href="index.html#jurusan" onclick="jumpToMajor('tkj')"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Teknik Komputer &amp; Jaringan</a>
-</li>
-<li>
-<a href="index.html#jurusan" onclick="jumpToMajor('dkv')"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Desain Komunikasi Visual</a>
-</li>
-<li>
-<a href="index.html#jurusan" onclick="jumpToMajor('bd')"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Bisnis Digital</a>
-</li>
-<li>
-<a href="index.html#jurusan" onclick="jumpToMajor('akl')"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Akuntansi &amp; Keuangan Lembaga</a>
-</li>
-<li>
-<a href="index.html#jurusan" onclick="jumpToMajor('mplb')"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Manajemen Perkantoran</a>
-</li>
-<li>
-<a href="index.html#jurusan" onclick="jumpToMajor('ph')"><span aria-hidden="true" class="footer-chevron">›</span>
-                                    Perhotelan &amp; Hospitality</a>
-</li>
-</ul>
-</nav>
-</div>
-<!-- Kolom 4: Identitas Lembaga Resmi -->
-<div class="footer-col">
-<h4>Identitas Lembaga</h4>
-<div class="footer-identity-card">
-<div><strong>NPSN:</strong> 20525597</div>
-<div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
-<div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
-<div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
-<div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
-</div>
-</div>
-</div>
-<div class="footer-bottom">
-<div>
-                    © 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta
-                    dilindungi.
-                </div>
-<div>Created By PPLG • Kompetisi JHIC Jagoan Hosting</div>
-</div>
-</div>
-</footer>
-<!-- AI CHATBOT WIDGET -->
-<button aria-label="Buka Asisten AI" class="chatbot-btn" id="chatbot-toggle">
-<svg class="lucide lucide-message-circle-more-icon lucide-message-circle-more" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
-<path d="M8 12h.01"></path>
-<path d="M12 12h.01"></path>
-<path d="M16 12h.01"></path>
-</svg>
-</button>
-<div class="chat-panel" id="chat-panel">
-<div class="chat-header">
-<span>Asisten AI SMKS MUHI</span>
-<span style="
+                "
+                src="assets/logo.webp"
+                style="max-height: 52px; width: auto; object-fit: contain"
+                width="52"
+              />
+              <div>
+                <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+                <div class="footer-brand-sub">BANYUWANGI • JAWA TIMUR</div>
+              </div>
+            </div>
+            <p class="footer-address">
+              Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
+              Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
+              68465
+            </p>
+            <!-- A. Baris Kontak dengan Inline SVG Stroke -->
+            <ul class="footer-contact-list">
+              <li class="footer-contact-item">
+                <svg
+                  aria-hidden="true"
+                  class="footer-contact-icon"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+                <a class="footer-contact-link" href="tel:0333845605"
+                  >(0333) 845605</a
+                >
+              </li>
+              <li class="footer-contact-item">
+                <svg
+                  aria-hidden="true"
+                  class="footer-contact-icon"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  ></path>
+                </svg>
+                <a
+                  class="footer-contact-link"
+                  href="https://wa.me/6282241356668"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >0822-4135-6668 (WhatsApp)</a
+                >
+              </li>
+              <li class="footer-contact-item">
+                <svg
+                  aria-hidden="true"
+                  class="footer-contact-icon"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a
+                  class="footer-contact-link"
+                  href="mailto:smkmuhi.genteng1968@gmail.com"
+                  >smkmuhi.genteng1968@gmail.com</a
+                >
+              </li>
+            </ul>
+            <!-- C. Media Sosial Monokrom -->
+            <div
+              aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng"
+              class="footer-social-row"
+            >
+              <a
+                aria-label="Instagram SMKS Muhammadiyah 1 Genteng"
+                class="footer-social-btn"
+                href="https://www.instagram.com/smkmuhigts/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <svg aria-hidden="true" viewbox="0 0 24 24">
+                  <rect
+                    fill="none"
+                    height="20"
+                    rx="5"
+                    ry="5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="20"
+                    x="2"
+                    y="2"
+                  ></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  ></path>
+                  <line
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                    x1="17.5"
+                    x2="17.51"
+                    y1="6.5"
+                    y2="6.5"
+                  ></line>
+                </svg>
+              </a>
+              <a
+                aria-label="YouTube SMKS Muhammadiyah 1 Genteng"
+                class="footer-social-btn"
+                href="https://www.youtube.com/@smkmuhigts"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <svg aria-hidden="true" viewbox="0 0 24 24">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  ></path>
+                  <polygon
+                    fill="currentColor"
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                  ></polygon>
+                </svg>
+              </a>
+              <a
+                aria-label="Facebook SMKS Muhammadiyah 1 Genteng"
+                class="footer-social-btn"
+                href="https://www.facebook.com/smkmuhigts"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <svg aria-hidden="true" viewbox="0 0 24 24">
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                aria-label="TikTok SMKS Muhammadiyah 1 Genteng"
+                class="footer-social-btn"
+                href="https://www.tiktok.com/@smkmuhigts"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <svg aria-hidden="true" viewbox="0 0 24 24">
+                  <path
+                    d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- Kolom 2: Halaman Terkait -->
+          <div class="footer-col">
+            <h4>Halaman Terkait</h4>
+            <nav aria-label="Navigasi Halaman Terkait" class="footer-nav">
+              <ul class="footer-links">
+                <li>
+                  <a href="bkk.html"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Bursa Kerja Khusus (BKK)</a
+                  >
+                </li>
+                <li>
+                  <a href="visi-misi.html"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Visi &amp; Misi</a
+                  >
+                </li>
+                <li>
+                  <a href="fasilitas.html"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Fasilitas Sekolah</a
+                  >
+                </li>
+                <li>
+                  <a href="ekstrakurikuler.html"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Ekstrakurikuler &amp; IPM</a
+                  >
+                </li>
+                <li>
+                  <a href="prestasi.html"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Galeri Prestasi</a
+                  >
+                </li>
+                <li>
+                  <a href="berita.html"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Jurnal &amp; Berita</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Kolom 3: 7 Konsentrasi Keahlian -->
+          <div class="footer-col">
+            <h4>7 Konsentrasi</h4>
+            <nav
+              aria-label="Navigasi 7 Konsentrasi Keahlian"
+              class="footer-nav"
+            >
+              <ul class="footer-links">
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('rpl')"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Rekayasa Perangkat Lunak</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('tkj')"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Teknik Komputer &amp; Jaringan</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('dkv')"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Desain Komunikasi Visual</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('bd')"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Bisnis Digital</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('akl')"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Akuntansi &amp; Keuangan Lembaga</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('mplb')"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Manajemen Perkantoran</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('ph')"
+                    ><span aria-hidden="true" class="footer-chevron">›</span>
+                    Perhotelan &amp; Hospitality</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Kolom 4: Identitas Lembaga Resmi -->
+          <div class="footer-col">
+            <h4>Identitas Lembaga</h4>
+            <div class="footer-identity-card">
+              <div><strong>NPSN:</strong> 20525597</div>
+              <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+              <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+              <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+              <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>
+            © 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.
+          </div>
+          <div>Created By PPLG • Kompetisi JHIC Jagoan Hosting</div>
+        </div>
+      </div>
+    </footer>
+    <!-- AI CHATBOT WIDGET -->
+    <button
+      aria-label="Buka Asisten AI"
+      class="chatbot-btn"
+      id="chatbot-toggle"
+    >
+      <svg
+        class="lucide lucide-message-circle-more-icon lucide-message-circle-more"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewbox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+        ></path>
+        <path d="M8 12h.01"></path>
+        <path d="M12 12h.01"></path>
+        <path d="M16 12h.01"></path>
+      </svg>
+    </button>
+    <div class="chat-panel" id="chat-panel">
+      <div class="chat-header">
+        <span>Asisten AI SMKS MUHI</span>
+        <span
+          style="
             font-size: 0.75rem;
             background: rgba(255, 255, 255, 0.2);
             padding: 0.2rem 0.5rem;
             border-radius: 10px;
-          ">Online</span>
-</div>
-<div class="chat-body" id="chat-body">
-<div class="chat-msg bot">
+          "
+          >Online</span
+        >
+      </div>
+      <div class="chat-body" id="chat-body">
+        <div class="chat-msg bot">
           Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
           Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran PPDB,
           sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
         </div>
-</div>
-<div class="chat-quick-pills">
-<button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
+      </div>
+      <div class="chat-quick-pills">
+        <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
           Info Jurusan
         </button>
-<button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">
+        <button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">
           Jadwal PPDB
         </button>
-<button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
+        <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
           LSP-P1 BNSP
         </button>
-<button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
+        <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
           Lowongan BKK
         </button>
-</div>
-<div class="chat-input-bar">
-<input id="chat-input-text" placeholder="Ketik pertanyaan Anda..." type="text"/>
-<button onclick="handleChatSubmit()">Kirim</button>
-</div>
-</div>
-<!-- GSAP CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
+      </div>
+      <div class="chat-input-bar">
+        <input
+          id="chat-input-text"
+          placeholder="Ketik pertanyaan Anda..."
+          type="text"
+        />
+        <button onclick="handleChatSubmit()">Kirim</button>
+      </div>
+    </div>
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
       // AI Chatbot Logic
       const chatbotToggle = document.getElementById("chatbot-toggle");
       const chatPanel = document.getElementById("chat-panel");
@@ -2664,7 +3084,7 @@
         document.getElementById("modal-tag").innerText = data.tag;
         document.getElementById("modal-title").innerText = data.title;
         document.getElementById("modal-desc").innerText = data.desc;
-        
+
         const modalIconImg = document.getElementById("modal-icon-img");
         if (modalIconImg) {
           modalIconImg.src = data.icon;
@@ -2720,8 +3140,8 @@
         }
       });
     </script>
-<!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
-<script>
+    <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
+    <script>
       (function () {
         function initNavigation() {
           var hamburgerBtn =
@@ -2814,5 +3234,5 @@
         }
       })();
     </script>
-</body>
+  </body>
 </html>

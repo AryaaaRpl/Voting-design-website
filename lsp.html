@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSP-P1 — SMKS Muhammadiyah 1 Genteng</title>
+    <title>LSP — SMKS Muhammadiyah 1 Genteng</title>
     <meta name="description"
         content="Lembaga Sertifikasi Profesi Pihak Pertama (LSP-P1) SMKS Muhammadiyah 1 Genteng. Skema sertifikasi, alur asesmen, asesor kompetensi, dan tempat uji kompetensi berlisensi BNSP.">
 
@@ -37,7 +37,44 @@
             --border-light: rgba(30, 64, 175, 0.1);
             --border-dark: rgba(255, 255, 255, 0.12);
 
+            --radius-full: 9999px;
+            --font-head: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.3s ease;
+            --transition-fast: all 0.2s ease;
             --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* High-Impact Interactive Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: var(--transition) !important;
+            letter-spacing: -0.01em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            transition: var(--transition) !important;
+            background: var(--primary);
+            color: #ffffff !important;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            color: #ffffff !important;
         }
 
         * {
@@ -125,7 +162,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: var(--transition);
+            transition: var(--transition) !important;
         }
 
         .nav-island.scrolled {
@@ -148,7 +185,7 @@
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
             transition:
                 transform 0.3s ease,
-                filter 0.3s ease;
+                filter 0.3s ease !important;
         }
 
         .brand-logo:hover {
@@ -190,11 +227,11 @@
             font-weight: 600;
             color: var(--text-dark);
             padding: 0.55rem 0.95rem;
-            border-radius: var(--radius-full);
+            border-radius: 9999px;
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            transition: var(--transition-fast);
+            transition: var(--transition-fast) !important;
         }
 
         .nav-link:hover {
@@ -210,7 +247,7 @@
         /* Dropdown styling */
         .dropdown-menu {
             position: absolute;
-            top: calc(100% + 12px);
+            top: calc(80% + 12px);
             left: 0;
             min-width: 250px;
             background: #ffffff;
@@ -221,7 +258,7 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px) scale(0.98);
-            transition: var(--transition);
+            transition: var(--transition) !important;
             z-index: 100;
         }
 
@@ -240,7 +277,7 @@
             font-size: 0.88rem;
             font-weight: 600;
             color: var(--text-dark);
-            transition: var(--transition-fast);
+            transition: var(--transition-fast) !important;
         }
 
         .dropdown-item:hover,
@@ -280,7 +317,7 @@
             z-index: 1050;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition);
+            transition: var(--transition) !important;
         }
 
         .mobile-overlay.active {
@@ -299,7 +336,7 @@
             z-index: 1100;
             padding: 2rem 1.5rem;
             transform: translateX(100%);
-            transition: var(--transition);
+            transition: var(--transition) !important;
             box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
         }
@@ -320,7 +357,7 @@
         }
 
         .drawer-links a {
-            transition: var(--transition);
+            transition: var(--transition) !important;
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -549,7 +586,7 @@
             gap: 1.2rem;
             align-items: center;
             padding: 1.5rem 1rem 1.5rem 0;
-            transition: background 0.3s, padding 0.3s;
+            transition: background 0.3s, padding 0.3s !important;
             position: relative;
         }
 
@@ -563,7 +600,7 @@
             background: var(--secondary);
             transform: scaleY(0);
             transform-origin: top;
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
         }
 
         .scheme-head:hover {
@@ -633,7 +670,7 @@
             display: grid;
             place-items: center;
             color: var(--primary);
-            transition: transform 0.35s, background 0.25s;
+            transition: transform 0.35s, background 0.25s !important;
             flex-shrink: 0;
         }
 
@@ -774,7 +811,7 @@
             border-radius: 14px;
             overflow: hidden;
             background: #fff;
-            transition: transform 0.25s, box-shadow 0.25s;
+            transition: transform 0.25s, box-shadow 0.25s !important;
         }
 
         .assessor-card:hover {
@@ -845,7 +882,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            transition: border-color 0.25s, transform 0.25s;
+            transition: border-color 0.25s, transform 0.25s !important;
         }
 
         .tuk-card:hover {
@@ -916,7 +953,7 @@
             font-weight: 800;
             font-size: 0.94rem;
             white-space: nowrap;
-            transition: background 0.25s, transform 0.25s;
+            transition: background 0.25s, transform 0.25s !important;
         }
 
         .btn-gold:hover {
@@ -939,72 +976,227 @@
         }
 
         /* ============ FOOTER ============ */
-        .footer {
+        .site-footer {
             background: var(--bg-dark);
             color: var(--text-light);
-            padding: 3.5rem 0 1.8rem;
+            padding: 5.5rem 0 2.5rem;
+            border-top: 1px solid var(--border-dark);
+            position: relative;
             margin-top: 5rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr;
-            gap: 2.5rem;
+            grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
         }
 
-        .footer h4 {
-            font-size: 0.75rem;
+        .footer-col h4,
+        .footer-brand-title {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
             font-weight: 800;
-            letter-spacing: 0.11em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-subtle);
-            margin-bottom: 1rem;
-        }
-
-        .footer a {
-            display: block;
-            padding: 0.35rem 0;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer a:hover {
-            color: var(--secondary-light);
+            margin-bottom: 1.2rem;
         }
 
         .footer-brand-name {
+            color: #ffffff;
+            font-family: var(--font-body);
             font-weight: 800;
-            font-size: 1rem;
-            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
         }
 
         .footer-brand-sub {
-            font-size: 0.78rem;
             color: var(--secondary);
+            font-size: 0.75rem;
             font-weight: 700;
+            text-transform: uppercase;
             letter-spacing: 0.08em;
+            margin-top: 0.2rem;
         }
 
-        .footer-addr {
-            font-size: 0.86rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.8;
-            margin-top: 1rem;
+        .footer-address {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-contact-icon {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-subtle);
+            stroke-width: 1.8;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.2s ease !important;
+        }
+
+        .footer-contact-link:hover {
+            color: var(--secondary-light);
+        }
+
+        .footer-social-row {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            text-decoration: none;
+        }
+
+        .footer-social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.25s ease !important;
+        }
+
+        .footer-social-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary-light);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+        }
+
+        .footer-social-btn:hover svg {
+            transform: scale(1.08);
+        }
+
+        .footer-nav {
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease, transform 0.2s ease !important;
+            min-height: 28px;
+            padding: 0;
+        }
+
+        .footer-chevron {
+            opacity: 0;
+            transform: translateX(-4px);
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.05rem;
+            line-height: 1;
+            transition: opacity 0.2s ease, transform 0.2s ease !important;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(4px);
+        }
+
+        .footer-links a:hover .footer-chevron {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .footer-identity-card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 1.15rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-dark);
+            font-size: 0.85rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-identity-card strong {
+            color: #ffffff;
+            font-weight: 700;
         }
 
         .footer-bottom {
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--border-dark);
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            gap: 1rem;
+            font-size: 0.85rem;
+            color: #78716c;
             flex-wrap: wrap;
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.45);
+            gap: 1rem;
+            margin-top: 0;
         }
 
         /* ============ RESPONSIF ============ */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
         @media (max-width: 980px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -1241,13 +1433,12 @@
 
                 <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
 
-                <a href="lsp.html" class="nav-link">LSP-P1</a>
-                <a href="lsp.html"> LSP-P1</a>
+                <a href="lsp.html" class="nav-link active">LSP</a>
 
-                <a href="bkk.html" class="nav-link">BKK (Bursa Kerja)</a>
+                <a href="bkk.html" class="nav-link">BKK</a>
 
                 <!-- Layanan Siswa (BLUD) -->
-                <a href="index.html#blud" class="nav-link">Layanan Siswa (BLUD)</a>
+                <a href="index.html#blud" class="nav-link">BLUD</a>
 
                 <a href="berita.html" class="nav-link">Berita</a>
                 <a href="index.html#ppdb" class="btn btn-primary"
@@ -1294,8 +1485,7 @@
             <a href="visi-misi.html#sambutan">👤 Sambutan Kepala Sekolah</a>
             <a href="index.html#jurusan">💻 7 Program Keahlian</a>
 
-            <a href="lsp.html" class="nav-link">LSP-P1</a>
-            <a href="lsp.html"> LSP-P1</a>
+            <a href="lsp.html" class="nav-link">LSP</a>
             <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
 
             <div style="margin-top: 1.5rem">
@@ -1309,7 +1499,7 @@
     <header class="page-header">
         <div class="container">
             <span class="eyebrow">Lembaga Sertifikasi Profesi</span>
-            <h1 class="page-title">LSP-P1 <em>SMKS Muhammadiyah 1 Genteng.</em></h1>
+            <h1 class="page-title">LSP <em>SMKS Muhammadiyah 1 Genteng.</em></h1>
             <p class="page-lead">
                 Lembaga Sertifikasi Profesi Pihak Pertama yang menyelenggarakan uji kompetensi
                 bagi peserta didik. Lulusan tidak hanya membawa ijazah, tetapi juga sertifikat
