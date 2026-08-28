@@ -429,7 +429,6 @@
     .ekskul-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: minmax(320px, auto);
       gap: 2rem;
     }
 
@@ -444,6 +443,8 @@
       cursor: pointer;
       box-shadow: var(--shadow-card);
       transition: var(--transition);
+      /* Rasio tetap 4:5 -> semua kartu berukuran identik */
+      aspect-ratio: 4 / 5;
     }
 
     .ekskul-card:hover {
@@ -452,14 +453,13 @@
       box-shadow: var(--shadow-card-hover);
     }
 
-    .ekskul-card.featured {
-      grid-column: span 2;
-      grid-row: span 2;
-      min-height: 520px;
-    }
-
+    /* Kelas featured & tall dinetralkan agar seluruh kartu seragam.
+       Kelasnya dibiarkan di markup untuk kompatibilitas. */
+    .ekskul-card.featured,
     .ekskul-card.tall {
-      grid-row: span 2;
+      grid-column: auto;
+      grid-row: auto;
+      min-height: 0;
     }
 
     .card-bg {
@@ -493,12 +493,7 @@
           rgba(15, 23, 42, 0.6) 60%,
           rgba(15, 23, 42, 0) 100%);
       color: #ffffff;
-      transform: translateY(25px);
-      transition: transform 0.4s ease;
-    }
-
-    .ekskul-card:hover .card-content {
-      transform: translateY(0);
+      /* Tidak digeser lagi karena deskripsi sudah tampil permanen */
     }
 
     .tag {
@@ -525,40 +520,221 @@
       color: #ffffff;
     }
 
+    /* Ukuran judul disamakan untuk seluruh kartu */
     .featured .card-title {
-      font-size: 2.3rem;
+      font-size: 1.5rem;
     }
 
+    /* Deskripsi selalu tampil: informasi tidak boleh bergantung hover
+       (hover tidak ada di perangkat sentuh). Dibatasi 3 baris agar
+       tinggi kartu tetap seragam. */
     .card-desc {
-      font-size: 0.95rem;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition:
-        opacity 0.4s ease,
-        max-height 0.4s ease;
-      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+      margin-top: 0.7rem;
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.6;
-    }
-
-    .ekskul-card:hover .card-desc {
-      opacity: 1;
-      max-height: 160px;
-      margin-top: 0.8rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .card-action {
-      margin-top: 1.2rem;
+      margin-top: 1rem;
       display: inline-block;
       font-weight: 700;
       font-size: 0.9rem;
       color: var(--secondary-light);
-      opacity: 0;
-      transition: opacity 0.4s;
+      transition: var(--transition);
     }
 
     .ekskul-card:hover .card-action {
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    /* ==========================================================================
+           MODAL EKSTRAKURIKULER
+           ========================================================================== */
+    .ekskul-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 1.5rem;
+    }
+
+    .ekskul-modal-overlay.active {
       opacity: 1;
+      visibility: visible;
+    }
+
+    .ekskul-modal-content {
+      background: #ffffff;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 800px;
+      max-height: 85dvh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .ekskul-modal-overlay.active .ekskul-modal-content {
+      transform: translateY(0);
+    }
+
+    .ekskul-modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .ekskul-modal-close:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .ekskul-modal-hero {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ekskul-modal-body {
+      padding: 2.5rem;
+    }
+
+    .ekskul-modal-badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: var(--primary-surface);
+      color: var(--primary-dark);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .ekskul-modal-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      color: var(--primary-dark);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .ekskul-modal-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .ekskul-modal-desc p {
+      margin-bottom: 1rem;
+    }
+
+    .ekskul-modal-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      background: var(--bg-alt);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .info-grid-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .info-grid-label {
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .info-grid-value {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .ekskul-modal-achievements {
+      margin-bottom: 1rem;
+    }
+
+    .ekskul-modal-achievements h4 {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .ekskul-modal-achievements ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .ekskul-modal-achievements li {
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .ekskul-modal-achievements li::before {
+      content: '🏆';
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 560px) {
+      .ekskul-modal-body {
+        padding: 1.5rem;
+      }
+
+      .ekskul-modal-info-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ==========================================================================
@@ -961,14 +1137,11 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .ekskul-card.featured {
-        grid-column: span 2;
-        grid-row: span 1;
-        min-height: 400px;
-      }
-
+      .ekskul-card.featured,
       .ekskul-card.tall {
-        grid-row: span 1;
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 0;
       }
     }
 
@@ -977,8 +1150,10 @@
         grid-template-columns: 1fr;
       }
 
-      .ekskul-card.featured {
-        grid-column: span 1;
+      .ekskul-card.featured,
+      .ekskul-card.tall {
+        grid-column: auto;
+        grid-row: auto;
       }
 
       .page-title {
@@ -990,18 +1165,8 @@
       }
 
       .card-content {
-        transform: translateY(0);
+        padding: 1.5rem;
         background: rgba(15, 23, 42, 0.9);
-      }
-
-      .card-desc {
-        opacity: 1;
-        max-height: none;
-        margin-top: 0.8rem;
-      }
-
-      .card-action {
-        opacity: 1;
       }
 
       .footer-grid {
@@ -1388,10 +1553,11 @@
         <a href="index.html#blud" class="nav-link">BLUD</a>
 
         <a href="berita.html" class="nav-link">Berita</a>
-        <a href="index.html#spmb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar SPMB</a>
+        <a href="spmb.html" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar
+          SPMB</a>
       </div>
 
-      <a href="index.html#spmb" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
+      <a href="spmb.html" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
       <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">
         ☰
       </button>
@@ -1433,7 +1599,7 @@
       <a href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
 
       <div style="margin-top: 1.5rem">
-        <a href="index.html#spmb" class="btn btn-primary"
+        <a href="spmb.html" class="btn btn-primary"
           style="width: 100%; text-align: center; justify-content: center">Daftar SPMB 2026</a>
       </div>
     </div>
@@ -1442,7 +1608,7 @@
   <!-- 2. PAGE HEADER -->
   <header class="page-header">
     <div class="container reveal-item">
-      <span class="badge">🌟 Pengembangan Karakter & Minat</span>
+      <span class="badge">Pengembangan Karakter & Minat</span>
       <h1 class="page-title">
         Membentuk Karakter,<br />Mengasah Talenta Juara.
       </h1>
@@ -1458,14 +1624,9 @@
   <section class="ekskul-section container" data-px-stage="light">
     <div class="ekskul-grid">
       <!-- 1. Hizbul Wathan -->
-      <div class="ekskul-card featured reveal-item">
-        <div class="card-bg" style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "></div>
+      <div class="ekskul-card featured reveal-item" role="button" tabindex="0" onclick="openEkskulModal('hw')" onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openEkskulModal('hw'); }">
+        <!-- GAMBAR SEMENTARA (Akan diganti dengan dokumentasi asli) -->
+        <div class="card-bg" style="background-image: url('assets/ekskul/hw.webp');"></div>
         <div class="card-content">
           <span class="tag">Kepanduan Islami Wajib</span>
           <h2 class="card-title">Hizbul Wathan (HW)</h2>
@@ -1475,19 +1636,14 @@
             kemandirian, dan nilai-nilai Islami berwawasan kemanusiaan
             universal.
           </div>
-          <span class="card-action">Lihat Galeri Kegiatan &rarr;</span>
+          <span class="card-action">Lihat Detail Program &rarr;</span>
         </div>
       </div>
 
       <!-- 2. Paskibra -->
-      <div class="ekskul-card tall reveal-item">
-        <div class="card-bg" style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "></div>
+      <div class="ekskul-card tall reveal-item" role="button" tabindex="0" onclick="openEkskulModal('paskibra')" onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openEkskulModal('paskibra'); }">
+        <!-- GAMBAR SEMENTARA (Akan diganti dengan dokumentasi asli) -->
+        <div class="card-bg" style="background-image: url('assets/ekskul/paskibra.webp');"></div>
         <div class="card-content">
           <span class="tag">Kedisiplinan & Patriotisme</span>
           <h2 class="card-title">Paskibra Pasukan Inti</h2>
@@ -1500,14 +1656,9 @@
       </div>
 
       <!-- 3. Pencak Silat Tapak Suci -->
-      <div class="ekskul-card reveal-item">
-        <div class="card-bg" style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "></div>
+      <div class="ekskul-card reveal-item" role="button" tabindex="0" onclick="openEkskulModal('silat')" onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openEkskulModal('silat'); }">
+        <!-- GAMBAR SEMENTARA (Akan diganti dengan dokumentasi asli) -->
+        <div class="card-bg" style="background-image: url('assets/ekskul/silat.webp');"></div>
         <div class="card-content">
           <span class="tag">Seni Bela Diri Tradisi</span>
           <h2 class="card-title">Pencak Silat Tapak Suci</h2>
@@ -1520,14 +1671,9 @@
       </div>
 
       <!-- 4. Pramuka -->
-      <div class="ekskul-card reveal-item">
-        <div class="card-bg" style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "></div>
+      <div class="ekskul-card reveal-item" role="button" tabindex="0" onclick="openEkskulModal('pramuka')" onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openEkskulModal('pramuka'); }">
+        <!-- GAMBAR SEMENTARA (Akan diganti dengan dokumentasi asli) -->
+        <div class="card-bg" style="background-image: url('assets/ekskul/pramuka.webp');"></div>
         <div class="card-content">
           <span class="tag">Kepanduan Penegak</span>
           <h2 class="card-title">Gerakan Pramuka</h2>
@@ -1540,14 +1686,9 @@
       </div>
 
       <!-- 5. PMR (Palang Merah Remaja) -->
-      <div class="ekskul-card reveal-item">
-        <div class="card-bg" style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "></div>
+      <div class="ekskul-card reveal-item" role="button" tabindex="0" onclick="openEkskulModal('pmr')" onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openEkskulModal('pmr'); }">
+        <!-- GAMBAR SEMENTARA (Akan diganti dengan dokumentasi asli) -->
+        <div class="card-bg" style="background-image: url('assets/ekskul/pmr.webp');"></div>
         <div class="card-content">
           <span class="tag">Kesehatan & Kemanusiaan</span>
           <h2 class="card-title">PMR Wira Unit SMEMSA</h2>
@@ -1560,14 +1701,9 @@
       </div>
 
       <!-- 6. Klub Olahraga -->
-      <div class="ekskul-card reveal-item">
-        <div class="card-bg" style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "></div>
+      <div class="ekskul-card reveal-item" role="button" tabindex="0" onclick="openEkskulModal('olahraga')" onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openEkskulModal('olahraga'); }">
+        <!-- GAMBAR SEMENTARA (Akan diganti dengan dokumentasi asli) -->
+        <div class="card-bg" style="background-image: url('assets/ekskul/olahraga.webp');"></div>
         <div class="card-content">
           <span class="tag">Prestasi Atletik</span>
           <h2 class="card-title">Klub Olahraga Terpadu</h2>
@@ -2086,7 +2222,231 @@
     })();
   </script>
 
-  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <!-- MODAL EKSTRAKURIKULER -->
+  <div class="ekskul-modal-overlay" id="ekskul-modal" onclick="if(event.target===this) closeEkskulModal()">
+    <div class="ekskul-modal-content" role="dialog" aria-modal="true" data-lenis-prevent>
+      <button class="ekskul-modal-close" onclick="closeEkskulModal()" aria-label="Tutup modal">&times;</button>
+      <img src="" alt="" class="ekskul-modal-hero" id="modal-hero">
+      <div class="ekskul-modal-body">
+        <span class="ekskul-modal-badge" id="modal-badge"></span>
+        <h2 class="ekskul-modal-title" id="modal-title"></h2>
+        <div class="ekskul-modal-desc" id="modal-desc"></div>
+        
+        <div class="ekskul-modal-info-grid" id="modal-info-grid">
+          <!-- Diisi dinamis -->
+        </div>
+
+        <div class="ekskul-modal-achievements" id="modal-achievements" style="display:none;">
+          <h4>Prestasi & Penghargaan</h4>
+          <ul id="modal-achievements-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LENIS SMOOTH SCROLLING -->
+  <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+
+  <script>
+    /* ==========================================================================
+       1. DATA & LOGIKA MODAL EKSTRAKURIKULER
+       ========================================================================== */
+    const EKSKUL_DATA = {
+      'hw': {
+        img: 'assets/ekskul/hw.webp',
+        badge: 'Kepanduan Islami Wajib',
+        title: 'Hizbul Wathan (HW)',
+        desc: '<p>Gerakan Kepanduan Hizbul Wathan (HW) Kafilah SMKS Muhammadiyah 1 Genteng merupakan ekstrakurikuler wajib yang menanamkan kedisiplinan, kemandirian, serta nilai-nilai keislaman yang berwawasan kemanusiaan universal.</p><p>Melalui kegiatan kepanduan seperti perkemahan, penjelajahan alam, dan keterampilan pioneering, peserta didik dilatih untuk memiliki fisik yang kuat, mental yang tangguh, serta jiwa kepemimpinan yang berakhlak mulia.</p>',
+        jadwal: 'Jumat, 13:00 - 15:00 WIB',
+        pembina: 'Ust. Ramanda Hidayat, S.Pd',
+        tempat: 'Lapangan Utama & Halaman Sekolah',
+        kelas: 'Wajib Kelas X & Pilihan Kelas XI'
+      },
+      'paskibra': {
+        img: 'assets/ekskul/paskibra.webp',
+        badge: 'Kedisiplinan & Patriotisme',
+        title: 'Paskibra Pasukan Inti',
+        desc: '<p>Pasukan Pengibar Bendera (Paskibra) merupakan ekstrakurikuler unggulan yang bertujuan menanamkan kedisiplinan tingkat tinggi, ketahanan mental, serta rasa tanggung jawab dan cinta tanah air.</p><p>Anggota Paskibra dilatih secara intensif dalam hal Peraturan Baris Berbaris (PBB) formasi presisi, tata upacara bendera, serta etika kepemimpinan. Tim Paskibra selalu menjadi garda terdepan dalam setiap upacara peringatan hari besar nasional di sekolah maupun tingkat kecamatan.</p>',
+        jadwal: 'Selasa & Kamis, 15:30 WIB',
+        pembina: 'Bpk. Letda (Purn) Sudirman',
+        tempat: 'Lapangan Utama SMEMSA',
+        kelas: 'Semua Tingkat (Seleksi)'
+      },
+      'silat': {
+        img: 'assets/ekskul/silat.webp',
+        badge: 'Seni Bela Diri Tradisi',
+        title: 'Pencak Silat Tapak Suci',
+        desc: '<p>Perguruan Seni Bela Diri Indonesia Tapak Suci Putera Muhammadiyah adalah organisasi pencak silat resmi yang mengajarkan keahlian jurus tradisional, pertahanan diri yang efektif, dan penguatan aqidah Islam.</p><p>Dengan moto "Dengan Iman dan Akhlak saya menjadi kuat, tanpa Iman dan Akhlak saya menjadi lemah", anggota diajarkan sportivitas, keberanian, serta pembentukan karakter ksatria. Tapak Suci SMEMSA rutin mengikuti dan memenangkan berbagai kejuaraan baik tingkat regional maupun nasional.</p>',
+        jadwal: 'Rabu & Sabtu, 15:30 WIB',
+        pembina: 'Pendekar Muda Surya Nata',
+        tempat: 'Aula Terbuka SMEMSA',
+        kelas: 'Terbuka Untuk Umum',
+        prestasi: [
+          'Juara Umum 1 Kejurda Tapak Suci Banyuwangi 2025',
+          'Medali Emas O2SN Tingkat Provinsi Jawa Timur',
+          'Juara 2 Kategori Tanding Kelas C Remaja'
+        ]
+      },
+      'pramuka': {
+        img: 'assets/ekskul/pramuka.webp',
+        badge: 'Kepanduan Penegak',
+        title: 'Gerakan Pramuka',
+        desc: '<p>Ekstrakurikuler Pramuka fokus pada pembinaan karakter mandiri, kepemimpinan regu, serta kecakapan hidup (life skills). Kegiatannya meliputi survival di alam bebas, pioneering, semaphore, dan navigasi darat.</p><p>Selain keterampilan teknis kepramukaan, anggota juga aktif dalam kegiatan pengabdian masyarakat, bakti sosial, dan penanggulangan bencana ringan, membentuk generasi muda yang tanggap, tangguh, dan peduli sesama.</p>',
+        jadwal: 'Sabtu, 14:00 - 16:30 WIB',
+        pembina: 'Kak Budi Santoso, S.Pd',
+        tempat: 'Pangkalan SMEMSA',
+        kelas: 'Kelas X & XI'
+      },
+      'pmr': {
+        img: 'assets/ekskul/pmr.webp',
+        badge: 'Kesehatan & Kemanusiaan',
+        title: 'PMR Wira Unit SMEMSA',
+        desc: '<p>Palang Merah Remaja (PMR) Wira adalah wadah pembinaan generasi muda di bidang kesehatan dan kemanusiaan. Anggota dilatih secara profesional mengenai Pertolongan Pertama Pada Kecelakaan (P3K), perawatan keluarga, hingga evakuasi medis dasar.</p><p>PMR SMEMSA aktif menyelenggarakan donor darah rutin bekerja sama dengan PMI Banyuwangi, serta menjadi tim medis siaga dalam setiap kegiatan besar sekolah maupun perlombaan olahraga antar pelajar.</p>',
+        jadwal: 'Senin, 15:30 WIB',
+        pembina: 'Ibu Ratna Medika, S.Kep',
+        tempat: 'UKS & Ruang Teori',
+        kelas: 'Terbuka Untuk Umum',
+        prestasi: [
+          'Juara 1 Lomba Pertolongan Pertama Tingkat Wira Banyuwangi',
+          'Penghargaan Unit PMR Teraktif 2024'
+        ]
+      },
+      'olahraga': {
+        img: 'assets/ekskul/olahraga.webp',
+        badge: 'Prestasi Atletik',
+        title: 'Klub Olahraga Terpadu',
+        desc: '<p>Klub Olahraga Terpadu mewadahi berbagai talenta peserta didik di bidang olahraga, meliputi Futsal, Bola Voli, Bola Basket, hingga cabang modern seperti E-Sports.</p><p>Dengan fasilitas lapangan berstandar dan pelatih berpengalaman, klub ini tidak hanya berfokus pada kebugaran fisik dan teknik permainan, tetapi juga pembentukan mental juara, kerja sama tim (teamwork), dan sportivitas untuk berlaga di kejuaraan tingkat pelajar maupun umum.</p>',
+        jadwal: 'Menyesuaikan Cabang Olahraga',
+        pembina: 'Tim Guru Penjasorkes',
+        tempat: 'Fasilitas Olahraga SMEMSA',
+        kelas: 'Semua Tingkat (Seleksi)'
+      }
+    };
+
+    function openEkskulModal(id) {
+      const data = EKSKUL_DATA[id];
+      if (!data) return;
+
+      document.getElementById('modal-hero').src = data.img;
+      document.getElementById('modal-badge').textContent = data.badge;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-desc').innerHTML = data.desc;
+
+      const infoGrid = document.getElementById('modal-info-grid');
+      infoGrid.innerHTML = '';
+      
+      const addInfo = (label, value) => {
+        if (!value) return;
+        const div = document.createElement('div');
+        div.className = 'info-grid-item';
+        div.innerHTML = `<span class="info-grid-label">${label}</span><span class="info-grid-value">${value}</span>`;
+        infoGrid.appendChild(div);
+      };
+
+      addInfo('Jadwal Latihan', data.jadwal);
+      addInfo('Pembina', data.pembina);
+      addInfo('Tempat Latihan', data.tempat);
+      addInfo('Terbuka Untuk', data.kelas);
+
+      const achvDiv = document.getElementById('modal-achievements');
+      const achvList = document.getElementById('modal-achievements-list');
+      
+      if (data.prestasi && data.prestasi.length > 0) {
+        achvDiv.style.display = 'block';
+        achvList.innerHTML = data.prestasi.map(p => `<li>${p}</li>`).join('');
+      } else {
+        achvDiv.style.display = 'none';
+        achvList.innerHTML = '';
+      }
+
+      document.body.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
+      document.getElementById('ekskul-modal').classList.add('active');
+    }
+
+    function closeEkskulModal() {
+      document.getElementById('ekskul-modal').classList.remove('active');
+      document.body.style.overflow = '';
+      if (window.lenis) window.lenis.start();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('ekskul-modal').classList.contains('active')) {
+        closeEkskulModal();
+      }
+    });
+
+    /* ==========================================================================
+       2. INSISIALISASI UMUM (LENIS, DLL)
+       ========================================================================== */
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+    window.lenis = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Animasi Reveal saat scroll
+    const revealItems = document.querySelectorAll(".reveal-item");
+    function reveal() {
+      const windowHeight = window.innerHeight;
+      const elementVisible = 100;
+      revealItems.forEach((item) => {
+        const elementTop = item.getBoundingClientRect().top;
+        if (elementTop < windowHeight - elementVisible) {
+          item.classList.add("active");
+        }
+      });
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Toggle Navigasi Mobile
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mobileDrawer = document.getElementById("mobile-drawer");
+    const mobileOverlay = document.getElementById("mobile-overlay");
+    const drawerCloseBtn = document.getElementById("drawer-close-btn");
+
+    function openMobileMenu() {
+      mobileDrawer.classList.add("active");
+      mobileOverlay.classList.add("active");
+      hamburgerBtn.setAttribute("aria-expanded", "true");
+      if (window.lenis) window.lenis.stop();
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMobileMenu() {
+      mobileDrawer.classList.remove("active");
+      mobileOverlay.classList.remove("active");
+      hamburgerBtn.setAttribute("aria-expanded", "false");
+      if (window.lenis) window.lenis.start();
+      document.body.style.overflow = "";
+    }
+
+    hamburgerBtn.addEventListener("click", openMobileMenu);
+    drawerCloseBtn.addEventListener("click", closeMobileMenu);
+    mobileOverlay.addEventListener("click", closeMobileMenu);
+
+    // Tutup mobile drawer saat klik link anchor
+    const mobileLinks = document.querySelectorAll(".mobile-drawer a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+  </script>
+
   <script>
     window.PX_CONFIG = { cards: ".ekskul-card" };
   </script>

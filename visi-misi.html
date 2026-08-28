@@ -1,1785 +1,1673 @@
 <!doctype html>
 
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Visi &amp; Misi - SMKS Muhammadiyah 1 Genteng</title>
-    <!-- Modern Typography: Plus Jakarta Sans -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      /* DESIGN TOKENS - SMEMSA BLUE & AMBER */
-      :root {
-        --primary: #1e40af;
-        --primary-light: #2563eb;
-        --primary-dark: #16296b;
-        --primary-surface: rgba(30, 64, 175, 0.06);
-        --primary-glow: rgba(30, 64, 175, 0.2);
 
-        --secondary: #eab308;
-        --secondary-light: #facc15;
-        --secondary-surface: rgba(234, 179, 8, 0.1);
-        --secondary-glow: rgba(234, 179, 8, 0.25);
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Visi &amp; Misi - SMKS Muhammadiyah 1 Genteng</title>
+  <!-- Modern Typography: Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    /* DESIGN TOKENS - SMEMSA BLUE & AMBER */
+    :root {
+      --primary: #1e40af;
+      --primary-light: #2563eb;
+      --primary-dark: #16296b;
+      --primary-surface: rgba(30, 64, 175, 0.06);
+      --primary-glow: rgba(30, 64, 175, 0.2);
 
-        --bg-main: #ffffff;
-        --bg-alt: #f8fafc;
-        --bg-dark: #0f172a;
-        --text-dark: #0f172a;
-        --text-muted: #64748b;
-        --text-subtle: #94a3b8;
-        --border-card: #e2e8f0;
-        --border: #e2e8f0;
-        --border-dark: #263559;
+      --secondary: #eab308;
+      --secondary-light: #facc15;
+      --secondary-surface: rgba(234, 179, 8, 0.1);
+      --secondary-glow: rgba(234, 179, 8, 0.25);
 
-        --radius-xs: 4px;
-        --radius-sm: 8px;
-        --radius: 12px;
-        --radius-lg: 16px;
-        --radius-xl: 20px;
-        --radius-full: 9999px;
+      --bg-main: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-dark: #0f172a;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --border-card: #e2e8f0;
+      --border: #e2e8f0;
+      --border-dark: #263559;
 
-        --font-display: "Plus Jakarta Sans", sans-serif;
-        --font-head: "Plus Jakarta Sans", sans-serif;
-        --font-body: "Plus Jakarta Sans", sans-serif;
-        --transition: all 0.3s ease;
-        --transition-fast: all 0.2s ease;
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+
+      --font-display: "Plus Jakarta Sans", sans-serif;
+      --font-head: "Plus Jakarta Sans", sans-serif;
+      --font-body: "Plus Jakarta Sans", sans-serif;
+      --transition: all 0.3s ease;
+      --transition-fast: all 0.2s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-head {
+      font-family: var(--font-head);
+      font-weight: 800;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* UTILITIES */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .section-padding {
+      padding: 6rem 0;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .bg-alt {
+      background-color: var(--bg-alt);
+    }
+
+    /* 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 */
+    .header-wrapper {
+      position: fixed;
+      border-radius: 50px;
+      top: 1rem;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 90%;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .nav-island {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .nav-island.scrolled {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-logo {
+      width: auto;
+      max-width: 180px;
+      height: auto;
+      max-height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+      transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+    }
+
+    .brand-logo:hover {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      font-family: var(--font-head);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-surface);
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      position: absolute;
+      top: calc(80% + 12px);
+      left: 0;
+      min-width: 250px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 0.6rem;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px) scale(0.98);
+      transition: var(--transition);
+      z-index: 100;
+    }
+
+    .nav-item:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: var(--transition-fast);
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item.active {
+      background: var(--primary-surface);
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .dropdown-icon {
+      font-size: 1.1rem;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 58, 138, 0.06);
+      border-radius: var(--radius-xs);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%);
+      color: #ffffff;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.88rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
+    }
+
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--primary);
+      cursor: pointer;
+      padding: 0.3rem;
+    }
+
+    /* Mobile Drawer */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 16, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: #ffffff;
+      z-index: 1100;
+      padding: 2rem 1.5rem;
+      transform: translateX(100%);
+      transition: var(--transition);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.active {
+      transform: translateX(0);
+    }
+
+    .drawer-close {
+      background: var(--bg-alt);
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+    }
+
+    .drawer-links a {
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .drawer-links a:hover,
+    .drawer-links a.active {
+      background: var(--primary-surface);
+      color: var(--primary);
+    }
+
+    .drawer-section-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 1.2rem 0 0.5rem 0.5rem;
+    }
+
+    /* 2. PAGE HEADER */
+    .page-header {
+      padding: 12.5rem 5%;
+      background: linear-gradient(to bottom, #e7e5e433, var(--bg-main));
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-bg-pattern {
+      position: absolute;
+      right: -5%;
+      top: 10%;
+      width: 400px;
+      height: 400px;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .page-title {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    /* 3. VISI SECTION */
+    .visi-section {
+      padding: 8rem 0;
+      position: relative;
+    }
+
+    .visi-label {
+      font-family: var(--font-head);
+      color: var(--secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .visi-statement {
+      font-size: 3rem;
+      font-family: var(--font-head);
+      color: var(--primary);
+      line-height: 1.3;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: -2rem;
+      left: -2rem;
+      font-size: 10rem;
+      font-family: var(--font-head);
+      color: var(--secondary);
+      opacity: 0.1;
+      line-height: 1;
+      z-index: 1;
+    }
+
+    /* 4. MISI SECTION */
+    .misi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .misi-item {
+      position: relative;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .misi-number {
+      position: absolute;
+      top: -1.5rem;
+      left: 0;
+      font-size: 3rem;
+      font-family: var(--font-head);
+      color: var(--bg-alt);
+      -webkit-text-stroke: 1px var(--primary);
+      font-weight: 700;
+    }
+
+    .misi-text {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    /* 5. TUJUAN SECTION (INTERAKSI TIMELINE BOX CONCEPT) */
+    .tujuan-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .tujuan-box {
+      position: relative;
+      padding-left: 2.2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .tujuan-progress-line {
+      position: absolute;
+      left: 6px;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      background: rgba(30, 64, 175, 0.12);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .tujuan-progress-bar {
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(to bottom,
+          var(--secondary) 0%,
+          var(--primary) 100%);
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+      transition: height 0.1s linear;
+    }
+
+    .tujuan-card {
+      position: relative;
+      background: #ffffff;
+      padding: 1.75rem 2rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-card);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 1.75rem;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: left center;
+    }
+
+    .tujuan-card:hover {
+      border-color: var(--primary);
+      transform: translateX(8px) scale(1.01);
+      box-shadow: 0 14px 30px rgba(30, 64, 175, 0.1);
+    }
+
+    .tujuan-card::before {
+      content: "";
+      position: absolute;
+      left: -2.85rem;
+      top: 2rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3.5px solid var(--secondary);
+      box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
+      transition: all 0.3s;
+      z-index: 3;
+    }
+
+    .tujuan-card:hover::before {
+      background: var(--secondary);
+      transform: scale(1.2);
+      box-shadow: 0 0 0 6px rgba(234, 179, 8, 0.35);
+    }
+
+    .tujuan-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--secondary-surface);
+      border: 1px solid var(--secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-weight: 800;
+      flex-shrink: 0;
+      font-family: var(--font-head);
+    }
+
+    /* 6. KONSENTRASI KEAHLIAN (EX-SIDEBAR) */
+    .majors-section {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .majors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .major-chip {
+      padding: 0.75rem 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      background: white;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .major-chip-img-wrapper {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(241, 245, 249, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      flex-shrink: 0;
+      transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+    }
+
+    .major-chip-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .major-chip:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(6, 78, 59, 0.15);
+    }
+
+    .major-chip:hover .major-chip-img-wrapper {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    /* 7. INTERACTIVE DETAIL MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 16, 0.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 2000 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .major-modal-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
+      transform: scale(0.92) translateY(20px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+    }
+
+    /* Custom Sleek Scrollbar */
+    .major-modal-card::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .major-modal-card::-webkit-scrollbar-track {
+      background: rgba(6, 78, 59, 0.04);
+      border-radius: 0 24px 24px 0;
+      margin: 12px 0;
+    }
+
+    .major-modal-card::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom,
+          var(--secondary),
+          var(--primary));
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    .major-modal-card::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    .modal-overlay.active .major-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-banner {
+      height: 190px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%);
+    }
+
+    .modal-banner-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+      animation: modalFloat 3s ease-in-out infinite;
+    }
+
+    .modal-banner-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @keyframes modalFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px);
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    .modal-close-btn:hover {
+      background: #ffffff;
+      color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 2.2rem;
+    }
+
+    .modal-tag {
+      font-family: var(--font-head);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .modal-title {
+      font-family: var(--font-head);
+      font-size: 1.85rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .modal-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+
+    .modal-skills-box {
+      margin-bottom: 1.8rem;
+    }
+
+    .modal-section-title {
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .modal-skill-chip {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .modal-career-box {
+      background: rgba(6, 78, 59, 0.05);
+      border: 1px solid rgba(6, 78, 59, 0.12);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .modal-career-text {
+      font-size: 0.92rem;
+      color: var(--primary);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .modal-footer-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    /* GSAP Prep */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* ==========================================================================
+           FOOTER (PERSIS INDEX.HTML)
+           ========================================================================== */
+    .site-footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 5.5rem 0 2.5rem;
+      border-top: 1px solid var(--border-dark);
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4,
+    .footer-brand-title {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-brand-name {
+      color: #ffffff;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-brand-sub {
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .footer-address {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-contact-icon {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-subtle);
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-link {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-link:hover {
+      color: var(--secondary-light);
+    }
+
+    .footer-social-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .footer-social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: transform 0.25s ease;
+    }
+
+    .footer-social-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary-light);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+    }
+
+    .footer-social-btn:hover svg {
+      transform: scale(1.08);
+    }
+
+    .footer-nav {
+      display: block;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 0;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+      min-height: 28px;
+    }
+
+    .footer-chevron {
+      opacity: 0;
+      transform: translateX(-4px);
+      color: var(--secondary);
+      font-weight: bold;
+      font-size: 1.05rem;
+      line-height: 1;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-light);
+      transform: translateX(4px);
+    }
+
+    .footer-links a:hover .footer-chevron {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .footer-identity-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1.15rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-dark);
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-identity-card strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #78716c;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* AI Chatbot Widget */
+    .chatbot-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .chatbot-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .chat-panel {
+      position: fixed;
+      bottom: 6.5rem;
+      right: 2rem;
+      width: 360px;
+      max-width: 90vw;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.95);
+      transition: var(--transition);
+    }
+
+    .chat-panel.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .chat-header {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-head);
+      font-weight: 700;
+    }
+
+    .chat-body {
+      height: 280px;
+      padding: 1.2rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      background: var(--bg-alt);
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
+    }
+
+    .chat-body::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .chat-body::-webkit-scrollbar-track {
+      background: rgba(30, 58, 138, 0.03);
+    }
+
+    .chat-body::-webkit-scrollbar-thumb {
+      background: var(--primary-light);
+      border-radius: 10px;
+    }
+
+    .chat-msg {
+      max-width: 82%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .chat-msg.bot {
+      background: #ffffff;
+      color: var(--text-dark);
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      align-self: flex-start;
+    }
+
+    .chat-msg.user {
+      background: var(--primary);
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+      align-self: flex-end;
+    }
+
+    .chat-quick-pills {
+      padding: 0.6rem 1rem;
+      background: #ffffff;
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .chat-pill {
+      background: var(--primary-surface);
+      color: var(--primary);
+      border: none;
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .chat-input-bar {
+      padding: 0.8rem 1rem;
+      background: #ffffff;
+      display: flex;
+      gap: 0.5rem;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .chat-input-bar input {
+      flex: 1;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-full);
+      padding: 0.55rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .chat-input-bar button {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.5rem;
       }
 
-      body {
-        font-family: var(--font-body);
-        background-color: var(--bg-main);
-        color: var(--text-dark);
-        line-height: 1.7;
-        overflow-x: hidden;
+      .visi-statement {
+        font-size: 2rem;
       }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      .font-head {
-        font-family: var(--font-head);
-        font-weight: 800;
+      .misi-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
       }
 
-      a {
-        text-decoration: none;
-        color: inherit;
+      .tujuan-card {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
       }
 
-      ul {
-        list-style: none;
+      .nav-links {
+        display: none;
       }
 
-      /* UTILITIES */
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* General Mobile Responsiveness (H) */
+    @media (max-width: 768px) {
       .container {
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0 5%;
+        padding: 0 20px !important;
       }
 
-      .section-padding {
-        padding: 6rem 0;
+      html,
+      body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
       }
 
-      .text-center {
-        text-align: center;
-      }
-
-      .bg-alt {
-        background-color: var(--bg-alt);
-      }
-
-      /* 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 */
       .header-wrapper {
-        position: fixed;
-        border-radius: 50px;
-        top: 1rem;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 90%;
-        z-index: 1000;
-        background: #ffffff;
-        border-bottom: 1px solid var(--border-card);
+        top: 0.5rem;
+        width: calc(100% - 20px);
+        border-radius: 20px;
       }
 
       .nav-island {
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 1rem 5%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition: var(--transition);
-      }
-
-      .nav-island.scrolled {
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-      }
-
-      .brand-box {
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
+        padding: 0.6rem 1rem !important;
       }
 
       .brand-logo {
-        width: auto;
-        max-width: 180px;
-        height: auto;
-        max-height: 60px;
-        object-fit: contain;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-        transition:
-          transform 0.3s ease,
-          filter 0.3s ease;
-      }
-
-      .brand-logo:hover {
-        transform: translateY(-2px);
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+        max-height: 42px;
+        max-width: 130px;
       }
 
       .nav-menu {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .nav-item {
-        position: relative;
-      }
-
-      .nav-link {
-        font-family: var(--font-head);
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        padding: 0.55rem 0.95rem;
-        border-radius: var(--radius-full);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        transition: var(--transition-fast);
-      }
-
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--primary);
-        background: var(--primary-surface);
-      }
-
-      /* Dropdown styling */
-      .dropdown-menu {
-        position: absolute;
-        top: calc(80% + 12px);
-        left: 0;
-        min-width: 250px;
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius);
-        padding: 0.6rem;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px) scale(0.98);
-        transition: var(--transition);
-        z-index: 100;
-      }
-
-      .nav-item:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
-
-      .dropdown-item {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 0.65rem 0.9rem;
-        border-radius: var(--radius-sm);
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        transition: var(--transition-fast);
-      }
-
-      .dropdown-item:hover,
-      .dropdown-item.active {
-        background: var(--primary-surface);
-        color: var(--primary);
-        transform: translateX(4px);
-      }
-
-      .dropdown-icon {
-        font-size: 1.1rem;
-        width: 28px;
-        height: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(30, 58, 138, 0.06);
-        border-radius: var(--radius-xs);
-      }
-
-      .btn-primary {
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-light) 100%
-        );
-        color: #ffffff;
-        padding: 0.55rem 1.4rem;
-        font-size: 0.88rem;
-        font-family: var(--font-head);
-        font-weight: 700;
-        border-radius: var(--radius-full);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
-        transition: var(--transition);
-        border: none;
-        cursor: pointer;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
+        display: none !important;
       }
 
       .hamburger {
-        display: none;
-        background: transparent;
-        border: none;
-        font-size: 1.6rem;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        background: var(--primary-surface);
         color: var(--primary);
-        cursor: pointer;
-        padding: 0.3rem;
-      }
-
-      /* Mobile Drawer */
-      .mobile-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(20, 18, 16, 0.6);
-        backdrop-filter: blur(8px);
-        z-index: 1050;
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-      }
-
-      .mobile-overlay.active {
-        opacity: 1;
-        visibility: visible;
+        font-size: 1.4rem;
+        padding: 0;
       }
 
       .mobile-drawer {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 320px;
-        max-width: 85vw;
-        background: #ffffff;
-        z-index: 1100;
-        padding: 2rem 1.5rem;
-        transform: translateX(100%);
-        transition: var(--transition);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
-        overflow-y: auto;
-      }
-
-      .mobile-drawer.active {
-        transform: translateX(0);
+        width: 85vw;
+        max-width: 340px;
+        background: #ffffff !important;
       }
 
       .drawer-close {
-        background: var(--bg-alt);
-        border: none;
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        font-size: 1.1rem;
-        cursor: pointer;
-        margin-bottom: 1.5rem;
+        width: 44px;
+        height: 44px;
       }
 
       .drawer-links a {
         transition: var(--transition);
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 0.8rem 1rem;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border-radius: var(--radius-sm);
-        color: var(--text-dark);
-        margin-bottom: 0.3rem;
+        min-height: 44px;
+        font-size: 16px;
       }
 
-      .drawer-links a:hover,
-      .drawer-links a.active {
-        background: var(--primary-surface);
-        color: var(--primary);
+      /* Grid collapse to single column */
+      .facility-grid,
+      .ekskul-grid,
+      .news-grid,
+      .news-cards-grid,
+      .visi-grid,
+      .misi-grid,
+      .org-grid,
+      .article-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
       }
 
-      .drawer-section-title {
-        font-size: 0.75rem;
-        font-weight: 800;
-        color: var(--text-subtle);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin: 1.2rem 0 0.5rem 0.5rem;
+      /* Magazine & Card Descriptions permanently visible on mobile */
+      .magazine-desc,
+      .facility-card-desc,
+      .ekskul-overlay-desc {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        position: relative !important;
+        inset: auto !important;
       }
 
-      /* 2. PAGE HEADER */
-      .page-header {
-        padding: 12.5rem 5%;
-        background: linear-gradient(to bottom, #e7e5e433, var(--bg-main));
-        position: relative;
-        overflow: hidden;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .header-bg-pattern {
-        position: absolute;
-        right: -5%;
-        top: 10%;
-        width: 400px;
-        height: 400px;
-        opacity: 0.05;
-        pointer-events: none;
-      }
-
-      .page-title {
-        font-size: 4rem;
-        color: var(--primary);
-        margin-bottom: 1rem;
-        line-height: 1.1;
-      }
-
-      .page-subtitle {
-        font-size: 1.2rem;
-        color: var(--text-muted);
-        max-width: 600px;
-      }
-
-      /* 3. VISI SECTION */
-      .visi-section {
-        padding: 8rem 0;
-        position: relative;
-      }
-
-      .visi-label {
-        font-family: var(--font-head);
-        color: var(--secondary);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 2rem;
-        display: block;
-      }
-
-      .visi-statement {
-        font-size: 3rem;
-        font-family: var(--font-head);
-        color: var(--primary);
-        line-height: 1.3;
-        font-weight: 500;
-        position: relative;
-        z-index: 2;
-      }
-
-      .quote-mark {
-        position: absolute;
-        top: -2rem;
-        left: -2rem;
-        font-size: 10rem;
-        font-family: var(--font-head);
-        color: var(--secondary);
-        opacity: 0.1;
-        line-height: 1;
-        z-index: 1;
-      }
-
-      /* 4. MISI SECTION */
-      .misi-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
-        margin-top: 4rem;
-      }
-
-      .misi-item {
-        position: relative;
-        padding-top: 3rem;
-        border-top: 1px solid var(--border);
-      }
-
-      .misi-number {
-        position: absolute;
-        top: -1.5rem;
-        left: 0;
-        font-size: 3rem;
-        font-family: var(--font-head);
-        color: var(--bg-alt);
-        -webkit-text-stroke: 1px var(--primary);
-        font-weight: 700;
-      }
-
-      .misi-text {
-        font-size: 1.1rem;
-        color: var(--text-dark);
-      }
-
-      /* 5. TUJUAN SECTION (INTERAKSI TIMELINE BOX CONCEPT) */
-      .tujuan-section {
-        border-top: 1px solid var(--border);
-      }
-
-      .tujuan-box {
-        position: relative;
-        padding-left: 2.2rem;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
-      .tujuan-progress-line {
-        position: absolute;
-        left: 6px;
-        top: 12px;
-        bottom: 12px;
-        width: 3px;
-        background: rgba(30, 64, 175, 0.12);
-        border-radius: 4px;
-        overflow: hidden;
-      }
-
-      .tujuan-progress-bar {
-        width: 100%;
-        height: 0%;
-        background: linear-gradient(
-          to bottom,
-          var(--secondary) 0%,
-          var(--primary) 100%
-        );
-        border-radius: 4px;
-        box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
-        transition: height 0.1s linear;
-      }
-
-      .tujuan-card {
-        position: relative;
-        background: #ffffff;
-        padding: 1.75rem 2rem;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border-card);
-        display: flex;
-        align-items: flex-start;
-        gap: 1.5rem;
-        box-shadow: var(--shadow-subtle);
-        margin-bottom: 1.75rem;
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        transform-origin: left center;
-      }
-
-      .tujuan-card:hover {
-        border-color: var(--primary);
-        transform: translateX(8px) scale(1.01);
-        box-shadow: 0 14px 30px rgba(30, 64, 175, 0.1);
-      }
-
-      .tujuan-card::before {
-        content: "";
-        position: absolute;
-        left: -2.85rem;
-        top: 2rem;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: #ffffff;
-        border: 3.5px solid var(--secondary);
-        box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
-        transition: all 0.3s;
-        z-index: 3;
-      }
-
-      .tujuan-card:hover::before {
-        background: var(--secondary);
-        transform: scale(1.2);
-        box-shadow: 0 0 0 6px rgba(234, 179, 8, 0.35);
-      }
-
-      .tujuan-icon {
-        width: 42px;
-        height: 42px;
-        background: var(--secondary-surface);
-        border: 1px solid var(--secondary);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary-dark);
-        font-weight: 800;
-        flex-shrink: 0;
-        font-family: var(--font-head);
-      }
-
-      /* 6. KONSENTRASI KEAHLIAN (EX-SIDEBAR) */
-      .majors-section {
-        padding: 6rem 0;
-        border-top: 1px solid var(--border);
-      }
-
-      .majors-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .major-chip {
-        padding: 0.75rem 1.6rem;
-        border: 1px solid var(--border);
-        border-radius: 50px;
-        font-family: var(--font-head);
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        background: white;
-        color: var(--text-dark);
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-      }
-
-      .major-chip-img-wrapper {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: rgba(241, 245, 249, 0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 4px;
-        flex-shrink: 0;
-        transition:
-          transform 0.3s ease,
-          background-color 0.3s ease;
-      }
-
-      .major-chip-img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .major-chip:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(6, 78, 59, 0.15);
-      }
-
-      .major-chip:hover .major-chip-img-wrapper {
-        background: white;
-        transform: scale(1.1);
-      }
-
-      /* 7. INTERACTIVE DETAIL MODAL */
-      .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(20, 18, 16, 0.65);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        z-index: 2000 !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.5rem;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .major-modal-card {
-        background: #ffffff;
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        max-width: 680px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
-        transform: scale(0.92) translateY(20px);
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        position: relative;
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
-      }
-
-      /* Custom Sleek Scrollbar */
-      .major-modal-card::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      .major-modal-card::-webkit-scrollbar-track {
-        background: rgba(6, 78, 59, 0.04);
-        border-radius: 0 24px 24px 0;
-        margin: 12px 0;
-      }
-
-      .major-modal-card::-webkit-scrollbar-thumb {
-        background: linear-gradient(
-          to bottom,
-          var(--secondary),
-          var(--primary)
-        );
-        border-radius: 10px;
-        transition: background 0.3s;
-      }
-
-      .major-modal-card::-webkit-scrollbar-thumb:hover {
-        background: var(--primary);
-      }
-
-      .modal-overlay.active .major-modal-card {
-        transform: scale(1) translateY(0);
-      }
-
-      .modal-banner {
-        height: 190px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-light) 100%
-        );
-      }
-
-      .modal-banner-icon {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.95);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 14px;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-        animation: modalFloat 3s ease-in-out infinite;
-      }
-
-      .modal-banner-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      @keyframes modalFloat {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-
-      .modal-close-btn {
-        position: absolute;
-        top: 1.2rem;
-        right: 1.2rem;
-        width: 38px;
-        height: 38px;
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        color: #ffffff;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.2s;
-        z-index: 10;
-      }
-
-      .modal-close-btn:hover {
-        background: #ffffff;
-        color: var(--primary);
-        transform: rotate(90deg);
-      }
-
-      .modal-body {
-        padding: 2.2rem;
-      }
-
-      .modal-tag {
-        font-family: var(--font-head);
-        font-size: 0.8rem;
-        font-weight: 700;
-        color: var(--secondary);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.4rem;
-        display: block;
-      }
-
-      .modal-title {
-        font-family: var(--font-head);
-        font-size: 1.85rem;
-        color: var(--primary);
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-        line-height: 1.25;
-      }
-
-      .modal-desc {
-        color: var(--text-muted);
-        font-size: 1rem;
-        line-height: 1.7;
-        margin-bottom: 1.8rem;
-      }
-
-      .modal-skills-box {
-        margin-bottom: 1.8rem;
-      }
-
-      .modal-section-title {
-        font-family: var(--font-head);
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin-bottom: 0.8rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .modal-chips-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .modal-skill-chip {
-        background: var(--bg-alt);
-        border: 1px solid var(--border);
-        padding: 0.35rem 0.85rem;
-        border-radius: 8px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--primary-dark);
-      }
-
-      .modal-career-box {
-        background: rgba(6, 78, 59, 0.05);
-        border: 1px solid rgba(6, 78, 59, 0.12);
-        border-radius: 12px;
-        padding: 1.2rem;
-        margin-bottom: 2rem;
-      }
-
-      .modal-career-text {
-        font-size: 0.92rem;
-        color: var(--primary);
-        font-weight: 600;
-        line-height: 1.6;
-      }
-
-      .modal-footer-cta {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        flex-wrap: wrap;
-        border-top: 1px solid var(--border);
-        padding-top: 1.5rem;
-      }
-
-      /* GSAP Prep */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      /* ==========================================================================
-           FOOTER (PERSIS INDEX.HTML)
-           ========================================================================== */
-      .site-footer {
-        background: var(--bg-dark);
-        color: var(--text-light);
-        padding: 5.5rem 0 2.5rem;
-        border-top: 1px solid var(--border-dark);
-        position: relative;
+      /* Visi quote line clamp */
+      .visi-quote {
+        font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+        line-height: 1.5 !important;
       }
 
       .footer-grid {
-        display: grid;
-        grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
-        gap: 3rem;
-        margin-bottom: 3.5rem;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
       }
 
-      .footer-col h4,
-      .footer-brand-title {
-        font-family: var(--font-head);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-subtle);
-        margin-bottom: 1.2rem;
+      .btn {
+        min-height: 44px;
       }
+    }
 
-      .footer-brand-name {
-        color: #ffffff;
-        font-family: var(--font-head);
-        font-weight: 800;
-        font-size: 1.05rem;
-        line-height: 1.25;
-        letter-spacing: -0.01em;
-      }
-
-      .footer-brand-sub {
-        color: var(--secondary);
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-top: 0.2rem;
-      }
-
-      .footer-address {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.88rem;
-        line-height: 1.65;
-        margin-bottom: 1.2rem;
-      }
-
-      .footer-contact-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1.5rem 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-
-      .footer-contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .footer-contact-icon {
-        width: 16px;
-        height: 16px;
-        stroke: var(--text-subtle);
-        stroke-width: 1.8;
-        fill: none;
-        flex-shrink: 0;
-      }
-
-      .footer-contact-link {
-        color: rgba(255, 255, 255, 0.85);
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-
-      .footer-contact-link:hover {
-        color: var(--secondary-light);
-      }
-
-      .footer-social-row {
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        margin-top: 0.5rem;
-      }
-
-      .footer-social-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.8);
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        text-decoration: none;
-      }
-
-      .footer-social-btn svg {
-        width: 18px;
-        height: 18px;
-        fill: currentColor;
-        transition: transform 0.25s ease;
-      }
-
-      .footer-social-btn:hover {
-        background: var(--primary);
-        border-color: var(--primary-light);
-        color: #ffffff;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
-      }
-
-      .footer-social-btn:hover svg {
-        transform: scale(1.08);
-      }
-
-      .footer-nav {
-        display: block;
-      }
-
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-      }
-
-      .footer-links li {
-        margin-bottom: 0;
-      }
-
-      .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        transition:
-          color 0.2s ease,
-          transform 0.2s ease;
-        min-height: 28px;
-      }
-
-      .footer-chevron {
-        opacity: 0;
-        transform: translateX(-4px);
-        color: var(--secondary);
-        font-weight: bold;
-        font-size: 1.05rem;
-        line-height: 1;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-
-      .footer-links a:hover {
-        color: var(--secondary-light);
-        transform: translateX(4px);
-      }
-
-      .footer-links a:hover .footer-chevron {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      .footer-identity-card {
-        background: rgba(255, 255, 255, 0.04);
-        padding: 1.15rem 1.25rem;
-        border-radius: var(--radius);
-        border: 1px solid var(--border-dark);
-        font-size: 0.85rem;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .footer-identity-card strong {
-        color: #ffffff;
-        font-weight: 700;
-      }
-
-      .footer-bottom {
-        padding-top: 2rem;
-        border-top: 1px solid var(--border-dark);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.85rem;
-        color: #78716c;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      /* AI Chatbot Widget */
-      .chatbot-btn {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-light) 100%
-        );
-        color: #ffffff;
-        border: none;
-        box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.3);
-        cursor: pointer;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-      }
-
-      .chatbot-btn:hover {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      .chat-panel {
-        position: fixed;
-        bottom: 6.5rem;
-        right: 2rem;
-        width: 360px;
-        max-width: 90vw;
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-xl);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px) scale(0.95);
-        transition: var(--transition);
-      }
-
-      .chat-panel.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
-
-      .chat-header {
-        background: var(--primary);
-        color: #ffffff;
-        padding: 1.2rem 1.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: var(--font-head);
-        font-weight: 700;
-      }
-
-      .chat-body {
-        height: 280px;
-        padding: 1.2rem;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        background: var(--bg-alt);
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
-      }
-
-      .chat-body::-webkit-scrollbar {
-        width: 5px;
-      }
-
-      .chat-body::-webkit-scrollbar-track {
-        background: rgba(30, 58, 138, 0.03);
-      }
-
-      .chat-body::-webkit-scrollbar-thumb {
-        background: var(--primary-light);
-        border-radius: 10px;
-      }
-
-      .chat-msg {
-        max-width: 82%;
-        padding: 0.75rem 1rem;
-        border-radius: var(--radius);
-        font-size: 0.88rem;
-        line-height: 1.5;
-      }
-
-      .chat-msg.bot {
-        background: #ffffff;
-        color: var(--text-dark);
-        border-bottom-left-radius: 4px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        align-self: flex-start;
-      }
-
-      .chat-msg.user {
-        background: var(--primary);
-        color: #ffffff;
-        border-bottom-right-radius: 4px;
-        align-self: flex-end;
-      }
-
-      .chat-quick-pills {
-        padding: 0.6rem 1rem;
-        background: #ffffff;
-        display: flex;
-        gap: 0.4rem;
-        overflow-x: auto;
-        border-top: 1px solid var(--border-card);
-      }
-
-      .chat-pill {
-        background: var(--primary-surface);
-        color: var(--primary);
-        border: none;
-        padding: 0.35rem 0.7rem;
-        border-radius: var(--radius-full);
-        font-size: 0.75rem;
-        font-weight: 700;
-        white-space: nowrap;
-        cursor: pointer;
-      }
-
-      .chat-input-bar {
-        padding: 0.8rem 1rem;
-        background: #ffffff;
-        display: flex;
-        gap: 0.5rem;
-        border-top: 1px solid var(--border-card);
-      }
-
-      .chat-input-bar input {
-        flex: 1;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-full);
-        padding: 0.55rem 1rem;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        outline: none;
-      }
-
-      .chat-input-bar button {
-        background: var(--primary);
-        color: #ffffff;
-        border: none;
-        padding: 0.55rem 1.1rem;
-        border-radius: var(--radius-full);
-        font-weight: 700;
-        font-size: 0.85rem;
-        cursor: pointer;
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 1024px) {
-        .footer-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .page-title {
-          font-size: 2.5rem;
-        }
-
-        .visi-statement {
-          font-size: 2rem;
-        }
-
-        .misi-grid {
-          grid-template-columns: 1fr;
-          gap: 4rem;
-        }
-
-        .tujuan-card {
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1.5rem;
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* General Mobile Responsiveness (H) */
-      @media (max-width: 768px) {
-        .container {
-          padding: 0 20px !important;
-        }
-
-        html,
-        body {
-          overflow-x: hidden !important;
-          max-width: 100vw !important;
-        }
-
-        .header-wrapper {
-          top: 0.5rem;
-          width: calc(100% - 20px);
-          border-radius: 20px;
-        }
-
-        .nav-island {
-          padding: 0.6rem 1rem !important;
-        }
-
-        .brand-logo {
-          max-height: 42px;
-          max-width: 130px;
-        }
-
-        .nav-menu {
-          display: none !important;
-        }
-
-        .hamburger {
-          display: flex !important;
-          align-items: center;
-          justify-content: center;
-          width: 44px;
-          height: 44px;
-          border-radius: 8px;
-          background: var(--primary-surface);
-          color: var(--primary);
-          font-size: 1.4rem;
-          padding: 0;
-        }
-
-        .mobile-drawer {
-          width: 85vw;
-          max-width: 340px;
-          background: #ffffff !important;
-        }
-
-        .drawer-close {
-          width: 44px;
-          height: 44px;
-        }
-
-        .drawer-links a {
-          transition: var(--transition);
-          min-height: 44px;
-          font-size: 16px;
-        }
-
-        /* Grid collapse to single column */
-        .facility-grid,
-        .ekskul-grid,
-        .news-grid,
-        .news-cards-grid,
-        .visi-grid,
-        .misi-grid,
-        .org-grid,
-        .article-grid {
-          grid-template-columns: 1fr !important;
-          gap: 1.5rem !important;
-        }
-
-        /* Magazine & Card Descriptions permanently visible on mobile */
-        .magazine-desc,
-        .facility-card-desc,
-        .ekskul-overlay-desc {
-          opacity: 1 !important;
-          transform: none !important;
-          visibility: visible !important;
-          position: relative !important;
-          inset: auto !important;
-        }
-
-        /* Visi quote line clamp */
-        .visi-quote {
-          font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
-          line-height: 1.5 !important;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr !important;
-          gap: 2rem !important;
-        }
-
-        .btn {
-          min-height: 44px;
-        }
-      }
-
-      /* ==========================================================================
+    /* ==========================================================================
            ROBUST STANDARD NAVBAR & MOBILE DRAWER (Z-INDEX & ACCESSIBILITY FIX)
            ========================================================================== */
+    .header-wrapper {
+      position: fixed !important;
+      top: 1rem;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 90% !important;
+      max-width: 1320px !important;
+      z-index: 1000 !important;
+      background: #ffffff !important;
+      border-radius: 50px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+      border: 1px solid var(--border-card) !important;
+      pointer-events: auto !important;
+    }
+
+    .nav-island {
+      width: 100% !important;
+      max-width: 1320px !important;
+      margin: 0 auto !important;
+      padding: 0.8rem 1.8rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    /* Hamburger button MUST have relative position, high z-index, and pointer-events */
+    .hamburger,
+    .nav-toggle {
+      display: none;
+      background: var(--primary-surface) !important;
+      border: 1px solid rgba(30, 64, 175, 0.15) !important;
+      color: var(--primary) !important;
+      font-size: 1.4rem !important;
+      cursor: pointer !important;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      border-radius: 10px !important;
+      align-items: center !important;
+      justify-content: center !important;
+      position: relative !important;
+      z-index: 10000 !important;
+      pointer-events: auto !important;
+      transition: all 0.2s ease !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .hamburger:hover,
+    .nav-toggle:hover,
+    .hamburger:focus,
+    .nav-toggle:focus {
+      background: var(--primary) !important;
+      color: #ffffff !important;
+      outline: none !important;
+    }
+
+    /* Mobile Drawer */
+    .mobile-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(15, 23, 42, 0.65) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      z-index: 99998 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease !important;
+      pointer-events: none !important;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-drawer {
+      position: fixed !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 85vw !important;
+      max-width: 340px !important;
+      height: 100dvh !important;
+      background: #ffffff !important;
+      z-index: 99999 !important;
+      padding: 2rem 1.6rem !important;
+      transform: translateX(100%) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-drawer.active {
+      transform: translateX(0) !important;
+    }
+
+    .drawer-close {
+      background: var(--bg-alt) !important;
+      border: 1px solid var(--border-card) !important;
+      color: var(--text-dark) !important;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      border-radius: 50% !important;
+      font-size: 1.4rem !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 1.5rem !important;
+      position: relative !important;
+      z-index: 100000 !important;
+      pointer-events: auto !important;
+    }
+
+    /* Ensure decorative layers do NOT block touch events */
+    .px-stage,
+    .px-orb,
+    .px-grid,
+    .px-ring,
+    .watermark,
+    .header-bg-pattern {
+      pointer-events: none !important;
+    }
+
+    @media (max-width: 900px) {
       .header-wrapper {
-        position: fixed !important;
-        top: 1rem;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 90% !important;
-        max-width: 1320px !important;
-        z-index: 1000 !important;
-        background: #ffffff !important;
-        border-radius: 50px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-        border: 1px solid var(--border-card) !important;
-        pointer-events: auto !important;
+        top: 0.5rem !important;
+        width: calc(100% - 20px) !important;
+        border-radius: 20px !important;
       }
 
       .nav-island {
-        width: 100% !important;
-        max-width: 1320px !important;
-        margin: 0 auto !important;
-        padding: 0.8rem 1.8rem !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
+        padding: 0.6rem 1rem !important;
       }
 
-      /* Hamburger button MUST have relative position, high z-index, and pointer-events */
+      .nav-menu {
+        display: none !important;
+      }
+
+      .nav-mobile-cta {
+        display: inline-flex !important;
+        margin-left: auto;
+        margin-right: 0.6rem;
+        padding: 0.45rem 1rem !important;
+        font-size: 0.82rem !important;
+        min-height: 40px !important;
+      }
+
       .hamburger,
       .nav-toggle {
-        display: none;
-        background: var(--primary-surface) !important;
-        border: 1px solid rgba(30, 64, 175, 0.15) !important;
-        color: var(--primary) !important;
-        font-size: 1.4rem !important;
-        cursor: pointer !important;
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        border-radius: 10px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        position: relative !important;
-        z-index: 10000 !important;
-        pointer-events: auto !important;
-        transition: all 0.2s ease !important;
-        user-select: none !important;
-        -webkit-tap-highlight-color: transparent !important;
-      }
-
-      .hamburger:hover,
-      .nav-toggle:hover,
-      .hamburger:focus,
-      .nav-toggle:focus {
-        background: var(--primary) !important;
-        color: #ffffff !important;
-        outline: none !important;
-      }
-
-      /* Mobile Drawer */
-      .mobile-overlay {
-        position: fixed !important;
-        inset: 0 !important;
-        background: rgba(15, 23, 42, 0.65) !important;
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
-        z-index: 99998 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition:
-          opacity 0.3s ease,
-          visibility 0.3s ease !important;
-        pointer-events: none !important;
-      }
-
-      .mobile-overlay.active {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-      }
-
-      .mobile-drawer {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 85vw !important;
-        max-width: 340px !important;
-        height: 100dvh !important;
-        background: #ffffff !important;
-        z-index: 99999 !important;
-        padding: 2rem 1.6rem !important;
-        transform: translateX(100%) !important;
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        pointer-events: auto !important;
-      }
-
-      .mobile-drawer.active {
-        transform: translateX(0) !important;
-      }
-
-      .drawer-close {
-        background: var(--bg-alt) !important;
-        border: 1px solid var(--border-card) !important;
-        color: var(--text-dark) !important;
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        border-radius: 50% !important;
-        font-size: 1.4rem !important;
-        cursor: pointer !important;
         display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin-bottom: 1.5rem !important;
-        position: relative !important;
-        z-index: 100000 !important;
-        pointer-events: auto !important;
       }
+    }
+  </style>
+</head>
 
-      /* Ensure decorative layers do NOT block touch events */
-      .px-stage,
-      .px-orb,
-      .px-grid,
-      .px-ring,
-      .watermark,
-      .header-bg-pattern {
-        pointer-events: none !important;
-      }
-
-      @media (max-width: 900px) {
-        .header-wrapper {
-          top: 0.5rem !important;
-          width: calc(100% - 20px) !important;
-          border-radius: 20px !important;
-        }
-
-        .nav-island {
-          padding: 0.6rem 1rem !important;
-        }
-
-        .nav-menu {
-          display: none !important;
-        }
-
-        .nav-mobile-cta {
-          display: inline-flex !important;
-          margin-left: auto;
-          margin-right: 0.6rem;
-          padding: 0.45rem 1rem !important;
-          font-size: 0.82rem !important;
-          min-height: 40px !important;
-        }
-
-        .hamburger,
-        .nav-toggle {
-          display: flex !important;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
-    <header class="header-wrapper">
-      <nav class="nav-island" id="main-nav">
-        <a class="brand-box" href="index.html#hero">
-          <img
-            alt="Logo SMKS Muhammadiyah 1 Genteng"
-            class="brand-logo"
-            onerror="
+<body>
+  <!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
+  <header class="header-wrapper">
+    <nav class="nav-island" id="main-nav">
+      <a class="brand-box" href="index.html#hero">
+        <img alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
               this.closest('.card')
                 ? this.closest('.card').classList.add('no-image')
                 : null;
               this.remove();
-            "
-            src="assets/logo.png"
-          />
-        </a>
-        <div class="nav-menu">
-          <a class="nav-link" href="index.html#hero">Beranda</a>
-          <!-- Profil & Info Dropdown -->
-          <div class="nav-item">
-            <a class="nav-link active" href="visi-misi.html#sambutan">
-              Profil &amp; Info <span style="font-size: 0.65rem">▼</span>
+            " src="assets/logo.png" />
+      </a>
+      <div class="nav-menu">
+        <a class="nav-link" href="index.html#hero">Beranda</a>
+        <!-- Profil & Info Dropdown -->
+        <div class="nav-item">
+          <a class="nav-link active" href="visi-misi.html#sambutan">
+            Profil &amp; Info <span style="font-size: 0.65rem">▼</span>
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item active" href="visi-misi.html">
+              <span class="dropdown-icon">
+                <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="6"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                </svg>
+              </span>
+              <div>
+                <div>Visi &amp; Misi</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Arah &amp; Tujuan Lembaga</small>
+              </div>
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item active" href="visi-misi.html">
-                <span class="dropdown-icon">
-                  <svg
-                    fill="none"
-                    height="20"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewbox="0 0 24 24"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <circle cx="12" cy="12" r="6"></circle>
-                    <circle cx="12" cy="12" r="2"></circle>
-                  </svg>
-                </span>
-                <div>
-                  <div>Visi &amp; Misi</div>
-                  <small style="color: var(--text-subtle); font-size: 0.75rem"
-                    >Arah &amp; Tujuan Lembaga</small
-                  >
-                </div>
-              </a>
-              <a class="dropdown-item" href="guru.html">
-                <span class="dropdown-icon">
-                  <svg
-                    fill="none"
-                    height="20"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewbox="0 0 24 24"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </span>
-                <div>
-                  <div>Guru &amp; Tendik</div>
-                  <small style="color: var(--text-subtle); font-size: 0.75rem"
-                    >Tenaga Pendidik</small
-                  >
-                </div>
-              </a>
-              <a class="dropdown-item" href="fasilitas.html">
-                <span class="dropdown-icon">
-                  <svg
-                    fill="none"
-                    height="20"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewbox="0 0 24 24"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
-                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
-                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
-                    <path d="M10 6h4"></path>
-                    <path d="M10 10h4"></path>
-                    <path d="M10 14h4"></path>
-                    <path d="M10 18h4"></path>
-                  </svg>
-                </span>
-                <div>
-                  <div>Fasilitas Sekolah</div>
-                  <small style="color: var(--text-subtle); font-size: 0.75rem"
-                    >Laboratorium &amp; Ruang Belajar</small
-                  >
-                </div>
-              </a>
-              <a class="dropdown-item" href="ekstrakurikuler.html">
-                <span class="dropdown-icon">
-                  <svg
-                    fill="none"
-                    height="20"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewbox="0 0 24 24"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
-                    ></path>
-                  </svg>
-                </span>
-                <div>
-                  <div>Ekstrakurikuler &amp; IPM</div>
-                  <small style="color: var(--text-subtle); font-size: 0.75rem"
-                    >Bakat, Seni &amp; Karakter</small
-                  >
-                </div>
-              </a>
-              <a class="dropdown-item" href="prestasi.html">
-                <span class="dropdown-icon">
-                  <svg
-                    fill="none"
-                    height="20"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewbox="0 0 24 24"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                    <path d="M4 22h16"></path>
-                    <path
-                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
-                    ></path>
-                    <path
-                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
-                    ></path>
-                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                  </svg>
-                </span>
-                <div>
-                  <div>Galeri Prestasi</div>
-                  <small style="color: var(--text-subtle); font-size: 0.75rem"
-                    >Piala &amp; Penghargaan Nasional</small
-                  >
-                </div>
-              </a>
-            </div>
+            <a class="dropdown-item" href="guru.html">
+              <span class="dropdown-icon">
+                <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </span>
+              <div>
+                <div>Guru &amp; Tendik</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Tenaga Pendidik</small>
+              </div>
+            </a>
+            <a class="dropdown-item" href="fasilitas.html">
+              <span class="dropdown-icon">
+                <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+                  <path d="M10 6h4"></path>
+                  <path d="M10 10h4"></path>
+                  <path d="M10 14h4"></path>
+                  <path d="M10 18h4"></path>
+                </svg>
+              </span>
+              <div>
+                <div>Fasilitas Sekolah</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Laboratorium &amp; Ruang Belajar</small>
+              </div>
+            </a>
+            <a class="dropdown-item" href="ekstrakurikuler.html">
+              <span class="dropdown-icon">
+                <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2">
+                  </path>
+                </svg>
+              </span>
+              <div>
+                <div>Ekstrakurikuler &amp; IPM</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Bakat, Seni &amp; Karakter</small>
+              </div>
+            </a>
+            <a class="dropdown-item" href="prestasi.html">
+              <span class="dropdown-icon">
+                <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+              </span>
+              <div>
+                <div>Galeri Prestasi</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Piala &amp; Penghargaan Nasional</small>
+              </div>
+            </a>
           </div>
-          <a class="nav-link" href="index.html#jurusan">Konsentrasi Keahlian</a>
-          <a class="nav-link" href="lsp.html">LSP</a>
-          <a class="nav-link" href="bkk.html">BKK</a>
-          <!-- Layanan Siswa (BLUD) -->
-          <a class="nav-link" href="index.html#blud">BLUD</a>
-          <a class="nav-link" href="berita.html">Berita</a>
-          <a
-            class="btn btn-primary"
-            href="index.html#spmb"
-            style="padding: 0.55rem 1.4rem; font-size: 0.88rem"
-            >Daftar SPMB</a
-          >
         </div>
-        <a
-          class="btn btn-primary nav-mobile-cta"
-          href="index.html#spmb"
-          style="display: none"
-          >Daftar SPMB</a
-        >
-        <button
-          aria-label="Buka Menu Navigasi"
-          class="hamburger"
-          id="hamburger-btn"
-        >
-          ☰
-        </button>
-      </nav>
-    </header>
+        <a class="nav-link" href="index.html#jurusan">Konsentrasi Keahlian</a>
+        <a class="nav-link" href="lsp.html">LSP</a>
+        <a class="nav-link" href="bkk.html">BKK</a>
+        <!-- Layanan Siswa (BLUD) -->
+        <a class="nav-link" href="index.html#blud">BLUD</a>
+        <a class="nav-link" href="berita.html">Berita</a>
+        <a class="btn btn-primary" href="spmb.html" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar SPMB</a>
+      </div>
+      <a class="btn btn-primary nav-mobile-cta" href="spmb.html" style="display: none">Daftar SPMB</a>
+      <button aria-label="Buka Menu Navigasi" class="hamburger" id="hamburger-btn">
+        ☰
+      </button>
+    </nav>
+  </header>
 
-    <!-- Mobile Drawer -->
+  <!-- Mobile Drawer -->
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-overlay" id="mobile-overlay"></div>
-    <div class="mobile-drawer" id="mobile-drawer">
-      <button class="drawer-close" id="drawer-close-btn">×</button>
-      <div class="brand-box" style="margin-bottom: 2rem">
-        <img
-          alt="Logo SMEMSA"
-          class="brand-logo"
-          onerror="
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close-btn">×</button>
+    <div class="brand-box" style="margin-bottom: 2rem">
+      <img alt="Logo SMEMSA" class="brand-logo" onerror="
             this.closest('.card')
               ? this.closest('.card').classList.add('no-image')
               : null;
             this.remove();
-          "
-          src="assets/logo.webp"
-        />
-        <div>
-          <strong
-            style="color: var(--primary); font-size: 1.1rem; display: block"
-            >SMEMSA GENTENG</strong
-          >
-          <small style="color: var(--text-muted); font-size: 0.75rem"
-            >NPSN 20525597 • Akreditasi A</small
-          >
-        </div>
-      </div>
-      <div class="drawer-links">
-        <a class="" href="index.html#hero">🏠 Beranda</a>
-        <div class="drawer-section-title">Halaman Informasi</div>
-        <a class="" href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
-        <a href="visi-misi.html">🎯 Visi &amp; Misi Sekolah</a>
-        <a href="guru.html">👥 Guru &amp; Tenaga Kependidikan</a>
-        <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
-        <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler &amp; IPM</a>
-        <a href="prestasi.html">🏆 Prestasi &amp; Penghargaan</a>
-        <a class="" href="berita.html">📰 Jurnal &amp; Kabar Sekolah</a>
-        <div class="drawer-section-title">Navigasi Halaman Utama</div>
-        <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
-        <a href="index.html#jurusan">💻 7 Program Keahlian</a>
-        <a class="" href="lsp.html">📜 LSP-P1</a>
-        <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
-        <div style="margin-top: 1.5rem">
-          <a
-            class="btn btn-primary"
-            href="index.html#spmb"
-            style="width: 100%; text-align: center; justify-content: center"
-            >Daftar SPMB 2026</a
-          >
-        </div>
+          " src="assets/logo.webp" />
+      <div>
+        <strong style="color: var(--primary); font-size: 1.1rem; display: block">SMEMSA GENTENG</strong>
+        <small style="color: var(--text-muted); font-size: 0.75rem">NPSN 20525597 • Akreditasi A</small>
       </div>
     </div>
+    <div class="drawer-links">
+      <a class="" href="index.html#hero">🏠 Beranda</a>
+      <div class="drawer-section-title">Halaman Informasi</div>
+      <a class="" href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
+      <a href="visi-misi.html">🎯 Visi &amp; Misi Sekolah</a>
+      <a href="guru.html">👥 Guru &amp; Tenaga Kependidikan</a>
+      <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
+      <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler &amp; IPM</a>
+      <a href="prestasi.html">🏆 Prestasi &amp; Penghargaan</a>
+      <a class="" href="berita.html">📰 Jurnal &amp; Kabar Sekolah</a>
+      <div class="drawer-section-title">Navigasi Halaman Utama</div>
+      <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
+      <a href="index.html#jurusan">💻 7 Program Keahlian</a>
+      <a class="" href="lsp.html">📜 LSP-P1</a>
+      <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
+      <div style="margin-top: 1.5rem">
+        <a class="btn btn-primary" href="spmb.html"
+          style="width: 100%; text-align: center; justify-content: center">Daftar SPMB 2026</a>
+      </div>
+    </div>
+  </div>
 
-    <!-- HEADER -->
-    <header class="page-header">
-      <!-- Geometric Star SVG Pattern -->
-      <svg class="header-bg-pattern" viewbox="0 0 100 100">
-        <path
-          d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z"
-          fill="none"
-          stroke="var(--primary)"
-          stroke-width="2"
-        ></path>
-        <circle
-          cx="50"
-          cy="50"
-          fill="none"
-          r="30"
-          stroke="var(--secondary)"
-          stroke-dasharray="2 2"
-          stroke-width="1"
-        ></circle>
-      </svg>
-      <div class="container reveal">
-        <div
-          style="
+  <!-- HEADER -->
+  <header class="page-header">
+    <!-- Geometric Star SVG Pattern -->
+    <svg class="header-bg-pattern" viewbox="0 0 100 100">
+      <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="none" stroke="var(--primary)"
+        stroke-width="2"></path>
+      <circle cx="50" cy="50" fill="none" r="30" stroke="var(--secondary)" stroke-dasharray="2 2" stroke-width="1">
+      </circle>
+    </svg>
+    <div class="container reveal">
+      <div style="
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -1791,23 +1679,20 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 1.2rem;
-          "
-        >
-          <span>✨</span> SMKS Muhammadiyah 1 Genteng
-        </div>
-        <h1 class="page-title">Visi, Misi &amp; Tujuan</h1>
-        <p class="page-subtitle">
-          Arah dan landasan utama SMKS Muhammadiyah 1 Genteng dalam mencetak
-          generasi Islam yang berkemajuan, kompeten, dan berjiwa wirausaha.
-        </p>
+          ">
+        SMKS Muhammadiyah 1 Genteng
       </div>
-    </header>
-    <!-- VISI SECTION -->
-    <section class="container visi-section">
-      <div class="reveal">
-        <div
-          class="visi-card-wrapper"
-          style="
+      <h1 class="page-title">Visi, Misi &amp; Tujuan</h1>
+      <p class="page-subtitle">
+        Arah dan landasan utama SMKS Muhammadiyah 1 Genteng dalam mencetak
+        generasi Islam yang berkemajuan, kompeten, dan berjiwa wirausaha.
+      </p>
+    </div>
+  </header>
+  <!-- VISI SECTION -->
+  <section class="container visi-section">
+    <div class="reveal">
+      <div class="visi-card-wrapper" style="
             background: linear-gradient(135deg, #1e40af 0%, #16296b 100%);
             color: #ffffff;
             border-radius: var(--radius-xl);
@@ -1815,10 +1700,8 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 40px -10px rgba(30, 64, 175, 0.3);
-          "
-        >
-          <div
-            style="
+          ">
+        <div style="
               position: absolute;
               right: -20px;
               bottom: -20px;
@@ -1828,13 +1711,10 @@
               font-weight: 800;
               line-height: 1;
               pointer-events: none;
-            "
-          >
-            VISI
-          </div>
-          <span
-            class="visi-label"
-            style="
+            ">
+          VISI
+        </div>
+        <span class="visi-label" style="
               color: var(--secondary);
               display: inline-block;
               background: rgba(234, 179, 8, 0.15);
@@ -1842,54 +1722,38 @@
               border-radius: var(--radius-full);
               font-size: 0.85rem;
               letter-spacing: 2px;
-            "
-            >VISI SEKOLAH</span
-          >
-          <blockquote
-            class="visi-statement"
-            style="
+            ">VISI SEKOLAH</span>
+        <blockquote class="visi-statement" style="
               color: #ffffff;
               margin-top: 1.5rem;
               font-size: 2.2rem;
               font-weight: 700;
               line-height: 1.4;
-            "
-          >
-            "Terwujudnya Peserta Didik Islami, Berkemajuan, Kompeten dan Berjiwa
-            Wirausaha."
-          </blockquote>
-        </div>
+            ">
+          "Terwujudnya Peserta Didik Islami, Berkemajuan, Kompeten dan Berjiwa
+          Wirausaha."
+        </blockquote>
       </div>
-    </section>
-    <!-- MISI SECTION -->
-    <section class="container misi-section" style="padding-bottom: 6rem">
-      <div
-        class="misi-header reveal"
-        style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem"
-      >
-        <span class="visi-label">Misi Lembaga</span>
-        <h2
-          class="font-head"
-          style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem"
-        >
-          Misi Sekolah
-        </h2>
-        <p style="color: var(--text-muted); margin-top: 0.5rem">
-          Langkah-langkah strategis untuk mewujudkan Visi SMKS Muhammadiyah 1
-          Genteng.
-        </p>
-      </div>
-      <div
-        class="misi-cards-container"
-        style="
+    </div>
+  </section>
+  <!-- MISI SECTION -->
+  <section class="container misi-section" style="padding-bottom: 6rem">
+    <div class="misi-header reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem">
+      <span class="visi-label">Misi Lembaga</span>
+      <h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem">
+        Misi Sekolah
+      </h2>
+      <p style="color: var(--text-muted); margin-top: 0.5rem">
+        Langkah-langkah strategis untuk mewujudkan Visi SMKS Muhammadiyah 1
+        Genteng.
+      </p>
+    </div>
+    <div class="misi-cards-container" style="
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
           gap: 1.5rem;
-        "
-      >
-        <div
-          class="misi-card reveal"
-          style="
+        ">
+      <div class="misi-card reveal" style="
             background: var(--bg-main);
             border: 1px solid var(--border-card);
             border-radius: var(--radius-lg);
@@ -1898,10 +1762,8 @@
             box-shadow: var(--shadow-card);
             position: relative;
             overflow: hidden;
-          "
-        >
-          <div
-            style="
+          ">
+        <div style="
               font-size: 2rem;
               font-weight: 800;
               color: var(--primary);
@@ -1909,12 +1771,10 @@
               position: absolute;
               top: 1rem;
               right: 1.5rem;
-            "
-          >
-            01
-          </div>
-          <div
-            style="
+            ">
+          01
+        </div>
+        <div style="
               width: 48px;
               height: 48px;
               background: var(--primary-surface);
@@ -1926,490 +1786,380 @@
               font-size: 1.25rem;
               font-weight: 800;
               margin-bottom: 1.25rem;
-            "
-          >
-            1
-          </div>
-          <p
-            style="
+            ">
+          1
+        </div>
+        <p style="
               font-size: 1.05rem;
               font-weight: 500;
               color: var(--text-dark);
               line-height: 1.7;
-            "
-          >
-            Menerapkan karakter utama pendidikan Al-Islam dan Kemuhammadiyahan
-            yang holistik dalam semua mata pelajaran.
-          </p>
-        </div>
-        <div
-          class="misi-card reveal"
-          style="
-            background: var(--bg-main);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: var(--transition);
-            box-shadow: var(--shadow-card);
-            position: relative;
-            overflow: hidden;
-          "
-        >
-          <div
-            style="
-              font-size: 2rem;
-              font-weight: 800;
-              color: var(--primary);
-              opacity: 0.15;
-              position: absolute;
-              top: 1rem;
-              right: 1.5rem;
-            "
-          >
-            02
-          </div>
-          <div
-            style="
-              width: 48px;
-              height: 48px;
-              background: var(--primary-surface);
-              border-radius: var(--radius-sm);
-              color: var(--primary);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 1.25rem;
-              font-weight: 800;
-              margin-bottom: 1.25rem;
-            "
-          >
-            2
-          </div>
-          <p
-            style="
-              font-size: 1.05rem;
-              font-weight: 500;
-              color: var(--text-dark);
-              line-height: 1.7;
-            "
-          >
-            Melakukan sinkronisasi dengan dunia kerja dan dunia industri untuk
-            memenuhi kebutuhan dunia kerja dan mengembangkan potensi didik.
-          </p>
-        </div>
-        <div
-          class="misi-card reveal"
-          style="
-            background: var(--bg-main);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: var(--transition);
-            box-shadow: var(--shadow-card);
-            position: relative;
-            overflow: hidden;
-          "
-        >
-          <div
-            style="
-              font-size: 2rem;
-              font-weight: 800;
-              color: var(--primary);
-              opacity: 0.15;
-              position: absolute;
-              top: 1rem;
-              right: 1.5rem;
-            "
-          >
-            03
-          </div>
-          <div
-            style="
-              width: 48px;
-              height: 48px;
-              background: var(--primary-surface);
-              border-radius: var(--radius-sm);
-              color: var(--primary);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 1.25rem;
-              font-weight: 800;
-              margin-bottom: 1.25rem;
-            "
-          >
-            3
-          </div>
-          <p
-            style="
-              font-size: 1.05rem;
-              font-weight: 500;
-              color: var(--text-dark);
-              line-height: 1.7;
-            "
-          >
-            Melakukan transformasi, berdaya saing global, dan berbasis teknologi
-            informasi dan digitalisasi.
-          </p>
-        </div>
-        <div
-          class="misi-card reveal"
-          style="
-            background: var(--bg-main);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: var(--transition);
-            box-shadow: var(--shadow-card);
-            position: relative;
-            overflow: hidden;
-          "
-        >
-          <div
-            style="
-              font-size: 2rem;
-              font-weight: 800;
-              color: var(--primary);
-              opacity: 0.15;
-              position: absolute;
-              top: 1rem;
-              right: 1.5rem;
-            "
-          >
-            04
-          </div>
-          <div
-            style="
-              width: 48px;
-              height: 48px;
-              background: var(--primary-surface);
-              border-radius: var(--radius-sm);
-              color: var(--primary);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 1.25rem;
-              font-weight: 800;
-              margin-bottom: 1.25rem;
-            "
-          >
-            4
-          </div>
-          <p
-            style="
-              font-size: 1.05rem;
-              font-weight: 500;
-              color: var(--text-dark);
-              line-height: 1.7;
-            "
-          >
-            Mengimplementasikan tata kelola modern yang transparan dan akuntabel
-            serta pendidikan yang inklusif.
-          </p>
-        </div>
-        <div
-          class="misi-card reveal"
-          style="
-            background: var(--bg-main);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: var(--transition);
-            box-shadow: var(--shadow-card);
-            position: relative;
-            overflow: hidden;
-          "
-        >
-          <div
-            style="
-              font-size: 2rem;
-              font-weight: 800;
-              color: var(--primary);
-              opacity: 0.15;
-              position: absolute;
-              top: 1rem;
-              right: 1.5rem;
-            "
-          >
-            05
-          </div>
-          <div
-            style="
-              width: 48px;
-              height: 48px;
-              background: var(--primary-surface);
-              border-radius: var(--radius-sm);
-              color: var(--primary);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 1.25rem;
-              font-weight: 800;
-              margin-bottom: 1.25rem;
-            "
-          >
-            5
-          </div>
-          <p
-            style="
-              font-size: 1.05rem;
-              font-weight: 500;
-              color: var(--text-dark);
-              line-height: 1.7;
-            "
-          >
-            Meningkatkan kolaborasi dan kemitraan antar Lembaga Pendidikan baik
-            internal dan eksternal Muhammadiyah serta dunia kerja.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- TUJUAN SECTION -->
-    <section
-      class="tujuan-section section-padding bg-alt"
-      style="padding: 6rem 0"
-    >
-      <div class="container">
-        <div
-          class="reveal"
-          style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem"
-        >
-          <span class="visi-label">Tujuan Institusi</span>
-          <h2
-            class="font-head"
-            style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem"
-          >
-            Tujuan Sekolah
-          </h2>
-          <p style="color: var(--text-muted); margin-top: 0.5rem">
-            Komitmen nyata pembinaan peserta didik di SMKS Muhammadiyah 1
-            Genteng.
-          </p>
-        </div>
-        <div class="tujuan-box">
-          <div class="tujuan-progress-line">
-            <div class="tujuan-progress-bar" id="tujuan-bar"></div>
-          </div>
-          <div class="tujuan-card reveal">
-            <div class="tujuan-icon">1</div>
-            <p
-              style="
-                font-size: 1.05rem;
-                color: var(--text-dark);
-                line-height: 1.7;
-                margin: 0;
-              "
-            >
-              Mempersiapkan peserta didik yang berakidah Islam dalam beriman dan
-              bertaqwa kepada Allah SWT dengan perilaku akhlak mulia.
-            </p>
-          </div>
-          <div class="tujuan-card reveal">
-            <div class="tujuan-icon">2</div>
-            <p
-              style="
-                font-size: 1.05rem;
-                color: var(--text-dark);
-                line-height: 1.7;
-                margin: 0;
-              "
-            >
-              Membiasakan peserta didik untuk beradaptasi dengan perkembangan
-              ilmu pengetahuan dan teknologi, dan menerapkan teknologi informasi
-              dan digital dalam pembelajaran.
-            </p>
-          </div>
-          <div class="tujuan-card reveal">
-            <div class="tujuan-icon">3</div>
-            <p
-              style="
-                font-size: 1.05rem;
-                color: var(--text-dark);
-                line-height: 1.7;
-                margin: 0;
-              "
-            >
-              Mempersiapkan peserta didik agar lebih ulet, Tangguh, produktif,
-              mandiri dan gigih dalam berkompetisi, serta dapat beradaptasi di
-              masyarakat dan mengembangkan sikap profesional dalam kompetensi
-              yang diminatinya.
-            </p>
-          </div>
-          <div class="tujuan-card reveal">
-            <div class="tujuan-icon">4</div>
-            <p
-              style="
-                font-size: 1.05rem;
-                color: var(--text-dark);
-                line-height: 1.7;
-                margin: 0;
-              "
-            >
-              Membekali peserta didik agar bisa menjadi wirausahawan muda yang
-              ulet, tangguh dan pantang menyerah sesuai dengan syariah.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- KONSENTRASI KEAHLIAN (EX-SIDEBAR SEPERTI DI GAMBAR) -->
-    <section class="majors-section container" style="padding: 6rem 0">
-      <div
-        class="reveal"
-        style="text-align: center; max-width: 700px; margin: 0 auto 3rem"
-      >
-        <span class="visi-label">Program Unggulan</span>
-        <h2
-          class="font-head"
-          style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem"
-        >
-          Konsentrasi Keahlian
-        </h2>
-        <p style="color: var(--text-muted); margin-top: 0.5rem">
-          Daftar konsentrasi keahlian yang diselenggarakan di SMKS Muhammadiyah
-          1 Genteng sesuai data gambar rujukan.
+            ">
+          Menerapkan karakter utama pendidikan Al-Islam dan Kemuhammadiyahan
+          yang holistik dalam semua mata pelajaran.
         </p>
       </div>
-      <div class="majors-grid reveal" style="justify-content: center">
-        <button class="major-chip" onclick="openMajorModal('rpl')">
-          <div class="major-chip-img-wrapper">
-            <img
-              alt="PPLG Logo"
-              class="major-chip-img"
-              src="assets/major/PPLG-removebg-preview.png"
-            />
-          </div>
-          <span>Pengembang Perangkat Lunak & Gim</span>
-        </button>
-        <button class="major-chip" onclick="openMajorModal('tkj')">
-          <div class="major-chip-img-wrapper">
-            <img
-              alt="TJKT Logo"
-              class="major-chip-img"
-              src="assets/major/TJKT-removebg-preview.png"
-            />
-          </div>
-          <span>Teknik Komputer dan Jaringan</span>
-        </button>
-        <button class="major-chip" onclick="openMajorModal('bd')">
-          <div class="major-chip-img-wrapper">
-            <img
-              alt="Bisnis Digital Logo"
-              class="major-chip-img"
-              src="assets/major/logo bdp.png"
-            />
-          </div>
-          <span>Bisnis Digital</span>
-        </button>
-        <button class="major-chip" onclick="openMajorModal('mplb')">
-          <div class="major-chip-img-wrapper">
-            <img
-              alt="MPLB Logo"
-              class="major-chip-img"
-              src="assets/major/mp.jpeg"
-            />
-          </div>
-          <span>Manajemen Perkantoran</span>
-        </button>
-        <button class="major-chip" onclick="openMajorModal('akl')">
-          <div class="major-chip-img-wrapper">
-            <img
-              alt="AKL Logo"
-              class="major-chip-img"
-              src="assets/major/logo AKL.png"
-            />
-          </div>
-          <span>Akuntansi</span>
-        </button>
-        <button class="major-chip" onclick="openMajorModal('hotel')">
-          <div class="major-chip-img-wrapper">
-            <img
-              alt="Perhotelan Logo"
-              class="major-chip-img"
-              src="assets/major/PH.png"
-            />
-          </div>
-          <span>Perhotelan</span>
-        </button>
-        <button class="major-chip" onclick="openMajorModal('dkv')">
-          <div class="major-chip-img-wrapper">
-            <img
-              alt="DKV Logo"
-              class="major-chip-img"
-              src="assets/major/dkv.png"
-            />
-          </div>
-          <span>Desain Komunikasi Visual</span>
+      <div class="misi-card reveal" style="
+            background: var(--bg-main);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+          ">
+        <div style="
+              font-size: 2rem;
+              font-weight: 800;
+              color: var(--primary);
+              opacity: 0.15;
+              position: absolute;
+              top: 1rem;
+              right: 1.5rem;
+            ">
+          02
+        </div>
+        <div style="
+              width: 48px;
+              height: 48px;
+              background: var(--primary-surface);
+              border-radius: var(--radius-sm);
+              color: var(--primary);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.25rem;
+              font-weight: 800;
+              margin-bottom: 1.25rem;
+            ">
+          2
+        </div>
+        <p style="
+              font-size: 1.05rem;
+              font-weight: 500;
+              color: var(--text-dark);
+              line-height: 1.7;
+            ">
+          Melakukan sinkronisasi dengan dunia kerja dan dunia industri untuk
+          memenuhi kebutuhan dunia kerja dan mengembangkan potensi didik.
+        </p>
+      </div>
+      <div class="misi-card reveal" style="
+            background: var(--bg-main);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+          ">
+        <div style="
+              font-size: 2rem;
+              font-weight: 800;
+              color: var(--primary);
+              opacity: 0.15;
+              position: absolute;
+              top: 1rem;
+              right: 1.5rem;
+            ">
+          03
+        </div>
+        <div style="
+              width: 48px;
+              height: 48px;
+              background: var(--primary-surface);
+              border-radius: var(--radius-sm);
+              color: var(--primary);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.25rem;
+              font-weight: 800;
+              margin-bottom: 1.25rem;
+            ">
+          3
+        </div>
+        <p style="
+              font-size: 1.05rem;
+              font-weight: 500;
+              color: var(--text-dark);
+              line-height: 1.7;
+            ">
+          Melakukan transformasi, berdaya saing global, dan berbasis teknologi
+          informasi dan digitalisasi.
+        </p>
+      </div>
+      <div class="misi-card reveal" style="
+            background: var(--bg-main);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+          ">
+        <div style="
+              font-size: 2rem;
+              font-weight: 800;
+              color: var(--primary);
+              opacity: 0.15;
+              position: absolute;
+              top: 1rem;
+              right: 1.5rem;
+            ">
+          04
+        </div>
+        <div style="
+              width: 48px;
+              height: 48px;
+              background: var(--primary-surface);
+              border-radius: var(--radius-sm);
+              color: var(--primary);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.25rem;
+              font-weight: 800;
+              margin-bottom: 1.25rem;
+            ">
+          4
+        </div>
+        <p style="
+              font-size: 1.05rem;
+              font-weight: 500;
+              color: var(--text-dark);
+              line-height: 1.7;
+            ">
+          Mengimplementasikan tata kelola modern yang transparan dan akuntabel
+          serta pendidikan yang inklusif.
+        </p>
+      </div>
+      <div class="misi-card reveal" style="
+            background: var(--bg-main);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+          ">
+        <div style="
+              font-size: 2rem;
+              font-weight: 800;
+              color: var(--primary);
+              opacity: 0.15;
+              position: absolute;
+              top: 1rem;
+              right: 1.5rem;
+            ">
+          05
+        </div>
+        <div style="
+              width: 48px;
+              height: 48px;
+              background: var(--primary-surface);
+              border-radius: var(--radius-sm);
+              color: var(--primary);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.25rem;
+              font-weight: 800;
+              margin-bottom: 1.25rem;
+            ">
+          5
+        </div>
+        <p style="
+              font-size: 1.05rem;
+              font-weight: 500;
+              color: var(--text-dark);
+              line-height: 1.7;
+            ">
+          Meningkatkan kolaborasi dan kemitraan antar Lembaga Pendidikan baik
+          internal dan eksternal Muhammadiyah serta dunia kerja.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- TUJUAN SECTION -->
+  <section class="tujuan-section section-padding bg-alt" style="padding: 6rem 0">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem">
+        <span class="visi-label">Tujuan Institusi</span>
+        <h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem">
+          Tujuan Sekolah
+        </h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem">
+          Komitmen nyata pembinaan peserta didik di SMKS Muhammadiyah 1
+          Genteng.
+        </p>
+      </div>
+      <div class="tujuan-box">
+        <div class="tujuan-progress-line">
+          <div class="tujuan-progress-bar" id="tujuan-bar"></div>
+        </div>
+        <div class="tujuan-card reveal">
+          <div class="tujuan-icon">1</div>
+          <p style="
+                font-size: 1.05rem;
+                color: var(--text-dark);
+                line-height: 1.7;
+                margin: 0;
+              ">
+            Mempersiapkan peserta didik yang berakidah Islam dalam beriman dan
+            bertaqwa kepada Allah SWT dengan perilaku akhlak mulia.
+          </p>
+        </div>
+        <div class="tujuan-card reveal">
+          <div class="tujuan-icon">2</div>
+          <p style="
+                font-size: 1.05rem;
+                color: var(--text-dark);
+                line-height: 1.7;
+                margin: 0;
+              ">
+            Membiasakan peserta didik untuk beradaptasi dengan perkembangan
+            ilmu pengetahuan dan teknologi, dan menerapkan teknologi informasi
+            dan digital dalam pembelajaran.
+          </p>
+        </div>
+        <div class="tujuan-card reveal">
+          <div class="tujuan-icon">3</div>
+          <p style="
+                font-size: 1.05rem;
+                color: var(--text-dark);
+                line-height: 1.7;
+                margin: 0;
+              ">
+            Mempersiapkan peserta didik agar lebih ulet, Tangguh, produktif,
+            mandiri dan gigih dalam berkompetisi, serta dapat beradaptasi di
+            masyarakat dan mengembangkan sikap profesional dalam kompetensi
+            yang diminatinya.
+          </p>
+        </div>
+        <div class="tujuan-card reveal">
+          <div class="tujuan-icon">4</div>
+          <p style="
+                font-size: 1.05rem;
+                color: var(--text-dark);
+                line-height: 1.7;
+                margin: 0;
+              ">
+            Membekali peserta didik agar bisa menjadi wirausahawan muda yang
+            ulet, tangguh dan pantang menyerah sesuai dengan syariah.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- KONSENTRASI KEAHLIAN (EX-SIDEBAR SEPERTI DI GAMBAR) -->
+  <section class="majors-section container" style="padding: 6rem 0">
+    <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 3rem">
+      <span class="visi-label">Program Unggulan</span>
+      <h2 class="font-head" style="font-size: 2.5rem; color: var(--primary); margin-top: 0.5rem">
+        Konsentrasi Keahlian
+      </h2>
+      <p style="color: var(--text-muted); margin-top: 0.5rem">
+        Daftar konsentrasi keahlian yang diselenggarakan di SMKS Muhammadiyah
+        1 Genteng sesuai data gambar rujukan.
+      </p>
+    </div>
+    <div class="majors-grid reveal" style="justify-content: center">
+      <button class="major-chip" onclick="openMajorModal('rpl')">
+        <div class="major-chip-img-wrapper">
+          <img alt="PPLG Logo" class="major-chip-img" src="assets/major/PPLG-removebg-preview.png" />
+        </div>
+        <span>Pengembang Perangkat Lunak & Gim</span>
+      </button>
+      <button class="major-chip" onclick="openMajorModal('tkj')">
+        <div class="major-chip-img-wrapper">
+          <img alt="TJKT Logo" class="major-chip-img" src="assets/major/TJKT-removebg-preview.png" />
+        </div>
+        <span>Teknik Komputer dan Jaringan</span>
+      </button>
+      <button class="major-chip" onclick="openMajorModal('bd')">
+        <div class="major-chip-img-wrapper">
+          <img alt="Bisnis Digital Logo" class="major-chip-img" src="assets/major/logo bdp.png" />
+        </div>
+        <span>Bisnis Digital</span>
+      </button>
+      <button class="major-chip" onclick="openMajorModal('mplb')">
+        <div class="major-chip-img-wrapper">
+          <img alt="MPLB Logo" class="major-chip-img" src="assets/major/mp.jpeg" />
+        </div>
+        <span>Manajemen Perkantoran</span>
+      </button>
+      <button class="major-chip" onclick="openMajorModal('akl')">
+        <div class="major-chip-img-wrapper">
+          <img alt="AKL Logo" class="major-chip-img" src="assets/major/logo AKL.png" />
+        </div>
+        <span>Akuntansi</span>
+      </button>
+      <button class="major-chip" onclick="openMajorModal('hotel')">
+        <div class="major-chip-img-wrapper">
+          <img alt="Perhotelan Logo" class="major-chip-img" src="assets/major/PH.png" />
+        </div>
+        <span>Perhotelan</span>
+      </button>
+      <button class="major-chip" onclick="openMajorModal('dkv')">
+        <div class="major-chip-img-wrapper">
+          <img alt="DKV Logo" class="major-chip-img" src="assets/major/dkv.png" />
+        </div>
+        <span>Desain Komunikasi Visual</span>
+      </button>
+    </div>
+  </section>
+  <!-- INTERACTIVE DETAIL MODAL -->
+  <div class="modal-overlay" id="major-modal-overlay" onclick="closeMajorModalOnOverlay(event)">
+    <div class="major-modal-card" id="major-modal-card">
+      <!-- Modal Header Banner with Animated Icon -->
+      <div class="modal-banner" id="modal-banner">
+        <div class="modal-banner-icon" id="modal-icon">
+          <img alt="Major Logo" id="modal-icon-img" src="assets/major/PPLG-removebg-preview.png" />
+        </div>
+        <button aria-label="Tutup Detail Jurusan" class="modal-close-btn" onclick="closeMajorModal()">
+          ×
         </button>
       </div>
-    </section>
-    <!-- INTERACTIVE DETAIL MODAL -->
-    <div
-      class="modal-overlay"
-      id="major-modal-overlay"
-      onclick="closeMajorModalOnOverlay(event)"
-    >
-      <div class="major-modal-card" id="major-modal-card">
-        <!-- Modal Header Banner with Animated Icon -->
-        <div class="modal-banner" id="modal-banner">
-          <div class="modal-banner-icon" id="modal-icon">
-            <img
-              alt="Major Logo"
-              id="modal-icon-img"
-              src="assets/major/PPLG-removebg-preview.png"
-            />
+      <!-- Modal Content Body -->
+      <div class="modal-body">
+        <span class="modal-tag" id="modal-tag">PPLG / Software Engineering</span>
+        <h3 class="modal-title" id="modal-title">
+          Pengembang Perangkat Lunak & Gim (PPLG)
+        </h3>
+        <p class="modal-desc" id="modal-desc">
+          Fokus pada pengembangan aplikasi web modern, mobile apps, database
+          arsitektur, dan logika komputasi. Siswa dibekali kemampuan membangun
+          solusi software siap pakai untuk ekosistem industri digital.
+        </p>
+        <div class="modal-skills-box">
+          <div class="modal-section-title">
+            <span>🛠️</span> Kompetensi &amp; Tools Unggulan:
           </div>
-          <button
-            aria-label="Tutup Detail Jurusan"
-            class="modal-close-btn"
-            onclick="closeMajorModal()"
-          >
-            ×
-          </button>
+          <div class="modal-chips-row" id="modal-skills">
+            <span class="modal-skill-chip">Web &amp; Mobile Dev</span>
+            <span class="modal-skill-chip">SQL &amp; NoSQL Database</span>
+            <span class="modal-skill-chip">API Integration</span>
+            <span class="modal-skill-chip">Git &amp; Version Control</span>
+          </div>
         </div>
-        <!-- Modal Content Body -->
-        <div class="modal-body">
-          <span class="modal-tag" id="modal-tag"
-            >PPLG / Software Engineering</span
-          >
-          <h3 class="modal-title" id="modal-title">
-            Pengembang Perangkat Lunak & Gim (PPLG)
-          </h3>
-          <p class="modal-desc" id="modal-desc">
-            Fokus pada pengembangan aplikasi web modern, mobile apps, database
-            arsitektur, dan logika komputasi. Siswa dibekali kemampuan membangun
-            solusi software siap pakai untuk ekosistem industri digital.
-          </p>
-          <div class="modal-skills-box">
-            <div class="modal-section-title">
-              <span>🛠️</span> Kompetensi &amp; Tools Unggulan:
-            </div>
-            <div class="modal-chips-row" id="modal-skills">
-              <span class="modal-skill-chip">Web &amp; Mobile Dev</span>
-              <span class="modal-skill-chip">SQL &amp; NoSQL Database</span>
-              <span class="modal-skill-chip">API Integration</span>
-              <span class="modal-skill-chip">Git &amp; Version Control</span>
-            </div>
+        <div class="modal-career-box">
+          <div class="modal-section-title" style="color: var(--primary); margin-bottom: 0.4rem">
+            <span>🚀</span> Peluang &amp; Prospek Karir:
           </div>
-          <div class="modal-career-box">
-            <div
-              class="modal-section-title"
-              style="color: var(--primary); margin-bottom: 0.4rem"
-            >
-              <span>🚀</span> Peluang &amp; Prospek Karir:
-            </div>
-            <div class="modal-career-text" id="modal-career">
-              Software Engineer, Web Developer, Mobile App Developer, Database
-              Administrator, QA Tester.
-            </div>
+          <div class="modal-career-text" id="modal-career">
+            Software Engineer, Web Developer, Mobile App Developer, Database
+            Administrator, QA Tester.
           </div>
-          <div class="modal-footer-cta">
-            <span style="font-size: 0.85rem; color: var(--text-muted)"
-              >Terlisensi <strong>LSP BNSP</strong> • Kelas Industri</span
-            >
-            <a
-              href="index.html#spmb"
-              style="
+        </div>
+        <div class="modal-footer-cta">
+          <span style="font-size: 0.85rem; color: var(--text-muted)">Terlisensi <strong>LSP BNSP</strong> • Kelas
+            Industri</span>
+          <a href="spmb.html" style="
                 background: var(--primary);
                 color: #ffffff;
                 padding: 0.65rem 1.4rem;
@@ -2418,822 +2168,686 @@
                 font-weight: 700;
                 font-size: 0.9rem;
                 text-decoration: none;
-              "
-            >
-              Daftar SPMB Jurusan Ini →
-            </a>
-          </div>
+              ">
+            Daftar SPMB Jurusan Ini →
+          </a>
         </div>
       </div>
     </div>
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <!-- Kolom 1: Profil Sekolah & Kontak -->
-          <div>
-            <div
-              class="brand-box"
-              style="
+  </div>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Kolom 1: Profil Sekolah & Kontak -->
+        <div>
+          <div class="brand-box" style="
                 display: flex;
                 align-items: center;
                 gap: 0.9rem;
                 margin-bottom: 1.2rem;
-              "
-            >
-              <img
-                alt="Logo SMKS Muhammadiyah 1 Genteng"
-                class="brand-logo"
-                height="52"
-                onerror="
+              ">
+            <img alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" height="52" onerror="
                   this.closest('.card')
                     ? this.closest('.card').classList.add('no-image')
                     : null;
                   this.remove();
-                "
-                src="assets/logo.webp"
-                style="max-height: 52px; width: auto; object-fit: contain"
-                width="52"
-              />
-              <div>
-                <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
-                <div class="footer-brand-sub">BANYUWANGI • JAWA TIMUR</div>
-              </div>
+                " src="assets/logo.webp" style="max-height: 52px; width: auto; object-fit: contain" width="52" />
+            <div>
+              <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+              <div class="footer-brand-sub">BANYUWANGI • JAWA TIMUR</div>
             </div>
-            <p class="footer-address">
-              Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
-              Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
-              68465
-            </p>
-            <!-- A. Baris Kontak dengan Inline SVG Stroke -->
-            <ul class="footer-contact-list">
-              <li class="footer-contact-item">
-                <svg
-                  aria-hidden="true"
-                  class="footer-contact-icon"
-                  viewbox="0 0 24 24"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  ></path>
-                </svg>
-                <a class="footer-contact-link" href="tel:0333845605"
-                  >(0333) 845605</a
-                >
+          </div>
+          <p class="footer-address">
+            Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
+            Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
+            68465
+          </p>
+          <!-- A. Baris Kontak dengan Inline SVG Stroke -->
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg aria-hidden="true" class="footer-contact-icon" viewbox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+              <a class="footer-contact-link" href="tel:0333845605">(0333) 845605</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg aria-hidden="true" class="footer-contact-icon" viewbox="0 0 24 24">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
+              <a class="footer-contact-link" href="https://wa.me/6282241356668" rel="noopener noreferrer"
+                target="_blank">0822-4135-6668 (WhatsApp)</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg aria-hidden="true" class="footer-contact-icon" viewbox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <a class="footer-contact-link"
+                href="mailto:smkmuhi.genteng1968@gmail.com">smkmuhi.genteng1968@gmail.com</a>
+            </li>
+          </ul>
+          <!-- C. Media Sosial Monokrom -->
+          <div aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng" class="footer-social-row">
+            <a aria-label="Instagram SMKS Muhammadiyah 1 Genteng" class="footer-social-btn"
+              href="https://www.instagram.com/smkmuhigts/" rel="noopener noreferrer" target="_blank">
+              <svg aria-hidden="true" viewbox="0 0 24 24">
+                <rect fill="none" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" width="20" x="2"
+                  y="2"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor"
+                  stroke-width="2"></path>
+                <line stroke="currentColor" stroke-linecap="round" stroke-width="2" x1="17.5" x2="17.51" y1="6.5"
+                  y2="6.5"></line>
+              </svg>
+            </a>
+            <a aria-label="YouTube SMKS Muhammadiyah 1 Genteng" class="footer-social-btn"
+              href="https://www.youtube.com/@smkmuhigts" rel="noopener noreferrer" target="_blank">
+              <svg aria-hidden="true" viewbox="0 0 24 24">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  fill="none" stroke="currentColor" stroke-width="2"></path>
+                <polygon fill="currentColor" points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+              </svg>
+            </a>
+            <a aria-label="Facebook SMKS Muhammadiyah 1 Genteng" class="footer-social-btn"
+              href="https://www.facebook.com/smkmuhigts" rel="noopener noreferrer" target="_blank">
+              <svg aria-hidden="true" viewbox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none"
+                  stroke="currentColor" stroke-width="2"></path>
+              </svg>
+            </a>
+            <a aria-label="TikTok SMKS Muhammadiyah 1 Genteng" class="footer-social-btn"
+              href="https://www.tiktok.com/@smkmuhigts" rel="noopener noreferrer" target="_blank">
+              <svg aria-hidden="true" viewbox="0 0 24 24">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Kolom 2: Halaman Terkait -->
+        <div class="footer-col">
+          <h4>Halaman Terkait</h4>
+          <nav aria-label="Navigasi Halaman Terkait" class="footer-nav">
+            <ul class="footer-links">
+              <li>
+                <a href="bkk.html"><span aria-hidden="true" class="footer-chevron">›</span>
+                  Bursa Kerja Khusus (BKK)</a>
               </li>
-              <li class="footer-contact-item">
-                <svg
-                  aria-hidden="true"
-                  class="footer-contact-icon"
-                  viewbox="0 0 24 24"
-                >
-                  <path
-                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
-                  ></path>
-                </svg>
-                <a
-                  class="footer-contact-link"
-                  href="https://wa.me/6282241356668"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >0822-4135-6668 (WhatsApp)</a
-                >
+              <li>
+                <a href="visi-misi.html"><span aria-hidden="true" class="footer-chevron">›</span>
+                  Visi &amp; Misi</a>
               </li>
-              <li class="footer-contact-item">
-                <svg
-                  aria-hidden="true"
-                  class="footer-contact-icon"
-                  viewbox="0 0 24 24"
-                >
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  ></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <a
-                  class="footer-contact-link"
-                  href="mailto:smkmuhi.genteng1968@gmail.com"
-                  >smkmuhi.genteng1968@gmail.com</a
-                >
+              <li>
+                <a href="fasilitas.html"><span aria-hidden="true" class="footer-chevron">›</span>
+                  Fasilitas Sekolah</a>
+              </li>
+              <li>
+                <a href="ekstrakurikuler.html"><span aria-hidden="true" class="footer-chevron">›</span>
+                  Ekstrakurikuler &amp; IPM</a>
+              </li>
+              <li>
+                <a href="prestasi.html"><span aria-hidden="true" class="footer-chevron">›</span>
+                  Galeri Prestasi</a>
+              </li>
+              <li>
+                <a href="berita.html"><span aria-hidden="true" class="footer-chevron">›</span>
+                  Jurnal &amp; Berita</a>
               </li>
             </ul>
-            <!-- C. Media Sosial Monokrom -->
-            <div
-              aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng"
-              class="footer-social-row"
-            >
-              <a
-                aria-label="Instagram SMKS Muhammadiyah 1 Genteng"
-                class="footer-social-btn"
-                href="https://www.instagram.com/smkmuhigts/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <svg aria-hidden="true" viewbox="0 0 24 24">
-                  <rect
-                    fill="none"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    width="20"
-                    x="2"
-                    y="2"
-                  ></rect>
-                  <path
-                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                  <line
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-width="2"
-                    x1="17.5"
-                    x2="17.51"
-                    y1="6.5"
-                    y2="6.5"
-                  ></line>
-                </svg>
-              </a>
-              <a
-                aria-label="YouTube SMKS Muhammadiyah 1 Genteng"
-                class="footer-social-btn"
-                href="https://www.youtube.com/@smkmuhigts"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <svg aria-hidden="true" viewbox="0 0 24 24">
-                  <path
-                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                  <polygon
-                    fill="currentColor"
-                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
-                  ></polygon>
-                </svg>
-              </a>
-              <a
-                aria-label="Facebook SMKS Muhammadiyah 1 Genteng"
-                class="footer-social-btn"
-                href="https://www.facebook.com/smkmuhigts"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <svg aria-hidden="true" viewbox="0 0 24 24">
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                aria-label="TikTok SMKS Muhammadiyah 1 Genteng"
-                class="footer-social-btn"
-                href="https://www.tiktok.com/@smkmuhigts"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <svg aria-hidden="true" viewbox="0 0 24 24">
-                  <path
-                    d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <!-- Kolom 2: Halaman Terkait -->
-          <div class="footer-col">
-            <h4>Halaman Terkait</h4>
-            <nav aria-label="Navigasi Halaman Terkait" class="footer-nav">
-              <ul class="footer-links">
-                <li>
-                  <a href="bkk.html"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Bursa Kerja Khusus (BKK)</a
-                  >
-                </li>
-                <li>
-                  <a href="visi-misi.html"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Visi &amp; Misi</a
-                  >
-                </li>
-                <li>
-                  <a href="fasilitas.html"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Fasilitas Sekolah</a
-                  >
-                </li>
-                <li>
-                  <a href="ekstrakurikuler.html"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Ekstrakurikuler &amp; IPM</a
-                  >
-                </li>
-                <li>
-                  <a href="prestasi.html"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Galeri Prestasi</a
-                  >
-                </li>
-                <li>
-                  <a href="berita.html"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Jurnal &amp; Berita</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <!-- Kolom 3: 7 Konsentrasi Keahlian -->
-          <div class="footer-col">
-            <h4>7 Konsentrasi</h4>
-            <nav
-              aria-label="Navigasi 7 Konsentrasi Keahlian"
-              class="footer-nav"
-            >
-              <ul class="footer-links">
-                <li>
-                  <a href="index.html#jurusan" onclick="jumpToMajor('rpl')"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Pengembang Perangkat Lunak & Gim</a
-                  >
-                </li>
-                <li>
-                  <a href="index.html#jurusan" onclick="jumpToMajor('tkj')"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Teknik Jaringan Komputer &amp; Telekomunikasi</a
-                  >
-                </li>
-                <li>
-                  <a href="index.html#jurusan" onclick="jumpToMajor('dkv')"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Desain Komunikasi Visual</a
-                  >
-                </li>
-                <li>
-                  <a href="index.html#jurusan" onclick="jumpToMajor('bd')"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Bisnis Digital</a
-                  >
-                </li>
-                <li>
-                  <a href="index.html#jurusan" onclick="jumpToMajor('akl')"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Akuntansi &amp; Keuangan Lembaga</a
-                  >
-                </li>
-                <li>
-                  <a href="index.html#jurusan" onclick="jumpToMajor('mplb')"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Manajemen Perkantoran</a
-                  >
-                </li>
-                <li>
-                  <a href="index.html#jurusan" onclick="jumpToMajor('ph')"
-                    ><span aria-hidden="true" class="footer-chevron">›</span>
-                    Perhotelan</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <!-- Kolom 4: Identitas Lembaga Resmi -->
-          <div class="footer-col">
-            <h4>Identitas Lembaga</h4>
-            <div class="footer-identity-card">
-              <div><strong>NPSN:</strong> 20525597</div>
-              <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
-              <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
-              <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
-              <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
-            </div>
-          </div>
+          </nav>
         </div>
-        <div class="footer-bottom">
-          <div>
-            © 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.
+        <!-- Kolom 3: 7 Konsentrasi Keahlian -->
+        <div class="footer-col">
+          <h4>7 Konsentrasi</h4>
+          <nav aria-label="Navigasi 7 Konsentrasi Keahlian" class="footer-nav">
+            <ul class="footer-links">
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('rpl')"><span aria-hidden="true"
+                    class="footer-chevron">›</span>
+                  Pengembang Perangkat Lunak & Gim</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('tkj')"><span aria-hidden="true"
+                    class="footer-chevron">›</span>
+                  Teknik Jaringan Komputer &amp; Telekomunikasi</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('dkv')"><span aria-hidden="true"
+                    class="footer-chevron">›</span>
+                  Desain Komunikasi Visual</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('bd')"><span aria-hidden="true"
+                    class="footer-chevron">›</span>
+                  Bisnis Digital</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('akl')"><span aria-hidden="true"
+                    class="footer-chevron">›</span>
+                  Akuntansi &amp; Keuangan Lembaga</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('mplb')"><span aria-hidden="true"
+                    class="footer-chevron">›</span>
+                  Manajemen Perkantoran</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('ph')"><span aria-hidden="true"
+                    class="footer-chevron">›</span>
+                  Perhotelan</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Kolom 4: Identitas Lembaga Resmi -->
+        <div class="footer-col">
+          <h4>Identitas Lembaga</h4>
+          <div class="footer-identity-card">
+            <div><strong>NPSN:</strong> 20525597</div>
+            <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+            <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+            <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+            <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
           </div>
-          <div>Created By PPLG • Kompetisi JHIC Jagoan Hosting</div>
         </div>
       </div>
-    </footer>
-    <!-- AI CHATBOT WIDGET -->
-    <button
-      aria-label="Buka Asisten AI"
-      class="chatbot-btn"
-      id="chatbot-toggle"
-    >
-      <svg
-        class="lucide lucide-message-circle-more-icon lucide-message-circle-more"
-        fill="none"
-        height="24"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewbox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
-        ></path>
-        <path d="M8 12h.01"></path>
-        <path d="M12 12h.01"></path>
-        <path d="M16 12h.01"></path>
-      </svg>
-    </button>
-    <div class="chat-panel" id="chat-panel">
-      <div class="chat-header">
-        <span>Asisten AI SMEMSA</span>
-        <span
-          style="
+      <div class="footer-bottom">
+        <div>
+          © 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.
+        </div>
+        <div>Created By PPLG • Kompetisi JHIC Jagoan Hosting</div>
+      </div>
+    </div>
+  </footer>
+  <!-- AI CHATBOT WIDGET -->
+  <button aria-label="Buka Asisten AI" class="chatbot-btn" id="chatbot-toggle">
+    <svg class="lucide lucide-message-circle-more-icon lucide-message-circle-more" fill="none" height="24"
+      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"
+      width="24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719">
+      </path>
+      <path d="M8 12h.01"></path>
+      <path d="M12 12h.01"></path>
+      <path d="M16 12h.01"></path>
+    </svg>
+  </button>
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <span>Asisten AI SMEMSA</span>
+      <span style="
             font-size: 0.75rem;
             background: rgba(255, 255, 255, 0.2);
             padding: 0.2rem 0.5rem;
             border-radius: 10px;
-          "
-          >Online</span
-        >
-      </div>
-      <div class="chat-body" id="chat-body">
-        <div class="chat-msg bot">
-          Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
-          Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran SPMB,
-          sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
-        </div>
-      </div>
-      <div class="chat-quick-pills">
-        <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
-          Info Jurusan
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Jadwal SPMB')">
-          Jadwal SPMB
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
-          LSP-P1 BNSP
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
-          Lowongan BKK
-        </button>
-      </div>
-      <div class="chat-input-bar">
-        <input
-          id="chat-input-text"
-          placeholder="Ketik pertanyaan Anda..."
-          type="text"
-        />
-        <button onclick="handleChatSubmit()">Kirim</button>
+          ">Online</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">
+        Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
+        Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran SPMB,
+        sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
       </div>
     </div>
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script>
-      // AI Chatbot Logic
-      const chatbotToggle = document.getElementById("chatbot-toggle");
-      const chatPanel = document.getElementById("chat-panel");
-      const chatBody = document.getElementById("chat-body");
-      const chatInput = document.getElementById("chat-input-text");
+    <div class="chat-quick-pills">
+      <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
+        Info Jurusan
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Jadwal SPMB')">
+        Jadwal SPMB
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
+        LSP-P1 BNSP
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
+        Lowongan BKK
+      </button>
+    </div>
+    <div class="chat-input-bar">
+      <input id="chat-input-text" placeholder="Ketik pertanyaan Anda..." type="text" />
+      <button onclick="handleChatSubmit()">Kirim</button>
+    </div>
+  </div>
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    // AI Chatbot Logic
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const chatPanel = document.getElementById("chat-panel");
+    const chatBody = document.getElementById("chat-body");
+    const chatInput = document.getElementById("chat-input-text");
 
-      if (chatbotToggle) {
-        chatbotToggle.addEventListener("click", () => {
-          chatPanel.classList.toggle("active");
-        });
-      }
-
-      function appendMsg(text, sender) {
-        if (!chatBody) return;
-        const div = document.createElement("div");
-        div.className = `chat-msg ${sender}`;
-        div.innerText = text;
-        chatBody.appendChild(div);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-
-      function getBotResponse(input) {
-        const text = input.toLowerCase();
-        if (
-          text.includes("jurusan") ||
-          text.includes("prodi") ||
-          text.includes("keahlian")
-        ) {
-          return "SMEMSA Genteng memiliki 8 program keahlian: PPLG, TJKT, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
-        } else if (
-          text.includes("spmb") ||
-          text.includes("daftar") ||
-          text.includes("syarat") ||
-          text.includes("biaya")
-        ) {
-          return "SPMB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian SPMB, atau datang langsung ke sekolah di Jl. KH Imam Bahri No.10 Genteng.";
-        } else if (
-          text.includes("lsp") ||
-          text.includes("bnsp") ||
-          text.includes("sertifikat")
-        ) {
-          return "SMEMSA memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
-        } else if (
-          text.includes("loker") ||
-          text.includes("bkk") ||
-          text.includes("kerja") ||
-          text.includes("magang")
-        ) {
-          return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra industri terkemuka.";
-        } else if (text.includes("fasilitas") || text.includes("lab")) {
-          return "Fasilitas kami meliputi Laboratorium Software PPLG, Lab Jaringan TJKT, Studio DKV, Bengkel Otomotif, Dapur Komersial Tata Boga, dan Lapangan Olahraga.";
-        } else {
-          return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi sekolah kami.";
-        }
-      }
-
-      function handleChatSubmit() {
-        if (!chatInput) return;
-        const text = chatInput.value.trim();
-        if (!text) return;
-        appendMsg(text, "user");
-        chatInput.value = "";
-        setTimeout(() => {
-          appendMsg(getBotResponse(text), "bot");
-        }, 400);
-      }
-
-      function sendQuickMsg(text) {
-        appendMsg(text, "user");
-        setTimeout(() => {
-          appendMsg(getBotResponse(text), "bot");
-        }, 400);
-      }
-
-      if (chatInput) {
-        chatInput.addEventListener("keypress", (e) => {
-          if (e.key === "Enter") handleChatSubmit();
-        });
-      }
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Simple Reveal Animation
-      gsap.utils.toArray(".reveal").forEach((elem) => {
-        gsap.to(elem, {
-          scrollTrigger: {
-            trigger: elem,
-            start: "top 85%",
-          },
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        });
+    if (chatbotToggle) {
+      chatbotToggle.addEventListener("click", () => {
+        chatPanel.classList.toggle("active");
       });
+    }
 
-      // Timeline Progress Bar ScrollTrigger Animation for Tujuan Section
-      const tujuanBar = document.getElementById("tujuan-bar");
-      if (tujuanBar) {
-        gsap.to(tujuanBar, {
-          height: "100%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".tujuan-box",
-            start: "top 75%",
-            end: "bottom 70%",
-            scrub: 0.5,
-          },
-        });
+    function appendMsg(text, sender) {
+      if (!chatBody) return;
+      const div = document.createElement("div");
+      div.className = `chat-msg ${sender}`;
+      div.innerText = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function getBotResponse(input) {
+      const text = input.toLowerCase();
+      if (
+        text.includes("jurusan") ||
+        text.includes("prodi") ||
+        text.includes("keahlian")
+      ) {
+        return "SMEMSA Genteng memiliki 8 program keahlian: PPLG, TJKT, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+      } else if (
+        text.includes("spmb") ||
+        text.includes("daftar") ||
+        text.includes("syarat") ||
+        text.includes("biaya")
+      ) {
+        return "SPMB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian SPMB, atau datang langsung ke sekolah di Jl. KH Imam Bahri No.10 Genteng.";
+      } else if (
+        text.includes("lsp") ||
+        text.includes("bnsp") ||
+        text.includes("sertifikat")
+      ) {
+        return "SMEMSA memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+      } else if (
+        text.includes("loker") ||
+        text.includes("bkk") ||
+        text.includes("kerja") ||
+        text.includes("magang")
+      ) {
+        return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra industri terkemuka.";
+      } else if (text.includes("fasilitas") || text.includes("lab")) {
+        return "Fasilitas kami meliputi Laboratorium Software PPLG, Lab Jaringan TJKT, Studio DKV, Bengkel Otomotif, Dapur Komersial Tata Boga, dan Lapangan Olahraga.";
+      } else {
+        return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi sekolah kami.";
       }
+    }
 
-      // Parallax for Header Pattern
-      gsap.to(".header-bg-pattern", {
-        y: 100,
-        rotation: 15,
+    function handleChatSubmit() {
+      if (!chatInput) return;
+      const text = chatInput.value.trim();
+      if (!text) return;
+      appendMsg(text, "user");
+      chatInput.value = "";
+      setTimeout(() => {
+        appendMsg(getBotResponse(text), "bot");
+      }, 400);
+    }
+
+    function sendQuickMsg(text) {
+      appendMsg(text, "user");
+      setTimeout(() => {
+        appendMsg(getBotResponse(text), "bot");
+      }, 400);
+    }
+
+    if (chatInput) {
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleChatSubmit();
+      });
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Simple Reveal Animation
+    gsap.utils.toArray(".reveal").forEach((elem) => {
+      gsap.to(elem, {
+        scrollTrigger: {
+          trigger: elem,
+          start: "top 85%",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+    });
+
+    // Timeline Progress Bar ScrollTrigger Animation for Tujuan Section
+    const tujuanBar = document.getElementById("tujuan-bar");
+    if (tujuanBar) {
+      gsap.to(tujuanBar, {
+        height: "100%",
         ease: "none",
         scrollTrigger: {
-          trigger: ".page-header",
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
+          trigger: ".tujuan-box",
+          start: "top 75%",
+          end: "bottom 70%",
+          scrub: 0.5,
         },
       });
+    }
 
-      // ==========================================
-      // DATA KONSENTRASI KEAHLIAN & MODAL LOGIC
-      // ==========================================
-      const majorsData = {
-        rpl: {
-          title: "Pengembang Perangkat Lunak & Gim (PPLG)",
-          tag: "PPLG / Software Engineering",
-          icon: "assets/major/PPLG-removebg-preview.png",
-          gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
-          desc: "Konsentrasi keahlian yang berfokus pada analisis kebutuhan, desain arsitektur perangkat lunak, pemrograman web dan mobile modern, manajemen basis data, serta pengujian sistem. Siswa dilatih langsung mengerjakan proyek riil sesuai standar industri software house.",
-          skills: [
-            "Fullstack Web Development",
-            "Mobile App (Flutter/Android)",
-            "Database SQL & NoSQL",
-            "API Integration",
-            "Git & Github Workflow",
-            "Clean Architecture",
-          ],
-          career:
-            "Software Engineer, Web Developer, Frontend/Backend Developer, Mobile Developer, Database Administrator, QA System Tester.",
-        },
-        tkj: {
-          title: "Teknik Jaringan Komputer & Telekomunikasi (TJKT)",
-          tag: "TJKT / Network & Cloud Infrastructure",
-          icon: "assets/major/TJKT-removebg-preview.png",
-          gradient: "linear-gradient(135deg, #064e3b 0%, #0369a1 100%)",
-          desc: "Mempelajari perancangan, instalasi, dan pemeliharaan infrastruktur jaringan komputer enterprise, fiber optik, administrasi Cloud & Linux server, serta sistem keamanan siber (cybersecurity) untuk mendukung transformasi digital industri.",
-          skills: [
-            "Routing & Switching (MikroTik MTCNA / Cisco)",
-            "Linux Enterprise & Cloud Server",
-            "Fiber Optic Splicing & OTDR",
-            "Network Security & Firewall",
-            "Wireless Network Deployment",
-          ],
-          career:
-            "Network Administrator, Cloud Infrastructure Engineer, Fiber Optic Specialist, IT Support Specialist, System Administrator.",
-        },
-        bd: {
-          title: "Bisnis Digital",
-          tag: "Digital Commerce & Marketing Strategy",
-          icon: "assets/major/logo bdp.png",
-          gradient: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
-          desc: "Mempersiapkan wirausahawan digital dan praktisi e-commerce yang menguasai marketplace optimization, riset pasar digital, social media marketing, strategi SEO/SEM, copywriting promosi, serta pengelolaan toko daring modern.",
-          skills: [
-            "E-Commerce & Marketplace Management",
-            "Social Media Advertising (Meta/Tiktok Ads)",
-            "SEO & Content Marketing",
-            "Digital Analytics",
-            "Copywriting & Branding",
-          ],
-          career:
-            "Digital Marketer, E-Commerce Specialist, Social Media Strategist, Digital Business Consultant, Marketplace Operations Lead.",
-        },
-        mplb: {
-          title: "Manajemen Perkantoran & Layanan Bisnis (MPLB)",
-          tag: "Corporate Management & Digital Administration",
-          icon: "assets/major/mp.jpeg",
-          gradient: "linear-gradient(135deg, #064e3b 0%, #0f766e 100%)",
-          desc: "Membekali siswa keterampilan administrasi perkantoran modern, digital document archiving, korespondensi bisnis formal, manajemen rapat, tata kelola kehumasan, serta kemampuan komunikasi profesional berstandar internasional.",
-          skills: [
-            "Digital Office Administration",
-            "Digital Archiving & Cloud Storage",
-            "Business Correspondence",
-            "Public Relations & Event Handling",
-            "Customer Relationship Management",
-          ],
-          career:
-            "Administrative Officer, Executive Secretary, Public Relations Staff, Customer Service Specialist, HR Administration Staff.",
-        },
-        akl: {
-          title: "Akuntansi & Keuangan Lembaga (AKL)",
-          tag: "Financial Accounting & Islamic Banking",
-          icon: "assets/major/logo AKL.png",
-          gradient: "linear-gradient(135deg, #064e3b 0%, #15803d 100%)",
-          desc: "Fokus pada penguasaan pembukuan keuangan, perpajakan, audit laporan keuangan, komputer akuntansi (MYOB/Accurate), serta dasar-dasar operasional perbankan syariah yang presisi dan transparan.",
-          skills: [
-            "Komputer Akuntansi (MYOB/Accurate)",
-            "Laporan Keuangan & Audit",
-            "Perpajakan (PPh & PPN)",
-            "Operasional Perbankan Syariah",
-            "Spreadsheet Analytics",
-          ],
-          career:
-            "Junior Accountant, Tax Staff, Bank Teller & Customer Service, Financial Analyst Assistant, Bookkeeper.",
-        },
-        hotel: {
-          title: "Perhotelan",
-          tag: "Tourism & Hotel Hospitality Industry",
-          icon: "assets/major/PH.png",
-          gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)",
-          desc: "Mengasah keahlian pelayanan prima berstandar bintang lima, tata kelola front office, tata graha (housekeeping), pelayanan makanan & minuman (food & beverage), serta etika keramahtamahan internasional.",
-          skills: [
-            "Front Office Operations",
-            "Housekeeping & Room Service",
-            "Food & Beverage Service",
-            "Hospitality Ethics & Communication",
-            "Hotel Property Management System",
-          ],
-          career:
-            "Front Desk Agent, Guest Relation Officer, Housekeeping Supervisor, F&B Service Specialist, Hotel Event Coordinator.",
-        },
-        dkv: {
-          title: "Desain Komunikasi Visual (DKV)",
-          tag: "Creative Media & Visual Communication",
-          icon: "assets/major/dkv.png",
-          gradient: "linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)",
-          desc: "Eksplorasi kreativitas visual tanpa batas meliputi desain grafis profesional, ilustrasi digital, videografi sinematik, animasi 2D/3D, motion graphics, audio production, dan konten promosi multimedia komersial.",
-          skills: [
-            "Adobe Illustrator & Photoshop",
-            "Premiere Pro & After Effects",
-            "Motion Graphics 2D/3D",
-            "Cinematography & Lighting",
-            "Brand Identity Design",
-          ],
-          career:
-            "Graphic Designer, Video Editor, Motion Graphic Artist, Videographer/Cinematographer, UI/UX Designer, Creative Director.",
-        },
-        boga: {
-          title: "Tata Boga / Kuliner",
-          tag: "Culinary Arts & Bakery Production",
-          icon: "assets/major/SMEMSA Chibi-chibi.png",
-          gradient: "linear-gradient(135deg, #d97706 0%, #ca8a04 100%)",
-          desc: "Mempelajari seni pengolahan masakan nusantara dan internasional (kontinental), bakery & pastry, pengolahan makanan sehat, hygiene sanitasi halal, serta manajemen usaha katering komersial berstandar industri.",
-          skills: [
-            "Bakery & Pastry Production",
-            "Indonesian & Continental Cuisine",
-            "Food Plating & Presentation",
-            "Hygiene & Halal Food Sanitation",
-            "Catering Business Management",
-          ],
-          career:
-            "Pastry Chef, Commis Chef, Baker, Food Stylist, Restaurant/Catering Entrepreneur, F&B Supervisor.",
-        },
-        tbsm: {
-          title: "Teknik & Bisnis Sepeda Motor (TBSM)",
-          tag: "Automotive Engineering & Workshop Management",
-          icon: "assets/major/SMEMSA Chibi-chibi.png",
-          gradient: "linear-gradient(135deg, #1c1917 0%, #064e3b 100%)",
-          desc: "Mencetak teknisi otomotif roda dua profesional dengan keahlian perawatan mesin injeksi, kelistrikan kendaraan, sistem transmisi otomatis/manual, serta manajemen bengkel berstandar resmi Astra Honda Authorized Service Station (AHASS).",
-          skills: [
-            "EFI & Injection Diagnostic Tools",
-            "Engine Overhaul & Tune-Up",
-            "Motorcycle Electrical Systems",
-            "Brake & Suspension Maintenance",
-            "Workshop Management",
-          ],
-          career:
-            "Automotive Technician, Service Advisor Bengkel Resmi, Diagnostic Specialist, Sparepart Officer, Wirausaha Bengkel Motor Mandiri.",
-        },
-      };
+    // Parallax for Header Pattern
+    gsap.to(".header-bg-pattern", {
+      y: 100,
+      rotation: 15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".page-header",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
 
-      function openMajorModal(majorKey) {
-        const data = majorsData[majorKey];
-        if (!data) return;
+    // ==========================================
+    // DATA KONSENTRASI KEAHLIAN & MODAL LOGIC
+    // ==========================================
+    const majorsData = {
+      rpl: {
+        title: "Pengembang Perangkat Lunak & Gim (PPLG)",
+        tag: "PPLG / Software Engineering",
+        icon: "assets/major/PPLG-removebg-preview.png",
+        gradient: "linear-gradient(135deg, #064e3b 0%, #0d7056 100%)",
+        desc: "Konsentrasi keahlian yang berfokus pada analisis kebutuhan, desain arsitektur perangkat lunak, pemrograman web dan mobile modern, manajemen basis data, serta pengujian sistem. Siswa dilatih langsung mengerjakan proyek riil sesuai standar industri software house.",
+        skills: [
+          "Fullstack Web Development",
+          "Mobile App (Flutter/Android)",
+          "Database SQL & NoSQL",
+          "API Integration",
+          "Git & Github Workflow",
+          "Clean Architecture",
+        ],
+        career:
+          "Software Engineer, Web Developer, Frontend/Backend Developer, Mobile Developer, Database Administrator, QA System Tester.",
+      },
+      tkj: {
+        title: "Teknik Jaringan Komputer & Telekomunikasi (TJKT)",
+        tag: "TJKT / Network & Cloud Infrastructure",
+        icon: "assets/major/TJKT-removebg-preview.png",
+        gradient: "linear-gradient(135deg, #064e3b 0%, #0369a1 100%)",
+        desc: "Mempelajari perancangan, instalasi, dan pemeliharaan infrastruktur jaringan komputer enterprise, fiber optik, administrasi Cloud & Linux server, serta sistem keamanan siber (cybersecurity) untuk mendukung transformasi digital industri.",
+        skills: [
+          "Routing & Switching (MikroTik MTCNA / Cisco)",
+          "Linux Enterprise & Cloud Server",
+          "Fiber Optic Splicing & OTDR",
+          "Network Security & Firewall",
+          "Wireless Network Deployment",
+        ],
+        career:
+          "Network Administrator, Cloud Infrastructure Engineer, Fiber Optic Specialist, IT Support Specialist, System Administrator.",
+      },
+      bd: {
+        title: "Bisnis Digital",
+        tag: "Digital Commerce & Marketing Strategy",
+        icon: "assets/major/logo bdp.png",
+        gradient: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
+        desc: "Mempersiapkan wirausahawan digital dan praktisi e-commerce yang menguasai marketplace optimization, riset pasar digital, social media marketing, strategi SEO/SEM, copywriting promosi, serta pengelolaan toko daring modern.",
+        skills: [
+          "E-Commerce & Marketplace Management",
+          "Social Media Advertising (Meta/Tiktok Ads)",
+          "SEO & Content Marketing",
+          "Digital Analytics",
+          "Copywriting & Branding",
+        ],
+        career:
+          "Digital Marketer, E-Commerce Specialist, Social Media Strategist, Digital Business Consultant, Marketplace Operations Lead.",
+      },
+      mplb: {
+        title: "Manajemen Perkantoran & Layanan Bisnis (MPLB)",
+        tag: "Corporate Management & Digital Administration",
+        icon: "assets/major/mp.jpeg",
+        gradient: "linear-gradient(135deg, #064e3b 0%, #0f766e 100%)",
+        desc: "Membekali siswa keterampilan administrasi perkantoran modern, digital document archiving, korespondensi bisnis formal, manajemen rapat, tata kelola kehumasan, serta kemampuan komunikasi profesional berstandar internasional.",
+        skills: [
+          "Digital Office Administration",
+          "Digital Archiving & Cloud Storage",
+          "Business Correspondence",
+          "Public Relations & Event Handling",
+          "Customer Relationship Management",
+        ],
+        career:
+          "Administrative Officer, Executive Secretary, Public Relations Staff, Customer Service Specialist, HR Administration Staff.",
+      },
+      akl: {
+        title: "Akuntansi & Keuangan Lembaga (AKL)",
+        tag: "Financial Accounting & Islamic Banking",
+        icon: "assets/major/logo AKL.png",
+        gradient: "linear-gradient(135deg, #064e3b 0%, #15803d 100%)",
+        desc: "Fokus pada penguasaan pembukuan keuangan, perpajakan, audit laporan keuangan, komputer akuntansi (MYOB/Accurate), serta dasar-dasar operasional perbankan syariah yang presisi dan transparan.",
+        skills: [
+          "Komputer Akuntansi (MYOB/Accurate)",
+          "Laporan Keuangan & Audit",
+          "Perpajakan (PPh & PPN)",
+          "Operasional Perbankan Syariah",
+          "Spreadsheet Analytics",
+        ],
+        career:
+          "Junior Accountant, Tax Staff, Bank Teller & Customer Service, Financial Analyst Assistant, Bookkeeper.",
+      },
+      hotel: {
+        title: "Perhotelan",
+        tag: "Tourism & Hotel Hospitality Industry",
+        icon: "assets/major/PH.png",
+        gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)",
+        desc: "Mengasah keahlian pelayanan prima berstandar bintang lima, tata kelola front office, tata graha (housekeeping), pelayanan makanan & minuman (food & beverage), serta etika keramahtamahan internasional.",
+        skills: [
+          "Front Office Operations",
+          "Housekeeping & Room Service",
+          "Food & Beverage Service",
+          "Hospitality Ethics & Communication",
+          "Hotel Property Management System",
+        ],
+        career:
+          "Front Desk Agent, Guest Relation Officer, Housekeeping Supervisor, F&B Service Specialist, Hotel Event Coordinator.",
+      },
+      dkv: {
+        title: "Desain Komunikasi Visual (DKV)",
+        tag: "Creative Media & Visual Communication",
+        icon: "assets/major/dkv.png",
+        gradient: "linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)",
+        desc: "Eksplorasi kreativitas visual tanpa batas meliputi desain grafis profesional, ilustrasi digital, videografi sinematik, animasi 2D/3D, motion graphics, audio production, dan konten promosi multimedia komersial.",
+        skills: [
+          "Adobe Illustrator & Photoshop",
+          "Premiere Pro & After Effects",
+          "Motion Graphics 2D/3D",
+          "Cinematography & Lighting",
+          "Brand Identity Design",
+        ],
+        career:
+          "Graphic Designer, Video Editor, Motion Graphic Artist, Videographer/Cinematographer, UI/UX Designer, Creative Director.",
+      },
+      boga: {
+        title: "Tata Boga / Kuliner",
+        tag: "Culinary Arts & Bakery Production",
+        icon: "assets/major/SMEMSA Chibi-chibi.png",
+        gradient: "linear-gradient(135deg, #d97706 0%, #ca8a04 100%)",
+        desc: "Mempelajari seni pengolahan masakan nusantara dan internasional (kontinental), bakery & pastry, pengolahan makanan sehat, hygiene sanitasi halal, serta manajemen usaha katering komersial berstandar industri.",
+        skills: [
+          "Bakery & Pastry Production",
+          "Indonesian & Continental Cuisine",
+          "Food Plating & Presentation",
+          "Hygiene & Halal Food Sanitation",
+          "Catering Business Management",
+        ],
+        career:
+          "Pastry Chef, Commis Chef, Baker, Food Stylist, Restaurant/Catering Entrepreneur, F&B Supervisor.",
+      },
+      tbsm: {
+        title: "Teknik & Bisnis Sepeda Motor (TBSM)",
+        tag: "Automotive Engineering & Workshop Management",
+        icon: "assets/major/SMEMSA Chibi-chibi.png",
+        gradient: "linear-gradient(135deg, #1c1917 0%, #064e3b 100%)",
+        desc: "Mencetak teknisi otomotif roda dua profesional dengan keahlian perawatan mesin injeksi, kelistrikan kendaraan, sistem transmisi otomatis/manual, serta manajemen bengkel berstandar resmi Astra Honda Authorized Service Station (AHASS).",
+        skills: [
+          "EFI & Injection Diagnostic Tools",
+          "Engine Overhaul & Tune-Up",
+          "Motorcycle Electrical Systems",
+          "Brake & Suspension Maintenance",
+          "Workshop Management",
+        ],
+        career:
+          "Automotive Technician, Service Advisor Bengkel Resmi, Diagnostic Specialist, Sparepart Officer, Wirausaha Bengkel Motor Mandiri.",
+      },
+    };
 
-        document.getElementById("modal-tag").innerText = data.tag;
-        document.getElementById("modal-title").innerText = data.title;
-        document.getElementById("modal-desc").innerText = data.desc;
+    function openMajorModal(majorKey) {
+      const data = majorsData[majorKey];
+      if (!data) return;
 
-        const modalIconImg = document.getElementById("modal-icon-img");
-        if (modalIconImg) {
-          modalIconImg.src = data.icon;
-          modalIconImg.alt = data.title + " Logo";
-        }
+      document.getElementById("modal-tag").innerText = data.tag;
+      document.getElementById("modal-title").innerText = data.title;
+      document.getElementById("modal-desc").innerText = data.desc;
 
-        document.getElementById("modal-banner").style.background =
-          data.gradient;
-        document.getElementById("modal-career").innerText = data.career;
-
-        // Populate skills
-        const skillsContainer = document.getElementById("modal-skills");
-        skillsContainer.innerHTML = "";
-        data.skills.forEach((skill) => {
-          const chip = document.createElement("span");
-          chip.className = "modal-skill-chip";
-          chip.innerText = skill;
-          skillsContainer.appendChild(chip);
-        });
-
-        const modalOverlay = document.getElementById("major-modal-overlay");
-        modalOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
+      const modalIconImg = document.getElementById("modal-icon-img");
+      if (modalIconImg) {
+        modalIconImg.src = data.icon;
+        modalIconImg.alt = data.title + " Logo";
       }
 
-      function closeMajorModal() {
-        const modalOverlay = document.getElementById("major-modal-overlay");
-        modalOverlay.classList.remove("active");
-        document.body.style.overflow = "";
-      }
+      document.getElementById("modal-banner").style.background =
+        data.gradient;
+      document.getElementById("modal-career").innerText = data.career;
 
-      function closeMajorModalOnOverlay(e) {
-        if (e.target.id === "major-modal-overlay") {
-          closeMajorModal();
-        }
-      }
-
-      // Close modal on Escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeMajorModal();
-          closeMobileDrawer();
-        }
+      // Populate skills
+      const skillsContainer = document.getElementById("modal-skills");
+      skillsContainer.innerHTML = "";
+      data.skills.forEach((skill) => {
+        const chip = document.createElement("span");
+        chip.className = "modal-skill-chip";
+        chip.innerText = skill;
+        skillsContainer.appendChild(chip);
       });
 
-      // Navbar Scrolled Effect
-      const mainNav = document.getElementById("main-nav");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 40) {
-          mainNav?.classList.add("scrolled");
-        } else {
-          mainNav?.classList.remove("scrolled");
+      const modalOverlay = document.getElementById("major-modal-overlay");
+      modalOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMajorModal() {
+      const modalOverlay = document.getElementById("major-modal-overlay");
+      modalOverlay.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function closeMajorModalOnOverlay(e) {
+      if (e.target.id === "major-modal-overlay") {
+        closeMajorModal();
+      }
+    }
+
+    // Close modal on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeMajorModal();
+        closeMobileDrawer();
+      }
+    });
+
+    // Navbar Scrolled Effect
+    const mainNav = document.getElementById("main-nav");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) {
+        mainNav?.classList.add("scrolled");
+      } else {
+        mainNav?.classList.remove("scrolled");
+      }
+    });
+  </script>
+  <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
+  <script>
+    (function () {
+      function initNavigation() {
+        var hamburgerBtn =
+          document.querySelector("#hamburger-btn") ||
+          document.querySelector(".hamburger") ||
+          document.querySelector(".nav-toggle");
+        var drawerCloseBtn =
+          document.querySelector("#drawer-close-btn") ||
+          document.querySelector(".drawer-close");
+        var mobileDrawer =
+          document.querySelector("#mobile-drawer") ||
+          document.querySelector(".mobile-drawer");
+        var mobileOverlay =
+          document.querySelector("#mobile-overlay") ||
+          document.querySelector(".mobile-overlay");
+
+        function openDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.add("active");
+          if (mobileOverlay) mobileOverlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+          if (hamburgerBtn)
+            hamburgerBtn.setAttribute("aria-expanded", "true");
+          if (window.lenis) window.lenis.stop();
         }
-      });
-    </script>
-    <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
-    <script>
-      (function () {
-        function initNavigation() {
-          var hamburgerBtn =
-            document.querySelector("#hamburger-btn") ||
-            document.querySelector(".hamburger") ||
-            document.querySelector(".nav-toggle");
-          var drawerCloseBtn =
-            document.querySelector("#drawer-close-btn") ||
-            document.querySelector(".drawer-close");
-          var mobileDrawer =
-            document.querySelector("#mobile-drawer") ||
-            document.querySelector(".mobile-drawer");
-          var mobileOverlay =
-            document.querySelector("#mobile-overlay") ||
-            document.querySelector(".mobile-overlay");
 
-          function openDrawer() {
-            if (mobileDrawer) mobileDrawer.classList.add("active");
-            if (mobileOverlay) mobileOverlay.classList.add("active");
-            document.body.style.overflow = "hidden";
-            if (hamburgerBtn)
-              hamburgerBtn.setAttribute("aria-expanded", "true");
-            if (window.lenis) window.lenis.stop();
-          }
+        function closeDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.remove("active");
+          if (mobileOverlay) mobileOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+          if (hamburgerBtn)
+            hamburgerBtn.setAttribute("aria-expanded", "false");
+          if (window.lenis) window.lenis.start();
+        }
 
-          function closeDrawer() {
-            if (mobileDrawer) mobileDrawer.classList.remove("active");
-            if (mobileOverlay) mobileOverlay.classList.remove("active");
-            document.body.style.overflow = "";
-            if (hamburgerBtn)
-              hamburgerBtn.setAttribute("aria-expanded", "false");
-            if (window.lenis) window.lenis.start();
-          }
-
-          if (hamburgerBtn) {
-            hamburgerBtn.removeEventListener("click", openDrawer);
-            hamburgerBtn.addEventListener("click", function (e) {
-              e.preventDefault();
-              e.stopPropagation();
-              if (mobileDrawer && mobileDrawer.classList.contains("active")) {
-                closeDrawer();
-              } else {
-                openDrawer();
-              }
-            });
-          }
-
-          if (drawerCloseBtn) {
-            drawerCloseBtn.removeEventListener("click", closeDrawer);
-            drawerCloseBtn.addEventListener("click", function (e) {
-              e.preventDefault();
+        if (hamburgerBtn) {
+          hamburgerBtn.removeEventListener("click", openDrawer);
+          hamburgerBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (mobileDrawer && mobileDrawer.classList.contains("active")) {
               closeDrawer();
-            });
-          }
-
-          if (mobileOverlay) {
-            mobileOverlay.removeEventListener("click", closeDrawer);
-            mobileOverlay.addEventListener("click", function (e) {
-              e.preventDefault();
-              closeDrawer();
-            });
-          }
-
-          // Close on drawer link click
-          if (mobileDrawer) {
-            var drawerLinks = mobileDrawer.querySelectorAll("a");
-            drawerLinks.forEach(function (link) {
-              link.addEventListener("click", function () {
-                closeDrawer();
-              });
-            });
-          }
-
-          // Escape key listener
-          document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape") {
-              closeDrawer();
-              if (typeof closeItemModal === "function") closeItemModal();
-              if (typeof closeNewsModal === "function") closeNewsModal();
-              if (typeof closeAwardModal === "function") closeAwardModal();
-              if (typeof closeMajorModal === "function") closeMajorModal();
+            } else {
+              openDrawer();
             }
           });
         }
 
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", initNavigation);
-        } else {
-          initNavigation();
+        if (drawerCloseBtn) {
+          drawerCloseBtn.removeEventListener("click", closeDrawer);
+          drawerCloseBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
         }
-      })();
-    </script>
-  </body>
+
+        if (mobileOverlay) {
+          mobileOverlay.removeEventListener("click", closeDrawer);
+          mobileOverlay.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
+        }
+
+        // Close on drawer link click
+        if (mobileDrawer) {
+          var drawerLinks = mobileDrawer.querySelectorAll("a");
+          drawerLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+              closeDrawer();
+            });
+          });
+        }
+
+        // Escape key listener
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeDrawer();
+            if (typeof closeItemModal === "function") closeItemModal();
+            if (typeof closeNewsModal === "function") closeNewsModal();
+            if (typeof closeAwardModal === "function") closeAwardModal();
+            if (typeof closeMajorModal === "function") closeMajorModal();
+          }
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initNavigation);
+      } else {
+        initNavigation();
+      }
+    })();
+  </script>
+</body>
+
 </html>

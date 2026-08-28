@@ -1,0 +1,2428 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Penerimaan Siswa Baru (SPMB) 2026/2027 - SMKS Muhammadiyah 1 Genteng</title>
+  <meta name="description"
+    content="Pusat informasi resmi dan pendaftaran online Sistem Penerimaan Siswa Baru (SPMB) SMKS Muhammadiyah 1 Genteng Tahun Ajaran 2026/2027. Informasi alur, syarat berkas, kuota keahlian, dan jadwal gelombang." />
+
+  <!-- Typography: Plus Jakarta Sans with display=swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Schema.org JSON-LD Structured Data for Admissions -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "SMKS Muhammadiyah 1 Genteng",
+        "url": "https://smksmuh1gtg.com",
+        "logo": "https://smksmuh1gtg.com/assets/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. KH. Imam Bahri No.10, Dusun Krajan, Genteng Wetan",
+          "addressLocality": "Banyuwangi",
+          "addressRegion": "Jawa Timur",
+          "postalCode": "68465",
+          "addressCountry": "ID"
+        },
+        "telephone": "+62333845605",
+        "sameAs": [
+          "https://www.instagram.com/smkmuhigts/",
+          "https://www.youtube.com/@smkmuhigts",
+          "https://www.facebook.com/smkmuhigts",
+          "https://www.tiktok.com/@smkmuhigts"
+        ]
+      }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS - SMKS SMEMSA BLUE & AMBER (MATCHING DESIGN SYSTEM)
+       ========================================================================== */
+    :root {
+      --primary: #1e40af;
+      --primary-light: #2563eb;
+      --primary-dark: #16296b;
+      --primary-surface: rgba(30, 64, 175, 0.06);
+      --primary-glow: rgba(30, 64, 175, 0.2);
+
+      --secondary: #eab308;
+      --secondary-light: #facc15;
+      --secondary-surface: rgba(234, 179, 8, 0.1);
+      --secondary-glow: rgba(234, 179, 8, 0.25);
+
+      --accent-yellow: #facc15;
+      --accent-cyan: #3b82f6;
+
+      --bg-main: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-surface-card: #ffffff;
+      --bg-dark: #0f172a;
+      --bg-dark-card: #16213c;
+      --bg-dark-elevated: #1c2b4d;
+
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --text-light: #f8fafc;
+
+      --border-light: rgba(30, 64, 175, 0.1);
+      --border-card: #e2e8f0;
+      --border-dark: #263559;
+      --border-glow: rgba(234, 179, 8, 0.3);
+
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+      --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+      --font-display: "Plus Jakarta Sans", sans-serif;
+      --font-head: "Plus Jakarta Sans", sans-serif;
+      --font-body: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "Plus Jakarta Sans", sans-serif;
+
+      --transition: all 0.3s ease;
+      --transition-fast: all 0.2s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.65;
+      overflow-x: hidden;
+      letter-spacing: -0.012em;
+      background-image:
+        radial-gradient(circle at 10% 15%, rgba(30, 64, 175, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 75%, rgba(234, 179, 8, 0.04) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-head {
+      font-family: var(--font-head);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .font-display {
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    /* Badges */
+    .badge-amber {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.2rem;
+      background: var(--secondary-surface);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-family: var(--font-head);
+      font-weight: 800;
+      color: #a16207;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      background: var(--primary-surface);
+      border: 1px solid rgba(30, 64, 175, 0.2);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge-status-open {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #15803d;
+      font-weight: 800;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge-status-upcoming {
+      background: var(--secondary-surface);
+      border: 1px solid rgba(234, 179, 8, 0.4);
+      color: #a16207;
+      font-weight: 800;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge-status-closed {
+      background: rgba(148, 163, 184, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: #64748b;
+      font-weight: 800;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge-quota-available {
+      background: rgba(30, 64, 175, 0.08);
+      border: 1px solid rgba(30, 64, 175, 0.2);
+      color: var(--primary);
+      font-weight: 800;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .badge-quota-limited {
+      background: var(--secondary-surface);
+      border: 1px solid rgba(234, 179, 8, 0.4);
+      color: #a16207;
+      font-weight: 800;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.8rem;
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
+      color: #ffffff;
+    }
+
+    .btn-amber {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+      color: var(--text-dark);
+      box-shadow: 0 8px 24px -4px rgba(234, 179, 8, 0.35);
+    }
+
+    .btn-amber:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(234, 179, 8, 0.45);
+      color: var(--text-dark);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1.5px solid var(--border-card);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      background: var(--primary-surface);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-white {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline-white:hover {
+      background: #ffffff;
+      color: var(--primary);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Section Utilities */
+    .spmb-section {
+      padding: 5.5rem 0;
+      position: relative;
+    }
+
+    .spmb-section-alt {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+      color: var(--primary-dark);
+      margin: 0.6rem 0 0.8rem;
+    }
+
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       2. FLOATING ISLAND NAVBAR
+       ========================================================================== */
+    .header-wrapper {
+      position: fixed;
+      border-radius: 50px;
+      top: 1rem;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 90%;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-card);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .nav-island {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .nav-island.scrolled {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 0.5rem 0.2rem;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 260px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 0.6rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: var(--transition-fast);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .nav-item:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .dropdown-item:hover {
+      background: var(--primary-surface);
+      color: var(--primary);
+    }
+
+    .dropdown-icon {
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-dark);
+      padding: 0.4rem;
+    }
+
+    /* Mobile Drawer */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: #ffffff;
+      z-index: 1002;
+      padding: 2rem 1.5rem;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.active {
+      transform: translateX(0);
+    }
+
+    .drawer-close {
+      background: var(--bg-alt);
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+    }
+
+    .drawer-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .drawer-links a:hover,
+    .drawer-links a.active {
+      background: var(--primary-surface);
+      color: var(--primary);
+    }
+
+    .drawer-section-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 1.2rem 0 0.5rem 0.5rem;
+    }
+
+    /* ==========================================================================
+       3. PAGE HEADER
+       ========================================================================== */
+    .page-header {
+      padding: 9.5rem 0 4.5rem;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(180deg, rgba(30, 64, 175, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 0.9rem 0 1.1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .page-subtitle {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      max-width: 660px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.7;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       4. VERTICAL TIMELINE STEPPER
+       ========================================================================== */
+    .timeline-vertical-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline-vertical-track {
+      position: relative;
+      padding-left: 3.5rem;
+    }
+
+    .timeline-vertical-track::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      bottom: 25px;
+      left: 1.35rem;
+      width: 3px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 60%, var(--secondary) 100%);
+      border-radius: var(--radius-full);
+    }
+
+    .timeline-step-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-step-bullet {
+      position: absolute;
+      left: -3.5rem;
+      top: 0.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(30, 64, 175, 0.35);
+      border: 3px solid #ffffff;
+      z-index: 2;
+    }
+
+    .timeline-step-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 2rem;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition-fast);
+    }
+
+    .timeline-step-card:hover {
+      border-color: var(--primary-light);
+      transform: translateX(6px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .step-card-title {
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       5. SYARAT & BERKAS PERSYARATAN
+       ========================================================================== */
+    .berkas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .berkas-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 1.8rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .berkas-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .berkas-card.featured {
+      border-color: var(--primary-light);
+      background: linear-gradient(180deg, rgba(30, 64, 175, 0.02) 0%, #ffffff 100%);
+      box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.12);
+    }
+
+    .berkas-category-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .berkas-title {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 1.2rem;
+    }
+
+    .berkas-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .berkas-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    .berkas-check-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       6. JADWAL GELOMBANG
+       ========================================================================== */
+    .schedule-card-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .schedule-table th {
+      background: var(--bg-alt);
+      padding: 1.2rem 1.6rem;
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .schedule-table td {
+      padding: 1.4rem 1.6rem;
+      border-bottom: 1px solid var(--border-card);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      vertical-align: middle;
+    }
+
+    .schedule-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .schedule-table tr:hover td {
+      background: var(--primary-surface);
+    }
+
+    .schedule-empty-banner {
+      background: var(--bg-alt);
+      border: 1.5px dashed var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       7. KUOTA KONSENTRASI KEAHLIAN (KUALITATIF)
+       ========================================================================== */
+    .quota-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .quota-item-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .quota-item-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .quota-item-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .quota-code-badge {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--primary);
+      background: var(--primary-surface);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-xs);
+    }
+
+    .quota-major-name {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      margin-bottom: 0.6rem;
+      font-family: var(--font-head);
+    }
+
+    .quota-major-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ==========================================================================
+       8. BIAYA PENDIDIKAN
+       ========================================================================== */
+    .fee-container-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-subtle);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .fee-info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .fee-notice-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .fee-contact-callout {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       9. FAQ AKORDEON
+       ========================================================================== */
+    .faq-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition-fast);
+    }
+
+    .faq-item:hover {
+      border-color: var(--primary-light);
+    }
+
+    .faq-item.active {
+      border-color: var(--primary);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.4rem 1.6rem;
+      text-align: left;
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .faq-trigger:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: -2px;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--primary);
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-content {
+      display: none;
+      padding: 0 1.6rem 1.4rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--border-light);
+      padding-top: 1rem;
+    }
+
+    .faq-item.active .faq-content {
+      display: block;
+    }
+
+    /* ==========================================================================
+       10. KONTAK PANITIA
+       ========================================================================== */
+    .contact-panitia-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .contact-panitia-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.6rem;
+      box-shadow: var(--shadow-subtle);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .contact-panitia-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .panitia-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary-surface);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .panitia-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .panitia-card-title {
+      font-size: 1.15rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .panitia-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       11. SITE FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 5.5rem 0 2.5rem;
+      border-top: 1px solid var(--border-dark);
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4,
+    .footer-brand-title {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-brand-name {
+      color: #ffffff;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-brand-sub {
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .footer-address {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-contact-icon {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-subtle);
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-link {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-link:hover {
+      color: var(--secondary-light);
+    }
+
+    .footer-social-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .footer-social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: transform 0.25s ease;
+    }
+
+    .footer-social-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary-light);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-light);
+      padding-left: 4px;
+    }
+
+    .footer-identity-card {
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: #64748b;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ==========================================================================
+       12. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .berkas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quota-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fee-container-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .contact-panitia-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-wrapper {
+        top: 0.6rem;
+        width: 94%;
+        border-radius: var(--radius-lg);
+      }
+
+      .nav-island {
+        padding: 0.6rem 1rem !important;
+      }
+
+      .nav-menu {
+        display: none !important;
+      }
+
+      .nav-mobile-cta {
+        display: inline-flex !important;
+        margin-left: auto;
+        margin-right: 0.6rem;
+        padding: 0.45rem 1rem !important;
+        font-size: 0.82rem !important;
+        min-height: 40px !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+      }
+
+      .page-header {
+        padding: 7.5rem 0 3.5rem;
+      }
+
+      .timeline-vertical-track {
+        padding-left: 2.8rem;
+      }
+
+      .timeline-vertical-track::before {
+        left: 1.1rem;
+      }
+
+      .timeline-step-bullet {
+        left: -2.8rem;
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+      }
+
+      .timeline-step-card {
+        padding: 1.2rem 1.4rem;
+      }
+
+      .quota-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-card-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .schedule-table {
+        min-width: 580px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .header-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1. FLOATING ISLAND NAVBAR -->
+  <header class="header-wrapper">
+    <nav class="nav-island" id="main-nav">
+      <a href="index.html#hero" class="brand-box">
+        <img src="assets/logo.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
+              this.closest('.card')
+                ? this.closest('.card').classList.add('no-image')
+                : null;
+              this.remove();
+            " />
+      </a>
+
+      <div class="nav-menu">
+        <a href="index.html#hero" class="nav-link">Beranda</a>
+
+        <!-- Profil & Info Dropdown -->
+        <div class="nav-item">
+          <a href="visi-misi.html#sambutan" class="nav-link">
+            Profil & Info <span style="font-size: 0.65rem">▼</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="visi-misi.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </span>
+              <div>
+                <div>Visi & Misi</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Arah & Tujuan Lembaga</small>
+              </div>
+            </a>
+            <a href="guru.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <div>
+                <div>Guru & Tendik</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Tenaga Pendidik</small>
+              </div>
+            </a>
+            <a href="fasilitas.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                  <path d="M10 6h4" />
+                  <path d="M10 10h4" />
+                  <path d="M10 14h4" />
+                  <path d="M10 18h4" />
+                </svg>
+              </span>
+              <div>
+                <div>Fasilitas Sekolah</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Laboratorium & Ruang Belajar</small>
+              </div>
+            </a>
+            <a href="ekstrakurikuler.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
+                </svg>
+              </span>
+              <div>
+                <div>Ekstrakurikuler & IPM</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Bakat, Seni & Karakter</small>
+              </div>
+            </a>
+            <a href="prestasi.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                  <path d="M4 22h16" />
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                </svg>
+              </span>
+              <div>
+                <div>Galeri Prestasi</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Piala & Penghargaan Nasional</small>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
+        <a href="lsp.html" class="nav-link">LSP</a>
+        <a href="bkk.html" class="nav-link">BKK</a>
+        <a href="index.html#blud" class="nav-link">BLUD</a>
+        <a href="berita.html" class="nav-link">Berita</a>
+        <a href="spmb.html" class="btn btn-primary active" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar
+          SPMB</a>
+      </div>
+
+      <a href="spmb.html" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi" aria-expanded="false"
+        aria-controls="mobile-drawer">
+        ☰
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close-btn" aria-label="Tutup Menu Navigasi">&times;</button>
+    <div class="brand-box" style="margin-bottom: 2rem">
+      <img src="assets/logo.png" alt="Logo SMKS SMEMSA" class="brand-logo" onerror="
+            this.closest('.card')
+              ? this.closest('.card').classList.add('no-image')
+              : null;
+            this.remove();
+          " />
+      <div>
+        <strong style="color: var(--primary); font-size: 1.1rem; display: block">SMKS SMEMSA GENTENG</strong>
+        <small style="color: var(--text-muted); font-size: 0.75rem">NPSN 20525597 &bull; Akreditasi A</small>
+      </div>
+    </div>
+
+    <div class="drawer-links">
+      <a href="index.html#hero">🏠 Beranda</a>
+
+      <div class="drawer-section-title">Halaman Informasi</div>
+      <a href="spmb.html" class="active">📝 SPMB 2026/2027</a>
+      <a href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
+      <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
+      <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
+      <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
+      <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
+      <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
+      <a href="berita.html">📰 Jurnal & Kabar Sekolah</a>
+
+      <div class="drawer-section-title">Navigasi Halaman Utama</div>
+      <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
+      <a href="index.html#jurusan">💻 7 Program Keahlian</a>
+      <a href="lsp.html">📜 LSP-P1</a>
+      <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
+
+      <div style="margin-top: 1.5rem">
+        <a href="#alur-pendaftaran" class="btn btn-primary"
+          style="width: 100%; text-align: center; justify-content: center">Daftar Sekarang</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- 1. PAGE HEADER -->
+    <header class="page-header">
+      <div class="container">
+        <div class="badge-amber mb-2">Tahun Ajaran 2026/2027</div>
+        <h1 class="page-title">Sistem Penerimaan Siswa Baru</h1>
+        <p class="page-subtitle">
+          Wujudkan potensi dan keahlian vokasi masa depan bersama SMK Pusat Keunggulan berstandar nasional dan
+          berkarakter Islami.
+        </p>
+        <div class="header-actions">
+          <a href="https://wa.me/6282241356668?text=Halo%20Panitia%20SPMB%20SMKS%20Muhammadiyah%201%20Genteng,%20saya%20ingin%20mendaftar%20siswa%20baru"
+            target="_blank" rel="noopener noreferrer" class="btn btn-amber">
+            Daftar Sekarang
+          </a>
+          <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            Hubungi Panitia (WhatsApp)
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. ALUR PENDAFTARAN (LINIMASA VERTIKAL BERNOMOR) -->
+    <section class="spmb-section spmb-section-alt" id="alur-pendaftaran">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-primary">Tahapan Seleksi</span>
+          <h2 class="section-title">Alur Pendaftaran Siswa Baru</h2>
+          <p class="section-desc">
+            Empat langkah praktis menuju status siswa resmi SMKS Muhammadiyah 1 Genteng.
+          </p>
+        </div>
+
+        <div class="timeline-vertical-wrapper">
+          <div class="timeline-vertical-track" id="steps-container">
+            <!-- Rendered by JavaScript fallback provided -->
+            <noscript>
+              <div class="timeline-step-item">
+                <div class="timeline-step-bullet">1</div>
+                <div class="timeline-step-card">
+                  <h3 class="step-card-title">Isi Formulir Online</h3>
+                  <p class="step-card-desc">Lengkapi data calon siswa secara online melalui formulir resmi SPMB SMKS
+                    SMEMSA Genteng.</p>
+                </div>
+              </div>
+              <div class="timeline-step-item">
+                <div class="timeline-step-bullet">2</div>
+                <div class="timeline-step-card">
+                  <h3 class="step-card-title">Unggah Berkas Persyaratan</h3>
+                  <p class="step-card-desc">Siapkan scan pas foto, Kartu Keluarga, SKHUN/Ijazah, dan piagam prestasi.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-step-item">
+                <div class="timeline-step-bullet">3</div>
+                <div class="timeline-step-card">
+                  <h3 class="step-card-title">Verifikasi Panitia</h3>
+                  <p class="step-card-desc">Panitia SPMB akan memvalidasi data dan mengonfirmasi jurusan pilihan Anda.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-step-item">
+                <div class="timeline-step-bullet">4</div>
+                <div class="timeline-step-card">
+                  <h3 class="step-card-title">Daftar Ulang & Orientasi</h3>
+                  <p class="step-card-desc">Daftar ulang fisik di sekolah, fitting seragam kejuruan, dan pembekalan Masa
+                    Pengenalan Lingkungan Sekolah.</p>
+                </div>
+              </div>
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SYARAT & BERKAS PERSYARATAN -->
+    <section class="spmb-section" id="syarat-berkas">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-primary">Kelengkapan Administrasi</span>
+          <h2 class="section-title">Syarat & Berkas Pendaftaran</h2>
+          <p class="section-desc">
+            Persiapkan dokumen berikut sesuai dengan jalur pendaftaran yang Anda pilih.
+          </p>
+        </div>
+
+        <div class="berkas-grid" id="berkas-container">
+          <!-- Rendered by JavaScript fallback provided -->
+          <noscript>
+            <div class="berkas-card featured">
+              <div class="berkas-category-tag" style="color: var(--primary);">Semua Jalur</div>
+              <h3 class="berkas-title">Berkas Wajib</h3>
+              <ul class="berkas-list">
+                <li class="berkas-item">✓ Scan/Fotokopi Kartu Keluarga (KK)</li>
+                <li class="berkas-item">✓ Scan/Fotokopi Akta Kelahiran</li>
+                <li class="berkas-item">✓ Scan/Fotokopi SKHUN atau Ijazah SMP/MTs (bisa menyusul)</li>
+                <li class="berkas-item">✓ Pas Foto Berwarna 3x4 terbaru (3 lembar)</li>
+              </ul>
+            </div>
+            <div class="berkas-card">
+              <div class="berkas-category-tag" style="color: #a16207;">Jalur Khusus</div>
+              <h3 class="berkas-title">Jalur Prestasi</h3>
+              <ul class="berkas-list">
+                <li class="berkas-item">✓ Seluruh dokumen berkas wajib</li>
+                <li class="berkas-item">✓ Sertifikat/Piagam Kejuaraan Akademik atau Non-Akademik minimal tingkat
+                  Kabupaten</li>
+                <li class="berkas-item">✓ Surat rekomendasi dari kepala sekolah SMP/MTs asal (opsional)</li>
+              </ul>
+            </div>
+            <div class="berkas-card">
+              <div class="berkas-category-tag" style="color: #15803d;">Jalur Bantuan</div>
+              <h3 class="berkas-title">Jalur Beasiswa & KIP</h3>
+              <ul class="berkas-list">
+                <li class="berkas-item">✓ Seluruh dokumen berkas wajib</li>
+                <li class="berkas-item">✓ Kartu Indonesia Pintar (KIP) / Kartu PKH / KKS aktif</li>
+                <li class="berkas-item">✓ Surat Keterangan Tidak Mampu (SKTM) dari Kelurahan/Desa</li>
+              </ul>
+            </div>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. JADWAL GELOMBANG -->
+    <section class="spmb-section spmb-section-alt" id="jadwal-gelombang">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-primary">Agenda Pendaftaran</span>
+          <h2 class="section-title">Jadwal Gelombang SPMB</h2>
+          <p class="section-desc">
+            Informasi periode pendaftaran, tes bakat kejuruan, dan pengumuman hasil seleksi.
+          </p>
+        </div>
+
+        <div id="schedule-container">
+          <!-- Rendered dynamically by JavaScript -->
+          <noscript>
+            <div class="schedule-empty-banner">
+              <h3 class="font-head" style="margin-bottom: 0.5rem; color: var(--primary-dark)">Jadwal Resmi Akan
+                Diumumkan</h3>
+              <p>Jadwal gelombang pendaftaran Tahun Ajaran 2026/2027 sedang difinalisasi oleh panitia SPMB SMKS
+                Muhammadiyah 1 Genteng.</p>
+            </div>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. KUOTA PER KONSENTRASI KEAHLIAN (KUALITATIF) -->
+    <section class="spmb-section" id="kuota-jurusan">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-primary">Kapasitas Kelas</span>
+          <h2 class="section-title">Kuota Konsentrasi Keahlian</h2>
+          <p class="section-desc">
+            Status ketersediaan kuota kelas pada 8 konsentrasi keahlian unggulan.
+          </p>
+        </div>
+
+        <div class="quota-grid" id="quota-container">
+          <!-- Rendered dynamically by JavaScript with qualitative tags -->
+          <noscript>
+            <div class="quota-item-card">
+              <div class="quota-item-head">
+                <span class="quota-code-badge">PPLG</span>
+                <span class="badge-quota-available">Kuota Tersedia</span>
+              </div>
+              <h3 class="quota-major-name">Pengembangan Perangkat Lunak dan Gim</h3>
+              <p class="quota-major-desc">Web development, mobile apps, database cloud, dan TEFA Software House.</p>
+            </div>
+            <div class="quota-item-card">
+              <div class="quota-item-head">
+                <span class="quota-code-badge">TJKT</span>
+                <span class="badge-quota-available">Kuota Tersedia</span>
+              </div>
+              <h3 class="quota-major-name">Teknik Jaringan Komputer dan Telekomunikasi</h3>
+              <p class="quota-major-desc">Infrastruktur jaringan enterprise, fiber optic, server linux & Mikrotik.</p>
+            </div>
+            <div class="quota-item-card">
+              <div class="quota-item-head">
+                <span class="quota-code-badge">DKV</span>
+                <span class="badge-quota-limited">Kuota Terbatas</span>
+              </div>
+              <h3 class="quota-major-name">Desain Komunikasi Visual</h3>
+              <p class="quota-major-desc">Multimedia kreatif, videografi, animasi 2D/3D, branding periklanan.</p>
+            </div>
+            <div class="quota-item-card">
+              <div class="quota-item-head">
+                <span class="quota-code-badge">BD</span>
+                <span class="badge-quota-available">Kuota Tersedia</span>
+              </div>
+              <h3 class="quota-major-name">Bisnis Digital</h3>
+              <p class="quota-major-desc">Omnichannel marketplace, digital ads Meta/Google, live commerce studio.</p>
+            </div>
+            <div class="quota-item-card">
+              <div class="quota-item-head">
+                <span class="quota-code-badge">AKL</span>
+                <span class="badge-quota-available">Kuota Tersedia</span>
+              </div>
+              <h3 class="quota-major-name">Akuntansi & Keuangan Lembaga</h3>
+              <p class="quota-major-desc">Komputer akuntansi Accurate, perpajakan digital, dan Bank Mini Syariah.</p>
+            </div>
+            <div class="quota-item-card">
+              <div class="quota-item-head">
+                <span class="quota-code-badge">MPLB</span>
+                <span class="badge-quota-available">Kuota Tersedia</span>
+              </div>
+              <h3 class="quota-major-name">Manajemen Perkantoran</h3>
+              <p class="quota-major-desc">Otomasi perkantoran digital, public relations, kearsipan cloud modern.</p>
+            </div>
+            <div class="quota-item-card">
+              <div class="quota-item-head">
+                <span class="quota-code-badge">PH</span>
+                <span class="badge-quota-limited">Kuota Terbatas</span>
+              </div>
+              <h3 class="quota-major-name">Perhotelan</h3>
+              <p class="quota-major-desc">Front office hotel, housekeeping bintang 5, F&B service, Edutel SMEMSA.</p>
+            </div>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BIAYA PENDIDIKAN (KERANGKA TRANSPARAN) -->
+    <section class="spmb-section spmb-section-alt" id="biaya-pendidikan">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-primary">Transparansi Investasi</span>
+          <h2 class="section-title">Biaya Pendidikan & Seragam</h2>
+          <p class="section-desc">
+            Komitmen kami menghadirkan pendidikan vokasi berkualitas unggul dengan skema pembiayaan yang transparan dan
+            terjangkau.
+          </p>
+        </div>
+
+        <div class="fee-container-card">
+          <div class="fee-info-box">
+            <h3 class="font-head" style="font-size: 1.45rem; color: var(--primary-dark);">Rincian Biaya & Skema
+              Keringanan</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65;">
+              Biaya pendidikan mencakup seragam kejuruan lengkap, modul pembelajaran praktikum, akses laboratorium
+              berstandar industri, serta persiapan sertifikasi kompetensi LSP-P1 BNSP.
+            </p>
+            <div class="fee-notice-card">
+              <div class="badge-amber mb-2" style="margin-bottom: 0.8rem;">Informasi Resmi Panitia</div>
+              <p style="font-size: 0.95rem; color: var(--text-dark); font-weight: 600; margin-bottom: 0.5rem;">
+                Tabel rincian biaya lengkap dapat ditanyakan langsung kepada Panitia SPMB.
+              </p>
+              <small style="color: var(--text-muted); display: block;">Tersedia beasiswa prestasi dan program cicilan
+                bagi orang tua/wali murid.</small>
+            </div>
+          </div>
+
+          <div class="fee-contact-callout">
+            <h4 style="font-size: 1.3rem; margin-bottom: 0.6rem; color: #ffffff;">Konsultasi Biaya & Potongan Khusus
+            </h4>
+            <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 1.5rem; line-height: 1.6;">
+              Dapatkan informasi promo pendaftaran awal gelombang 1 dan skema beasiswa KIP/prestasi.
+            </p>
+            <a href="https://wa.me/6282241356668?text=Halo%20Panitia%20SPMB,%20saya%20ingin%20menanyakan%20rincian%20biaya%20pendidikan"
+              target="_blank" rel="noopener noreferrer" class="btn btn-amber"
+              style="width: 100%; text-decoration: none;">
+              Tanya Biaya via WhatsApp &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ AKORDEON (ACCESSIBLE) -->
+    <section class="spmb-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-primary">Tanya Jawab</span>
+          <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
+          <p class="section-desc">
+            Temukan jawaban cepat atas pertanyaan umum seputar proses pendaftaran siswa baru.
+          </p>
+        </div>
+
+        <div class="faq-wrapper" id="faq-container">
+          <!-- Rendered dynamically by JavaScript -->
+          <noscript>
+            <div class="faq-item">
+              <div class="faq-trigger">Kapan pendaftaran siswa baru Tahun Ajaran 2026/2027 dibuka?</div>
+              <div class="faq-content" style="display: block;">Pendaftaran gelombang 1 telah dibuka secara online.
+                Silakan hubungi panitia melalui WhatsApp untuk panduan formulir.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-trigger">Apakah calon siswa boleh memilih lebih dari satu konsentrasi keahlian?</div>
+              <div class="faq-content" style="display: block;">Ya, pendaftar dapat memilih pilihan jurusan utama dan
+                jurusan cadangan pada formulir pendaftaran.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-trigger">Apakah ada tes masuk dalam proses SPMB?</div>
+              <div class="faq-content" style="display: block;">Terdapat tes pemetaan minat dan bakat kejuruan serta
+                wawancara untuk penempatan kelas industri.</div>
+            </div>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. KONTAK PANITIA -->
+    <section class="spmb-section spmb-section-alt" id="kontak-panitia">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-primary">Bantuan & Layanan</span>
+          <h2 class="section-title">Sekretariat Panitia SPMB</h2>
+          <p class="section-desc">
+            Kunjungi sekolah kami atau hubungi panitia untuk informasi lengkap pendaftaran.
+          </p>
+        </div>
+
+        <div class="contact-panitia-grid">
+          <!-- WhatsApp Panitia -->
+          <div class="contact-panitia-card">
+            <div>
+              <div class="panitia-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </div>
+              <h3 class="panitia-card-title">WhatsApp Resmi</h3>
+              <p class="panitia-card-desc">Layanan konsultasi cepat SPMB, pengiriman bukti berkas, dan panduan formulir.
+              </p>
+            </div>
+            <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+              style="width: 100%;">
+              0822-4135-6668
+            </a>
+          </div>
+
+          <!-- Telepon Sekolah -->
+          <div class="contact-panitia-card">
+            <div>
+              <div class="panitia-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <h3 class="panitia-card-title">Telepon Sekolah</h3>
+              <p class="panitia-card-desc">Jam layanan kantor: Senin – Sabtu, pukul 07.00 – 14.30 WIB.</p>
+            </div>
+            <a href="tel:0333845605" class="btn btn-outline" style="width: 100%;">
+              (0333) 845605
+            </a>
+          </div>
+
+          <!-- Lokasi Sekolah -->
+          <div class="contact-panitia-card">
+            <div>
+              <div class="panitia-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <h3 class="panitia-card-title">Lokasi Sekolah</h3>
+              <p class="panitia-card-desc">Jl. KH. Imam Bahri No.10, Dusun Krajan, Genteng Wetan, Genteng, Banyuwangi
+                68465.</p>
+            </div>
+            <a href="https://maps.google.com/?q=SMKS+Muhammadiyah+1+Genteng" target="_blank" rel="noopener noreferrer"
+              class="btn btn-outline" style="width: 100%;">
+              Buka Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Kolom 1: Profil Sekolah & Kontak -->
+        <div>
+          <div class="brand-box" style="display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.2rem;">
+            <img src="assets/logo.webp" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
+              style="max-height: 52px; width: auto; object-fit: contain" width="52" height="52" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            <div>
+              <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+              <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
+            </div>
+          </div>
+          <p class="footer-address">
+            Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
+            Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
+            68465
+          </p>
+
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <a href="tel:0333845605" class="footer-contact-link">(0333) 845605</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer"
+                class="footer-contact-link">0822-4135-6668 (WhatsApp)</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:smkmuhi.genteng1968@gmail.com"
+                class="footer-contact-link">smkmuhi.genteng1968@gmail.com</a>
+            </li>
+          </ul>
+
+          <div class="footer-social-row" aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng">
+            <a href="https://www.instagram.com/smkmuhigts/" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="Instagram SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                  stroke-width="2" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor"
+                  stroke-width="2" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="YouTube SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  fill="none" stroke="currentColor" stroke-width="2" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="Facebook SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none"
+                  stroke="currentColor" stroke-width="2" />
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="TikTok SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Halaman Terkait -->
+        <div class="footer-col">
+          <h4>Halaman Terkait</h4>
+          <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
+            <ul class="footer-links">
+              <li>
+                <a href="spmb.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> SPMB 2026/2027</a>
+              </li>
+              <li>
+                <a href="bkk.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Bursa Kerja Khusus
+                  (BKK)</a>
+              </li>
+              <li>
+                <a href="visi-misi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Visi &amp;
+                  Misi</a>
+              </li>
+              <li>
+                <a href="fasilitas.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Fasilitas
+                  Sekolah</a>
+              </li>
+              <li>
+                <a href="ekstrakurikuler.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Ekstrakurikuler &amp; IPM</a>
+              </li>
+              <li>
+                <a href="prestasi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Galeri
+                  Prestasi</a>
+              </li>
+              <li>
+                <a href="berita.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Jurnal &amp;
+                  Berita</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Kolom 3: 7 Konsentrasi Keahlian -->
+        <div class="footer-col">
+          <h4>Konsentrasi</h4>
+          <nav class="footer-nav" aria-label="Navigasi 8 Konsentrasi Keahlian">
+            <ul class="footer-links">
+              <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Rekayasa
+                  Perangkat Lunak</a></li>
+              <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Teknik
+                  Komputer &amp; Jaringan</a></li>
+              <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Desain
+                  Komunikasi Visual</a></li>
+              <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Bisnis
+                  Digital</a></li>
+              <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Akuntansi
+                  &amp; Keuangan</a></li>
+              <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span> Manajemen
+                  Perkantoran</a></li>
+              <li><a href="index.html#jurusan"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Perhotelan </a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Kolom 4: Identitas Lembaga Resmi -->
+        <div class="footer-col">
+          <h4>Identitas Lembaga</h4>
+          <div class="footer-identity-card">
+            <div><strong>NPSN:</strong> 20525597</div>
+            <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+            <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+            <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+            <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.
+        </div>
+        <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SKRIP NAVIGASI MANDIRI & TERISOLASI (PALING ATAS)
+       ========================================================================== -->
+  <script>
+    (function () {
+      function initNavigation() {
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const drawerCloseBtn = document.getElementById("drawer-close-btn");
+        const mobileDrawer = document.getElementById("mobile-drawer");
+        const mobileOverlay = document.getElementById("mobile-overlay");
+        const mainNav = document.getElementById("main-nav");
+
+        function openDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.add("active");
+          if (mobileOverlay) mobileOverlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+          if (hamburgerBtn) hamburgerBtn.setAttribute("aria-expanded", "true");
+        }
+
+        function closeDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.remove("active");
+          if (mobileOverlay) mobileOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+          if (hamburgerBtn) hamburgerBtn.setAttribute("aria-expanded", "false");
+        }
+
+        if (hamburgerBtn) {
+          hamburgerBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (mobileDrawer && mobileDrawer.classList.contains("active")) {
+              closeDrawer();
+            } else {
+              openDrawer();
+            }
+          });
+        }
+
+        if (drawerCloseBtn) {
+          drawerCloseBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
+        }
+
+        if (mobileOverlay) {
+          mobileOverlay.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
+        }
+
+        if (mobileDrawer) {
+          const links = mobileDrawer.querySelectorAll("a");
+          links.forEach(function (l) {
+            l.addEventListener("click", closeDrawer);
+          });
+        }
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 40) {
+            mainNav?.classList.add("scrolled");
+          } else {
+            mainNav?.classList.remove("scrolled");
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeDrawer();
+          }
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initNavigation);
+      } else {
+        initNavigation();
+      }
+    })();
+  </script>
+
+  <!-- ==========================================================================
+       DATA-DRIVEN JAVASCRIPT: ALUR, SYARAT, JADWAL, KUOTA, FAQ
+       ========================================================================== -->
+  <script>
+    // 1. DATA ALUR PENDAFTARAN (4 Langkah)
+    const spmbStepsData = [
+      {
+        step: 1,
+        title: "Isi Formulir Online",
+        desc: "Lengkapi data calon siswa secara online melalui formulir resmi SPMB SMKS SMEMSA Genteng atau hubungi sekretariat pendaftaran."
+      },
+      {
+        step: 2,
+        title: "Unggah Berkas Persyaratan",
+        desc: "Siapkan scan pas foto, Kartu Keluarga, SKHUN/Ijazah, dan piagam prestasi (bagi pendaftar jalur prestasi/beasiswa)."
+      },
+      {
+        step: 3,
+        title: "Verifikasi Panitia",
+        desc: "Panitia SPMB akan memvalidasi data administrasi dan mengonfirmasi jurusan pilihan Anda dalam waktu 1x24 jam kerja."
+      },
+      {
+        step: 4,
+        title: "Daftar Ulang & Orientasi",
+        desc: "Daftar ulang fisik di sekolah, fitting seragam kejuruan, dan pembekalan Masa Pengenalan Lingkungan Sekolah (MPLS)."
+      }
+    ];
+
+    // 2. DATA SYARAT & BERKAS
+    // CATATAN: Berkas jalur khusus/beasiswa ditandai sebagai referensi awal panitia dan dapat disesuaikan dengan juknis terbaru
+    const berkasRequirementsData = [
+      {
+        category: "Semua Jalur",
+        categoryColor: "var(--primary)",
+        title: "Berkas Wajib",
+        featured: true,
+        items: [
+          "Scan/Fotokopi Kartu Keluarga (KK)",
+          "Scan/Fotokopi Akta Kelahiran",
+          "Scan/Fotokopi SKHUN atau Ijazah SMP/MTs (dapat menyusul jika belum terbit)",
+          "Pas Foto Berwarna 3x4 terbaru (3 lembar)"
+        ]
+      },
+      {
+        category: "Jalur Khusus",
+        categoryColor: "#a16207",
+        title: "Jalur Prestasi",
+        featured: false,
+        items: [
+          "Seluruh dokumen persyaratan berkas wajib",
+          "Sertifikat/Piagam Kejuaraan Akademik atau Non-Akademik minimal tingkat Kabupaten/Kota",
+          "Surat rekomendasi dari Kepala Sekolah SMP/MTs asal (jika ada)"
+        ]
+      },
+      {
+        category: "Jalur Bantuan",
+        categoryColor: "#15803d",
+        title: "Jalur Beasiswa & KIP",
+        featured: false,
+        items: [
+          "Seluruh dokumen persyaratan berkas wajib",
+          "Kartu Indonesia Pintar (KIP) / PKH / KKS yang masih aktif",
+          "Surat Keterangan Tidak Mampu (SKTM) dari Kelurahan/Desa domisili"
+        ]
+      }
+    ];
+
+    // 3. DATA JADWAL GELOMBANG
+    // KOSONGKAN tanggal jika belum ada tanggal resmi dari panitia sekolah.
+    // Jika array kosong ([]), sistem otomatis menampilkan status 'Jadwal akan diumumkan'.
+    const spmbWavesScheduleData = [
+      /*
+      {
+        wave: "Gelombang 1 (Jalur Inden / Prestasi)",
+        period: "Januari - Maret 2026",
+        testDate: "Setiap Sabtu",
+        status: "Dibuka", // Options: "Dibuka", "Ditutup", "Akan Datang"
+        statusCode: "open"
+      }
+      */
+    ];
+
+    // 4. DATA KUOTA KONSENTRASI KEAHLIAN (KUALITATIF - TANPA PERSENTASE/PROGRESS BAR DUMMY)
+    const majorsQuotaData = [
+      {
+        code: "PPLG",
+        name: "Pengembangan Perangkat Lunak dan Gim",
+        desc: "Web application development, mobile coding, cloud database, dan TEFA Software House.",
+        statusText: "Kuota Tersedia",
+        statusType: "available"
+      },
+      {
+        code: "TJKT",
+        name: "Teknik Jaringan Komputer dan Telekomunikasi",
+        desc: "Infrastruktur jaringan enterprise, fiber optic splicing, server linux & Mikrotik.",
+        statusText: "Kuota Tersedia",
+        statusType: "available"
+      },
+      {
+        code: "DKV",
+        name: "Desain Komunikasi Visual",
+        desc: "Multimedia kreatif komersial, videografi, animasi motion 2D/3D, branding periklanan.",
+        statusText: "Kuota Terbatas",
+        statusType: "limited"
+      },
+      {
+        code: "BD",
+        name: "Bisnis Digital",
+        desc: "Omnichannel marketplace, paid digital ads Meta/Google, live commerce selling studio.",
+        statusText: "Kuota Tersedia",
+        statusType: "available"
+      },
+      {
+        code: "AKL",
+        name: "Akuntansi & Keuangan Lembaga",
+        desc: "Software akuntansi Accurate/MYOB, administrasi perpajakan digital, dan Bank Mini Syariah.",
+        statusText: "Kuota Tersedia",
+        statusType: "available"
+      },
+      {
+        code: "MPLB",
+        name: "Manajemen Perkantoran",
+        desc: "Otomasi perkantoran digital cloud, komunikasi bisnis, public relations, dan kearsipan.",
+        statusText: "Kuota Tersedia",
+        statusType: "available"
+      },
+      {
+        code: "PH",
+        name: "Perhotelan",
+        desc: "Front office reception, housekeeping bintang 5, F&B banquet service, dan Edutel SMEMSA.",
+        statusText: "Kuota Terbatas",
+        statusType: "limited"
+      },
+    ];
+
+    // 5. DATA FAQ SPMB
+    // CATATAN: Jawaban di bawah merupakan informasi standar sekolah kejuruan dan siap disesuaikan dengan SOP definitif panitia
+    const spmbFaqData = [
+      {
+        question: "Kapan periode pendaftaran siswa baru Tahun Ajaran 2026/2027 resmi dibuka?",
+        answer: "Pendaftaran awal (Gelombang Inden / Prestasi) telah dapat diakses melalui sekretariat pendaftaran dan layanan WhatsApp resmi. Rincian tanggal batas gelombang lanjutan akan diperbarui di halaman ini."
+      },
+      {
+        question: "Apakah calon siswa diperbolehkan memilih jurusan cadangan?",
+        answer: "Ya, calon siswa dapat memilih jurusan prioritas pertama dan jurusan alternatif cadangan saat mengisi formulir pendaftaran."
+      },
+      {
+        question: "Apakah ada tes seleksi masuk di SMKS Muhammadiyah 1 Genteng?",
+        answer: "Seleksi difokuskan pada pemetaan minat dan bakat kejuruan, tes kesehatan dasar (bebas buta warna untuk jurusan tertentu), serta wawancara komitmen calon siswa bersama orang tua/wali."
+      },
+      {
+        question: "Bagaimana mekanisme pendaftaran melalui jalur beasiswa prestasi atau KIP?",
+        answer: "Pendaftar jalur prestasi cukup melampirkan scan sertifikat kejuaraan/piagam saat mendaftar. Untuk jalur KIP/bantuan, lampirkan kartu KIP/PKH yang masih aktif untuk diverifikasi oleh panitia beasiswa sekolah."
+      },
+      {
+        question: "Apakah siswa luar kota atau luar daerah Banyuwangi dapat mendaftar?",
+        answer: "Tentu saja. SMKS Muhammadiyah 1 Genteng menerima calon peserta didik dari seluruh Indonesia melalui pendaftaran online penuh dan didukung opsi asrama/boarding mitra sekolah."
+      },
+      {
+        question: "Apakah biaya pendaftaran dapat dicicil?",
+        answer: "Ya, sekolah menyediakan skema pembayaran bertahap untuk biaya daftar ulang dan seragam guna meringankan beban orang tua/wali murid. Informasi skema cicilan dapat dikonsultasikan langsung ke panitia."
+      }
+    ];
+
+    // ==========================================================================
+    // RENDER FUNCTIONS
+    // ==========================================================================
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1. Render Alur Linimasa
+      const stepsContainer = document.getElementById("steps-container");
+      if (stepsContainer && spmbStepsData.length > 0) {
+        stepsContainer.innerHTML = spmbStepsData.map(function (item) {
+          return `
+            <div class="timeline-step-item">
+              <div class="timeline-step-bullet">${item.step}</div>
+              <div class="timeline-step-card">
+                <h3 class="step-card-title">${item.title}</h3>
+                <p class="step-card-desc">${item.desc}</p>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      // 2. Render Syarat & Berkas
+      const berkasContainer = document.getElementById("berkas-container");
+      if (berkasContainer && berkasRequirementsData.length > 0) {
+        berkasContainer.innerHTML = berkasRequirementsData.map(function (group) {
+          const itemsHtml = group.items.map(function (it) {
+            return `
+              <li class="berkas-item">
+                <svg class="berkas-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>${it}</span>
+              </li>
+            `;
+          }).join("");
+
+          return `
+            <div class="berkas-card ${group.featured ? "featured" : ""}">
+              <div class="berkas-category-tag" style="color: ${group.categoryColor};">${group.category}</div>
+              <h3 class="berkas-title">${group.title}</h3>
+              <ul class="berkas-list">
+                ${itemsHtml}
+              </ul>
+            </div>
+          `;
+        }).join("");
+      }
+
+      // 3. Render Jadwal Gelombang (Dengan fallback jika tanggal resmi belum tersedia)
+      const scheduleContainer = document.getElementById("schedule-container");
+      if (scheduleContainer) {
+        if (spmbWavesScheduleData.length === 0) {
+          scheduleContainer.innerHTML = `
+            <div class="schedule-empty-banner">
+              <div class="badge-amber mb-2" style="margin-bottom: 0.8rem;">Status Penjadwalan</div>
+              <h3 class="font-head" style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-dark);">Jadwal akan diumumkan</h3>
+              <p style="max-width: 580px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.6;">
+                Kalender resmi gelombang pendaftaran Tahun Ajaran 2026/2027 sedang difinalisasi oleh Panitia SPMB SMKS Muhammadiyah 1 Genteng.
+              </p>
+              <a href="https://wa.me/6282241356668?text=Halo%20Panitia%20SPMB,%20apakah%20jadwal%20gelombang%20sudah%20dapat%20diperoleh?" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                Dapatkan Notifikasi via WhatsApp
+              </a>
+            </div>
+          `;
+        } else {
+          const rowsHtml = spmbWavesScheduleData.map(function (w) {
+            let statusBadge = `<span class="badge-status-open">Dibuka</span>`;
+            if (w.statusCode === "closed") {
+              statusBadge = `<span class="badge-status-closed">Ditutup</span>`;
+            } else if (w.statusCode === "upcoming") {
+              statusBadge = `<span class="badge-status-upcoming">Akan Datang</span>`;
+            }
+
+            return `
+              <tr>
+                <td><strong>${w.wave}</strong></td>
+                <td>${w.period}</td>
+                <td>${w.testDate}</td>
+                <td>${statusBadge}</td>
+              </tr>
+            `;
+          }).join("");
+
+          scheduleContainer.innerHTML = `
+            <div class="schedule-card-wrapper">
+              <table class="schedule-table">
+                <thead>
+                  <tr>
+                    <th>Gelombang</th>
+                    <th>Rentang Tanggal</th>
+                    <th>Tes / Validasi</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${rowsHtml}
+                </tbody>
+              </table>
+            </div>
+          `;
+        }
+      }
+
+      // 4. Render Kuota Konsentrasi Keahlian (Kualitatif Murni)
+      const quotaContainer = document.getElementById("quota-container");
+      if (quotaContainer && majorsQuotaData.length > 0) {
+        quotaContainer.innerHTML = majorsQuotaData.map(function (m) {
+          const badgeClass = m.statusType === "available" ? "badge-quota-available" : "badge-quota-limited";
+          return `
+            <div class="quota-item-card">
+              <div>
+                <div class="quota-item-head">
+                  <span class="quota-code-badge">${m.code}</span>
+                  <span class="${badgeClass}">${m.statusText}</span>
+                </div>
+                <h3 class="quota-major-name">${m.name}</h3>
+                <p class="quota-major-desc">${m.desc}</p>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      // 5. Render & Keyboard-Accessible FAQ Accordion
+      const faqContainer = document.getElementById("faq-container");
+      if (faqContainer && spmbFaqData.length > 0) {
+        faqContainer.innerHTML = spmbFaqData.map(function (faq, index) {
+          const panelId = `faq-panel-${index}`;
+          const btnId = `faq-btn-${index}`;
+          return `
+            <div class="faq-item" id="faq-item-${index}">
+              <button
+                type="button"
+                class="faq-trigger"
+                id="${btnId}"
+                aria-expanded="false"
+                aria-controls="${panelId}"
+              >
+                <span>${faq.question}</span>
+                <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq-content" id="${panelId}" role="region" aria-labelledby="${btnId}">
+                <p>${faq.answer}</p>
+              </div>
+            </div>
+          `;
+        }).join("");
+
+        // Accordion Interactive Handler
+        const triggers = faqContainer.querySelectorAll(".faq-trigger");
+        triggers.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const isExpanded = btn.getAttribute("aria-expanded") === "true";
+            const item = btn.closest(".faq-item");
+
+            // Close other items (clean accordion pattern)
+            triggers.forEach(function (otherBtn) {
+              if (otherBtn !== btn) {
+                otherBtn.setAttribute("aria-expanded", "false");
+                otherBtn.closest(".faq-item").classList.remove("active");
+              }
+            });
+
+            // Toggle current
+            if (isExpanded) {
+              btn.setAttribute("aria-expanded", "false");
+              item.classList.remove("active");
+            } else {
+              btn.setAttribute("aria-expanded", "true");
+              item.classList.add("active");
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

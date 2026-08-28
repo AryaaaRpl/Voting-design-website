@@ -693,6 +693,7 @@
             max-height: 250px;
             overflow-y: auto;
         }
+
         .scheme-body-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -812,6 +813,11 @@
             overflow: hidden;
             background: #fff;
             transition: transform 0.25s, box-shadow 0.25s !important;
+            /* Kartu jadi kolom fleks agar foto selalu sejajar di baris
+               yang sama meski panjang nama/jabatan berbeda. */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .assessor-card:hover {
@@ -825,6 +831,8 @@
             display: grid;
             place-items: center;
             position: relative;
+            flex-shrink: 0;
+            /* foto tidak ikut menyusut */
         }
 
         .assessor-photo img {
@@ -843,6 +851,10 @@
 
         .assessor-body {
             padding: 0.95rem 1rem 1.1rem;
+            flex: 1;
+            /* isi mengisi sisa ruang, dasar kartu rata */
+            display: flex;
+            flex-direction: column;
         }
 
         .assessor-name {
@@ -859,6 +871,8 @@
         }
 
         .assessor-reg {
+            margin-top: auto;
+            /* selalu menempel di dasar kartu */
             display: inline-block;
             margin-top: 0.6rem;
             font-size: 0.68rem;
@@ -1232,10 +1246,11 @@
             }
 
             .unit-list {
-            max-height: 250px;
-            overflow-y: auto;
-        }
-        .scheme-body-grid {
+                max-height: 250px;
+                overflow-y: auto;
+            }
+
+            .scheme-body-grid {
                 grid-template-columns: 1fr;
                 gap: 1.4rem;
             }
@@ -1325,7 +1340,7 @@
     <header class="header-wrapper">
         <nav class="nav-island" id="main-nav">
             <a href="index.html#hero" class="brand-box">
-                <img src="assets/logo.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
+                <img src="assets/LOGO LSP IG.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
               this.closest('.card')
                 ? this.closest('.card').classList.add('no-image')
                 : null;
@@ -1441,11 +1456,11 @@
                 <a href="index.html#blud" class="nav-link">BLUD</a>
 
                 <a href="berita.html" class="nav-link">Berita</a>
-                <a href="index.html#spmb" class="btn btn-primary"
-                    style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar SPMB</a>
+                <a href="spmb.html" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar
+                    SPMB</a>
             </div>
 
-            <a href="index.html#spmb" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
+            <a href="spmb.html" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
             <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">
                 ☰
             </button>
@@ -1489,7 +1504,7 @@
             <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
 
             <div style="margin-top: 1.5rem">
-                <a href="index.html#spmb" class="btn btn-primary"
+                <a href="spmb.html" class="btn btn-primary"
                     style="width: 100%; text-align: center; justify-content: center">Daftar SPMB 2026</a>
             </div>
         </div>
@@ -1510,7 +1525,7 @@
             <div class="legit-strip">
                 <div class="legit-item">
                     <div class="legit-label">Nomor Lisensi BNSP</div>
-                    <div class="legit-value is-placeholder" data-fill="nomor-lisensi">Menunggu data</div>
+                    <div class="legit-value is-placeholder" data-fill="nomor-lisensi"> BNSP-LSP-1911-ID</div>
                 </div>
                 <div class="legit-item">
                     <div class="legit-label">Tanggal Penetapan</div>
@@ -1518,11 +1533,11 @@
                 </div>
                 <div class="legit-item">
                     <div class="legit-label">Masa Berlaku</div>
-                    <div class="legit-value is-placeholder" data-fill="masa-berlaku">Menunggu data</div>
+                    <div class="legit-value is-placeholder" data-fill="masa-berlaku">2031-04-24</div>
                 </div>
                 <div class="legit-item">
                     <div class="legit-label">Jumlah Skema</div>
-                    <div class="legit-value" id="scheme-count">—</div>
+                    <div class="legit-value" id="scheme-count">9 Skema</div>
                 </div>
             </div>
         </div>
@@ -1556,7 +1571,7 @@
                 <dl>
                     <div class="id-row">
                         <dt>Nama LSP</dt>
-                        <dd class="is-placeholder" data-fill="nama-lsp">Menunggu data</dd>
+                        <dd class="is-placeholder" data-fill="nama-lsp">SMK Muhammadiyah 1 Genteng</dd>
                     </div>
                     <div class="id-row">
                         <dt>Jenis</dt>
@@ -1564,7 +1579,7 @@
                     </div>
                     <div class="id-row">
                         <dt>No. Lisensi</dt>
-                        <dd class="is-placeholder" data-fill="nomor-lisensi">Menunggu data</dd>
+                        <dd class="is-placeholder" data-fill="nomor-lisensi"> BNSP-LSP-1911-ID</dd>
                     </div>
                     <div class="id-row">
                         <dt>Ketua LSP</dt>
@@ -1691,7 +1706,7 @@
                 gap: 0.9rem;
                 margin-bottom: 1.2rem;
               ">
-                        <img src="assets/logo.webp" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
+                        <img src="assets/icon/Logo LSP.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
                             style="max-height: 52px; width: auto; object-fit: contain" width="52" height="52" onerror="
                   this.closest('.card')
                     ? this.closest('.card').classList.add('no-image')
@@ -1932,7 +1947,7 @@
            units   : daftar unit kompetensi yang diujikan
            catatan : keterangan tambahan (opsional)
         */
-                const SKEMA = [
+        const SKEMA = [
             {
                 nama: 'KKNI Level II pada Kompetensi Keahlian Teknik Komputer dan Jaringan',
                 jurusan: 'TJKT',
@@ -2048,11 +2063,15 @@
            reg   : nomor registrasi asesor BNSP (opsional)
            foto  : path foto (kosongkan jika belum ada -> tampil inisial)
         */
-                const ASESOR = [
-            { nama: 'Tashilul Aqied, S.Pd', bidang: 'Teknik Komputer dan Jaringan', reg: 'MET.000.000.0001', foto: '' },
-            { nama: 'Dra. Sri Wahyuni', bidang: 'Akuntansi dan Keuangan', reg: 'MET.000.000.0002', foto: '' },
-            { nama: 'Ahmad Faisal, M.Kom', bidang: 'Pengembang Perangkat Lunak & Gim', reg: 'MET.000.000.0003', foto: '' },
-            { nama: 'Nurul Hidayah, S.E.', bidang: 'Manajemen Perkantoran', reg: 'MET.000.000.0004', foto: '' }
+        const ASESOR = [
+            { nama: 'Wahid Wahyudi, S.E, M.M', bidang: 'Kepala Sekolah', reg: 'MET.000.004187 2021', foto: 'assets/PAK-WAHID-AI-e1781064934191.png' },
+            { nama: 'Aan Cahyanto Sri Setyo, M.Pd', bidang: 'Wakil Kepala Sekolah', reg: 'MET.000.004191 2021', foto: 'assets/guru/kategori-pimpinan/WAKIL KS - Aan Cahyanto Sri Setyo, M.Pd.jpg' },
+            { nama: 'Teguh Santosa, S.Kom', bidang: 'Teknik Jaringan Komputer & Telekomunikasi', reg: 'MET.000.004195 2021', foto: 'assets/guru/kategori-k3/Teguh Santosa, S.Kom.jpg' },
+            { nama: 'Wuri Handayani ', bidang: 'Bendahara Sekolah', reg: 'MET.000.0041902021', foto: 'assets/guru/kategori-pimpinan/BENDAHARA SEKOLAH - Wuri Handayani, S.E.jpg' },
+            { nama: 'Dedy Wijanarko, SST.,Par.,S.Pd.', bidang: 'Perhotelan', reg: 'MET.000.004194 2021', foto: 'assets/guru/kategori-k3/Dedy Wijanarko, SST.,Par.,S.Pd.jpg' },
+            { nama: 'Tri Wahyu S, S.Pd', bidang: 'Manajemen Perkantoran & Layanan Bisnis', reg: 'MET.000.007322 2022', foto: 'assets/guru/kategori-k3/Tri Wahyu S, S.Pd.jpg' },
+            { nama: 'Dinda Nurmawati, S.Kom', bidang: 'Pengembangan Perangkat Lunak & Gim', reg: 'MET.000.004196 2021', foto: 'assets/guru/kategori-k3/Dinda Nurmawati, S.Kom.webp' },
+            { nama: 'Endah Dila Kurniawati S.Kom', bidang: 'Pengembangan Perangkat Lunak & Gim', reg: 'MET.000.008346 2024', foto: 'assets/guru/kategori-guru/Endah Dila K., S.Kom.webp' }
         ];
 
         /* ---------- 4. TEMPAT UJI KOMPETENSI ----------
@@ -2061,7 +2080,7 @@
            desc    : keterangan singkat
            tautan  : anchor ke halaman fasilitas (opsional)
         */
-                const TUK = [
+        const TUK = [
             { nama: 'TUK Laboratorium Komputer Utama', untuk: 'TJKT, PPLG, DKV, Bisnis Digital', desc: 'Laboratorium ber-AC dengan PC spesifikasi industri dan koneksi internet fiber.', tautan: 'fasilitas.html' },
             { nama: 'TUK Edohotel SMEMSA', untuk: 'Perhotelan', desc: 'Mini hotel standar industri untuk uji kompetensi Front Office dan Housekeeping.', tautan: 'fasilitas.html' },
             { nama: 'TUK Perkantoran & Akuntansi', untuk: 'MPLB, AKL', desc: 'Ruang simulasi kantor lengkap dengan peralatan filling, komputer akuntansi, dan meja resepsionis.', tautan: 'fasilitas.html' }
@@ -2129,10 +2148,6 @@
                     });
                 });
             }
-
-            /* ---- Jumlah skema dihitung otomatis ---- */
-            const count = document.getElementById('scheme-count');
-            if (count) count.textContent = SKEMA.length + ' Skema';
 
             /* ---- Alur asesmen ---- */
             const flow = document.getElementById('flow-list');
