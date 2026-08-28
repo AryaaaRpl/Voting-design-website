@@ -1,1403 +1,1386 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bursa Kerja Khusus (BKK) - SMKS Muhammadiyah 1 Genteng</title>
-    <meta
-      name="description"
-      content="Bursa Kerja Khusus (BKK) SMKS Muhammadiyah 1 Genteng Banyuwangi. Jembatan karir terpercaya penghubung alumni & siswa dengan lowongan kerja mitra industri DUDI."
-    />
 
-    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bursa Kerja Khusus (BKK) - SMKS Muhammadiyah 1 Genteng</title>
+  <meta name="description"
+    content="Bursa Kerja Khusus (BKK) SMKS Muhammadiyah 1 Genteng Banyuwangi. Jembatan karir terpercaya penghubung alumni & siswa dengan lowongan kerja mitra industri DUDI." />
 
-    <style>
-      /* ==========================================================================
+  <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
            1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
            ========================================================================== */
-      :root {
-        --primary: #1e40af;
-        --primary-light: #2563eb;
-        --primary-dark: #16296b;
-        --primary-surface: rgba(30, 64, 175, 0.06);
-        --primary-glow: rgba(30, 64, 175, 0.2);
+    :root {
+      --primary: #1e40af;
+      --primary-light: #2563eb;
+      --primary-dark: #16296b;
+      --primary-surface: rgba(30, 64, 175, 0.06);
+      --primary-glow: rgba(30, 64, 175, 0.2);
 
-        --secondary: #eab308;
-        --secondary-light: #facc15;
-        --secondary-surface: rgba(234, 179, 8, 0.1);
-        --secondary-glow: rgba(234, 179, 8, 0.25);
+      --secondary: #eab308;
+      --secondary-light: #facc15;
+      --secondary-surface: rgba(234, 179, 8, 0.1);
+      --secondary-glow: rgba(234, 179, 8, 0.25);
 
-        --bg-main: #ffffff;
-        --bg-alt: #f8fafc;
-        --bg-dark: #0f172a;
-        --text-dark: #0f172a;
-        --text-muted: #64748b;
-        --text-subtle: #94a3b8;
-        --border-card: #e2e8f0;
-        --border: #e2e8f0;
-        --border-dark: #263559;
+      --bg-main: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-dark: #0f172a;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --border-card: #e2e8f0;
+      --border: #e2e8f0;
+      --border-dark: #263559;
 
-        --radius-xs: 4px;
-        --radius-sm: 8px;
-        --radius: 12px;
-        --radius-lg: 16px;
-        --radius-xl: 20px;
-        --radius-full: 9999px;
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
 
-        --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
-        --shadow-card:
-          0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-        --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
-        --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-card:
+        0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+      --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
 
-        --font-display: "Plus Jakarta Sans", sans-serif;
-        --font-head: "Plus Jakarta Sans", sans-serif;
-        --font-body: "Plus Jakarta Sans", sans-serif;
-        --font-mono: "JetBrains Mono", monospace;
+      --font-display: "Plus Jakarta Sans", sans-serif;
+      --font-head: "Plus Jakarta Sans", sans-serif;
+      --font-body: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
 
-        --transition: all 0.3s ease;
-        --transition-fast: all 0.2s ease;
-      }
+      --transition: all 0.3s ease;
+      --transition-fast: all 0.2s ease;
+    }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      body {
-        font-family: var(--font-body);
-        background-color: var(--bg-main);
-        color: var(--text-dark);
-        line-height: 1.7;
-        overflow-x: hidden;
-      }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      .font-head {
-        font-family: var(--font-head);
-        font-weight: 800;
-      }
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-head {
+      font-family: var(--font-head);
+      font-weight: 800;
+    }
 
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-      ul {
-        list-style: none;
-      }
+    ul {
+      list-style: none;
+    }
 
-      .container {
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0 5%;
-      }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
 
-      .section-padding {
-        padding: 6rem 0;
-      }
+    .section-padding {
+      padding: 6rem 0;
+    }
 
-      .text-center {
-        text-align: center;
-      }
+    .text-center {
+      text-align: center;
+    }
 
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.35rem 0.85rem;
-        border-radius: var(--radius-full);
-        font-size: 0.8rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-      .badge-primary {
-        background: var(--primary-surface);
-        color: var(--primary);
-        border: 1px solid var(--primary-glow);
-      }
+    .badge-primary {
+      background: var(--primary-surface);
+      color: var(--primary);
+      border: 1px solid var(--primary-glow);
+    }
 
-      .badge-amber {
-        background: var(--secondary-surface);
-        color: #b45309;
-        border: 1px solid var(--secondary-glow);
-      }
+    .badge-amber {
+      background: var(--secondary-surface);
+      color: #b45309;
+      border: 1px solid var(--secondary-glow);
+    }
 
-      .skill-tag {
-        display: inline-block;
-        padding: 0.25rem 0.65rem;
-        background: var(--bg-alt);
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-sm);
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--text-muted);
-      }
+    .skill-tag {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.6rem;
-        border-radius: var(--radius-full);
-        font-family: var(--font-head);
-        font-weight: 700;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: var(--transition);
-        border: 1px solid transparent;
-      }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
 
-      .btn-primary {
-        transition: var(--transition);
-        background: var(--primary);
-        color: #ffffff;
-        box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
-      }
+    .btn-primary {
+      transition: var(--transition);
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
+    }
 
-      .btn-primary:hover {
-        background: var(--primary-light);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
-      }
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
+    }
 
-      /* HEADER NAVBAR - FLOATING ISLAND WITH GLASSMORPHISM 2.0 (MATCHING INDEX.HTML) */
+    /* HEADER NAVBAR - FLOATING ISLAND WITH GLASSMORPHISM 2.0 (MATCHING INDEX.HTML) */
+    .header-wrapper {
+      position: fixed !important;
+      top: 1rem;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 90% !important;
+      max-width: 1320px !important;
+      z-index: 1000 !important;
+      background: #ffffff !important;
+      border-radius: 50px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+      border: 1px solid var(--border-card) !important;
+      pointer-events: auto !important;
+    }
+
+    .nav-island {
+      width: 100% !important;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0.8rem 1.8rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      position: relative !important;
+      transition: var(--transition);
+    }
+
+    .nav-island.scrolled {
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-logo {
+      width: auto;
+      max-width: 180px;
+      height: auto;
+      max-height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+      transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+    }
+
+    .brand-logo:hover {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      font-family: var(--font-head);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-surface);
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      min-width: 250px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 0.6rem;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px) scale(0.98);
+      transition: var(--transition);
+      z-index: 100;
+    }
+
+    .nav-item:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: var(--transition-fast);
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item.active {
+      background: var(--primary-surface);
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .dropdown-icon {
+      font-size: 1.1rem;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 58, 138, 0.06);
+      border-radius: var(--radius-xs);
+    }
+
+    .hamburger,
+    .nav-toggle {
+      display: none;
+      background: var(--primary-surface) !important;
+      border: 1px solid rgba(30, 64, 175, 0.15) !important;
+      color: var(--primary) !important;
+      font-size: 1.4rem !important;
+      cursor: pointer !important;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      border-radius: 10px !important;
+      align-items: center !important;
+      justify-content: center !important;
+      position: relative !important;
+      z-index: 10000 !important;
+      pointer-events: auto !important;
+      transition: all 0.2s ease !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .hamburger:hover,
+    .nav-toggle:hover,
+    .hamburger:focus,
+    .nav-toggle:focus {
+      background: var(--primary) !important;
+      color: #ffffff !important;
+      outline: none !important;
+    }
+
+    /* Mobile Drawer */
+    .mobile-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(15, 23, 42, 0.65) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      z-index: 99998 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease !important;
+      pointer-events: none !important;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-drawer {
+      position: fixed !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 85vw !important;
+      max-width: 340px !important;
+      height: 100dvh !important;
+      background: #ffffff !important;
+      z-index: 99999 !important;
+      padding: 2rem 1.6rem !important;
+      transform: translateX(100%) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-drawer.active {
+      transform: translateX(0) !important;
+    }
+
+    .drawer-close {
+      background: var(--bg-alt) !important;
+      border: 1px solid var(--border-card) !important;
+      color: var(--text-dark) !important;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      border-radius: 50% !important;
+      font-size: 1.4rem !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 1.5rem !important;
+      position: relative !important;
+      z-index: 100000 !important;
+      pointer-events: auto !important;
+    }
+
+    .drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .drawer-links a {
+      transition: var(--transition);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+
+    .drawer-links a.active,
+    .drawer-links a:hover {
+      background: var(--primary-surface);
+      color: var(--primary);
+    }
+
+    .drawer-section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin: 1.2rem 0 0.4rem 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 900px) {
       .header-wrapper {
-        position: fixed !important;
-        top: 1rem;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 90% !important;
-        max-width: 1320px !important;
-        z-index: 1000 !important;
-        background: #ffffff !important;
-        border-radius: 50px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-        border: 1px solid var(--border-card) !important;
-        pointer-events: auto !important;
+        top: 0.5rem !important;
+        width: calc(100% - 20px) !important;
+        border-radius: 20px !important;
       }
 
       .nav-island {
-        width: 100% !important;
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0.8rem 1.8rem !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        position: relative !important;
-        transition: var(--transition);
-      }
-
-      .nav-island.scrolled {
-        padding-top: 0.75rem !important;
-        padding-bottom: 0.75rem !important;
-      }
-
-      .brand-box {
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
-      }
-
-      .brand-logo {
-        width: auto;
-        max-width: 180px;
-        height: auto;
-        max-height: 60px;
-        object-fit: contain;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-        transition:
-          transform 0.3s ease,
-          filter 0.3s ease;
-      }
-
-      .brand-logo:hover {
-        transform: translateY(-2px);
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+        padding: 0.6rem 1rem !important;
       }
 
       .nav-menu {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+        display: none !important;
       }
 
-      .nav-item {
-        position: relative;
-      }
-
-      .nav-link {
-        font-family: var(--font-head);
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        padding: 0.55rem 0.95rem;
-        border-radius: var(--radius-full);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        transition: var(--transition-fast);
-      }
-
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--primary);
-        background: var(--primary-surface);
-      }
-
-      /* Dropdown styling */
-      .dropdown-menu {
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 0;
-        min-width: 250px;
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius);
-        padding: 0.6rem;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px) scale(0.98);
-        transition: var(--transition);
-        z-index: 100;
-      }
-
-      .nav-item:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
-
-      .dropdown-item {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 0.65rem 0.9rem;
-        border-radius: var(--radius-sm);
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        transition: var(--transition-fast);
-      }
-
-      .dropdown-item:hover,
-      .dropdown-item.active {
-        background: var(--primary-surface);
-        color: var(--primary);
-        transform: translateX(4px);
-      }
-
-      .dropdown-icon {
-        font-size: 1.1rem;
-        width: 28px;
-        height: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(30, 58, 138, 0.06);
-        border-radius: var(--radius-xs);
+      .nav-mobile-cta {
+        display: inline-flex !important;
+        margin-left: auto;
+        margin-right: 0.6rem;
+        padding: 0.45rem 1rem !important;
+        font-size: 0.82rem !important;
+        min-height: 40px !important;
       }
 
       .hamburger,
       .nav-toggle {
-        display: none;
-        background: var(--primary-surface) !important;
-        border: 1px solid rgba(30, 64, 175, 0.15) !important;
-        color: var(--primary) !important;
-        font-size: 1.4rem !important;
-        cursor: pointer !important;
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        border-radius: 10px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        position: relative !important;
-        z-index: 10000 !important;
-        pointer-events: auto !important;
-        transition: all 0.2s ease !important;
-        user-select: none !important;
-        -webkit-tap-highlight-color: transparent !important;
-      }
-
-      .hamburger:hover,
-      .nav-toggle:hover,
-      .hamburger:focus,
-      .nav-toggle:focus {
-        background: var(--primary) !important;
-        color: #ffffff !important;
-        outline: none !important;
-      }
-
-      /* Mobile Drawer */
-      .mobile-overlay {
-        position: fixed !important;
-        inset: 0 !important;
-        background: rgba(15, 23, 42, 0.65) !important;
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
-        z-index: 99998 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition:
-          opacity 0.3s ease,
-          visibility 0.3s ease !important;
-        pointer-events: none !important;
-      }
-
-      .mobile-overlay.active {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-      }
-
-      .mobile-drawer {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 85vw !important;
-        max-width: 340px !important;
-        height: 100dvh !important;
-        background: #ffffff !important;
-        z-index: 99999 !important;
-        padding: 2rem 1.6rem !important;
-        transform: translateX(100%) !important;
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        pointer-events: auto !important;
-      }
-
-      .mobile-drawer.active {
-        transform: translateX(0) !important;
-      }
-
-      .drawer-close {
-        background: var(--bg-alt) !important;
-        border: 1px solid var(--border-card) !important;
-        color: var(--text-dark) !important;
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        border-radius: 50% !important;
-        font-size: 1.4rem !important;
-        cursor: pointer !important;
         display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin-bottom: 1.5rem !important;
-        position: relative !important;
-        z-index: 100000 !important;
-        pointer-events: auto !important;
       }
+    }
 
-      .drawer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+    /* PAGE HEADER */
+    .page-header {
+      position: relative;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 8rem 0 4rem;
+      overflow: hidden;
+    }
 
-      .drawer-links a {
-        transition: var(--transition);
-        padding: 0.75rem 1rem;
-        border-radius: var(--radius-sm);
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: var(--text-dark);
-      }
+    .header-bg-pattern {
+      position: absolute;
+      right: -5%;
+      top: -20%;
+      width: 500px;
+      height: 500px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
 
-      .drawer-links a.active,
-      .drawer-links a:hover {
-        background: var(--primary-surface);
-        color: var(--primary);
-      }
+    .page-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
 
-      .drawer-section-title {
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: var(--text-subtle);
-        margin: 1.2rem 0 0.4rem 0.5rem;
-        letter-spacing: 0.05em;
-      }
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 700px;
+      line-height: 1.7;
+    }
 
-      @media (max-width: 900px) {
-        .header-wrapper {
-          top: 0.5rem !important;
-          width: calc(100% - 20px) !important;
-          border-radius: 20px !important;
-        }
-
-        .nav-island {
-          padding: 0.6rem 1rem !important;
-        }
-
-        .nav-menu {
-          display: none !important;
-        }
-
-        .nav-mobile-cta {
-          display: inline-flex !important;
-          margin-left: auto;
-          margin-right: 0.6rem;
-          padding: 0.45rem 1rem !important;
-          font-size: 0.82rem !important;
-          min-height: 40px !important;
-        }
-
-        .hamburger,
-        .nav-toggle {
-          display: flex !important;
-        }
-      }
-
-      /* PAGE HEADER */
-      .page-header {
-        position: relative;
-        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-        color: #ffffff;
-        padding: 8rem 0 4rem;
-        overflow: hidden;
-      }
-
-      .header-bg-pattern {
-        position: absolute;
-        right: -5%;
-        top: -20%;
-        width: 500px;
-        height: 500px;
-        opacity: 0.12;
-        pointer-events: none;
-      }
-
-      .page-title {
-        font-size: clamp(2.2rem, 4vw, 3.2rem);
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-      }
-
-      .page-subtitle {
-        font-size: 1.1rem;
-        color: #94a3b8;
-        max-width: 700px;
-        line-height: 1.7;
-      }
-
-      /* BKK SUMMARY BANNER */
-      .bkk-summary-banner {
-        background: linear-gradient(
-          135deg,
+    /* BKK SUMMARY BANNER */
+    .bkk-summary-banner {
+      background: linear-gradient(135deg,
           var(--primary) 0%,
-          var(--primary-light) 100%
-        );
-        color: #ffffff;
-        border-radius: var(--radius-xl);
-        padding: 2.5rem 3rem;
-        margin-bottom: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
-        box-shadow: 0 15px 35px -10px rgba(30, 64, 175, 0.25);
-      }
+          var(--primary-light) 100%);
+      color: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 3rem;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      box-shadow: 0 15px 35px -10px rgba(30, 64, 175, 0.25);
+    }
 
-      .bkk-summary-number {
-        font-family: var(--font-display);
-        font-size: clamp(2.6rem, 5vw, 3.8rem);
-        font-weight: 800;
-        color: var(--secondary-light);
-        line-height: 1;
-        display: flex;
-        align-items: baseline;
-        gap: 0.3rem;
-      }
+    .bkk-summary-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--secondary-light);
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
 
-      .bkk-summary-text h3 {
-        font-family: var(--font-head);
-        font-size: 1.35rem;
-        font-weight: 700;
-        color: #ffffff;
-        margin-bottom: 0.4rem;
-      }
+    .bkk-summary-text h3 {
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
 
-      .bkk-summary-text p {
-        font-size: 0.96rem;
-        color: #e2e8f0;
-        line-height: 1.6;
-        margin: 0;
-      }
+    .bkk-summary-text p {
+      font-size: 0.96rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin: 0;
+    }
 
-      /* BKK STATS GRID */
-      .bkk-stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 3.5rem;
-      }
+    /* BKK STATS GRID */
+    .bkk-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
 
-      .stat-card {
-        background: var(--bg-alt);
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-lg);
-        padding: 1.75rem;
-        text-align: center;
-        transition: var(--transition);
-      }
+    .stat-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      text-align: center;
+      transition: var(--transition);
+    }
 
-      .stat-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-card-hover);
-        border-color: var(--primary-glow);
-      }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--primary-glow);
+    }
 
-      .stat-icon {
-        font-size: 2.2rem;
-        margin-bottom: 0.75rem;
-      }
+    .stat-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+    }
 
-      .stat-value {
-        font-size: 2.2rem;
-        font-weight: 800;
-        color: var(--primary);
-        line-height: 1.1;
-      }
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
 
-      .stat-label {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-muted);
-        margin-top: 0.35rem;
-      }
+    .stat-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
 
-      /* BKK TABLE CARD */
-      .bkk-table-card {
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-xl);
-        overflow: hidden;
-        box-shadow: var(--shadow-card);
-        margin-bottom: 4rem;
-      }
+    /* BKK TABLE CARD */
+    .bkk-table-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 4rem;
+    }
 
-      .bkk-table-header {
-        display: grid;
-        grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
-        padding: 1.2rem 2rem;
-        background: var(--bg-alt);
-        font-family: var(--font-head);
-        font-weight: 700;
-        font-size: 0.88rem;
-        color: var(--text-muted);
-        border-bottom: 1px solid var(--border-card);
-      }
+    .bkk-table-header {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
+      padding: 1.2rem 2rem;
+      background: var(--bg-alt);
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-card);
+    }
 
-      .bkk-table-row {
-        display: grid;
-        grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
-        align-items: center;
-        padding: 1.4rem 2rem;
-        border-bottom: 1px solid var(--border-card);
-        transition: var(--transition-fast);
-      }
+    .bkk-table-row {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr;
+      align-items: center;
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid var(--border-card);
+      transition: var(--transition-fast);
+    }
 
-      .bkk-table-row:last-child {
-        border-bottom: none;
-      }
+    .bkk-table-row:last-child {
+      border-bottom: none;
+    }
 
-      .bkk-table-row:hover {
-        background: var(--primary-surface);
-      }
+    .bkk-table-row:hover {
+      background: var(--primary-surface);
+    }
 
-      /* FEATURED MITRA DUDI GRID */
-      .mitra-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
+    /* FEATURED MITRA DUDI GRID */
+    .mitra-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
 
-      .mitra-card {
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-lg);
-        padding: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        transition: var(--transition);
-      }
+    .mitra-card {
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: var(--transition);
+    }
 
-      .mitra-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-card-hover);
-        border-color: var(--primary-glow);
-      }
+    .mitra-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--primary-glow);
+    }
 
-      .mitra-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: var(--radius);
-        background: var(--primary-surface);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        flex-shrink: 0;
-      }
+    .mitra-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      background: var(--primary-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
 
-      .mitra-info h4 {
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin-bottom: 0.15rem;
-      }
+    .mitra-info h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.15rem;
+    }
 
-      .mitra-info p {
-        font-size: 0.82rem;
-        color: var(--text-muted);
-      }
+    .mitra-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
 
-      /* SERVICE CARDS (Layanan BKK) */
-      .service-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2.5rem;
-      }
+    /* SERVICE CARDS (Layanan BKK) */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
 
-      .service-card {
-        background: var(--bg-alt);
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-xl);
-        padding: 2.2rem;
-        transition: var(--transition);
-      }
+    .service-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 2.2rem;
+      transition: var(--transition);
+    }
 
-      .service-card:hover {
-        background: #ffffff;
-        box-shadow: var(--shadow-card-hover);
-        transform: translateY(-4px);
-      }
+    .service-card:hover {
+      background: #ffffff;
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-4px);
+    }
 
-      .service-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: var(--radius-lg);
-        background: var(--primary);
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-        margin-bottom: 1.25rem;
-      }
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-lg);
+      background: var(--primary);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+    }
 
-      .service-card h3 {
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin-bottom: 0.6rem;
-      }
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
 
-      .service-card p {
-        font-size: 0.92rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
-      /* ==========================================================================
+    /* ==========================================================================
    13. NEXT-GEN FOOTER
    ========================================================================== */
-      .site-footer {
-        background: var(--bg-dark);
-        color: var(--text-light);
-        padding: 5.5rem 0 2.5rem;
-        border-top: 1px solid var(--border-dark);
-        position: relative;
-      }
+    .site-footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 5.5rem 0 2.5rem;
+      border-top: 1px solid var(--border-dark);
+      position: relative;
+    }
 
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Judul Kolom Footer */
+    .footer-col h4,
+    .footer-brand-title {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-brand-name {
+      color: #ffffff;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-brand-sub {
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .footer-address {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Baris Kontak dengan Inline SVG Stroke */
+    .footer-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-contact-icon {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-subtle);
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-link {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-link:hover {
+      color: var(--secondary-light);
+    }
+
+    /* Media Sosial Monokrom */
+    .footer-social-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .footer-social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: transform 0.25s ease;
+    }
+
+    .footer-social-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary-light);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+    }
+
+    .footer-social-btn:hover svg {
+      transform: scale(1.08);
+    }
+
+    /* Tautan Navigasi Footer */
+    .footer-nav {
+      display: block;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+      min-height: 28px;
+    }
+
+    .footer-chevron {
+      opacity: 0;
+      transform: translateX(-4px);
+      color: var(--secondary);
+      font-weight: bold;
+      font-size: 1.05rem;
+      line-height: 1;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-light);
+      transform: translateX(4px);
+    }
+
+    .footer-links a:hover .footer-chevron {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Kartu Identitas Lembaga */
+    .footer-identity-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1.15rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-dark);
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-identity-card strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #78716c;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
       .footer-grid {
-        display: grid;
-        grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
-        gap: 3rem;
-        margin-bottom: 3.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
       }
+    }
 
-      /* Judul Kolom Footer */
-      .footer-col h4,
-      .footer-brand-title {
-        font-family: var(--font-head);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-subtle);
-        margin-bottom: 1.2rem;
-      }
-
-      .footer-brand-name {
-        color: #ffffff;
-        font-family: var(--font-head);
-        font-weight: 800;
-        font-size: 1.05rem;
-        line-height: 1.25;
-        letter-spacing: -0.01em;
-      }
-
-      .footer-brand-sub {
-        color: var(--secondary);
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-top: 0.2rem;
-      }
-
-      .footer-address {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.88rem;
-        line-height: 1.65;
-        margin-bottom: 1.2rem;
-      }
-
-      /* Baris Kontak dengan Inline SVG Stroke */
-      .footer-contact-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1.5rem 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-
-      .footer-contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .footer-contact-icon {
-        width: 16px;
-        height: 16px;
-        stroke: var(--text-subtle);
-        stroke-width: 1.8;
-        fill: none;
-        flex-shrink: 0;
-      }
-
-      .footer-contact-link {
-        color: rgba(255, 255, 255, 0.85);
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-
-      .footer-contact-link:hover {
-        color: var(--secondary-light);
-      }
-
-      /* Media Sosial Monokrom */
-      .footer-social-row {
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        margin-top: 0.5rem;
-      }
-
-      .footer-social-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.8);
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        text-decoration: none;
-      }
-
-      .footer-social-btn svg {
-        width: 18px;
-        height: 18px;
-        fill: currentColor;
-        transition: transform 0.25s ease;
-      }
-
-      .footer-social-btn:hover {
-        background: var(--primary);
-        border-color: var(--primary-light);
-        color: #ffffff;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
-      }
-
-      .footer-social-btn:hover svg {
-        transform: scale(1.08);
-      }
-
-      /* Tautan Navigasi Footer */
-      .footer-nav {
-        display: block;
-      }
-
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-      }
-
-      .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        transition:
-          color 0.2s ease,
-          transform 0.2s ease;
-        min-height: 28px;
-      }
-
-      .footer-chevron {
-        opacity: 0;
-        transform: translateX(-4px);
-        color: var(--secondary);
-        font-weight: bold;
-        font-size: 1.05rem;
-        line-height: 1;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-
-      .footer-links a:hover {
-        color: var(--secondary-light);
-        transform: translateX(4px);
-      }
-
-      .footer-links a:hover .footer-chevron {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      /* Kartu Identitas Lembaga */
-      .footer-identity-card {
-        background: rgba(255, 255, 255, 0.04);
-        padding: 1.15rem 1.25rem;
-        border-radius: var(--radius);
-        border: 1px solid var(--border-dark);
-        font-size: 0.85rem;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .footer-identity-card strong {
-        color: #ffffff;
-        font-weight: 700;
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
       }
 
       .footer-bottom {
-        padding-top: 2rem;
-        border-top: 1px solid var(--border-dark);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.85rem;
-        color: #78716c;
-        flex-wrap: wrap;
-        gap: 1rem;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Ultra-optimization mobile override */
+    @media (max-width: 768px) {
+      .site-footer {
+        padding: 4rem 0 2rem !important;
       }
 
-      /* ===== Responsive ===== */
-      @media (max-width: 992px) {
-        .footer-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2.5rem;
-        }
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
       }
 
-      @media (max-width: 600px) {
-        .footer-grid {
-          grid-template-columns: 1fr;
-          gap: 2.2rem;
-        }
-
-        .footer-bottom {
-          flex-direction: column;
-          text-align: center;
-        }
+      .footer-social-row {
+        justify-content: flex-start !important;
       }
 
-      @media (max-width: 1024px) {
-        .footer-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+      .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .nav-menu {
+        display: none;
       }
 
-      @media (max-width: 768px) {
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
+      .hamburger {
+        display: block;
       }
 
-      /* Ultra-optimization mobile override */
-      @media (max-width: 768px) {
-        .site-footer {
-          padding: 4rem 0 2rem !important;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr !important;
-          gap: 2rem !important;
-        }
-
-        .footer-social-row {
-          justify-content: flex-start !important;
-        }
-
-        .footer-bottom {
-          flex-direction: column !important;
-          text-align: center !important;
-          gap: 0.5rem !important;
-        }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
-      /* RESPONSIVE */
-      @media (max-width: 992px) {
-        .nav-menu {
-          display: none;
-        }
+      .bkk-summary-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+    }
 
-        .hamburger {
-          display: block;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .bkk-summary-banner {
-          flex-direction: column;
-          text-align: center;
-          padding: 2rem;
-        }
+    @media (max-width: 768px) {
+      .bkk-table-header {
+        display: none;
       }
 
-      @media (max-width: 768px) {
-        .bkk-table-header {
-          display: none;
-        }
-
-        .bkk-table-row {
-          grid-template-columns: 1fr;
-          gap: 0.5rem;
-          padding: 1.2rem;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .footer-bottom {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        /* CHATBOT FLOATING BUTTON RESPONSIVE */
-        .chatbot-btn {
-          transition: var(--transition);
-          width: 50px !important;
-          height: 50px !important;
-          bottom: 1.2rem !important;
-          right: 1.2rem !important;
-          font-size: 1.3rem !important;
-        }
-
-        .chat-panel {
-          bottom: 4.8rem !important;
-          right: 1rem !important;
-          left: 1rem !important;
-          width: auto !important;
-          max-width: none !important;
-        }
+      .bkk-table-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1.2rem;
       }
 
-      /* AI Chatbot Widget */
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      /* CHATBOT FLOATING BUTTON RESPONSIVE */
       .chatbot-btn {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-light) 100%
-        );
-        color: #ffffff;
-        border: none;
-        box-shadow: var(--shadow-card-hover);
-        cursor: pointer;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         transition: var(--transition);
-      }
-
-      .chatbot-btn:hover {
-        transform: scale(1.1) rotate(5deg);
+        width: 50px !important;
+        height: 50px !important;
+        bottom: 1.2rem !important;
+        right: 1.2rem !important;
+        font-size: 1.3rem !important;
       }
 
       .chat-panel {
-        position: fixed;
-        bottom: 6.5rem;
-        right: 2rem;
-        width: 360px;
-        max-width: 90vw;
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-card-hover);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px) scale(0.95);
-        transition: var(--transition);
+        bottom: 4.8rem !important;
+        right: 1rem !important;
+        left: 1rem !important;
+        width: auto !important;
+        max-width: none !important;
       }
+    }
 
-      .chat-panel.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
+    /* AI Chatbot Widget */
+    .chatbot-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%);
+      color: #ffffff;
+      border: none;
+      box-shadow: var(--shadow-card-hover);
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
 
-      .chat-header {
-        background: var(--primary);
-        color: #ffffff;
-        padding: 1.2rem 1.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: var(--font-head);
-        font-weight: 700;
-      }
+    .chatbot-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
 
-      .chat-body {
-        height: 280px;
-        padding: 1.2rem;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        background: var(--bg-alt);
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
-      }
+    .chat-panel {
+      position: fixed;
+      bottom: 6.5rem;
+      right: 2rem;
+      width: 360px;
+      max-width: 90vw;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card-hover);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.95);
+      transition: var(--transition);
+    }
 
-      .chat-body::-webkit-scrollbar {
-        width: 5px;
-      }
+    .chat-panel.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
 
-      .chat-body::-webkit-scrollbar-track {
-        background: rgba(30, 58, 138, 0.03);
-      }
+    .chat-header {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-head);
+      font-weight: 700;
+    }
 
-      .chat-body::-webkit-scrollbar-thumb {
-        background: var(--primary-light);
-        border-radius: 10px;
-      }
+    .chat-body {
+      height: 280px;
+      padding: 1.2rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      background: var(--bg-alt);
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
+    }
 
-      .chat-msg {
-        max-width: 82%;
-        padding: 0.75rem 1rem;
-        border-radius: var(--radius);
-        font-size: 0.88rem;
-        line-height: 1.5;
-      }
+    .chat-body::-webkit-scrollbar {
+      width: 5px;
+    }
 
-      .chat-msg.bot {
-        background: #ffffff;
-        color: var(--text-dark);
-        border-bottom-left-radius: 4px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        align-self: flex-start;
-      }
+    .chat-body::-webkit-scrollbar-track {
+      background: rgba(30, 58, 138, 0.03);
+    }
 
-      .chat-msg.user {
-        background: var(--primary);
-        color: #ffffff;
-        border-bottom-right-radius: 4px;
-        align-self: flex-end;
-      }
+    .chat-body::-webkit-scrollbar-thumb {
+      background: var(--primary-light);
+      border-radius: 10px;
+    }
 
-      .chat-quick-pills {
-        padding: 0.6rem 1rem;
-        background: #ffffff;
-        display: flex;
-        gap: 0.4rem;
-        overflow-x: auto;
-        border-top: 1px solid var(--border-card);
-      }
+    .chat-msg {
+      max-width: 82%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
 
-      .chat-pill {
-        background: var(--primary-surface);
-        color: var(--primary);
-        border: none;
-        padding: 0.35rem 0.7rem;
-        border-radius: var(--radius-full);
-        font-size: 0.75rem;
-        font-weight: 700;
-        white-space: nowrap;
-        cursor: pointer;
-      }
+    .chat-msg.bot {
+      background: #ffffff;
+      color: var(--text-dark);
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      align-self: flex-start;
+    }
 
-      .chat-input-bar {
-        padding: 0.8rem 1rem;
-        background: #ffffff;
-        display: flex;
-        gap: 0.5rem;
-        border-top: 1px solid var(--border-card);
-      }
+    .chat-msg.user {
+      background: var(--primary);
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+      align-self: flex-end;
+    }
 
-      .chat-input-bar input {
-        flex: 1;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-full);
-        padding: 0.55rem 1rem;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        outline: none;
-      }
+    .chat-quick-pills {
+      padding: 0.6rem 1rem;
+      background: #ffffff;
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      border-top: 1px solid var(--border-card);
+    }
 
-      .chat-input-bar button {
-        background: var(--primary);
-        color: #ffffff;
-        border: none;
-        padding: 0.55rem 1.1rem;
-        border-radius: var(--radius-full);
-        font-weight: 700;
-        font-size: 0.85rem;
-        cursor: pointer;
-      }
-    </style>
-  </head>
+    .chat-pill {
+      background: var(--primary-surface);
+      color: var(--primary);
+      border: none;
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
 
-  <body>
-    <!-- 1. HEADER NAVBAR -->
-    <header class="header-wrapper">
-      <nav class="nav-island" id="main-nav">
-        <a href="#hero" class="brand-box">
-          <img
-            src="assets/logo.png"
-            alt="Logo SMKS Muhammadiyah 1 Genteng"
-            class="brand-logo"
-            onerror="
+    .chat-input-bar {
+      padding: 0.8rem 1rem;
+      background: #ffffff;
+      display: flex;
+      gap: 0.5rem;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .chat-input-bar input {
+      flex: 1;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-full);
+      padding: 0.55rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .chat-input-bar button {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1. HEADER NAVBAR -->
+  <header class="header-wrapper">
+    <nav class="nav-island" id="main-nav">
+      <a href="index.html#hero" class="brand-box">
+        <img src="assets/logo.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
               this.closest('.card')
                 ? this.closest('.card').classList.add('no-image')
                 : null;
               this.remove();
-            "
-          />
-        </a>
+            " />
+      </a>
 
-        <div class="nav-menu">
-          <a href="index.html#hero" class="nav-link">Beranda</a>
+      <div class="nav-menu">
+        <a href="index.html#hero" class="nav-link">Beranda</a>
 
-          <!-- Profil & Info Dropdown -->
-          <div class="nav-item">
-            <a href="visi-misi.html#sambutan" class="nav-link">
-              Profil & Info <span style="font-size: 0.65rem">▼</span>
+        <!-- Profil & Info Dropdown -->
+        <div class="nav-item">
+          <a href="visi-misi.html#sambutan" class="nav-link">
+            Profil & Info <span style="font-size: 0.65rem">▼</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="visi-misi.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </span>
+              <div>
+                <div>Visi & Misi</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Arah & Tujuan Lembaga</small>
+              </div>
             </a>
-            <div class="dropdown-menu">
-              <a href="visi-misi.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                </span>
-                <div>
-                  <div>Visi & Misi</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan Lembaga</small>
-                </div>
-              </a>
-              <a href="guru.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </span>
-                <div>
-                  <div>Guru & Tendik</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Tenaga Pendidik</small>
-                </div>
-              </a>
-              <a href="fasilitas.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-                </span>
-                <div>
-                  <div>Fasilitas Sekolah</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang Belajar</small>
-                </div>
-              </a>
-              <a href="ekstrakurikuler.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
-                </span>
-                <div>
-                  <div>Ekstrakurikuler & IPM</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni & Karakter</small>
-                </div>
-              </a>
-              <a href="prestasi.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                </span>
-                <div>
-                  <div>Galeri Prestasi</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan Nasional</small>
-                </div>
-              </a>
-            </div>
+            <a href="guru.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <div>
+                <div>Guru & Tendik</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Tenaga Pendidik</small>
+              </div>
+            </a>
+            <a href="fasilitas.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                  <path d="M10 6h4" />
+                  <path d="M10 10h4" />
+                  <path d="M10 14h4" />
+                  <path d="M10 18h4" />
+                </svg>
+              </span>
+              <div>
+                <div>Fasilitas Sekolah</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Laboratorium & Ruang Belajar</small>
+              </div>
+            </a>
+            <a href="ekstrakurikuler.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
+                </svg>
+              </span>
+              <div>
+                <div>Ekstrakurikuler & IPM</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Bakat, Seni & Karakter</small>
+              </div>
+            </a>
+            <a href="prestasi.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                  <path d="M4 22h16" />
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                </svg>
+              </span>
+              <div>
+                <div>Galeri Prestasi</div>
+                <small style="color: var(--text-subtle); font-size: 0.75rem">Piala & Penghargaan Nasional</small>
+              </div>
+            </a>
           </div>
-
-          <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
-
-          <a href="bkk.html" class="nav-link active">BKK (Bursa Kerja)</a>
-
-          <!-- Layanan Siswa (BLUD) -->
-          <a href="index.html#blud" class="nav-link">Layanan Siswa (BLUD)</a>
-
-          <a href="berita.html" class="nav-link">Berita</a>
-          <a
-            href="index.html#ppdb"
-            class="btn btn-primary"
-            style="padding: 0.55rem 1.4rem; font-size: 0.88rem"
-            >Daftar PPDB</a
-          >
         </div>
 
-        <a
-          href="#ppdb"
-          class="btn btn-primary nav-mobile-cta"
-          style="display: none"
-          >Daftar SPMB</a
-        >
-        <button
-          class="hamburger"
-          id="hamburger-btn"
-          aria-label="Buka Menu Navigasi"
-        >
-          ☰
-        </button>
-      </nav>
-    </header>
+        <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-overlay" id="mobile-overlay"></div>
-    <div class="mobile-drawer" id="mobile-drawer">
-      <button class="drawer-close" id="drawer-close-btn">&times;</button>
-      <div class="brand-box" style="margin-bottom: 2rem">
-        <img
-          src="assets/logo.webp"
-          alt="Logo SMKS MUHI"
-          class="brand-logo"
-          onerror="
+        <a href="lsp.html" class="nav-link">LSP-P1</a>
+
+        <a href="bkk.html" class="nav-link active">BKK (Bursa Kerja)</a>
+
+        <!-- Layanan Siswa (BLUD) -->
+        <a href="index.html#blud" class="nav-link">Layanan Siswa (BLUD)</a>
+
+        <a href="berita.html" class="nav-link">Berita</a>
+        <a href="index.html#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar
+          PPDB</a>
+      </div>
+
+      <a href="index.html#ppdb" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">
+        ☰
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close-btn">&times;</button>
+    <div class="brand-box" style="margin-bottom: 2rem">
+      <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo" onerror="
             this.closest('.card')
               ? this.closest('.card').classList.add('no-image')
               : null;
             this.remove();
-          "
-        />
-        <div>
-          <strong
-            style="color: var(--primary); font-size: 1.1rem; display: block"
-            >SMKS MUHI GENTENG</strong
-          >
-          <small style="color: var(--text-muted); font-size: 0.75rem"
-            >NPSN 20525597 &bull; Akreditasi A</small
-          >
-        </div>
-      </div>
-
-      <div class="drawer-links">
-        <a href="index.html">🏠 Beranda</a>
-
-        <div class="drawer-section-title">Halaman Informasi</div>
-        <a href="bkk.html" class="active">💼 Bursa Kerja Khusus (BKK)</a>
-        <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
-        <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
-        <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
-        <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
-        <a href="berita.html">📰 Jurnal & Kabar Kampus</a>
-
-        <div class="drawer-section-title">Navigasi Halaman Utama</div>
-        <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
-        <a href="index.html#jurusan">💻 8 Program Keahlian</a>
-        <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
-
-        <div style="margin-top: 1.5rem">
-          <a
-            href="index.html#ppdb"
-            class="btn btn-primary"
-            style="width: 100%; text-align: center; justify-content: center"
-            >Daftar SPMB 2026</a
-          >
-        </div>
+          " />
+      <div>
+        <strong style="color: var(--primary); font-size: 1.1rem; display: block">SMKS MUHI GENTENG</strong>
+        <small style="color: var(--text-muted); font-size: 0.75rem">NPSN 20525597 &bull; Akreditasi A</small>
       </div>
     </div>
 
-    <!-- 2. PAGE HEADER -->
-    <header class="page-header">
-      <svg class="header-bg-pattern" viewBox="0 0 100 100">
-        <rect
-          x="20"
-          y="20"
-          width="60"
-          height="60"
-          fill="none"
-          stroke="var(--primary)"
-          stroke-width="2"
-          transform="rotate(45 50 50)"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r="15"
-          fill="none"
-          stroke="var(--secondary)"
-          stroke-width="2"
-        />
-      </svg>
-      <div class="container">
-        <div
-          style="
+    <div class="drawer-links">
+      <a href="index.html#hero" class="">🏠 Beranda</a>
+
+      <div class="drawer-section-title">Halaman Informasi</div>
+      <a href="bkk.html" class=" active">💼 Bursa Kerja Khusus (BKK)</a>
+      <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
+      <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
+      <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
+      <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
+      <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
+      <a href="berita.html" class="">📰 Jurnal & Kabar Kampus</a>
+
+      <div class="drawer-section-title">Navigasi Halaman Utama</div>
+      <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
+      <a href="index.html#jurusan">💻 7 Program Keahlian</a>
+
+      <a href="lsp.html" class="">📜 LSP-P1</a>
+      <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
+
+      <div style="margin-top: 1.5rem">
+        <a href="index.html#ppdb" class="btn btn-primary"
+          style="width: 100%; text-align: center; justify-content: center">Daftar SPMB 2026</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. PAGE HEADER -->
+  <header class="page-header">
+    <svg class="header-bg-pattern" viewBox="0 0 100 100">
+      <rect x="20" y="20" width="60" height="60" fill="none" stroke="var(--primary)" stroke-width="2"
+        transform="rotate(45 50 50)" />
+      <circle cx="50" cy="50" r="15" fill="none" stroke="var(--secondary)" stroke-width="2" />
+    </svg>
+    <div class="container">
+      <div style="
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -1409,907 +1392,678 @@
             font-weight: 700;
             color: var(--secondary-light);
             margin-bottom: 1.2rem;
-          "
-        >
-          Penyaluran Lulusan & Karir Alumni
-        </div>
-        <h1 class="page-title">
-          Bursa Kerja Khusus (BKK)<br />SMKS Muhammadiyah 1 Genteng
-        </h1>
-        <p class="page-subtitle">
-          Jembatan karir terpercaya yang menghubungkan alumni dan peserta didik
-          dengan ratusan lowongan kerja di mitra industri & DUDIKA terkemuka
-          secara nasional.
-        </p>
+          ">
+        Penyaluran Lulusan & Karir Alumni
       </div>
-    </header>
+      <h1 class="page-title">
+        Bursa Kerja Khusus (BKK)<br />SMKS Muhammadiyah 1 Genteng
+      </h1>
+      <p class="page-subtitle">
+        Jembatan karir terpercaya yang menghubungkan alumni dan peserta didik
+        dengan ratusan lowongan kerja di mitra industri & DUDIKA terkemuka
+        secara nasional.
+      </p>
+    </div>
+  </header>
 
-    <!-- 3. MAIN CONTENT BKK -->
-    <section class="section-padding">
-      <div class="container">
-        <!-- BKK Impact Summary Banner -->
-        <div class="bkk-summary-banner">
-          <div class="bkk-summary-number">
-            <span>92.4%</span>
-          </div>
-          <div class="bkk-summary-text">
-            <h3>Tingkat Keterserapan Alumni SMKS MUHI</h3>
-            <p>
-              Sebanyak <strong>450+ lulusan tahun terakhir</strong> langsung
-              terserap kerja di mitra DUDIKA, berwirausaha mandiri lewat BLUD,
-              dan melanjutkan studi ke perguruan tinggi negeri/swasta ternama.
-            </p>
-          </div>
+  <!-- 3. MAIN CONTENT BKK -->
+  <section class="section-padding">
+    <div class="container">
+      <!-- BKK Impact Summary Banner -->
+      <div class="bkk-summary-banner">
+        <div class="bkk-summary-number">
+          <span>92.4%</span>
         </div>
-
-        <!-- BKK Key Statistics -->
-        <div class="bkk-stats-grid">
-          <div class="stat-card">
-            <div class="stat-icon">🤝</div>
-            <div class="stat-value">120+</div>
-            <div class="stat-label">Mitra DUDI & Industri</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🎓</div>
-            <div class="stat-value">92.4%</div>
-            <div class="stat-label">Alumni Terserap Kerja</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">📋</div>
-            <div class="stat-value">85+</div>
-            <div class="stat-label">Lowongan Kerja Per Tahun</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">🚀</div>
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Fasilitasi Rekrutmen Direct</div>
-          </div>
+        <div class="bkk-summary-text">
+          <h3>Tingkat Keterserapan Alumni SMKS MUHI</h3>
+          <p>
+            Sebanyak <strong>450+ lulusan tahun terakhir</strong> langsung
+            terserap kerja di mitra DUDIKA, berwirausaha mandiri lewat BLUD,
+            dan melanjutkan studi ke perguruan tinggi negeri/swasta ternama.
+          </p>
         </div>
+      </div>
 
-        <!-- Section Title for Job Portal -->
-        <div class="text-center" style="margin-bottom: 2.5rem">
-          <span class="badge badge-primary mb-2"
-            >Portal Lowongan Kerja BKK</span
-          >
-          <h2
-            class="font-head"
-            style="
+      <!-- BKK Key Statistics -->
+      <div class="bkk-stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🤝</div>
+          <div class="stat-value">120+</div>
+          <div class="stat-label">Mitra DUDI & Industri</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🎓</div>
+          <div class="stat-value">92.4%</div>
+          <div class="stat-label">Alumni Terserap Kerja</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📋</div>
+          <div class="stat-value">85+</div>
+          <div class="stat-label">Lowongan Kerja Per Tahun</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🚀</div>
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Fasilitasi Rekrutmen Direct</div>
+        </div>
+      </div>
+
+      <!-- Section Title for Job Portal -->
+      <div class="text-center" style="margin-bottom: 2.5rem">
+        <span class="badge badge-primary mb-2">Portal Lowongan Kerja BKK</span>
+        <h2 class="font-head" style="
               font-size: 2.2rem;
               color: var(--primary-dark);
               margin-top: 0.5rem;
-            "
-          >
-            Informasi Loker & Magang Terkini
-          </h2>
-          <p
-            style="
+            ">
+          Informasi Loker & Magang Terkini
+        </h2>
+        <p style="
               color: var(--text-muted);
               max-width: 650px;
               margin: 0.5rem auto 0;
-            "
-          >
-            Daftar lowongan kerja resmi yang diverifikasi langsung oleh Tim BKK
-            SMKS Muhammadiyah 1 Genteng.
+            ">
+          Daftar lowongan kerja resmi yang diverifikasi langsung oleh Tim BKK
+          SMKS Muhammadiyah 1 Genteng.
+        </p>
+      </div>
+
+      <!-- BKK Table Card -->
+      <div class="bkk-table-card">
+        <div class="bkk-table-header">
+          <div>Perusahaan Mitra</div>
+          <div>Posisi Pekerjaan</div>
+          <div>Tipe</div>
+          <div>Status</div>
+          <div>Aksi</div>
+        </div>
+
+        <!-- Job 1 -->
+        <div class="bkk-table-row">
+          <div>
+            <strong style="
+                  color: var(--primary);
+                  font-size: 1.05rem;
+                  display: block;
+                ">PT Digital Kreatif Nusantara</strong>
+            <small style="color: var(--text-muted)">Surabaya / Banyuwangi</small>
+          </div>
+          <div style="font-weight: 600">Junior Web Developer</div>
+          <div><span class="skill-tag">Full-time</span></div>
+          <div>
+            <span class="badge badge-primary" style="font-size: 0.75rem">Dibuka</span>
+          </div>
+          <div>
+            <a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Junior%20Web%20Developer"
+              target="_blank" style="
+                  color: var(--secondary);
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                ">Lamar Loker &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="bkk-table-row">
+          <div>
+            <strong style="
+                  color: var(--primary);
+                  font-size: 1.05rem;
+                  display: block;
+                ">Hotel Ketapang Indah</strong>
+            <small style="color: var(--text-muted)">Banyuwangi</small>
+          </div>
+          <div style="font-weight: 600">PKL Perhotelan & Tata Boga</div>
+          <div><span class="skill-tag">Magang / PKL</span></div>
+          <div>
+            <span class="badge badge-primary" style="font-size: 0.75rem">Dibuka</span>
+          </div>
+          <div>
+            <a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20PKL%20Perhotelan"
+              target="_blank" style="
+                  color: var(--secondary);
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                ">Lamar Loker &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="bkk-table-row">
+          <div>
+            <strong style="
+                  color: var(--primary);
+                  font-size: 1.05rem;
+                  display: block;
+                ">Bank Jatim Syariah Genteng</strong>
+            <small style="color: var(--text-muted)">Genteng, Banyuwangi</small>
+          </div>
+          <div style="font-weight: 600">Staff Administrasi Operasional</div>
+          <div><span class="skill-tag">Full-time</span></div>
+          <div>
+            <span class="badge badge-primary" style="font-size: 0.75rem">Dibuka</span>
+          </div>
+          <div>
+            <a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Staff%20Administrasi"
+              target="_blank" style="
+                  color: var(--secondary);
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                ">Lamar Loker &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Job 5 -->
+        <div class="bkk-table-row">
+          <div>
+            <strong style="
+                  color: var(--primary);
+                  font-size: 1.05rem;
+                  display: block;
+                ">PT Telkom Indonesia (Witel Jatim)</strong>
+            <small style="color: var(--text-muted)">Jember / Banyuwangi</small>
+          </div>
+          <div style="font-weight: 600">Teknisi Jaringan & Fiber Optik</div>
+          <div><span class="skill-tag">Full-time</span></div>
+          <div>
+            <span class="badge badge-primary" style="font-size: 0.75rem">Dibuka</span>
+          </div>
+          <div>
+            <a href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Teknisi%20Jaringan"
+              target="_blank" style="
+                  color: var(--secondary);
+                  font-weight: 700;
+                  font-size: 0.9rem;
+                ">Lamar Loker &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYANAN UNGGULAN BKK -->
+      <div style="margin-top: 5rem">
+        <div class="text-center">
+          <span class="badge badge-primary mb-2">Program & Fasilitas BKK</span>
+          <h2 class="font-head" style="
+                font-size: 2.2rem;
+                color: var(--primary-dark);
+                margin-top: 0.5rem;
+              ">
+            Layanan Karir Komprehensif
+          </h2>
+          <p style="
+                color: var(--text-muted);
+                max-width: 650px;
+                margin: 0.5rem auto 0;
+              ">
+            BKK SMKS Muhammadiyah 1 Genteng membekali siswa sejak bangku
+            sekolah hingga siap kerja di dunia industri.
           </p>
         </div>
 
-        <!-- BKK Table Card -->
-        <div class="bkk-table-card">
-          <div class="bkk-table-header">
-            <div>Perusahaan Mitra</div>
-            <div>Posisi Pekerjaan</div>
-            <div>Tipe</div>
-            <div>Status</div>
-            <div>Aksi</div>
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-icon">💼</div>
+            <h3>Penyaluran Kerja Direct</h3>
+            <p>
+              Rekrutmen kampus langsung (Campus Recruitment) bekerjasama
+              dengan puluhan perusahan DUDI terkemuka nasional.
+            </p>
           </div>
-
-          <!-- Job 1 -->
-          <div class="bkk-table-row">
-            <div>
-              <strong
-                style="
-                  color: var(--primary);
-                  font-size: 1.05rem;
-                  display: block;
-                "
-                >PT Digital Kreatif Nusantara</strong
-              >
-              <small style="color: var(--text-muted)"
-                >Surabaya / Banyuwangi</small
-              >
-            </div>
-            <div style="font-weight: 600">Junior Web Developer</div>
-            <div><span class="skill-tag">Full-time</span></div>
-            <div>
-              <span class="badge badge-primary" style="font-size: 0.75rem"
-                >Dibuka</span
-              >
-            </div>
-            <div>
-              <a
-                href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Junior%20Web%20Developer"
-                target="_blank"
-                style="
-                  color: var(--secondary);
-                  font-weight: 700;
-                  font-size: 0.9rem;
-                "
-                >Lamar Loker &rarr;</a
-              >
-            </div>
+          <div class="service-card">
+            <div class="service-icon">📝</div>
+            <h3>Bimbingan Karir & CV Workshop</h3>
+            <p>
+              Pelatihan pembuatan CV profesional, portofolio digital, dan
+              psikotes kerja bagi seluruh calon lulusan.
+            </p>
           </div>
-
-          <!-- Job 2 -->
-          <div class="bkk-table-row">
-            <div>
-              <strong
-                style="
-                  color: var(--primary);
-                  font-size: 1.05rem;
-                  display: block;
-                "
-                >Hotel Ketapang Indah</strong
-              >
-              <small style="color: var(--text-muted)">Banyuwangi</small>
-            </div>
-            <div style="font-weight: 600">PKL Perhotelan & Tata Boga</div>
-            <div><span class="skill-tag">Magang / PKL</span></div>
-            <div>
-              <span class="badge badge-primary" style="font-size: 0.75rem"
-                >Dibuka</span
-              >
-            </div>
-            <div>
-              <a
-                href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20PKL%20Perhotelan"
-                target="_blank"
-                style="
-                  color: var(--secondary);
-                  font-weight: 700;
-                  font-size: 0.9rem;
-                "
-                >Lamar Loker &rarr;</a
-              >
-            </div>
+          <div class="service-card">
+            <div class="service-icon">🎙️</div>
+            <h3>Simulasi Interview Kerja</h3>
+            <p>
+              Sesi wawancara kerja tiruan dengan instruktur industri agar
+              alumni percaya diri saat menghadapi HRD perusahaan.
+            </p>
           </div>
-
-          <!-- Job 3 -->
-          <div class="bkk-table-row">
-            <div>
-              <strong
-                style="
-                  color: var(--primary);
-                  font-size: 1.05rem;
-                  display: block;
-                "
-                >Bank Jatim Syariah Genteng</strong
-              >
-              <small style="color: var(--text-muted)"
-                >Genteng, Banyuwangi</small
-              >
-            </div>
-            <div style="font-weight: 600">Staff Administrasi Operasional</div>
-            <div><span class="skill-tag">Full-time</span></div>
-            <div>
-              <span class="badge badge-primary" style="font-size: 0.75rem"
-                >Dibuka</span
-              >
-            </div>
-            <div>
-              <a
-                href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Staff%20Administrasi"
-                target="_blank"
-                style="
-                  color: var(--secondary);
-                  font-weight: 700;
-                  font-size: 0.9rem;
-                "
-                >Lamar Loker &rarr;</a
-              >
-            </div>
-          </div>
-
-          <!-- Job 5 -->
-          <div class="bkk-table-row">
-            <div>
-              <strong
-                style="
-                  color: var(--primary);
-                  font-size: 1.05rem;
-                  display: block;
-                "
-                >PT Telkom Indonesia (Witel Jatim)</strong
-              >
-              <small style="color: var(--text-muted)"
-                >Jember / Banyuwangi</small
-              >
-            </div>
-            <div style="font-weight: 600">Teknisi Jaringan & Fiber Optik</div>
-            <div><span class="skill-tag">Full-time</span></div>
-            <div>
-              <span class="badge badge-primary" style="font-size: 0.75rem"
-                >Dibuka</span
-              >
-            </div>
-            <div>
-              <a
-                href="https://wa.me/6282241356668?text=Halo%20BKK%20SMK%20MUHI,%20saya%20tertarik%20melamar%20Teknisi%20Jaringan"
-                target="_blank"
-                style="
-                  color: var(--secondary);
-                  font-weight: 700;
-                  font-size: 0.9rem;
-                "
-                >Lamar Loker &rarr;</a
-              >
-            </div>
+          <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Program Praktik Kerja Lapangan (PKL)</h3>
+            <p>
+              Penempatan magang terstruktur di Teaching Factory dan industri
+              mitra sesuai bidang kompetensi masing-masing.
+            </p>
           </div>
         </div>
+      </div>
 
-        <!-- LAYANAN UNGGULAN BKK -->
-        <div style="margin-top: 5rem">
-          <div class="text-center">
-            <span class="badge badge-primary mb-2"
-              >Program & Fasilitas BKK</span
-            >
-            <h2
-              class="font-head"
-              style="
+      <!-- MITRA PERUSAHAAN UTAMA -->
+      <div style="margin-top: 5rem">
+        <div class="text-center">
+          <span class="badge badge-amber mb-2">DUDIKA Partner</span>
+          <h2 class="font-head" style="
                 font-size: 2.2rem;
                 color: var(--primary-dark);
                 margin-top: 0.5rem;
-              "
-            >
-              Layanan Karir Komprehensif
-            </h2>
-            <p
-              style="
+              ">
+            Perusahaan Mitra Industri Utama
+          </h2>
+          <p style="
                 color: var(--text-muted);
                 max-width: 650px;
                 margin: 0.5rem auto 0;
-              "
-            >
-              BKK SMKS Muhammadiyah 1 Genteng membekali siswa sejak bangku
-              sekolah hingga siap kerja di dunia industri.
-            </p>
-          </div>
-
-          <div class="service-grid">
-            <div class="service-card">
-              <div class="service-icon">💼</div>
-              <h3>Penyaluran Kerja Direct</h3>
-              <p>
-                Rekrutmen kampus langsung (Campus Recruitment) bekerjasama
-                dengan puluhan perusahan DUDI terkemuka nasional.
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">📝</div>
-              <h3>Bimbingan Karir & CV Workshop</h3>
-              <p>
-                Pelatihan pembuatan CV profesional, portofolio digital, dan
-                psikotes kerja bagi seluruh calon lulusan.
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">🎙️</div>
-              <h3>Simulasi Interview Kerja</h3>
-              <p>
-                Sesi wawancara kerja tiruan dengan instruktur industri agar
-                alumni percaya diri saat menghadapi HRD perusahaan.
-              </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">🏢</div>
-              <h3>Program Praktik Kerja Lapangan (PKL)</h3>
-              <p>
-                Penempatan magang terstruktur di Teaching Factory dan industri
-                mitra sesuai bidang kompetensi masing-masing.
-              </p>
-            </div>
-          </div>
+              ">
+            Jaringan kemitraan strategis SMKS MUHI Genteng bersama institusi
+            dan korporasi terkemuka.
+          </p>
         </div>
 
-        <!-- MITRA PERUSAHAAN UTAMA -->
-        <div style="margin-top: 5rem">
-          <div class="text-center">
-            <span class="badge badge-amber mb-2">DUDIKA Partner</span>
-            <h2
-              class="font-head"
-              style="
-                font-size: 2.2rem;
-                color: var(--primary-dark);
-                margin-top: 0.5rem;
-              "
-            >
-              Perusahaan Mitra Industri Utama
-            </h2>
-            <p
-              style="
-                color: var(--text-muted);
-                max-width: 650px;
-                margin: 0.5rem auto 0;
-              "
-            >
-              Jaringan kemitraan strategis SMKS MUHI Genteng bersama institusi
-              dan korporasi terkemuka.
-            </p>
+        <div class="mitra-grid">
+          <div class="mitra-card">
+            <div class="mitra-icon">🏍️</div>
+            <div class="mitra-info">
+              <h4>PT Astra Honda Motor</h4>
+              <p>Bidang Otomotif & Sepeda Motor</p>
+            </div>
           </div>
-
-          <div class="mitra-grid">
-            <div class="mitra-card">
-              <div class="mitra-icon">🏍️</div>
-              <div class="mitra-info">
-                <h4>PT Astra Honda Motor</h4>
-                <p>Bidang Otomotif & Sepeda Motor</p>
-              </div>
+          <div class="mitra-card">
+            <div class="mitra-icon">💻</div>
+            <div class="mitra-info">
+              <h4>PT Digital Kreatif Nusantara</h4>
+              <p>Bidang IT & Software House</p>
             </div>
-            <div class="mitra-card">
-              <div class="mitra-icon">💻</div>
-              <div class="mitra-info">
-                <h4>PT Digital Kreatif Nusantara</h4>
-                <p>Bidang IT & Software House</p>
-              </div>
+          </div>
+          <div class="mitra-card">
+            <div class="mitra-icon">🏨</div>
+            <div class="mitra-info">
+              <h4>Hotel Ketapang Indah</h4>
+              <p>Bidang Perhotelan & Pariwisata</p>
             </div>
-            <div class="mitra-card">
-              <div class="mitra-icon">🏨</div>
-              <div class="mitra-info">
-                <h4>Hotel Ketapang Indah</h4>
-                <p>Bidang Perhotelan & Pariwisata</p>
-              </div>
+          </div>
+          <div class="mitra-card">
+            <div class="mitra-icon">🏦</div>
+            <div class="mitra-info">
+              <h4>Bank Jatim Syariah</h4>
+              <p>Bidang Keuangan & Perbankan</p>
             </div>
-            <div class="mitra-card">
-              <div class="mitra-icon">🏦</div>
-              <div class="mitra-info">
-                <h4>Bank Jatim Syariah</h4>
-                <p>Bidang Keuangan & Perbankan</p>
-              </div>
+          </div>
+          <div class="mitra-card">
+            <div class="mitra-icon">🌐</div>
+            <div class="mitra-info">
+              <h4>PT Telkom Indonesia Tbk</h4>
+              <p>Bidang Jaringan & Telekomunikasi</p>
             </div>
-            <div class="mitra-card">
-              <div class="mitra-icon">🌐</div>
-              <div class="mitra-info">
-                <h4>PT Telkom Indonesia Tbk</h4>
-                <p>Bidang Jaringan & Telekomunikasi</p>
-              </div>
-            </div>
-            <div class="mitra-card">
-              <div class="mitra-icon">💎</div>
-              <div class="mitra-info">
-                <h4>PT Pegadaian (Persero)</h4>
-                <p>Bidang Layanan Keuangan & Agen</p>
-              </div>
+          </div>
+          <div class="mitra-card">
+            <div class="mitra-icon">💎</div>
+            <div class="mitra-info">
+              <h4>PT Pegadaian (Persero)</h4>
+              <p>Bidang Layanan Keuangan & Agen</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 4. FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <!-- Kolom 1: Profil Sekolah & Kontak -->
-          <div>
-            <div
-              class="brand-box"
-              style="
+  <!-- 4. FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Kolom 1: Profil Sekolah & Kontak -->
+        <div>
+          <div class="brand-box" style="
                 display: flex;
                 align-items: center;
                 gap: 0.9rem;
                 margin-bottom: 1.2rem;
-              "
-            >
-              <img
-                src="assets/logo.webp"
-                alt="Logo SMKS Muhammadiyah 1 Genteng"
-                class="brand-logo"
-                style="max-height: 52px; width: auto; object-fit: contain"
-                width="52"
-                height="52"
-                onerror="
+              ">
+            <img src="assets/logo.webp" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
+              style="max-height: 52px; width: auto; object-fit: contain" width="52" height="52" onerror="
                   this.closest('.card')
                     ? this.closest('.card').classList.add('no-image')
                     : null;
                   this.remove();
-                "
-              />
-              <div>
-                <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
-                <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
-              </div>
+                " />
+            <div>
+              <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+              <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
             </div>
-            <p class="footer-address">
-              Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
-              Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
-              68465
-            </p>
+          </div>
+          <p class="footer-address">
+            Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
+            Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
+            68465
+          </p>
 
-            <!-- A. Baris Kontak dengan Inline SVG Stroke -->
-            <ul class="footer-contact-list">
-              <li class="footer-contact-item">
-                <svg
-                  class="footer-contact-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
-                <a href="tel:0333845605" class="footer-contact-link"
-                  >(0333) 845605</a
-                >
+          <!-- A. Baris Kontak dengan Inline SVG Stroke -->
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <a href="tel:0333845605" class="footer-contact-link">(0333) 845605</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer"
+                class="footer-contact-link">0822-4135-6668 (WhatsApp)</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:smkmuhi.genteng1968@gmail.com"
+                class="footer-contact-link">smkmuhi.genteng1968@gmail.com</a>
+            </li>
+          </ul>
+
+          <!-- C. Media Sosial Monokrom -->
+          <div class="footer-social-row" aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng">
+            <a href="https://www.instagram.com/smkmuhigts/" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="Instagram SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                  stroke-width="2" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor"
+                  stroke-width="2" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="YouTube SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  fill="none" stroke="currentColor" stroke-width="2" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="Facebook SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none"
+                  stroke="currentColor" stroke-width="2" />
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="TikTok SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Halaman Terkait -->
+        <div class="footer-col">
+          <h4>Halaman Terkait</h4>
+          <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
+            <ul class="footer-links">
+              <li>
+                <a href="bkk.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Bursa Kerja Khusus (BKK)</a>
               </li>
-              <li class="footer-contact-item">
-                <svg
-                  class="footer-contact-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
-                  />
-                </svg>
-                <a
-                  href="https://wa.me/6282241356668"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="footer-contact-link"
-                  >0822-4135-6668 (WhatsApp)</a
-                >
+              <li>
+                <a href="visi-misi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Visi &amp; Misi</a>
               </li>
-              <li class="footer-contact-item">
-                <svg
-                  class="footer-contact-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <a
-                  href="mailto:smkmuhi.genteng1968@gmail.com"
-                  class="footer-contact-link"
-                  >smkmuhi.genteng1968@gmail.com</a
-                >
+              <li>
+                <a href="fasilitas.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Fasilitas Sekolah</a>
+              </li>
+              <li>
+                <a href="ekstrakurikuler.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Ekstrakurikuler &amp; IPM</a>
+              </li>
+              <li>
+                <a href="prestasi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Galeri Prestasi</a>
+              </li>
+              <li>
+                <a href="berita.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Jurnal &amp; Berita</a>
               </li>
             </ul>
-
-            <!-- C. Media Sosial Monokrom -->
-            <div
-              class="footer-social-row"
-              aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng"
-            >
-              <!-- Instagram -->
-              <a
-                href="https://www.instagram.com/smkmuhigts/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="Instagram SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="17.5"
-                    y1="6.5"
-                    x2="17.51"
-                    y2="6.5"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </a>
-              <!-- YouTube -->
-              <a
-                href="https://www.youtube.com/@smkmuhigts"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="YouTube SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <polygon
-                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-              <!-- Facebook -->
-              <a
-                href="https://www.facebook.com/smkmuhigts"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="Facebook SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                </svg>
-              </a>
-              <!-- TikTok -->
-              <a
-                href="https://www.tiktok.com/@smkmuhigts"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="TikTok SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Kolom 2: Halaman Terkait (A. Tanpa Emoji + Chevron Hover) -->
-          <div class="footer-col">
-            <h4>Halaman Terkait</h4>
-            <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
-              <ul class="footer-links">
-                <li>
-                  <a href="bkk.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Bursa Kerja Khusus (BKK)</a
-                  >
-                </li>
-                <li>
-                  <a href="visi-misi.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Visi &amp; Misi</a
-                  >
-                </li>
-                <li>
-                  <a href="fasilitas.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Fasilitas Sekolah</a
-                  >
-                </li>
-                <li>
-                  <a href="ekstrakurikuler.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Ekstrakurikuler &amp; IPM</a
-                  >
-                </li>
-                <li>
-                  <a href="prestasi.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Galeri Prestasi</a
-                  >
-                </li>
-                <li>
-                  <a href="berita.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Jurnal &amp; Berita</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <!-- Kolom 3:7 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
-          <div class="footer-col">
-            <h4>7 Konsentrasi</h4>
-            <nav
-              class="footer-nav"
-              aria-label="Navigasi 7 Konsentrasi Keahlian"
-            >
-              <ul class="footer-links">
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('rpl')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Rekayasa Perangkat Lunak</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('tkj')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Teknik Komputer &amp; Jaringan</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('dkv')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Desain Komunikasi Visual</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('bd')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Bisnis Digital</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('akl')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Akuntansi &amp; Keuangan Lembaga</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('mplb')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Manajemen Perkantoran</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('ph')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Perhotelan &amp; Hospitality</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <!-- Kolom 4: Identitas Lembaga Resmi -->
-          <div class="footer-col">
-            <h4>Identitas Lembaga</h4>
-            <div class="footer-identity-card">
-              <div><strong>NPSN:</strong> 20525597</div>
-              <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
-              <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
-              <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
-              <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
-            </div>
-          </div>
+          </nav>
         </div>
 
-        <div class="footer-bottom">
-          <div>
-            &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta
-            dilindungi.
+        <!-- Kolom 3: 7 Konsentrasi Keahlian -->
+        <div class="footer-col">
+          <h4>7 Konsentrasi</h4>
+          <nav class="footer-nav" aria-label="Navigasi 7 Konsentrasi Keahlian">
+            <ul class="footer-links">
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('rpl')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Rekayasa Perangkat Lunak</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('tkj')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Teknik Komputer &amp; Jaringan</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('dkv')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Desain Komunikasi Visual</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('bd')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Bisnis Digital</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('akl')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Akuntansi &amp; Keuangan Lembaga</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('mplb')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Manajemen Perkantoran</a>
+              </li>
+              <li>
+                <a href="index.html#jurusan" onclick="jumpToMajor('ph')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Perhotelan &amp; Hospitality</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Kolom 4: Identitas Lembaga Resmi -->
+        <div class="footer-col">
+          <h4>Identitas Lembaga</h4>
+          <div class="footer-identity-card">
+            <div><strong>NPSN:</strong> 20525597</div>
+            <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+            <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+            <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+            <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
           </div>
-          <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
         </div>
       </div>
-    </footer>
 
-    <!-- 14. CHATBOT AI ASISTEN VIRTUAL -->
-    <button
-      class="chatbot-btn"
-      id="chatbot-toggle"
-      aria-label="Buka Asisten AI"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-message-circle-more-icon lucide-message-circle-more"
-      >
-        <path
-          d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
-        />
-        <path d="M8 12h.01" />
-        <path d="M12 12h.01" />
-        <path d="M16 12h.01" />
-      </svg>
-    </button>
-    <div class="chat-panel" id="chat-panel">
-      <div class="chat-header">
-        <span>Asisten AI SMKS MUHI</span>
-        <span
-          style="
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta
+          dilindungi.
+        </div>
+        <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 14. CHATBOT AI ASISTEN VIRTUAL -->
+  <button class="chatbot-btn" id="chatbot-toggle" aria-label="Buka Asisten AI">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-message-circle-more-icon lucide-message-circle-more">
+      <path
+        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+      <path d="M8 12h.01" />
+      <path d="M12 12h.01" />
+      <path d="M16 12h.01" />
+    </svg>
+  </button>
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <span>Asisten AI SMKS MUHI</span>
+      <span style="
             font-size: 0.75rem;
             background: rgba(255, 255, 255, 0.2);
             padding: 0.2rem 0.5rem;
             border-radius: 10px;
-          "
-          >Online</span
-        >
-      </div>
-      <div class="chat-body" id="chat-body">
-        <div class="chat-msg bot">
-          Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
-          Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran PPDB,
-          sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
-        </div>
-      </div>
-      <div class="chat-quick-pills">
-        <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
-          Info Jurusan
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">
-          Jadwal PPDB
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
-          LSP-P1 BNSP
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
-          Lowongan BKK
-        </button>
-      </div>
-      <div class="chat-input-bar">
-        <input
-          type="text"
-          id="chat-input-text"
-          placeholder="Ketik pertanyaan Anda..."
-        />
-        <button onclick="handleChatSubmit()">Kirim</button>
+          ">Online</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">
+        Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
+        Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran PPDB,
+        sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
       </div>
     </div>
+    <div class="chat-quick-pills">
+      <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
+        Info Jurusan
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">
+        Jadwal PPDB
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
+        LSP-P1 BNSP
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
+        Lowongan BKK
+      </button>
+    </div>
+    <div class="chat-input-bar">
+      <input type="text" id="chat-input-text" placeholder="Ketik pertanyaan Anda..." />
+      <button onclick="handleChatSubmit()">Kirim</button>
+    </div>
+  </div>
 
-    <!-- MOBILE DRAWER & NAVBAR SCRIPT -->
-    <script>
-      const hamburgerBtn = document.getElementById("hamburger-btn");
-      const drawerCloseBtn = document.getElementById("drawer-close-btn");
-      const mobileDrawer = document.getElementById("mobile-drawer");
-      const mobileOverlay = document.getElementById("mobile-overlay");
+  <!-- MOBILE DRAWER & NAVBAR SCRIPT -->
+  <script>
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const drawerCloseBtn = document.getElementById("drawer-close-btn");
+    const mobileDrawer = document.getElementById("mobile-drawer");
+    const mobileOverlay = document.getElementById("mobile-overlay");
 
-      function openDrawer() {
-        if (mobileDrawer) mobileDrawer.classList.add("active");
-        if (mobileOverlay) mobileOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
-      }
+    function openDrawer() {
+      if (mobileDrawer) mobileDrawer.classList.add("active");
+      if (mobileOverlay) mobileOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
 
-      function closeDrawer() {
-        if (mobileDrawer) mobileDrawer.classList.remove("active");
-        if (mobileOverlay) mobileOverlay.classList.remove("active");
-        document.body.style.overflow = "";
-      }
+    function closeDrawer() {
+      if (mobileDrawer) mobileDrawer.classList.remove("active");
+      if (mobileOverlay) mobileOverlay.classList.remove("active");
+      document.body.style.overflow = "";
+    }
 
-      if (hamburgerBtn) hamburgerBtn.addEventListener("click", openDrawer);
-      if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeDrawer);
-      if (mobileOverlay) mobileOverlay.addEventListener("click", closeDrawer);
+    if (hamburgerBtn) hamburgerBtn.addEventListener("click", openDrawer);
+    if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeDrawer);
+    if (mobileOverlay) mobileOverlay.addEventListener("click", closeDrawer);
 
-      window.addEventListener("scroll", () => {
-        const navIsland = document.querySelector(".nav-island");
-        if (navIsland) {
-          if (window.scrollY > 20) {
-            navIsland.classList.add("scrolled");
-          } else {
-            navIsland.classList.remove("scrolled");
-          }
-        }
-      });
-
-      // AI Chatbot Logic
-      const chatbotToggle = document.getElementById("chatbot-toggle");
-      const chatPanel = document.getElementById("chat-panel");
-      const chatBody = document.getElementById("chat-body");
-      const chatInput = document.getElementById("chat-input-text");
-
-      if (chatbotToggle) {
-        chatbotToggle.addEventListener("click", () => {
-          chatPanel.classList.toggle("active");
-        });
-      }
-
-      function appendMsg(text, sender) {
-        const div = document.createElement("div");
-        div.className = `chat-msg ${sender}`;
-        div.innerText = text;
-        chatBody.appendChild(div);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-
-      function getBotResponse(input) {
-        const text = input.toLowerCase();
-        if (
-          text.includes("jurusan") ||
-          text.includes("prodi") ||
-          text.includes("keahlian")
-        ) {
-          return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL (Software Dev), TKJ (Jaringan & Cloud), DKV (Desain & Multimedia), Bisnis Digital, Akuntansi Lembaga (AKL), Manajemen Perkantoran (MPLB), Perhotelan, serta Tata Boga & Otomotif (TBSM).";
-        } else if (
-          text.includes("ppdb") ||
-          text.includes("daftar") ||
-          text.includes("syarat") ||
-          text.includes("biaya")
-        ) {
-          return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
-        } else if (
-          text.includes("lsp") ||
-          text.includes("bnsp") ||
-          text.includes("sertifikat")
-        ) {
-          return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
-        } else if (text.includes("kepala") || text.includes("wahid")) {
-          return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
-        } else if (
-          text.includes("loker") ||
-          text.includes("bkk") ||
-          text.includes("kerja") ||
-          text.includes("magang")
-        ) {
-          return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra seperti PT Digital Kreatif Nusantara, Hotel Ketapang Indah, Bank Jatim Syariah, dan ";
-        } else if (text.includes("fasilitas") || text.includes("lab")) {
-          return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan & Cloud Server TKJ, Studio Fotografi & Video DKV, Bengkel Otomotif Astra, Dapur Standar Komersial Tata Boga, dan Lapangan Olahraga.";
+    window.addEventListener("scroll", () => {
+      const navIsland = document.querySelector(".nav-island");
+      if (navIsland) {
+        if (window.scrollY > 20) {
+          navIsland.classList.add("scrolled");
         } else {
-          return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
+          navIsland.classList.remove("scrolled");
         }
       }
+    });
 
-      function handleChatSubmit() {
-        const text = chatInput.value.trim();
-        if (!text) return;
-        appendMsg(text, "user");
-        chatInput.value = "";
-        setTimeout(() => {
-          appendMsg(getBotResponse(text), "bot");
-        }, 400);
-      }
+    // AI Chatbot Logic
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const chatPanel = document.getElementById("chat-panel");
+    const chatBody = document.getElementById("chat-body");
+    const chatInput = document.getElementById("chat-input-text");
 
-      function sendQuickMsg(text) {
-        appendMsg(text, "user");
-        setTimeout(() => {
-          appendMsg(getBotResponse(text), "bot");
-        }, 400);
-      }
+    if (chatbotToggle) {
+      chatbotToggle.addEventListener("click", () => {
+        chatPanel.classList.toggle("active");
+      });
+    }
 
-      if (chatInput) {
-        chatInput.addEventListener("keypress", (e) => {
-          if (e.key === "Enter") handleChatSubmit();
-        });
+    function appendMsg(text, sender) {
+      const div = document.createElement("div");
+      div.className = `chat-msg ${sender}`;
+      div.innerText = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function getBotResponse(input) {
+      const text = input.toLowerCase();
+      if (
+        text.includes("jurusan") ||
+        text.includes("prodi") ||
+        text.includes("keahlian")
+      ) {
+        return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL (Software Dev), TKJ (Jaringan & Cloud), DKV (Desain & Multimedia), Bisnis Digital, Akuntansi Lembaga (AKL), Manajemen Perkantoran (MPLB), Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+      } else if (
+        text.includes("ppdb") ||
+        text.includes("daftar") ||
+        text.includes("syarat") ||
+        text.includes("biaya")
+      ) {
+        return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
+      } else if (
+        text.includes("lsp") ||
+        text.includes("bnsp") ||
+        text.includes("sertifikat")
+      ) {
+        return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+      } else if (text.includes("kepala") || text.includes("wahid")) {
+        return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
+      } else if (
+        text.includes("loker") ||
+        text.includes("bkk") ||
+        text.includes("kerja") ||
+        text.includes("magang")
+      ) {
+        return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra seperti PT Digital Kreatif Nusantara, Hotel Ketapang Indah, Bank Jatim Syariah, dan ";
+      } else if (text.includes("fasilitas") || text.includes("lab")) {
+        return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan & Cloud Server TKJ, Studio Fotografi & Video DKV, Bengkel Otomotif Astra, Dapur Standar Komersial Tata Boga, dan Lapangan Olahraga.";
+      } else {
+        return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
       }
-    </script>
-  </body>
+    }
+
+    function handleChatSubmit() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      appendMsg(text, "user");
+      chatInput.value = "";
+      setTimeout(() => {
+        appendMsg(getBotResponse(text), "bot");
+      }, 400);
+    }
+
+    function sendQuickMsg(text) {
+      appendMsg(text, "user");
+      setTimeout(() => {
+        appendMsg(getBotResponse(text), "bot");
+      }, 400);
+    }
+
+    if (chatInput) {
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleChatSubmit();
+      });
+    }
+  </script>
+</body>
+
 </html>

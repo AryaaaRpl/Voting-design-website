@@ -1,2317 +1,2121 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Ekstrakurikuler & Organisasi Siswa - SMKS Muhammadiyah 1 Genteng
-    </title>
 
-    <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Ekstrakurikuler & Organisasi Siswa - SMKS Muhammadiyah 1 Genteng
+  </title>
 
-    <style>
-      /* ==========================================================================
+  <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
            1. DESIGN TOKENS - SMKS MUHI BLUE & AMBER (MATCHING LANDING PAGE)
            ========================================================================== */
-      :root {
-        --primary: #1e40af;
-        --primary-light: #2563eb;
-        --primary-dark: #16296b;
-        --primary-surface: rgba(30, 64, 175, 0.06);
-        --primary-glow: rgba(30, 64, 175, 0.2);
+    :root {
+      --primary: #1e40af;
+      --primary-light: #2563eb;
+      --primary-dark: #16296b;
+      --primary-surface: rgba(30, 64, 175, 0.06);
+      --primary-glow: rgba(30, 64, 175, 0.2);
 
-        --secondary: #eab308;
-        --secondary-light: #facc15;
-        --secondary-surface: rgba(234, 179, 8, 0.1);
-        --secondary-glow: rgba(234, 179, 8, 0.25);
+      --secondary: #eab308;
+      --secondary-light: #facc15;
+      --secondary-surface: rgba(234, 179, 8, 0.1);
+      --secondary-glow: rgba(234, 179, 8, 0.25);
 
-        --accent-emerald: #facc15;
-        --accent-cyan: #3b82f6;
+      --accent-emerald: #facc15;
+      --accent-cyan: #3b82f6;
 
-        --bg-main: #ffffff;
-        --bg-alt: #f8fafc;
-        --bg-surface-card: #ffffff;
-        --bg-dark: #0f172a;
-        --bg-dark-card: #16213c;
-        --bg-dark-elevated: #1c2b4d;
+      --bg-main: #ffffff;
+      --bg-alt: #f8fafc;
+      --bg-surface-card: #ffffff;
+      --bg-dark: #0f172a;
+      --bg-dark-card: #16213c;
+      --bg-dark-elevated: #1c2b4d;
 
-        --text-dark: #0f172a;
-        --text-muted: #64748b;
-        --text-subtle: #94a3b8;
-        --text-light: #f8fafc;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      --text-light: #f8fafc;
 
-        --border-light: rgba(30, 64, 175, 0.1);
-        --border-card: #e2e8f0;
-        --border: #e2e8f0;
-        --border-dark: #263559;
-        --border-glow: rgba(234, 179, 8, 0.3);
+      --border-light: rgba(30, 64, 175, 0.1);
+      --border-card: #e2e8f0;
+      --border: #e2e8f0;
+      --border-dark: #263559;
+      --border-glow: rgba(234, 179, 8, 0.3);
 
-        --radius-xs: 4px;
-        --radius-sm: 8px;
-        --radius: 12px;
-        --radius-lg: 16px;
-        --radius-xl: 20px;
-        --radius-full: 9999px;
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
 
-        --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
-        --shadow-card:
-          0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-        --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
-        --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-card:
+        0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-card-hover: 0 8px 24px -4px rgba(15, 23, 42, 0.1);
+      --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.25);
 
-        --font-display: "Plus Jakarta Sans", sans-serif;
-        --font-head: "Plus Jakarta Sans", sans-serif;
-        --font-body: "Plus Jakarta Sans", sans-serif;
-        --font-mono: "JetBrains Mono", monospace;
+      --font-display: "Plus Jakarta Sans", sans-serif;
+      --font-head: "Plus Jakarta Sans", sans-serif;
+      --font-body: "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
 
-        --transition: all 0.3s ease;
-        --transition-fast: all 0.2s ease;
-      }
+      --transition: all 0.3s ease;
+      --transition-fast: all 0.2s ease;
+    }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      body {
-        font-family: var(--font-body);
-        background-color: var(--bg-main);
-        color: var(--text-dark);
-        line-height: 1.6;
-        overflow-x: hidden;
-        letter-spacing: -0.012em;
-        background-image:
-          radial-gradient(
-            circle at 10% 15%,
-            rgba(30, 64, 175, 0.03) 0%,
-            transparent 40%
-          ),
-          radial-gradient(
-            circle at 90% 75%,
-            rgba(234, 179, 8, 0.04) 0%,
-            transparent 45%
-          );
-        background-attachment: fixed;
-      }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      letter-spacing: -0.012em;
+      background-image:
+        radial-gradient(circle at 10% 15%,
+          rgba(30, 64, 175, 0.03) 0%,
+          transparent 40%),
+        radial-gradient(circle at 90% 75%,
+          rgba(234, 179, 8, 0.04) 0%,
+          transparent 45%);
+      background-attachment: fixed;
+    }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      .font-head {
-        font-family: var(--font-head);
-        font-weight: 700;
-        letter-spacing: -0.03em;
-        line-height: 1.2;
-      }
+    h1,
+    h2,
+    h3,
+    h4,
+    .font-head {
+      font-family: var(--font-head);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
 
-      .font-display {
-        font-family: var(--font-display);
-        letter-spacing: -0.035em;
-      }
+    .font-display {
+      font-family: var(--font-display);
+      letter-spacing: -0.035em;
+    }
 
-      a {
-        text-decoration: none;
-        color: inherit;
-        transition: var(--transition);
-      }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-      /* UTILITIES */
-      .container {
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 0 5%;
-      }
+    /* UTILITIES */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
 
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.45rem 1.2rem;
-        background: var(--secondary-surface);
-        border: 1px solid rgba(234, 179, 8, 0.35);
-        border-radius: var(--radius-full);
-        font-size: 0.82rem;
-        font-family: var(--font-head);
-        font-weight: 700;
-        color: #a16207;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-bottom: 1rem;
-      }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.2rem;
+      background: var(--secondary-surface);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: #a16207;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
 
-      /* 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 */
-      .header-wrapper {
-        position: fixed;
-        border-radius: 50px;
-        top: 1rem;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 90%;
-        z-index: 1000;
-        background: #ffffff;
-        border-bottom: 1px solid var(--border-card);
-      }
+    /* 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 */
+    .header-wrapper {
+      position: fixed;
+      border-radius: 50px;
+      top: 1rem;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 90%;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-card);
+    }
 
-      .nav-island {
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 1rem 5%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition: var(--transition);
-      }
+    .nav-island {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
 
-      .nav-island.scrolled {
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-      }
+    .nav-island.scrolled {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
 
-      .brand-box {
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
-      }
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
 
-      .brand-logo {
-        width: auto;
-        max-width: 180px;
-        height: auto;
-        max-height: 60px;
-        object-fit: contain;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-        transition:
-          transform 0.3s ease,
-          filter 0.3s ease;
-      }
+    .brand-logo {
+      width: auto;
+      max-width: 180px;
+      height: auto;
+      max-height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+      transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+    }
 
-      .brand-logo:hover {
-        transform: translateY(-2px);
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
-      }
+    .brand-logo:hover {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+    }
 
-      .nav-menu {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-      .nav-item {
-        position: relative;
-      }
+    .nav-item {
+      position: relative;
+    }
 
-      .nav-link {
-        font-family: var(--font-head);
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        padding: 0.55rem 0.95rem;
-        border-radius: var(--radius-full);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        transition: var(--transition-fast);
-      }
+    .nav-link {
+      font-family: var(--font-head);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: var(--transition-fast);
+    }
 
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--primary);
-        background: var(--primary-surface);
-      }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-surface);
+    }
 
-      /* Dropdown styling */
-      .dropdown-menu {
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 0;
-        min-width: 250px;
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius);
-        padding: 0.6rem;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px) scale(0.98);
-        transition: var(--transition);
-        z-index: 100;
-      }
+    /* Dropdown styling */
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      min-width: 250px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 0.6rem;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px) scale(0.98);
+      transition: var(--transition);
+      z-index: 100;
+    }
 
-      .nav-item:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
+    .nav-item:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
 
-      .dropdown-item {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 0.65rem 0.9rem;
-        border-radius: var(--radius-sm);
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        transition: var(--transition-fast);
-      }
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: var(--transition-fast);
+    }
 
-      .dropdown-item:hover,
-      .dropdown-item.active {
-        background: var(--primary-surface);
-        color: var(--primary);
-        transform: translateX(4px);
-      }
+    .dropdown-item:hover,
+    .dropdown-item.active {
+      background: var(--primary-surface);
+      color: var(--primary);
+      transform: translateX(4px);
+    }
 
-      .dropdown-icon {
-        font-size: 1.1rem;
-        width: 28px;
-        height: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(30, 58, 138, 0.06);
-        border-radius: var(--radius-xs);
-      }
+    .dropdown-icon {
+      font-size: 1.1rem;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 58, 138, 0.06);
+      border-radius: var(--radius-xs);
+    }
 
-      .hamburger {
-        display: none;
-        background: transparent;
-        border: none;
-        font-size: 1.6rem;
-        color: var(--primary);
-        cursor: pointer;
-        padding: 0.3rem;
-      }
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--primary);
+      cursor: pointer;
+      padding: 0.3rem;
+    }
 
-      /* Mobile Drawer */
-      .mobile-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(20, 18, 16, 0.6);
-        backdrop-filter: blur(8px);
-        z-index: 1050;
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-      }
+    /* Mobile Drawer */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 16, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
 
-      .mobile-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
 
-      .mobile-drawer {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 320px;
-        max-width: 85vw;
-        background: #ffffff;
-        z-index: 1100;
-        padding: 2rem 1.5rem;
-        transform: translateX(100%);
-        transition: var(--transition);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
-        overflow-y: auto;
-      }
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: #ffffff;
+      z-index: 1100;
+      padding: 2rem 1.5rem;
+      transform: translateX(100%);
+      transition: var(--transition);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+      overflow-y: auto;
+    }
 
-      .mobile-drawer.active {
-        transform: translateX(0);
-      }
+    .mobile-drawer.active {
+      transform: translateX(0);
+    }
 
-      .drawer-close {
-        background: var(--bg-alt);
-        border: none;
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        font-size: 1.1rem;
-        cursor: pointer;
-        margin-bottom: 1.5rem;
-      }
+    .drawer-close {
+      background: var(--bg-alt);
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+    }
 
-      .drawer-links a {
-        transition: var(--transition);
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        padding: 0.8rem 1rem;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border-radius: var(--radius-sm);
-        color: var(--text-dark);
-        margin-bottom: 0.3rem;
-      }
+    .drawer-links a {
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
 
-      .drawer-links a:hover,
-      .drawer-links a.active {
-        background: var(--primary-surface);
-        color: var(--primary);
-      }
+    .drawer-links a:hover,
+    .drawer-links a.active {
+      background: var(--primary-surface);
+      color: var(--primary);
+    }
 
-      .drawer-section-title {
-        font-size: 0.75rem;
-        font-weight: 800;
-        color: var(--text-subtle);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin: 1.2rem 0 0.5rem 0.5rem;
-      }
+    .drawer-section-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 1.2rem 0 0.5rem 0.5rem;
+    }
 
-      .btn-primary {
-        background: linear-gradient(
-          135deg,
+    .btn-primary {
+      background: linear-gradient(135deg,
           var(--primary) 0%,
-          var(--primary-light) 100%
-        );
-        color: #ffffff;
-        padding: 0.55rem 1.4rem;
-        font-size: 0.88rem;
-        font-family: var(--font-head);
-        font-weight: 700;
-        border-radius: var(--radius-full);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
-        transition: var(--transition);
-        border: none;
-        cursor: pointer;
-      }
+          var(--primary-light) 100%);
+      color: #ffffff;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.88rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px -4px rgba(30, 64, 175, 0.35);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
-      }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -4px rgba(30, 64, 175, 0.45);
+    }
 
-      /* 2. PAGE HEADER */
-      .page-header {
-        padding: 10rem 0 5rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-card);
-        background: linear-gradient(
-          to bottom,
+    /* 2. PAGE HEADER */
+    .page-header {
+      padding: 10rem 0 5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-card);
+      background: linear-gradient(to bottom,
           rgba(30, 64, 175, 0.04),
-          var(--bg-main)
-        );
-      }
+          var(--bg-main));
+    }
 
-      .page-title {
-        font-family: var(--font-display);
-        font-size: clamp(2.4rem, 4.8vw, 4rem);
-        color: var(--primary-dark);
-        margin-bottom: 1.2rem;
-        line-height: 1.15;
-        letter-spacing: -0.04em;
-      }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.8vw, 4rem);
+      color: var(--primary-dark);
+      margin-bottom: 1.2rem;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
 
-      .page-subtitle {
-        font-size: 1.15rem;
-        color: var(--text-muted);
-        max-width: 650px;
-        margin: 0 auto;
-        line-height: 1.7;
-      }
+    .page-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
 
-      /* 3. EKSTRAKURIKULER GRID (MAGAZINE STYLE) */
-      .ekskul-section {
-        padding: 6rem 0;
-      }
+    /* 3. EKSTRAKURIKULER GRID (MAGAZINE STYLE) */
+    .ekskul-section {
+      padding: 6rem 0;
+    }
 
+    .ekskul-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(320px, auto);
+      gap: 2rem;
+    }
+
+    .ekskul-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: var(--bg-dark);
+      border: 1px solid var(--border-card);
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+    }
+
+    .ekskul-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--secondary);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .ekskul-card.featured {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 520px;
+    }
+
+    .ekskul-card.tall {
+      grid-row: span 2;
+    }
+
+    .card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0f172a;
+      background-size: cover;
+      background-position: center;
+      transition:
+        filter 0.6s,
+        transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      filter: grayscale(15%) brightness(0.85);
+      transform-origin: center center;
+    }
+
+    .ekskul-card:hover .card-bg {
+      transform: scale(1.08) !important;
+      filter: grayscale(0%) brightness(0.6);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.2rem;
+      width: 100%;
+      background: linear-gradient(to top,
+          rgba(15, 23, 42, 0.95) 0%,
+          rgba(15, 23, 42, 0.6) 60%,
+          rgba(15, 23, 42, 0) 100%);
+      color: #ffffff;
+      transform: translateY(25px);
+      transition: transform 0.4s ease;
+    }
+
+    .ekskul-card:hover .card-content {
+      transform: translateY(0);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-family: var(--font-head);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      background: rgba(30, 64, 175, 0.5);
+      backdrop-filter: blur(6px);
+      color: var(--secondary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .featured .card-title {
+      font-size: 2.3rem;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition:
+        opacity 0.4s ease,
+        max-height 0.4s ease;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
+    .ekskul-card:hover .card-desc {
+      opacity: 1;
+      max-height: 160px;
+      margin-top: 0.8rem;
+    }
+
+    .card-action {
+      margin-top: 1.2rem;
+      display: inline-block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--secondary-light);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .ekskul-card:hover .card-action {
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+           FOOTER (PERSIS INDEX.HTML)
+           ========================================================================== */
+    .site-footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 5.5rem 0 2.5rem;
+      border-top: 1px solid var(--border-dark);
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4,
+    .footer-brand-title {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-brand-name {
+      color: #ffffff;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-brand-sub {
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .footer-address {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-contact-icon {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-subtle);
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-link {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-link:hover {
+      color: var(--secondary-light);
+    }
+
+    .footer-social-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .footer-social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: transform 0.25s ease;
+    }
+
+    .footer-social-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary-light);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+    }
+
+    .footer-social-btn:hover svg {
+      transform: scale(1.08);
+    }
+
+    .footer-nav {
+      display: block;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 0;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+      min-height: 28px;
+    }
+
+    .footer-chevron {
+      opacity: 0;
+      transform: translateX(-4px);
+      color: var(--secondary);
+      font-weight: bold;
+      font-size: 1.05rem;
+      line-height: 1;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-light);
+      transform: translateX(4px);
+    }
+
+    .footer-links a:hover .footer-chevron {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .footer-identity-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1.15rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-dark);
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-identity-card strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #78716c;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* AI Chatbot Widget */
+    .chatbot-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .chatbot-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .chat-panel {
+      position: fixed;
+      bottom: 6.5rem;
+      right: 2rem;
+      width: 360px;
+      max-width: 90vw;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.95);
+      transition: var(--transition);
+    }
+
+    .chat-panel.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .chat-header {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-head);
+      font-weight: 700;
+    }
+
+    .chat-body {
+      height: 280px;
+      padding: 1.2rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      background: var(--bg-alt);
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
+    }
+
+    .chat-body::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .chat-body::-webkit-scrollbar-track {
+      background: rgba(30, 58, 138, 0.03);
+    }
+
+    .chat-body::-webkit-scrollbar-thumb {
+      background: var(--primary-light);
+      border-radius: 10px;
+    }
+
+    .chat-msg {
+      max-width: 82%;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .chat-msg.bot {
+      background: #ffffff;
+      color: var(--text-dark);
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      align-self: flex-start;
+    }
+
+    .chat-msg.user {
+      background: var(--primary);
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+      align-self: flex-end;
+    }
+
+    .chat-quick-pills {
+      padding: 0.6rem 1rem;
+      background: #ffffff;
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .chat-pill {
+      background: var(--primary-surface);
+      color: var(--primary);
+      border: none;
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .chat-input-bar {
+      padding: 0.8rem 1rem;
+      background: #ffffff;
+      display: flex;
+      gap: 0.5rem;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .chat-input-bar input {
+      flex: 1;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-full);
+      padding: 0.55rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .chat-input-bar button {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: #64748b;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* GSAP Initial State untuk Card Wrapper */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
       .ekskul-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: minmax(320px, auto);
-        gap: 2rem;
-      }
-
-      .ekskul-card {
-        position: relative;
-        overflow: hidden;
-        border-radius: var(--radius-xl);
-        background: var(--bg-dark);
-        border: 1px solid var(--border-card);
-        display: flex;
-        align-items: flex-end;
-        cursor: pointer;
-        box-shadow: var(--shadow-card);
-        transition: var(--transition);
-      }
-
-      .ekskul-card:hover {
-        transform: translateY(-6px);
-        border-color: var(--secondary);
-        box-shadow: var(--shadow-card-hover);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .ekskul-card.featured {
         grid-column: span 2;
-        grid-row: span 2;
-        min-height: 520px;
+        grid-row: span 1;
+        min-height: 400px;
       }
 
       .ekskul-card.tall {
-        grid-row: span 2;
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ekskul-grid {
+        grid-template-columns: 1fr;
       }
 
-      .card-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #0f172a;
-        background-size: cover;
-        background-position: center;
-        transition:
-          filter 0.6s,
-          transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        filter: grayscale(15%) brightness(0.85);
-        transform-origin: center center;
+      .ekskul-card.featured {
+        grid-column: span 1;
       }
 
-      .ekskul-card:hover .card-bg {
-        transform: scale(1.08) !important;
-        filter: grayscale(0%) brightness(0.6);
+      .page-title {
+        font-size: 2.4rem;
+      }
+
+      .nav-menu {
+        display: none;
       }
 
       .card-content {
-        position: relative;
-        z-index: 2;
-        padding: 2.2rem;
-        width: 100%;
-        background: linear-gradient(
-          to top,
-          rgba(15, 23, 42, 0.95) 0%,
-          rgba(15, 23, 42, 0.6) 60%,
-          rgba(15, 23, 42, 0) 100%
-        );
-        color: #ffffff;
-        transform: translateY(25px);
-        transition: transform 0.4s ease;
-      }
-
-      .ekskul-card:hover .card-content {
         transform: translateY(0);
-      }
-
-      .tag {
-        display: inline-block;
-        padding: 0.35rem 0.9rem;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: var(--radius-full);
-        font-size: 0.75rem;
-        font-family: var(--font-head);
-        margin-bottom: 0.8rem;
-        font-weight: 700;
-        background: rgba(30, 64, 175, 0.5);
-        backdrop-filter: blur(6px);
-        color: var(--secondary-light);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      .card-title {
-        font-family: var(--font-head);
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        line-height: 1.25;
-        color: #ffffff;
-      }
-
-      .featured .card-title {
-        font-size: 2.3rem;
+        background: rgba(15, 23, 42, 0.9);
       }
 
       .card-desc {
-        font-size: 0.95rem;
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition:
-          opacity 0.4s ease,
-          max-height 0.4s ease;
-        color: rgba(255, 255, 255, 0.9);
-        line-height: 1.6;
-      }
-
-      .ekskul-card:hover .card-desc {
         opacity: 1;
-        max-height: 160px;
+        max-height: none;
         margin-top: 0.8rem;
       }
 
       .card-action {
-        margin-top: 1.2rem;
-        display: inline-block;
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: var(--secondary-light);
-        opacity: 0;
-        transition: opacity 0.4s;
-      }
-
-      .ekskul-card:hover .card-action {
         opacity: 1;
-      }
-
-      /* ==========================================================================
-           FOOTER (PERSIS INDEX.HTML)
-           ========================================================================== */
-      .site-footer {
-        background: var(--bg-dark);
-        color: var(--text-light);
-        padding: 5.5rem 0 2.5rem;
-        border-top: 1px solid var(--border-dark);
-        position: relative;
       }
 
       .footer-grid {
-        display: grid;
-        grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
-        gap: 3rem;
-        margin-bottom: 3.5rem;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* General Mobile Responsiveness (H) */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px !important;
       }
 
-      .footer-col h4,
-      .footer-brand-title {
-        font-family: var(--font-head);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-subtle);
-        margin-bottom: 1.2rem;
+      html,
+      body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
       }
 
-      .footer-brand-name {
-        color: #ffffff;
-        font-family: var(--font-head);
-        font-weight: 800;
-        font-size: 1.05rem;
-        line-height: 1.25;
-        letter-spacing: -0.01em;
-      }
-
-      .footer-brand-sub {
-        color: var(--secondary);
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-top: 0.2rem;
-      }
-
-      .footer-address {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.88rem;
-        line-height: 1.65;
-        margin-bottom: 1.2rem;
-      }
-
-      .footer-contact-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1.5rem 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-
-      .footer-contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .footer-contact-icon {
-        width: 16px;
-        height: 16px;
-        stroke: var(--text-subtle);
-        stroke-width: 1.8;
-        fill: none;
-        flex-shrink: 0;
-      }
-
-      .footer-contact-link {
-        color: rgba(255, 255, 255, 0.85);
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-
-      .footer-contact-link:hover {
-        color: var(--secondary-light);
-      }
-
-      .footer-social-row {
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        margin-top: 0.5rem;
-      }
-
-      .footer-social-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.8);
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        text-decoration: none;
-      }
-
-      .footer-social-btn svg {
-        width: 18px;
-        height: 18px;
-        fill: currentColor;
-        transition: transform 0.25s ease;
-      }
-
-      .footer-social-btn:hover {
-        background: var(--primary);
-        border-color: var(--primary-light);
-        color: #ffffff;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
-      }
-
-      .footer-social-btn:hover svg {
-        transform: scale(1.08);
-      }
-
-      .footer-nav {
-        display: block;
-      }
-
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.7rem;
-      }
-
-      .footer-links li {
-        margin-bottom: 0;
-      }
-
-      .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        transition:
-          color 0.2s ease,
-          transform 0.2s ease;
-        min-height: 28px;
-      }
-
-      .footer-chevron {
-        opacity: 0;
-        transform: translateX(-4px);
-        color: var(--secondary);
-        font-weight: bold;
-        font-size: 1.05rem;
-        line-height: 1;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-
-      .footer-links a:hover {
-        color: var(--secondary-light);
-        transform: translateX(4px);
-      }
-
-      .footer-links a:hover .footer-chevron {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      .footer-identity-card {
-        background: rgba(255, 255, 255, 0.04);
-        padding: 1.15rem 1.25rem;
-        border-radius: var(--radius);
-        border: 1px solid var(--border-dark);
-        font-size: 0.85rem;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .footer-identity-card strong {
-        color: #ffffff;
-        font-weight: 700;
-      }
-
-      .footer-bottom {
-        padding-top: 2rem;
-        border-top: 1px solid var(--border-dark);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.85rem;
-        color: #78716c;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      /* AI Chatbot Widget */
-      .chatbot-btn {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-light) 100%
-        );
-        color: #ffffff;
-        border: none;
-        box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.3);
-        cursor: pointer;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-      }
-
-      .chatbot-btn:hover {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      .chat-panel {
-        position: fixed;
-        bottom: 6.5rem;
-        right: 2rem;
-        width: 360px;
-        max-width: 90vw;
-        background: #ffffff;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-xl);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(20px) scale(0.95);
-        transition: var(--transition);
-      }
-
-      .chat-panel.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-      }
-
-      .chat-header {
-        background: var(--primary);
-        color: #ffffff;
-        padding: 1.2rem 1.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: var(--font-head);
-        font-weight: 700;
-      }
-
-      .chat-body {
-        height: 280px;
-        padding: 1.2rem;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        background: var(--bg-alt);
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary) rgba(30, 58, 138, 0.05);
-      }
-
-      .chat-body::-webkit-scrollbar {
-        width: 5px;
-      }
-
-      .chat-body::-webkit-scrollbar-track {
-        background: rgba(30, 58, 138, 0.03);
-      }
-
-      .chat-body::-webkit-scrollbar-thumb {
-        background: var(--primary-light);
-        border-radius: 10px;
-      }
-
-      .chat-msg {
-        max-width: 82%;
-        padding: 0.75rem 1rem;
-        border-radius: var(--radius);
-        font-size: 0.88rem;
-        line-height: 1.5;
-      }
-
-      .chat-msg.bot {
-        background: #ffffff;
-        color: var(--text-dark);
-        border-bottom-left-radius: 4px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        align-self: flex-start;
-      }
-
-      .chat-msg.user {
-        background: var(--primary);
-        color: #ffffff;
-        border-bottom-right-radius: 4px;
-        align-self: flex-end;
-      }
-
-      .chat-quick-pills {
-        padding: 0.6rem 1rem;
-        background: #ffffff;
-        display: flex;
-        gap: 0.4rem;
-        overflow-x: auto;
-        border-top: 1px solid var(--border-card);
-      }
-
-      .chat-pill {
-        background: var(--primary-surface);
-        color: var(--primary);
-        border: none;
-        padding: 0.35rem 0.7rem;
-        border-radius: var(--radius-full);
-        font-size: 0.75rem;
-        font-weight: 700;
-        white-space: nowrap;
-        cursor: pointer;
-      }
-
-      .chat-input-bar {
-        padding: 0.8rem 1rem;
-        background: #ffffff;
-        display: flex;
-        gap: 0.5rem;
-        border-top: 1px solid var(--border-card);
-      }
-
-      .chat-input-bar input {
-        flex: 1;
-        border: 1px solid var(--border-card);
-        border-radius: var(--radius-full);
-        padding: 0.55rem 1rem;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        outline: none;
-      }
-
-      .chat-input-bar button {
-        background: var(--primary);
-        color: #ffffff;
-        border: none;
-        padding: 0.55rem 1.1rem;
-        border-radius: var(--radius-full);
-        font-weight: 700;
-        font-size: 0.85rem;
-        cursor: pointer;
-      }
-
-      .footer-bottom {
-        padding-top: 2rem;
-        border-top: 1px solid var(--border-dark);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.88rem;
-        color: #64748b;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      /* GSAP Initial State untuk Card Wrapper */
-      .reveal-item {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 1024px) {
-        .footer-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 992px) {
-        .ekskul-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .ekskul-card.featured {
-          grid-column: span 2;
-          grid-row: span 1;
-          min-height: 400px;
-        }
-
-        .ekskul-card.tall {
-          grid-row: span 1;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .ekskul-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .ekskul-card.featured {
-          grid-column: span 1;
-        }
-
-        .page-title {
-          font-size: 2.4rem;
-        }
-
-        .nav-menu {
-          display: none;
-        }
-
-        .card-content {
-          transform: translateY(0);
-          background: rgba(15, 23, 42, 0.9);
-        }
-
-        .card-desc {
-          opacity: 1;
-          max-height: none;
-          margin-top: 0.8rem;
-        }
-
-        .card-action {
-          opacity: 1;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* General Mobile Responsiveness (H) */
-      @media (max-width: 768px) {
-        .container {
-          padding: 0 20px !important;
-        }
-
-        html,
-        body {
-          overflow-x: hidden !important;
-          max-width: 100vw !important;
-        }
-
-        .header-wrapper {
-          top: 0.5rem;
-          width: calc(100% - 20px);
-          border-radius: 20px;
-        }
-
-        .nav-island {
-          padding: 0.6rem 1rem !important;
-        }
-
-        .brand-logo {
-          max-height: 42px;
-          max-width: 130px;
-        }
-
-        .nav-menu {
-          display: none !important;
-        }
-
-        .hamburger {
-          display: flex !important;
-          align-items: center;
-          justify-content: center;
-          width: 44px;
-          height: 44px;
-          border-radius: 8px;
-          background: var(--primary-surface);
-          color: var(--primary);
-          font-size: 1.4rem;
-          padding: 0;
-        }
-
-        .mobile-drawer {
-          width: 85vw;
-          max-width: 340px;
-          background: #ffffff !important;
-        }
-
-        .drawer-close {
-          width: 44px;
-          height: 44px;
-        }
-
-        .drawer-links a {
-          transition: var(--transition);
-          min-height: 44px;
-          font-size: 16px;
-        }
-
-        /* Grid collapse to single column */
-        .facility-grid,
-        .ekskul-grid,
-        .news-grid,
-        .news-cards-grid,
-        .visi-grid,
-        .misi-grid,
-        .org-grid,
-        .article-grid {
-          grid-template-columns: 1fr !important;
-          gap: 1.5rem !important;
-        }
-
-        /* Magazine & Card Descriptions permanently visible on mobile */
-        .magazine-desc,
-        .facility-card-desc,
-        .ekskul-overlay-desc {
-          opacity: 1 !important;
-          transform: none !important;
-          visibility: visible !important;
-          position: relative !important;
-          inset: auto !important;
-        }
-
-        /* Visi quote line clamp */
-        .visi-quote {
-          font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
-          line-height: 1.5 !important;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr !important;
-          gap: 2rem !important;
-        }
-
-        .btn {
-          min-height: 44px;
-        }
-      }
-
-      /* ==========================================================================
-           ROBUST STANDARD NAVBAR & MOBILE DRAWER (Z-INDEX & ACCESSIBILITY FIX)
-           ========================================================================== */
       .header-wrapper {
-        position: fixed !important;
-        top: 1rem;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 90% !important;
-        max-width: 1320px !important;
-        background: #ffffff !important;
-        border-radius: 50px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-        border: 1px solid var(--border-card) !important;
-        pointer-events: auto !important;
+        top: 0.5rem;
+        width: calc(100% - 20px);
+        border-radius: 20px;
       }
 
       .nav-island {
-        width: 100% !important;
-        padding: 0.8rem 1.8rem !important;
+        padding: 0.6rem 1rem !important;
+      }
+
+      .brand-logo {
+        max-height: 42px;
+        max-width: 130px;
+      }
+
+      .nav-menu {
+        display: none !important;
+      }
+
+      .hamburger {
         display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        position: relative !important;
-      }
-
-      /* Hamburger button MUST have relative position, high z-index, and pointer-events */
-      .hamburger,
-      .nav-toggle {
-        display: none;
-        background: var(--primary-surface) !important;
-        border: 1px solid rgba(30, 64, 175, 0.15) !important;
-        color: var(--primary) !important;
-        font-size: 1.4rem !important;
-        cursor: pointer !important;
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        border-radius: 10px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        position: relative !important;
-        z-index: 10000 !important;
-        pointer-events: auto !important;
-        transition: all 0.2s ease !important;
-        user-select: none !important;
-        -webkit-tap-highlight-color: transparent !important;
-      }
-
-      .hamburger:hover,
-      .nav-toggle:hover,
-      .hamburger:focus,
-      .nav-toggle:focus {
-        background: var(--primary) !important;
-        color: #ffffff !important;
-        outline: none !important;
-      }
-
-      /* Mobile Drawer */
-      .mobile-overlay {
-        position: fixed !important;
-        inset: 0 !important;
-        background: rgba(15, 23, 42, 0.65) !important;
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
-        z-index: 99998 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transition:
-          opacity 0.3s ease,
-          visibility 0.3s ease !important;
-        pointer-events: none !important;
-      }
-
-      .mobile-overlay.active {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        background: var(--primary-surface);
+        color: var(--primary);
+        font-size: 1.4rem;
+        padding: 0;
       }
 
       .mobile-drawer {
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 85vw !important;
-        max-width: 340px !important;
-        height: 100dvh !important;
+        width: 85vw;
+        max-width: 340px;
         background: #ffffff !important;
-        z-index: 99999 !important;
-        padding: 2rem 1.6rem !important;
-        transform: translateX(100%) !important;
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        pointer-events: auto !important;
-      }
-
-      .mobile-drawer.active {
-        transform: translateX(0) !important;
       }
 
       .drawer-close {
-        background: var(--bg-alt) !important;
-        border: 1px solid var(--border-card) !important;
-        color: var(--text-dark) !important;
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        border-radius: 50% !important;
-        font-size: 1.4rem !important;
-        cursor: pointer !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin-bottom: 1.5rem !important;
+        width: 44px;
+        height: 44px;
+      }
+
+      .drawer-links a {
+        transition: var(--transition);
+        min-height: 44px;
+        font-size: 16px;
+      }
+
+      /* Grid collapse to single column */
+      .facility-grid,
+      .ekskul-grid,
+      .news-grid,
+      .news-cards-grid,
+      .visi-grid,
+      .misi-grid,
+      .org-grid,
+      .article-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Magazine & Card Descriptions permanently visible on mobile */
+      .magazine-desc,
+      .facility-card-desc,
+      .ekskul-overlay-desc {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
         position: relative !important;
-        z-index: 100000 !important;
-        pointer-events: auto !important;
+        inset: auto !important;
       }
 
-      /* Ensure decorative layers do NOT block touch events */
-      .px-stage,
-      .px-orb,
-      .px-grid,
-      .px-ring,
-      .watermark,
-      .header-bg-pattern {
-        pointer-events: none !important;
+      /* Visi quote line clamp */
+      .visi-quote {
+        font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+        line-height: 1.5 !important;
       }
 
-      @media (max-width: 900px) {
-        .header-wrapper {
-          top: 0.5rem !important;
-          width: calc(100% - 20px) !important;
-          border-radius: 20px !important;
-        }
-
-        .nav-island {
-          padding: 0.6rem 1rem !important;
-        }
-
-        .nav-menu {
-          display: none !important;
-        }
-
-        .nav-mobile-cta {
-          display: inline-flex !important;
-          margin-left: auto;
-          margin-right: 0.6rem;
-          padding: 0.45rem 1rem !important;
-          font-size: 0.82rem !important;
-          min-height: 40px !important;
-        }
-
-        .hamburger,
-        .nav-toggle {
-          display: flex !important;
-        }
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
       }
-    </style>
-  </head>
 
-  <body>
-    <!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
-    <header class="header-wrapper">
-      <nav class="nav-island" id="main-nav">
-        <a href="#hero" class="brand-box">
-          <img
-            src="assets/logo.png"
-            alt="Logo SMKS Muhammadiyah 1 Genteng"
-            class="brand-logo"
-            onerror="
+      .btn {
+        min-height: 44px;
+      }
+    }
+
+    /* ==========================================================================
+           ROBUST STANDARD NAVBAR & MOBILE DRAWER (Z-INDEX & ACCESSIBILITY FIX)
+           ========================================================================== */
+    .header-wrapper {
+      position: fixed !important;
+      top: 1rem;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 90% !important;
+      max-width: 1320px !important;
+      background: #ffffff !important;
+      border-radius: 50px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+      border: 1px solid var(--border-card) !important;
+      pointer-events: auto !important;
+    }
+
+    .nav-island {
+      width: 100% !important;
+      padding: 0.8rem 1.8rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      position: relative !important;
+    }
+
+    /* Hamburger button MUST have relative position, high z-index, and pointer-events */
+    .hamburger,
+    .nav-toggle {
+      display: none;
+      background: var(--primary-surface) !important;
+      border: 1px solid rgba(30, 64, 175, 0.15) !important;
+      color: var(--primary) !important;
+      font-size: 1.4rem !important;
+      cursor: pointer !important;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      border-radius: 10px !important;
+      align-items: center !important;
+      justify-content: center !important;
+      position: relative !important;
+      z-index: 10000 !important;
+      pointer-events: auto !important;
+      transition: all 0.2s ease !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .hamburger:hover,
+    .nav-toggle:hover,
+    .hamburger:focus,
+    .nav-toggle:focus {
+      background: var(--primary) !important;
+      color: #ffffff !important;
+      outline: none !important;
+    }
+
+    /* Mobile Drawer */
+    .mobile-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(15, 23, 42, 0.65) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      z-index: 99998 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease !important;
+      pointer-events: none !important;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-drawer {
+      position: fixed !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 85vw !important;
+      max-width: 340px !important;
+      height: 100dvh !important;
+      background: #ffffff !important;
+      z-index: 99999 !important;
+      padding: 2rem 1.6rem !important;
+      transform: translateX(100%) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25) !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-drawer.active {
+      transform: translateX(0) !important;
+    }
+
+    .drawer-close {
+      background: var(--bg-alt) !important;
+      border: 1px solid var(--border-card) !important;
+      color: var(--text-dark) !important;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      border-radius: 50% !important;
+      font-size: 1.4rem !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 1.5rem !important;
+      position: relative !important;
+      z-index: 100000 !important;
+      pointer-events: auto !important;
+    }
+
+    /* Ensure decorative layers do NOT block touch events */
+    .px-stage,
+    .px-orb,
+    .px-grid,
+    .px-ring,
+    .watermark,
+    .header-bg-pattern {
+      pointer-events: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .header-wrapper {
+        top: 0.5rem !important;
+        width: calc(100% - 20px) !important;
+        border-radius: 20px !important;
+      }
+
+      .nav-island {
+        padding: 0.6rem 1rem !important;
+      }
+
+      .nav-menu {
+        display: none !important;
+      }
+
+      .nav-mobile-cta {
+        display: inline-flex !important;
+        margin-left: auto;
+        margin-right: 0.6rem;
+        padding: 0.45rem 1rem !important;
+        font-size: 0.82rem !important;
+        min-height: 40px !important;
+      }
+
+      .hamburger,
+      .nav-toggle {
+        display: flex !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0 -->
+  <header class="header-wrapper">
+    <nav class="nav-island" id="main-nav">
+      <a href="#hero" class="brand-box">
+        <img src="assets/logo.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
               this.closest('.card')
                 ? this.closest('.card').classList.add('no-image')
                 : null;
               this.remove();
-            "
-          />
-        </a>
+            " />
+      </a>
 
-        <div class="nav-menu">
-          <a href="index.html#hero" class="nav-link">Beranda</a>
+      <div class="nav-menu">
+        <a href="index.html#hero" class="nav-link">Beranda</a>
 
-          <!-- Profil & Info Dropdown -->
-          <div class="nav-item">
-            <a href="index.html#sambutan" class="nav-link active">
-              Profil & Info <span style="font-size: 0.65rem">▼</span>
+        <!-- Profil & Info Dropdown -->
+        <div class="nav-item">
+          <a href="index.html#sambutan" class="nav-link active">
+            Profil & Info <span style="font-size: 0.65rem">▼</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="visi-misi.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </span>
+              <div>
+                <div>Visi & Misi</div>
+                <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan Lembaga</small>
+              </div>
             </a>
-            <div class="dropdown-menu">
-              <a href="visi-misi.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                </span>
-                <div>
-                  <div>Visi & Misi</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Arah & Tujuan Lembaga</small>
-                </div>
-              </a>
-              <a href="guru.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </span>
-                <div>
-                  <div>Guru & Tendik</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Tenaga Pendidik</small>
-                </div>
-              </a>
-              <a href="fasilitas.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-                </span>
-                <div>
-                  <div>Fasilitas Sekolah</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang Belajar</small>
-                </div>
-              </a>
-              <a href="ekstrakurikuler.html" class="dropdown-item active">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
-                </span>
-                <div>
-                  <div>Ekstrakurikuler & IPM</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni & Karakter</small>
-                </div>
-              </a>
-              <a href="prestasi.html" class="dropdown-item">
-                <span class="dropdown-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                </span>
-                <div>
-                  <div>Galeri Prestasi</div>
-                  <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan Nasional</small>
-                </div>
-              </a>
-            </div>
+            <a href="guru.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <div>
+                <div>Guru & Tendik</div>
+                <small style="color:var(--text-subtle); font-size:0.75rem;">Tenaga Pendidik</small>
+              </div>
+            </a>
+            <a href="fasilitas.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                  <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                  <path d="M10 6h4" />
+                  <path d="M10 10h4" />
+                  <path d="M10 14h4" />
+                  <path d="M10 18h4" />
+                </svg>
+              </span>
+              <div>
+                <div>Fasilitas Sekolah</div>
+                <small style="color:var(--text-subtle); font-size:0.75rem;">Laboratorium & Ruang Belajar</small>
+              </div>
+            </a>
+            <a href="ekstrakurikuler.html" class="dropdown-item active">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
+                </svg>
+              </span>
+              <div>
+                <div>Ekstrakurikuler & IPM</div>
+                <small style="color:var(--text-subtle); font-size:0.75rem;">Bakat, Seni & Karakter</small>
+              </div>
+            </a>
+            <a href="prestasi.html" class="dropdown-item">
+              <span class="dropdown-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                  <path d="M4 22h16" />
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                </svg>
+              </span>
+              <div>
+                <div>Galeri Prestasi</div>
+                <small style="color:var(--text-subtle); font-size:0.75rem;">Piala & Penghargaan Nasional</small>
+              </div>
+            </a>
           </div>
-
-          <a href="index.html#jurusan"class="nav-link">Konsentrasi Keahlian</a>
-
-          <a href="bkk.html" class="nav-link">BKK (Bursa Kerja)</a>
-
-          <!-- Layanan Siswa (BLUD) -->
-          <a href="#blud" class="nav-link">Layanan Siswa (BLUD)</a>
-
-          <a href="berita.html" class="nav-link">Berita</a>
-          <a
-            href="#ppdb"
-            class="btn btn-primary"
-            style="padding: 0.55rem 1.4rem; font-size: 0.88rem"
-            >Daftar PPDB</a
-          >
         </div>
 
-        <a
-          href="#ppdb"
-          class="btn btn-primary nav-mobile-cta"
-          style="display: none"
-          >Daftar SPMB</a
-        >
-        <button
-          class="hamburger"
-          id="hamburger-btn"
-          aria-label="Buka Menu Navigasi"
-        >
-          ☰
-        </button>
-      </nav>
-    </header>
+        <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-overlay" id="mobile-overlay"></div>
-    <div class="mobile-drawer" id="mobile-drawer">
-      <button class="drawer-close" id="drawer-close-btn">&times;</button>
-      <div class="brand-box" style="margin-bottom: 2rem">
-        <img
-          src="assets/logo.webp"
-          alt="Logo SMKS MUHI"
-          class="brand-logo"
-          onerror="
+        <a href="bkk.html" class="nav-link">BKK (Bursa Kerja)</a>
+
+        <!-- Layanan Siswa (BLUD) -->
+        <a href="#blud" class="nav-link">Layanan Siswa (BLUD)</a>
+
+        <a href="berita.html" class="nav-link">Berita</a>
+        <a href="#ppdb" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar PPDB</a>
+      </div>
+
+      <a href="#ppdb" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">
+        ☰
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close-btn">&times;</button>
+    <div class="brand-box" style="margin-bottom: 2rem">
+      <img src="assets/logo.webp" alt="Logo SMKS MUHI" class="brand-logo" onerror="
             this.closest('.card')
               ? this.closest('.card').classList.add('no-image')
               : null;
             this.remove();
-          "
-        />
-        <div>
-          <strong
-            style="color: var(--primary); font-size: 1.1rem; display: block"
-            >SMKS MUHI GENTENG</strong
-          >
-          <small style="color: var(--text-muted); font-size: 0.75rem"
-            >NPSN 20525597 &bull; Akreditasi A</small
-          >
-        </div>
-      </div>
-
-      <div class="drawer-links">
-        <a href="index.html">🏠 Beranda</a>
-
-        <div class="drawer-section-title">Halaman Informasi</div>
-        <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
-        <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
-        <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
-        <a href="ekstrakurikuler.html" class="active"
-          >⚽ Ekstrakurikuler & IPM</a
-        >
-        <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
-        <a href="berita.html">📰 Jurnal & Kabar Kampus</a>
-
-        <div class="drawer-section-title">Navigasi Halaman Utama</div>
-        <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
-        <a href="index.html#jurusan">💻 8 Program Keahlian</a>
-        <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
-        <a href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
-
-        <div style="margin-top: 1.5rem">
-          <a
-            href="index.html#ppdb"
-            class="btn btn-primary"
-            style="width: 100%; text-align: center; justify-content: center"
-            >Daftar SPMB 2026</a
-          >
-        </div>
+          " />
+      <div>
+        <strong style="color: var(--primary); font-size: 1.1rem; display: block">SMKS MUHI GENTENG</strong>
+        <small style="color: var(--text-muted); font-size: 0.75rem">NPSN 20525597 &bull; Akreditasi A</small>
       </div>
     </div>
 
-    <!-- 2. PAGE HEADER -->
-    <header class="page-header">
-      <div class="container reveal-item">
-        <span class="badge">🌟 Pengembangan Karakter & Minat</span>
-        <h1 class="page-title">
-          Membentuk Karakter,<br />Mengasah Talenta Juara.
-        </h1>
-        <p class="page-subtitle">
-          Beragam pilihan kegiatan ekstrakurikuler di SMKS Muhammadiyah 1
-          Genteng untuk menyalurkan potensi, minat, dan melatih jiwa
-          kepemimpinan peserta didik.
-        </p>
+    <div class="drawer-links">
+      <a href="index.html">🏠 Beranda</a>
+
+      <div class="drawer-section-title">Halaman Informasi</div>
+      <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
+      <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
+      <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
+      <a href="ekstrakurikuler.html" class="active">⚽ Ekstrakurikuler & IPM</a>
+      <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
+      <a href="berita.html">📰 Jurnal & Kabar Kampus</a>
+
+      <div class="drawer-section-title">Navigasi Halaman Utama</div>
+      <a href="index.html#sambutan">👤 Sambutan Kepala Sekolah</a>
+      <a href="index.html#jurusan">💻 8 Program Keahlian</a>
+      <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
+      <a href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
+
+      <div style="margin-top: 1.5rem">
+        <a href="index.html#ppdb" class="btn btn-primary"
+          style="width: 100%; text-align: center; justify-content: center">Daftar SPMB 2026</a>
       </div>
-    </header>
+    </div>
+  </div>
 
-    <!-- 3. EKSTRAKURIKULER GRID -->
-    <section class="ekskul-section container" data-px-stage="light">
-      <div class="ekskul-grid">
-        <!-- 1. Hizbul Wathan -->
-        <div class="ekskul-card featured reveal-item">
-          <div
-            class="card-bg"
-            style="
+  <!-- 2. PAGE HEADER -->
+  <header class="page-header">
+    <div class="container reveal-item">
+      <span class="badge">🌟 Pengembangan Karakter & Minat</span>
+      <h1 class="page-title">
+        Membentuk Karakter,<br />Mengasah Talenta Juara.
+      </h1>
+      <p class="page-subtitle">
+        Beragam pilihan kegiatan ekstrakurikuler di SMKS Muhammadiyah 1
+        Genteng untuk menyalurkan potensi, minat, dan melatih jiwa
+        kepemimpinan peserta didik.
+      </p>
+    </div>
+  </header>
+
+  <!-- 3. EKSTRAKURIKULER GRID -->
+  <section class="ekskul-section container" data-px-stage="light">
+    <div class="ekskul-grid">
+      <!-- 1. Hizbul Wathan -->
+      <div class="ekskul-card featured reveal-item">
+        <div class="card-bg" style="
               background: linear-gradient(
                 135deg,
                 var(--primary-dark) 0%,
                 var(--primary) 100%
               );
-            "
-          ></div>
-          <div class="card-content">
-            <span class="tag">Kepanduan Islami Wajib</span>
-            <h2 class="card-title">Hizbul Wathan (HW)</h2>
-            <div class="card-desc">
-              Diklat Kemah Tamu Penghela Hizbul Wathan sukses diselenggarakan.
-              Ekstrakurikuler wajib kepanduan ini menanamkan kedisiplinan,
-              kemandirian, dan nilai-nilai Islami berwawasan kemanusiaan
-              universal.
-            </div>
-            <span class="card-action">Lihat Galeri Kegiatan &rarr;</span>
+            "></div>
+        <div class="card-content">
+          <span class="tag">Kepanduan Islami Wajib</span>
+          <h2 class="card-title">Hizbul Wathan (HW)</h2>
+          <div class="card-desc">
+            Diklat Kemah Tamu Penghela Hizbul Wathan sukses diselenggarakan.
+            Ekstrakurikuler wajib kepanduan ini menanamkan kedisiplinan,
+            kemandirian, dan nilai-nilai Islami berwawasan kemanusiaan
+            universal.
           </div>
-        </div>
-
-        <!-- 2. Paskibra -->
-        <div class="ekskul-card tall reveal-item">
-          <div
-            class="card-bg"
-            style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "
-          ></div>
-          <div class="card-content">
-            <span class="tag">Kedisiplinan & Patriotisme</span>
-            <h2 class="card-title">Paskibra Pasukan Inti</h2>
-            <div class="card-desc">
-              Mengajarkan siswa tentang kedisiplinan baris-berbaris presisi,
-              ketahanan mental, serta rasa tanggung jawab kebangsaan yang kokoh.
-            </div>
-            <span class="card-action">Detail Program &rarr;</span>
-          </div>
-        </div>
-
-        <!-- 3. Pencak Silat Tapak Suci -->
-        <div class="ekskul-card reveal-item">
-          <div
-            class="card-bg"
-            style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "
-          ></div>
-          <div class="card-content">
-            <span class="tag">Seni Bela Diri Tradisi</span>
-            <h2 class="card-title">Pencak Silat Tapak Suci</h2>
-            <div class="card-desc">
-              Perguruan bela diri berprestasi nasional yang memadukan keahlian
-              jurus tradisional, pertahanan diri, dan penguatan aqidah.
-            </div>
-            <span class="card-action">Detail Program &rarr;</span>
-          </div>
-        </div>
-
-        <!-- 4. Pramuka -->
-        <div class="ekskul-card reveal-item">
-          <div
-            class="card-bg"
-            style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "
-          ></div>
-          <div class="card-content">
-            <span class="tag">Kepanduan Penegak</span>
-            <h2 class="card-title">Gerakan Pramuka</h2>
-            <div class="card-desc">
-              Fokus pada pembinaan karakter mandiri, survival skills di alam
-              bebas, pioneering, dan pengabdian sosial masyarakat.
-            </div>
-            <span class="card-action">Detail Program &rarr;</span>
-          </div>
-        </div>
-
-        <!-- 5. PMR (Palang Merah Remaja) -->
-        <div class="ekskul-card reveal-item">
-          <div
-            class="card-bg"
-            style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "
-          ></div>
-          <div class="card-content">
-            <span class="tag">Kesehatan & Kemanusiaan</span>
-            <h2 class="card-title">PMR Wira Unit MUHI</h2>
-            <div class="card-desc">
-              Pelatihan pertolongan pertama pada kecelakaan (P3K), kesiapsiagaan
-              bencana darurat, dan aksi donor darah sukarela.
-            </div>
-            <span class="card-action">Detail Program &rarr;</span>
-          </div>
-        </div>
-
-        <!-- 6. Klub Olahraga -->
-        <div class="ekskul-card reveal-item">
-          <div
-            class="card-bg"
-            style="
-              background: linear-gradient(
-                135deg,
-                var(--primary-dark) 0%,
-                var(--primary) 100%
-              );
-            "
-          ></div>
-          <div class="card-content">
-            <span class="tag">Prestasi Atletik</span>
-            <h2 class="card-title">Klub Olahraga Terpadu</h2>
-            <div class="card-desc">
-              Mewadahi talenta siswa dalam cabang Futsal, Bola Basket, Bola
-              Voli, dan E-Sports untuk bersaing di kejurprov pelajar.
-            </div>
-            <span class="card-action">Detail Program &rarr;</span>
-          </div>
+          <span class="card-action">Lihat Galeri Kegiatan &rarr;</span>
         </div>
       </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <!-- Kolom 1: Profil Sekolah & Kontak -->
-          <div>
-            <div
-              class="brand-box"
-              style="
+      <!-- 2. Paskibra -->
+      <div class="ekskul-card tall reveal-item">
+        <div class="card-bg" style="
+              background: linear-gradient(
+                135deg,
+                var(--primary-dark) 0%,
+                var(--primary) 100%
+              );
+            "></div>
+        <div class="card-content">
+          <span class="tag">Kedisiplinan & Patriotisme</span>
+          <h2 class="card-title">Paskibra Pasukan Inti</h2>
+          <div class="card-desc">
+            Mengajarkan siswa tentang kedisiplinan baris-berbaris presisi,
+            ketahanan mental, serta rasa tanggung jawab kebangsaan yang kokoh.
+          </div>
+          <span class="card-action">Detail Program &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 3. Pencak Silat Tapak Suci -->
+      <div class="ekskul-card reveal-item">
+        <div class="card-bg" style="
+              background: linear-gradient(
+                135deg,
+                var(--primary-dark) 0%,
+                var(--primary) 100%
+              );
+            "></div>
+        <div class="card-content">
+          <span class="tag">Seni Bela Diri Tradisi</span>
+          <h2 class="card-title">Pencak Silat Tapak Suci</h2>
+          <div class="card-desc">
+            Perguruan bela diri berprestasi nasional yang memadukan keahlian
+            jurus tradisional, pertahanan diri, dan penguatan aqidah.
+          </div>
+          <span class="card-action">Detail Program &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 4. Pramuka -->
+      <div class="ekskul-card reveal-item">
+        <div class="card-bg" style="
+              background: linear-gradient(
+                135deg,
+                var(--primary-dark) 0%,
+                var(--primary) 100%
+              );
+            "></div>
+        <div class="card-content">
+          <span class="tag">Kepanduan Penegak</span>
+          <h2 class="card-title">Gerakan Pramuka</h2>
+          <div class="card-desc">
+            Fokus pada pembinaan karakter mandiri, survival skills di alam
+            bebas, pioneering, dan pengabdian sosial masyarakat.
+          </div>
+          <span class="card-action">Detail Program &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 5. PMR (Palang Merah Remaja) -->
+      <div class="ekskul-card reveal-item">
+        <div class="card-bg" style="
+              background: linear-gradient(
+                135deg,
+                var(--primary-dark) 0%,
+                var(--primary) 100%
+              );
+            "></div>
+        <div class="card-content">
+          <span class="tag">Kesehatan & Kemanusiaan</span>
+          <h2 class="card-title">PMR Wira Unit MUHI</h2>
+          <div class="card-desc">
+            Pelatihan pertolongan pertama pada kecelakaan (P3K), kesiapsiagaan
+            bencana darurat, dan aksi donor darah sukarela.
+          </div>
+          <span class="card-action">Detail Program &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 6. Klub Olahraga -->
+      <div class="ekskul-card reveal-item">
+        <div class="card-bg" style="
+              background: linear-gradient(
+                135deg,
+                var(--primary-dark) 0%,
+                var(--primary) 100%
+              );
+            "></div>
+        <div class="card-content">
+          <span class="tag">Prestasi Atletik</span>
+          <h2 class="card-title">Klub Olahraga Terpadu</h2>
+          <div class="card-desc">
+            Mewadahi talenta siswa dalam cabang Futsal, Bola Basket, Bola
+            Voli, dan E-Sports untuk bersaing di kejurprov pelajar.
+          </div>
+          <span class="card-action">Detail Program &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Kolom 1: Profil Sekolah & Kontak -->
+        <div>
+          <div class="brand-box" style="
                 display: flex;
                 align-items: center;
                 gap: 0.9rem;
                 margin-bottom: 1.2rem;
-              "
-            >
-              <img
-                src="assets/logo.webp"
-                alt="Logo SMKS Muhammadiyah 1 Genteng"
-                class="brand-logo"
-                style="max-height: 52px; width: auto; object-fit: contain"
-                width="52"
-                height="52"
-                onerror="
+              ">
+            <img src="assets/logo.webp" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
+              style="max-height: 52px; width: auto; object-fit: contain" width="52" height="52" onerror="
                   this.closest('.card')
                     ? this.closest('.card').classList.add('no-image')
                     : null;
                   this.remove();
-                "
-              />
-              <div>
-                <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
-                <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
-              </div>
+                " />
+            <div>
+              <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+              <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
             </div>
-            <p class="footer-address">
-              Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
-              Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
-              68465
-            </p>
+          </div>
+          <p class="footer-address">
+            Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
+            Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
+            68465
+          </p>
 
-            <!-- A. Baris Kontak dengan Inline SVG Stroke -->
-            <ul class="footer-contact-list">
-              <li class="footer-contact-item">
-                <svg
-                  class="footer-contact-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
-                <a href="tel:0333845605" class="footer-contact-link"
-                  >(0333) 845605</a
-                >
+          <!-- A. Baris Kontak dengan Inline SVG Stroke -->
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <a href="tel:0333845605" class="footer-contact-link">(0333) 845605</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer"
+                class="footer-contact-link">0822-4135-6668 (WhatsApp)</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:smkmuhi.genteng1968@gmail.com"
+                class="footer-contact-link">smkmuhi.genteng1968@gmail.com</a>
+            </li>
+          </ul>
+
+          <!-- C. Media Sosial Monokrom -->
+          <div class="footer-social-row" aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/smkmuhigts/" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="Instagram SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                  stroke-width="2" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor"
+                  stroke-width="2" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="YouTube SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                  fill="none" stroke="currentColor" stroke-width="2" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="Facebook SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none"
+                  stroke="currentColor" stroke-width="2" />
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
+              class="footer-social-btn" aria-label="TikTok SMKS Muhammadiyah 1 Genteng">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Halaman Terkait (A. Tanpa Emoji + Chevron Hover) -->
+        <div class="footer-col">
+          <h4>Halaman Terkait</h4>
+          <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
+            <ul class="footer-links">
+              <li>
+                <a href="bkk.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Bursa Kerja Khusus (BKK)</a>
               </li>
-              <li class="footer-contact-item">
-                <svg
-                  class="footer-contact-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
-                  />
-                </svg>
-                <a
-                  href="https://wa.me/6282241356668"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="footer-contact-link"
-                  >0822-4135-6668 (WhatsApp)</a
-                >
+              <li>
+                <a href="visi-misi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Visi &amp; Misi</a>
               </li>
-              <li class="footer-contact-item">
-                <svg
-                  class="footer-contact-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <a
-                  href="mailto:smkmuhi.genteng1968@gmail.com"
-                  class="footer-contact-link"
-                  >smkmuhi.genteng1968@gmail.com</a
-                >
+              <li>
+                <a href="fasilitas.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Fasilitas Sekolah</a>
+              </li>
+              <li>
+                <a href="ekstrakurikuler.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Ekstrakurikuler &amp; IPM</a>
+              </li>
+              <li>
+                <a href="prestasi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Galeri Prestasi</a>
+              </li>
+              <li>
+                <a href="berita.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
+                  Jurnal &amp; Berita</a>
               </li>
             </ul>
-
-            <!-- C. Media Sosial Monokrom -->
-            <div
-              class="footer-social-row"
-              aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng"
-            >
-              <!-- Instagram -->
-              <a
-                href="https://www.instagram.com/smkmuhigts/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="Instagram SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="17.5"
-                    y1="6.5"
-                    x2="17.51"
-                    y2="6.5"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </a>
-              <!-- YouTube -->
-              <a
-                href="https://www.youtube.com/@smkmuhigts"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="YouTube SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <polygon
-                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-              <!-- Facebook -->
-              <a
-                href="https://www.facebook.com/smkmuhigts"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="Facebook SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                </svg>
-              </a>
-              <!-- TikTok -->
-              <a
-                href="https://www.tiktok.com/@smkmuhigts"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-social-btn"
-                aria-label="TikTok SMKS Muhammadiyah 1 Genteng"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Kolom 2: Halaman Terkait (A. Tanpa Emoji + Chevron Hover) -->
-          <div class="footer-col">
-            <h4>Halaman Terkait</h4>
-            <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
-              <ul class="footer-links">
-                <li>
-                  <a href="bkk.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Bursa Kerja Khusus (BKK)</a
-                  >
-                </li>
-                <li>
-                  <a href="visi-misi.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Visi &amp; Misi</a
-                  >
-                </li>
-                <li>
-                  <a href="fasilitas.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Fasilitas Sekolah</a
-                  >
-                </li>
-                <li>
-                  <a href="ekstrakurikuler.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Ekstrakurikuler &amp; IPM</a
-                  >
-                </li>
-                <li>
-                  <a href="prestasi.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Galeri Prestasi</a
-                  >
-                </li>
-                <li>
-                  <a href="berita.html"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Jurnal &amp; Berita</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <!-- Kolom 3:7 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
-          <div class="footer-col">
-            <h4>7 Konsentrasi</h4>
-            <nav
-              class="footer-nav"
-              aria-label="Navigasi 7 Konsentrasi Keahlian"
-            >
-              <ul class="footer-links">
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('rpl')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Rekayasa Perangkat Lunak</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('tkj')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Teknik Komputer &amp; Jaringan</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('dkv')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Desain Komunikasi Visual</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('bd')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Bisnis Digital</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('akl')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Akuntansi &amp; Keuangan Lembaga</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('mplb')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Manajemen Perkantoran</a
-                  >
-                </li>
-                <li>
-                  <a href="#jurusan" onclick="jumpToMajor('ph')"
-                    ><span class="footer-chevron" aria-hidden="true"
-                      >&rsaquo;</span
-                    >
-                    Perhotelan &amp; Hospitality</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <!-- Kolom 4: Identitas Lembaga Resmi -->
-          <div class="footer-col">
-            <h4>Identitas Lembaga</h4>
-            <div class="footer-identity-card">
-              <div><strong>NPSN:</strong> 20525597</div>
-              <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
-              <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
-              <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
-              <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
-            </div>
-          </div>
+          </nav>
         </div>
 
-        <div class="footer-bottom">
-          <div>
-            &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta
-            dilindungi.
+        <!-- Kolom 3:7 Konsentrasi Keahlian (B. Lengkap & Seragam) -->
+        <div class="footer-col">
+          <h4>7 Konsentrasi</h4>
+          <nav class="footer-nav" aria-label="Navigasi 7 Konsentrasi Keahlian">
+            <ul class="footer-links">
+              <li>
+                <a href="#jurusan" onclick="jumpToMajor('rpl')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Rekayasa Perangkat Lunak</a>
+              </li>
+              <li>
+                <a href="#jurusan" onclick="jumpToMajor('tkj')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Teknik Komputer &amp; Jaringan</a>
+              </li>
+              <li>
+                <a href="#jurusan" onclick="jumpToMajor('dkv')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Desain Komunikasi Visual</a>
+              </li>
+              <li>
+                <a href="#jurusan" onclick="jumpToMajor('bd')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Bisnis Digital</a>
+              </li>
+              <li>
+                <a href="#jurusan" onclick="jumpToMajor('akl')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Akuntansi &amp; Keuangan Lembaga</a>
+              </li>
+              <li>
+                <a href="#jurusan" onclick="jumpToMajor('mplb')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Manajemen Perkantoran</a>
+              </li>
+              <li>
+                <a href="#jurusan" onclick="jumpToMajor('ph')"><span class="footer-chevron"
+                    aria-hidden="true">&rsaquo;</span>
+                  Perhotelan &amp; Hospitality</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Kolom 4: Identitas Lembaga Resmi -->
+        <div class="footer-col">
+          <h4>Identitas Lembaga</h4>
+          <div class="footer-identity-card">
+            <div><strong>NPSN:</strong> 20525597</div>
+            <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+            <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+            <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+            <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
           </div>
-          <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
         </div>
       </div>
-    </footer>
 
-    <!-- AI CHATBOT WIDGET -->
-    <button
-      class="chatbot-btn"
-      id="chatbot-toggle"
-      aria-label="Buka Asisten AI"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-message-circle-more-icon lucide-message-circle-more"
-      >
-        <path
-          d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
-        />
-        <path d="M8 12h.01" />
-        <path d="M12 12h.01" />
-        <path d="M16 12h.01" />
-      </svg>
-    </button>
-    <div class="chat-panel" id="chat-panel">
-      <div class="chat-header">
-        <span>Asisten AI SMKS MUHI</span>
-        <span
-          style="
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta
+          dilindungi.
+        </div>
+        <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI CHATBOT WIDGET -->
+  <button class="chatbot-btn" id="chatbot-toggle" aria-label="Buka Asisten AI">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="lucide lucide-message-circle-more-icon lucide-message-circle-more">
+      <path
+        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+      <path d="M8 12h.01" />
+      <path d="M12 12h.01" />
+      <path d="M16 12h.01" />
+    </svg>
+  </button>
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <span>Asisten AI SMKS MUHI</span>
+      <span style="
             font-size: 0.75rem;
             background: rgba(255, 255, 255, 0.2);
             padding: 0.2rem 0.5rem;
             border-radius: 10px;
-          "
-          >Online</span
-        >
-      </div>
-      <div class="chat-body" id="chat-body">
-        <div class="chat-msg bot">
-          Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
-          Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran PPDB,
-          sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
-        </div>
-      </div>
-      <div class="chat-quick-pills">
-        <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
-          Info Jurusan
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">
-          Jadwal PPDB
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
-          LSP-P1 BNSP
-        </button>
-        <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
-          Lowongan BKK
-        </button>
-      </div>
-      <div class="chat-input-bar">
-        <input
-          type="text"
-          id="chat-input-text"
-          placeholder="Ketik pertanyaan Anda..."
-        />
-        <button onclick="handleChatSubmit()">Kirim</button>
+          ">Online</span>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">
+        Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
+        Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran PPDB,
+        sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
       </div>
     </div>
+    <div class="chat-quick-pills">
+      <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
+        Info Jurusan
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Jadwal PPDB')">
+        Jadwal PPDB
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
+        LSP-P1 BNSP
+      </button>
+      <button class="chat-pill" onclick="sendQuickMsg('Lowongan BKK')">
+        Lowongan BKK
+      </button>
+    </div>
+    <div class="chat-input-bar">
+      <input type="text" id="chat-input-text" placeholder="Ketik pertanyaan Anda..." />
+      <button onclick="handleChatSubmit()">Kirim</button>
+    </div>
+  </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script>
-      // AI Chatbot Logic
-      const chatbotToggle = document.getElementById("chatbot-toggle");
-      const chatPanel = document.getElementById("chat-panel");
-      const chatBody = document.getElementById("chat-body");
-      const chatInput = document.getElementById("chat-input-text");
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    // AI Chatbot Logic
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const chatPanel = document.getElementById("chat-panel");
+    const chatBody = document.getElementById("chat-body");
+    const chatInput = document.getElementById("chat-input-text");
 
-      if (chatbotToggle) {
-        chatbotToggle.addEventListener("click", () => {
-          chatPanel.classList.toggle("active");
+    if (chatbotToggle) {
+      chatbotToggle.addEventListener("click", () => {
+        chatPanel.classList.toggle("active");
+      });
+    }
+
+    function appendMsg(text, sender) {
+      if (!chatBody) return;
+      const div = document.createElement("div");
+      div.className = `chat-msg ${sender}`;
+      div.innerText = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function getBotResponse(input) {
+      const text = input.toLowerCase();
+      if (
+        text.includes("jurusan") ||
+        text.includes("prodi") ||
+        text.includes("keahlian")
+      ) {
+        return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL, TKJ, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+      } else if (
+        text.includes("ppdb") ||
+        text.includes("daftar") ||
+        text.includes("syarat") ||
+        text.includes("biaya")
+      ) {
+        return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
+      } else if (
+        text.includes("lsp") ||
+        text.includes("bnsp") ||
+        text.includes("sertifikat")
+      ) {
+        return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
+      } else if (
+        text.includes("loker") ||
+        text.includes("bkk") ||
+        text.includes("kerja") ||
+        text.includes("magang")
+      ) {
+        return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra industri terkemuka.";
+      } else if (text.includes("fasilitas") || text.includes("lab")) {
+        return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan TKJ, Studio DKV, Bengkel Otomotif, Dapur Komersial Tata Boga, dan Lapangan Olahraga.";
+      } else {
+        return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
+      }
+    }
+
+    function handleChatSubmit() {
+      if (!chatInput) return;
+      const text = chatInput.value.trim();
+      if (!text) return;
+      appendMsg(text, "user");
+      chatInput.value = "";
+      setTimeout(() => {
+        appendMsg(getBotResponse(text), "bot");
+      }, 400);
+    }
+
+    function sendQuickMsg(text) {
+      appendMsg(text, "user");
+      setTimeout(() => {
+        appendMsg(getBotResponse(text), "bot");
+      }, 400);
+    }
+
+    if (chatInput) {
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleChatSubmit();
+      });
+    }
+  </script>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Navbar Scrolled Effect
+    const mainNav = document.getElementById("main-nav");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) {
+        mainNav?.classList.add("scrolled");
+      } else {
+        mainNav?.classList.remove("scrolled");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMobileDrawer();
+    });
+
+    // 1. Header Reveal
+    gsap.to(".page-header .reveal-item", {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    // 2. Card Reveal & Image Animation Batch
+    ScrollTrigger.batch(".ekskul-card", {
+      start: "top 85%",
+      once: true,
+      onEnter: (batch) => {
+        // Animasi masuk untuk bungkus card
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out",
         });
-      }
 
-      function appendMsg(text, sender) {
-        if (!chatBody) return;
-        const div = document.createElement("div");
-        div.className = `chat-msg ${sender}`;
-        div.innerText = text;
-        chatBody.appendChild(div);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-
-      function getBotResponse(input) {
-        const text = input.toLowerCase();
-        if (
-          text.includes("jurusan") ||
-          text.includes("prodi") ||
-          text.includes("keahlian")
-        ) {
-          return "SMKS MUHI Genteng memiliki 8 program keahlian: RPL, TKJ, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
-        } else if (
-          text.includes("ppdb") ||
-          text.includes("daftar") ||
-          text.includes("syarat") ||
-          text.includes("biaya")
-        ) {
-          return "PPDB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian PPDB, atau datang langsung ke kampus di Jl. KH Imam Bahri No.10 Genteng.";
-        } else if (
-          text.includes("lsp") ||
-          text.includes("bnsp") ||
-          text.includes("sertifikat")
-        ) {
-          return "SMKS MUHI memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
-        } else if (
-          text.includes("loker") ||
-          text.includes("bkk") ||
-          text.includes("kerja") ||
-          text.includes("magang")
-        ) {
-          return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra industri terkemuka.";
-        } else if (text.includes("fasilitas") || text.includes("lab")) {
-          return "Fasilitas kami meliputi Laboratorium Software RPL, Lab Jaringan TKJ, Studio DKV, Bengkel Otomotif, Dapur Komersial Tata Boga, dan Lapangan Olahraga.";
-        } else {
-          return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi kampus kami.";
-        }
-      }
-
-      function handleChatSubmit() {
-        if (!chatInput) return;
-        const text = chatInput.value.trim();
-        if (!text) return;
-        appendMsg(text, "user");
-        chatInput.value = "";
-        setTimeout(() => {
-          appendMsg(getBotResponse(text), "bot");
-        }, 400);
-      }
-
-      function sendQuickMsg(text) {
-        appendMsg(text, "user");
-        setTimeout(() => {
-          appendMsg(getBotResponse(text), "bot");
-        }, 400);
-      }
-
-      if (chatInput) {
-        chatInput.addEventListener("keypress", (e) => {
-          if (e.key === "Enter") handleChatSubmit();
+        // Animasi Zoom-Out khusus untuk gambar (.card-bg) di dalam card
+        batch.forEach((card, index) => {
+          let bg = card.querySelector(".card-bg");
+          gsap.fromTo(
+            bg,
+            { scale: 1.3 },
+            {
+              scale: 1,
+              duration: 1.5,
+              delay: index * 0.15, // Sync dengan stagger card
+              ease: "power2.out",
+              clearProps: "transform", // Agar efek hover CSS bisa berfungsi lagi setelah animasi selesai
+            },
+          );
         });
-      }
-    </script>
+      },
+    });
 
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Navbar Scrolled Effect
-      const mainNav = document.getElementById("main-nav");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 40) {
-          mainNav?.classList.add("scrolled");
-        } else {
-          mainNav?.classList.remove("scrolled");
-        }
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMobileDrawer();
-      });
-
-      // 1. Header Reveal
-      gsap.to(".page-header .reveal-item", {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-      });
-
-      // 2. Card Reveal & Image Animation Batch
-      ScrollTrigger.batch(".ekskul-card", {
-        start: "top 85%",
-        once: true,
-        onEnter: (batch) => {
-          // Animasi masuk untuk bungkus card
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
-
-          // Animasi Zoom-Out khusus untuk gambar (.card-bg) di dalam card
-          batch.forEach((card, index) => {
-            let bg = card.querySelector(".card-bg");
-            gsap.fromTo(
-              bg,
-              { scale: 1.3 },
-              {
-                scale: 1,
-                duration: 1.5,
-                delay: index * 0.15, // Sync dengan stagger card
-                ease: "power2.out",
-                clearProps: "transform", // Agar efek hover CSS bisa berfungsi lagi setelah animasi selesai
-              },
-            );
-          });
+    // 3. Parallax Image Scrubbing
+    gsap.utils.toArray(".ekskul-card").forEach((card) => {
+      let bg = card.querySelector(".card-bg");
+      gsap.to(bg, {
+        backgroundPosition: "50% 100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
         },
       });
+    });
+  </script>
 
-      // 3. Parallax Image Scrubbing
-      gsap.utils.toArray(".ekskul-card").forEach((card) => {
-        let bg = card.querySelector(".card-bg");
-        gsap.to(bg, {
-          backgroundPosition: "50% 100%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      });
-    </script>
+  <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
+  <script>
+    (function () {
+      function initNavigation() {
+        var hamburgerBtn =
+          document.querySelector("#hamburger-btn") ||
+          document.querySelector(".hamburger") ||
+          document.querySelector(".nav-toggle");
+        var drawerCloseBtn =
+          document.querySelector("#drawer-close-btn") ||
+          document.querySelector(".drawer-close");
+        var mobileDrawer =
+          document.querySelector("#mobile-drawer") ||
+          document.querySelector(".mobile-drawer");
+        var mobileOverlay =
+          document.querySelector("#mobile-overlay") ||
+          document.querySelector(".mobile-overlay");
 
-    <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
-    <script>
-      (function () {
-        function initNavigation() {
-          var hamburgerBtn =
-            document.querySelector("#hamburger-btn") ||
-            document.querySelector(".hamburger") ||
-            document.querySelector(".nav-toggle");
-          var drawerCloseBtn =
-            document.querySelector("#drawer-close-btn") ||
-            document.querySelector(".drawer-close");
-          var mobileDrawer =
-            document.querySelector("#mobile-drawer") ||
-            document.querySelector(".mobile-drawer");
-          var mobileOverlay =
-            document.querySelector("#mobile-overlay") ||
-            document.querySelector(".mobile-overlay");
+        function openDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.add("active");
+          if (mobileOverlay) mobileOverlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+          if (hamburgerBtn)
+            hamburgerBtn.setAttribute("aria-expanded", "true");
+          if (window.lenis) window.lenis.stop();
+        }
 
-          function openDrawer() {
-            if (mobileDrawer) mobileDrawer.classList.add("active");
-            if (mobileOverlay) mobileOverlay.classList.add("active");
-            document.body.style.overflow = "hidden";
-            if (hamburgerBtn)
-              hamburgerBtn.setAttribute("aria-expanded", "true");
-            if (window.lenis) window.lenis.stop();
-          }
+        function closeDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.remove("active");
+          if (mobileOverlay) mobileOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+          if (hamburgerBtn)
+            hamburgerBtn.setAttribute("aria-expanded", "false");
+          if (window.lenis) window.lenis.start();
+        }
 
-          function closeDrawer() {
-            if (mobileDrawer) mobileDrawer.classList.remove("active");
-            if (mobileOverlay) mobileOverlay.classList.remove("active");
-            document.body.style.overflow = "";
-            if (hamburgerBtn)
-              hamburgerBtn.setAttribute("aria-expanded", "false");
-            if (window.lenis) window.lenis.start();
-          }
-
-          if (hamburgerBtn) {
-            hamburgerBtn.removeEventListener("click", openDrawer);
-            hamburgerBtn.addEventListener("click", function (e) {
-              e.preventDefault();
-              e.stopPropagation();
-              if (mobileDrawer && mobileDrawer.classList.contains("active")) {
-                closeDrawer();
-              } else {
-                openDrawer();
-              }
-            });
-          }
-
-          if (drawerCloseBtn) {
-            drawerCloseBtn.removeEventListener("click", closeDrawer);
-            drawerCloseBtn.addEventListener("click", function (e) {
-              e.preventDefault();
+        if (hamburgerBtn) {
+          hamburgerBtn.removeEventListener("click", openDrawer);
+          hamburgerBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (mobileDrawer && mobileDrawer.classList.contains("active")) {
               closeDrawer();
-            });
-          }
-
-          if (mobileOverlay) {
-            mobileOverlay.removeEventListener("click", closeDrawer);
-            mobileOverlay.addEventListener("click", function (e) {
-              e.preventDefault();
-              closeDrawer();
-            });
-          }
-
-          // Close on drawer link click
-          if (mobileDrawer) {
-            var drawerLinks = mobileDrawer.querySelectorAll("a");
-            drawerLinks.forEach(function (link) {
-              link.addEventListener("click", function () {
-                closeDrawer();
-              });
-            });
-          }
-
-          // Escape key listener
-          document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape") {
-              closeDrawer();
-              if (typeof closeItemModal === "function") closeItemModal();
-              if (typeof closeNewsModal === "function") closeNewsModal();
-              if (typeof closeAwardModal === "function") closeAwardModal();
-              if (typeof closeMajorModal === "function") closeMajorModal();
+            } else {
+              openDrawer();
             }
           });
         }
 
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", initNavigation);
-        } else {
-          initNavigation();
+        if (drawerCloseBtn) {
+          drawerCloseBtn.removeEventListener("click", closeDrawer);
+          drawerCloseBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
         }
-      })();
-    </script>
 
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-    <script>
-      window.PX_CONFIG = { cards: ".ekskul-card" };
-    </script>
-    <script>
-      try {
-        var s = document.createElement("script");
-        s.src = "parallax-kit.js";
-        document.body.appendChild(s);
-      } catch (e) {
-        console.warn(e);
-      }
-    </script>
+        if (mobileOverlay) {
+          mobileOverlay.removeEventListener("click", closeDrawer);
+          mobileOverlay.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
+        }
 
-    <!-- MANDATORY SAFETY FALLBACK -->
-    <script>
-      setTimeout(function () {
-        document.querySelectorAll("*").forEach(function (el) {
-          if (
-            getComputedStyle(el).opacity === "0" &&
-            el.textContent.trim().length > 0
-          ) {
-            el.style.opacity = "1";
-            el.style.transform = "none";
-            el.style.filter = "none";
+        // Close on drawer link click
+        if (mobileDrawer) {
+          var drawerLinks = mobileDrawer.querySelectorAll("a");
+          drawerLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+              closeDrawer();
+            });
+          });
+        }
+
+        // Escape key listener
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeDrawer();
+            if (typeof closeItemModal === "function") closeItemModal();
+            if (typeof closeNewsModal === "function") closeNewsModal();
+            if (typeof closeAwardModal === "function") closeAwardModal();
+            if (typeof closeMajorModal === "function") closeMajorModal();
           }
         });
-        if (typeof ScrollTrigger !== "undefined") {
-          ScrollTrigger.refresh();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initNavigation);
+      } else {
+        initNavigation();
+      }
+    })();
+  </script>
+
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script>
+    window.PX_CONFIG = { cards: ".ekskul-card" };
+  </script>
+  <script>
+    try {
+      var s = document.createElement("script");
+      s.src = "parallax-kit.js";
+      document.body.appendChild(s);
+    } catch (e) {
+      console.warn(e);
+    }
+  </script>
+
+  <!-- MANDATORY SAFETY FALLBACK -->
+  <script>
+    setTimeout(function () {
+      document.querySelectorAll("*").forEach(function (el) {
+        if (
+          getComputedStyle(el).opacity === "0" &&
+          el.textContent.trim().length > 0
+        ) {
+          el.style.opacity = "1";
+          el.style.transform = "none";
+          el.style.filter = "none";
         }
-      }, 2000);
-    </script>
-  </body>
+      });
+      if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.refresh();
+      }
+    }, 2000);
+  </script>
+</body>
+
 </html>
