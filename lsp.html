@@ -1479,7 +1479,7 @@
             <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
             <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
             <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
-            <a href="berita.html">📰 Jurnal & Kabar Kampus</a>
+            <a href="berita.html">📰 Jurnal & Kabar Sekolah</a>
 
             <div class="drawer-section-title">Navigasi Halaman Utama</div>
             <a href="visi-misi.html#sambutan">👤 Sambutan Kepala Sekolah</a>
@@ -1821,7 +1821,7 @@
                             <li>
                                 <a href="index.html#jurusan" onclick="jumpToMajor('rpl')"><span class="footer-chevron"
                                         aria-hidden="true">&rsaquo;</span>
-                                    Rekayasa Perangkat Lunak</a>
+                                    Pengembang Perangkat Lunak & Gim</a>
                             </li>
                             <li>
                                 <a href="index.html#jurusan" onclick="jumpToMajor('tkj')"><span class="footer-chevron"
@@ -1935,8 +1935,8 @@
                 const SKEMA = [
             {
                 nama: 'KKNI Level II pada Kompetensi Keahlian Teknik Komputer dan Jaringan',
-                jurusan: 'TKJ',
-                kode: 'SS.TKJ.02',
+                jurusan: 'TJKT',
+                kode: 'SS.TJKT.02',
                 acuan: 'SKKNI 2018',
                 units: [
                     'Merakit Komputer',
@@ -2004,9 +2004,9 @@
                 catatan: 'Uji praktik dilakukan dengan studi kasus nyata.'
             },
             {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Rekayasa Perangkat Lunak',
-                jurusan: 'RPL',
-                kode: 'SS.RPL.02',
+                nama: 'KKNI Level II pada Kompetensi Keahlian Pengembang Perangkat Lunak & Gim',
+                jurusan: 'PPLG',
+                kode: 'SS.PPLG.02',
                 acuan: 'SKKNI 2018',
                 units: [
                     'Membuat Dokumen Kode Program',
@@ -2051,7 +2051,7 @@
                 const ASESOR = [
             { nama: 'Tashilul Aqied, S.Pd', bidang: 'Teknik Komputer dan Jaringan', reg: 'MET.000.000.0001', foto: '' },
             { nama: 'Dra. Sri Wahyuni', bidang: 'Akuntansi dan Keuangan', reg: 'MET.000.000.0002', foto: '' },
-            { nama: 'Ahmad Faisal, M.Kom', bidang: 'Rekayasa Perangkat Lunak', reg: 'MET.000.000.0003', foto: '' },
+            { nama: 'Ahmad Faisal, M.Kom', bidang: 'Pengembang Perangkat Lunak & Gim', reg: 'MET.000.000.0003', foto: '' },
             { nama: 'Nurul Hidayah, S.E.', bidang: 'Manajemen Perkantoran', reg: 'MET.000.000.0004', foto: '' }
         ];
 
@@ -2062,7 +2062,7 @@
            tautan  : anchor ke halaman fasilitas (opsional)
         */
                 const TUK = [
-            { nama: 'TUK Laboratorium Komputer Utama', untuk: 'TKJ, RPL, DKV, Bisnis Digital', desc: 'Laboratorium ber-AC dengan PC spesifikasi industri dan koneksi internet fiber.', tautan: 'fasilitas.html' },
+            { nama: 'TUK Laboratorium Komputer Utama', untuk: 'TJKT, PPLG, DKV, Bisnis Digital', desc: 'Laboratorium ber-AC dengan PC spesifikasi industri dan koneksi internet fiber.', tautan: 'fasilitas.html' },
             { nama: 'TUK Edohotel SMEMSA', untuk: 'Perhotelan', desc: 'Mini hotel standar industri untuk uji kompetensi Front Office dan Housekeeping.', tautan: 'fasilitas.html' },
             { nama: 'TUK Perkantoran & Akuntansi', untuk: 'MPLB, AKL', desc: 'Ruang simulasi kantor lengkap dengan peralatan filling, komputer akuntansi, dan meja resepsionis.', tautan: 'fasilitas.html' }
         ];
@@ -2180,7 +2180,7 @@
                         '<div class="tuk-for">' + t.untuk + '</div>' +
                         '<h3 class="tuk-name">' + t.nama + '</h3>' +
                         '<p class="tuk-desc">' + t.desc + '</p>' +
-                        (t.tautan ? '<a class="tuk-link" href="' + t.tautan + '">Lihat di denah kampus &rarr;</a>' : '');
+                        (t.tautan ? '<a class="tuk-link" href="' + t.tautan + '">Lihat di denah sekolah &rarr;</a>' : '');
                     tg.appendChild(card);
                 });
             }
