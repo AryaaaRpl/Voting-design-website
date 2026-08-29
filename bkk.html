@@ -171,7 +171,7 @@
       box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
     }
 
-    /* HEADER NAVBAR - FLOATING ISLAND WITH GLASSMORPHISM 2.0 (MATCHING INDEX.HTML) */
+    /* HEADER NAVBAR - FLOATING ISLAND WITH GLASSMORPHISM 2.0 (EXACT MATCH INDEX.HTML) */
     .header-wrapper {
       position: fixed !important;
       top: 1rem;
@@ -195,6 +195,7 @@
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
+      position: relative !important;
     }
 
     .nav-island.scrolled {
@@ -225,6 +226,24 @@
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
     }
 
+    .brand-text-main {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .brand-text-sub {
+      font-size: 0.72rem;
+      color: var(--secondary);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
     .nav-menu {
       display: flex;
       align-items: center;
@@ -248,7 +267,11 @@
       transition: var(--transition-fast);
     }
 
-    .nav-link:hover,
+    .nav-link:hover {
+      color: var(--primary);
+      background: var(--primary-surface);
+    }
+
     .nav-link.active {
       color: var(--primary);
       background: var(--primary-surface);
@@ -413,26 +436,30 @@
 
     .drawer-links a {
       transition: var(--transition);
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
       font-weight: 600;
       font-size: 0.95rem;
+      border-radius: var(--radius-sm);
       color: var(--text-dark);
+      margin-bottom: 0.3rem;
     }
 
-    .drawer-links a.active,
-    .drawer-links a:hover {
+    .drawer-links a:hover,
+    .drawer-links a.active {
       background: var(--primary-surface);
       color: var(--primary);
     }
 
     .drawer-section-title {
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-size: 0.72rem;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
       color: var(--text-subtle);
-      margin: 1.2rem 0 0.4rem 0.5rem;
-      letter-spacing: 0.05em;
+      font-weight: 800;
+      margin: 1.2rem 0 0.5rem 0.8rem;
     }
 
     @media (max-width: 900px) {
@@ -815,6 +842,28 @@
       align-items: center;
       gap: 0.65rem;
       margin-top: 0.5rem;
+    }
+
+    .footer-map-box {
+      margin-top: 1.2rem;
+      border-radius: var(--radius-sm, 12px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .footer-map-box iframe {
+      width: 100%;
+      height: 150px;
+      border: 0;
+      display: block;
+      filter: grayscale(0.2) contrast(1.05);
+      transition: filter 0.3s ease;
+    }
+
+    .footer-map-box:hover iframe {
+      filter: grayscale(0) contrast(1);
     }
 
     .footer-social-btn {
@@ -1211,7 +1260,7 @@
   <header class="header-wrapper">
     <nav class="nav-island" id="main-nav">
       <a href="index.html#hero" class="brand-box">
-        <img src="assets/FBKK PNG.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
+        <img src="assets/logo.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
               this.closest('.card')
                 ? this.closest('.card').classList.add('no-image')
                 : null;
@@ -1935,6 +1984,11 @@
               </svg>
             </a>
           </div>
+
+          <!-- D. Peta Lokasi Sekolah Google Maps -->
+          <div class="footer-map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4960283657647!2d114.155154175011!3d-8.35276589168399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd154d9bec38cf9%3A0x8c62fbc05274d015!2sSMK%20Muhammadiyah%201%20Genteng!5e0!3m2!1sid!2sid!4v1787989542669!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
         </div>
 
         <!-- Kolom 2: Halaman Terkait -->
@@ -2086,40 +2140,109 @@
     </div>
   </div>
 
-  <!-- MOBILE DRAWER & NAVBAR SCRIPT -->
+  <!-- STANDARDIZED ACCESSIBLE NAVBAR & DRAWER SCRIPT (INITIALIZED FIRST) -->
   <script>
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const drawerCloseBtn = document.getElementById("drawer-close-btn");
-    const mobileDrawer = document.getElementById("mobile-drawer");
-    const mobileOverlay = document.getElementById("mobile-overlay");
+    (function () {
+      function initNavigation() {
+        var hamburgerBtn =
+          document.querySelector("#hamburger-btn") ||
+          document.querySelector(".hamburger") ||
+          document.querySelector(".nav-toggle");
+        var drawerCloseBtn =
+          document.querySelector("#drawer-close-btn") ||
+          document.querySelector(".drawer-close");
+        var mobileDrawer =
+          document.querySelector("#mobile-drawer") ||
+          document.querySelector(".mobile-drawer");
+        var mobileOverlay =
+          document.querySelector("#mobile-overlay") ||
+          document.querySelector(".mobile-overlay");
 
-    function openDrawer() {
-      if (mobileDrawer) mobileDrawer.classList.add("active");
-      if (mobileOverlay) mobileOverlay.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeDrawer() {
-      if (mobileDrawer) mobileDrawer.classList.remove("active");
-      if (mobileOverlay) mobileOverlay.classList.remove("active");
-      document.body.style.overflow = "";
-    }
-
-    if (hamburgerBtn) hamburgerBtn.addEventListener("click", openDrawer);
-    if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeDrawer);
-    if (mobileOverlay) mobileOverlay.addEventListener("click", closeDrawer);
-
-    window.addEventListener("scroll", () => {
-      const navIsland = document.querySelector(".nav-island");
-      if (navIsland) {
-        if (window.scrollY > 20) {
-          navIsland.classList.add("scrolled");
-        } else {
-          navIsland.classList.remove("scrolled");
+        function openDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.add("active");
+          if (mobileOverlay) mobileOverlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+          if (hamburgerBtn)
+            hamburgerBtn.setAttribute("aria-expanded", "true");
+          if (window.lenis) window.lenis.stop();
         }
-      }
-    });
 
+        function closeDrawer() {
+          if (mobileDrawer) mobileDrawer.classList.remove("active");
+          if (mobileOverlay) mobileOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+          if (hamburgerBtn)
+            hamburgerBtn.setAttribute("aria-expanded", "false");
+          if (window.lenis) window.lenis.start();
+        }
+
+        if (hamburgerBtn) {
+          hamburgerBtn.removeEventListener("click", openDrawer);
+          hamburgerBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (mobileDrawer && mobileDrawer.classList.contains("active")) {
+              closeDrawer();
+            } else {
+              openDrawer();
+            }
+          });
+        }
+
+        if (drawerCloseBtn) {
+          drawerCloseBtn.removeEventListener("click", closeDrawer);
+          drawerCloseBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
+        }
+
+        if (mobileOverlay) {
+          mobileOverlay.removeEventListener("click", closeDrawer);
+          mobileOverlay.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeDrawer();
+          });
+        }
+
+        // Close on drawer link click
+        if (mobileDrawer) {
+          var drawerLinks = mobileDrawer.querySelectorAll("a");
+          drawerLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+              closeDrawer();
+            });
+          });
+        }
+
+        // Escape key listener
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            closeDrawer();
+          }
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initNavigation);
+      } else {
+        initNavigation();
+      }
+
+      window.addEventListener("scroll", function () {
+        var navIsland = document.querySelector(".nav-island");
+        if (navIsland) {
+          if (window.scrollY > 20) {
+            navIsland.classList.add("scrolled");
+          } else {
+            navIsland.classList.remove("scrolled");
+          }
+        }
+      });
+    })();
+  </script>
+
+  <script>
     // AI Chatbot Logic
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatPanel = document.getElementById("chat-panel");

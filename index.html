@@ -1019,7 +1019,7 @@
            4. HERO SECTION - ULTRA-MODERN ASYMMETRICAL TECH-EDITORIAL
            ========================================================================== */
     .hero-section {
-      padding: 8rem 0rem;
+      padding: 8rem 0rem 4rem;
       position: relative;
       display: flex;
       align-items: center;
@@ -1051,7 +1051,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      align-items: start;
+      align-items: center;
       min-height: 480px;
     }
 
@@ -1502,17 +1502,15 @@
       border-bottom: 1px solid var(--border-card);
     }
 
-    .sinergi-section {
-      min-height: 100dvh;
-      display: grid;
-      place-items: center;
+    .sinergi-section,
+    .unit-usaha-section {
+      padding: 7.5rem 0;
       background: var(--bg-dark);
       color: var(--text-light);
       position: relative;
       overflow: hidden;
       border-top: 1px solid var(--border-dark);
       border-bottom: 1px solid var(--border-dark);
-      padding: 4rem 0;
     }
 
     .sinergi-stage-wrapper {
@@ -1808,7 +1806,6 @@
       background: #ffffff;
       overflow: hidden;
       position: relative;
-      border-bottom: 1px solid var(--border-card);
     }
 
     .marquee-track {
@@ -3208,6 +3205,230 @@
       margin-top: 1.5rem;
     }
 
+    /* BLUD MODAL COMPONENT (Matching Visi-Misi Modal Style) */
+    .blud-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 9999 !important;
+      overflow-y: auto !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overscroll-behavior: contain;
+      touch-action: pan-y;
+    }
+
+    .blud-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .blud-modal-card {
+      background: #ffffff;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 24px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.35);
+      transform: scale(0.92) translateY(20px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      color: #1e293b;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) rgba(6, 78, 59, 0.05);
+    }
+
+    .blud-modal-overlay.active .blud-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .blud-modal-banner {
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+    }
+
+    .blud-modal-banner img.bg-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      filter: brightness(0.7);
+    }
+
+    .blud-modal-banner-icon {
+      position: relative;
+      z-index: 2;
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+      animation: modalFloat 3s ease-in-out infinite;
+    }
+
+    .blud-modal-close-btn {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      z-index: 10;
+      line-height: 1;
+    }
+
+    .blud-modal-close-btn:hover {
+      background: #ffffff;
+      color: #064e3b;
+      transform: rotate(90deg);
+    }
+
+    .blud-modal-body {
+      padding: 2rem;
+    }
+
+    .blud-modal-tag {
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #d97706;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .blud-modal-title {
+      font-family: var(--font-head);
+      font-size: 1.75rem;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .blud-modal-desc {
+      color: #475569;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .blud-modal-specs-box {
+      margin-bottom: 1.5rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.2rem;
+    }
+
+    .blud-modal-section-title {
+      font-family: var(--font-head);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .blud-modal-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .blud-modal-chip {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0f172a;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .blud-modal-highlight-box {
+      background: rgba(6, 78, 59, 0.06);
+      border: 1px solid rgba(6, 78, 59, 0.15);
+      border-radius: 14px;
+      padding: 1.2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .blud-modal-highlight-text {
+      font-size: 0.92rem;
+      color: #064e3b;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .blud-modal-footer-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .blud-modal-card {
+        max-height: 94vh;
+        border-radius: 20px;
+      }
+      .blud-modal-body {
+        padding: 1.4rem;
+      }
+      .blud-modal-title {
+        font-size: 1.4rem;
+      }
+      .blud-modal-banner {
+        height: 160px;
+      }
+      .blud-modal-banner-icon {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
     .bkk-section {
       padding: 7.5rem 0;
       background: var(--bg-main);
@@ -3352,6 +3573,28 @@
       grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
       gap: 3rem;
       margin-bottom: 3.5rem;
+    }
+
+    .footer-map-box {
+      margin-top: 1.2rem;
+      border-radius: var(--radius-sm, 12px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .footer-map-box iframe {
+      width: 100%;
+      height: 150px;
+      border: 0;
+      display: block;
+      filter: grayscale(0.2) contrast(1.05);
+      transition: filter 0.3s ease;
+    }
+
+    .footer-map-box:hover iframe {
+      filter: grayscale(0) contrast(1);
     }
 
     /* D. Judul Kolom Footer: 0.78rem, weight 800, letter-spacing 0.1em, uppercase, var(--text-subtle) */
@@ -7573,43 +7816,6 @@
             <a href="#spmb" class="btn btn-primary">Daftar SPMB 2026 &rarr;</a>
             <a href="#jurusan" class="btn btn-outline">Jelajahi 7 Konsentrasi Keahlian &rarr;</a>
           </div>
-
-          <!-- Hero Thin Proof Strip (B.5) -->
-          <div class="hero-proof-strip" aria-label="Bukti Keunggulan Lembaga">
-            <div class="hero-proof-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21h18"></path>
-                <path d="M4 21V9"></path>
-                <path d="M20 21V9"></path>
-                <path d="M12 21V9"></path>
-                <path d="M2 9h20l-10-7L2 9z"></path>
-              </svg>
-              <span>Sejak 1968</span>
-            </div>
-            <span class="hero-proof-dot">&bull;</span>
-            <div class="hero-proof-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                <path d="M4 22h16"></path>
-                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-              </svg>
-              <span>Akreditasi A (Unggul)</span>
-            </div>
-            <span class="hero-proof-dot">&bull;</span>
-            <div class="hero-proof-item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-              </svg>
-              <span>7 Konsentrasi Keahlian</span>
-            </div>
-          </div>
         </div>
 
         <div class="hero-image-col">
@@ -7630,105 +7836,15 @@
                 <div class="proof-label">Terserap Kerja</div>
               </div>
               <div class="proof-col">
-                <div class="proof-number">1968</div>
-                <div class="proof-label">Tahun Berdiri</div>
+                <div class="proof-number">1135</div>
+                <div class="proof-label">Jumlah Siswa</div>
               </div>
               <div class="proof-col">
-                <div class="proof-number">A</div>
-                <div class="proof-label">Akreditasi Unggul</div>
+                <div class="proof-number">1000</div>
+                <div class="proof-label">Jumlah Prestasi</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7 Major Quick Jump Chips (A.1) - Moved outside hero -->
-  <section class="major-quick-chips-section" style="
-        background-color: var(--bg-alt);
-        padding: 1.5rem 0;
-        border-bottom: 1px solid var(--border-card);
-      ">
-    <div class="container">
-      <div class="major-quick-chips-wrapper">
-        <div class="major-chips-label" style="
-              text-align: center;
-              margin-bottom: 1rem;
-              font-weight: 600;
-              color: var(--text-muted);
-            ">
-          Pilih & Lompat ke Program Keahlian:
-        </div>
-        <div class="major-chips-list" role="navigation" aria-label="Daftar Cepat Jurusan" style="
-              justify-content: center;
-              flex-wrap: wrap;
-              display: flex;
-              gap: 0.75rem;
-            ">
-          <button class="major-chip-btn" onclick="jumpToMajor('rpl')">
-            <img src="assets/major/PPLG-removebg-preview.png" alt="PPLG" class="major-chip-icon" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            PPLG
-          </button>
-          <button class="major-chip-btn" onclick="jumpToMajor('tkj')">
-            <img src="assets/major/TJKT-removebg-preview.png" alt="TJKT" class="major-chip-icon" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            TJKT
-          </button>
-          <button class="major-chip-btn" onclick="jumpToMajor('dkv')">
-            <img src="assets/major/dkv.png" alt="DKV" class="major-chip-icon" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            DKV
-          </button>
-          <button class="major-chip-btn" onclick="jumpToMajor('bd')">
-            <img src="assets/major/logo bdp.png" alt="Bisnis Digital" class="major-chip-icon" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            Bisnis Digital
-          </button>
-          <button class="major-chip-btn" onclick="jumpToMajor('akl')">
-            <img src="assets/major/logo AKL.png" alt="Akuntansi" class="major-chip-icon" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            Akuntansi
-          </button>
-          <button class="major-chip-btn" onclick="jumpToMajor('mplb')">
-            <img src="assets/major/mp.jpeg" alt="Perkantoran" class="major-chip-icon" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            Perkantoran
-          </button>
-          <button class="major-chip-btn" onclick="jumpToMajor('ph')">
-            <img src="assets/major/PH.png" alt="Perhotelan" class="major-chip-icon" onerror="
-                  this.closest('.card')
-                    ? this.closest('.card').classList.add('no-image')
-                    : null;
-                  this.remove();
-                " />
-            Perhotelan
-          </button>
         </div>
       </div>
     </div>
@@ -8113,6 +8229,96 @@
     </div>
   </section>
 
+  <!-- 7 Major Quick Jump Chips (A.1) - Moved outside hero -->
+  <section class="major-quick-chips-section" style="
+        background-color: var(--bg-alt);
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-card);
+      ">
+    <div class="container">
+      <div class="major-quick-chips-wrapper">
+        <div class="major-chips-label" style="
+              text-align: center;
+              margin-bottom: 1rem;
+              font-weight: 600;
+              color: var(--text-muted);
+            ">
+          Pilih & Lompat ke Program Keahlian:
+        </div>
+        <div class="major-chips-list" role="navigation" aria-label="Daftar Cepat Jurusan" style="
+              justify-content: center;
+              flex-wrap: wrap;
+              display: flex;
+              gap: 0.75rem;
+            ">
+          <button class="major-chip-btn" onclick="jumpToMajor('rpl')">
+            <img src="assets/major/PPLG-removebg-preview.png" alt="PPLG" class="major-chip-icon" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            PPLG
+          </button>
+          <button class="major-chip-btn" onclick="jumpToMajor('tkj')">
+            <img src="assets/major/TJKT-removebg-preview.png" alt="TJKT" class="major-chip-icon" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            TJKT
+          </button>
+          <button class="major-chip-btn" onclick="jumpToMajor('dkv')">
+            <img src="assets/major/dkv.png" alt="DKV" class="major-chip-icon" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            DKV
+          </button>
+          <button class="major-chip-btn" onclick="jumpToMajor('bd')">
+            <img src="assets/major/logo bdp.png" alt="Bisnis Digital" class="major-chip-icon" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            Bisnis Digital
+          </button>
+          <button class="major-chip-btn" onclick="jumpToMajor('akl')">
+            <img src="assets/major/logo AKL.png" alt="Akuntansi" class="major-chip-icon" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            Akuntansi
+          </button>
+          <button class="major-chip-btn" onclick="jumpToMajor('mplb')">
+            <img src="assets/major/mp.jpeg" alt="Perkantoran" class="major-chip-icon" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            Perkantoran
+          </button>
+          <button class="major-chip-btn" onclick="jumpToMajor('ph')">
+            <img src="assets/major/PH.png" alt="Perhotelan" class="major-chip-icon" onerror="
+                  this.closest('.card')
+                    ? this.closest('.card').classList.add('no-image')
+                    : null;
+                  this.remove();
+                " />
+            Perhotelan
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 4. COUNTER STATS STRIP (Section 2 in Flow: Hero -> Statistik) -->
   <section class="stats-section" id="statistik" aria-label="Statistik Lembaga">
     <div class="px-stage" aria-hidden="true">
@@ -8126,11 +8332,11 @@
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-num counter-value" data-target="1968">0</div>
-          <div class="stat-label">Tahun Berdiri (58+ Th Pengabdian)</div>
+          <div class="stat-label">Tahun Berdiri</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num counter-value" data-target="4551">0</div>
-          <div class="stat-label">Alumni Sukses & Terserap DUDI</div>
+          <div class="stat-num counter-value" data-target="24">0</div>
+          <div class="stat-label">Jumlah Mitran</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">
@@ -8642,6 +8848,100 @@
     </div>
   </section>
 
+  <!-- BLUD PRODUCT DETAIL MODAL (Matching Visi-Misi Modal) -->
+  <div class="blud-modal-overlay" id="blud-modal-overlay" onclick="closeBludModalOnOverlay(event)" data-lenis-prevent>
+    <div class="blud-modal-card" id="blud-modal-card" data-lenis-prevent>
+      <div class="blud-modal-banner" id="blud-modal-banner">
+        <img src="" alt="" id="blud-modal-bg-img" class="bg-cover" style="display: none;" />
+        <div class="blud-modal-banner-icon" id="blud-modal-icon-box">
+          <span id="blud-modal-icon-emoji" style="font-size: 2.5rem;">💼</span>
+          <img id="blud-modal-icon-img" src="" alt="" style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+        </div>
+        <button aria-label="Tutup Detail Produk BLUD" class="blud-modal-close-btn" onclick="closeBludModal()">
+          &times;
+        </button>
+      </div>
+      <div class="blud-modal-body">
+        <span class="blud-modal-tag" id="blud-modal-tag">💼 Dikelola Siswa BLUD</span>
+        <h3 class="blud-modal-title" id="blud-modal-title">Nama Produk BLUD</h3>
+        <p class="blud-modal-desc" id="blud-modal-desc">Deskripsi lengkap produk...</p>
+        
+        <div class="blud-modal-specs-box">
+          <div class="blud-modal-section-title">
+            <span>🏷️</span> Spesifikasi &amp; Informasi Detail:
+          </div>
+          <div class="blud-modal-chips-row" id="blud-modal-chips">
+            <!-- Chips dirender oleh JS -->
+          </div>
+        </div>
+
+        <div class="blud-modal-highlight-box">
+          <div class="blud-modal-section-title" style="color: #064e3b; margin-bottom: 0.4rem;">
+            <span>✨</span> Nilai Praktik Vokasi &amp; Pembelajaran BLUD:
+          </div>
+          <div class="blud-modal-highlight-text" id="blud-modal-highlight">
+            Highlight praktik...
+          </div>
+        </div>
+
+        <div class="blud-modal-footer-cta">
+          <div style="font-size: 0.85rem; color: #64748b;">
+            <strong style="color: #0f172a;">Unit Usaha BLUD SMEMSA</strong> • Berlisensi &amp; Didampingi Guru Industri
+          </div>
+          <button class="btn btn-primary" onclick="closeBludModal()" style="padding: 0.6rem 1.4rem; font-size: 0.9rem;">
+            Tutup Detail
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT USAHA SEKOLAH DETAIL MODAL -->
+  <div class="blud-modal-overlay" id="unit-usaha-modal-overlay" onclick="closeUnitUsahaModalOnOverlay(event)" data-lenis-prevent>
+    <div class="blud-modal-card" id="unit-usaha-modal-card" data-lenis-prevent>
+      <div class="blud-modal-banner" id="unit-usaha-modal-banner">
+        <div class="blud-modal-banner-icon" id="unit-usaha-modal-icon-box">
+          <span id="unit-usaha-modal-icon-emoji" style="font-size: 2.5rem;">🏢</span>
+        </div>
+        <button aria-label="Tutup Detail Unit Usaha" class="blud-modal-close-btn" onclick="closeUnitUsahaModal()">
+          &times;
+        </button>
+      </div>
+      <div class="blud-modal-body">
+        <span class="blud-modal-tag" id="unit-usaha-modal-tag">🏢 Unit Usaha Sekolah (TEFA &amp; BLUD)</span>
+        <h3 class="blud-modal-title" id="unit-usaha-modal-title">Nama Unit Usaha</h3>
+        <p class="blud-modal-desc" id="unit-usaha-modal-desc">Deskripsi lengkap unit usaha...</p>
+        
+        <div class="blud-modal-specs-box">
+          <div class="blud-modal-section-title">
+            <span>🏷️</span> Layanan &amp; Keunggulan Utama:
+          </div>
+          <div class="blud-modal-chips-row" id="unit-usaha-modal-chips">
+            <!-- Chips dirender oleh JS -->
+          </div>
+        </div>
+
+        <div class="blud-modal-highlight-box">
+          <div class="blud-modal-section-title" style="color: #064e3b; margin-bottom: 0.4rem;">
+            <span>✨</span> Nilai Ekosistem Vokasi &amp; Praktik Industri:
+          </div>
+          <div class="blud-modal-highlight-text" id="unit-usaha-modal-highlight">
+            Highlight unit usaha...
+          </div>
+        </div>
+
+        <div class="blud-modal-footer-cta">
+          <div style="font-size: 0.85rem; color: #64748b;">
+            <strong style="color: #0f172a;">Ekosistem TEFA &amp; BLUD SMEMSA</strong> • Berstandar DUDIKA
+          </div>
+          <button class="btn btn-primary" onclick="closeUnitUsahaModal()" style="padding: 0.6rem 1.4rem; font-size: 0.9rem;">
+            Tutup Detail
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 9. PRESTASI & TESTIMONI STRIP (Section 7 in Flow: BKK -> Prestasi) -->
   <section class="achievements-section" id="prestasi">
     <div class="achieve-glow-bg"></div>
@@ -8764,98 +9064,107 @@
     </div>
   </section>
 
-  <!-- 10B. SINERGI TIGA PILAR VOKASI (Pinned Scrubbed) -->
-  <section class="sinergi-section" id="sinergi" aria-label="Sinergi Tiga Pilar Keunggulan Vokasi">
+  <!-- 10B. INFORMASI UNIT USAHA SEKOLAH (TEFA & BLUD) -->
+  <section class="unit-usaha-section" id="unit-usaha" aria-label="Informasi Unit Usaha Sekolah SMEMSA">
+    <div class="px-stage" aria-hidden="true">
+      <div class="px-grid" data-parallax="0.14"></div>
+      <div class="px-orb px-orb-blue" style="width: 500px; height: 500px; top: -150px; left: -100px" data-parallax="0.22"></div>
+      <div class="px-orb px-orb-amber" style="width: 400px; height: 400px; bottom: -120px; right: -80px" data-parallax="-0.18"></div>
+    </div>
     <div class="container">
-      <!-- TIGA PILAR SINERGI VOKASI - STAGE & KONTEN -->
-      <div class="sinergi-stage-wrapper" id="synergy-stage">
-        <!-- SVG Canvas Tiga Pilar menyatu jadi Bintang -->
-        <svg viewBox="0 0 500 320" class="synergy-svg-canvas" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <defs>
-            <!-- Radial Gradient Aura Bintang -->
-            <radialGradient id="starAuraGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="var(--secondary-light)" stop-opacity="0.6" />
-              <stop offset="50%" stop-color="var(--secondary)" stop-opacity="0.2" />
-              <stop offset="100%" stop-color="var(--secondary)" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-
-          <!-- Aura Cahaya di Pusat -->
-          <circle cx="250" cy="160" r="130" class="synergy-star-aura" id="synergy-star-aura" />
-
-          <!-- Garis Penghubung Tiga Pilar (Segitiga Sinergi) -->
-          <!-- Garis 1: Node Top (250, 48) ke Node Right (400, 240) -->
-          <path d="M 250 48 L 400 240" class="pillar-line" id="line-top-right" />
-          <!-- Garis 2: Node Right (400, 240) ke Node Left (100, 240) -->
-          <path d="M 400 240 L 100 240" class="pillar-line" id="line-right-left" />
-          <!-- Garis 3: Node Left (100, 240) ke Node Top (250, 48) -->
-          <path d="M 100 240 L 250 48" class="pillar-line" id="line-left-top" />
-
-          <!-- Bintang Pusat (Lahir dari leburan 3 pilar) -->
-          <path d="M 250 100 L 265 145 L 310 160 L 265 175 L 250 220 L 235 175 L 190 160 L 235 145 Z"
-            class="synergy-center-star" id="synergy-center-star" />
-
-          <!-- Node 1: Keahlian Vokasi (Puncak Atas) -->
-          <g class="pillar-node-group" id="node-vokasi" transform="translate(0, 0)">
-            <circle cx="250" cy="48" r="22" class="pillar-node-ring" />
-            <circle cx="250" cy="48" r="8" class="pillar-node-core" />
-            <text x="250" y="16" class="pillar-node-label">
-              Keahlian Vokasi
-            </text>
-            <text x="250" y="30" class="pillar-node-sub">
-              7 konsentrasi keahlian
-            </text>
-          </g>
-
-          <!-- Node 2: Karakter Islami (Kanan Bawah) -->
-          <g class="pillar-node-group" id="node-islami" transform="translate(0, 0)">
-            <circle cx="400" cy="240" r="22" class="pillar-node-ring" />
-            <circle cx="400" cy="240" r="8" class="pillar-node-core" />
-            <text x="400" y="278" class="pillar-node-label">
-              Karakter Islami
-            </text>
-            <text x="400" y="294" class="pillar-node-sub">
-              akhlak berkemajuan
-            </text>
-          </g>
-
-          <!-- Node 3: Sertifikasi BNSP (Kiri Bawah) -->
-          <g class="pillar-node-group" id="node-bnsp" transform="translate(0, 0)">
-            <circle cx="100" cy="240" r="22" class="pillar-node-ring" />
-            <circle cx="100" cy="240" r="8" class="pillar-node-core" />
-            <text x="100" y="278" class="pillar-node-label">
-              Sertifikasi BNSP
-            </text>
-            <text x="100" y="294" class="pillar-node-sub">
-              diakui secara nasional
-            </text>
-          </g>
-        </svg>
-
-        <!-- Teks Sinergi & Kutipan -->
-        <div class="synergy-text-container">
-          <div class="synergy-kicker" id="synergy-kicker">
-            Tiga Pilar, Satu Tujuan
+      <div class="flex justify-between items-center flex-wrap" style="margin-bottom: 3.5rem; gap: 1.5rem">
+        <div>
+          <div class="badge badge-amber mb-2">
+            Unit Usaha &amp; Bisnis Vokasi
           </div>
-          <h2 class="signature-text font-display" id="synergy-main-quote">
-            <span class="synergy-highlight">Sinergi</span> Keahlian Vokasi,
-            Karakter Islami, & Sertifikasi BNSP Menuju Generasi Emas
+          <h2 class="section-title" style="color: #ffffff; margin: 0.5rem 0">
+            Ekosistem Unit Usaha Sekolah (TEFA &amp; BLUD)
           </h2>
-          <p class="synergy-closing" id="synergy-closing">
-            Fondasi holistik yang mengantarkan setiap lulusan siap kerja,
-            kompeten bersertifikat, dan berakhlakul karimah.
+          <p style="opacity: 0.85; max-width: 640px; color: #cbd5e1;">
+            Fasilitas usaha mandiri berstandar industri tempat siswa mempraktikkan keahlian vokasi, melayani kebutuhan masyarakat, dan mencetak wirausaha muda.
           </p>
+        </div>
+        <a href="#blud" class="btn btn-amber">Lihat Produk BLUD Siswa &rarr;</a>
+      </div>
 
-          <!-- CTA Keluar Menuju Jurusan (Improvisasi 14) -->
-          <div class="synergy-action-btn" id="synergy-action-btn">
-            <a href="#jurusan" class="btn btn-amber" style="padding: 0.75rem 1.6rem; font-size: 0.92rem">
-              Lihat 7 Konsentrasi Keahlian &rarr;
-            </a>
+      <div class="blud-grid">
+        <!-- Card Unit Usaha 1 -->
+        <div class="product-bento" style="padding: 1.8rem; justify-content: space-between; cursor: pointer;" onclick="openUnitUsahaModal(0)">
+          <div>
+            <div style="width: 100%; height: 180px; border-radius: var(--radius-sm); background: linear-gradient(135deg, #064e3b 0%, #047857 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.2rem; text-align: center; margin-bottom: 1.2rem; box-shadow: inset 0 2px 10px rgba(0,0,0,0.15);">
+              <span style="font-size: 3rem; margin-bottom: 0.4rem;">🖨️</span>
+              <h4 style="color: #fff; font-family: var(--font-display); font-size: 1.2rem; line-height: 1.3; font-weight: 800;">SMEMSA Print Studio</h4>
+            </div>
+            <div class="blud-learner-tag">💼 DKV &amp; Bisnis Digital</div>
+            <h3 class="font-head" style="font-size:1.25rem; color:#ffffff; margin: 0.4rem 0 0.6rem; line-height: 1.3;">Percetakan &amp; Merchandise</h3>
+            <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 0.8rem; line-height: 1.5;">
+              Layanan cetak banner, sablon kaos, mug merchandise, ID card, dan suvenir komersial berstandar industri.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Cetak Satuan</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Hasil Presisi</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Order Digital</span>
+            </div>
           </div>
+        </div>
 
-          <!-- Rel Progres Scroll Tipis -->
-          <div class="synergy-progress-rail" aria-hidden="true">
-            <div class="synergy-progress-bar" id="synergy-progress-bar"></div>
+        <!-- Card Unit Usaha 2 -->
+        <div class="product-bento" style="padding: 1.8rem; justify-content: space-between; cursor: pointer;" onclick="openUnitUsahaModal(1)">
+          <div>
+            <div style="width: 100%; height: 180px; border-radius: var(--radius-sm); background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.2rem; text-align: center; margin-bottom: 1.2rem; box-shadow: inset 0 2px 10px rgba(0,0,0,0.15);">
+              <span style="font-size: 3rem; margin-bottom: 0.4rem;">🔧</span>
+              <h4 style="color: #fff; font-family: var(--font-display); font-size: 1.2rem; line-height: 1.3; font-weight: 800;">SMEMSA Tech Solutions</h4>
+            </div>
+            <div class="blud-learner-tag">💼 TJKT &amp; PPLG</div>
+            <h3 class="font-head" style="font-size:1.25rem; color:#ffffff; margin: 0.4rem 0 0.6rem; line-height: 1.3;">Service Center &amp; Software</h3>
+            <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 0.8rem; line-height: 1.5;">
+              Jasa perbaikan komputer/laptop, instalasi jaringan Wi-Fi/LAN, serta pembuatan website &amp; aplikasi UMKM.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Teknisi BNSP</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Garansi Service</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">NOC Center</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Unit Usaha 3 -->
+        <div class="product-bento" style="padding: 1.8rem; justify-content: space-between; cursor: pointer;" onclick="openUnitUsahaModal(2)">
+          <div>
+            <div style="width: 100%; height: 180px; border-radius: var(--radius-sm); background: linear-gradient(135deg, #b45309 0%, #78350f 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.2rem; text-align: center; margin-bottom: 1.2rem; box-shadow: inset 0 2px 10px rgba(0,0,0,0.15);">
+              <span style="font-size: 3rem; margin-bottom: 0.4rem;">🏨</span>
+              <h4 style="color: #fff; font-family: var(--font-display); font-size: 1.2rem; line-height: 1.3; font-weight: 800;">SMEMSA Hospitality Hub</h4>
+            </div>
+            <div class="blud-learner-tag">💼 Perhotelan &amp; MPLB</div>
+            <h3 class="font-head" style="font-size:1.25rem; color:#ffffff; margin: 0.4rem 0 0.6rem; line-height: 1.3;">Edutel &amp; Laundry Center</h3>
+            <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 0.8rem; line-height: 1.5;">
+              Pengelolaan Mini Hotel (Edutel), jasa laundry wangi berkualitas, dan ruang rapat/meeting room komersial.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Standar Hotel</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Laundry Express</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Ruang Rapat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Unit Usaha 4 -->
+        <div class="product-bento" style="padding: 1.8rem; justify-content: space-between; cursor: pointer;" onclick="openUnitUsahaModal(3)">
+          <div>
+            <div style="width: 100%; height: 180px; border-radius: var(--radius-sm); background: linear-gradient(135deg, #15803d 0%, #166534 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.2rem; text-align: center; margin-bottom: 1.2rem; box-shadow: inset 0 2px 10px rgba(0,0,0,0.15);">
+              <span style="font-size: 3rem; margin-bottom: 0.4rem;">🛍️</span>
+              <h4 style="color: #fff; font-family: var(--font-display); font-size: 1.2rem; line-height: 1.3; font-weight: 800;">SMEMSA Mart &amp; Business</h4>
+            </div>
+            <div class="blud-learner-tag">💼 Bisnis Digital &amp; AKL</div>
+            <h3 class="font-head" style="font-size:1.25rem; color:#ffffff; margin: 0.4rem 0 0.6rem; line-height: 1.3;">Ritel &amp; Mini Market Siswa</h3>
+            <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 0.8rem; line-height: 1.5;">
+              Pusat perbelanjaan perlengkapan sekolah, makanan/minuman produk siswa, dan minimarket berbasis POS Kasir.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;">
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Produk Lokal</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Sistem POS</span>
+              <span style="font-size: 0.78rem; background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);">Lengkap &amp; Murah</span>
+            </div>
           </div>
         </div>
       </div>
@@ -9168,6 +9477,11 @@
               </svg>
             </a>
           </div>
+
+          <!-- D. Peta Lokasi Sekolah Google Maps -->
+          <div class="footer-map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4960283657647!2d114.155154175011!3d-8.35276589168399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd154d9bec38cf9%3A0x8c62fbc05274d015!2sSMK%20Muhammadiyah%201%20Genteng!5e0!3m2!1sid!2sid!4v1787989542669!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
         </div>
 
         <!-- Kolom 2: Halaman Terkait -->
@@ -9406,6 +9720,7 @@
             if (typeof closeNewsModal === "function") closeNewsModal();
             if (typeof closeAwardModal === "function") closeAwardModal();
             if (typeof closeMajorModal === "function") closeMajorModal();
+            if (typeof closeBludModal === "function") closeBludModal();
           }
         });
       }
@@ -10743,66 +11058,129 @@
     });
 
     /* ======================================================================
-           X. RENDER BLUD PRODUCTS
-           ====================================================================== */
-    /* ======================================================================
-           X. RENDER BLUD PRODUCTS
+           X. RENDER BLUD PRODUCTS & INTERACTIVE MODAL
            ====================================================================== */
     const bludProducts = [
       {
+        id: "eners-perfume",
         name: "Eners Perfume",
-        desc: "Parfum Badan",
+        subtitle: "Parfum Badan Premium Vokasi",
         jurusan: "Perhotelan (PH)",
-        varian: "Bubblegum, Taylor Swift, Scandalous, Baccarat",
+        badge: "Teaching Factory • Perhotelan",
+        desc: "Parfum badan eksklusif formulasi siswa Perhotelan SMEMSA Genteng.",
+        detail: "Eners Perfume adalah produk unggulan hasil riset & praktik siswa Konsentrasi Keahlian Perhotelan. Menggunakan bibit parfum pilihan standar internasional, aman di kulit, tidak meninggalkan noda di pakaian, dan diracik dalam lingkungan lab Teaching Factory yang higienis.",
+        varian: ["Bubblegum", "Taylor Swift", "Scandalous", "Baccarat"],
         kemasan: "Eau de Parfum 35 mL",
+        highlight: "Siswa dilatih dalam manajemen produksi, kontrol kualitas (QC), kemasan estetik, hingga strategi pemasaran langsung ke kustomer.",
         foto: "assets/produk/produk-parfum-ph.webp",
+        icon: "🌸",
+        gradient: "linear-gradient(135deg, #064e3b 0%, #047857 100%)"
       },
       {
+        id: "eners-perfume-laundry",
         name: "Eners Perfume Laundry",
-        desc: "Parfum Laundry",
+        subtitle: "Pewangi Laundry Standar Hospitalitas",
         jurusan: "Perhotelan (PH)",
-        varian: "Snappy, Sakura",
-        kemasan: "250 mL",
+        badge: "Unit Usaha BLUD • Housekeeping",
+        desc: "Parfum laundry konsentrat tinggi untuk pakaian segar & harum tahan lama.",
+        detail: "Diformulasikan khusus oleh tim Teaching Factory Housekeeping Perhotelan untuk kebutuhan laundry hotel dan masyarakat umum. Menghasilkan keharuman serat kain yang bertahan berhari-hari tanpa merusak tekstur pakaian.",
+        varian: ["Snappy Fresh", "Sakura Blossom"],
+        kemasan: "250 mL & 1 Liter",
+        highlight: "Standardisasi kebersihan hotel bintang, diproduksi dan dikelola oleh siswa Perhotelan sebagai unit bisnis nyata.",
         foto: "assets/produk/produk-ph.webp",
+        icon: "🧺",
+        gradient: "linear-gradient(135deg, #0284c7 0%, #0369a1 100%)"
       },
       {
+        id: "catet-coffee",
         name: "Catet Coffee",
-        desc: "Kopi Bubuk",
-        jurusan: "PPLG & TJKT (kolaborasi)",
-        catatan: "cocok untuk French Press, V60, Espresso",
-        kemasan: "30 gram",
+        subtitle: "Kopi Sangrai Komunitas IT SMEMSA",
+        jurusan: "PPLG & TJKT (Kolaborasi)",
+        badge: "Kolaborasi Lintas Jurusan IT",
+        desc: "Kopi bubuk nusantara racikan spesial untuk menemani jam coding & produktivitas.",
+        detail: "Catet Coffee merupakan produk wirausaha hasil kolaborasi siswa PPLG dan TJKT. Dipilih dari biji kopi arabika/robusta kualitas terbaik yang disangrai dengan profil sangrai sedang (medium roast), sangat cocok untuk penikmat kopi saat belajar dan bekerja.",
+        catatan: "Cocok untuk French Press, V60, Vietnam Drip, dan Espresso Machine",
+        kemasan: "30 gram (Sachet) & 100 gram (Pouch)",
+        highlight: "Melatih siswa dalam sinergi antar-jurusan: PPLG menangani desain branding & website e-commerce, TJKT mengelola operasional & jaringan logistik.",
         foto: "assets/produk/produk-rpl-tkjt-kopi.webp",
+        icon: "☕",
+        gradient: "linear-gradient(135deg, #78350f 0%, #92400e 100%)"
       },
       {
+        id: "drasina",
         name: "Drasina",
-        desc: "Snack Ladrang Daun Sirih Cina",
+        subtitle: "Snack Ladrang Daun Sirih Cina",
         jurusan: "Bisnis Digital (BD)",
-        rasa: "Gurih",
-        kemasan: "200 gram",
+        badge: "Inovasi Kuliner • Bisnis Digital",
+        desc: "Camilan renyah kaya khasiat herbal alami buatan siswa Bisnis Digital.",
+        detail: "Drasina (Ladrang Sirih Cina) adalah kreasi kuliner sehat berbasis tanaman herbal Daun Sirih Cina. Mengombinasikan rasa gurih renyah tanpa bahan pengawet sintesis dengan khasiat tinggi antioksidan untuk kesehatan tubuh.",
+        rasa: "Gurih Original & Pedas Manis",
+        kemasan: "200 gram Standup Pouch",
+        highlight: "Platform pembelajaran langsung siswa Bisnis Digital dalam riset produk, riset pasar, TikTok Live Selling, Shopee, & digital ads marketing.",
         foto: "assets/produk/produk-snack-bd.webp",
+        icon: "🌱",
+        gradient: "linear-gradient(135deg, #15803d 0%, #166534 100%)"
       },
       {
+        id: "totebag-daur-ulang",
         name: "Totebag Daur Ulang Banner",
-        jurusan: "DKV",
+        subtitle: "Eco-Fashion Upcycling Bag",
+        jurusan: "Desain Komunikasi Visual (DKV)",
+        badge: "Creative Eco-Design • DKV",
+        desc: "Tas daur ulang ramah lingkungan bermaterial flexi banner bekas event.",
+        detail: "Produk ideasi ramah lingkungan dari siswa DKV yang mengolah limbah baliho/banner menjadi totebag bergaya urban, waterproof, dan berdaya tahan ekstra tinggi. Setiap tas memiliki corak grafis unik yang tidak ada duanya.",
+        material: "Flexi Banner Recycled + Heavy Webbing Strap",
+        fitur: "Tahan Air, Kapasitas Besar, Jahitan Kuat Double Stitch",
+        highlight: "Mengasah kesadaran ekologis siswa DKV, keterampilan jahit industri kreatif, branding eco-friendly, dan katalogisasi visual komersial.",
         foto: null,
+        icon: "🛍️",
+        gradient: "linear-gradient(135deg, #4338ca 0%, #3730a3 100%)"
       },
       {
+        id: "icaremu",
         name: "iCareMu",
-        desc: "Aplikasi Digital",
-        jurusan: "PPLG",
+        subtitle: "Platform Digital Health & Care",
+        jurusan: "Pengembang Perangkat Lunak & Gim (PPLG)",
+        badge: "Software TEFA Project • PPLG",
+        desc: "Aplikasi digital layanan kesehatan & konseling terpadu karya siswa PPLG.",
+        detail: "iCareMu adalah produk perangkat lunak aplikasi berbasis web dan mobile yang dikembangkan oleh tim TEFA PPLG. Menyediakan fitur reservasi konsultasi, pencatatan rekam medis sederhana, dan notifikasi pengingat kesehatan mandiri.",
+        platform: "Web App & Responsive Mobile UI",
+        fitur: "Dashboard Pasien/Konselor, Multi-User Auth, Realtime Notification",
+        highlight: "Siswa mempraktikkan SDLC (Software Development Life Cycle) modern, framework Laravel/Flutter, API integration, dan database Security.",
         foto: null,
+        icon: "📱",
+        gradient: "linear-gradient(135deg, #0d9488 0%, #0f766e 100%)"
       },
       {
+        id: "minducare",
         name: "MinduCare",
-        desc: "Aplikasi Digital",
-        jurusan: "PPLG",
+        subtitle: "Aplikasi EdTech & Self-Assessment System",
+        jurusan: "Pengembang Perangkat Lunak & Gim (PPLG)",
+        badge: "EdTech Innovation • PPLG",
+        desc: "Sistem aplikasi pencatatan perkembangan karakter & pendampingan konseling.",
+        detail: "MinduCare diciptakan untuk mendukung sistem bimbingan dan konseling berbasis digital. Mengakomodasi fitur modul evaluasi mandiri, jurnal harian, dan analitik perkembangan siswa yang aman dan privat bagi guru pembimbing.",
+        platform: "Cloud-Based Web Application",
+        fitur: "Self-Assessment Survey, Analytics Charts, Encrypted Notes",
+        highlight: "Siswa PPLG mengasah kemampuan UI/UX design, arsitektur database relasional, serta pengujian sistem (QA Testing) sebelum komersialisasi.",
         foto: null,
+        icon: "💡",
+        gradient: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)"
       },
       {
+        id: "jasa-reparasi-pc",
         name: "Jasa Reparasi & Instalasi Komputer",
-        jurusan: "TJKT",
+        subtitle: "Layanan Service Hardware & Networking",
+        jurusan: "Teknik Jaringan Komputer & Telekomunikasi (TJKT)",
+        badge: "NOC TEFA Service • TJKT",
+        desc: "Layanan profesional perbaikan PC, Laptop, Install OS, & Maintenance Jaringan.",
+        detail: "Unit pelayanan teknis komersial dari TEFA TJKT. Melayani perawatan hardware komputer, pembersihan debu thermal paste, perbaikan kerusakan software/OS, instalasi driver, hingga setting jaringan Wi-Fi dan LAN untuk rumah & kantor.",
+        layanan: "Servis PC/Laptop, Install Windows/Linux, Diagnostic Hardware, Splicing FO",
+        garansi: "Garansi Service 30 Hari & Konsultasi Gratis",
+        highlight: "Dikerjakan langsung oleh teknisi siswa bersertifikat LSP-P1 BNSP Network Administrator di bawah bimbingan instruktur profesional industri.",
         foto: null,
-      },
+        icon: "🛠️",
+        gradient: "linear-gradient(135deg, #b45309 0%, #78350f 100%)"
+      }
     ];
 
     function renderBludProducts() {
@@ -10810,37 +11188,260 @@
       if (!container) return;
 
       let html = "";
-      bludProducts.forEach((prod) => {
+      bludProducts.forEach((prod, index) => {
         let imageHtml = "";
         if (prod.foto) {
-          imageHtml = `<img src="${prod.foto}" alt="${prod.name}" width="400" height="300" loading="lazy" style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 1.2rem;" onerror="this.closest('.card') ? this.closest('.card').classList.add('no-image') : null; this.remove();">`;
+          imageHtml = `<div style="position: relative; overflow: hidden; border-radius: var(--radius-sm); margin-bottom: 1.2rem;">
+            <img src="${prod.foto}" alt="${prod.name}" width="400" height="300" loading="lazy" style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius-sm); transition: transform 0.4s ease;" onerror="this.closest('.product-bento') ? this.closest('.product-bento').classList.add('no-image') : null; this.remove();">
+          </div>`;
         } else {
-          imageHtml = `<div style="width: 100%; height: 220px; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; margin-bottom: 1.2rem; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);"><h4 style="color: #fff; font-family: var(--font-display); font-size: 1.4rem; line-height: 1.3; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">${prod.name}</h4></div>`;
+          imageHtml = `<div style="width: 100%; height: 220px; border-radius: var(--radius-sm); background: ${prod.gradient || 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)'}; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; text-align: center; margin-bottom: 1.2rem; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);">
+            <span style="font-size: 3rem; margin-bottom: 0.5rem;">${prod.icon || '💼'}</span>
+            <h4 style="color: #fff; font-family: var(--font-display); font-size: 1.2rem; line-height: 1.3; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">${prod.name}</h4>
+          </div>`;
         }
 
         let detailsHtml = "";
         if (prod.desc)
-          detailsHtml += `<p style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">${prod.desc}</p>`;
-        if (prod.varian)
-          detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Varian:</strong> ${prod.varian}</p>`;
-        if (prod.rasa)
-          detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Rasa:</strong> ${prod.rasa}</p>`;
-        if (prod.kemasan)
-          detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Kemasan:</strong> ${prod.kemasan}</p>`;
-        if (prod.catatan)
-          detailsHtml += `<p style="font-size: 0.85rem; color: #a8a29e; margin-bottom: 0.2rem;"><strong>Catatan:</strong> ${prod.catatan}</p>`;
+          detailsHtml += `<p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 0.6rem; line-height: 1.5;">${prod.desc}</p>`;
+        
+        let specSummary = "";
+        if (prod.kemasan) specSummary += `<span style="font-size: 0.82rem; color: #a8a29e; display: block; margin-bottom: 0.2rem;">📦 <strong>Kemasan:</strong> ${prod.kemasan}</span>`;
+        if (prod.varian) {
+          const vStr = Array.isArray(prod.varian) ? prod.varian.join(", ") : prod.varian;
+          specSummary += `<span style="font-size: 0.82rem; color: #a8a29e; display: block; margin-bottom: 0.2rem;">🎨 <strong>Varian:</strong> ${vStr}</span>`;
+        }
 
         html += `
-                <div class="product-bento" style="padding: 1.5rem; justify-content: flex-start;">
-                    ${imageHtml}
-                    <div class="blud-learner-tag">💼 Dikelola siswa ${prod.jurusan}</div>
-                    <h3 class="font-head" style="font-size:1.25rem; color:#ffffff; margin: 0.4rem 0 0.8rem; line-height: 1.3;">${prod.name}</h3>
-                    ${detailsHtml}
-                </div>
-                `;
+          <div class="product-bento" style="padding: 1.5rem; justify-content: space-between; cursor: pointer;" onclick="openBludModal(${index})">
+            <div>
+              ${imageHtml}
+              <div class="blud-learner-tag">💼 Dikelola siswa ${prod.jurusan}</div>
+              <h3 class="font-head" style="font-size:1.25rem; color:#ffffff; margin: 0.4rem 0 0.6rem; line-height: 1.3;">${prod.name}</h3>
+              ${detailsHtml}
+              ${specSummary}
+            </div>
+          </div>
+        `;
       });
 
       container.innerHTML = html;
+    }
+
+    function openBludModal(index) {
+      const prod = bludProducts[index];
+      if (!prod) return;
+
+      const overlay = document.getElementById("blud-modal-overlay");
+      const bgImg = document.getElementById("blud-modal-bg-img");
+      const iconEmoji = document.getElementById("blud-modal-icon-emoji");
+      const iconImg = document.getElementById("blud-modal-icon-img");
+      const banner = document.getElementById("blud-modal-banner");
+
+      if (prod.foto) {
+        bgImg.src = prod.foto;
+        bgImg.style.display = "block";
+        iconImg.src = prod.foto;
+        iconImg.style.display = "block";
+        iconEmoji.style.display = "none";
+      } else {
+        bgImg.style.display = "none";
+        iconImg.style.display = "none";
+        iconEmoji.innerText = prod.icon || "💼";
+        iconEmoji.style.display = "inline-block";
+      }
+
+      if (prod.gradient) {
+        banner.style.background = prod.gradient;
+      } else {
+        banner.style.background = "linear-gradient(135deg, #064e3b 0%, #047857 100%)";
+      }
+
+      document.getElementById("blud-modal-tag").innerText = prod.badge || `💼 Dikelola siswa ${prod.jurusan}`;
+      document.getElementById("blud-modal-title").innerText = prod.name;
+      document.getElementById("blud-modal-desc").innerText = prod.detail || prod.desc;
+
+      // Populate spec chips
+      const chipsContainer = document.getElementById("blud-modal-chips");
+      chipsContainer.innerHTML = "";
+
+      if (prod.jurusan) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">🎓 <strong>Pengelola:</strong> ${prod.jurusan}</span>`;
+      }
+      if (prod.kemasan) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">📦 <strong>Kemasan:</strong> ${prod.kemasan}</span>`;
+      }
+      if (prod.varian && Array.isArray(prod.varian)) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">🎨 <strong>Varian:</strong> ${prod.varian.join(", ")}</span>`;
+      } else if (prod.varian) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">🎨 <strong>Varian:</strong> ${prod.varian}</span>`;
+      }
+      if (prod.rasa) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">😋 <strong>Rasa:</strong> ${prod.rasa}</span>`;
+      }
+      if (prod.catatan) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">💡 <strong>Penyajian:</strong> ${prod.catatan}</span>`;
+      }
+      if (prod.material) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">🧵 <strong>Material:</strong> ${prod.material}</span>`;
+      }
+      if (prod.fitur) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">⚡ <strong>Fitur:</strong> ${prod.fitur}</span>`;
+      }
+      if (prod.platform) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">💻 <strong>Platform:</strong> ${prod.platform}</span>`;
+      }
+      if (prod.layanan) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">🛠️ <strong>Cakupan:</strong> ${prod.layanan}</span>`;
+      }
+      if (prod.garansi) {
+        chipsContainer.innerHTML += `<span class="blud-modal-chip">🛡️ <strong>Garansi:</strong> ${prod.garansi}</span>`;
+      }
+
+      document.getElementById("blud-modal-highlight").innerText = prod.highlight || "Unit produksi BLUD memberikan pengalaman mengelola wirausaha nyata bagi siswa SMEMSA Genteng.";
+
+      overlay.classList.add("active");
+      const modalCard = document.getElementById("blud-modal-card");
+      if (modalCard) modalCard.scrollTop = 0;
+
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+
+      if (typeof lenis !== "undefined" && lenis) lenis.stop();
+      else if (window.lenis) window.lenis.stop();
+    }
+
+    function closeBludModal() {
+      const overlay = document.getElementById("blud-modal-overlay");
+      if (overlay) overlay.classList.remove("active");
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+
+      if (typeof lenis !== "undefined" && lenis) lenis.start();
+      else if (window.lenis) window.lenis.start();
+    }
+
+    function closeBludModalOnOverlay(e) {
+      if (e.target.id === "blud-modal-overlay") {
+        closeBludModal();
+      }
+    }
+
+    /* DATA UNIT USAHA SEKOLAH (TEFA & BLUD) */
+    const unitUsahaData = [
+      {
+        title: "SMEMSA Print Studio",
+        subtitle: "Percetakan & Merchandise Komersial",
+        tag: "💼 Dikelola DKV & Bisnis Digital",
+        icon: "🖨️",
+        gradient: "linear-gradient(135deg, #064e3b 0%, #047857 100%)",
+        desc: "Layanan percetakan digital profesional dan cetak merchandise berstandar industri. Melayani pesanan cetak banner outdoor/indoor, sablon kaos custom, mug suvenir, ID card institusi, hingga perlengkapan promosi usaha.",
+        specs: [
+          { label: "Pengelola", val: "Konsentrasi Keahlian DKV & Bisnis Digital" },
+          { label: "Produk Utama", val: "Banner, Kaos Sablon, Mug, ID Card, Brosur" },
+          { label: "Fasilitas", val: "Mesin Digital Print High-Res & Press Heat Studio" },
+          { label: "Layanan", val: "Pemesanan Satuan & Partai Besar (Grosir)" }
+        ],
+        highlight: "Siswa terlibat langsung dalam proses pra-cetak (setting layout), proses produksi print/sablon, finishing, quality check, hingga manajemen transaksi finansial bisnis."
+      },
+      {
+        title: "SMEMSA Tech Solutions",
+        subtitle: "Service Center Hardware & Software House",
+        tag: "💼 Dikelola TJKT & PPLG",
+        icon: "🔧",
+        gradient: "linear-gradient(135deg, #0284c7 0%, #0369a1 100%)",
+        desc: "Pusat pelayanan teknologi terpadu yang melayani perbaikan laptop/PC, instalasi sistem operasi & jaringan Wi-Fi/LAN, hingga jasa pembuatan website e-commerce dan aplikasi digital untuk instansi & UMKM.",
+        specs: [
+          { label: "Pengelola", val: "Konsentrasi Keahlian TJKT & PPLG" },
+          { label: "Layanan Tech", val: "Service Laptop/PC, Fiber Optic, Web Dev, UI/UX" },
+          { label: "Standar", val: "Teknisi Terakreditasi BNSP & Supervisor DUDIKA" },
+          { label: "Garansi", val: "Garansi Service 30 Hari & Support Teknis" }
+        ],
+        highlight: "Memberikan pengalaman nyata bagi siswa TJKT dan PPLG untuk menangani trouble-shooting perangkat nyata pelanggan dan meng-hosting aplikasi produksi."
+      },
+      {
+        title: "SMEMSA Hospitality Hub",
+        subtitle: "Mini Hotel (Edutel) & Express Laundry",
+        tag: "💼 Dikelola Perhotelan & MPLB",
+        icon: "🏨",
+        gradient: "linear-gradient(135deg, #b45309 0%, #78350f 100%)",
+        desc: "Unit bisnis hospitalitas yang mengoperasikan kamar penginapan mini hotel (Edutel) standar bintang, layanan laundry pakaian harum & higienis, serta persewaan ruang rapat (meeting room) terpadu.",
+        specs: [
+          { label: "Pengelola", val: "Konsentrasi Keahlian Perhotelan & MPLB" },
+          { label: "Fasilitas", val: "Kamar AC Edutel, Laundry Commercial, Meeting Room" },
+          { label: "Standar Service", val: "SOP Standard Hotel Bintang & Public Service" },
+          { label: "Operasional", val: "Resepsionis 24 Jam & Layanan Housekeeping" }
+        ],
+        highlight: "Siswa mempraktikkan langsung manajemen front office, penerimaan tamu, tata graha (housekeeping), hingga tata kelola administrasi perkantoran modern."
+      },
+      {
+        title: "SMEMSA Mart & Business Center",
+        subtitle: "Ritel, POS Kasir & Mini Market Sekolah",
+        tag: "💼 Dikelola Bisnis Digital & AKL",
+        icon: "🛍️",
+        gradient: "linear-gradient(135deg, #15803d 0%, #166534 100%)",
+        desc: "Pusat ritel komersial yang menyediakan kebutuhan ATK, produk makanan/minuman olahan siswa, hingga barang konsumsi harian berbasis sistem kasir modern (Point of Sale).",
+        specs: [
+          { label: "Pengelola", val: "Konsentrasi Keahlian Bisnis Digital & AKL" },
+          { label: "Sistem", val: "POS Multi-Kasir & Barcode Scanner System" },
+          { label: "Produk", val: "ATK, Snack TEFA, Produk UMKM Mitra, Minuman" },
+          { label: "Manajemen", val: "Pencatatan Keuangan & Stok Realtime AKL" }
+        ],
+        highlight: "Mengasah keterampilan siswa dalam transaksi ritel, perancangan visual merchandising, pencatatan neraca akuntansi ritel, serta layanan pelanggan ramah."
+      }
+    ];
+
+    function openUnitUsahaModal(index) {
+      const unit = unitUsahaData[index];
+      if (!unit) return;
+
+      const overlay = document.getElementById("unit-usaha-modal-overlay");
+      const banner = document.getElementById("unit-usaha-modal-banner");
+      const iconEmoji = document.getElementById("unit-usaha-modal-icon-emoji");
+
+      iconEmoji.innerText = unit.icon || "🏢";
+      banner.style.background = unit.gradient || "linear-gradient(135deg, #064e3b 0%, #047857 100%)";
+
+      document.getElementById("unit-usaha-modal-tag").innerText = unit.tag || "🏢 Unit Usaha Sekolah";
+      document.getElementById("unit-usaha-modal-title").innerText = unit.title;
+      document.getElementById("unit-usaha-modal-desc").innerText = unit.desc;
+
+      const chipsContainer = document.getElementById("unit-usaha-modal-chips");
+      chipsContainer.innerHTML = "";
+
+      if (unit.specs && Array.isArray(unit.specs)) {
+        unit.specs.forEach(s => {
+          chipsContainer.innerHTML += `<span class="blud-modal-chip">⚡ <strong>${s.label}:</strong> ${s.val}</span>`;
+        });
+      }
+
+      document.getElementById("unit-usaha-modal-highlight").innerText = unit.highlight || "Unit usaha sekolah memberikan wadah praktik vokasi nyata bagi siswa SMEMSA Genteng.";
+
+      overlay.classList.add("active");
+      const modalCard = document.getElementById("unit-usaha-modal-card");
+      if (modalCard) modalCard.scrollTop = 0;
+
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+
+      if (typeof lenis !== "undefined" && lenis) lenis.stop();
+      else if (window.lenis) window.lenis.stop();
+    }
+
+    function closeUnitUsahaModal() {
+      const overlay = document.getElementById("unit-usaha-modal-overlay");
+      if (overlay) overlay.classList.remove("active");
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+
+      if (typeof lenis !== "undefined" && lenis) lenis.start();
+      else if (window.lenis) window.lenis.start();
+    }
+
+    function closeUnitUsahaModalOnOverlay(e) {
+      if (e.target.id === "unit-usaha-modal-overlay") {
+        closeUnitUsahaModal();
+      }
     }
 
     renderBludProducts();
