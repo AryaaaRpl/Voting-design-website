@@ -1,1972 +1,2270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LSP — SMKS Muhammadiyah 1 Genteng</title>
-    <meta name="description"
-        content="Lembaga Sertifikasi Profesi Pihak Pertama (LSP-P1) SMKS Muhammadiyah 1 Genteng. Skema sertifikasi, alur asesmen, asesor kompetensi, dan tempat uji kompetensi berlisensi BNSP.">
+    <meta
+      name="description"
+      content="Lembaga Sertifikasi Profesi Pihak Pertama (LSP-P1) SMKS Muhammadiyah 1 Genteng. Skema sertifikasi, alur asesmen, asesor kompetensi, dan tempat uji kompetensi berlisensi BNSP."
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        :root {
-            --primary: #1e40af;
-            --primary-light: #2563eb;
-            --primary-dark: #16296b;
-            --primary-surface: rgba(30, 64, 175, 0.06);
+      :root {
+        --primary: #1e40af;
+        --primary-light: #2563eb;
+        --primary-dark: #16296b;
+        --primary-surface: rgba(30, 64, 175, 0.06);
 
-            --secondary: #eab308;
-            --secondary-light: #facc15;
-            --secondary-surface: rgba(234, 179, 8, 0.1);
+        --secondary: #eab308;
+        --secondary-light: #facc15;
+        --secondary-surface: rgba(234, 179, 8, 0.1);
 
-            --bg-main: #ffffff;
-            --bg-alt: #f8fafc;
-            --bg-dark: #0f172a;
+        --bg-main: #ffffff;
+        --bg-alt: #f8fafc;
+        --bg-dark: #0f172a;
 
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-            --text-subtle: #94a3b8;
-            --text-light: #f8fafc;
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+        --text-subtle: #94a3b8;
+        --text-light: #f8fafc;
 
-            --border-card: #e2e8f0;
-            --border-light: rgba(30, 64, 175, 0.1);
-            --border-dark: rgba(255, 255, 255, 0.12);
+        --border-card: #e2e8f0;
+        --border-light: rgba(30, 64, 175, 0.1);
+        --border-dark: rgba(255, 255, 255, 0.12);
 
-            --radius-full: 9999px;
-            --font-head: 'Plus Jakarta Sans', sans-serif;
-            --transition: all 0.3s ease;
-            --transition-fast: all 0.2s ease;
-            --font-body: 'Plus Jakarta Sans', sans-serif;
-        }
+        --radius-full: 9999px;
+        --font-head: "Plus Jakarta Sans", sans-serif;
+        --transition: all 0.3s ease;
+        --transition-fast: all 0.2s ease;
+        --font-body: "Plus Jakarta Sans", sans-serif;
+      }
 
-        /* High-Impact Interactive Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            padding: 0.85rem 1.8rem;
-            font-family: var(--font-head);
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: var(--radius-full);
-            cursor: pointer;
-            border: none;
-            outline: none;
-            transition: var(--transition) !important;
-            letter-spacing: -0.01em;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            text-decoration: none;
-        }
+      /* High-Impact Interactive Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.85rem 1.8rem;
+        font-family: var(--font-head);
+        font-size: 0.95rem;
+        font-weight: 700;
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        border: none;
+        outline: none;
+        transition: var(--transition) !important;
+        letter-spacing: -0.01em;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        text-decoration: none;
+      }
 
-        .btn-primary {
-            transition: var(--transition) !important;
-            background: var(--primary);
-            color: #ffffff !important;
-        }
+      .btn-primary {
+        transition: var(--transition) !important;
+        background: var(--primary);
+        color: #ffffff !important;
+      }
 
-        .btn-primary:hover {
-            background: var(--primary-light);
-            color: #ffffff !important;
-        }
+      .btn-primary:hover {
+        background: var(--primary-light);
+        color: #ffffff !important;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-main);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+      body {
+        font-family: var(--font-body);
+        background: var(--bg-main);
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
 
-        h1,
-        h2,
-        h3,
-        h4 {
-            letter-spacing: -0.03em;
-            font-weight: 800;
-            line-height: 1.15;
-        }
+      h1,
+      h2,
+      h3,
+      h4 {
+        letter-spacing: -0.03em;
+        font-weight: 800;
+        line-height: 1.15;
+      }
 
-        button {
-            font-family: inherit;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+      }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-        ul {
-            list-style: none;
-        }
+      ul {
+        list-style: none;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 5%;
+      }
 
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0 0 0 0);
-            white-space: nowrap;
-            border: 0;
-        }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+      }
 
-        /* ============ NAVBAR ============ */
-        /* ==========================================================================
+      /* ============ NAVBAR ============ */
+      /* ==========================================================================
            3. FLOATING ISLAND NAVBAR WITH GLASSMORPHISM 2.0
            ========================================================================== */
-        .header-wrapper {
-            position: fixed;
-            border-radius: 50px;
-            top: 1rem;
-            left: 50%;
-            transform: translate(-50%, 0);
-            width: 90%;
-            z-index: 1000;
-            background: #ffffff;
-            border-bottom: 1px solid var(--border-card);
-        }
-
-        .nav-island {
-            width: 100% !important;
-            max-width: 1320px !important;
-            margin: 0 auto !important;
-            padding: 0.8rem 1.8rem !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-        }
-
-        .nav-island.scrolled {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-        }
-
-        .brand-box {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-        }
-
-        .brand-logo {
-            width: auto;
-            max-width: 180px;
-            height: auto;
-            max-height: 60px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-            transition:
-                transform 0.3s ease,
-                filter 0.3s ease !important;
-        }
-
-        .brand-logo:hover {
-            transform: translateY(-2px);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
-        }
-
-        .brand-text-main {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.15rem;
-            color: var(--primary);
-            letter-spacing: -0.03em;
-            line-height: 1;
-        }
-
-        .brand-text-sub {
-            font-size: 0.72rem;
-            color: var(--secondary);
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-top: 3px;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            font-family: var(--font-head);
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            padding: 0.55rem 0.95rem;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            transition: var(--transition-fast) !important;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-            background: var(--primary-surface);
-        }
-
-        .nav-link.active {
-            color: var(--primary);
-            background: var(--primary-surface);
-        }
-
-        /* Dropdown styling */
-        .dropdown-menu {
-            position: absolute;
-            top: calc(80% + 12px);
-            left: 0;
-            min-width: 250px;
-            background: #ffffff;
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius);
-            padding: 0.6rem;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px) scale(0.98);
-            transition: var(--transition) !important;
-            z-index: 100;
-        }
-
-        .nav-item:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.65rem 0.9rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            transition: var(--transition-fast) !important;
-        }
-
-        .dropdown-item:hover,
-        .dropdown-item.active {
-            background: var(--primary-surface);
-            color: var(--primary);
-            transform: translateX(4px);
-        }
-
-        .dropdown-icon {
-            font-size: 1.1rem;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(30, 58, 138, 0.06);
-            border-radius: var(--radius-xs);
-        }
-
-        .hamburger {
-            display: none;
-            background: transparent;
-            border: none;
-            font-size: 1.6rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 0.3rem;
-        }
-
-        /* Mobile Drawer */
-        .mobile-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(20, 18, 16, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 1050;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition) !important;
-        }
-
-        .mobile-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-drawer {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 320px;
-            max-width: 85vw;
-            background: #ffffff;
-            z-index: 1100;
-            padding: 2rem 1.5rem;
-            transform: translateX(100%);
-            transition: var(--transition) !important;
-            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-        }
-
-        .mobile-drawer.active {
-            transform: translateX(0);
-        }
-
-        .drawer-close {
-            background: var(--bg-alt);
-            border: none;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin-bottom: 1.5rem;
-        }
-
-        .drawer-links a {
-            transition: var(--transition) !important;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem 1rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-radius: var(--radius-sm);
-            color: var(--text-dark);
-            margin-bottom: 0.3rem;
-        }
-
-        .drawer-links a:hover,
-        .drawer-links a.active {
-            background: var(--primary-surface);
-            color: var(--primary);
-        }
-
-        .drawer-section-title {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-subtle);
-            font-weight: 800;
-            margin: 1.2rem 0 0.5rem 0.8rem;
-        }
-
-        /* ============ PAGE HEADER ============ */
-        .page-header {
-            padding: 9rem 0 4rem;
-            background: linear-gradient(170deg, var(--bg-alt) 0%, var(--bg-main) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--secondary);
-            margin-bottom: 1.2rem;
-        }
-
-        .eyebrow::before {
-            content: '';
-            width: 26px;
-            height: 2px;
-            background: var(--secondary);
-        }
-
-        .page-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--primary-dark);
-            max-width: 20ch;
-        }
-
-        .page-title em {
-            font-style: normal;
-            color: var(--text-dark);
-        }
-
-        .page-lead {
-            margin-top: 1.2rem;
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.8;
-            max-width: 62ch;
-        }
-
-        /* ---- Strip legitimasi ---- */
-        .legit-strip {
-            margin-top: 2.5rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border: 1px solid var(--border-card);
-            border-radius: 16px;
-            background: #fff;
-            overflow: hidden;
-            box-shadow: 0 18px 40px -26px rgba(30, 64, 175, 0.3);
-        }
-
-        .legit-item {
-            padding: 1.3rem 1.4rem;
-            border-right: 1px solid var(--border-card);
-        }
-
-        .legit-item:last-child {
-            border-right: none;
-        }
-
-        .legit-label {
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-subtle);
-            margin-bottom: 0.4rem;
-        }
-
-        .legit-value {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .legit-value.is-placeholder {
-            color: var(--text-subtle);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        /* ============ SECTION UMUM ============ */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section.alt {
-            background: var(--bg-alt);
-        }
-
-        .section-head {
-            margin-bottom: 2.5rem;
-            max-width: 62ch;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-            color: var(--primary-dark);
-        }
-
-        .section-desc {
-            margin-top: 0.8rem;
-            color: var(--text-muted);
-            font-size: 0.96rem;
-            line-height: 1.8;
-        }
-
-        /* ============ 1. TENTANG LSP ============ */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.25fr 1fr;
-            gap: 2.5rem;
-            align-items: start;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            line-height: 1.85;
-            margin-bottom: 1rem;
-        }
-
-        .id-card {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            border-radius: 18px;
-            padding: 1.8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .id-card::before {
-            content: 'LSP';
-            position: absolute;
-            right: -10px;
-            bottom: -30px;
-            font-size: 7rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.04);
-            letter-spacing: -0.05em;
-            pointer-events: none;
-        }
-
-        .id-card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 1.2rem;
-            color: var(--secondary-light);
-        }
-
-        .id-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 0.7rem 0;
-            border-bottom: 1px solid var(--border-dark);
-            font-size: 0.88rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .id-row:last-child {
-            border-bottom: none;
-        }
-
-        .id-row dt {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .id-row dd {
-            font-weight: 700;
-            text-align: right;
-        }
-
-        .id-row dd.is-placeholder {
-            color: var(--secondary-light);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        /* ============ 2. SKEMA SERTIFIKASI ============ */
-        .scheme-list {
-            border-top: 1px solid var(--border-card);
-        }
-
-        .scheme-item {
-            border-bottom: 1px solid var(--border-card);
-        }
-
-        .scheme-head {
-            width: 100%;
-            text-align: left;
-            display: grid;
-            grid-template-columns: 64px 1fr auto auto;
-            gap: 1.2rem;
-            align-items: center;
-            padding: 1.5rem 1rem 1.5rem 0;
-            transition: background 0.3s, padding 0.3s !important;
-            position: relative;
-        }
-
-        .scheme-head::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--secondary);
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
-        }
-
-        .scheme-head:hover {
-            background: var(--primary-surface);
-            padding-left: 1.2rem;
-        }
-
-        .scheme-head:hover::before {
-            transform: scaleY(1);
-        }
-
-        .scheme-head[aria-expanded="true"] {
-            background: var(--primary-surface);
-            padding-left: 1.2rem;
-        }
-
-        .scheme-head[aria-expanded="true"]::before {
-            transform: scaleY(1);
-        }
-
-        .scheme-head:focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: -2px;
-        }
-
-        .scheme-num {
-            font-size: 0.82rem;
-            font-weight: 800;
-            color: var(--text-subtle);
-            letter-spacing: 0.08em;
-        }
-
-        .scheme-head:hover .scheme-num,
-        .scheme-head[aria-expanded="true"] .scheme-num {
-            color: var(--secondary);
-        }
-
-        .scheme-name {
-            font-size: 1.08rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            line-height: 1.35;
-        }
-
-        .scheme-sub {
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            margin-top: 0.25rem;
-        }
-
-        .scheme-tag {
-            padding: 0.3rem 0.75rem;
-            border-radius: 6px;
-            background: var(--secondary-surface);
-            color: var(--primary-dark);
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            white-space: nowrap;
-        }
-
-        .scheme-toggle {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 1px solid var(--border-card);
-            display: grid;
-            place-items: center;
-            color: var(--primary);
-            transition: transform 0.35s, background 0.25s !important;
-            flex-shrink: 0;
-        }
-
-        .scheme-head[aria-expanded="true"] .scheme-toggle {
-            transform: rotate(45deg);
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .scheme-body {
-            display: none;
-            padding: 0 1.2rem 1.8rem;
-        }
-
-        .scheme-body.open {
-            display: block;
-        }
-
-        .unit-list {
-            max-height: 250px;
-            overflow-y: auto;
-        }
-
-        .scheme-body-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .unit-head {
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-subtle);
-            margin-bottom: 0.8rem;
-        }
-
-        .unit-list li {
-            display: flex;
-            gap: 0.7rem;
-            align-items: flex-start;
-            padding: 0.45rem 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .unit-list li::before {
-            content: '';
-            flex-shrink: 0;
-            margin-top: 0.5rem;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--secondary);
-        }
-
-        .scheme-note {
-            margin-top: 1.2rem;
-            padding: 0.9rem 1.1rem;
-            background: var(--secondary-surface);
-            border-left: 3px solid var(--secondary);
-            border-radius: 0 8px 8px 0;
-            font-size: 0.86rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
-
-        /* ============ 3. ALUR ASESMEN ============ */
-        .flow {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0;
-            position: relative;
-        }
-
-        .flow-step {
-            position: relative;
-            padding: 0 0.9rem;
-        }
-
-        .flow-step::before {
-            content: '';
-            position: absolute;
-            top: 19px;
-            left: 50%;
-            right: -50%;
-            height: 2px;
-            background: var(--border-card);
-        }
-
-        .flow-step:last-child::before {
-            display: none;
-        }
-
-        .flow-num {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            display: grid;
-            place-items: center;
-            font-size: 0.9rem;
-            font-weight: 800;
-            position: relative;
-            z-index: 2;
-            margin-bottom: 1rem;
-        }
-
-        .flow-step:last-child .flow-num {
-            background: var(--secondary);
-            color: var(--primary-dark);
-        }
-
-        .flow-title {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 0.4rem;
-        }
-
-        .flow-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
-
-        /* ============ 4. ASESOR ============ */
-        .assessor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .assessor-card {
-            border: 1px solid var(--border-card);
-            border-radius: 14px;
-            overflow: hidden;
-            background: #fff;
-            transition: transform 0.25s, box-shadow 0.25s !important;
-            /* Kartu jadi kolom fleks agar foto selalu sejajar di baris
+      .header-wrapper {
+        position: fixed;
+        border-radius: 50px;
+        top: 1rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 90%;
+        z-index: 1000;
+        background: #ffffff;
+        border-bottom: 1px solid var(--border-card);
+      }
+
+      .nav-island {
+        width: 100% !important;
+        max-width: 1320px !important;
+        margin: 0 auto !important;
+        padding: 0.8rem 1.8rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+      }
+
+      .nav-island.scrolled {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .brand-box {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+      }
+
+      .brand-logo {
+        width: auto;
+        max-width: 180px;
+        height: auto;
+        max-height: 60px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+        transition:
+          transform 0.3s ease,
+          filter 0.3s ease !important;
+      }
+
+      .brand-logo:hover {
+        transform: translateY(-2px);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+      }
+
+      .brand-text-main {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.15rem;
+        color: var(--primary);
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .brand-text-sub {
+        font-size: 0.72rem;
+        color: var(--secondary);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-top: 3px;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-link {
+        font-family: var(--font-head);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        padding: 0.55rem 0.95rem;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: var(--transition-fast) !important;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+        background: var(--primary-surface);
+      }
+
+      .nav-link.active {
+        color: var(--primary);
+        background: var(--primary-surface);
+      }
+
+      /* Dropdown styling */
+      .dropdown-menu {
+        position: absolute;
+        top: calc(80% + 12px);
+        left: 0;
+        min-width: 250px;
+        background: #ffffff;
+        border: 1px solid var(--border-card);
+        border-radius: var(--radius);
+        padding: 0.6rem;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px) scale(0.98);
+        transition: var(--transition) !important;
+        z-index: 100;
+      }
+
+      .nav-item:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.65rem 0.9rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        transition: var(--transition-fast) !important;
+      }
+
+      .dropdown-item:hover,
+      .dropdown-item.active {
+        background: var(--primary-surface);
+        color: var(--primary);
+        transform: translateX(4px);
+      }
+
+      .dropdown-icon {
+        font-size: 1.1rem;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(30, 58, 138, 0.06);
+        border-radius: var(--radius-xs);
+      }
+
+      .hamburger {
+        display: none;
+        background: transparent;
+        border: none;
+        font-size: 1.6rem;
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0.3rem;
+      }
+
+      /* Mobile Drawer */
+      .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 18, 16, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 1050;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition) !important;
+      }
+
+      .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 320px;
+        max-width: 85vw;
+        background: #ffffff;
+        z-index: 1100;
+        padding: 2rem 1.5rem;
+        transform: translateX(100%);
+        transition: var(--transition) !important;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+      }
+
+      .mobile-drawer.active {
+        transform: translateX(0);
+      }
+
+      .drawer-close {
+        background: var(--bg-alt);
+        border: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-bottom: 1.5rem;
+      }
+
+      .drawer-links a {
+        transition: var(--transition) !important;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-radius: var(--radius-sm);
+        color: var(--text-dark);
+        margin-bottom: 0.3rem;
+      }
+
+      .drawer-links a:hover,
+      .drawer-links a.active {
+        background: var(--primary-surface);
+        color: var(--primary);
+      }
+
+      .drawer-section-title {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-subtle);
+        font-weight: 800;
+        margin: 1.2rem 0 0.5rem 0.8rem;
+      }
+
+      /* ============ PAGE HEADER ============ */
+      .page-header {
+        padding: 9rem 0 4rem;
+        background: linear-gradient(
+          170deg,
+          var(--bg-alt) 0%,
+          var(--bg-main) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--secondary);
+        margin-bottom: 1.2rem;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 26px;
+        height: 2px;
+        background: var(--secondary);
+      }
+
+      .page-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--primary-dark);
+        max-width: 20ch;
+      }
+
+      .page-title em {
+        font-style: normal;
+        color: var(--text-dark);
+      }
+
+      .page-lead {
+        margin-top: 1.2rem;
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 62ch;
+      }
+
+      /* ---- Strip legitimasi ---- */
+      .legit-strip {
+        margin-top: 2.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--border-card);
+        border-radius: 16px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 18px 40px -26px rgba(30, 64, 175, 0.3);
+      }
+
+      .legit-item {
+        padding: 1.3rem 1.4rem;
+        border-right: 1px solid var(--border-card);
+      }
+
+      .legit-item:last-child {
+        border-right: none;
+      }
+
+      .legit-label {
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-bottom: 0.4rem;
+      }
+
+      .legit-value {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .legit-value.is-placeholder {
+        color: var(--text-subtle);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      /* ============ SECTION UMUM ============ */
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section.alt {
+        background: var(--bg-alt);
+      }
+
+      .section-head {
+        margin-bottom: 2.5rem;
+        max-width: 62ch;
+      }
+
+      .section-title {
+        font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+        color: var(--primary-dark);
+      }
+
+      .section-desc {
+        margin-top: 0.8rem;
+        color: var(--text-muted);
+        font-size: 0.96rem;
+        line-height: 1.8;
+      }
+
+      /* ============ 1. TENTANG LSP ============ */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 2.5rem;
+        align-items: start;
+      }
+
+      .about-text p {
+        color: var(--text-muted);
+        line-height: 1.85;
+        margin-bottom: 1rem;
+      }
+
+      .id-card {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        border-radius: 18px;
+        padding: 1.8rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .id-card::before {
+        content: "LSP";
+        position: absolute;
+        right: -10px;
+        bottom: -30px;
+        font-size: 7rem;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.04);
+        letter-spacing: -0.05em;
+        pointer-events: none;
+      }
+
+      .id-card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 1.2rem;
+        color: var(--secondary-light);
+      }
+
+      .id-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--border-dark);
+        font-size: 0.88rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .id-row:last-child {
+        border-bottom: none;
+      }
+
+      .id-row dt {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .id-row dd {
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .id-row dd.is-placeholder {
+        color: var(--secondary-light);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      /* ============ 2. SKEMA SERTIFIKASI ============ */
+      .scheme-list {
+        border-top: 1px solid var(--border-card);
+      }
+
+      .scheme-item {
+        border-bottom: 1px solid var(--border-card);
+      }
+
+      .scheme-head {
+        width: 100%;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 64px 1fr auto auto;
+        gap: 1.2rem;
+        align-items: center;
+        padding: 1.5rem 1rem 1.5rem 0;
+        transition:
+          background 0.3s,
+          padding 0.3s !important;
+        position: relative;
+      }
+
+      .scheme-head::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--secondary);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+      }
+
+      .scheme-head:hover {
+        background: var(--primary-surface);
+        padding-left: 1.2rem;
+      }
+
+      .scheme-head:hover::before {
+        transform: scaleY(1);
+      }
+
+      .scheme-head[aria-expanded="true"] {
+        background: var(--primary-surface);
+        padding-left: 1.2rem;
+      }
+
+      .scheme-head[aria-expanded="true"]::before {
+        transform: scaleY(1);
+      }
+
+      .scheme-head:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: -2px;
+      }
+
+      .scheme-num {
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: var(--text-subtle);
+        letter-spacing: 0.08em;
+      }
+
+      .scheme-head:hover .scheme-num,
+      .scheme-head[aria-expanded="true"] .scheme-num {
+        color: var(--secondary);
+      }
+
+      .scheme-name {
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        line-height: 1.35;
+      }
+
+      .scheme-sub {
+        font-size: 0.84rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+      }
+
+      .scheme-tag {
+        padding: 0.3rem 0.75rem;
+        border-radius: 6px;
+        background: var(--secondary-surface);
+        color: var(--primary-dark);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+
+      .scheme-toggle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid var(--border-card);
+        display: grid;
+        place-items: center;
+        color: var(--primary);
+        transition:
+          transform 0.35s,
+          background 0.25s !important;
+        flex-shrink: 0;
+      }
+
+      .scheme-head[aria-expanded="true"] .scheme-toggle {
+        transform: rotate(45deg);
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .scheme-body {
+        display: none;
+        padding: 0 1.2rem 1.8rem;
+      }
+
+      .scheme-body.open {
+        display: block;
+      }
+
+      .unit-list {
+        max-height: 250px;
+        overflow-y: auto;
+      }
+
+      .scheme-body-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .unit-head {
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-bottom: 0.8rem;
+      }
+
+      .unit-list li {
+        display: flex;
+        gap: 0.7rem;
+        align-items: flex-start;
+        padding: 0.45rem 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .unit-list li::before {
+        content: "";
+        flex-shrink: 0;
+        margin-top: 0.5rem;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--secondary);
+      }
+
+      .scheme-note {
+        margin-top: 1.2rem;
+        padding: 0.9rem 1.1rem;
+        background: var(--secondary-surface);
+        border-left: 3px solid var(--secondary);
+        border-radius: 0 8px 8px 0;
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      /* ============ 3. ALUR ASESMEN ============ */
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0;
+        position: relative;
+      }
+
+      .flow-step {
+        position: relative;
+        padding: 0 0.9rem;
+      }
+
+      .flow-step::before {
+        content: "";
+        position: absolute;
+        top: 19px;
+        left: 50%;
+        right: -50%;
+        height: 2px;
+        background: var(--border-card);
+      }
+
+      .flow-step:last-child::before {
+        display: none;
+      }
+
+      .flow-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 1rem;
+      }
+
+      .flow-step:last-child .flow-num {
+        background: var(--secondary);
+        color: var(--primary-dark);
+      }
+
+      .flow-title {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 0.4rem;
+      }
+
+      .flow-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      /* ============ 4. ASESOR ============ */
+      .assessor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 1.2rem;
+      }
+
+      .assessor-card {
+        border: 1px solid var(--border-card);
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fff;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s !important;
+        /* Kartu jadi kolom fleks agar foto selalu sejajar di baris
                yang sama meski panjang nama/jabatan berbeda. */
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
 
-        .assessor-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 34px -24px rgba(30, 64, 175, 0.4);
-        }
+      .assessor-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 34px -24px rgba(30, 64, 175, 0.4);
+      }
 
-        .assessor-photo {
-            aspect-ratio: 3 / 4;
-            background: linear-gradient(160deg, var(--primary-dark), var(--primary));
-            display: grid;
-            place-items: center;
-            position: relative;
-            flex-shrink: 0;
-            /* foto tidak ikut menyusut */
-        }
+      .assessor-photo {
+        width: 100%;
+        height: 280px;
+        aspect-ratio: 3 / 4;
+        background: linear-gradient(
+          160deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
 
-        .assessor-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-        }
+      .assessor-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
 
-        .assessor-initial {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--secondary-light);
-        }
+      .assessor-photo.has-fallback img {
+        display: none;
+      }
 
-        .assessor-body {
-            padding: 0.95rem 1rem 1.1rem;
-            flex: 1;
-            /* isi mengisi sisa ruang, dasar kartu rata */
-            display: flex;
-            flex-direction: column;
-        }
+      .assessor-initial {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--secondary-light);
+      }
 
-        .assessor-name {
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            line-height: 1.35;
-        }
+      .assessor-body {
+        padding: 0.95rem 1rem 1.1rem;
+        flex: 1;
+        /* isi mengisi sisa ruang, dasar kartu rata */
+        display: flex;
+        flex-direction: column;
+      }
 
-        .assessor-meta {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 0.3rem;
-        }
+      .assessor-name {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        line-height: 1.35;
+      }
 
-        .assessor-reg {
-            margin-top: auto;
-            /* selalu menempel di dasar kartu */
-            display: inline-block;
-            margin-top: 0.6rem;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            color: var(--text-subtle);
-        }
+      .assessor-meta {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 0.3rem;
+      }
 
-        /* ============ 5. TUK ============ */
-        .tuk-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1rem;
-        }
+      .assessor-reg {
+        margin-top: auto;
+        /* selalu menempel di dasar kartu */
+        display: inline-block;
+        margin-top: 0.6rem;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--text-subtle);
+      }
 
-        .tuk-card {
-            border: 1px solid var(--border-card);
-            border-radius: 14px;
-            padding: 1.3rem 1.4rem;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            transition: border-color 0.25s, transform 0.25s !important;
-        }
+      /* ============ 5. TUK ============ */
+      .tuk-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1rem;
+      }
 
-        .tuk-card:hover {
-            border-color: var(--primary-light);
-            transform: translateX(3px);
-        }
+      .tuk-card {
+        border: 1px solid var(--border-card);
+        border-radius: 14px;
+        padding: 1.3rem 1.4rem;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition:
+          border-color 0.25s,
+          transform 0.25s !important;
+      }
 
-        .tuk-name {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
+      .tuk-card:hover {
+        border-color: var(--primary-light);
+        transform: translateX(3px);
+      }
 
-        .tuk-for {
-            font-size: 0.82rem;
-            color: var(--secondary);
-            font-weight: 700;
-        }
+      .tuk-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
 
-        .tuk-desc {
-            font-size: 0.86rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
+      .tuk-for {
+        font-size: 0.82rem;
+        color: var(--secondary);
+        font-weight: 700;
+      }
 
-        .tuk-link {
-            margin-top: auto;
-            padding-top: 0.7rem;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--primary-light);
-        }
+      .tuk-desc {
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
 
-        /* ============ 6. CTA ============ */
-        .cta-band {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            border-radius: 20px;
-            padding: 2.6rem 2.4rem;
-            display: grid;
-            grid-template-columns: 1.4fr auto;
-            gap: 2rem;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
+      .tuk-link {
+        margin-top: auto;
+        padding-top: 0.7rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--primary-light);
+      }
 
-        .cta-band h3 {
-            font-size: clamp(1.3rem, 2.2vw, 1.7rem);
-            margin-bottom: 0.7rem;
-        }
+      /* ============ 6. CTA ============ */
+      .cta-band {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        border-radius: 20px;
+        padding: 2.6rem 2.4rem;
+        display: grid;
+        grid-template-columns: 1.4fr auto;
+        gap: 2rem;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .cta-band p {
-            color: rgba(255, 255, 255, 0.72);
-            font-size: 0.95rem;
-            line-height: 1.75;
-            max-width: 52ch;
-        }
+      .cta-band h3 {
+        font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+        margin-bottom: 0.7rem;
+      }
 
-        .btn-gold {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: var(--secondary);
-            color: var(--primary-dark);
-            padding: 0.95rem 1.7rem;
-            border-radius: 10px;
-            font-weight: 800;
-            font-size: 0.94rem;
-            white-space: nowrap;
-            transition: background 0.25s, transform 0.25s !important;
-        }
+      .cta-band p {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.95rem;
+        line-height: 1.75;
+        max-width: 52ch;
+      }
 
-        .btn-gold:hover {
-            background: var(--secondary-light);
-            transform: translateY(-2px);
-        }
+      .btn-gold {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--secondary);
+        color: var(--primary-dark);
+        padding: 0.95rem 1.7rem;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 0.94rem;
+        white-space: nowrap;
+        transition:
+          background 0.25s,
+          transform 0.25s !important;
+      }
 
-        /* ============ PLACEHOLDER MARKER ============ */
-        .todo {
-            display: inline-block;
-            margin-left: 0.5rem;
-            padding: 0.12rem 0.5rem;
-            border-radius: 4px;
-            background: var(--secondary-surface);
-            color: #92400e;
-            font-size: 0.64rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            vertical-align: middle;
-        }
+      .btn-gold:hover {
+        background: var(--secondary-light);
+        transform: translateY(-2px);
+      }
 
-        /* ============ FOOTER ============ */
-        .site-footer {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            padding: 5.5rem 0 2.5rem;
-            border-top: 1px solid var(--border-dark);
-            position: relative;
-            margin-top: 5rem;
-        }
+      /* ============ PLACEHOLDER MARKER ============ */
+      .todo {
+        display: inline-block;
+        margin-left: 0.5rem;
+        padding: 0.12rem 0.5rem;
+        border-radius: 4px;
+        background: var(--secondary-surface);
+        color: #92400e;
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        vertical-align: middle;
+      }
 
+      /* ============ FOOTER ============ */
+      .site-footer {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        padding: 5.5rem 0 2.5rem;
+        border-top: 1px solid var(--border-dark);
+        position: relative;
+        margin-top: 5rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+        gap: 3rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .footer-col h4,
+      .footer-brand-title {
+        font-family: var(--font-body);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-subtle);
+        margin-bottom: 1.2rem;
+      }
+
+      .footer-brand-name {
+        color: #ffffff;
+        font-family: var(--font-body);
+        font-weight: 800;
+        font-size: 1.05rem;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+
+      .footer-brand-sub {
+        color: var(--secondary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 0.2rem;
+      }
+
+      .footer-address {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.88rem;
+        line-height: 1.65;
+        margin-bottom: 1.2rem;
+      }
+
+      .footer-contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .footer-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-contact-icon {
+        width: 16px;
+        height: 16px;
+        stroke: var(--text-subtle);
+        stroke-width: 1.8;
+        fill: none;
+        flex-shrink: 0;
+      }
+
+      .footer-contact-link {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        transition: color 0.2s ease !important;
+      }
+
+      .footer-contact-link:hover {
+        color: var(--secondary-light);
+      }
+
+      .footer-social-row {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-top: 0.5rem;
+      }
+
+      .footer-map-box {
+        margin-top: 1.2rem;
+        border-radius: var(--radius-sm, 12px);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        background: rgba(15, 23, 42, 0.6);
+      }
+
+      .footer-map-box iframe {
+        width: 100%;
+        height: 150px;
+        border: 0;
+        display: block;
+        filter: grayscale(0.2) contrast(1.05);
+        transition: filter 0.3s ease;
+      }
+
+      .footer-map-box:hover iframe {
+        filter: grayscale(0) contrast(1);
+      }
+
+      .footer-social-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        text-decoration: none;
+      }
+
+      .footer-social-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+        transition: transform 0.25s ease !important;
+      }
+
+      .footer-social-btn:hover {
+        background: var(--primary);
+        border-color: var(--primary-light);
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
+      }
+
+      .footer-social-btn:hover svg {
+        transform: scale(1.08);
+      }
+
+      .footer-nav {
+        display: block;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease !important;
+        min-height: 28px;
+        padding: 0;
+      }
+
+      .footer-chevron {
+        opacity: 0;
+        transform: translateX(-4px);
+        color: var(--secondary);
+        font-weight: bold;
+        font-size: 1.05rem;
+        line-height: 1;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease !important;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-light);
+        transform: translateX(4px);
+      }
+
+      .footer-links a:hover .footer-chevron {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-identity-card {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 1.15rem 1.25rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-dark);
+        font-size: 0.85rem;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-identity-card strong {
+        color: #ffffff;
+        font-weight: 700;
+      }
+
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-dark);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: #78716c;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0;
+      }
+
+      /* ============ RESPONSIF ============ */
+      @media (max-width: 992px) {
         .footer-grid {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
-            gap: 3rem;
-            margin-bottom: 3.5rem;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2.5rem;
         }
+      }
 
-        .footer-col h4,
-        .footer-brand-title {
-            font-family: var(--font-body);
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-subtle);
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-brand-name {
-            color: #ffffff;
-            font-family: var(--font-body);
-            font-weight: 800;
-            font-size: 1.05rem;
-            line-height: 1.25;
-            letter-spacing: -0.01em;
-        }
-
-        .footer-brand-sub {
-            color: var(--secondary);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-top: 0.2rem;
-        }
-
-        .footer-address {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.88rem;
-            line-height: 1.65;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-contact-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.5rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-contact-icon {
-            width: 16px;
-            height: 16px;
-            stroke: var(--text-subtle);
-            stroke-width: 1.8;
-            fill: none;
-            flex-shrink: 0;
-        }
-
-        .footer-contact-link {
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            transition: color 0.2s ease !important;
-        }
-
-        .footer-contact-link:hover {
-            color: var(--secondary-light);
-        }
-
-        .footer-social-row {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            margin-top: 0.5rem;
-        }
-
-        .footer-map-box {
-            margin-top: 1.2rem;
-            border-radius: var(--radius-sm, 12px);
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-            background: rgba(15, 23, 42, 0.6);
-        }
-
-        .footer-map-box iframe {
-            width: 100%;
-            height: 150px;
-            border: 0;
-            display: block;
-            filter: grayscale(0.2) contrast(1.05);
-            transition: filter 0.3s ease;
-        }
-
-        .footer-map-box:hover iframe {
-            filter: grayscale(0) contrast(1);
-        }
-
-        .footer-social-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.8);
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            text-decoration: none;
-        }
-
-        .footer-social-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-            transition: transform 0.25s ease !important;
-        }
-
-        .footer-social-btn:hover {
-            background: var(--primary);
-            border-color: var(--primary-light);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.4);
-        }
-
-        .footer-social-btn:hover svg {
-            transform: scale(1.08);
-        }
-
-        .footer-nav {
-            display: block;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            transition: color 0.2s ease, transform 0.2s ease !important;
-            min-height: 28px;
-            padding: 0;
-        }
-
-        .footer-chevron {
-            opacity: 0;
-            transform: translateX(-4px);
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.05rem;
-            line-height: 1;
-            transition: opacity 0.2s ease, transform 0.2s ease !important;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-light);
-            transform: translateX(4px);
-        }
-
-        .footer-links a:hover .footer-chevron {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .footer-identity-card {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 1.15rem 1.25rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-dark);
-            font-size: 0.85rem;
-            line-height: 1.75;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-identity-card strong {
-            color: #ffffff;
-            font-weight: 700;
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2.2rem;
         }
 
         .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-dark);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: #78716c;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 0;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .about-grid {
+          grid-template-columns: 1fr;
         }
 
-        /* ============ RESPONSIF ============ */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2.5rem;
-            }
+        .flow {
+          grid-template-columns: 1fr;
+          gap: 1.6rem;
         }
 
-        @media (max-width: 600px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2.2rem;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
+        .flow-step {
+          padding: 0 0 0 3.4rem;
         }
 
-        @media (max-width: 980px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .flow {
-                grid-template-columns: 1fr;
-                gap: 1.6rem;
-            }
-
-            .flow-step {
-                padding: 0 0 0 3.4rem;
-            }
-
-            .flow-step::before {
-                top: 44px;
-                bottom: -1.6rem;
-                left: 19px;
-                right: auto;
-                width: 2px;
-                height: auto;
-            }
-
-            .flow-num {
-                position: absolute;
-                left: 0;
-                top: 0;
-                margin-bottom: 0;
-            }
-
-            .cta-band {
-                grid-template-columns: 1fr;
-            }
-
-            .unit-list {
-                max-height: 250px;
-                overflow-y: auto;
-            }
-
-            .scheme-body-grid {
-                grid-template-columns: 1fr;
-                gap: 1.4rem;
-            }
+        .flow-step::before {
+          top: 44px;
+          bottom: -1.6rem;
+          left: 19px;
+          right: auto;
+          width: 2px;
+          height: auto;
         }
 
-        @media (max-width: 900px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .legit-strip {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .legit-item:nth-child(2) {
-                border-right: none;
-            }
-
-            .legit-item:nth-child(1),
-            .legit-item:nth-child(2) {
-                border-bottom: 1px solid var(--border-card);
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        .flow-num {
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin-bottom: 0;
         }
 
-        @media (max-width: 600px) {
-            .page-header {
-                padding: 7rem 0 3rem;
-            }
-
-            .section {
-                padding: 3.5rem 0;
-            }
-
-            .legit-strip {
-                grid-template-columns: 1fr;
-            }
-
-            .legit-item {
-                border-right: none;
-                border-bottom: 1px solid var(--border-card);
-            }
-
-            .legit-item:last-child {
-                border-bottom: none;
-            }
-
-            .scheme-head {
-                grid-template-columns: 40px 1fr auto;
-                row-gap: 0.6rem;
-            }
-
-            .scheme-tag {
-                grid-column: 2 / 3;
-                justify-self: start;
-            }
-
-            .assessor-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .cta-band {
+          grid-template-columns: 1fr;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                transition-duration: 0.01ms !important;
-                animation-duration: 0.01ms !important;
-            }
-
-            html {
-                scroll-behavior: auto;
-            }
+        .unit-list {
+          max-height: 250px;
+          overflow-y: auto;
         }
+
+        .scheme-body-grid {
+          grid-template-columns: 1fr;
+          gap: 1.4rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .legit-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .legit-item:nth-child(2) {
+          border-right: none;
+        }
+
+        .legit-item:nth-child(1),
+        .legit-item:nth-child(2) {
+          border-bottom: 1px solid var(--border-card);
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-header {
+          padding: 7rem 0 3rem;
+        }
+
+        .section {
+          padding: 3.5rem 0;
+        }
+
+        .legit-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .legit-item {
+          border-right: none;
+          border-bottom: 1px solid var(--border-card);
+        }
+
+        .legit-item:last-child {
+          border-bottom: none;
+        }
+
+        .scheme-head {
+          grid-template-columns: 40px 1fr auto;
+          row-gap: 0.6rem;
+        }
+
+        .scheme-tag {
+          grid-column: 2 / 3;
+          justify-self: start;
+        }
+
+        .assessor-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+
+        html {
+          scroll-behavior: auto;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- ============ NAVBAR ============ -->
     <header class="header-wrapper">
-        <nav class="nav-island" id="main-nav">
-            <a href="index.html#hero" class="brand-box">
-                <img src="assets/LOGO LSP IG.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo" onerror="
+      <nav class="nav-island" id="main-nav">
+        <a href="index.html#hero" class="brand-box">
+          <img
+            src="assets/LOGO LSP IG.png"
+            alt="Logo SMKS Muhammadiyah 1 Genteng"
+            class="brand-logo"
+            onerror="
               this.closest('.card')
                 ? this.closest('.card').classList.add('no-image')
                 : null;
               this.remove();
-            " />
+            "
+          />
+        </a>
+
+        <div class="nav-menu">
+          <a href="index.html#hero" class="nav-link">Beranda</a>
+
+          <!-- Profil & Info Dropdown -->
+          <div class="nav-item">
+            <a href="visi-misi.html#sambutan" class="nav-link">
+              Profil & Info <span style="font-size: 0.65rem">▼</span>
             </a>
-
-            <div class="nav-menu">
-                <a href="index.html#hero" class="nav-link">Beranda</a>
-
-                <!-- Profil & Info Dropdown -->
-                <div class="nav-item">
-                    <a href="visi-misi.html#sambutan" class="nav-link">
-                        Profil & Info <span style="font-size: 0.65rem">▼</span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="visi-misi.html" class="dropdown-item">
-                            <span class="dropdown-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <circle cx="12" cy="12" r="6" />
-                                    <circle cx="12" cy="12" r="2" />
-                                </svg>
-                            </span>
-                            <div>
-                                <div>Visi & Misi</div>
-                                <small style="color: var(--text-subtle); font-size: 0.75rem">Arah & Tujuan
-                                    Lembaga</small>
-                            </div>
-                        </a>
-                        <a href="guru.html" class="dropdown-item">
-                            <span class="dropdown-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                    <circle cx="9" cy="7" r="4" />
-                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                </svg>
-                            </span>
-                            <div>
-                                <div>Guru & Tendik</div>
-                                <small style="color: var(--text-subtle); font-size: 0.75rem">Tenaga Pendidik</small>
-                            </div>
-                        </a>
-                        <a href="fasilitas.html" class="dropdown-item">
-                            <span class="dropdown-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-                                    <path d="M10 6h4" />
-                                    <path d="M10 10h4" />
-                                    <path d="M10 14h4" />
-                                    <path d="M10 18h4" />
-                                </svg>
-                            </span>
-                            <div>
-                                <div>Fasilitas Sekolah</div>
-                                <small style="color: var(--text-subtle); font-size: 0.75rem">Laboratorium & Ruang
-                                    Belajar</small>
-                            </div>
-                        </a>
-                        <a href="ekstrakurikuler.html" class="dropdown-item">
-                            <span class="dropdown-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
-                                </svg>
-                            </span>
-                            <div>
-                                <div>Ekstrakurikuler & IPM</div>
-                                <small style="color: var(--text-subtle); font-size: 0.75rem">Bakat, Seni &
-                                    Karakter</small>
-                            </div>
-                        </a>
-                        <a href="prestasi.html" class="dropdown-item">
-                            <span class="dropdown-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                                    <path d="M4 22h16" />
-                                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
-                                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
-                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-                                </svg>
-                            </span>
-                            <div>
-                                <div>Galeri Prestasi</div>
-                                <small style="color: var(--text-subtle); font-size: 0.75rem">Piala & Penghargaan
-                                    Nasional</small>
-                            </div>
-                        </a>
-                    </div>
+            <div class="dropdown-menu">
+              <a href="visi-misi.html" class="dropdown-item">
+                <span class="dropdown-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                  </svg>
+                </span>
+                <div>
+                  <div>Visi & Misi</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Arah & Tujuan Lembaga</small
+                  >
                 </div>
-
-                <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
-
-                <a href="lsp.html" class="nav-link active">LSP</a>
-
-                <a href="bkk.html" class="nav-link">BKK</a>
-
-                <!-- Layanan Siswa (BLUD) -->
-                <a href="index.html#blud" class="nav-link">BLUD</a>
-
-                <a href="berita.html" class="nav-link">Berita</a>
-                <a href="spmb.html" class="btn btn-primary" style="padding: 0.55rem 1.4rem; font-size: 0.88rem">Daftar
-                    SPMB</a>
+              </a>
+              <a href="guru.html" class="dropdown-item">
+                <span class="dropdown-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </span>
+                <div>
+                  <div>Guru & Tendik</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Tenaga Pendidik</small
+                  >
+                </div>
+              </a>
+              <a href="fasilitas.html" class="dropdown-item">
+                <span class="dropdown-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                    <path d="M10 6h4" />
+                    <path d="M10 10h4" />
+                    <path d="M10 14h4" />
+                    <path d="M10 18h4" />
+                  </svg>
+                </span>
+                <div>
+                  <div>Fasilitas Sekolah</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Laboratorium & Ruang Belajar</small
+                  >
+                </div>
+              </a>
+              <a href="ekstrakurikuler.html" class="dropdown-item">
+                <span class="dropdown-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <div>Ekstrakurikuler & IPM</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Bakat, Seni & Karakter</small
+                  >
+                </div>
+              </a>
+              <a href="prestasi.html" class="dropdown-item">
+                <span class="dropdown-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                    <path d="M4 22h16" />
+                    <path
+                      d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"
+                    />
+                    <path
+                      d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"
+                    />
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                  </svg>
+                </span>
+                <div>
+                  <div>Galeri Prestasi</div>
+                  <small style="color: var(--text-subtle); font-size: 0.75rem"
+                    >Piala & Penghargaan Nasional</small
+                  >
+                </div>
+              </a>
             </div>
+          </div>
 
-            <a href="spmb.html" class="btn btn-primary nav-mobile-cta" style="display: none">Daftar SPMB</a>
-            <button class="hamburger" id="hamburger-btn" aria-label="Buka Menu Navigasi">
-                ☰
-            </button>
-        </nav>
+          <a href="index.html#jurusan" class="nav-link">Konsentrasi Keahlian</a>
+
+          <a href="lsp.html" class="nav-link active">LSP</a>
+
+          <a href="bkk.html" class="nav-link">BKK</a>
+
+          <!-- Layanan Siswa (BLUD) -->
+          <a href="index.html#blud" class="nav-link">BLUD</a>
+
+          <a href="berita.html" class="nav-link">Berita</a>
+          <a
+            href="spmb.html"
+            class="btn btn-primary"
+            style="padding: 0.55rem 1.4rem; font-size: 0.88rem"
+            >Daftar SPMB</a
+          >
+        </div>
+
+        <a
+          href="spmb.html"
+          class="btn btn-primary nav-mobile-cta"
+          style="display: none"
+          >Daftar SPMB</a
+        >
+        <button
+          class="hamburger"
+          id="hamburger-btn"
+          aria-label="Buka Menu Navigasi"
+        >
+          ☰
+        </button>
+      </nav>
     </header>
 
     <!-- Mobile Drawer -->
     <div class="mobile-overlay" id="mobile-overlay"></div>
     <div class="mobile-drawer" id="mobile-drawer">
-        <button class="drawer-close" id="drawer-close-btn">&times;</button>
-        <div class="brand-box" style="margin-bottom: 2rem">
-            <img src="assets/logo.webp" alt="Logo SMEMSA" class="brand-logo" onerror="
+      <button class="drawer-close" id="drawer-close-btn">&times;</button>
+      <div class="brand-box" style="margin-bottom: 2rem">
+        <img
+          src="assets/logo.webp"
+          alt="Logo SMEMSA"
+          class="brand-logo"
+          onerror="
             this.closest('.card')
               ? this.closest('.card').classList.add('no-image')
               : null;
             this.remove();
-          " />
-            <div>
-                <strong style="color: var(--primary); font-size: 1.1rem; display: block">SMEMSA GENTENG</strong>
-                <small style="color: var(--text-muted); font-size: 0.75rem">NPSN 20525597 &bull; Akreditasi A</small>
-            </div>
+          "
+        />
+        <div>
+          <strong
+            style="color: var(--primary); font-size: 1.1rem; display: block"
+            >SMEMSA GENTENG</strong
+          >
+          <small style="color: var(--text-muted); font-size: 0.75rem"
+            >NPSN 20525597 &bull; Akreditasi A</small
+          >
         </div>
+      </div>
 
-        <div class="drawer-links">
-            <a href="index.html#hero">🏠 Beranda</a>
+      <div class="drawer-links">
+        <a href="index.html#hero">🏠 Beranda</a>
 
-            <div class="drawer-section-title">Halaman Informasi</div>
-            <a href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
-            <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
-            <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
-            <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
-            <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
-            <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
-            <a href="berita.html">📰 Jurnal & Kabar Sekolah</a>
+        <div class="drawer-section-title">Halaman Informasi</div>
+        <a href="bkk.html">💼 Bursa Kerja Khusus (BKK)</a>
+        <a href="visi-misi.html">🎯 Visi & Misi Sekolah</a>
+        <a href="guru.html">👥 Guru & Tenaga Kependidikan</a>
+        <a href="fasilitas.html">🏢 Fasilitas Unggulan</a>
+        <a href="ekstrakurikuler.html">⚽ Ekstrakurikuler & IPM</a>
+        <a href="prestasi.html">🏆 Prestasi & Penghargaan</a>
+        <a href="berita.html">📰 Jurnal & Kabar Sekolah</a>
 
-            <div class="drawer-section-title">Navigasi Halaman Utama</div>
-            <a href="visi-misi.html#sambutan">👤 Sambutan Kepala Sekolah</a>
-            <a href="index.html#jurusan">💻 7 Program Keahlian</a>
+        <div class="drawer-section-title">Navigasi Halaman Utama</div>
+        <a href="visi-misi.html#sambutan">👤 Sambutan Kepala Sekolah</a>
+        <a href="index.html#jurusan">💻 7 Program Keahlian</a>
 
-            <a href="lsp.html" class="nav-link">LSP</a>
-            <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
+        <a href="lsp.html" class="nav-link">LSP</a>
+        <a href="index.html#blud">🏬 Unit Produksi BLUD</a>
 
-            <div style="margin-top: 1.5rem">
-                <a href="spmb.html" class="btn btn-primary"
-                    style="width: 100%; text-align: center; justify-content: center">Daftar SPMB 2026</a>
-            </div>
+        <div style="margin-top: 1.5rem">
+          <a
+            href="spmb.html"
+            class="btn btn-primary"
+            style="width: 100%; text-align: center; justify-content: center"
+            >Daftar SPMB 2026</a
+          >
         </div>
+      </div>
     </div>
 
     <!-- ============ PAGE HEADER ============ -->
     <header class="page-header">
-        <div class="container">
-            <span class="eyebrow">Lembaga Sertifikasi Profesi</span>
-            <h1 class="page-title">LSP <em>SMKS Muhammadiyah 1 Genteng.</em></h1>
-            <p class="page-lead">
-                Lembaga Sertifikasi Profesi Pihak Pertama yang menyelenggarakan uji kompetensi
-                bagi peserta didik. Lulusan tidak hanya membawa ijazah, tetapi juga sertifikat
-                kompetensi berlogo Garuda yang diakui secara nasional.
-            </p>
+      <div class="container">
+        <span class="eyebrow">Lembaga Sertifikasi Profesi</span>
+        <h1 class="page-title">LSP <em>SMKS Muhammadiyah 1 Genteng.</em></h1>
+        <p class="page-lead">
+          Lembaga Sertifikasi Profesi Pihak Pertama yang menyelenggarakan uji
+          kompetensi bagi peserta didik. Lulusan tidak hanya membawa ijazah,
+          tetapi juga sertifikat kompetensi berlogo Garuda yang diakui secara
+          nasional.
+        </p>
 
-            <!-- Strip legitimasi -->
-            <div class="legit-strip">
-                <div class="legit-item">
-                    <div class="legit-label">Nomor Lisensi BNSP</div>
-                    <div class="legit-value is-placeholder" data-fill="nomor-lisensi"> BNSP-LSP-1911-ID</div>
-                </div>
-                <div class="legit-item">
-                    <div class="legit-label">Tanggal Penetapan</div>
-                    <div class="legit-value is-placeholder" data-fill="tanggal-lisensi">Menunggu data</div>
-                </div>
-                <div class="legit-item">
-                    <div class="legit-label">Masa Berlaku</div>
-                    <div class="legit-value is-placeholder" data-fill="masa-berlaku">2031-04-24</div>
-                </div>
-                <div class="legit-item">
-                    <div class="legit-label">Jumlah Skema</div>
-                    <div class="legit-value" id="scheme-count">9 Skema</div>
-                </div>
+        <!-- Strip legitimasi -->
+        <div class="legit-strip">
+          <div class="legit-item">
+            <div class="legit-label">Nomor Lisensi BNSP</div>
+            <div class="legit-value is-placeholder" data-fill="nomor-lisensi">
+              BNSP-LSP-1911-ID
             </div>
+          </div>
+          <div class="legit-item">
+            <div class="legit-label">Tanggal Penetapan</div>
+            <div class="legit-value is-placeholder" data-fill="tanggal-lisensi">
+              Menunggu data
+            </div>
+          </div>
+          <div class="legit-item">
+            <div class="legit-label">Masa Berlaku</div>
+            <div class="legit-value is-placeholder" data-fill="masa-berlaku">
+              2031-04-24
+            </div>
+          </div>
+          <div class="legit-item">
+            <div class="legit-label">Jumlah Skema</div>
+            <div class="legit-value" id="scheme-count">9 Skema</div>
+          </div>
         </div>
+      </div>
     </header>
 
     <!-- ============ 1. TENTANG ============ -->
     <section class="section">
-        <div class="container about-grid">
-            <div class="about-text">
-                <span class="eyebrow">Tentang Lembaga</span>
-                <h2 class="section-title">Sertifikasi yang Diakui Industri.</h2>
-                <p style="margin-top:1.2rem;">
-                    LSP-P1 adalah lembaga sertifikasi yang dibentuk oleh satuan pendidikan dan
-                    memperoleh lisensi dari Badan Nasional Sertifikasi Profesi (BNSP) untuk
-                    melaksanakan uji kompetensi bagi peserta didiknya sendiri.
-                </p>
-                <p>
-                    Melalui LSP-P1, peserta didik SMKS Muhammadiyah 1 Genteng mengikuti asesmen
-                    yang menguji kemampuan nyata sesuai standar kerja yang berlaku di industri —
-                    bukan sekadar ujian tulis. Sertifikat yang diterbitkan berlaku secara nasional
-                    dan menjadi bukti kompetensi saat melamar kerja maupun melanjutkan studi.
-                </p>
-                <p data-fill="paragraf-tambahan" style="color:var(--text-subtle); font-style:italic;">
-                    [Ruang untuk sejarah singkat pendirian LSP, jumlah lulusan tersertifikasi,
-                    atau informasi lain dari pihak sekolah.]
-                </p>
-            </div>
-
-            <aside class="id-card">
-                <h3>Identitas Lembaga</h3>
-                <dl>
-                    <div class="id-row">
-                        <dt>Nama LSP</dt>
-                        <dd class="is-placeholder" data-fill="nama-lsp">SMK Muhammadiyah 1 Genteng</dd>
-                    </div>
-                    <div class="id-row">
-                        <dt>Jenis</dt>
-                        <dd>LSP Pihak Pertama (P1)</dd>
-                    </div>
-                    <div class="id-row">
-                        <dt>No. Lisensi</dt>
-                        <dd class="is-placeholder" data-fill="nomor-lisensi"> BNSP-LSP-1911-ID</dd>
-                    </div>
-                    <div class="id-row">
-                        <dt>Ketua LSP</dt>
-                        <dd class="is-placeholder" data-fill="ketua-lsp">Menunggu data</dd>
-                    </div>
-                    <div class="id-row">
-                        <dt>Induk</dt>
-                        <dd>SMKS Muhammadiyah 1 Genteng</dd>
-                    </div>
-                    <div class="id-row">
-                        <dt>NPSN</dt>
-                        <dd>20525597</dd>
-                    </div>
-                </dl>
-            </aside>
+      <div class="container about-grid">
+        <div class="about-text">
+          <span class="eyebrow">Tentang Lembaga</span>
+          <h2 class="section-title">Sertifikasi yang Diakui Industri.</h2>
+          <p style="margin-top: 1.2rem">
+            LSP-P1 adalah lembaga sertifikasi yang dibentuk oleh satuan
+            pendidikan dan memperoleh lisensi dari Badan Nasional Sertifikasi
+            Profesi (BNSP) untuk melaksanakan uji kompetensi bagi peserta
+            didiknya sendiri.
+          </p>
+          <p>
+            Melalui LSP-P1, peserta didik SMKS Muhammadiyah 1 Genteng mengikuti
+            asesmen yang menguji kemampuan nyata sesuai standar kerja yang
+            berlaku di industri — bukan sekadar ujian tulis. Sertifikat yang
+            diterbitkan berlaku secara nasional dan menjadi bukti kompetensi
+            saat melamar kerja maupun melanjutkan studi.
+          </p>
+          <p
+            data-fill="paragraf-tambahan"
+            style="color: var(--text-subtle); font-style: italic"
+          >
+            [Ruang untuk sejarah singkat pendirian LSP, jumlah lulusan
+            tersertifikasi, atau informasi lain dari pihak sekolah.]
+          </p>
         </div>
+
+        <aside class="id-card">
+          <h3>Identitas Lembaga</h3>
+          <dl>
+            <div class="id-row">
+              <dt>Nama LSP</dt>
+              <dd class="is-placeholder" data-fill="nama-lsp">
+                SMK Muhammadiyah 1 Genteng
+              </dd>
+            </div>
+            <div class="id-row">
+              <dt>Jenis</dt>
+              <dd>LSP Pihak Pertama (P1)</dd>
+            </div>
+            <div class="id-row">
+              <dt>No. Lisensi</dt>
+              <dd class="is-placeholder" data-fill="nomor-lisensi">
+                BNSP-LSP-1911-ID
+              </dd>
+            </div>
+            <div class="id-row">
+              <dt>Ketua LSP</dt>
+              <dd class="is-placeholder" data-fill="ketua-lsp">
+                Menunggu data
+              </dd>
+            </div>
+            <div class="id-row">
+              <dt>Induk</dt>
+              <dd>SMKS Muhammadiyah 1 Genteng</dd>
+            </div>
+            <div class="id-row">
+              <dt>NPSN</dt>
+              <dd>20525597</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
     </section>
 
     <!-- ============ 2. SKEMA SERTIFIKASI ============ -->
     <section class="section alt" id="skema">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">Skema Sertifikasi</span>
-                <h2 class="section-title">Skema yang Diselenggarakan.</h2>
-                <p class="section-desc">
-                    Setiap konsentrasi keahlian memiliki skema sertifikasi tersendiri dengan unit
-                    kompetensi yang mengacu pada Standar Kompetensi Kerja Nasional Indonesia (SKKNI).
-                    Klik salah satu skema untuk melihat rincian unit kompetensinya.
-                </p>
-            </div>
-
-            <div class="scheme-list" id="scheme-list">
-                <!-- Diisi oleh JavaScript dari array SKEMA -->
-            </div>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Skema Sertifikasi</span>
+          <h2 class="section-title">Skema yang Diselenggarakan.</h2>
+          <p class="section-desc">
+            Setiap konsentrasi keahlian memiliki skema sertifikasi tersendiri
+            dengan unit kompetensi yang mengacu pada Standar Kompetensi Kerja
+            Nasional Indonesia (SKKNI). Klik salah satu skema untuk melihat
+            rincian unit kompetensinya.
+          </p>
         </div>
+
+        <div class="scheme-list" id="scheme-list">
+          <!-- Diisi oleh JavaScript dari array SKEMA -->
+        </div>
+      </div>
     </section>
 
     <!-- ============ 3. ALUR ASESMEN ============ -->
     <section class="section">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">Proses Sertifikasi</span>
-                <h2 class="section-title">Alur Uji Kompetensi.</h2>
-                <p class="section-desc">
-                    Lima tahap yang dilalui peserta didik sejak mendaftar hingga menerima
-                    sertifikat kompetensi.
-                </p>
-            </div>
-
-            <div class="flow" id="flow-list">
-                <!-- Diisi oleh JavaScript dari array ALUR -->
-            </div>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Proses Sertifikasi</span>
+          <h2 class="section-title">Alur Uji Kompetensi.</h2>
+          <p class="section-desc">
+            Lima tahap yang dilalui peserta didik sejak mendaftar hingga
+            menerima sertifikat kompetensi.
+          </p>
         </div>
+
+        <div class="flow" id="flow-list">
+          <!-- Diisi oleh JavaScript dari array ALUR -->
+        </div>
+      </div>
     </section>
 
     <!-- ============ 4. ASESOR ============ -->
     <section class="section alt" id="asesor">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">Sumber Daya</span>
-                <h2 class="section-title">Asesor Kompetensi.</h2>
-                <p class="section-desc">
-                    Uji kompetensi dilaksanakan oleh asesor bersertifikat BNSP yang berasal dari
-                    internal sekolah maupun praktisi industri mitra.
-                </p>
-            </div>
-
-            <div class="assessor-grid" id="assessor-grid">
-                <!-- Diisi oleh JavaScript dari array ASESOR -->
-            </div>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Sumber Daya</span>
+          <h2 class="section-title">Asesor Kompetensi.</h2>
+          <p class="section-desc">
+            Uji kompetensi dilaksanakan oleh asesor bersertifikat BNSP yang
+            berasal dari internal sekolah maupun praktisi industri mitra.
+          </p>
         </div>
+
+        <div class="assessor-grid" id="assessor-grid">
+          <!-- Diisi oleh JavaScript dari array ASESOR -->
+        </div>
+      </div>
     </section>
 
     <!-- ============ 5. TUK ============ -->
     <section class="section" id="tuk">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">Tempat Uji Kompetensi</span>
-                <h2 class="section-title">TUK Terverifikasi.</h2>
-                <p class="section-desc">
-                    Asesmen dilaksanakan di tempat uji kompetensi yang telah diverifikasi sesuai
-                    standar, sebagian besar merupakan unit Teaching Factory yang beroperasi nyata.
-                </p>
-            </div>
-
-            <div class="tuk-grid" id="tuk-grid">
-                <!-- Diisi oleh JavaScript dari array TUK -->
-            </div>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Tempat Uji Kompetensi</span>
+          <h2 class="section-title">TUK Terverifikasi.</h2>
+          <p class="section-desc">
+            Asesmen dilaksanakan di tempat uji kompetensi yang telah
+            diverifikasi sesuai standar, sebagian besar merupakan unit Teaching
+            Factory yang beroperasi nyata.
+          </p>
         </div>
+
+        <div class="tuk-grid" id="tuk-grid">
+          <!-- Diisi oleh JavaScript dari array TUK -->
+        </div>
+      </div>
     </section>
 
     <!-- ============ 6. CTA ============ -->
     <section class="section">
-        <div class="container">
-            <div class="cta-band">
-                <div>
-                    <h3>Kompetensi yang Terbukti, Bukan Sekadar Ijazah.</h3>
-                    <p>
-                        Setiap peserta didik SMKS Muhammadiyah 1 Genteng berkesempatan mengikuti
-                        uji kompetensi sesuai konsentrasi keahliannya. Pelajari alur karier tiap
-                        jurusan, dari ruang kelas sampai tempat kerja.
-                    </p>
-                </div>
-                <a href="index.html#jurusan" class="btn-gold">
-                    Lihat Konsentrasi Keahlian
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                </a>
-            </div>
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h3>Kompetensi yang Terbukti, Bukan Sekadar Ijazah.</h3>
+            <p>
+              Setiap peserta didik SMKS Muhammadiyah 1 Genteng berkesempatan
+              mengikuti uji kompetensi sesuai konsentrasi keahliannya. Pelajari
+              alur karier tiap jurusan, dari ruang kelas sampai tempat kerja.
+            </p>
+          </div>
+          <a href="index.html#jurusan" class="btn-gold">
+            Lihat Konsentrasi Keahlian
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- ============ FOOTER ============ -->
     <footer class="site-footer footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Kolom 1: Profil Sekolah & Kontak -->
-                <div>
-                    <div class="brand-box" style="
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Kolom 1: Profil Sekolah & Kontak -->
+          <div>
+            <div
+              class="brand-box"
+              style="
                 display: flex;
                 align-items: center;
                 gap: 0.9rem;
                 margin-bottom: 1.2rem;
-              ">
-                        <img src="assets/icon/Logo LSP.png" alt="Logo SMKS Muhammadiyah 1 Genteng" class="brand-logo"
-                            style="max-height: 52px; width: auto; object-fit: contain" width="52" height="52" onerror="
+              "
+            >
+              <img
+                src="assets/icon/Logo LSP.png"
+                alt="Logo SMKS Muhammadiyah 1 Genteng"
+                class="brand-logo"
+                style="max-height: 52px; width: auto; object-fit: contain"
+                width="52"
+                height="52"
+                onerror="
                   this.closest('.card')
                     ? this.closest('.card').classList.add('no-image')
                     : null;
                   this.remove();
-                " />
-                        <div>
-                            <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
-                            <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
-                        </div>
-                    </div>
-                    <p class="footer-address footer-addr">
-                        Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
-                        Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
-                        68465
-                    </p>
+                "
+              />
+              <div>
+                <div class="footer-brand-name">SMKS MUHAMMADIYAH 1 GENTENG</div>
+                <div class="footer-brand-sub">BANYUWANGI &bull; JAWA TIMUR</div>
+              </div>
+            </div>
+            <p class="footer-address footer-addr">
+              Jl. KH. Ahmad Dahlan / Jl. KH Imam Bahri No.10, Dusun Krajan,
+              Genteng Wetan, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur
+              68465
+            </p>
 
-                    <!-- A. Baris Kontak dengan Inline SVG Stroke -->
-                    <ul class="footer-contact-list">
-                        <li class="footer-contact-item">
-                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                            </svg>
-                            <a href="tel:0333845605" class="footer-contact-link">(0333) 845605</a>
-                        </li>
-                        <li class="footer-contact-item">
-                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                            </svg>
-                            <a href="https://wa.me/6282241356668" target="_blank" rel="noopener noreferrer"
-                                class="footer-contact-link">0822-4135-6668 (WhatsApp)</a>
-                        </li>
-                        <li class="footer-contact-item">
-                            <svg class="footer-contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,13 2,6" />
-                            </svg>
-                            <a href="mailto:smkmuhi.genteng1968@gmail.com"
-                                class="footer-contact-link">smkmuhi.genteng1968@gmail.com</a>
-                        </li>
-                    </ul>
+            <!-- A. Baris Kontak dengan Inline SVG Stroke -->
+            <ul class="footer-contact-list">
+              <li class="footer-contact-item">
+                <svg
+                  class="footer-contact-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <a href="tel:0333845605" class="footer-contact-link"
+                  >(0333) 845605</a
+                >
+              </li>
+              <li class="footer-contact-item">
+                <svg
+                  class="footer-contact-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  />
+                </svg>
+                <a
+                  href="https://wa.me/6282241356668"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-contact-link"
+                  >0822-4135-6668 (WhatsApp)</a
+                >
+              </li>
+              <li class="footer-contact-item">
+                <svg
+                  class="footer-contact-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <a
+                  href="mailto:smkmuhi.genteng1968@gmail.com"
+                  class="footer-contact-link"
+                  >smkmuhi.genteng1968@gmail.com</a
+                >
+              </li>
+            </ul>
 
-                    <!-- C. Media Sosial Monokrom -->
-                    <div class="footer-social-row" aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng">
-                        <!-- Instagram -->
-                        <a href="https://www.instagram.com/smkmuhigts/" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-btn" aria-label="Instagram SMKS Muhammadiyah 1 Genteng">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
-                                    stroke-width="2" />
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none"
-                                    stroke="currentColor" stroke-width="2" />
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </a>
-                        <!-- YouTube -->
-                        <a href="https://www.youtube.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-btn" aria-label="YouTube SMKS Muhammadiyah 1 Genteng">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
-                                    fill="none" stroke="currentColor" stroke-width="2" />
-                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" />
-                            </svg>
-                        </a>
-                        <!-- Facebook -->
-                        <a href="https://www.facebook.com/smkmuhigts" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-btn" aria-label="Facebook SMKS Muhammadiyah 1 Genteng">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none"
-                                    stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </a>
-                        <!-- TikTok -->
-                        <a href="https://www.tiktok.com/@smkmuhigts" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-btn" aria-label="TikTok SMKS Muhammadiyah 1 Genteng">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- D. Peta Lokasi Sekolah Google Maps -->
-                    <div class="footer-map-box">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4960283657647!2d114.155154175011!3d-8.35276589168399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd154d9bec38cf9%3A0x8c62fbc05274d015!2sSMK%20Muhammadiyah%201%20Genteng!5e0!3m2!1sid!2sid!4v1787989542669!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                    </div>
-                </div>
-
-                <!-- Kolom 2: Halaman Terkait -->
-                <div class="footer-col">
-                    <h4>Halaman Terkait</h4>
-                    <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
-                        <ul class="footer-links">
-                            <li>
-                                <a href="bkk.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
-                                    Bursa Kerja Khusus (BKK)</a>
-                            </li>
-                            <li>
-                                <a href="visi-misi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
-                                    Visi &amp; Misi</a>
-                            </li>
-                            <li>
-                                <a href="fasilitas.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
-                                    Fasilitas Sekolah</a>
-                            </li>
-                            <li>
-                                <a href="ekstrakurikuler.html"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Ekstrakurikuler &amp; IPM</a>
-                            </li>
-                            <li>
-                                <a href="prestasi.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
-                                    Galeri Prestasi</a>
-                            </li>
-                            <li>
-                                <a href="berita.html"><span class="footer-chevron" aria-hidden="true">&rsaquo;</span>
-                                    Jurnal &amp; Berita</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <!-- Kolom 3: 7 Konsentrasi Keahlian -->
-                <div class="footer-col">
-                    <h4>7 Konsentrasi</h4>
-                    <nav class="footer-nav" aria-label="Navigasi 7 Konsentrasi Keahlian">
-                        <ul class="footer-links">
-                            <li>
-                                <a href="index.html#jurusan" onclick="jumpToMajor('rpl')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Pengembang Perangkat Lunak & Gim</a>
-                            </li>
-                            <li>
-                                <a href="index.html#jurusan" onclick="jumpToMajor('tkj')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Teknik Jaringan Komputer &amp; Telekomunikasi</a>
-                            </li>
-                            <li>
-                                <a href="index.html#jurusan" onclick="jumpToMajor('dkv')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Desain Komunikasi Visual</a>
-                            </li>
-                            <li>
-                                <a href="index.html#jurusan" onclick="jumpToMajor('bd')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Bisnis Digital</a>
-                            </li>
-                            <li>
-                                <a href="index.html#jurusan" onclick="jumpToMajor('akl')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Akuntansi &amp; Keuangan Lembaga</a>
-                            </li>
-                            <li>
-                                <a href="index.html#jurusan" onclick="jumpToMajor('mplb')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Manajemen Perkantoran</a>
-                            </li>
-                            <li>
-                                <a href="index.html#jurusan" onclick="jumpToMajor('ph')"><span class="footer-chevron"
-                                        aria-hidden="true">&rsaquo;</span>
-                                    Perhotelan</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <!-- Kolom 4: Identitas Lembaga Resmi -->
-                <div class="footer-col">
-                    <h4>Identitas Lembaga</h4>
-                    <div class="footer-identity-card">
-                        <div><strong>NPSN:</strong> 20525597</div>
-                        <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
-                        <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
-                        <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
-                        <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
-                    </div>
-                </div>
+            <!-- C. Media Sosial Monokrom -->
+            <div
+              class="footer-social-row"
+              aria-label="Media Sosial SMKS Muhammadiyah 1 Genteng"
+            >
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/smkmuhigts/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="Instagram SMKS Muhammadiyah 1 Genteng"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect
+                    x="2"
+                    y="2"
+                    width="20"
+                    height="20"
+                    rx="5"
+                    ry="5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="17.5"
+                    y1="6.5"
+                    x2="17.51"
+                    y2="6.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="https://www.youtube.com/@smkmuhigts"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="YouTube SMKS Muhammadiyah 1 Genteng"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <polygon
+                    points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a
+                href="https://www.facebook.com/smkmuhigts"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="Facebook SMKS Muhammadiyah 1 Genteng"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </a>
+              <!-- TikTok -->
+              <a
+                href="https://www.tiktok.com/@smkmuhigts"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="TikTok SMKS Muhammadiyah 1 Genteng"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
             </div>
 
-            <div class="footer-bottom">
-                <div>
-                    &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta dilindungi.
-                </div>
-                <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
+            <!-- D. Peta Lokasi Sekolah Google Maps -->
+            <div class="footer-map-box">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4960283657647!2d114.155154175011!3d-8.35276589168399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd154d9bec38cf9%3A0x8c62fbc05274d015!2sSMK%20Muhammadiyah%201%20Genteng!5e0!3m2!1sid!2sid!4v1787989542669!5m2!1sid!2sid"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
             </div>
+          </div>
+
+          <!-- Kolom 2: Halaman Terkait -->
+          <div class="footer-col">
+            <h4>Halaman Terkait</h4>
+            <nav class="footer-nav" aria-label="Navigasi Halaman Terkait">
+              <ul class="footer-links">
+                <li>
+                  <a href="bkk.html"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Bursa Kerja Khusus (BKK)</a
+                  >
+                </li>
+                <li>
+                  <a href="visi-misi.html"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Visi &amp; Misi</a
+                  >
+                </li>
+                <li>
+                  <a href="fasilitas.html"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Fasilitas Sekolah</a
+                  >
+                </li>
+                <li>
+                  <a href="ekstrakurikuler.html"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Ekstrakurikuler &amp; IPM</a
+                  >
+                </li>
+                <li>
+                  <a href="prestasi.html"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Galeri Prestasi</a
+                  >
+                </li>
+                <li>
+                  <a href="berita.html"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Jurnal &amp; Berita</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Kolom 3: 7 Konsentrasi Keahlian -->
+          <div class="footer-col">
+            <h4>7 Konsentrasi</h4>
+            <nav
+              class="footer-nav"
+              aria-label="Navigasi 7 Konsentrasi Keahlian"
+            >
+              <ul class="footer-links">
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('rpl')"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Pengembang Perangkat Lunak & Gim</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('tkj')"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Teknik Jaringan Komputer &amp; Telekomunikasi</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('dkv')"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Desain Komunikasi Visual</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('bd')"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Bisnis Digital</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('akl')"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Akuntansi &amp; Keuangan Lembaga</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('mplb')"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Manajemen Perkantoran</a
+                  >
+                </li>
+                <li>
+                  <a href="index.html#jurusan" onclick="jumpToMajor('ph')"
+                    ><span class="footer-chevron" aria-hidden="true"
+                      >&rsaquo;</span
+                    >
+                    Perhotelan</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Kolom 4: Identitas Lembaga Resmi -->
+          <div class="footer-col">
+            <h4>Identitas Lembaga</h4>
+            <div class="footer-identity-card">
+              <div><strong>NPSN:</strong> 20525597</div>
+              <div><strong>Akreditasi:</strong> A (Unggul BAN-S/M)</div>
+              <div><strong>Lembaga Sertifikasi:</strong> LSP-P1 BNSP</div>
+              <div><strong>Status Sekolah:</strong> SMK Pusat Keunggulan</div>
+              <div><strong>Domain Resmi:</strong> smksmuh1gtg.com</div>
+            </div>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; 2026 SMKS Muhammadiyah 1 Genteng. Seluruh hak cipta
+            dilindungi.
+          </div>
+          <div>Created By PPLG &bull; Kompetisi JHIC Jagoan Hosting</div>
+        </div>
+      </div>
     </footer>
 
     <script>
-        /* =====================================================================
+      /* =====================================================================
            NAVBAR MOBILE — diletakkan paling atas agar tetap berfungsi
            walaupun skrip lain bermasalah.
         ===================================================================== */
-        (function () {
-            const btn = document.getElementById('hamburger-btn');
-            const drawer = document.getElementById('mobile-drawer');
-            const overlay = document.getElementById('mobile-overlay');
-            const closeBtn = document.getElementById('drawer-close-btn');
-            if (!btn || !drawer || !overlay) return;
+      (function () {
+        const btn = document.getElementById("hamburger-btn");
+        const drawer = document.getElementById("mobile-drawer");
+        const overlay = document.getElementById("mobile-overlay");
+        const closeBtn = document.getElementById("drawer-close-btn");
+        if (!btn || !drawer || !overlay) return;
 
-            function open() {
-                drawer.classList.add('active');
-                overlay.classList.add('active');
-                btn.setAttribute('aria-expanded', 'true');
-                document.body.style.overflow = 'hidden';
-                if (window.lenis) window.lenis.stop();
-            }
-            function close() {
-                drawer.classList.remove('active');
-                overlay.classList.remove('active');
-                btn.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-                if (window.lenis) window.lenis.start();
-            }
+        function open() {
+          drawer.classList.add("active");
+          overlay.classList.add("active");
+          btn.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
+          if (window.lenis) window.lenis.stop();
+        }
+        function close() {
+          drawer.classList.remove("active");
+          overlay.classList.remove("active");
+          btn.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+          if (window.lenis) window.lenis.start();
+        }
 
-            btn.addEventListener('click', function () {
-                drawer.classList.contains('active') ? close() : open();
-            });
-            if (closeBtn) closeBtn.addEventListener('click', close);
-            overlay.addEventListener('click', close);
-            drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-        })();
+        btn.addEventListener("click", function () {
+          drawer.classList.contains("active") ? close() : open();
+        });
+        if (closeBtn) closeBtn.addEventListener("click", close);
+        overlay.addEventListener("click", close);
+        drawer.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", close);
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") close();
+        });
+      })();
     </script>
 
     <script>
-        /* =====================================================================
+      /* =====================================================================
            DATA HALAMAN LSP
            -----------------------------------------------------------------
            SEMUA data di bawah masih PLACEHOLDER. Ganti isinya saat data resmi
            dari sekolah sudah tersedia. Struktur array TIDAK perlu diubah.
         ===================================================================== */
 
-        /* ---------- 1. SKEMA SERTIFIKASI ----------
+      /* ---------- 1. SKEMA SERTIFIKASI ----------
            nama    : nama resmi skema sertifikasi
            jurusan : konsentrasi keahlian terkait
            kode    : kode skema (jika ada)
@@ -1974,261 +2272,416 @@
            units   : daftar unit kompetensi yang diujikan
            catatan : keterangan tambahan (opsional)
         */
-        const SKEMA = [
-            {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Teknik Komputer dan Jaringan',
-                jurusan: 'TJKT',
-                kode: 'SS.TJKT.02',
-                acuan: 'SKKNI 2018',
-                units: [
-                    'Merakit Komputer',
-                    'Melakukan Instalasi Sistem Operasi',
-                    'Mengkonfigurasi Jaringan Komputer',
-                    'Mendiagnosis Permasalahan Jaringan',
-                    'Melakukan Perbaikan Jaringan'
-                ],
-                catatan: 'Peserta uji wajib membawa laptop saat asesmen.'
-            },
-            {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Manajemen Perkantoran dan Layanan Bisnis',
-                jurusan: 'MPLB',
-                kode: 'SS.MPLB.02',
-                acuan: 'SKKNI 2019',
-                units: [
-                    'Mengelola Dokumen Perkantoran',
-                    'Melakukan Komunikasi di Tempat Kerja',
-                    'Mengoperasikan Aplikasi Perkantoran',
-                    'Menyusun Agenda Kegiatan',
-                    'Memberikan Layanan Pelanggan'
-                ],
-                catatan: 'Asesmen menggunakan aplikasi simulasi perkantoran.'
-            },
-            {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Perhotelan',
-                jurusan: 'Perhotelan',
-                kode: 'SS.PH.02',
-                acuan: 'SKKNI 2018',
-                units: [
-                    'Menyediakan Layanan Housekeeping',
-                    'Melayani Tamu di Front Office',
-                    'Menyiapkan Kamar Tamu',
-                    'Menangani Keluhan Pelanggan',
-                    'Mengoperasikan Sistem Informasi Hotel'
-                ],
-                catatan: 'Dilakukan di Edohotel SMEMSA.'
-            },
-            {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Desain Komunikasi Visual',
-                jurusan: 'DKV',
-                kode: 'SS.DKV.02',
-                acuan: 'SKKNI 2019',
-                units: [
-                    'Mengoperasikan Perangkat Lunak Desain',
-                    'Membuat Karya Desain Grafis',
-                    'Melakukan Teknik Fotografi',
-                    'Membuat Animasi 2D/3D',
-                    'Menyusun Konsep Visual'
-                ],
-                catatan: 'Portofolio karya wajib dikumpulkan sebelum hari H.'
-            },
-            {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Bisnis Digital',
-                jurusan: 'Bisnis Digital',
-                kode: 'SS.BD.02',
-                acuan: 'SKKNI 2020',
-                units: [
-                    'Melakukan Pemasaran Digital',
-                    'Mengelola Toko Online',
-                    'Membuat Konten Pemasaran',
-                    'Melayani Transaksi E-commerce',
-                    'Menganalisis Data Penjualan'
-                ],
-                catatan: 'Uji praktik dilakukan dengan studi kasus nyata.'
-            },
-            {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Pengembang Perangkat Lunak & Gim',
-                jurusan: 'PPLG',
-                kode: 'SS.PPLG.02',
-                acuan: 'SKKNI 2018',
-                units: [
-                    'Membuat Dokumen Kode Program',
-                    'Melakukan Pengkodean Terstruktur',
-                    'Mengoperasikan Basis Data',
-                    'Membuat Antarmuka Aplikasi',
-                    'Melakukan Pengujian Aplikasi'
-                ],
-                catatan: 'Studi kasus berupa pengembangan aplikasi CRUD.'
-            },
-            {
-                nama: 'KKNI Level II pada Kompetensi Keahlian Akuntansi dan Keuangan Lembaga',
-                jurusan: 'AKL',
-                kode: 'SS.AKL.02',
-                acuan: 'SKKNI 2019',
-                units: [
-                    'Mengelola Jurnal Akuntansi',
-                    'Menyusun Laporan Keuangan',
-                    'Mengoperasikan Aplikasi Akuntansi (MYOB)',
-                    'Melakukan Rekonsiliasi Bank',
-                    'Menghitung Pajak Dasar'
-                ],
-                catatan: 'Uji kompetensi menggunakan aplikasi MYOB Accounting.'
-            }
-        ];
+      const SKEMA = [
+        {
+          nama: "KKNI Level II pada Kompetensi Keahlian Teknik Komputer dan Jaringan",
+          jurusan: "TJKT",
+          kode: "SS.TJKT.02",
+          acuan: "SKKNI 2018",
+          units: [
+            "Merakit Komputer",
+            "Melakukan Instalasi Sistem Operasi",
+            "Mengkonfigurasi Jaringan Komputer",
+            "Mendiagnosis Permasalahan Jaringan",
+            "Melakukan Perbaikan Jaringan",
+          ],
+          catatan: "Peserta uji wajib membawa laptop saat asesmen.",
+        },
+        {
+          nama: "KKNI Level II pada Kompetensi Keahlian Manajemen Perkantoran dan Layanan Bisnis",
+          jurusan: "MPLB",
+          kode: "SS.MPLB.02",
+          acuan: "SKKNI 2019",
+          units: [
+            "Mengelola Dokumen Perkantoran",
+            "Melakukan Komunikasi di Tempat Kerja",
+            "Mengoperasikan Aplikasi Perkantoran",
+            "Menyusun Agenda Kegiatan",
+            "Memberikan Layanan Pelanggan",
+          ],
+          catatan: "Asesmen menggunakan aplikasi simulasi perkantoran.",
+        },
+        {
+          nama: "KKNI Level II pada Kompetensi Keahlian Perhotelan",
+          jurusan: "Perhotelan",
+          kode: "SS.PH.02",
+          acuan: "SKKNI 2018",
+          units: [
+            "Menyediakan Layanan Housekeeping",
+            "Melayani Tamu di Front Office",
+            "Menyiapkan Kamar Tamu",
+            "Menangani Keluhan Pelanggan",
+            "Mengoperasikan Sistem Informasi Hotel",
+          ],
+          catatan: "Dilakukan di Edohotel SMEMSA.",
+        },
+        {
+          nama: "KKNI Level II pada Kompetensi Keahlian Desain Komunikasi Visual",
+          jurusan: "DKV",
+          kode: "SS.DKV.02",
+          acuan: "SKKNI 2019",
+          units: [
+            "Mengoperasikan Perangkat Lunak Desain",
+            "Membuat Karya Desain Grafis",
+            "Melakukan Teknik Fotografi",
+            "Membuat Animasi 2D/3D",
+            "Menyusun Konsep Visual",
+          ],
+          catatan: "Portofolio karya wajib dikumpulkan sebelum hari H.",
+        },
+        {
+          nama: "KKNI Level II pada Kompetensi Keahlian Bisnis Digital",
+          jurusan: "Bisnis Digital",
+          kode: "SS.BD.02",
+          acuan: "SKKNI 2020",
+          units: [
+            "Melakukan Pemasaran Digital",
+            "Mengelola Toko Online",
+            "Membuat Konten Pemasaran",
+            "Melayani Transaksi E-commerce",
+            "Menganalisis Data Penjualan",
+          ],
+          catatan: "Uji praktik dilakukan dengan studi kasus nyata.",
+        },
+        {
+          nama: "KKNI Level II pada Kompetensi Keahlian Pengembang Perangkat Lunak & Gim",
+          jurusan: "PPLG",
+          kode: "SS.PPLG.02",
+          acuan: "SKKNI 2018",
+          units: [
+            "Membuat Dokumen Kode Program",
+            "Melakukan Pengkodean Terstruktur",
+            "Mengoperasikan Basis Data",
+            "Membuat Antarmuka Aplikasi",
+            "Melakukan Pengujian Aplikasi",
+          ],
+          catatan: "Studi kasus berupa pengembangan aplikasi CRUD.",
+        },
+        {
+          nama: "KKNI Level II pada Kompetensi Keahlian Akuntansi dan Keuangan Lembaga",
+          jurusan: "AKL",
+          kode: "SS.AKL.02",
+          acuan: "SKKNI 2019",
+          units: [
+            "Mengelola Jurnal Akuntansi",
+            "Menyusun Laporan Keuangan",
+            "Mengoperasikan Aplikasi Akuntansi (MYOB)",
+            "Melakukan Rekonsiliasi Bank",
+            "Menghitung Pajak Dasar",
+          ],
+          catatan: "Uji kompetensi menggunakan aplikasi MYOB Accounting.",
+        },
+      ];
 
-        /* ---------- 2. ALUR ASESMEN ---------- */
-        const ALUR = [
-            { judul: 'Pendaftaran', desc: 'Peserta didik mendaftar melalui sekolah dan melengkapi berkas persyaratan.' },
-            { judul: 'Asesmen Mandiri', desc: 'Peserta menilai kesiapan dirinya terhadap setiap unit kompetensi bersama asesor.' },
-            { judul: 'Uji Kompetensi', desc: 'Pelaksanaan asesmen di TUK melalui praktik, observasi, dan wawancara.' },
-            { judul: 'Keputusan Asesmen', desc: 'Asesor memutuskan status kompeten atau belum kompeten berdasarkan bukti.' },
-            { judul: 'Penerbitan Sertifikat', desc: 'Sertifikat kompetensi berlogo Garuda diterbitkan dan berlaku nasional.' }
-        ];
+      /* ---------- 2. ALUR ASESMEN ---------- */
+      const ALUR = [
+        {
+          judul: "Pendaftaran",
+          desc: "Peserta didik mendaftar melalui sekolah dan melengkapi berkas persyaratan.",
+        },
+        {
+          judul: "Asesmen Mandiri",
+          desc: "Peserta menilai kesiapan dirinya terhadap setiap unit kompetensi bersama asesor.",
+        },
+        {
+          judul: "Uji Kompetensi",
+          desc: "Pelaksanaan asesmen di TUK melalui praktik, observasi, dan wawancara.",
+        },
+        {
+          judul: "Keputusan Asesmen",
+          desc: "Asesor memutuskan status kompeten atau belum kompeten berdasarkan bukti.",
+        },
+        {
+          judul: "Penerbitan Sertifikat",
+          desc: "Sertifikat kompetensi berlogo Garuda diterbitkan dan berlaku nasional.",
+        },
+      ];
 
-        /* ---------- 3. ASESOR KOMPETENSI ----------
+      /* ---------- 3. ASESOR KOMPETENSI ----------
            nama  : nama lengkap beserta gelar
            bidang: bidang keahlian yang diasesnya
            reg   : nomor registrasi asesor BNSP (opsional)
            foto  : path foto (kosongkan jika belum ada -> tampil inisial)
         */
-        const ASESOR = [
-            { nama: 'Wahid Wahyudi, S.E, M.M', bidang: 'Kepala Sekolah', reg: 'MET.000.004187 2021', foto: 'assets/PAK-WAHID-AI-e1781064934191.png' },
-            { nama: 'Aan Cahyanto Sri Setyo, M.Pd', bidang: 'Wakil Kepala Sekolah', reg: 'MET.000.004191 2021', foto: 'assets/guru/kategori-pimpinan/WAKIL KS - Aan Cahyanto Sri Setyo, M.Pd.jpg' },
-            { nama: 'Teguh Santosa, S.Kom', bidang: 'Teknik Jaringan Komputer & Telekomunikasi', reg: 'MET.000.004195 2021', foto: 'assets/guru/kategori-k3/Teguh Santosa, S.Kom.jpg' },
-            { nama: 'Wuri Handayani ', bidang: 'Bendahara Sekolah', reg: 'MET.000.0041902021', foto: 'assets/guru/kategori-pimpinan/BENDAHARA SEKOLAH - Wuri Handayani, S.E.jpg' },
-            { nama: 'Dedy Wijanarko, SST.,Par.,S.Pd.', bidang: 'Perhotelan', reg: 'MET.000.004194 2021', foto: 'assets/guru/kategori-k3/Dedy Wijanarko, SST.,Par.,S.Pd.jpg' },
-            { nama: 'Tri Wahyu S, S.Pd', bidang: 'Manajemen Perkantoran & Layanan Bisnis', reg: 'MET.000.007322 2022', foto: 'assets/guru/kategori-k3/Tri Wahyu S, S.Pd.jpg' },
-            { nama: 'Dinda Nurmawati, S.Kom', bidang: 'Pengembangan Perangkat Lunak & Gim', reg: 'MET.000.004196 2021', foto: 'assets/guru/kategori-k3/Dinda Nurmawati, S.Kom.webp' },
-            { nama: 'Endah Dila Kurniawati S.Kom', bidang: 'Pengembangan Perangkat Lunak & Gim', reg: 'MET.000.008346 2024', foto: 'assets/guru/kategori-guru/Endah Dila K., S.Kom.webp' }
-        ];
+      const ASESOR = [
+        {
+          nama: "Wahid Wahyudi, S.E, M.M",
+          bidang: "Kepala Sekolah",
+          reg: "MET.000.004187 2021",
+          foto: "assets/PAK-WAHID-AI-e1781064934191.png",
+        },
+        {
+          nama: "Aan Cahyanto Sri Setyo, M.Pd",
+          bidang: "Wakil Kepala Sekolah",
+          reg: "MET.000.004191 2021",
+          foto: "assets/guru/kategori-pimpinan/WAKIL KS - Aan Cahyanto Sri Setyo, M.Pd.jpg",
+        },
+        {
+          nama: "Teguh Santosa, S.Kom",
+          bidang: "Teknik Jaringan Komputer & Telekomunikasi",
+          reg: "MET.000.004195 2021",
+          foto: "assets/guru/kategori-k3/Teguh Santosa, S.Kom.jpg",
+        },
+        {
+          nama: "Wuri Handayani ",
+          bidang: "Bendahara Sekolah",
+          reg: "MET.000.0041902021",
+          foto: "assets/guru/kategori-pimpinan/BENDAHARA SEKOLAH - Wuri Handayani, S.E.jpg",
+        },
+        {
+          nama: "Dedy Wijanarko, SST.,Par.,S.Pd.",
+          bidang: "Perhotelan",
+          reg: "MET.000.004194 2021",
+          foto: "assets/guru/kategori-k3/Dedy Wijanarko, SST.,Par.,S.Pd.jpg",
+        },
+        {
+          nama: "Tri Wahyu S, S.Pd",
+          bidang: "Manajemen Perkantoran & Layanan Bisnis",
+          reg: "MET.000.007322 2022",
+          foto: "assets/guru/kategori-k3/Tri Wahyu S, S.Pd.jpg",
+        },
+        {
+          nama: "Dinda Nurmawati, S.Kom",
+          bidang: "Pengembangan Perangkat Lunak & Gim",
+          reg: "MET.000.004196 2021",
+          foto: "assets/guru/kategori-k3/Dinda Nurmawati, S.Kom.webp",
+        },
+        {
+          nama: "Endah Dila Kurniawati S.Kom",
+          bidang: "Pengembangan Perangkat Lunak & Gim",
+          reg: "MET.000.008346 2024",
+          foto: "assets/guru/kategori-guru/Endah Dila K., S.Kom.webp",
+        },
+      ];
 
-        /* ---------- 4. TEMPAT UJI KOMPETENSI ----------
+      /* ---------- 4. TEMPAT UJI KOMPETENSI ----------
            nama    : nama TUK
            untuk   : skema/jurusan yang diuji di sini
            desc    : keterangan singkat
            tautan  : anchor ke halaman fasilitas (opsional)
         */
-        const TUK = [
-            { nama: 'TUK Laboratorium Komputer Utama', untuk: 'TJKT, PPLG, DKV, Bisnis Digital', desc: 'Laboratorium ber-AC dengan PC spesifikasi industri dan koneksi internet fiber.', tautan: 'fasilitas.html' },
-            { nama: 'TUK Edohotel SMEMSA', untuk: 'Perhotelan', desc: 'Mini hotel standar industri untuk uji kompetensi Front Office dan Housekeeping.', tautan: 'fasilitas.html' },
-            { nama: 'TUK Perkantoran & Akuntansi', untuk: 'MPLB, AKL', desc: 'Ruang simulasi kantor lengkap dengan peralatan filling, komputer akuntansi, dan meja resepsionis.', tautan: 'fasilitas.html' }
-        ];
+      const TUK = [
+        {
+          nama: "TUK Laboratorium Komputer Utama",
+          untuk: "TJKT, PPLG, DKV, Bisnis Digital",
+          desc: "Laboratorium ber-AC dengan PC spesifikasi industri dan koneksi internet fiber.",
+          tautan: "fasilitas.html",
+        },
+        {
+          nama: "TUK Edohotel SMEMSA",
+          untuk: "Perhotelan",
+          desc: "Mini hotel standar industri untuk uji kompetensi Front Office dan Housekeeping.",
+          tautan: "fasilitas.html",
+        },
+        {
+          nama: "TUK Perkantoran & Akuntansi",
+          untuk: "MPLB, AKL",
+          desc: "Ruang simulasi kantor lengkap dengan peralatan filling, komputer akuntansi, dan meja resepsionis.",
+          tautan: "fasilitas.html",
+        },
+      ];
 
-        /* =====================================================================
+      /* =====================================================================
            RENDER
         ===================================================================== */
-        (function () {
-            /* ---- Skema (accordion) ---- */
-            const list = document.getElementById('scheme-list');
-            if (list) {
-                SKEMA.forEach(function (s, i) {
-                    const item = document.createElement('div');
-                    item.className = 'scheme-item';
-                    const bodyId = 'scheme-body-' + i;
+      (function () {
+        /* ---- Skema (accordion) ---- */
+        const list = document.getElementById("scheme-list");
+        if (list) {
+          SKEMA.forEach(function (s, i) {
+            const item = document.createElement("div");
+            item.className = "scheme-item";
+            const bodyId = "scheme-body-" + i;
 
-                    item.innerHTML =
-                        '<button class="scheme-head" aria-expanded="false" aria-controls="' + bodyId + '">' +
-                        '<span class="scheme-num">' + String(i + 1).padStart(2, '0') + '</span>' +
-                        '<span>' +
-                        '<span class="scheme-name">' + s.nama + '</span>' +
-                        '<span class="scheme-sub">Acuan: ' + s.acuan + ' &middot; Kode: ' + s.kode + '</span>' +
-                        '</span>' +
-                        '<span class="scheme-tag">' + s.jurusan + '</span>' +
-                        '<span class="scheme-toggle" aria-hidden="true">' +
-                        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>' +
-                        '</span>' +
-                        '</button>' +
-                        '<div class="scheme-body" id="' + bodyId + '">' +
-                        '<div class="scheme-body-grid">' +
-                        '<div>' +
-                        '<div class="unit-head">Unit Kompetensi (' + s.units.length + ' Unit)</div>' +
-                        '<ul class="unit-list">' +
-                        s.units.map(function (u) { return '<li>' + u + '</li>'; }).join('') +
-                        '</ul>' +
-                        '</div>' +
-                        '<div>' +
-                        '<div class="unit-head">Informasi Skema</div>' +
-                        '<ul class="unit-list">' +
-                        '<li>Konsentrasi keahlian: ' + s.jurusan + '</li>' +
-                        '<li>Kode skema: ' + s.kode + '</li>' +
-                        '<li>Standar acuan: ' + s.acuan + '</li>' +
-                        '</ul>' +
-                        '</div>' +
-                        '</div>' +
-                        (s.catatan ? '<div class="scheme-note">' + s.catatan + '</div>' : '') +
-                        '</div>';
+            item.innerHTML =
+              '<button class="scheme-head" aria-expanded="false" aria-controls="' +
+              bodyId +
+              '">' +
+              '<span class="scheme-num">' +
+              String(i + 1).padStart(2, "0") +
+              "</span>" +
+              "<span>" +
+              '<span class="scheme-name">' +
+              s.nama +
+              "</span>" +
+              '<span class="scheme-sub">Acuan: ' +
+              s.acuan +
+              " &middot; Kode: " +
+              s.kode +
+              "</span>" +
+              "</span>" +
+              '<span class="scheme-tag">' +
+              s.jurusan +
+              "</span>" +
+              '<span class="scheme-toggle" aria-hidden="true">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>' +
+              "</span>" +
+              "</button>" +
+              '<div class="scheme-body" id="' +
+              bodyId +
+              '">' +
+              '<div class="scheme-body-grid">' +
+              "<div>" +
+              '<div class="unit-head">Unit Kompetensi (' +
+              s.units.length +
+              " Unit)</div>" +
+              '<ul class="unit-list">' +
+              s.units
+                .map(function (u) {
+                  return "<li>" + u + "</li>";
+                })
+                .join("") +
+              "</ul>" +
+              "</div>" +
+              "<div>" +
+              '<div class="unit-head">Informasi Skema</div>' +
+              '<ul class="unit-list">' +
+              "<li>Konsentrasi keahlian: " +
+              s.jurusan +
+              "</li>" +
+              "<li>Kode skema: " +
+              s.kode +
+              "</li>" +
+              "<li>Standar acuan: " +
+              s.acuan +
+              "</li>" +
+              "</ul>" +
+              "</div>" +
+              "</div>" +
+              (s.catatan
+                ? '<div class="scheme-note">' + s.catatan + "</div>"
+                : "") +
+              "</div>";
 
-                    list.appendChild(item);
-                });
+            list.appendChild(item);
+          });
 
-                // Buka-tutup, satu panel pada satu waktu
-                list.querySelectorAll('.scheme-head').forEach(function (head) {
-                    head.addEventListener('click', function () {
-                        const isOpen = head.getAttribute('aria-expanded') === 'true';
-                        list.querySelectorAll('.scheme-head').forEach(function (h) {
-                            h.setAttribute('aria-expanded', 'false');
-                            document.getElementById(h.getAttribute('aria-controls')).classList.remove('open');
-                        });
-                        if (!isOpen) {
-                            head.setAttribute('aria-expanded', 'true');
-                            document.getElementById(head.getAttribute('aria-controls')).classList.add('open');
-                        }
-                    });
-                });
+          // Buka-tutup, satu panel pada satu waktu
+          list.querySelectorAll(".scheme-head").forEach(function (head) {
+            head.addEventListener("click", function () {
+              const isOpen = head.getAttribute("aria-expanded") === "true";
+              list.querySelectorAll(".scheme-head").forEach(function (h) {
+                h.setAttribute("aria-expanded", "false");
+                document
+                  .getElementById(h.getAttribute("aria-controls"))
+                  .classList.remove("open");
+              });
+              if (!isOpen) {
+                head.setAttribute("aria-expanded", "true");
+                document
+                  .getElementById(head.getAttribute("aria-controls"))
+                  .classList.add("open");
+              }
+            });
+          });
+        }
+
+        /* ---- Alur asesmen ---- */
+        const flow = document.getElementById("flow-list");
+        if (flow) {
+          ALUR.forEach(function (a, i) {
+            const step = document.createElement("div");
+            step.className = "flow-step";
+            step.innerHTML =
+              '<div class="flow-num">' +
+              (i + 1) +
+              "</div>" +
+              '<h3 class="flow-title">' +
+              a.judul +
+              "</h3>" +
+              '<p class="flow-desc">' +
+              a.desc +
+              "</p>";
+            flow.appendChild(step);
+          });
+        }
+
+        /* ---- Asesor ---- */
+        const ag = document.getElementById("assessor-grid");
+        if (ag) {
+          ASESOR.forEach(function (p) {
+            // Ambil inisial 2 huruf pertama
+            const initial = p.nama
+              .split(" ")
+              .map((w) => w[0])
+              .slice(0, 2)
+              .join("")
+              .toUpperCase();
+
+            const card = document.createElement("article");
+            card.className = "assessor-card";
+
+            // Buat pembungkus foto
+            const photoDiv = document.createElement("div");
+            photoDiv.className = "assessor-photo";
+
+            if (p.foto) {
+              const img = document.createElement("img");
+              img.src = p.foto;
+              img.alt = "Foto " + p.nama;
+              img.loading = "lazy";
+              img.width = 300;
+              img.height = 400;
+
+              // Event listener jika foto gagal dimuat (aman dari bug tanda petik)
+              img.onerror = function () {
+                photoDiv.classList.add("has-fallback");
+                photoDiv.innerHTML =
+                  '<span class="assessor-initial">' + initial + "</span>";
+              };
+
+              photoDiv.appendChild(img);
+            } else {
+              photoDiv.innerHTML =
+                '<span class="assessor-initial">' + initial + "</span>";
             }
 
-            /* ---- Alur asesmen ---- */
-            const flow = document.getElementById('flow-list');
-            if (flow) {
-                ALUR.forEach(function (a, i) {
-                    const step = document.createElement('div');
-                    step.className = 'flow-step';
-                    step.innerHTML =
-                        '<div class="flow-num">' + (i + 1) + '</div>' +
-                        '<h3 class="flow-title">' + a.judul + '</h3>' +
-                        '<p class="flow-desc">' + a.desc + '</p>';
-                    flow.appendChild(step);
-                });
-            }
+            // Buat konten teks
+            const bodyDiv = document.createElement("div");
+            bodyDiv.className = "assessor-body";
+            bodyDiv.innerHTML =
+              '<h3 class="assessor-name">' +
+              p.nama +
+              "</h3>" +
+              '<div class="assessor-meta">' +
+              p.bidang +
+              "</div>" +
+              (p.reg
+                ? '<span class="assessor-reg">Reg. ' + p.reg + "</span>"
+                : "");
 
-            /* ---- Asesor ---- */
-            const ag = document.getElementById('assessor-grid');
-            if (ag) {
-                ASESOR.forEach(function (p) {
-                    const initial = p.nama.split(' ').map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
-                    const card = document.createElement('article');
-                    card.className = 'assessor-card';
-                    card.innerHTML =
-                        '<div class="assessor-photo">' +
-                        (p.foto
-                            ? '<img src="' + p.foto + '" alt="Foto ' + p.nama + '" loading="lazy" width="300" height="400" onerror="this.remove();">'
-                            : '<span class="assessor-initial">' + initial + '</span>') +
-                        '</div>' +
-                        '<div class="assessor-body">' +
-                        '<h3 class="assessor-name">' + p.nama + '</h3>' +
-                        '<div class="assessor-meta">' + p.bidang + '</div>' +
-                        (p.reg ? '<span class="assessor-reg">Reg. ' + p.reg + '</span>' : '') +
-                        '</div>';
-                    ag.appendChild(card);
-                });
-            }
+            // Gabungkan ke dalam kartu
+            card.appendChild(photoDiv);
+            card.appendChild(bodyDiv);
+            ag.appendChild(card);
+          });
+        }
 
-            /* ---- TUK ---- */
-            const tg = document.getElementById('tuk-grid');
-            if (tg) {
-                TUK.forEach(function (t) {
-                    const card = document.createElement('article');
-                    card.className = 'tuk-card';
-                    card.innerHTML =
-                        '<div class="tuk-for">' + t.untuk + '</div>' +
-                        '<h3 class="tuk-name">' + t.nama + '</h3>' +
-                        '<p class="tuk-desc">' + t.desc + '</p>' +
-                        (t.tautan ? '<a class="tuk-link" href="' + t.tautan + '">Lihat di denah sekolah &rarr;</a>' : '');
-                    tg.appendChild(card);
-                });
-            }
-        })();
+        /* ---- TUK ---- */
+        const tg = document.getElementById("tuk-grid");
+        if (tg) {
+          TUK.forEach(function (t) {
+            const card = document.createElement("article");
+            card.className = "tuk-card";
+            card.innerHTML =
+              '<div class="tuk-for">' +
+              t.untuk +
+              "</div>" +
+              '<h3 class="tuk-name">' +
+              t.nama +
+              "</h3>" +
+              '<p class="tuk-desc">' +
+              t.desc +
+              "</p>" +
+              (t.tautan
+                ? '<a class="tuk-link" href="' +
+                  t.tautan +
+                  '">Lihat di denah sekolah &rarr;</a>'
+                : "");
+            tg.appendChild(card);
+          });
+        }
+      })();
     </script>
-
-</body>
-
+  </body>
 </html>

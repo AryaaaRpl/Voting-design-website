@@ -3496,6 +3496,9 @@
       padding: 2rem;
       box-shadow: var(--shadow-card);
       height: fit-content;
+      position: sticky;
+      top: 6rem;
+      z-index: 10;
     }
 
     .news-filter-list li {
@@ -3543,7 +3546,7 @@
     }
 
     .article-thumb {
-      height: 140px;
+      height: 240px;
       background: linear-gradient(135deg,
           var(--primary-surface) 0%,
           rgba(234, 179, 8, 0.1) 100%);
@@ -9269,7 +9272,7 @@
     <div class="container">
       <div class="text-center section-header">
         <div class="badge badge-amber mb-2">Jurnal & Informasi</div>
-        <h2 class="section-title">Kabar & Berita Sang Legenda</h2>
+        <h2 class="section-title">Kabar & Berita</h2>
         <p class="section-desc" style="margin: 0 auto">
           Liputan kegiatan, prestasi terbaru, dan pengumuman resmi SMKS
           Muhammadiyah 1 Genteng.
@@ -9288,24 +9291,56 @@
           </h3>
           <ul class="news-filter-list">
             <li>
-              <a href="berita.html" class="active">Semua Berita <span>(14)</span></a>
+              <a href="javascript:void(0)" class="news-filter-link active" onclick="filterIndexNews('all', this)">Semua Berita <span>(5)</span></a>
             </li>
             <li>
-              <a href="prestasi.html">Prestasi & Prestisius <span>(8)</span></a>
+              <a href="javascript:void(0)" class="news-filter-link" onclick="filterIndexNews('prestasi', this)">Prestasi & Prestisius <span>(3)</span></a>
             </li>
             <li>
-              <a href="ekstrakurikuler.html">Kegiatan Siswa & IPM <span>(6)</span></a>
+              <a href="javascript:void(0)" class="news-filter-link" onclick="filterIndexNews('kegiatan', this)">Kegiatan Siswa & IPM <span>(2)</span></a>
             </li>
             <li>
-              <a href="visi-misi.html">Pengumuman & Profil <span>(4)</span></a>
+              <a href="javascript:void(0)" class="news-filter-link" onclick="filterIndexNews('pengumuman', this)">Pengumuman & Profil <span>(0)</span></a>
             </li>
           </ul>
         </div>
 
         <!-- Articles Grid -->
         <div class="news-cards-grid">
+          <!-- Article 0 (Featured ME Awards) -->
+          <div class="article-card" data-category="prestasi">
+            <div class="article-thumb"><img src="assets/juara-me-awards.jpg" alt="Liputan ME Awards SMKS MUHI"
+                style="width: 100%; height: 100%; object-fit: cover;"></div>
+            <div class="article-body">
+              <div>
+                <span class="badge badge-primary mb-2" style="font-size: 0.75rem">18 Juni 2026</span>
+                <h3 class="font-head" style="
+                      font-size: 1.15rem;
+                      color: var(--primary);
+                      margin: 0.4rem 0 0.6rem;
+                      line-height: 1.35;
+                    ">
+                  SMKS MUHI Genteng Raih Juara Umum ME Awards Tingkat Nasional 2026
+                </h3>
+                <p style="
+                      font-size: 0.88rem;
+                      color: var(--text-muted);
+                      line-height: 1.6;
+                      margin-bottom: 1rem;
+                    ">
+                  Delegasi SMKS Muhammadiyah 1 Genteng berhasil menorehkan prestasi gemilang dengan memboyong trofi Juara Umum dalam perhelatan akbar ME Awards 2026.
+                </p>
+              </div>
+              <a href="berita.html" style="
+                    color: var(--secondary);
+                    font-weight: 700;
+                    font-size: 0.92rem;
+                  ">Baca selengkapnya &rarr;</a>
+            </div>
+          </div>
+
           <!-- Article 1 -->
-          <div class="article-card">
+          <div class="article-card" data-category="kegiatan">
             <div class="article-thumb"><img src="assets/berita/mpls.jpeg" alt="MPLS Pengenalan Jurusan"
                 style="width: 100%; height: 100%; object-fit: cover;"></div>
             <div class="article-body">
@@ -9338,7 +9373,7 @@
           </div>
 
           <!-- Article 2 -->
-          <div class="article-card">
+          <div class="article-card" data-category="prestasi">
             <div class="article-thumb"><img src="assets/berita/juara-tapak-suci.jpg" alt="Juara Taekwondo"
                 style="width: 100%; height: 100%; object-fit: cover;"></div>
             <div class="article-body">
@@ -9361,7 +9396,7 @@
                   Ibellino Novendra dan Ahmad Husaini sukses mengharumkan nama sekolah di tingkat Provinsi Jawa Timur.
                 </p>
               </div>
-              <a href="prestasi.html" style="
+              <a href="berita.html" style="
                     color: var(--secondary);
                     font-weight: 700;
                     font-size: 0.92rem;
@@ -9370,7 +9405,7 @@
           </div>
 
           <!-- Article 3 -->
-          <div class="article-card">
+          <div class="article-card" data-category="prestasi">
             <div class="article-thumb"><img src="assets/berita/lomba-karaoke.jpg" alt="Lomba Karaoke"
                 style="width: 100%; height: 100%; object-fit: cover;"></div>
             <div class="article-body">
@@ -9393,7 +9428,7 @@
                   Chelsea Princes F. dan Rennyyu Galuh Sivanni tampil gemilang di tingkat Kabupaten Banyuwangi.
                 </p>
               </div>
-              <a href="prestasi.html" style="
+              <a href="berita.html" style="
                     color: var(--secondary);
                     font-weight: 700;
                     font-size: 0.92rem;
@@ -9402,7 +9437,7 @@
           </div>
 
           <!-- Article 4 -->
-          <div class="article-card">
+          <div class="article-card" data-category="kegiatan">
             <div class="article-thumb"><img src="assets/berita/pembekalan-pkl.jpg" alt="Pembekalan PKL"
                 style="width: 100%; height: 100%; object-fit: cover;"></div>
             <div class="article-body">
@@ -11499,6 +11534,24 @@
       if (e.target.id === "unit-usaha-modal-overlay") {
         closeUnitUsahaModal();
       }
+    }
+
+    function filterIndexNews(category, element) {
+      const filterLinks = document.querySelectorAll(".news-filter-link");
+      filterLinks.forEach(link => link.classList.remove("active"));
+      if (element) {
+        element.classList.add("active");
+      }
+
+      const articles = document.querySelectorAll(".news-cards-grid .article-card");
+      articles.forEach(article => {
+        const itemCat = article.getAttribute("data-category");
+        if (category === "all" || itemCat === category) {
+          article.style.display = "flex";
+        } else {
+          article.style.display = "none";
+        }
+      });
     }
 
     renderBludProducts();
