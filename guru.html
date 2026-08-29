@@ -1982,7 +1982,7 @@
               align-items: center;
               gap: 0.5rem;
             ">
-          <span>👔</span> Guru Pemimpin &amp; Waka Lainnya
+          Guru Pemimpin &amp; Waka Lainnya
         </h3>
       </div>
       <div class="struktur2-scroll-wrapper">
@@ -2834,13 +2834,13 @@
         else if (guru.nama.includes("Dedy")) major = "Perhotelan";
         else if (guru.nama.includes("Marita")) major = "AKL";
         else if (guru.nama.includes("Ihya")) major = "DKV";
-        else if (guru.nama.includes("Suci")) major = "MPLB";
+        else if (guru.nama.includes("Suci")) major = "Bisnis Digital";
         else if (guru.nama.includes("Teguh")) major = "TJKT";
-        else if (guru.nama.includes("Tri Wahyu")) major = "Bisnis Digital";
+        else if (guru.nama.includes("Tri Wahyu")) major = "MPLB";
         else major = guru.jabatan;
 
         badgeHTML = `<div style="position: absolute; top: 1rem; right: 1rem; background: var(--secondary); color: #fff; padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 700; font-size: 0.75rem; z-index: 10;">${major}</div>`;
-        linkHTML = `<a href="index.html#jurusan" style="display: block; font-size: 0.75rem; color: var(--primary); font-weight: 700; margin-top: 0.5rem;">Lihat alur karier jurusan ini &rarr;</a>`;
+        linkHTML = `<a href="index.html#jurusan" style="display: block; font-size: 0.75rem; color: var(--secondary); font-weight: 700; margin-top: 0.5rem;">Lihat alur karier jurusan ini &rarr;</a>`;
       }
 
       return `
@@ -3280,87 +3280,6 @@
     }
     gsap.registerPlugin(ScrollTrigger);
 
-    // Data Berita
-    const newsDatabase = {
-      "me-awards-liputan": {
-        category: "HEADLINE PRESTASI",
-        date: "18 Juni 2026 • Tim Redaksi Jurnalistik SMEMSA",
-        img: "assets/juara-me-awards.jpg",
-        title:
-          "SMEMSA Genteng Raih Juara Umum ME Awards Tingkat Nasional 2026",
-        body: `
-                    <p>Prestasi bersejarah kembali ditorehkan oleh civitas akademika SMKS Muhammadiyah 1 Genteng. Pada ajang bergengsi <strong>Muhammadiyah Education Awards (ME Awards) 2026</strong> yang digelar di Surabaya, kontingen SMEMSA berhasil menyabet predikat tertinggi sebagai <strong>Juara Umum Nasional</strong>.</p>
-                    <p>Kemenangan gemilang ini didapatkan setelah perwakilan peserta didik berhasil mendominasi medali emas dan perak di berbagai cabang kompetisi, meliputi Lomba Inovasi Robotika Vokasi, Desain Aplikasi Digital, Pidato Bahasa Asing, dan Manajemen Sekolah Kejuruan Unggul.</p>
-                    <p>Kepala Sekolah menyampaikan rasa syukur mendalam atas dedikasi para guru pembina dan kerja keras seluruh siswa yang pantang menyerah dalam berinovasi dan mengharumkan almamater di tingkat nasional.</p>
-                `,
-      },
-      "jobfair-bkk": {
-        category: "BKK & INDUSTRI",
-        date: "10 Juni 2026 • Humas & Hubungan Industri",
-        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        title:
-          "Bursa Kerja Khusus (BKK) SMEMSA Gandeng 35+ Perusahaan Multinasional",
-        body: `
-                    <p>Untuk mempercepat penyerapan lulusan ke dunia kerja, Bursa Kerja Khusus (BKK) SMKS Muhammadiyah 1 Genteng menggelar Job Fair & Walk-in Interview terpadu yang diikuti oleh lebih dari 35 perusahaan ternama berskala nasional dan multinasional.</p>
-                    <p>Sektor industri yang terlibat mencakup teknologi informasi, perhotelan bintang lima, perbankan syariah, otomotif resmi, dan manufaktur presisi. Ratusan calon lulusan dan alumni memanfaatkan momentum ini untuk mendapatkan kontrak kerja langsung sebelum wisuda.</p>
-                `,
-      },
-      "uji-bnsp": {
-        category: "AKADEMIK LSP-P1",
-        date: "28 Mei 2026 • Tim LSP-P1 SMEMSA",
-        img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        title:
-          "100% Peserta Didik Lolos Uji Sertifikasi Profesi Nasional LSP-P1 BNSP",
-        body: `
-                    <p>Lembaga Sertifikasi Profesi Pihak Pertama (LSP-P1) SMKS Muhammadiyah 1 Genteng yang telah terlisensi resmi oleh Badan Nasional Sertifikasi Profesi (BNSP) sukses menggelar Uji Sertifikasi Kompetensi (USK) bagi seluruh peserta didik tingkat akhir.</p>
-                    <p>Dengan standar asesmen ketat berbasis skema okupasi industri nasional, sebanyak 100% siswa dinyatakan kompeten dan berhak menyandang sertifikat profesi resmi berlogo Garuda Emas yang diakui secara nasional maupun di kawasan ASEAN.</p>
-                `,
-      },
-      "kemah-hw": {
-        category: "KEGIATAN SISWA",
-        date: "15 Mei 2026 • Kwarda Hizbul Wathan",
-        img: "https://images.unsplash.com/photo-1533227268428-f9ed0900f4f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        title:
-          "Kemah Tamu Penghela Hizbul Wathan Tanamkan Jiwa Kepemimpinan Islami",
-        body: `
-                    <p>Gerakan Kepanduan Hizbul Wathan (HW) Kafilah SMEMSA Genteng mengadakan kegiatan Perkemahan Tamu Penghela selama tiga hari penuh di kawasan alam terbuka Banyuwangi.</p>
-                    <p>Kegiatan ini dirancang untuk membentuk karakter mandiri, kedisiplinan baris-berbaris, teknik survival alam, kepemimpinan regu, serta penanaman aqidah dan ibadah praktis sehari-hari.</p>
-                `,
-      },
-      "taekwondo-liputan": {
-        category: "PRESTASI OLAHRAGA",
-        date: "2 Juni 2026 • Pembina Ekstrakurikuler Bela Diri",
-        img: "https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        title:
-          "Dua Atlet Taekwondo Smemsa Boyong Medali Perunggu Kejurprov Jatim",
-        body: `
-                    <p>Dua atlet pelajar binaan ekstrakurikuler bela diri SMKS Muhammadiyah 1 Genteng menorehkan prestasi membanggakan pada Kejuaraan Provinsi (Kejurprov) Taekwondo Antar Pelajar Jawa Timur di Kota Malang.</p>
-                    <p>Melalui perjuangan sengit di kategori kyorugi dan poomsae, delegasi sekolah berhasil membawa pulang dua medali perunggu dan memperoleh apresiasi tinggi dari Pengprov Taekwondo Indonesia Jawa Timur.</p>
-                `,
-      },
-      "software-rpl": {
-        category: "TEKNOLOGI & TEFA",
-        date: "20 Mei 2026 • Lab Pengembang Perangkat Lunak & Gim",
-        img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        title:
-          "Teaching Factory PPLG Rilis Aplikasi Smart School Berbasis RFID & Cloud",
-        body: `
-                    <p>Unit Teaching Factory (TEFA) Pengembang Perangkat Lunak & Gim SMEMSA resmi meluncurkan produk inovasi sistem informasi manajemen sekolah cerdas berbasis Internet of Things (IoT) dan komputasi awan (cloud).</p>
-                    <p>Aplikasi ini mengintegrasikan presensi kartu siswa RFID real-time, monitoring unit produksi TEFA, dan tracking portofolio sertifikasi siswa yang dapat diakses secara langsung oleh wali murid melalui aplikasi mobile.</p>
-                `,
-      },
-      "kelas-honda": {
-        category: "KERJASAMA OTOMOTIF",
-        date: "5 Mei 2026 • Tim TBSM Astra Honda",
-        img: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        title:
-          "Peresmian Standarisasi Bengkel Pos AHASS di SMKS Muhammadiyah 1 Genteng",
-        body: `
-                    <p>Kerja sama erat antara SMKS Muhammadiyah 1 Genteng dan PT MPM Distributor Honda Jawa Timur diwujudkan melalui peresmian Bengkel Teaching Factory berstandar resmi Astra Honda Authorized Service Station (AHASS).</p>
-                    <p>Fasilitas ini dilengkapi dengan diagnostic tools injeksi PGM-FI terkini, bike lift hidrolik, dan ruang sparepart resmi untuk memberikan pengalaman kerja bengkel riil kepada siswa konsentrasi Teknik Sepeda Motor.</p>
-                `,
-      },
-    };
 
     function openNewsModal(newsKey) {
       const data = newsDatabase[newsKey];
