@@ -1574,7 +1574,9 @@
     .chat-body {
       height: 280px;
       padding: 1.2rem;
-      overflow-y: auto;
+      overflow-y: auto !important;
+      overscroll-behavior: contain !important;
+      touch-action: auto !important;
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
@@ -2931,7 +2933,7 @@
       <path d="M16 12h.01" />
     </svg>
   </button>
-  <div class="chat-panel" id="chat-panel">
+  <div class="chat-panel" id="chat-panel" data-lenis-prevent>
     <div class="chat-header">
       <span>Asisten AI SMEMSA</span>
       <span style="
@@ -2941,19 +2943,19 @@
             border-radius: 10px;
           ">Online</span>
     </div>
-    <div class="chat-body" id="chat-body">
+    <div class="chat-body" id="chat-body" data-lenis-prevent>
       <div class="chat-msg bot">
         Assalamu'alaikum! Saya asisten AI resmi SMKS Muhammadiyah 1 Genteng.
-        Ada yang bisa saya bantu terkait info 8 jurusan, pendaftaran SPMB,
+        Ada yang bisa saya bantu terkait info 7 jurusan, alur pendaftaran SPMB,
         sertifikasi LSP-P1 BNSP, fasilitas, atau loker BKK?
       </div>
     </div>
     <div class="chat-quick-pills">
-      <button class="chat-pill" onclick="sendQuickMsg('Info 8 Jurusan')">
-        Info Jurusan
+      <button class="chat-pill" onclick="sendQuickMsg('Info 7 Jurusan')">
+        Info 7 Jurusan
       </button>
-      <button class="chat-pill" onclick="sendQuickMsg('Jadwal SPMB')">
-        Jadwal SPMB
+      <button class="chat-pill" onclick="sendQuickMsg('Alur Pendaftaran SPMB')">
+        Alur SPMB
       </button>
       <button class="chat-pill" onclick="sendQuickMsg('Info LSP-P1 BNSP')">
         LSP-P1 BNSP
@@ -3001,31 +3003,37 @@
         text.includes("prodi") ||
         text.includes("keahlian")
       ) {
-        return "SMEMSA Genteng memiliki 8 program keahlian: PPLG, TJKT, DKV, Bisnis Digital, Akuntansi Lembaga, Manajemen Perkantoran, Perhotelan, serta Tata Boga & Otomotif (TBSM).";
+        return "SMEMSA Genteng memiliki 7 Konsentrasi Keahlian Unggulan Industri:\n1. PPLG (Pengembang Perangkat Lunak & Gim)\n2. TJKT (Teknik Jaringan Komputer & Telekomunikasi)\n3. DKV (Desain Komunikasi Visual)\n4. BD (Bisnis Digital)\n5. AKL (Akuntansi & Keuangan Lembaga)\n6. MPLB (Manajemen Perkantoran)\n7. PH (Perhotelan)";
       } else if (
         text.includes("spmb") ||
+        text.includes("ppdb") ||
         text.includes("daftar") ||
         text.includes("syarat") ||
-        text.includes("biaya")
+        text.includes("biaya") ||
+        text.includes("alur") ||
+        text.includes("jadwal")
       ) {
-        return "SPMB Gelombang 1 TA 2026/2027 sedang dibuka! Anda dapat mengisi formulir online di website ini pada bagian SPMB, atau datang langsung ke sekolah di Jl. KH Imam Bahri No.10 Genteng.";
+        return "Alur Pendaftaran SPMB SMEMSA TA 2026/2027:\n\n🌐 ALUR ONLINE (Praktis & Cepat):\n1. Akses halaman Pendaftaran di website/menu SPMB.\n2. Isi data diri & pilih konsentrasi keahlian impian.\n3. Upload berkas (Rapor/SKL, KK, Akta).\n4. Cetak Kartu Pendaftaran & konfirmasi via WA Panitia.\n\n🏫 ALUR OFFLINE (Langsung di Sekolah):\n1. Datang ke Sekretariat SPMB SMEMSA Genteng (Jl. KH Imam Bahri No.10).\n2. Dampingi oleh Tim Admin pendaftaran untuk pengisian form.\n3. Verifikasi berkas cetak & pengukuran seragam di tempat.\n4. Menerima bukti pendaftaran resmi & informasi orientasi.";
+      } else if (
+        text.includes("loker") ||
+        text.includes("bkk") ||
+        text.includes("kerja") ||
+        text.includes("magang") ||
+        text.includes("lowongan")
+      ) {
+        return "🔥 Lowongan Kerja Terbaru Bursa Kerja Khusus (BKK) SMEMSA:\n\n1. Web & Mobile Developer - PT Digital Kreatif Nusantara (Malang)\n   • Gaji: Rp 4.200.000 - Rp 6.000.000 / bln\n   • Kualifikasi: Lulusan PPLG, paham JS/Laravel/Flutter.\n\n2. Junior Network & Cloud Support - PT Telkomsel Infrastructure (Surabaya)\n   • Gaji: Rp 4.500.000 - Rp 5.800.000 / bln\n   • Kualifikasi: Lulusan TJKT, menguasai MikroTik / Fiber Optic.\n\n3. Graphic & Motion Designer - Studio Visual Kinetik (Banyuwangi)\n   • Gaji: Rp 3.200.000 - Rp 4.500.000 / bln\n   • Kualifikasi: Lulusan DKV, mahir Adobe Ps/Ai/Pr.\n\n4. E-Commerce & Social Media Host - PT Astra Digital Commerce (Surabaya)\n   • Gaji: Rp 3.800.000 - Rp 5.000.000 / bln\n   • Kualifikasi: Lulusan BD/MPLB, komunikatif & mahir Live Streaming.\n\n5. Front Office & Hospitality Staff - Hotel Ketapang Indah / Dialoog Resort\n   • Gaji: Rp 3.500.000 - Rp 4.800.000 / bln\n   • Kualifikasi: Lulusan PH, penampilan menarik, bahasa Inggris aktif.\n\n💼 Pendaftaran & penyerahan berkas langsung melalui Kantor BKK SMEMSA!";
       } else if (
         text.includes("lsp") ||
         text.includes("bnsp") ||
         text.includes("sertifikat")
       ) {
-        return "SMEMSA memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Siswa lulus akan mendapatkan ijazah dan sertifikat kompetensi profesi standar nasional.";
-      } else if (
-        text.includes("loker") ||
-        text.includes("bkk") ||
-        text.includes("kerja") ||
-        text.includes("magang")
-      ) {
-        return "Bursa Kerja Khusus (BKK) kami aktif menyalurkan siswa & alumni ke mitra industri terkemuka.";
+        return "SMEMSA memiliki Lembaga Sertifikasi Profesi Pihak Kesatu (LSP-P1) berlisensi resmi BNSP. Setiap lulusan dibekali Ijazah + Sertifikat Kompetensi Garuda Emas berstandar nasional.";
+      } else if (text.includes("kepala") || text.includes("wahid")) {
+        return "Kepala Sekolah SMKS Muhammadiyah 1 Genteng adalah Bapak Wahid Wahyudi, S.E., M.M.";
       } else if (text.includes("fasilitas") || text.includes("lab")) {
-        return "Fasilitas kami meliputi Laboratorium Software PPLG, Lab Jaringan TJKT, Studio DKV, Bengkel Otomotif, Dapur Komersial Tata Boga, dan Lapangan Olahraga.";
+        return "Fasilitas unggulan meliputi Lab iMac PPLG, TEFA NOC & Fiber Optic TJKT, Studio Creative DKV, Live E-Commerce Hub BD, Bank Mini Syariah AKL, Executive Office MPLB, dan Edutel Hotel PH.";
       } else {
-        return "Terima kasih atas pertanyaannya! Untuk informasi lebih rinci, Anda dapat menghubungi WA panitia di 0822-4135-6668 atau mengunjungi sekolah kami.";
+        return "Terima kasih atas pertanyaannya! Silakan tanya mengenai Info 7 Jurusan, Alur SPMB (Online/Offline), Lowongan Kerja BKK, atau Sertifikasi LSP-P1 BNSP. Anda juga bisa menghubungi Panitia via WA di 0822-4135-6668.";
       }
     }
 
